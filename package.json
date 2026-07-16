@@ -1,0 +1,30 @@
+{
+  "name": "@katorlys/oreui",
+  "version": "0.0.0",
+  "private": true,
+  "description": "An unofficial, cross-framework OreUI-style component library.",
+  "license": "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/katorlys/OreUI.git"
+  },
+  "homepage": "https://github.com/katorlys/OreUI",
+  "engines": {
+    "node": ">=22.13.1"
+  },
+  "scripts": {
+    "dev": "vite demo",
+    "build:demo": "vite build demo",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write src demo package.json tsconfig.json",
+    "format:check": "prettier --check src demo package.json tsconfig.json"
+  },
+  "dependencies": {
+    "lit": "^3.3.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.5",
+    "typescript": "^7.0.2",
+    "vite": "^8.1.5"
+  }
+}
