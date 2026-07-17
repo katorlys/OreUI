@@ -44,7 +44,12 @@
   /* Input Field */
   --oreui-color-input-surface: #48494a;
   --oreui-color-input-accent: #75b75d;
+  --oreui-color-input-text: #f4f6f9;
+  --oreui-color-input-icon: #b1b2b5;
+  --oreui-color-input-readonly-surface: #5b5c5e;
+  --oreui-color-input-disabled-surface: #b1b2b5;
   --oreui-color-text-muted: #8c8c8c;
+  --oreui-color-error: #d95757;
 
   --oreui-border-width: 4px;
   --oreui-shadow-offset-y: 8px;
@@ -52,6 +57,15 @@
   /* Component dimensions */
   --oreui-button-height: 89px;
   --oreui-input-height: 75px;
+  --oreui-input-border-width: 4px;
+  --oreui-input-accent-width: 4px;
+  --oreui-input-padding-inline: 16px;
+  --oreui-input-font-size: 36px;
+  --oreui-input-label-font-size: 24px;
+  --oreui-input-message-font-size: 20px;
+  --oreui-input-label-gap: 8px;
+  --oreui-input-icon-size: 40px;
+  --oreui-input-icon-gap: 16px;
   --oreui-switch-width: 100px;
   --oreui-switch-height: 56px;
   --oreui-switch-track-height: 40px;
