@@ -67,6 +67,18 @@
   --oreui-checkbox-label-gap: 12px;
   --oreui-checkbox-label-font-size: 24px;
 
+  /* Slider */
+  --oreui-color-slider-track: #8c8d90;
+  --oreui-color-slider-fill: #f4f6f9;
+  --oreui-color-slider-disabled-track: #8c8d90;
+  --oreui-color-slider-disabled-fill: #b1b2b5;
+  --oreui-slider-height: 66px;
+  --oreui-slider-track-height: 26px;
+  --oreui-slider-thumb-frame-width: 58px;
+  --oreui-slider-thumb-frame-height: 58px;
+  --oreui-slider-label-gap: 8px;
+  --oreui-slider-label-font-size: 24px;
+
   --oreui-border-width: 4px;
   --oreui-shadow-offset-y: 8px;
 
