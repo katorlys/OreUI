@@ -28,20 +28,23 @@
   --oreui-font-family: "Minecraft", monospace;
   --oreui-font-family-ten: "Minecraft Ten", "Minecraft", monospace;
   --oreui-button-font-size: 40px;
+  --oreui-button-minecraft-label-offset-y: -4px;
 
   /* General palette */
-  --oreui-color-ink: #1E1E1F;
-  --oreui-color-surface: #F4F6F9;
-  --oreui-color-surface-hover: #B1B2B5;
-  --oreui-color-surface-focus: #D0D1D4;
-  --oreui-color-highlight: #FDFDFD;
-  --oreui-color-focus-ring: #FFFFFF;
-  --oreui-color-shadow: #58585A;
+  --oreui-color-ink: #1e1e1f;
+  --oreui-color-surface: #f4f6f9;
+  --oreui-color-surface-hover: #b1b2b5;
+  --oreui-color-surface-focus: #d0d1d4;
+  --oreui-color-highlight: #fdfdfd;
+  --oreui-color-focus-ring: #ffffff;
+  --oreui-color-shadow: #58585a;
+  --oreui-color-disabled-surface: #b1b2b5;
+  --oreui-color-disabled-highlight: #d0d1d3;
 
   /* Input Field */
-  --oreui-color-input-surface: #48494A;
-  --oreui-color-input-accent: #75B75D;
-  --oreui-color-text-muted: #8C8C8C;
+  --oreui-color-input-surface: #48494a;
+  --oreui-color-input-accent: #75b75d;
+  --oreui-color-text-muted: #8c8c8c;
 
   --oreui-border-width: 4px;
   --oreui-shadow-offset-y: 8px;

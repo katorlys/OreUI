@@ -28,6 +28,16 @@ Describe your project clearly here.
 > [!NOTE]
 > ⚠️ Disclaimer: This is an unofficial fan-made project inspired by game UI design. It is not affiliated with, endorsed by, or associated with Mojang AB or Microsoft.
 
+## Development
+Install dependencies:
+```sh
+pnpm install
+```
+Run the development server:
+```sh
+pnpm dev
+```
+
 
 ## Credits
 - [Figma Community: Ore UI Kit](https://www.figma.com/community/file/1621610399811024556) by [turoczi.adam's team](https://www.figma.com/@imtheslimeguy) - The unofficial design system the project is based on.
