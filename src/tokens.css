@@ -57,6 +57,16 @@
   --oreui-color-switch-disabled-track: #8c8d90;
   --oreui-color-switch-disabled-surface: #b1b2b5;
 
+  /* Checkbox */
+  --oreui-color-checkbox-off-surface: #8c8d90;
+  --oreui-color-checkbox-off-highlight: #a3a4a6;
+  --oreui-color-checkbox-on-highlight: #fbfbfd;
+  --oreui-color-checkbox-disabled-highlight: #8c8d90;
+  --oreui-checkbox-size: 112px;
+  --oreui-checkbox-diamond-size: 64px;
+  --oreui-checkbox-label-gap: 12px;
+  --oreui-checkbox-label-font-size: 24px;
+
   --oreui-border-width: 4px;
   --oreui-shadow-offset-y: 8px;
 
