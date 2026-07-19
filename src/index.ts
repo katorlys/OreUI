@@ -5,3 +5,4 @@ export * from "./components/icon/oreui-icon.js";
 export * from "./components/input/oreui-input.js";
 export * from "./components/slider/oreui-slider.js";
 export * from "./components/switch/oreui-switch.js";
+export * from "./components/tooltip/oreui-tooltip.js";

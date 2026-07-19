@@ -82,6 +82,17 @@
   /* Icon */
   --oreui-icon-size: 24px;
 
+  /* Tooltip */
+  --oreui-color-tooltip-surface: #2e6be5;
+  --oreui-color-tooltip-text: #f4f6f9;
+  --oreui-tooltip-font-size: 20px;
+  --oreui-tooltip-padding-block: 8px;
+  --oreui-tooltip-padding-inline: 12px;
+  --oreui-tooltip-max-width: 320px;
+  --oreui-tooltip-pixel-size: 8px;
+  --oreui-tooltip-arrow-offset: 20px;
+  --oreui-tooltip-z-index: 1000;
+
   --oreui-border-width: 4px;
   --oreui-shadow-offset-y: 8px;
 
