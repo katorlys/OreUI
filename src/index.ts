@@ -1,3 +1,4 @@
+export * from "./colors.js";
 export * from "./components/button/oreui-button.js";
 export * from "./components/checkbox/oreui-checkbox.js";
 export * from "./components/dropdown/oreui-dropdown.js";

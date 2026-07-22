@@ -1,5 +1,7 @@
 import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import type { OreUIColor } from "../../colors.js";
+import { oreUIColorStyles } from "../../control-colors.js";
 
 export type OreUISliderVariant = "default" | "segmented";
 
@@ -7,151 +9,163 @@ export type OreUISliderVariant = "default" | "segmented";
 export class OreUISlider extends LitElement {
   static formAssociated = true;
 
-  static styles = css`
-    :host {
-      display: inline-block;
-      min-inline-size: 12rem;
-      color: var(--oreui-color-ink, #1e1e1f);
-      font-family: var(--oreui-font-family, "Minecraft", monospace);
-      vertical-align: middle;
-    }
+  static styles = [
+    oreUIColorStyles,
+    css`
+      :host {
+        display: inline-block;
+        min-inline-size: 12rem;
+        color: var(--oreui-color-ink, #1e1e1f);
+        font-family: var(--oreui-font-family, "Minecraft", monospace);
+        vertical-align: middle;
+      }
 
-    label {
-      display: grid;
-      gap: var(--oreui-slider-label-gap, 8px);
-    }
+      label {
+        display: grid;
+        gap: var(--oreui-slider-label-gap, 8px);
+      }
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      font-size: var(--oreui-slider-label-font-size, 24px);
-      line-height: 1;
-    }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        font-size: var(--oreui-slider-label-font-size, 24px);
+        line-height: 1;
+      }
 
-    .control {
-      position: relative;
-      block-size: var(--oreui-slider-height, 66px);
-    }
+      .control {
+        position: relative;
+        block-size: var(--oreui-slider-height, 66px);
+      }
 
-    input {
-      position: absolute;
-      z-index: 3;
-      inset: 0;
-      inline-size: 100%;
-      block-size: 100%;
-      margin: 0;
-      appearance: none;
-      background: transparent;
-      cursor: pointer;
-    }
+      input {
+        position: absolute;
+        z-index: 3;
+        inset: 0;
+        inline-size: 100%;
+        block-size: 100%;
+        margin: 0;
+        appearance: none;
+        background: transparent;
+        cursor: pointer;
+      }
 
-    input::-webkit-slider-runnable-track {
-      block-size: 100%;
-      background: transparent;
-    }
+      input::-webkit-slider-runnable-track {
+        block-size: 100%;
+        background: transparent;
+      }
 
-    input::-webkit-slider-thumb {
-      inline-size: var(--oreui-slider-thumb-frame-width, 58px);
-      block-size: var(--oreui-slider-thumb-frame-height, 58px);
-      appearance: none;
-      background: transparent;
-    }
+      input::-webkit-slider-thumb {
+        inline-size: var(--oreui-slider-thumb-frame-width, 58px);
+        block-size: var(--oreui-slider-thumb-frame-height, 58px);
+        appearance: none;
+        background: transparent;
+      }
 
-    .track {
-      position: absolute;
-      inset-inline: 0;
-      inset-block-start: 20px;
-      block-size: var(--oreui-slider-track-height, 26px);
-      box-sizing: border-box;
-      border: var(--oreui-border-width, 4px) solid
-        var(--oreui-color-ink, #1e1e1f);
-      background: var(--oreui-color-slider-track, #8c8d90);
-      overflow: hidden;
-    }
+      .track {
+        position: absolute;
+        inset-inline: 0;
+        inset-block-start: 20px;
+        block-size: var(--oreui-slider-track-height, 26px);
+        box-sizing: border-box;
+        border: var(--oreui-border-width, 4px) solid
+          var(--oreui-color-ink, #1e1e1f);
+        background: var(--oreui-color-slider-track, #8c8d90);
+        overflow: hidden;
+      }
 
-    .fill {
-      display: block;
-      block-size: 100%;
-      inline-size: var(--oreui-slider-progress, 0%);
-      background: var(--oreui-color-slider-fill, #f4f6f9);
-    }
+      .fill {
+        display: block;
+        block-size: 100%;
+        inline-size: var(--oreui-slider-progress, 0%);
+        background: var(
+          --oreui-control-surface,
+          var(--oreui-color-slider-fill, #f4f6f9)
+        );
+      }
 
-    .segment {
-      position: absolute;
-      z-index: 1;
-      inset-block: 0;
-      inline-size: var(--oreui-border-width, 4px);
-      background: var(--oreui-color-ink, #1e1e1f);
-      pointer-events: none;
-    }
+      .segment {
+        position: absolute;
+        z-index: 1;
+        inset-block: 0;
+        inline-size: var(--oreui-border-width, 4px);
+        background: var(--oreui-color-ink, #1e1e1f);
+        pointer-events: none;
+      }
 
-    .thumb-frame {
-      position: absolute;
-      z-index: 2;
-      inset-block-start: 4px;
-      inset-inline-start: var(--oreui-slider-progress, 0%);
-      inline-size: var(--oreui-slider-thumb-frame-width, 58px);
-      block-size: var(--oreui-slider-thumb-frame-height, 58px);
-      box-sizing: border-box;
-      padding: var(--oreui-border-width, 4px) var(--oreui-border-width, 4px)
-        12px;
-      background: var(--oreui-color-ink, #1e1e1f);
-      transform: translateX(calc(-1 * var(--oreui-slider-progress, 0%)));
-    }
+      .thumb-frame {
+        position: absolute;
+        z-index: 2;
+        inset-block-start: 4px;
+        inset-inline-start: var(--oreui-slider-progress, 0%);
+        inline-size: var(--oreui-slider-thumb-frame-width, 58px);
+        block-size: var(--oreui-slider-thumb-frame-height, 58px);
+        box-sizing: border-box;
+        padding: var(--oreui-border-width, 4px) var(--oreui-border-width, 4px)
+          12px;
+        background: var(--oreui-color-ink, #1e1e1f);
+        transform: translateX(calc(-1 * var(--oreui-slider-progress, 0%)));
+      }
 
-    .thumb {
-      display: block;
-      inline-size: 100%;
-      block-size: 100%;
-      box-sizing: border-box;
-      border: var(--oreui-border-width, 4px) solid
-        var(--oreui-color-highlight, #fdfdfd);
-      background: var(--oreui-color-surface, #f4f6f9);
-      box-shadow: 0 var(--oreui-shadow-offset-y, 8px) 0
-        var(--oreui-color-shadow, #58585a);
-    }
+      .thumb {
+        display: block;
+        inline-size: 100%;
+        block-size: 100%;
+        box-sizing: border-box;
+        border: var(--oreui-border-width, 4px) solid
+          var(--oreui-color-highlight, #fbfbfd);
+        background: var(--oreui-color-surface, #f4f6f9);
+        box-shadow: 0 var(--oreui-shadow-offset-y, 8px) 0
+          var(--oreui-color-shadow, #58585a);
+      }
 
-    input:hover:not(:disabled) ~ .thumb-frame .thumb {
-      background: var(--oreui-color-surface-hover, #b1b2b5);
-    }
+      input:hover:not(:disabled) ~ .thumb-frame .thumb {
+        background: var(--oreui-color-surface-hover, #b1b2b5);
+      }
 
-    input:focus-visible ~ .thumb-frame {
-      outline: var(--oreui-border-width, 4px) solid
-        var(--oreui-color-focus-ring, #ffffff);
-      outline-offset: var(--oreui-border-width, 4px);
-    }
+      input:focus-visible ~ .thumb-frame {
+        outline: var(--oreui-border-width, 4px) solid
+          var(--oreui-color-focus-ring, #ffffff);
+        outline-offset: var(--oreui-border-width, 4px);
+      }
 
-    input:disabled {
-      cursor: not-allowed;
-    }
+      input:disabled {
+        cursor: not-allowed;
+      }
 
-    input:disabled ~ .track {
-      border-color: var(--oreui-color-shadow, #58585a);
-      background: var(--oreui-color-slider-disabled-track, #8c8d90);
-    }
+      input:disabled ~ .track {
+        border-color: var(--oreui-color-shadow, #58585a);
+        background: var(--oreui-color-slider-disabled-track, #8c8d90);
+      }
 
-    input:disabled ~ .track .fill {
-      background: var(--oreui-color-slider-disabled-fill, #b1b2b5);
-    }
+      input:disabled ~ .track .fill {
+        background: var(
+          --oreui-control-disabled-surface,
+          var(--oreui-color-slider-disabled-fill, #b1b2b5)
+        );
+      }
 
-    input:disabled ~ .thumb-frame {
-      background: var(--oreui-color-shadow, #58585a);
-    }
+      input:disabled ~ .thumb-frame {
+        background: var(--oreui-color-shadow, #58585a);
+      }
 
-    input:disabled ~ .thumb-frame .thumb {
-      border-color: var(--oreui-color-disabled-highlight, #d0d1d3);
-      background: var(--oreui-color-disabled-surface, #b1b2b5);
-      box-shadow: 0 var(--oreui-shadow-offset-y, 8px) 0
-        var(--oreui-color-slider-disabled-track, #8c8d90);
-    }
-  `;
+      input:disabled ~ .thumb-frame .thumb {
+        border-color: var(--oreui-color-disabled-highlight, #d0d1d3);
+        background: var(--oreui-color-disabled-surface, #b1b2b5);
+        box-shadow: 0 var(--oreui-shadow-offset-y, 8px) 0
+          var(--oreui-color-slider-disabled-track, #8c8d90);
+      }
+    `,
+  ];
 
   private readonly internals = this.attachInternals();
   private initialValue = "50";
 
   @property({ reflect: true })
   name = "";
+
+  @property({ reflect: true })
+  color: OreUIColor = "general";
 
   @property()
   value = "50";

@@ -35,11 +35,53 @@
   --oreui-color-surface: #f4f6f9;
   --oreui-color-surface-hover: #b1b2b5;
   --oreui-color-surface-focus: #d0d1d4;
-  --oreui-color-highlight: #fdfdfd;
+  --oreui-color-highlight: #fbfbfd;
   --oreui-color-focus-ring: #ffffff;
   --oreui-color-shadow: #58585a;
   --oreui-color-disabled-surface: #b1b2b5;
   --oreui-color-disabled-highlight: #d0d1d3;
+
+  /* Control color presets */
+  --oreui-color-legends-surface: #4AD5FF;
+  --oreui-color-legends-surface-hover: #0f6ac1;
+  --oreui-color-legends-highlight: #ACF2FF;
+  --oreui-color-legends-shadow: #06346E;
+  --oreui-color-legends-text: #001236;
+  --oreui-color-legends-disabled-surface: #0F6AC1;
+  --oreui-color-legends-disabled-highlight: #3FB9EB;
+  --oreui-color-legends-mark-mid: #083E7C;
+  --oreui-color-legends-mark-light: #307FD0;
+  --oreui-color-legends-mark-dark: #001236;
+  --oreui-color-minecraft-surface: #52A535;
+  --oreui-color-minecraft-surface-hover: #2A641C;
+  --oreui-color-minecraft-highlight: #75B75D;
+  --oreui-color-minecraft-shadow: #1D4D13;
+  --oreui-color-minecraft-text: #ffffff;
+  --oreui-color-minecraft-disabled-surface: #2A641C;
+  --oreui-color-minecraft-disabled-highlight: #558349;
+  --oreui-color-minecraft-mark-mid: #E6E8EB;
+  --oreui-color-minecraft-mark-light: #FFFFFF;
+  --oreui-color-minecraft-mark-dark: #D0D1D4;
+  --oreui-color-dungeons-surface: #FFA41F;
+  --oreui-color-dungeons-surface-hover: #CA7B07;
+  --oreui-color-dungeons-highlight: #FFF27A;
+  --oreui-color-dungeons-shadow: #FF791A;
+  --oreui-color-dungeons-text: #8F1F0B;
+  --oreui-color-dungeons-disabled-surface: #3B2100;
+  --oreui-color-dungeons-disabled-highlight: #693E20;
+  --oreui-color-dungeons-mark-mid: #C07C2A;
+  --oreui-color-dungeons-mark-light: #FFDF61;
+  --oreui-color-dungeons-mark-dark: #A34410;
+  --oreui-color-destructive-surface: #ca3636;
+  --oreui-color-destructive-surface-hover: #C02D2D;
+  --oreui-color-destructive-highlight: #D55E5E;
+  --oreui-color-destructive-shadow: #AD1D1D;
+  --oreui-color-destructive-text: #ffffff;
+  --oreui-color-destructive-disabled-surface: #C02D2D;
+  --oreui-color-destructive-disabled-highlight: #B24B4B;
+  --oreui-color-destructive-mark-mid: #E6E8EB;
+  --oreui-color-destructive-mark-light: #FFFFFF;
+  --oreui-color-destructive-mark-dark: #D0D1D4;
 
   /* Input Field */
   --oreui-color-input-surface: #48494a;
@@ -71,6 +113,9 @@
   --oreui-color-checkbox-off-highlight: #a3a4a6;
   --oreui-color-checkbox-on-highlight: #fbfbfd;
   --oreui-color-checkbox-disabled-highlight: #8c8d90;
+  --oreui-checkbox-mark-mid: #2e2e2e;
+  --oreui-checkbox-mark-light: #464646;
+  --oreui-checkbox-mark-dark: #1e1e1f;
   --oreui-checkbox-size: 112px;
   --oreui-checkbox-diamond-size: 64px;
   --oreui-checkbox-label-gap: 12px;
