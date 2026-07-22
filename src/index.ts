@@ -1,5 +1,6 @@
 export * from "./components/button/oreui-button.js";
 export * from "./components/checkbox/oreui-checkbox.js";
+export * from "./components/dropdown/oreui-dropdown.js";
 export * from "./components/icon/icon-list.js";
 export * from "./components/icon/oreui-icon.js";
 export * from "./components/input/oreui-input.js";
