@@ -1,5 +1,6 @@
 import { LitElement, css, html } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
+import "../../default-theme.js";
 
 export type OreUIInputType =
   "email" | "number" | "password" | "search" | "tel" | "text" | "url";
@@ -12,7 +13,7 @@ export class OreUIInput extends LitElement {
     :host {
       display: inline-block;
       min-inline-size: 12rem;
-      color: var(--oreui-color-ink, #1e1e1f);
+      color: var(--oreui-color-ink);
       font-family: var(--oreui-font-family, "Minecraft", monospace);
       vertical-align: middle;
     }
@@ -39,24 +40,23 @@ export class OreUIInput extends LitElement {
       block-size: var(--oreui-input-height, 75px);
       padding: var(--oreui-input-border-width, 4px)
         var(--oreui-input-padding-inline, 16px);
-      border: var(--oreui-input-border-width, 4px) solid
-        var(--oreui-color-ink, #1e1e1f);
-      background: var(--oreui-color-input-surface, #48494a);
+      border: var(--oreui-input-border-width, 4px) solid var(--oreui-color-ink);
+      background: var(--oreui-color-input-surface);
       box-shadow: inset 0 0 0 var(--oreui-input-accent-width, 4px) transparent;
     }
 
     .field:focus-within {
       box-shadow: inset 0 0 0 var(--oreui-input-accent-width, 4px)
-        var(--oreui-color-input-accent, #75b75d);
+        var(--oreui-color-input-accent);
     }
 
     :host([error]:not([error=""])) .field {
       box-shadow: inset 0 0 0 var(--oreui-input-accent-width, 4px)
-        var(--oreui-color-error, #d95757);
+        var(--oreui-color-error);
     }
 
     :host([readonly]) .field {
-      background: var(--oreui-color-input-readonly-surface, #5b5c5e);
+      background: var(--oreui-color-input-readonly-surface);
     }
 
     :host([disabled]) {
@@ -64,7 +64,7 @@ export class OreUIInput extends LitElement {
     }
 
     :host([disabled]) .field {
-      background: var(--oreui-color-input-disabled-surface, #b1b2b5);
+      background: var(--oreui-color-input-disabled-surface);
     }
 
     .control {
@@ -83,7 +83,7 @@ export class OreUIInput extends LitElement {
       inline-size: var(--oreui-input-icon-size, 40px);
       block-size: var(--oreui-input-icon-size, 40px);
       margin-inline-end: var(--oreui-input-icon-gap, 16px);
-      color: var(--oreui-color-input-icon, #b1b2b5);
+      color: var(--oreui-color-input-icon);
     }
 
     input {
@@ -93,36 +93,32 @@ export class OreUIInput extends LitElement {
       border: 0;
       outline: 0;
       background: transparent;
-      color: var(--oreui-color-input-text, #f4f6f9);
+      color: var(--oreui-color-input-text);
       font: inherit;
       font-size: var(--oreui-input-font-size, 36px);
       line-height: 1;
     }
 
     input::placeholder {
-      color: var(--oreui-color-text-muted, #8c8c8c);
+      color: var(--oreui-color-text-muted);
       opacity: 1;
     }
 
     input:disabled {
-      color: color-mix(
-        in srgb,
-        var(--oreui-color-ink, #1e1e1f) 50%,
-        transparent
-      );
+      color: color-mix(in srgb, var(--oreui-color-ink) 50%, transparent);
       cursor: inherit;
     }
 
     .message {
       min-block-size: 1em;
       margin: 0;
-      color: var(--oreui-color-text-muted, #8c8c8c);
+      color: var(--oreui-color-text-muted);
       font-size: var(--oreui-input-message-font-size, 20px);
       line-height: 1;
     }
 
     :host([error]:not([error=""])) .message {
-      color: var(--oreui-color-error, #d95757);
+      color: var(--oreui-color-error);
     }
   `;
 

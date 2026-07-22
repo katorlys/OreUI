@@ -1,5 +1,6 @@
 import { LitElement, css, html } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
+import "../../default-theme.js";
 
 export type OreUITooltipPlacement = "top" | "right" | "bottom" | "left";
 
@@ -25,7 +26,7 @@ export class OreUITooltip extends LitElement {
       );
       box-sizing: border-box;
       padding: var(--oreui-border-width, 4px);
-      color: var(--oreui-color-tooltip-text, #f4f6f9);
+      color: var(--oreui-color-tooltip-text);
       font-family: var(--oreui-font-family, "Minecraft", monospace);
       font-size: var(--oreui-tooltip-font-size, 20px);
       line-height: 1.2;
@@ -47,7 +48,7 @@ export class OreUITooltip extends LitElement {
       box-sizing: border-box;
       padding: var(--oreui-tooltip-padding-block, 8px)
         var(--oreui-tooltip-padding-inline, 12px);
-      background: var(--oreui-color-tooltip-surface, #3476e5);
+      background: var(--oreui-color-tooltip-surface);
       clip-path: polygon(
         var(--oreui-tooltip-pixel-size, 8px) 0,
         calc(100% - var(--oreui-tooltip-pixel-size, 8px)) 0,
@@ -79,7 +80,7 @@ export class OreUITooltip extends LitElement {
       position: absolute;
       inline-size: calc(3 * var(--oreui-tooltip-pixel-size, 8px));
       block-size: calc(3 * var(--oreui-tooltip-pixel-size, 8px));
-      background: var(--oreui-color-tooltip-surface, #3476e5);
+      background: var(--oreui-color-tooltip-surface);
       clip-path: polygon(
         0 0,
         100% 0,
@@ -209,7 +210,7 @@ export class OreUITooltip extends LitElement {
                 result="outline-alpha"
               ></feMorphology>
               <feFlood
-                flood-color="var(--oreui-color-ink, #1e1e1f)"
+                flood-color="var(--oreui-color-ink)"
                 result="outline-color"
               ></feFlood>
               <feComposite

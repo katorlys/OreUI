@@ -113,6 +113,9 @@
   --oreui-color-checkbox-off-highlight: #a3a4a6;
   --oreui-color-checkbox-on-highlight: #fbfbfd;
   --oreui-color-checkbox-disabled-highlight: #8c8d90;
+  --oreui-color-checkbox-disabled-mark-mid: #8c8d90;
+  --oreui-color-checkbox-disabled-mark-light: #a3a4a6;
+  --oreui-color-checkbox-disabled-mark-dark: #666666;
   --oreui-checkbox-mark-mid: #2e2e2e;
   --oreui-checkbox-mark-light: #464646;
   --oreui-checkbox-mark-dark: #1e1e1f;

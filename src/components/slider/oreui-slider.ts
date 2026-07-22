@@ -2,6 +2,7 @@ import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import type { OreUIColor } from "../../colors.js";
 import { oreUIColorStyles } from "../../control-colors.js";
+import "../../default-theme.js";
 
 export type OreUISliderVariant = "default" | "segmented";
 
@@ -15,7 +16,7 @@ export class OreUISlider extends LitElement {
       :host {
         display: inline-block;
         min-inline-size: 12rem;
-        color: var(--oreui-color-ink, #1e1e1f);
+        color: var(--oreui-color-ink);
         font-family: var(--oreui-font-family, "Minecraft", monospace);
         vertical-align: middle;
       }
@@ -68,9 +69,8 @@ export class OreUISlider extends LitElement {
         inset-block-start: 20px;
         block-size: var(--oreui-slider-track-height, 26px);
         box-sizing: border-box;
-        border: var(--oreui-border-width, 4px) solid
-          var(--oreui-color-ink, #1e1e1f);
-        background: var(--oreui-color-slider-track, #8c8d90);
+        border: var(--oreui-border-width, 4px) solid var(--oreui-color-ink);
+        background: var(--oreui-color-slider-track);
         overflow: hidden;
       }
 
@@ -80,7 +80,7 @@ export class OreUISlider extends LitElement {
         inline-size: var(--oreui-slider-progress, 0%);
         background: var(
           --oreui-control-surface,
-          var(--oreui-color-slider-fill, #f4f6f9)
+          var(--oreui-color-slider-fill)
         );
       }
 
@@ -89,7 +89,7 @@ export class OreUISlider extends LitElement {
         z-index: 1;
         inset-block: 0;
         inline-size: var(--oreui-border-width, 4px);
-        background: var(--oreui-color-ink, #1e1e1f);
+        background: var(--oreui-color-ink);
         pointer-events: none;
       }
 
@@ -103,7 +103,7 @@ export class OreUISlider extends LitElement {
         box-sizing: border-box;
         padding: var(--oreui-border-width, 4px) var(--oreui-border-width, 4px)
           12px;
-        background: var(--oreui-color-ink, #1e1e1f);
+        background: var(--oreui-color-ink);
         transform: translateX(calc(-1 * var(--oreui-slider-progress, 0%)));
       }
 
@@ -113,19 +113,19 @@ export class OreUISlider extends LitElement {
         block-size: 100%;
         box-sizing: border-box;
         border: var(--oreui-border-width, 4px) solid
-          var(--oreui-color-highlight, #fbfbfd);
-        background: var(--oreui-color-surface, #f4f6f9);
+          var(--oreui-color-highlight);
+        background: var(--oreui-color-surface);
         box-shadow: 0 var(--oreui-shadow-offset-y, 8px) 0
-          var(--oreui-color-shadow, #58585a);
+          var(--oreui-color-shadow);
       }
 
       input:hover:not(:disabled) ~ .thumb-frame .thumb {
-        background: var(--oreui-color-surface-hover, #b1b2b5);
+        background: var(--oreui-color-surface-hover);
       }
 
       input:focus-visible ~ .thumb-frame {
         outline: var(--oreui-border-width, 4px) solid
-          var(--oreui-color-focus-ring, #ffffff);
+          var(--oreui-color-focus-ring);
         outline-offset: var(--oreui-border-width, 4px);
       }
 
@@ -134,26 +134,26 @@ export class OreUISlider extends LitElement {
       }
 
       input:disabled ~ .track {
-        border-color: var(--oreui-color-shadow, #58585a);
-        background: var(--oreui-color-slider-disabled-track, #8c8d90);
+        border-color: var(--oreui-color-shadow);
+        background: var(--oreui-color-slider-disabled-track);
       }
 
       input:disabled ~ .track .fill {
         background: var(
           --oreui-control-disabled-surface,
-          var(--oreui-color-slider-disabled-fill, #b1b2b5)
+          var(--oreui-color-slider-disabled-fill)
         );
       }
 
       input:disabled ~ .thumb-frame {
-        background: var(--oreui-color-shadow, #58585a);
+        background: var(--oreui-color-shadow);
       }
 
       input:disabled ~ .thumb-frame .thumb {
-        border-color: var(--oreui-color-disabled-highlight, #d0d1d3);
-        background: var(--oreui-color-disabled-surface, #b1b2b5);
+        border-color: var(--oreui-color-disabled-highlight);
+        background: var(--oreui-color-disabled-surface);
         box-shadow: 0 var(--oreui-shadow-offset-y, 8px) 0
-          var(--oreui-color-slider-disabled-track, #8c8d90);
+          var(--oreui-color-slider-disabled-track);
       }
     `,
   ];

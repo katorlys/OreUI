@@ -2,6 +2,7 @@ import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import type { OreUIColor } from "../../colors.js";
 import { oreUIColorStyles } from "../../control-colors.js";
+import "../../default-theme.js";
 
 export type OreUIButtonType = "button" | "submit" | "reset";
 export type OreUIButtonVariant = "general" | "minecraft";
@@ -59,8 +60,7 @@ export class OreUIButton extends LitElement {
         position: absolute;
         inset: 0;
         box-sizing: border-box;
-        border: var(--oreui-border-width, 4px) solid
-          var(--oreui-color-ink, #1e1e1f);
+        border: var(--oreui-border-width, 4px) solid var(--oreui-color-ink);
         pointer-events: none;
       }
 
@@ -75,15 +75,12 @@ export class OreUIButton extends LitElement {
         margin: 0;
         padding: 0 1em;
         border: var(--oreui-border-width, 4px) solid
-          var(--oreui-control-highlight, var(--oreui-color-highlight, #fbfbfd));
+          var(--oreui-control-highlight, var(--oreui-color-highlight));
         border-radius: 0;
-        background: var(
-          --oreui-control-surface,
-          var(--oreui-color-surface, #f4f6f9)
-        );
+        background: var(--oreui-control-surface, var(--oreui-color-surface));
         box-shadow: 0 var(--oreui-shadow-offset-y, 8px) 0
-          var(--oreui-control-shadow, var(--oreui-color-shadow, #58585a));
-        color: var(--oreui-control-text, var(--oreui-color-ink, #1e1e1f));
+          var(--oreui-control-shadow, var(--oreui-color-shadow));
+        color: var(--oreui-control-text, var(--oreui-color-ink));
         font: inherit;
         font-size: var(--oreui-button-font-size, 40px);
         line-height: 1;
@@ -93,27 +90,23 @@ export class OreUIButton extends LitElement {
       button:hover:not(:disabled) {
         background: var(
           --oreui-control-surface-hover,
-          var(--oreui-color-surface-hover, #b1b2b5)
+          var(--oreui-color-surface-hover)
         );
       }
 
       button:focus-visible {
         background: var(
           --oreui-control-surface-focus,
-          var(--oreui-color-surface-focus, #d0d1d4)
+          var(--oreui-color-surface-focus)
         );
         outline: var(--oreui-border-width, 4px) solid
-          var(--oreui-color-focus-ring, #ffffff);
+          var(--oreui-color-focus-ring);
         outline-offset: var(--oreui-border-width, 4px);
       }
 
       button:active:not(:disabled) {
-        background: var(
-          --oreui-control-surface,
-          var(--oreui-color-surface, #f4f6f9)
-        );
-        box-shadow: 0 0 0 var(--oreui-border-width, 4px)
-          var(--oreui-color-ink, #1e1e1f);
+        background: var(--oreui-control-surface, var(--oreui-color-surface));
+        box-shadow: 0 0 0 var(--oreui-border-width, 4px) var(--oreui-color-ink);
         transform: translateY(var(--oreui-shadow-offset-y, 8px));
       }
 
@@ -127,11 +120,11 @@ export class OreUIButton extends LitElement {
         );
         border-color: var(
           --oreui-control-disabled-highlight,
-          var(--oreui-color-disabled-highlight, #d0d1d3)
+          var(--oreui-color-disabled-highlight)
         );
         background: var(
           --oreui-control-disabled-surface,
-          var(--oreui-color-disabled-surface, #b1b2b5)
+          var(--oreui-color-disabled-surface)
         );
         box-shadow: none;
         cursor: inherit;

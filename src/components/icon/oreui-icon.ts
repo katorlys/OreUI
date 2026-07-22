@@ -1,5 +1,6 @@
 import { LitElement, css, html, svg } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import "../../default-theme.js";
 import { getOreUIIcon } from "./icon-list.js";
 
 @customElement("oreui-icon")

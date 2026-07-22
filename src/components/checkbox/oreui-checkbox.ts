@@ -2,6 +2,7 @@ import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import type { OreUIColor } from "../../colors.js";
 import { oreUIColorStyles } from "../../control-colors.js";
+import "../../default-theme.js";
 
 @customElement("oreui-checkbox")
 export class OreUICheckbox extends LitElement {
@@ -12,7 +13,7 @@ export class OreUICheckbox extends LitElement {
     css`
       :host {
         display: inline-block;
-        color: var(--oreui-color-ink, #1e1e1f);
+        color: var(--oreui-color-ink);
         font-family: var(--oreui-font-family, "Minecraft", monospace);
         vertical-align: middle;
       }
@@ -50,7 +51,7 @@ export class OreUICheckbox extends LitElement {
         block-size: var(--oreui-checkbox-diamond-size, 64px);
         box-sizing: border-box;
         padding: var(--oreui-border-width, 4px);
-        background: var(--oreui-color-ink, #1e1e1f);
+        background: var(--oreui-color-ink);
         transform: rotate(-45deg);
       }
 
@@ -60,9 +61,9 @@ export class OreUICheckbox extends LitElement {
         inline-size: 100%;
         block-size: 100%;
         border: var(--oreui-border-width, 4px) solid
-          var(--oreui-color-checkbox-off-highlight, #a3a4a6);
+          var(--oreui-color-checkbox-off-highlight);
         box-sizing: border-box;
-        background: var(--oreui-color-checkbox-off-surface, #8c8d90);
+        background: var(--oreui-color-checkbox-off-surface);
       }
 
       .mark {
@@ -78,29 +79,23 @@ export class OreUICheckbox extends LitElement {
 
       .pixel:nth-child(1),
       .pixel:nth-child(4) {
-        background: var(--oreui-checkbox-mark-mid, #2e2e2e);
+        background: var(--oreui-checkbox-mark-mid);
       }
 
       .pixel:nth-child(2) {
-        background: var(--oreui-checkbox-mark-light, #464646);
+        background: var(--oreui-checkbox-mark-light);
       }
 
       .pixel:nth-child(3) {
-        background: var(
-          --oreui-checkbox-mark-dark,
-          var(--oreui-color-ink, #1e1e1f)
-        );
+        background: var(--oreui-checkbox-mark-dark, var(--oreui-color-ink));
       }
 
       input:checked ~ .diamond .surface {
         border-color: var(
           --oreui-control-highlight,
-          var(--oreui-color-checkbox-on-highlight, #fbfbfd)
+          var(--oreui-color-checkbox-on-highlight, var(--oreui-color-highlight))
         );
-        background: var(
-          --oreui-control-surface,
-          var(--oreui-color-surface, #f4f6f9)
-        );
+        background: var(--oreui-control-surface, var(--oreui-color-surface));
       }
 
       input:checked ~ .diamond .mark {
@@ -110,13 +105,13 @@ export class OreUICheckbox extends LitElement {
       input:hover:not(:disabled) ~ .diamond .surface {
         background: var(
           --oreui-control-surface-hover,
-          var(--oreui-color-surface-hover, #b1b2b5)
+          var(--oreui-color-surface-hover)
         );
       }
 
       input:focus-visible ~ .diamond {
         box-shadow: inset 0 0 0 var(--oreui-border-width, 4px)
-          var(--oreui-color-focus-ring, #ffffff);
+          var(--oreui-color-focus-ring);
       }
 
       input:active:not(:disabled) ~ .diamond .mark {
@@ -127,25 +122,22 @@ export class OreUICheckbox extends LitElement {
       }
 
       input:disabled ~ .diamond {
-        background: var(
-          --oreui-control-shadow,
-          var(--oreui-color-shadow, #58585a)
-        );
+        background: var(--oreui-control-shadow, var(--oreui-color-shadow));
       }
 
       input:disabled ~ .diamond .surface {
-        border-color: var(--oreui-color-checkbox-disabled-highlight, #8c8d90);
-        background: var(--oreui-color-disabled-surface, #b1b2b5);
+        border-color: var(--oreui-color-checkbox-disabled-highlight);
+        background: var(--oreui-color-disabled-surface);
       }
 
       input:checked:disabled ~ .diamond .surface {
         border-color: var(
           --oreui-control-disabled-highlight,
-          var(--oreui-color-checkbox-disabled-highlight, #8c8d90)
+          var(--oreui-color-checkbox-disabled-highlight)
         );
         background: var(
           --oreui-control-disabled-surface,
-          var(--oreui-color-disabled-surface, #b1b2b5)
+          var(--oreui-color-disabled-surface)
         );
       }
 
@@ -155,15 +147,15 @@ export class OreUICheckbox extends LitElement {
 
       input:checked:disabled ~ .diamond .pixel:nth-child(1),
       input:checked:disabled ~ .diamond .pixel:nth-child(4) {
-        background: #8c8d90;
+        background: var(--oreui-color-checkbox-disabled-mark-mid);
       }
 
       input:checked:disabled ~ .diamond .pixel:nth-child(2) {
-        background: #a3a4a6;
+        background: var(--oreui-color-checkbox-disabled-mark-light);
       }
 
       input:checked:disabled ~ .diamond .pixel:nth-child(3) {
-        background: #666666;
+        background: var(--oreui-color-checkbox-disabled-mark-dark);
       }
 
       :host([disabled]) label {

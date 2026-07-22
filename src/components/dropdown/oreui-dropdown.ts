@@ -5,6 +5,7 @@ import {
   queryAssignedElements,
   state,
 } from "lit/decorators.js";
+import "../../default-theme.js";
 import "../icon/oreui-icon.js";
 
 export interface OreUIDropdownOption {
@@ -34,7 +35,7 @@ export class OreUIDropdown extends LitElement {
     :host {
       display: inline-block;
       min-inline-size: 12rem;
-      color: var(--oreui-color-ink, #1e1e1f);
+      color: var(--oreui-color-ink);
       font-family: var(--oreui-font-family, "Minecraft", monospace);
       vertical-align: middle;
     }
@@ -48,7 +49,7 @@ export class OreUIDropdown extends LitElement {
       box-sizing: border-box;
       inline-size: 100%;
       border: var(--oreui-dropdown-border-width, 4px) solid
-        var(--oreui-color-ink, #1e1e1f);
+        var(--oreui-color-ink);
       border-radius: 0;
       font: inherit;
       text-align: start;
@@ -63,31 +64,27 @@ export class OreUIDropdown extends LitElement {
         var(--oreui-dropdown-padding-inline, 24px)
         var(--oreui-dropdown-padding-block, 12px)
         var(--oreui-dropdown-padding-start, 12px);
-      background: var(--oreui-color-dropdown-surface, #48494a);
+      background: var(--oreui-color-dropdown-surface);
       box-shadow: inset 0 0 0 var(--oreui-dropdown-accent-width, 4px)
         transparent;
-      color: var(--oreui-color-dropdown-text, #ffffff);
+      color: var(--oreui-color-dropdown-text);
       cursor: pointer;
       outline: 0;
     }
 
     button:hover:not(:disabled) {
-      background: var(--oreui-color-dropdown-hover, #2f2f2f);
+      background: var(--oreui-color-dropdown-hover);
     }
 
     button:focus-visible,
     button[aria-expanded="true"] {
       box-shadow: inset 0 0 0 var(--oreui-dropdown-accent-width, 4px)
-        var(--oreui-color-dropdown-focus, #b1b2b5);
+        var(--oreui-color-dropdown-focus);
     }
 
     button:disabled {
-      background: var(--oreui-color-dropdown-disabled, #b1b2b5);
-      color: color-mix(
-        in srgb,
-        var(--oreui-color-ink, #1e1e1f) 50%,
-        transparent
-      );
+      background: var(--oreui-color-dropdown-disabled);
+      color: color-mix(in srgb, var(--oreui-color-ink) 50%, transparent);
       cursor: not-allowed;
     }
 
@@ -101,7 +98,7 @@ export class OreUIDropdown extends LitElement {
     }
 
     .placeholder {
-      color: var(--oreui-color-dropdown-placeholder, #b1b2b5);
+      color: var(--oreui-color-dropdown-placeholder);
     }
 
     oreui-icon {
@@ -124,10 +121,10 @@ export class OreUIDropdown extends LitElement {
       padding: 0;
       overflow-y: auto;
       border: var(--oreui-dropdown-border-width, 4px) solid
-        var(--oreui-color-ink, #1e1e1f);
-      background: var(--oreui-color-ink, #1e1e1f);
+        var(--oreui-color-ink);
+      background: var(--oreui-color-ink);
       box-shadow: 0 var(--oreui-dropdown-shadow-offset, 8px) 0
-        color-mix(in srgb, var(--oreui-color-ink, #1e1e1f) 45%, transparent);
+        color-mix(in srgb, var(--oreui-color-ink) 45%, transparent);
       list-style: none;
     }
 
@@ -141,8 +138,8 @@ export class OreUIDropdown extends LitElement {
         var(--oreui-dropdown-padding-start, 12px);
       border-inline: 0;
       border-block-start: 0;
-      background: var(--oreui-color-dropdown-surface, #48494a);
-      color: var(--oreui-color-dropdown-text, #ffffff);
+      background: var(--oreui-color-dropdown-surface);
+      color: var(--oreui-color-dropdown-text);
       font-size: var(--oreui-dropdown-font-size, 32px);
       line-height: 1;
       cursor: pointer;
@@ -150,17 +147,17 @@ export class OreUIDropdown extends LitElement {
 
     .option:hover:not([aria-disabled="true"]),
     .option.active:not([aria-disabled="true"]) {
-      background: var(--oreui-color-dropdown-hover, #2f2f2f);
+      background: var(--oreui-color-dropdown-hover);
       box-shadow: inset 0 0 0 var(--oreui-dropdown-accent-width, 4px)
-        var(--oreui-color-dropdown-focus, #b1b2b5);
+        var(--oreui-color-dropdown-focus);
     }
 
     .option.selected {
-      background: var(--oreui-color-dropdown-selected, #6d6d6e);
+      background: var(--oreui-color-dropdown-selected);
     }
 
     .option[aria-disabled="true"] {
-      color: var(--oreui-color-dropdown-placeholder, #b1b2b5);
+      color: var(--oreui-color-dropdown-placeholder);
       cursor: not-allowed;
     }
 

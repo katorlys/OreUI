@@ -2,6 +2,7 @@ import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import type { OreUIColor } from "../../colors.js";
 import { oreUIColorStyles } from "../../control-colors.js";
+import "../../default-theme.js";
 
 @customElement("oreui-switch")
 export class OreUISwitch extends LitElement {
@@ -12,7 +13,7 @@ export class OreUISwitch extends LitElement {
     css`
       :host {
         display: inline-block;
-        color: var(--oreui-color-ink, #1e1e1f);
+        color: var(--oreui-color-ink);
         font-family: var(--oreui-font-family, "Minecraft", monospace);
         vertical-align: middle;
       }
@@ -47,7 +48,7 @@ export class OreUISwitch extends LitElement {
         inset-inline: 0;
         inset-block-start: 8px;
         block-size: 48px;
-        background: var(--oreui-color-ink, #1e1e1f);
+        background: var(--oreui-color-ink);
       }
 
       .track::after {
@@ -58,8 +59,8 @@ export class OreUISwitch extends LitElement {
         block-size: var(--oreui-switch-track-height, 40px);
         box-sizing: border-box;
         border: var(--oreui-border-width, 4px) solid
-          var(--oreui-color-switch-track-highlight, #a3a4a6);
-        background: var(--oreui-color-switch-track-off, #8c8d90);
+          var(--oreui-color-switch-track-highlight);
+        background: var(--oreui-color-switch-track-off);
         content: "";
       }
 
@@ -71,7 +72,7 @@ export class OreUISwitch extends LitElement {
         inline-size: 52px;
         block-size: 56px;
         box-sizing: border-box;
-        background: var(--oreui-color-ink, #1e1e1f);
+        background: var(--oreui-color-ink);
       }
 
       .thumb {
@@ -79,22 +80,19 @@ export class OreUISwitch extends LitElement {
         inset: 4px 4px 12px;
         box-sizing: border-box;
         border: var(--oreui-border-width, 4px) solid
-          var(--oreui-color-highlight, #fbfbfd);
-        background: var(--oreui-color-surface, #f4f6f9);
+          var(--oreui-color-highlight);
+        background: var(--oreui-color-surface);
         box-shadow: 0 var(--oreui-shadow-offset-y, 8px) 0
-          var(--oreui-color-shadow, #58585a);
+          var(--oreui-color-shadow);
       }
 
       input:checked ~ .track::after {
         inset-inline-start: 4px;
         border-color: var(
           --oreui-control-highlight,
-          var(--oreui-color-highlight, #fbfbfd)
+          var(--oreui-color-highlight)
         );
-        background: var(
-          --oreui-control-surface,
-          var(--oreui-color-surface, #f4f6f9)
-        );
+        background: var(--oreui-control-surface, var(--oreui-color-surface));
       }
 
       input:checked ~ .thumb-frame {
@@ -102,12 +100,12 @@ export class OreUISwitch extends LitElement {
       }
 
       input:hover:not(:disabled) ~ .thumb-frame .thumb {
-        background: var(--oreui-color-surface-hover, #b1b2b5);
+        background: var(--oreui-color-surface-hover);
       }
 
       input:focus-visible ~ .thumb-frame {
         border: var(--oreui-border-width, 4px) solid
-          var(--oreui-color-focus-ring, #ffffff);
+          var(--oreui-color-focus-ring);
       }
 
       input:focus-visible ~ .thumb-frame .thumb {
@@ -115,30 +113,30 @@ export class OreUISwitch extends LitElement {
       }
 
       input:disabled ~ .track {
-        background: var(--oreui-color-switch-disabled-track, #8c8d90);
+        background: var(--oreui-color-switch-disabled-track);
       }
 
       input:disabled ~ .track::after {
         border: 0;
-        background: var(--oreui-color-switch-disabled-surface, #b1b2b5);
+        background: var(--oreui-color-switch-disabled-surface);
       }
 
       input:checked:disabled ~ .track::after {
         background: var(
           --oreui-control-disabled-surface,
-          var(--oreui-color-switch-disabled-surface, #b1b2b5)
+          var(--oreui-color-switch-disabled-surface)
         );
       }
 
       input:disabled ~ .thumb-frame {
-        background: var(--oreui-color-shadow, #58585a);
+        background: var(--oreui-color-shadow);
       }
 
       input:disabled ~ .thumb-frame .thumb {
         border: 0;
-        background: var(--oreui-color-switch-disabled-surface, #b1b2b5);
+        background: var(--oreui-color-switch-disabled-surface);
         box-shadow: 0 var(--oreui-shadow-offset-y, 8px) 0
-          var(--oreui-color-switch-disabled-track, #8c8d90);
+          var(--oreui-color-switch-disabled-track);
       }
 
       :host([disabled]) label {
