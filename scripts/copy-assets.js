@@ -15,3 +15,6 @@ await writeFile(resolve(dist, "styles.css"), css.join("\n"));
 await cp(resolve(root, "src/assets/fonts"), resolve(dist, "assets/fonts"), {
   recursive: true,
 });
+await cp(resolve(root, "src/assets/icons"), resolve(dist, "icons"), {
+  recursive: true,
+});

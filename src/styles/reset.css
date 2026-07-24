@@ -14,4 +14,40 @@
   ore-tooltip
 ) {
   box-sizing: border-box;
+  font: inherit;
+}
+
+:where(ore-icon) {
+  display: inline-block;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 1em;
+  height: 1em;
+  color: inherit;
+  line-height: 1;
+  vertical-align: -0.125em;
+}
+
+:where(ore-icon > svg) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+:where(ore-icon[icon="loader"] > svg) {
+  width: 3475%;
+  max-width: none;
+  animation: ore-loader 800ms steps(16, jump-none) infinite;
+}
+
+@keyframes ore-loader {
+  to {
+    transform: translateX(-97.125%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(ore-icon[icon="loader"] > svg) {
+    animation: none;
+  }
 }

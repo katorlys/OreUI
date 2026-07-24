@@ -1,4 +1,30 @@
 :root {
   --ore-font-body: "Minecraft", "Noto Sans", "GNU Unifont", sans-serif;
   --ore-font-display: "Minecraft Ten", "Minecraft", "Noto Sans", sans-serif;
+  --ore-font-size-body: 1rem;
+  --ore-line-height-body: 1.25;
+
+  --ore-color-foreground: #ffffff;
+  --ore-color-outline: #1e1e1f;
+  --ore-color-focus: #ffffff;
+  --ore-color-disabled: #d0d1d4;
+  --ore-color-disabled-outline: #8c8d90;
+
+  --ore-color-primary-surface: #3c8527;
+  --ore-color-primary-surface-hover: #52a535;
+  --ore-color-primary-surface-pressed: #2a641c;
+  --ore-color-primary-border: #639d52;
+  --ore-color-primary-border-hover: #75b75d;
+  --ore-color-primary-border-pressed: #3f7332;
+
+  --ore-color-secondary-surface: #8c8d90;
+  --ore-color-secondary-surface-hover: #b1b2b5;
+  --ore-color-secondary-surface-pressed: #58585a;
+  --ore-color-secondary-border: #97989b;
+  --ore-color-secondary-border-hover: #b9babc;
+  --ore-color-secondary-border-pressed: #68686a;
+
+  --ore-unit: 0.0625rem;
+  --ore-focus-width: calc(var(--ore-unit) * 2);
+  --ore-motion-fast: 100ms;
 }
