@@ -2,15 +2,25 @@ import { resolve } from "node:path";
 
 import { defineConfig } from "vite";
 
+import { getComponents } from "./scripts/components.js";
+
+const root = import.meta.dirname;
+const components = Object.fromEntries(
+  getComponents(root).map((name) => [
+    `components/${name}/${name}`,
+    resolve(root, `src/components/${name}/${name}.ts`),
+  ]),
+);
+
 export default defineConfig({
   root: "demo",
   build: {
-    outDir: resolve(import.meta.dirname, "dist"),
+    outDir: resolve(root, "dist"),
     emptyOutDir: true,
     lib: {
       entry: {
-        index: resolve(import.meta.dirname, "src/index.ts"),
-        button: resolve(import.meta.dirname, "src/components/button/index.ts"),
+        index: resolve(root, "src/index.ts"),
+        ...components,
       },
       formats: ["es"],
     },

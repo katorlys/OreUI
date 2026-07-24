@@ -20,9 +20,9 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./button": {
-      "types": "./dist/components/button/index.d.ts",
-      "import": "./dist/button.js"
+    "./*": {
+      "types": "./dist/components/*/*.d.ts",
+      "import": "./dist/components/*/*.js"
     },
     "./styles.css": "./dist/styles.css",
     "./icons/*": "./dist/icons/*.svg",
