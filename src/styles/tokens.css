@@ -16,13 +16,23 @@
   --ore-color-primary-border: #639d52;
   --ore-color-primary-border-hover: #75b75d;
   --ore-color-primary-border-pressed: #3f7332;
+  --ore-color-primary-thick: #1d4d13;
 
-  --ore-color-secondary-surface: #8c8d90;
-  --ore-color-secondary-surface-hover: #b1b2b5;
-  --ore-color-secondary-surface-pressed: #58585a;
-  --ore-color-secondary-border: #97989b;
-  --ore-color-secondary-border-hover: #b9babc;
-  --ore-color-secondary-border-pressed: #68686a;
+  --ore-color-secondary-surface: #d0d1d4;
+  --ore-color-secondary-surface-hover: #f4f6f9;
+  --ore-color-secondary-surface-pressed: #b1b2b5;
+  --ore-color-secondary-border: #e3e3e5;
+  --ore-color-secondary-border-hover: #fdfdfe;
+  --ore-color-secondary-border-pressed: #d0d1d3;
+  --ore-color-secondary-thick: #58585a;
+
+  --ore-color-destructive-surface: #ca3636;
+  --ore-color-destructive-surface-hover: #ff8080;
+  --ore-color-destructive-surface-pressed: #c02d2d;
+  --ore-color-destructive-border: #cf4a4a;
+  --ore-color-destructive-border-hover: #ff8c8c;
+  --ore-color-destructive-border-pressed: #c64242;
+  --ore-color-destructive-thick: #ad1d1d;
 
   --ore-unit: 0.0625rem;
   --ore-focus-width: calc(var(--ore-unit) * 2);

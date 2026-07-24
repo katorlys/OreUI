@@ -1,2 +1,6 @@
-export { OreButton, type OreButtonType } from "./components/button/index.js";
+export {
+  OreButton,
+  type OreButtonType,
+  type OreButtonVariant,
+} from "./components/button/index.js";
 export type OreElement = HTMLElement;

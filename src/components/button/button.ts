@@ -1,6 +1,7 @@
 import { type PropertyValues, ReactiveElement } from "lit";
 
 export type OreButtonType = "button" | "reset" | "submit";
+export type OreButtonVariant = "destructive" | "hero" | "primary" | "secondary";
 
 export class OreButton extends ReactiveElement {
   static formAssociated = true;
@@ -8,10 +9,12 @@ export class OreButton extends ReactiveElement {
   static properties = {
     disabled: { type: Boolean, reflect: true },
     type: { type: String, reflect: true },
+    variant: { type: String, reflect: true },
   };
 
   declare disabled: boolean;
   declare type: OreButtonType;
+  declare variant: OreButtonVariant;
 
   readonly #internals = this.attachInternals();
   #formDisabled = false;
@@ -21,6 +24,7 @@ export class OreButton extends ReactiveElement {
     super();
     this.disabled = false;
     this.type = "submit";
+    this.variant = "primary";
   }
 
   override connectedCallback(): void {

@@ -1,1 +1,5 @@
-export { OreButton, type OreButtonType } from "./button.js";
+export {
+  OreButton,
+  type OreButtonType,
+  type OreButtonVariant,
+} from "./button.js";

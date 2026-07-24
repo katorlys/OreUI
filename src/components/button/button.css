@@ -1,9 +1,19 @@
 :where(ore-button) {
   --ore-button-unit: 0.125rem;
-  --ore-button-surface: var(--ore-color-primary-surface);
-  --ore-button-border: var(--ore-color-primary-border);
+  --ore-button-surface-default: var(--ore-color-primary-surface);
+  --ore-button-surface-hover: var(--ore-color-primary-surface-hover);
+  --ore-button-surface-pressed: var(--ore-color-primary-surface-pressed);
+  --ore-button-border-default: var(--ore-color-primary-border);
+  --ore-button-border-hover: var(--ore-color-primary-border-hover);
+  --ore-button-border-pressed: var(--ore-color-primary-border-pressed);
+  --ore-button-surface: var(--ore-button-surface-default);
+  --ore-button-border: var(--ore-button-border-default);
   --ore-button-outline: var(--ore-color-outline);
-  --ore-button-thick: #1d4d13;
+  --ore-button-thick: var(--ore-color-primary-thick);
+  --ore-button-foreground: var(--ore-color-foreground);
+  --ore-button-font-family: var(--ore-font-body);
+  --ore-button-font-size: calc(var(--ore-button-unit) * 7);
+  --ore-button-text-shadow: none;
   --ore-button-face-offset: 0px;
 
   display: inline-flex;
@@ -12,8 +22,8 @@
   box-sizing: border-box;
   min-width: calc(var(--ore-button-unit) * 64);
   min-height: calc(var(--ore-button-unit) * 22);
-  padding: 0 calc(var(--ore-button-unit) * 8);
-  color: var(--ore-color-foreground);
+  padding: 0 calc(var(--ore-button-unit) * 8) calc(var(--ore-button-unit) * 2);
+  color: var(--ore-button-foreground);
   background:
     linear-gradient(var(--ore-button-outline), var(--ore-button-outline)) center
       var(--ore-button-face-offset) / 100% var(--ore-button-unit) no-repeat,
@@ -44,32 +54,61 @@
       calc(100% - var(--ore-button-unit) * 2) calc(var(--ore-button-unit) * 2)
       no-repeat,
     var(--ore-button-surface);
-  font-family: var(--ore-font-body);
-  font-size: calc(var(--ore-button-unit) * 7);
+  font-family: var(--ore-button-font-family);
+  font-size: var(--ore-button-font-size);
   font-weight: 400;
   line-height: 1;
   text-align: center;
-  text-shadow: var(--ore-button-unit) var(--ore-button-unit) rgb(0 0 0 / 30%);
+  text-shadow: var(--ore-button-text-shadow);
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
 
+:where(ore-button[variant="hero"]) {
+  --ore-button-font-family: var(--ore-font-display);
+  --ore-button-font-size: calc(var(--ore-button-unit) * 9);
+  --ore-button-text-shadow: var(--ore-button-unit) var(--ore-button-unit)
+    rgb(0 0 0 / 30%);
+}
+
+:where(ore-button[variant="secondary"]) {
+  --ore-button-surface-default: var(--ore-color-secondary-surface);
+  --ore-button-surface-hover: var(--ore-color-secondary-surface-hover);
+  --ore-button-surface-pressed: var(--ore-color-secondary-surface-pressed);
+  --ore-button-border-default: var(--ore-color-secondary-border);
+  --ore-button-border-hover: var(--ore-color-secondary-border-hover);
+  --ore-button-border-pressed: var(--ore-color-secondary-border-pressed);
+  --ore-button-thick: var(--ore-color-secondary-thick);
+  --ore-button-foreground: var(--ore-color-outline);
+}
+
+:where(ore-button[variant="destructive"]) {
+  --ore-button-surface-default: var(--ore-color-destructive-surface);
+  --ore-button-surface-hover: var(--ore-color-destructive-surface-hover);
+  --ore-button-surface-pressed: var(--ore-color-destructive-surface-pressed);
+  --ore-button-border-default: var(--ore-color-destructive-border);
+  --ore-button-border-hover: var(--ore-color-destructive-border-hover);
+  --ore-button-border-pressed: var(--ore-color-destructive-border-pressed);
+  --ore-button-thick: var(--ore-color-destructive-thick);
+}
+
 :where(ore-button:hover:not([disabled], [form-disabled])) {
-  --ore-button-surface: var(--ore-color-primary-surface-hover);
-  --ore-button-border: var(--ore-color-primary-border-hover);
+  --ore-button-surface: var(--ore-button-surface-hover);
+  --ore-button-border: var(--ore-button-border-hover);
 }
 
 :where(
   ore-button:active:not([disabled], [form-disabled]),
   ore-button[pressed]:not([disabled], [form-disabled])
 ) {
-  --ore-button-surface: var(--ore-color-primary-surface-pressed);
-  --ore-button-border: var(--ore-color-primary-border-pressed);
+  --ore-button-surface: var(--ore-button-surface-pressed);
+  --ore-button-border: var(--ore-button-border-pressed);
   --ore-button-thick: transparent;
   --ore-button-face-offset: calc(var(--ore-button-unit) * 2);
 
-  padding-top: calc(var(--ore-button-unit) * 4);
+  padding-top: var(--ore-button-face-offset);
+  padding-bottom: 0;
   clip-path: inset(var(--ore-button-face-offset) 0 0);
 }
 
@@ -82,9 +121,9 @@
   --ore-button-surface: var(--ore-color-disabled);
   --ore-button-border: var(--ore-color-disabled);
   --ore-button-outline: var(--ore-color-disabled-outline);
-  --ore-button-thick: var(--ore-color-secondary-surface-hover);
+  --ore-button-thick: var(--ore-color-secondary-surface-pressed);
 
   color: #48494a;
-  text-shadow: none;
+  --ore-button-text-shadow: none;
   cursor: not-allowed;
 }
