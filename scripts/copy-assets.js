@@ -5,7 +5,12 @@ const root = resolve(import.meta.dirname, "..");
 const styles = resolve(root, "src/styles");
 const dist = resolve(root, "dist");
 
-const imports = ["fonts.css", "tokens.css", "reset.css"];
+const imports = [
+  "fonts.css",
+  "tokens.css",
+  "reset.css",
+  "../components/button/button.css",
+];
 const css = await Promise.all(
   imports.map((file) => readFile(resolve(styles, file), "utf8")),
 );

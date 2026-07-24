@@ -8,9 +8,11 @@ export default defineConfig({
     outDir: resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
     lib: {
-      entry: resolve(import.meta.dirname, "src/index.ts"),
+      entry: {
+        index: resolve(import.meta.dirname, "src/index.ts"),
+        button: resolve(import.meta.dirname, "src/components/button/index.ts"),
+      },
       formats: ["es"],
-      fileName: "index",
     },
     rolldownOptions: {
       external: [/^lit(?:\/|$)/],

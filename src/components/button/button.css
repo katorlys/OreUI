@@ -1,0 +1,90 @@
+:where(ore-button) {
+  --ore-button-unit: 0.125rem;
+  --ore-button-surface: var(--ore-color-primary-surface);
+  --ore-button-border: var(--ore-color-primary-border);
+  --ore-button-outline: var(--ore-color-outline);
+  --ore-button-thick: #1d4d13;
+  --ore-button-face-offset: 0px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: calc(var(--ore-button-unit) * 64);
+  min-height: calc(var(--ore-button-unit) * 22);
+  padding: 0 calc(var(--ore-button-unit) * 8);
+  color: var(--ore-color-foreground);
+  background:
+    linear-gradient(var(--ore-button-outline), var(--ore-button-outline)) center
+      var(--ore-button-face-offset) / 100% var(--ore-button-unit) no-repeat,
+    linear-gradient(var(--ore-button-outline), var(--ore-button-outline)) center
+      bottom / 100% var(--ore-button-unit) no-repeat,
+    linear-gradient(var(--ore-button-outline), var(--ore-button-outline)) left
+      var(--ore-button-face-offset) / var(--ore-button-unit)
+      calc(100% - var(--ore-button-face-offset)) no-repeat,
+    linear-gradient(var(--ore-button-outline), var(--ore-button-outline)) right
+      var(--ore-button-face-offset) / var(--ore-button-unit)
+      calc(100% - var(--ore-button-face-offset)) no-repeat,
+    linear-gradient(var(--ore-button-border), var(--ore-button-border)) center
+      calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
+      calc(100% - var(--ore-button-unit) * 2) var(--ore-button-unit) no-repeat,
+    linear-gradient(var(--ore-button-border), var(--ore-button-border)) center
+      calc(var(--ore-button-unit) * 18 + var(--ore-button-face-offset)) /
+      calc(100% - var(--ore-button-unit) * 2) var(--ore-button-unit) no-repeat,
+    linear-gradient(var(--ore-button-border), var(--ore-button-border)) left
+      calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
+      calc(var(--ore-button-unit) * 2) calc(var(--ore-button-unit) * 18)
+      no-repeat,
+    linear-gradient(var(--ore-button-border), var(--ore-button-border)) right
+      calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
+      calc(var(--ore-button-unit) * 2) calc(var(--ore-button-unit) * 18)
+      no-repeat,
+    linear-gradient(var(--ore-button-thick), var(--ore-button-thick)) center
+      calc(100% - var(--ore-button-unit)) /
+      calc(100% - var(--ore-button-unit) * 2) calc(var(--ore-button-unit) * 2)
+      no-repeat,
+    var(--ore-button-surface);
+  font-family: var(--ore-font-body);
+  font-size: calc(var(--ore-button-unit) * 7);
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  text-shadow: var(--ore-button-unit) var(--ore-button-unit) rgb(0 0 0 / 30%);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(ore-button:hover:not([disabled], [form-disabled])) {
+  --ore-button-surface: var(--ore-color-primary-surface-hover);
+  --ore-button-border: var(--ore-color-primary-border-hover);
+}
+
+:where(
+  ore-button:active:not([disabled], [form-disabled]),
+  ore-button[pressed]:not([disabled], [form-disabled])
+) {
+  --ore-button-surface: var(--ore-color-primary-surface-pressed);
+  --ore-button-border: var(--ore-color-primary-border-pressed);
+  --ore-button-thick: transparent;
+  --ore-button-face-offset: calc(var(--ore-button-unit) * 2);
+
+  padding-top: calc(var(--ore-button-unit) * 4);
+  clip-path: inset(var(--ore-button-face-offset) 0 0);
+}
+
+:where(ore-button:focus-visible) {
+  outline: var(--ore-button-unit) solid var(--ore-color-focus);
+  outline-offset: 0;
+}
+
+:where(ore-button[disabled], ore-button[form-disabled]) {
+  --ore-button-surface: var(--ore-color-disabled);
+  --ore-button-border: var(--ore-color-disabled);
+  --ore-button-outline: var(--ore-color-disabled-outline);
+  --ore-button-thick: var(--ore-color-secondary-surface-hover);
+
+  color: #48494a;
+  text-shadow: none;
+  cursor: not-allowed;
+}
