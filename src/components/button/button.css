@@ -39,15 +39,15 @@
       calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
       calc(100% - var(--ore-button-unit) * 2) var(--ore-button-unit) no-repeat,
     linear-gradient(var(--ore-button-border), var(--ore-button-border)) center
-      calc(var(--ore-button-unit) * 18 + var(--ore-button-face-offset)) /
+      calc(100% - var(--ore-button-unit) * 3 + var(--ore-button-face-offset)) /
       calc(100% - var(--ore-button-unit) * 2) var(--ore-button-unit) no-repeat,
     linear-gradient(var(--ore-button-border), var(--ore-button-border)) left
       calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
-      calc(var(--ore-button-unit) * 2) calc(var(--ore-button-unit) * 18)
+      calc(var(--ore-button-unit) * 2) calc(100% - var(--ore-button-unit) * 4)
       no-repeat,
     linear-gradient(var(--ore-button-border), var(--ore-button-border)) right
       calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
-      calc(var(--ore-button-unit) * 2) calc(var(--ore-button-unit) * 18)
+      calc(var(--ore-button-unit) * 2) calc(100% - var(--ore-button-unit) * 4)
       no-repeat,
     linear-gradient(var(--ore-button-thick), var(--ore-button-thick)) center
       calc(100% - var(--ore-button-unit)) /

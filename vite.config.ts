@@ -1,5 +1,6 @@
 import { resolve } from "node:path";
 
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 
 import { getComponents } from "./scripts/components.js";
@@ -14,6 +15,7 @@ const components = Object.fromEntries(
 
 export default defineConfig({
   root: "demo",
+  plugins: [tailwindcss()],
   build: {
     outDir: resolve(root, "dist"),
     emptyOutDir: true,

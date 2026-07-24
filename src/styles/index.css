@@ -1,4 +1,6 @@
+@layer theme, base, components, utilities;
+
 @import "./fonts.css";
 @import "./tokens.css";
-@import "./reset.css";
-@import "../components/button/button.css";
+@import "./reset.css" layer(components);
+@import "../components/button/button.css" layer(components);
