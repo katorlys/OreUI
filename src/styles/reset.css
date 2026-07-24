@@ -1,0 +1,17 @@
+:where(
+  ore-button,
+  ore-card,
+  ore-checkbox,
+  ore-dropdown,
+  ore-modal,
+  ore-radio,
+  ore-slider,
+  ore-tab,
+  ore-tag,
+  ore-text-field,
+  ore-toggle,
+  ore-toggle-button,
+  ore-tooltip
+) {
+  box-sizing: border-box;
+}

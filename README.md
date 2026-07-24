@@ -10,7 +10,7 @@
 </h1>
 
 <p>
-  An unofficial cross-framework library to implement the OreUI design system into your project.
+  An unofficial Ore UI cross-framework component library.
 </p>
 
 [![Pull Requests][github-pr-badge]][github-pr-link]
@@ -23,7 +23,7 @@
 <!-- Main Body -->
 
 ## Introduction
-Describe your project clearly here.
+An unofficial cross-framework component library to implement the OreUI design system into your project.
 
 > [!NOTE]
 > ⚠️ Disclaimer: This is an unofficial fan-made project inspired by game UI design. It is not affiliated with, endorsed by, or associated with Mojang AB or Microsoft.
