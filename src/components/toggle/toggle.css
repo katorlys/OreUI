@@ -1,0 +1,148 @@
+:where(ore-toggle) {
+  --ore-toggle-unit: 0.125rem;
+  --ore-toggle-status-surface: #8c8d90;
+  --ore-toggle-status-border: #a3a4a6;
+  --ore-toggle-status-outline: var(--ore-color-outline);
+  --ore-toggle-button-surface: #d0d1d4;
+  --ore-toggle-button-border: #e3e3e5;
+  --ore-toggle-button-thick: #58585a;
+  --ore-toggle-button-outline: var(--ore-color-outline);
+  --ore-toggle-button-ring: transparent;
+  --ore-toggle-icon: #242425;
+
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--ore-toggle-unit) * 4);
+  min-height: calc(var(--ore-toggle-unit) * 15);
+  color: var(--ore-color-outline);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(ore-toggle) .ore-toggle-control {
+  display: flex;
+  align-items: flex-end;
+  width: calc(var(--ore-toggle-unit) * 28);
+  height: calc(var(--ore-toggle-unit) * 15);
+}
+
+:where(ore-toggle) .ore-toggle-status {
+  position: relative;
+  z-index: 0;
+  flex: none;
+  box-sizing: border-box;
+  width: calc(var(--ore-toggle-unit) * 13);
+  height: calc(var(--ore-toggle-unit) * 13);
+  background:
+    linear-gradient(
+        var(--ore-toggle-status-surface),
+        var(--ore-toggle-status-surface)
+      )
+      left calc(var(--ore-toggle-unit) * 2) / calc(var(--ore-toggle-unit) * 11)
+      calc(var(--ore-toggle-unit) * 9) no-repeat,
+    linear-gradient(
+        var(--ore-toggle-status-border),
+        var(--ore-toggle-status-border)
+      )
+      left var(--ore-toggle-unit) / calc(var(--ore-toggle-unit) * 12)
+      calc(var(--ore-toggle-unit) * 11) no-repeat,
+    var(--ore-toggle-status-outline);
+}
+
+:where(ore-toggle) .ore-toggle-button {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  box-sizing: border-box;
+  width: calc(var(--ore-toggle-unit) * 15);
+  height: calc(var(--ore-toggle-unit) * 15);
+  background:
+    linear-gradient(
+        var(--ore-toggle-button-surface),
+        var(--ore-toggle-button-surface)
+      )
+      center calc(var(--ore-toggle-unit) * 2) /
+      calc(var(--ore-toggle-unit) * 11) calc(var(--ore-toggle-unit) * 9)
+      no-repeat,
+    linear-gradient(
+        var(--ore-toggle-button-thick),
+        var(--ore-toggle-button-thick)
+      )
+      center calc(var(--ore-toggle-unit) * 12) /
+      calc(var(--ore-toggle-unit) * 13) calc(var(--ore-toggle-unit) * 2)
+      no-repeat,
+    linear-gradient(
+        var(--ore-toggle-button-border),
+        var(--ore-toggle-button-border)
+      )
+      center var(--ore-toggle-unit) / calc(var(--ore-toggle-unit) * 13)
+      calc(var(--ore-toggle-unit) * 11) no-repeat,
+    var(--ore-toggle-button-outline);
+  box-shadow: 0 0 0 var(--ore-toggle-unit) var(--ore-toggle-button-ring);
+  order: -1;
+}
+
+:where(ore-toggle[checked]) .ore-toggle-button {
+  order: 0;
+}
+
+:where(ore-toggle[checked]) .ore-toggle-status {
+  background-position:
+    right calc(var(--ore-toggle-unit) * 2),
+    right var(--ore-toggle-unit),
+    center;
+}
+
+:where(ore-toggle[checked]) {
+  --ore-toggle-status-surface: var(--ore-color-primary-surface);
+  --ore-toggle-status-border: var(--ore-color-primary-border);
+  --ore-toggle-icon: #ffffff;
+}
+
+:where(ore-toggle[variant="icons"]) .ore-toggle-status::after {
+  position: absolute;
+  top: calc(var(--ore-toggle-unit) * 2.5);
+  left: calc(var(--ore-toggle-unit) * 2);
+  width: calc(var(--ore-toggle-unit) * 8);
+  height: calc(var(--ore-toggle-unit) * 8);
+  background: var(--ore-toggle-icon);
+  content: "";
+  mask: url("../../assets/icons/off.svg") center / contain no-repeat;
+}
+
+:where(ore-toggle[checked][variant="icons"]) .ore-toggle-status::after {
+  left: calc(var(--ore-toggle-unit) * 3);
+  mask-image: url("../../assets/icons/on.svg");
+}
+
+:where(ore-toggle:hover:not([disabled], [form-disabled])) {
+  --ore-toggle-button-surface: #f4f6f9;
+  --ore-toggle-button-border: #fbfbfd;
+}
+
+:where(
+  ore-toggle:active:not([disabled], [form-disabled]),
+  ore-toggle[pressed]:not([disabled], [form-disabled])
+) {
+  --ore-toggle-button-surface: #b1b2b5;
+  --ore-toggle-button-border: #e0e0e1;
+}
+
+:where(ore-toggle:focus-visible) {
+  --ore-toggle-button-border: #ecedee;
+  --ore-toggle-button-ring: var(--ore-color-focus);
+}
+
+:where(ore-toggle[disabled], ore-toggle[form-disabled]) {
+  --ore-toggle-status-surface: var(--ore-color-disabled);
+  --ore-toggle-status-border: var(--ore-color-disabled);
+  --ore-toggle-status-outline: var(--ore-color-disabled-outline);
+  --ore-toggle-button-surface: var(--ore-color-disabled);
+  --ore-toggle-button-border: var(--ore-color-disabled);
+  --ore-toggle-button-thick: #b1b2b5;
+  --ore-toggle-button-outline: var(--ore-color-disabled-outline);
+  --ore-toggle-icon: #666666;
+
+  cursor: not-allowed;
+}

@@ -6,3 +6,4 @@
 @import "../components/button/button.css" layer(components);
 @import "../components/checkbox/checkbox.css" layer(components);
 @import "../components/radio/radio.css" layer(components);
+@import "../components/toggle/toggle.css" layer(components);
