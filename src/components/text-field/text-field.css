@@ -1,0 +1,86 @@
+:where(ore-text-field) {
+  --ore-text-field-unit: 0.125rem;
+  --ore-text-field-surface: #313233;
+  --ore-text-field-thick: #242425;
+  --ore-text-field-outline: var(--ore-color-outline);
+  --ore-text-field-foreground: var(--ore-color-foreground);
+  --ore-text-field-description: var(--ore-color-disabled);
+  --ore-text-field-ring: transparent;
+  --ore-text-field-caret: var(--ore-color-primary-surface);
+
+  display: inline-grid;
+  width: min(100%, calc(var(--ore-text-field-unit) * 122));
+  color: var(--ore-text-field-foreground);
+  font-family: var(--ore-font-body);
+}
+
+:where(ore-text-field > .ore-text-field-label) {
+  font-size: calc(var(--ore-text-field-unit) * 8);
+  line-height: calc(var(--ore-text-field-unit) * 10);
+  cursor: text;
+}
+
+:where(ore-text-field > .ore-text-field-control) {
+  box-sizing: border-box;
+  height: calc(var(--ore-text-field-unit) * 22);
+  margin-top: var(--ore-text-field-unit);
+  padding: calc(var(--ore-text-field-unit) * 3)
+    calc(var(--ore-text-field-unit) * 1) calc(var(--ore-text-field-unit) * 1);
+  background:
+    linear-gradient(var(--ore-text-field-thick), var(--ore-text-field-thick))
+      center var(--ore-text-field-unit) /
+      calc(100% - var(--ore-text-field-unit) * 2)
+      calc(var(--ore-text-field-unit) * 2) no-repeat,
+    linear-gradient(
+        var(--ore-text-field-surface),
+        var(--ore-text-field-surface)
+      )
+      center calc(var(--ore-text-field-unit) * 3) /
+      calc(100% - var(--ore-text-field-unit) * 2)
+      calc(100% - var(--ore-text-field-unit) * 4) no-repeat,
+    var(--ore-text-field-outline);
+  box-shadow: 0 0 0 var(--ore-text-field-unit) var(--ore-text-field-ring);
+}
+
+:where(ore-text-field .ore-text-field-input) {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 calc(var(--ore-text-field-unit) * 3);
+  border: 0;
+  outline: 0;
+  color: var(--ore-text-field-foreground);
+  background: transparent;
+  font: inherit;
+  font-size: calc(var(--ore-text-field-unit) * 8);
+  caret-color: var(--ore-text-field-caret);
+}
+
+:where(ore-text-field .ore-text-field-input::placeholder) {
+  color: #8c8d90;
+  opacity: 1;
+}
+
+:where(ore-text-field > .ore-text-field-description) {
+  margin-top: calc(var(--ore-text-field-unit) * 2);
+  color: var(--ore-text-field-description);
+  font-size: calc(var(--ore-text-field-unit) * 6);
+  line-height: calc(var(--ore-text-field-unit) * 7);
+}
+
+:where(ore-text-field:has(.ore-text-field-input:focus-visible)) {
+  --ore-text-field-ring: var(--ore-color-focus);
+}
+
+:where(ore-text-field[disabled], ore-text-field[form-disabled]) {
+  --ore-text-field-surface: var(--ore-color-disabled);
+  --ore-text-field-thick: #b1b2b5;
+  --ore-text-field-outline: var(--ore-color-disabled-outline);
+  --ore-text-field-foreground: var(--ore-color-disabled);
+}
+
+:where(ore-text-field[disabled], ore-text-field[form-disabled])
+  > .ore-text-field-label {
+  cursor: not-allowed;
+}

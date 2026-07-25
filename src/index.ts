@@ -14,6 +14,7 @@ export {
   type OreTabButtonPalette,
 } from "./components/tab-button/tab-button.js";
 export { OreTag, type OreTagVariant } from "./components/tag/tag.js";
+export { OreTextField } from "./components/text-field/text-field.js";
 export {
   OreToggle,
   type OreToggleVariant,

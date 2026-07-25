@@ -9,4 +9,5 @@
 @import "../components/slider/slider.css" layer(components);
 @import "../components/tab-button/tab-button.css" layer(components);
 @import "../components/tag/tag.css" layer(components);
+@import "../components/text-field/text-field.css" layer(components);
 @import "../components/toggle/toggle.css" layer(components);
