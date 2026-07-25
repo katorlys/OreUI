@@ -9,6 +9,7 @@ export {
   OreTabButton,
   type OreTabButtonPalette,
 } from "./components/tab-button/tab-button.js";
+export { OreTag, type OreTagVariant } from "./components/tag/tag.js";
 export {
   OreToggle,
   type OreToggleVariant,
