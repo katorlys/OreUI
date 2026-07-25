@@ -26,6 +26,14 @@
   --ore-color-secondary-border-pressed: #d0d1d3;
   --ore-color-secondary-thick: #58585a;
 
+  --ore-color-neutral-surface: #48494a;
+  --ore-color-neutral-surface-hover: #58585a;
+  --ore-color-neutral-surface-pressed: #313233;
+  --ore-color-neutral-border: #6d6d6e;
+  --ore-color-neutral-border-hover: #79797b;
+  --ore-color-neutral-border-pressed: #5a5b5c;
+  --ore-color-neutral-thick: #313233;
+
   --ore-color-destructive-surface: #ca3636;
   --ore-color-destructive-surface-hover: #ff8080;
   --ore-color-destructive-surface-pressed: #c02d2d;

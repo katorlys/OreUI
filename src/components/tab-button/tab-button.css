@@ -1,12 +1,12 @@
 :where(ore-tab-button) {
-  --ore-tab-off-surface: #48494a;
-  --ore-tab-off-surface-hover: #58585a;
-  --ore-tab-off-surface-pressed: #313233;
-  --ore-tab-off-border: #6d6d6e;
-  --ore-tab-off-border-hover: #79797b;
-  --ore-tab-off-border-pressed: #5a5b5c;
-  --ore-tab-off-thick: #313233;
-  --ore-tab-off-foreground: #ffffff;
+  --ore-tab-off-surface: var(--ore-color-neutral-surface);
+  --ore-tab-off-surface-hover: var(--ore-color-neutral-surface-hover);
+  --ore-tab-off-surface-pressed: var(--ore-color-neutral-surface-pressed);
+  --ore-tab-off-border: var(--ore-color-neutral-border);
+  --ore-tab-off-border-hover: var(--ore-color-neutral-border-hover);
+  --ore-tab-off-border-pressed: var(--ore-color-neutral-border-pressed);
+  --ore-tab-off-thick: var(--ore-color-neutral-thick);
+  --ore-tab-off-foreground: var(--ore-color-foreground);
   --ore-tab-on-surface: #313233;
   --ore-tab-on-border: #5a5b5c;
   --ore-tab-on-foreground: #ffffff;
@@ -70,6 +70,29 @@
 
 :where(ore-tab-button:focus-visible) {
   z-index: 1;
+}
+
+:where(
+  [role="tablist"]:not([aria-orientation="vertical"])
+    > ore-tab-button
+    + ore-tab-button
+) {
+  margin-inline-start: calc(var(--ore-button-unit) * -1);
+}
+
+:where(ore-tab-button[selected]):focus-visible {
+  outline: none;
+}
+
+:where(ore-tab-button[selected]):focus-visible::before {
+  position: absolute;
+  top: calc(var(--ore-button-unit) * 2);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 0 0 var(--ore-button-unit) var(--ore-color-focus);
+  content: "";
+  pointer-events: none;
 }
 
 :where(ore-tab-button[selected])::after {
