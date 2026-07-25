@@ -1,0 +1,104 @@
+:where(ore-radio) {
+  --ore-radio-unit: 0.125rem;
+  --ore-radio-surface: #8c8d90;
+  --ore-radio-border: #97989b;
+  --ore-radio-outline: var(--ore-color-outline);
+  --ore-radio-indicator-light: #ffffff;
+  --ore-radio-indicator-dim: #e6e8eb;
+  --ore-radio-indicator-dark: #d0d1d4;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--ore-radio-unit) * 4);
+  min-height: calc(var(--ore-radio-unit) * 16);
+  padding-left: calc(var(--ore-radio-unit) * 16);
+  color: var(--ore-color-outline);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(ore-radio)::before {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--ore-radio-unit) * 3.5);
+  box-sizing: border-box;
+  width: calc(var(--ore-radio-unit) * 9);
+  height: calc(var(--ore-radio-unit) * 9);
+  background: var(--ore-radio-surface);
+  box-shadow:
+    inset 0 0 0 var(--ore-radio-unit) var(--ore-radio-outline),
+    inset 0 0 0 calc(var(--ore-radio-unit) * 2) var(--ore-radio-border);
+  content: "";
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+:where(ore-radio[checked])::before {
+  background:
+    linear-gradient(
+        to right,
+        var(--ore-radio-indicator-light) 50%,
+        var(--ore-radio-indicator-dim) 0
+      )
+      center calc(50% - var(--ore-radio-unit)) / calc(var(--ore-radio-unit) * 4)
+      calc(var(--ore-radio-unit) * 2) no-repeat,
+    linear-gradient(
+        to right,
+        var(--ore-radio-indicator-dim) 50%,
+        var(--ore-radio-indicator-dark) 0
+      )
+      center calc(50% + var(--ore-radio-unit)) / calc(var(--ore-radio-unit) * 4)
+      calc(var(--ore-radio-unit) * 2) no-repeat,
+    var(--ore-radio-surface);
+}
+
+:where(ore-radio[checked]) {
+  --ore-radio-surface: var(--ore-color-primary-surface);
+  --ore-radio-border: var(--ore-color-primary-border);
+}
+
+:where(ore-radio:hover:not([disabled], [form-disabled])) {
+  --ore-radio-surface: #b1b2b5;
+  --ore-radio-border: #b9babc;
+}
+
+:where(ore-radio[checked]:hover:not([disabled], [form-disabled])) {
+  --ore-radio-surface: var(--ore-color-primary-surface-hover);
+  --ore-radio-border: var(--ore-color-primary-border-hover);
+}
+
+:where(
+  ore-radio:active:not([disabled], [form-disabled]),
+  ore-radio[pressed]:not([disabled], [form-disabled])
+) {
+  --ore-radio-surface: #58585a;
+  --ore-radio-border: #68686a;
+}
+
+:where(
+  ore-radio[checked]:active:not([disabled], [form-disabled]),
+  ore-radio[checked][pressed]:not([disabled], [form-disabled])
+) {
+  --ore-radio-surface: var(--ore-color-primary-surface-pressed);
+  --ore-radio-border: var(--ore-color-primary-border-pressed);
+}
+
+:where(ore-radio:focus-visible)::before {
+  box-shadow:
+    0 0 0 var(--ore-radio-unit) var(--ore-color-focus),
+    inset 0 0 0 var(--ore-radio-unit) var(--ore-radio-outline),
+    inset 0 0 0 calc(var(--ore-radio-unit) * 2) var(--ore-radio-border);
+}
+
+:where(ore-radio:focus-visible:not([checked])) {
+  --ore-radio-border: #a3a4a6;
+}
+
+:where(ore-radio[disabled], ore-radio[form-disabled]) {
+  --ore-radio-surface: var(--ore-color-disabled);
+  --ore-radio-border: var(--ore-color-disabled);
+  --ore-radio-outline: var(--ore-color-disabled-outline);
+
+  cursor: not-allowed;
+}
