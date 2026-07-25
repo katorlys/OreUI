@@ -1,4 +1,4 @@
-:where(ore-button) {
+:where(ore-button, ore-tab-button) {
   --ore-button-unit: 0.125rem;
   --ore-button-surface-default: var(--ore-color-primary-surface);
   --ore-button-surface-hover: var(--ore-color-primary-surface-hover);
@@ -93,14 +93,14 @@
   --ore-button-thick: var(--ore-color-destructive-thick);
 }
 
-:where(ore-button:hover:not([disabled], [form-disabled])) {
+:where(ore-button, ore-tab-button):hover:not([disabled], [form-disabled]) {
   --ore-button-surface: var(--ore-button-surface-hover);
   --ore-button-border: var(--ore-button-border-hover);
 }
 
 :where(
-  ore-button:active:not([disabled], [form-disabled]),
-  ore-button[pressed]:not([disabled], [form-disabled])
+  :is(ore-button, ore-tab-button):active:not([disabled], [form-disabled]),
+  :is(ore-button, ore-tab-button)[pressed]:not([disabled], [form-disabled])
 ) {
   --ore-button-surface: var(--ore-button-surface-pressed);
   --ore-button-border: var(--ore-button-border-pressed);
@@ -112,12 +112,17 @@
   clip-path: inset(var(--ore-button-face-offset) 0 0);
 }
 
-:where(ore-button:focus-visible) {
+:where(ore-button, ore-tab-button):focus-visible {
   outline: var(--ore-button-unit) solid var(--ore-color-focus);
   outline-offset: 0;
 }
 
-:where(ore-button[disabled], ore-button[form-disabled]) {
+:where(
+  ore-button[disabled],
+  ore-button[form-disabled],
+  ore-tab-button[disabled],
+  ore-tab-button[form-disabled]
+) {
   --ore-button-surface: var(--ore-color-disabled);
   --ore-button-border: var(--ore-color-disabled);
   --ore-button-outline: var(--ore-color-disabled-outline);
