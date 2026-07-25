@@ -6,6 +6,10 @@ export {
 export { OreCheckbox } from "./components/checkbox/checkbox.js";
 export { OreRadio } from "./components/radio/radio.js";
 export {
+  OreSlider,
+  type OreSliderVariant,
+} from "./components/slider/slider.js";
+export {
   OreTabButton,
   type OreTabButtonPalette,
 } from "./components/tab-button/tab-button.js";
