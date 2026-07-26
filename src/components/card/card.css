@@ -115,6 +115,25 @@
   white-space: nowrap;
 }
 
+:where(ore-card .ore-card-action) {
+  --ore-icon-button-width: calc(var(--ore-card-unit) * 29.25);
+  --ore-icon-button-height: calc(100% + var(--ore-card-unit) * 2);
+  --ore-icon-button-shadow: calc(var(--ore-card-unit) * -1) 0 0
+    var(--ore-icon-button-outline);
+
+  align-self: stretch;
+  flex: 0 0 calc(var(--ore-card-unit) * 29.25);
+  margin-inline-start: auto;
+  margin-inline-end: calc(var(--ore-card-unit) * -1);
+  margin-block-start: calc(var(--ore-card-unit) * -1);
+  margin-block-end: calc(var(--ore-card-unit) * -1);
+}
+
+:where(ore-card .ore-card-action > ore-icon) {
+  width: calc(var(--ore-card-unit) * 10);
+  height: calc(var(--ore-card-unit) * 10);
+}
+
 :where(ore-card .ore-card-overlay-top-end) {
   display: grid;
   place-items: center;
