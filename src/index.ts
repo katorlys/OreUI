@@ -3,6 +3,7 @@ export {
   type OreButtonType,
   type OreButtonVariant,
 } from "./components/button/button.js";
+export { OreCard } from "./components/card/card.js";
 export { OreCheckbox } from "./components/checkbox/checkbox.js";
 export { OreRadio } from "./components/radio/radio.js";
 export {

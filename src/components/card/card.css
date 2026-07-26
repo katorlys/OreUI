@@ -1,0 +1,132 @@
+:where(ore-card) {
+  --ore-card-unit: 0.125rem;
+  --ore-card-outline: var(--ore-color-outline);
+  --ore-card-surface: #48494a;
+  --ore-card-edge-light: #5a5b5c;
+  --ore-card-edge-dark: #333334;
+  --ore-card-foreground: var(--ore-color-foreground);
+  --ore-card-description: var(--ore-color-disabled);
+
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  box-sizing: border-box;
+  width: min(100%, calc(var(--ore-card-unit) * 148));
+  row-gap: var(--ore-card-unit);
+  color: var(--ore-card-foreground);
+  background: var(--ore-card-edge-dark);
+  box-shadow: 0 0 0 var(--ore-card-unit) var(--ore-card-outline);
+  font-family: var(--ore-font-body);
+}
+
+:where(ore-card > .ore-card-media) {
+  position: relative;
+  z-index: 2;
+  aspect-ratio: 16 / 9;
+  min-width: 0;
+  background: #000000;
+}
+
+:where(ore-card > .ore-card-media)::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  box-shadow: 0 0 0 var(--ore-card-unit) var(--ore-card-outline);
+  content: "";
+  pointer-events: none;
+}
+
+:where(ore-card > .ore-card-media > img) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+:where(
+  ore-card .ore-card-overlay-top-start,
+  ore-card .ore-card-overlay-bottom-start,
+  ore-card .ore-card-overlay-top-end
+) {
+  position: absolute;
+  z-index: 3;
+}
+
+:where(ore-card .ore-card-overlay-top-start) {
+  top: 0;
+  left: 0;
+}
+
+:where(ore-card .ore-card-overlay-bottom-start) {
+  bottom: 0;
+  left: 0;
+}
+
+:where(ore-card .ore-card-overlay-top-end) {
+  top: 0;
+  right: 0;
+}
+
+:where(ore-card > .ore-card-body) {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: calc(var(--ore-card-unit) * 29.25);
+  border-top: var(--ore-card-unit) solid var(--ore-card-edge-light);
+  border-right: var(--ore-card-unit) solid var(--ore-card-edge-dark);
+  border-bottom: var(--ore-card-unit) solid var(--ore-card-edge-dark);
+  border-left: var(--ore-card-unit) solid var(--ore-card-edge-light);
+  background: var(--ore-card-surface);
+}
+
+:where(ore-card .ore-card-caption) {
+  display: grid;
+  align-content: center;
+  min-width: 0;
+  padding: 0 calc(var(--ore-card-unit) * 6.35);
+}
+
+:where(ore-card .ore-card-title) {
+  overflow: hidden;
+  font-size: calc(var(--ore-card-unit) * 8);
+  line-height: calc(var(--ore-card-unit) * 10);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:where(ore-card .ore-card-description) {
+  overflow: hidden;
+  color: var(--ore-card-description);
+  font-size: calc(var(--ore-card-unit) * 6);
+  line-height: calc(var(--ore-card-unit) * 7);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:where(ore-card .ore-card-meta) {
+  align-self: center;
+  margin-inline-start: auto;
+  padding-inline-end: calc(var(--ore-card-unit) * 3.35);
+  font-size: calc(var(--ore-card-unit) * 6);
+  line-height: calc(var(--ore-card-unit) * 7);
+  white-space: nowrap;
+}
+
+:where(ore-card .ore-card-overlay-top-end) {
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: calc(var(--ore-card-unit) * 18);
+  height: calc(var(--ore-card-unit) * 18);
+  color: var(--ore-card-foreground);
+  background: #313233;
+  box-shadow: 0 0 0 var(--ore-card-unit) var(--ore-card-outline);
+}
+
+:where(ore-card .ore-card-overlay-top-end > ore-icon) {
+  width: calc(var(--ore-card-unit) * 8);
+  height: calc(var(--ore-card-unit) * 8);
+}
