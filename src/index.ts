@@ -5,6 +5,7 @@ export {
 } from "./components/button/button.js";
 export { OreCard } from "./components/card/card.js";
 export { OreCheckbox } from "./components/checkbox/checkbox.js";
+export { OreIconButton } from "./components/icon-button/icon-button.js";
 export { OreRadio } from "./components/radio/radio.js";
 export {
   OreSlider,
