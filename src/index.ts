@@ -26,6 +26,12 @@ export {
   type OreModalCloseDetail,
   type OreModalCloseReason,
 } from "./components/modal/modal.js";
+export {
+  OreProgress,
+  type OreProgressLabelAlign,
+  type OreProgressLabelPosition,
+  type OreProgressVariant,
+} from "./components/progress/progress.js";
 export { OreRadio } from "./components/radio/radio.js";
 export {
   OreSlider,

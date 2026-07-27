@@ -11,6 +11,7 @@
 @import "../components/dropdown/dropdown.css" layer(components);
 @import "../components/icon-button/icon-button.css" layer(components);
 @import "../components/modal/modal.css" layer(components);
+@import "../components/progress/progress.css" layer(components);
 @import "../components/radio/radio.css" layer(components);
 @import "../components/slider/slider.css" layer(components);
 @import "../components/tab-button/tab-button.css" layer(components);
