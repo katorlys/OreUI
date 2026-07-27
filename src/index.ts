@@ -33,6 +33,7 @@ export {
   type OreProgressVariant,
 } from "./components/progress/progress.js";
 export { OreRadio } from "./components/radio/radio.js";
+export { OreScrollbar } from "./components/scrollbar/scrollbar.js";
 export {
   OreSlider,
   type OreSliderVariant,

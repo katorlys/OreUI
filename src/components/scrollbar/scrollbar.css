@@ -1,0 +1,71 @@
+:where(ore-scrollbar, .ore-scrollbar) {
+  --ore-scrollbar-unit: 0.125rem;
+  --ore-scrollbar-size: calc(var(--ore-scrollbar-unit) * 6);
+  --ore-scrollbar-track-size: calc(var(--ore-scrollbar-unit) * 2);
+  --ore-scrollbar-track: #5a5b5c;
+  --ore-scrollbar-thumb-outline: #1e1e1f;
+  --ore-scrollbar-thumb-border-light: #e3e3e5;
+  --ore-scrollbar-thumb-surface: #d0d1d4;
+  --ore-scrollbar-thumb-border-dark: #58585a;
+
+  display: block;
+  overflow: auto;
+}
+
+:where(ore-scrollbar, .ore-scrollbar)::-webkit-scrollbar {
+  width: var(--ore-scrollbar-size);
+  height: var(--ore-scrollbar-size);
+}
+
+:where(ore-scrollbar, .ore-scrollbar)::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+:where(ore-scrollbar, .ore-scrollbar)::-webkit-scrollbar-track {
+  background: linear-gradient(
+      var(--ore-scrollbar-track),
+      var(--ore-scrollbar-track)
+    )
+    center / var(--ore-scrollbar-track-size) 100% no-repeat;
+}
+
+:where(ore-scrollbar, .ore-scrollbar)::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background:
+    linear-gradient(
+        var(--ore-scrollbar-thumb-surface),
+        var(--ore-scrollbar-thumb-surface)
+      )
+      center calc(var(--ore-scrollbar-unit) * 2) /
+      calc(100% - var(--ore-scrollbar-unit) * 4)
+      calc(100% - var(--ore-scrollbar-unit) * 6) no-repeat,
+    linear-gradient(
+        var(--ore-scrollbar-thumb-border-dark),
+        var(--ore-scrollbar-thumb-border-dark)
+      )
+      center bottom var(--ore-scrollbar-unit) /
+      calc(100% - var(--ore-scrollbar-unit) * 2)
+      calc(var(--ore-scrollbar-unit) * 2) no-repeat,
+    linear-gradient(
+        var(--ore-scrollbar-thumb-border-light),
+        var(--ore-scrollbar-thumb-border-light)
+      )
+      center var(--ore-scrollbar-unit) /
+      calc(100% - var(--ore-scrollbar-unit) * 2)
+      calc(100% - var(--ore-scrollbar-unit) * 4) no-repeat,
+    var(--ore-scrollbar-thumb-outline);
+}
+
+:where(ore-scrollbar, .ore-scrollbar)::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  :where(ore-scrollbar, .ore-scrollbar) {
+    scrollbar-color: var(--ore-scrollbar-thumb-surface)
+      var(--ore-scrollbar-track);
+    scrollbar-width: thin;
+  }
+}
