@@ -24,6 +24,10 @@ export {
 export { OreTag, type OreTagVariant } from "./components/tag/tag.js";
 export { OreTextField } from "./components/text-field/text-field.js";
 export {
+  OreTooltip,
+  type OreTooltipSide,
+} from "./components/tooltip/tooltip.js";
+export {
   OreToggle,
   type OreToggleVariant,
 } from "./components/toggle/toggle.js";
