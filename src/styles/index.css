@@ -6,9 +6,11 @@
 @import "../components/button/button.css" layer(components);
 @import "../components/card/card.css" layer(components);
 @import "../components/checkbox/checkbox.css" layer(components);
+@import "../components/container/container.css" layer(components);
 @import "../components/data-table/data-table.css" layer(components);
 @import "../components/dropdown/dropdown.css" layer(components);
 @import "../components/icon-button/icon-button.css" layer(components);
+@import "../components/modal/modal.css" layer(components);
 @import "../components/radio/radio.css" layer(components);
 @import "../components/slider/slider.css" layer(components);
 @import "../components/tab-button/tab-button.css" layer(components);

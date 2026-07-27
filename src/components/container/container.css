@@ -1,0 +1,30 @@
+:where(ore-container) {
+  --ore-container-unit: 0.125rem;
+  --ore-container-dark-surface: #313233;
+  --ore-container-light-surface: #48494a;
+  --ore-container-edge-light: #5a5b5c;
+  --ore-container-edge-dark: #333334;
+  --ore-container-divider: #454647;
+  --ore-container-foreground: var(--ore-color-foreground);
+  --ore-container-padding: calc(var(--ore-container-unit) * 8)
+    calc(var(--ore-container-unit) * 11);
+  --ore-container-gap: calc(var(--ore-container-unit) * 8);
+
+  display: grid;
+  box-sizing: border-box;
+  padding: var(--ore-container-padding);
+  gap: var(--ore-container-gap);
+  color: var(--ore-container-foreground);
+  font-family: var(--ore-font-body);
+}
+
+:where(ore-container[variant="dark"]) {
+  border-bottom: var(--ore-container-unit) solid var(--ore-container-divider);
+  background: var(--ore-container-dark-surface);
+}
+
+:where(ore-container[variant="light"]) {
+  border-top: var(--ore-container-unit) solid var(--ore-container-edge-light);
+  border-bottom: var(--ore-container-unit) solid var(--ore-container-edge-dark);
+  background: var(--ore-container-light-surface);
+}

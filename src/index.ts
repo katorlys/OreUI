@@ -6,6 +6,10 @@ export {
 export { OreCard } from "./components/card/card.js";
 export { OreCheckbox } from "./components/checkbox/checkbox.js";
 export {
+  OreContainer,
+  type OreContainerVariant,
+} from "./components/container/container.js";
+export {
   OreDataTable,
   type OreDataTableSortDetail,
   type OreDataTableSortDirection,
@@ -17,6 +21,11 @@ export {
   type OreDropdownVariant,
 } from "./components/dropdown/dropdown.js";
 export { OreIconButton } from "./components/icon-button/icon-button.js";
+export {
+  OreModal,
+  type OreModalCloseDetail,
+  type OreModalCloseReason,
+} from "./components/modal/modal.js";
 export { OreRadio } from "./components/radio/radio.js";
 export {
   OreSlider,
