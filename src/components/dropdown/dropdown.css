@@ -1,0 +1,119 @@
+:where(ore-dropdown) {
+  --ore-dropdown-unit: 0.125rem;
+  --ore-dropdown-menu-surface: #1e1e1f;
+  --ore-dropdown-item-surface: #313233;
+  --ore-dropdown-item-surface-hover: #242425;
+  --ore-dropdown-item-border: #5a5b5c;
+  --ore-dropdown-foreground: var(--ore-color-foreground);
+
+  display: inline-flex;
+  flex-direction: column;
+  min-width: calc(var(--ore-dropdown-unit) * 128);
+}
+
+:where(ore-dropdown > .ore-dropdown-trigger) {
+  position: relative;
+  justify-content: flex-start;
+  width: 100%;
+  padding-right: calc(var(--ore-dropdown-unit) * 20);
+  text-align: left;
+}
+
+:where(ore-dropdown > .ore-dropdown-trigger)::after {
+  position: absolute;
+  top: calc(50% - var(--ore-button-unit) + var(--ore-button-face-offset));
+  right: calc(var(--ore-dropdown-unit) * 10);
+  width: calc(var(--ore-dropdown-unit) * 8);
+  height: calc(var(--ore-dropdown-unit) * 8);
+  background: currentColor;
+  mask: url("../../assets/icons/chevron-down.svg") center / contain no-repeat;
+  transform: translateY(-50%);
+  content: "";
+}
+
+:where(ore-dropdown[open] > .ore-dropdown-trigger)::after {
+  mask-image: url("../../assets/icons/chevron-up.svg");
+}
+
+:where(ore-dropdown > .ore-dropdown-menu) {
+  position: fixed;
+  inset: auto;
+  box-sizing: border-box;
+  margin: 0;
+  padding: var(--ore-dropdown-unit);
+  border: 0;
+  color: var(--ore-dropdown-foreground);
+  background: var(--ore-dropdown-menu-surface);
+  font-family: var(--ore-font-body);
+}
+
+:where(ore-dropdown > .ore-dropdown-menu:not(:popover-open)) {
+  display: none;
+}
+
+:where(ore-dropdown .ore-dropdown-item) {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: calc(var(--ore-dropdown-unit) * 18);
+  padding: 0 calc(var(--ore-dropdown-unit) * 18) 0
+    calc(var(--ore-dropdown-unit) * 11);
+  border: var(--ore-dropdown-unit) solid transparent;
+  color: inherit;
+  background: var(--ore-dropdown-item-surface);
+  font: inherit;
+  font-size: calc(var(--ore-dropdown-unit) * 7);
+  line-height: 1;
+  text-align: left;
+  cursor: pointer;
+}
+
+:where(ore-dropdown[variant="borderless"] .ore-dropdown-item:hover),
+:where(ore-dropdown[variant="borderless"] .ore-dropdown-item:focus-visible),
+:where(ore-dropdown[variant="bordered"] .ore-dropdown-item) {
+  border-color: var(--ore-dropdown-item-border);
+}
+
+:where(ore-dropdown[variant="bordered"] .ore-dropdown-item:hover),
+:where(ore-dropdown[variant="bordered"] .ore-dropdown-item:focus-visible) {
+  background: var(--ore-dropdown-item-surface-hover);
+}
+
+:where(
+  ore-dropdown[variant="bordered"] .ore-dropdown-item + .ore-dropdown-item
+) {
+  border-top: 0;
+}
+
+:where(ore-dropdown .ore-dropdown-item:focus-visible) {
+  outline: 0;
+}
+
+:where(ore-dropdown .ore-dropdown-item[disabled]) {
+  color: var(--ore-color-disabled-outline);
+  cursor: not-allowed;
+}
+
+:where(ore-dropdown .ore-dropdown-item[selected])::after {
+  position: absolute;
+  right: calc(var(--ore-dropdown-unit) * 8);
+  width: calc(var(--ore-dropdown-unit) * 8);
+  height: calc(var(--ore-dropdown-unit) * 8);
+  background: currentColor;
+  mask: url("../../assets/icons/tick.svg") center / contain no-repeat;
+  content: "";
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :where(ore-dropdown > .ore-dropdown-menu:popover-open) {
+    animation: ore-dropdown-show var(--ore-motion-fast) steps(2, jump-none);
+  }
+}
+
+@keyframes ore-dropdown-show {
+  from {
+    opacity: 0;
+  }
+}

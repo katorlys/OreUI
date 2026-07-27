@@ -11,6 +11,11 @@ export {
   type OreDataTableSortDirection,
   type OreDataTableVariant,
 } from "./components/data-table/data-table.js";
+export {
+  OreDropdown,
+  type OreDropdownChangeDetail,
+  type OreDropdownVariant,
+} from "./components/dropdown/dropdown.js";
 export { OreIconButton } from "./components/icon-button/icon-button.js";
 export { OreRadio } from "./components/radio/radio.js";
 export {
