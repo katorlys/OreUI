@@ -1,5 +1,5 @@
 :where(ore-progress) {
-  --ore-progress-unit: 0.125rem;
+  --ore-progress-unit: var(--ore-size-unit);
   --ore-progress-value: 0;
   --ore-progress-frame: var(--ore-color-foreground);
   --ore-progress-bar: var(--ore-color-foreground);

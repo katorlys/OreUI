@@ -1,5 +1,5 @@
 :where(ore-button, ore-tab-button) {
-  --ore-button-unit: 0.125rem;
+  --ore-button-unit: var(--ore-size-unit);
   --ore-button-background-default: var(--ore-color-primary-background);
   --ore-button-background-hover: var(--ore-color-primary-background-hover);
   --ore-button-background-pressed: var(--ore-color-primary-background-pressed);
@@ -70,7 +70,7 @@
   --ore-button-font-family: var(--ore-font-display);
   --ore-button-font-size: calc(var(--ore-button-unit) * 9);
   --ore-button-text-shadow: var(--ore-button-unit) var(--ore-button-unit)
-    rgb(0 0 0 / 30%);
+    var(--ore-color-text-shadow);
 }
 
 :where(ore-button[variant="secondary"]) {
@@ -135,7 +135,7 @@
   --ore-button-border: var(--ore-color-disabled-border);
   --ore-button-shadow: var(--ore-color-secondary-background-pressed);
 
-  color: #48494a;
+  color: var(--ore-color-disabled-foreground);
   --ore-button-text-shadow: none;
   cursor: not-allowed;
 }

@@ -1,9 +1,9 @@
 :where(ore-dropdown) {
-  --ore-dropdown-unit: 0.125rem;
-  --ore-dropdown-menu-background: #1e1e1f;
-  --ore-dropdown-item-background: #313233;
-  --ore-dropdown-item-background-hover: #242425;
-  --ore-dropdown-item-border: #5a5b5c;
+  --ore-dropdown-unit: var(--ore-size-unit);
+  --ore-dropdown-menu-background: var(--ore-color-neutral-surface-deep);
+  --ore-dropdown-item-background: var(--ore-color-neutral-surface-raised);
+  --ore-dropdown-item-background-hover: var(--ore-color-neutral-surface-sunken);
+  --ore-dropdown-item-border: var(--ore-color-neutral-specular);
   --ore-dropdown-foreground: var(--ore-color-foreground);
 
   display: inline-flex;

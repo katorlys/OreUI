@@ -1,7 +1,7 @@
 :where(ore-text-field) {
-  --ore-text-field-unit: 0.125rem;
-  --ore-text-field-background: #313233;
-  --ore-text-field-shadow: #242425;
+  --ore-text-field-unit: var(--ore-size-unit);
+  --ore-text-field-background: var(--ore-color-neutral-surface-raised);
+  --ore-text-field-shadow: var(--ore-color-neutral-surface-sunken);
   --ore-text-field-border: var(--ore-color-border);
   --ore-text-field-foreground: var(--ore-color-foreground);
   --ore-text-field-description: var(--ore-color-disabled);
@@ -75,7 +75,7 @@
 }
 
 :where(ore-text-field .ore-text-field-input::placeholder) {
-  color: #8c8d90;
+  color: var(--ore-color-disabled-foreground-dim);
   opacity: 1;
 }
 
@@ -104,7 +104,7 @@
 
 :where(ore-text-field[disabled], ore-text-field[form-disabled]) {
   --ore-text-field-background: var(--ore-color-disabled);
-  --ore-text-field-shadow: #b1b2b5;
+  --ore-text-field-shadow: var(--ore-color-disabled-shadow);
   --ore-text-field-border: var(--ore-color-disabled-border);
   --ore-text-field-foreground: var(--ore-color-disabled);
 }

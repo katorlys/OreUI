@@ -1,9 +1,9 @@
 :where(ore-icon-button) {
-  --ore-icon-button-unit: 0.125rem;
-  --ore-icon-button-background: #48494a;
-  --ore-icon-button-highlight: #5a5b5c;
-  --ore-icon-button-shadow-color: #333334;
-  --ore-icon-button-corner: #49494b;
+  --ore-icon-button-unit: var(--ore-size-unit);
+  --ore-icon-button-background: var(--ore-color-neutral-surface);
+  --ore-icon-button-highlight: var(--ore-color-neutral-specular);
+  --ore-icon-button-shadow-color: var(--ore-color-neutral-bevel-shadow);
+  --ore-icon-button-corner: var(--ore-color-neutral-corner);
   --ore-icon-button-border: var(--ore-color-border);
   --ore-icon-button-foreground: var(--ore-color-foreground);
 
@@ -90,10 +90,10 @@
 :where(ore-icon-button[disabled], ore-icon-button[form-disabled]) {
   --ore-icon-button-background: var(--ore-color-disabled);
   --ore-icon-button-highlight: var(--ore-color-disabled-border);
-  --ore-icon-button-shadow-color: #b1b2b5;
-  --ore-icon-button-corner: #a3a4a6;
+  --ore-icon-button-shadow-color: var(--ore-color-disabled-shadow);
+  --ore-icon-button-corner: var(--ore-color-neutral-50-highlight-focus);
   --ore-icon-button-border: var(--ore-color-disabled-border);
-  --ore-icon-button-foreground: #666666;
+  --ore-icon-button-foreground: var(--ore-color-disabled-foreground);
 
   cursor: not-allowed;
 }

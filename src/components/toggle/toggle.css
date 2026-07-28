@@ -1,14 +1,14 @@
 :where(ore-toggle) {
-  --ore-toggle-unit: 0.125rem;
-  --ore-toggle-track-background: #8c8d90;
-  --ore-toggle-track-highlight: #a3a4a6;
+  --ore-toggle-unit: var(--ore-size-unit);
+  --ore-toggle-track-background: var(--ore-color-neutral-50-background);
+  --ore-toggle-track-highlight: var(--ore-color-neutral-50-highlight-focus);
   --ore-toggle-track-border: var(--ore-color-border);
-  --ore-toggle-thumb-background: #d0d1d4;
-  --ore-toggle-thumb-highlight: #e3e3e5;
-  --ore-toggle-thumb-shadow: #58585a;
+  --ore-toggle-thumb-background: var(--ore-color-secondary-background);
+  --ore-toggle-thumb-highlight: var(--ore-color-secondary-highlight);
+  --ore-toggle-thumb-shadow: var(--ore-color-secondary-shadow);
   --ore-toggle-thumb-border: var(--ore-color-border);
   --ore-toggle-thumb-focus-ring: transparent;
-  --ore-toggle-icon: #242425;
+  --ore-toggle-icon: var(--ore-color-gray-90);
 
   display: inline-flex;
   align-items: center;
@@ -97,7 +97,7 @@
 :where(ore-toggle[checked]) {
   --ore-toggle-track-background: var(--ore-color-primary-background);
   --ore-toggle-track-highlight: var(--ore-color-primary-highlight);
-  --ore-toggle-icon: #ffffff;
+  --ore-toggle-icon: var(--ore-color-white);
 }
 
 :where(ore-toggle[variant="icons"]) .ore-toggle-status::after {
@@ -117,20 +117,32 @@
 }
 
 :where(ore-toggle:hover:not([disabled], [form-disabled])) {
-  --ore-toggle-thumb-background: #f4f6f9;
-  --ore-toggle-thumb-highlight: #fbfbfd;
+  --ore-toggle-thumb-background: var(--ore-color-secondary-background-hover);
+  --ore-toggle-thumb-highlight: color-mix(
+    in srgb,
+    var(--ore-color-secondary-background-hover),
+    var(--ore-color-white) 60%
+  );
 }
 
 :where(
   ore-toggle:active:not([disabled], [form-disabled]),
   ore-toggle[pressed]:not([disabled], [form-disabled])
 ) {
-  --ore-toggle-thumb-background: #b1b2b5;
-  --ore-toggle-thumb-highlight: #e0e0e1;
+  --ore-toggle-thumb-background: var(--ore-color-secondary-background-pressed);
+  --ore-toggle-thumb-highlight: color-mix(
+    in srgb,
+    var(--ore-color-secondary-background-pressed),
+    var(--ore-color-white) 40%
+  );
 }
 
 :where(ore-toggle:focus-visible) {
-  --ore-toggle-thumb-highlight: #ecedee;
+  --ore-toggle-thumb-highlight: color-mix(
+    in srgb,
+    var(--ore-color-secondary-background),
+    var(--ore-color-white) 60%
+  );
   --ore-toggle-thumb-focus-ring: var(--ore-color-focus-ring);
 }
 
@@ -140,9 +152,9 @@
   --ore-toggle-track-border: var(--ore-color-disabled-border);
   --ore-toggle-thumb-background: var(--ore-color-disabled);
   --ore-toggle-thumb-highlight: var(--ore-color-disabled);
-  --ore-toggle-thumb-shadow: #b1b2b5;
+  --ore-toggle-thumb-shadow: var(--ore-color-disabled-shadow);
   --ore-toggle-thumb-border: var(--ore-color-disabled-border);
-  --ore-toggle-icon: #666666;
+  --ore-toggle-icon: var(--ore-color-disabled-foreground);
 
   cursor: not-allowed;
 }

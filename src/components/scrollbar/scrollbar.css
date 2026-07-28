@@ -1,13 +1,13 @@
 :where(ore-scrollbar, .ore-scrollbar) {
-  --ore-scrollbar-unit: 0.125rem;
+  --ore-scrollbar-unit: var(--ore-size-unit);
   --ore-scrollbar-size: calc(var(--ore-scrollbar-unit) * 6);
   --ore-scrollbar-horizontal-size: calc(var(--ore-scrollbar-unit) * 8);
   --ore-scrollbar-track-size: calc(var(--ore-scrollbar-unit) * 2);
-  --ore-scrollbar-track: #5a5b5c;
-  --ore-scrollbar-thumb-border: #1e1e1f;
-  --ore-scrollbar-thumb-highlight: #e3e3e5;
-  --ore-scrollbar-thumb-background: #d0d1d4;
-  --ore-scrollbar-thumb-shadow: #58585a;
+  --ore-scrollbar-track: var(--ore-color-neutral-highlight-pressed);
+  --ore-scrollbar-thumb-border: var(--ore-color-border);
+  --ore-scrollbar-thumb-highlight: var(--ore-color-secondary-highlight);
+  --ore-scrollbar-thumb-background: var(--ore-color-secondary-background);
+  --ore-scrollbar-thumb-shadow: var(--ore-color-secondary-shadow);
 
   display: block;
   overflow: auto;

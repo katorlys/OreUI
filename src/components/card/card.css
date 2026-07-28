@@ -1,9 +1,9 @@
 :where(ore-card) {
-  --ore-card-unit: 0.125rem;
+  --ore-card-unit: var(--ore-size-unit);
   --ore-card-border: var(--ore-color-border);
-  --ore-card-background: #48494a;
-  --ore-card-highlight: #5a5b5c;
-  --ore-card-shadow: #333334;
+  --ore-card-background: var(--ore-color-neutral-surface);
+  --ore-card-highlight: var(--ore-color-neutral-specular);
+  --ore-card-shadow: var(--ore-color-neutral-bevel-shadow);
   --ore-card-foreground: var(--ore-color-foreground);
   --ore-card-description: var(--ore-color-disabled);
 
@@ -24,7 +24,7 @@
   z-index: 2;
   aspect-ratio: 16 / 9;
   min-width: 0;
-  background: #000000;
+  background: var(--ore-color-black);
 }
 
 :where(ore-card > .ore-card-media)::after {
@@ -141,7 +141,7 @@
   width: calc(var(--ore-card-unit) * 18);
   height: calc(var(--ore-card-unit) * 18);
   color: var(--ore-card-foreground);
-  background: #313233;
+  background: var(--ore-color-neutral-surface-raised);
   box-shadow: 0 0 0 var(--ore-card-unit) var(--ore-card-border);
 }
 

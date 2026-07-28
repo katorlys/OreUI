@@ -1,8 +1,8 @@
 :where(ore-tooltip) {
-  --ore-tooltip-unit: 0.125rem;
-  --_ore-tooltip-pixel-size: 0.125rem;
+  --ore-tooltip-unit: var(--ore-size-unit);
+  --_ore-tooltip-pixel-size: var(--ore-size-unit);
   --ore-tooltip-corner-size: var(--_ore-tooltip-pixel-size);
-  --ore-tooltip-background: #2e6be5;
+  --ore-tooltip-background: var(--ore-color-informative-background);
   --ore-tooltip-border: var(--ore-color-border);
   --ore-tooltip-foreground: var(--ore-color-foreground);
 

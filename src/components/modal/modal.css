@@ -1,9 +1,9 @@
 :where(ore-modal) {
-  --ore-modal-unit: 0.125rem;
+  --ore-modal-unit: var(--ore-size-unit);
   --ore-modal-border: var(--ore-color-border);
-  --ore-modal-section-background: #48494a;
-  --ore-modal-highlight: #5a5b5c;
-  --ore-modal-shadow: #333334;
+  --ore-modal-section-background: var(--ore-color-neutral-surface);
+  --ore-modal-highlight: var(--ore-color-neutral-specular);
+  --ore-modal-shadow: var(--ore-color-neutral-bevel-shadow);
   --ore-modal-foreground: var(--ore-color-foreground);
 }
 
@@ -25,7 +25,7 @@
 }
 
 :where(ore-modal > .ore-modal-dialog)::backdrop {
-  background: rgb(0 0 0 / 65%);
+  background: var(--ore-color-overlay);
 }
 
 :where(ore-modal .ore-modal-content) {

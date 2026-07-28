@@ -1,9 +1,11 @@
 :where(ore-data-table) {
-  --ore-data-table-unit: 0.125rem;
+  --ore-data-table-unit: var(--ore-size-unit);
   --ore-data-table-border: var(--ore-color-border);
   --ore-data-table-header-background: var(--ore-color-neutral-background);
-  --ore-data-table-row-background: #313233;
-  --ore-data-table-row-background-alternate: #242425;
+  --ore-data-table-row-background: var(--ore-color-neutral-surface-raised);
+  --ore-data-table-row-background-alternate: var(
+    --ore-color-neutral-surface-sunken
+  );
   --ore-data-table-foreground: var(--ore-color-foreground);
   --ore-data-table-sort-inactive: var(--ore-color-disabled-border);
 

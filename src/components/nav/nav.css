@@ -1,12 +1,12 @@
 :where(ore-nav) {
-  --ore-nav-unit: 0.125rem;
-  --ore-nav-background: #e7e8ec;
-  --ore-nav-bottom-shadow: #b1b2b6;
-  --ore-nav-shadow: rgb(30 30 31 / 65%);
-  --ore-nav-foreground: #1e1e1f;
-  --ore-nav-action-background: #e7e8ec;
-  --ore-nav-action-highlight: #ffffff;
-  --ore-nav-action-shadow: #a1a2a4;
+  --ore-nav-unit: var(--ore-size-unit);
+  --ore-nav-background: var(--ore-color-nav-background);
+  --ore-nav-bottom-shadow: var(--ore-color-nav-shadow);
+  --ore-nav-shadow: var(--ore-color-nav-drop-shadow);
+  --ore-nav-foreground: var(--ore-color-neutral-border);
+  --ore-nav-action-background: var(--ore-color-nav-background);
+  --ore-nav-action-highlight: var(--ore-color-nav-action-highlight);
+  --ore-nav-action-shadow: var(--ore-color-nav-action-shadow);
   --ore-nav-text-offset: calc(var(--ore-nav-unit) / 2);
   --ore-nav-icon-offset: 0px;
 

@@ -1,11 +1,11 @@
 :where(ore-radio) {
-  --ore-radio-unit: 0.125rem;
-  --ore-radio-background: #8c8d90;
-  --ore-radio-highlight: #97989b;
+  --ore-radio-unit: var(--ore-size-unit);
+  --ore-radio-background: var(--ore-color-neutral-50-background);
+  --ore-radio-highlight: var(--ore-color-neutral-50-highlight);
   --ore-radio-border: var(--ore-color-border);
-  --ore-radio-indicator-light: #ffffff;
-  --ore-radio-indicator-dim: #e6e8eb;
-  --ore-radio-indicator-dark: #d0d1d4;
+  --ore-radio-indicator-light: var(--ore-color-white);
+  --ore-radio-indicator-dim: var(--ore-color-gray-20);
+  --ore-radio-indicator-dark: var(--ore-color-gray-30);
 
   position: relative;
   display: inline-flex;
@@ -59,8 +59,8 @@
 }
 
 :where(ore-radio:hover:not([disabled], [form-disabled])) {
-  --ore-radio-background: #b1b2b5;
-  --ore-radio-highlight: #b9babc;
+  --ore-radio-background: var(--ore-color-neutral-50-background-hover);
+  --ore-radio-highlight: var(--ore-color-neutral-50-highlight-hover);
 }
 
 :where(ore-radio[checked]:hover:not([disabled], [form-disabled])) {
@@ -72,8 +72,8 @@
   ore-radio:active:not([disabled], [form-disabled]),
   ore-radio[pressed]:not([disabled], [form-disabled])
 ) {
-  --ore-radio-background: #58585a;
-  --ore-radio-highlight: #68686a;
+  --ore-radio-background: var(--ore-color-neutral-50-background-pressed);
+  --ore-radio-highlight: var(--ore-color-neutral-50-highlight-pressed);
 }
 
 :where(
@@ -92,7 +92,7 @@
 }
 
 :where(ore-radio:focus-visible:not([checked])) {
-  --ore-radio-highlight: #a3a4a6;
+  --ore-radio-highlight: var(--ore-color-neutral-50-highlight-focus);
 }
 
 :where(ore-radio[disabled], ore-radio[form-disabled]) {

@@ -1,5 +1,5 @@
 :where(ore-slider) {
-  --ore-slider-unit: 0.125rem;
+  --ore-slider-unit: var(--ore-size-unit);
   --ore-slider-progress: 0;
   --ore-slider-value: calc(
     var(--ore-slider-unit) * 7.25 + (100% - var(--ore-slider-unit) * 14.5) *
@@ -8,8 +8,8 @@
   --ore-slider-track-border: var(--ore-color-border);
   --ore-slider-range-background: var(--ore-color-primary-background);
   --ore-slider-range-highlight: var(--ore-color-primary-highlight);
-  --ore-slider-track-background: #8c8d90;
-  --ore-slider-track-highlight: #a3a4a6;
+  --ore-slider-track-background: var(--ore-color-neutral-50-background);
+  --ore-slider-track-highlight: var(--ore-color-neutral-50-highlight-focus);
   --ore-slider-thumb-background: var(--ore-color-secondary-background);
   --ore-slider-thumb-highlight: var(--ore-color-secondary-highlight);
   --ore-slider-thumb-shadow: var(--ore-color-secondary-shadow);
@@ -209,7 +209,11 @@
 }
 
 :where(ore-slider:has(> input[type="range"]:focus-visible)) {
-  --ore-slider-thumb-highlight: #ecedee;
+  --ore-slider-thumb-highlight: color-mix(
+    in srgb,
+    var(--ore-color-secondary-background),
+    var(--ore-color-white) 60%
+  );
   --ore-slider-thumb-focus-ring: var(--ore-color-focus-ring);
 }
 
@@ -220,12 +224,24 @@
 :where(ore-slider[disabled], ore-slider[form-disabled]) {
   --ore-slider-track-border: var(--ore-color-disabled-border);
   --ore-slider-range-background: var(--ore-color-disabled);
-  --ore-slider-range-highlight: #d5d6d8;
+  --ore-slider-range-highlight: color-mix(
+    in srgb,
+    var(--ore-color-disabled),
+    var(--ore-color-white) 10%
+  );
   --ore-slider-track-background: var(--ore-color-disabled);
-  --ore-slider-track-highlight: #d9dadd;
+  --ore-slider-track-highlight: color-mix(
+    in srgb,
+    var(--ore-color-disabled),
+    var(--ore-color-white) 20%
+  );
   --ore-slider-thumb-background: var(--ore-color-disabled);
-  --ore-slider-thumb-highlight: #ecedee;
-  --ore-slider-thumb-shadow: #b1b2b5;
+  --ore-slider-thumb-highlight: color-mix(
+    in srgb,
+    var(--ore-color-disabled),
+    var(--ore-color-white) 60%
+  );
+  --ore-slider-thumb-shadow: var(--ore-color-disabled-shadow);
   --ore-slider-thumb-border: var(--ore-color-disabled-border);
 }
 

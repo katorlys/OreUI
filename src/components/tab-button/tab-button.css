@@ -7,10 +7,10 @@
   --ore-tab-off-highlight-pressed: var(--ore-color-neutral-highlight-pressed);
   --ore-tab-off-shadow: var(--ore-color-neutral-shadow);
   --ore-tab-off-foreground: var(--ore-color-foreground);
-  --ore-tab-on-background: #313233;
-  --ore-tab-on-highlight: #5a5b5c;
-  --ore-tab-on-foreground: #ffffff;
-  --ore-tab-indicator: #ffffff;
+  --ore-tab-on-background: var(--ore-color-neutral-surface-raised);
+  --ore-tab-on-highlight: var(--ore-color-neutral-specular);
+  --ore-tab-on-foreground: var(--ore-color-neutral-text);
+  --ore-tab-indicator: var(--ore-color-white);
   --ore-button-background-default: var(--ore-tab-off-background);
   --ore-button-background-hover: var(--ore-tab-off-background-hover);
   --ore-button-background-pressed: var(--ore-tab-off-background-pressed);
@@ -64,8 +64,12 @@
   --ore-tab-off-shadow: var(--ore-color-secondary-shadow);
   --ore-tab-off-foreground: var(--ore-color-border);
   --ore-tab-on-background: var(--ore-color-primary-background);
-  --ore-tab-on-highlight: #4f913c;
-  --ore-tab-on-foreground: #ffffff;
+  --ore-tab-on-highlight: color-mix(
+    in srgb,
+    var(--ore-color-primary-background),
+    var(--ore-color-white) 10%
+  );
+  --ore-tab-on-foreground: var(--ore-color-white);
 }
 
 :where(ore-tab-button:focus-visible) {

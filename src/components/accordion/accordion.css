@@ -1,9 +1,9 @@
 :where(ore-accordion) {
-  --ore-accordion-unit: 0.125rem;
-  --ore-accordion-border: #1e1e1f;
-  --ore-accordion-background: #48494a;
+  --ore-accordion-unit: var(--ore-size-unit);
+  --ore-accordion-border: var(--ore-color-neutral-border);
+  --ore-accordion-background: var(--ore-color-neutral-surface);
   --ore-accordion-foreground: var(--ore-color-foreground);
-  --ore-accordion-content-foreground: #d0d1d4;
+  --ore-accordion-content-foreground: var(--ore-color-neutral-text-dim);
 
   display: block;
   width: min(100%, calc(var(--ore-accordion-unit) * 200));

@@ -4,45 +4,259 @@
   --ore-font-size-body: 1rem;
   --ore-line-height-body: 1.25;
 
-  --ore-color-foreground: #ffffff;
-  --ore-color-border: #1e1e1f;
-  --ore-color-focus-ring: #ffffff;
-  --ore-color-disabled: #d0d1d4;
-  --ore-color-disabled-border: #8c8d90;
-
-  --ore-color-primary-background: #3c8527;
-  --ore-color-primary-background-hover: #52a535;
-  --ore-color-primary-background-pressed: #2a641c;
-  --ore-color-primary-highlight: #639d52;
-  --ore-color-primary-highlight-hover: #75b75d;
-  --ore-color-primary-highlight-pressed: #3f7332;
-  --ore-color-primary-shadow: #1d4d13;
-
-  --ore-color-secondary-background: #d0d1d4;
-  --ore-color-secondary-background-hover: #f4f6f9;
-  --ore-color-secondary-background-pressed: #b1b2b5;
-  --ore-color-secondary-highlight: #e3e3e5;
-  --ore-color-secondary-highlight-hover: #fdfdfe;
-  --ore-color-secondary-highlight-pressed: #d0d1d3;
-  --ore-color-secondary-shadow: #58585a;
-
-  --ore-color-neutral-background: #48494a;
-  --ore-color-neutral-background-hover: #58585a;
-  --ore-color-neutral-background-pressed: #313233;
-  --ore-color-neutral-highlight: #6d6d6e;
-  --ore-color-neutral-highlight-hover: #79797b;
-  --ore-color-neutral-highlight-pressed: #5a5b5c;
-  --ore-color-neutral-shadow: #313233;
-
-  --ore-color-destructive-background: #ca3636;
-  --ore-color-destructive-background-hover: #ff8080;
-  --ore-color-destructive-background-pressed: #c02d2d;
-  --ore-color-destructive-highlight: #cf4a4a;
-  --ore-color-destructive-highlight-hover: #ff8c8c;
-  --ore-color-destructive-highlight-pressed: #c64242;
-  --ore-color-destructive-shadow: #ad1d1d;
-
-  --ore-unit: 0.0625rem;
-  --ore-focus-width: calc(var(--ore-unit) * 2);
+  --ore-size-pixel: 0.0625rem; /* 1px */
+  --ore-size-unit: calc(var(--ore-size-pixel) * 2); /* 2px */
   --ore-motion-fast: 100ms;
+
+  --ore-color-green-10: #a0e081;
+  --ore-color-green-20: #86d562;
+  --ore-color-green-30: #6cc349;
+  --ore-color-green-40: #52a535;
+  --ore-color-green-50: #3c8527;
+  --ore-color-green-60: #2a641c;
+  --ore-color-green-70: #1d4d13;
+  --ore-color-green-80: #153a0e;
+  --ore-color-green-90: #112f0b;
+  --ore-color-green-100: #0f2b0a;
+
+  --ore-color-red-10: #f46d6d;
+  --ore-color-red-20: #ea5e5e;
+  --ore-color-red-30: #df5050;
+  --ore-color-red-40: #d54242;
+  --ore-color-red-50: #ca3636;
+  --ore-color-red-60: #c02d2d;
+  --ore-color-red-70: #b62525;
+  --ore-color-red-80: #ad1d1d;
+  --ore-color-red-90: #a31616;
+  --ore-color-red-100: #990f0f;
+
+  --ore-color-blue-10: #8cb3ff;
+  --ore-color-blue-20: #2e6be5;
+  --ore-color-blue-30: #1452cc;
+
+  --ore-color-yellow-10: #ffe866;
+  --ore-color-yellow-20: #e5c317;
+  --ore-color-yellow-30: #8a7500;
+
+  --ore-color-orange-10: #ffb366;
+  --ore-color-orange-20: #d3791f;
+  --ore-color-orange-30: #a65b11;
+
+  --ore-color-deep-blue-10: #ac90f3;
+  --ore-color-deep-blue-20: #9471e0;
+  --ore-color-deep-blue-40: #8557f8;
+  --ore-color-deep-blue-50: #7345e5;
+  --ore-color-deep-blue-60: #5d2cc6;
+  --ore-color-deep-blue-70: #4a1cac;
+  --ore-color-deep-blue-100: #050029;
+
+  --ore-color-white: #ffffff;
+  --ore-color-gray-10: #f4f6f9;
+  --ore-color-gray-20: #e6e8eb;
+  --ore-color-gray-30: #d0d1d4;
+  --ore-color-gray-40: #b1b2b5;
+  --ore-color-gray-50: #8c8d90;
+  --ore-color-gray-60: #58585a;
+  --ore-color-gray-70: #48494a;
+  --ore-color-gray-80: #313233;
+  --ore-color-gray-90: #242425;
+  --ore-color-gray-100: #1e1e1f;
+  --ore-color-black: #000000;
+
+  --ore-color-black-opacity-10: #0000001a;
+  --ore-color-black-opacity-20: #00000033;
+  --ore-color-black-opacity-30: #0000004d;
+  --ore-color-black-opacity-40: #00000066;
+  --ore-color-black-opacity-50: #00000080;
+  --ore-color-black-opacity-60: #00000099;
+  --ore-color-black-opacity-70: #000000b3;
+  --ore-color-black-opacity-80: #000000cc;
+  --ore-color-black-opacity-90: #000000e6;
+
+  --ore-color-white-opacity-10: #ffffff1a;
+  --ore-color-white-opacity-20: #ffffff33;
+  --ore-color-white-opacity-30: #ffffff4d;
+  --ore-color-white-opacity-40: #ffffff66;
+  --ore-color-white-opacity-50: #ffffff80;
+  --ore-color-white-opacity-60: #ffffff99;
+  --ore-color-white-opacity-70: #ffffffb3;
+  --ore-color-white-opacity-80: #ffffffcc;
+  --ore-color-white-opacity-90: #ffffffe6;
+
+  --ore-color-foreground: var(--ore-color-white);
+  --ore-color-border: var(--ore-color-gray-100);
+  --ore-color-focus-ring: var(--ore-color-white);
+  --ore-color-disabled: var(--ore-color-gray-30);
+  --ore-color-disabled-shadow: var(--ore-color-gray-40);
+  --ore-color-disabled-foreground: var(--ore-color-gray-70);
+  --ore-color-disabled-foreground-dim: var(--ore-color-gray-50);
+  --ore-color-disabled-border: var(--ore-color-gray-50);
+
+  --ore-color-primary-background: var(--ore-color-green-50);
+  --ore-color-primary-background-hover: var(--ore-color-green-40);
+  --ore-color-primary-background-pressed: var(--ore-color-green-60);
+  --ore-color-primary-highlight: color-mix(
+    in srgb,
+    var(--ore-color-primary-background),
+    var(--ore-color-white) 20%
+  );
+  --ore-color-primary-highlight-hover: color-mix(
+    in srgb,
+    var(--ore-color-primary-background-hover),
+    var(--ore-color-white) 20%
+  );
+  --ore-color-primary-highlight-pressed: color-mix(
+    in srgb,
+    var(--ore-color-primary-background-pressed),
+    var(--ore-color-white) 10%
+  );
+  --ore-color-primary-shadow: var(--ore-color-green-70);
+
+  --ore-color-secondary-background: var(--ore-color-gray-30);
+  --ore-color-secondary-background-hover: var(--ore-color-gray-10);
+  --ore-color-secondary-background-pressed: var(--ore-color-gray-40);
+  --ore-color-secondary-highlight: color-mix(
+    in srgb,
+    var(--ore-color-secondary-background),
+    var(--ore-color-white) 40%
+  );
+  --ore-color-secondary-highlight-hover: color-mix(
+    in srgb,
+    var(--ore-color-secondary-background-hover),
+    var(--ore-color-white) 80%
+  );
+  --ore-color-secondary-highlight-pressed: color-mix(
+    in srgb,
+    var(--ore-color-secondary-background-pressed),
+    var(--ore-color-white) 20%
+  );
+  --ore-color-secondary-shadow: var(--ore-color-gray-60);
+
+  --ore-color-neutral-background: var(--ore-color-gray-70);
+  --ore-color-neutral-background-hover: var(--ore-color-gray-60);
+  --ore-color-neutral-background-pressed: var(--ore-color-gray-80);
+  --ore-color-neutral-highlight: color-mix(
+    in srgb,
+    var(--ore-color-neutral-background),
+    var(--ore-color-white) 20%
+  );
+  --ore-color-neutral-highlight-hover: color-mix(
+    in srgb,
+    var(--ore-color-neutral-background-hover),
+    var(--ore-color-white) 20%
+  );
+  --ore-color-neutral-highlight-pressed: color-mix(
+    in srgb,
+    var(--ore-color-neutral-background-pressed),
+    var(--ore-color-white) 20%
+  );
+  --ore-color-neutral-shadow: var(--ore-color-gray-80);
+  --ore-color-neutral-text: var(--ore-color-white);
+  --ore-color-neutral-text-dim: var(--ore-color-gray-30);
+  --ore-color-neutral-text-dimmer: var(--ore-color-gray-40);
+  --ore-color-neutral-border: var(--ore-color-gray-100);
+  --ore-color-neutral-surface: var(--ore-color-gray-70);
+  --ore-color-neutral-surface-raised: var(--ore-color-gray-80);
+  --ore-color-neutral-surface-sunken: var(--ore-color-gray-90);
+  --ore-color-neutral-surface-deep: var(--ore-color-gray-100);
+  --ore-color-neutral-specular: color-mix(
+    in srgb,
+    var(--ore-color-neutral-surface),
+    var(--ore-color-white) 20%
+  );
+  --ore-color-neutral-bevel-shadow: color-mix(
+    in srgb,
+    var(--ore-color-neutral-surface),
+    var(--ore-color-black) 30%
+  );
+  --ore-color-neutral-corner: #49494b;
+  --ore-color-neutral-divider: color-mix(
+    in srgb,
+    var(--ore-color-neutral-surface),
+    var(--ore-color-black) 5%
+  );
+
+  --ore-color-neutral-50-background: var(--ore-color-gray-50);
+  --ore-color-neutral-50-background-hover: var(--ore-color-gray-40);
+  --ore-color-neutral-50-background-pressed: var(--ore-color-gray-60);
+  --ore-color-neutral-50-highlight: color-mix(
+    in srgb,
+    var(--ore-color-neutral-50-background),
+    var(--ore-color-white) 10%
+  );
+  --ore-color-neutral-50-highlight-hover: color-mix(
+    in srgb,
+    var(--ore-color-neutral-50-background-hover),
+    var(--ore-color-white) 10%
+  );
+  --ore-color-neutral-50-highlight-pressed: color-mix(
+    in srgb,
+    var(--ore-color-neutral-50-background-pressed),
+    var(--ore-color-white) 10%
+  );
+  --ore-color-neutral-50-highlight-focus: color-mix(
+    in srgb,
+    var(--ore-color-neutral-50-background),
+    var(--ore-color-white) 20%
+  );
+
+  --ore-color-destructive-background: var(--ore-color-red-50);
+  --ore-color-destructive-background-hover: var(--ore-color-red-30);
+  --ore-color-destructive-background-pressed: var(--ore-color-red-60);
+  --ore-color-destructive-highlight: color-mix(
+    in srgb,
+    var(--ore-color-destructive-background),
+    var(--ore-color-white) 10%
+  );
+  --ore-color-destructive-highlight-hover: color-mix(
+    in srgb,
+    var(--ore-color-destructive-background-hover),
+    var(--ore-color-white) 10%
+  );
+  --ore-color-destructive-highlight-pressed: color-mix(
+    in srgb,
+    var(--ore-color-destructive-background-pressed),
+    var(--ore-color-white) 10%
+  );
+  --ore-color-destructive-shadow: var(--ore-color-red-80);
+
+  --ore-color-primary-tint-background: var(--ore-color-green-30);
+  --ore-color-primary-tint-foreground: var(--ore-color-gray-100);
+  --ore-color-success-background: var(--ore-color-green-50);
+  --ore-color-success-foreground: var(--ore-color-white);
+  --ore-color-success-tint-background: var(--ore-color-green-10);
+  --ore-color-success-tint-foreground: var(--ore-color-gray-100);
+  --ore-color-informative-background: var(--ore-color-blue-20);
+  --ore-color-informative-foreground: var(--ore-color-white);
+  --ore-color-informative-tint-background: var(--ore-color-blue-10);
+  --ore-color-informative-tint-foreground: var(--ore-color-gray-100);
+  --ore-color-notice-background: var(--ore-color-orange-20);
+  --ore-color-notice-tint-background: var(--ore-color-yellow-10);
+  --ore-color-notice-tint-foreground: var(--ore-color-gray-100);
+  --ore-color-destructive-tint-background: var(--ore-color-red-10);
+  --ore-color-destructive-tint-foreground: var(--ore-color-gray-100);
+  --ore-color-realms-primary-background: var(--ore-color-deep-blue-50);
+  --ore-color-realms-primary-background-hover: var(--ore-color-deep-blue-40);
+  --ore-color-realms-primary-background-pressed: var(--ore-color-deep-blue-60);
+  --ore-color-realms-primary-shadow: var(--ore-color-deep-blue-70);
+  --ore-color-realms-primary-tint-background: var(--ore-color-deep-blue-10);
+  --ore-color-realms-informative-background: var(--ore-color-deep-blue-100);
+  --ore-color-realms-informative-tint-background: var(--ore-color-deep-blue-10);
+
+  --ore-color-overlay: color-mix(
+    in srgb,
+    var(--ore-color-black) 65%,
+    transparent
+  );
+  --ore-color-text-shadow: var(--ore-color-black-opacity-30);
+
+  --ore-color-nav-background: #e7e8ec;
+  --ore-color-nav-shadow: #b1b2b6;
+  --ore-color-nav-drop-shadow: color-mix(
+    in srgb,
+    var(--ore-color-gray-100) 65%,
+    transparent
+  );
+  --ore-color-nav-action-highlight: var(--ore-color-white);
+  --ore-color-nav-action-shadow: #a1a2a4;
 }
