@@ -1,3 +1,4 @@
+export { OreAccordion } from "./components/accordion/accordion.js";
 export {
   OreButton,
   type OreButtonType,

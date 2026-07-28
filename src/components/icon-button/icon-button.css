@@ -8,11 +8,11 @@
   --ore-icon-button-foreground: var(--ore-color-foreground);
 
   display: inline-grid;
-  place-items: center;
+  place-items: var(--ore-icon-button-place-items, center);
   box-sizing: border-box;
   width: var(--ore-icon-button-width, calc(var(--ore-icon-button-unit) * 18));
   height: var(--ore-icon-button-height, calc(var(--ore-icon-button-unit) * 18));
-  padding: var(--ore-icon-button-unit);
+  padding: var(--ore-icon-button-padding, var(--ore-icon-button-unit));
   color: var(--ore-icon-button-foreground);
   background:
     linear-gradient(

@@ -1,0 +1,65 @@
+:where(ore-accordion) {
+  --ore-accordion-unit: 0.125rem;
+  --ore-accordion-outline: #1e1e1f;
+  --ore-accordion-surface: #48494a;
+  --ore-accordion-foreground: var(--ore-color-foreground);
+  --ore-accordion-content-foreground: #d0d1d4;
+
+  display: block;
+  width: min(100%, calc(var(--ore-accordion-unit) * 200));
+  color: var(--ore-accordion-foreground);
+  font-family: var(--ore-font-body);
+}
+
+:where(ore-accordion > .ore-accordion-trigger) {
+  --ore-icon-button-width: calc(100% - var(--ore-accordion-unit) * 2);
+  --ore-icon-button-height: auto;
+  --ore-icon-button-padding: var(--ore-accordion-unit)
+    calc(var(--ore-accordion-unit) * 8);
+  --ore-icon-button-place-items: center stretch;
+  --ore-icon-button-shadow: 0 0 0 var(--ore-accordion-unit)
+    var(--ore-accordion-outline);
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: calc(var(--ore-accordion-unit) * 4);
+  min-height: calc(var(--ore-accordion-unit) * 20);
+  margin-inline: var(--ore-accordion-unit);
+  text-align: left;
+}
+
+:where(ore-accordion > .ore-accordion-trigger > .ore-accordion-title) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: calc(var(--ore-accordion-unit) * 7);
+  line-height: calc(var(--ore-accordion-unit) * 8);
+}
+
+:where(ore-accordion > .ore-accordion-trigger)::after {
+  width: calc(var(--ore-accordion-unit) * 6);
+  height: calc(var(--ore-accordion-unit) * 6);
+  background: currentColor;
+  mask: url("../../assets/icons/chevron-down.svg") center / contain no-repeat;
+  content: "";
+}
+
+:where(ore-accordion[open] > .ore-accordion-trigger)::after {
+  mask-image: url("../../assets/icons/chevron-up.svg");
+}
+
+:where(ore-accordion > .ore-accordion-content) {
+  box-sizing: border-box;
+  padding: calc(var(--ore-accordion-unit) * 4)
+    calc(var(--ore-accordion-unit) * 8);
+  border: var(--ore-accordion-unit) solid var(--ore-accordion-outline);
+  border-top: 0;
+  color: var(--ore-accordion-content-foreground);
+  background: var(--ore-accordion-surface);
+  font-size: calc(var(--ore-accordion-unit) * 6);
+  line-height: calc(var(--ore-accordion-unit) * 7);
+}
+
+:where(ore-accordion > .ore-accordion-content[hidden]) {
+  display: none;
+}

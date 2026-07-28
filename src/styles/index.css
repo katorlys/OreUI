@@ -3,6 +3,7 @@
 @import "./fonts.css";
 @import "./tokens.css";
 @import "./reset.css" layer(components);
+@import "../components/accordion/accordion.css" layer(components);
 @import "../components/button/button.css" layer(components);
 @import "../components/card/card.css" layer(components);
 @import "../components/checkbox/checkbox.css" layer(components);
