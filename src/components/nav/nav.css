@@ -1,0 +1,122 @@
+:where(ore-nav) {
+  --ore-nav-unit: 0.125rem;
+  --ore-nav-surface: #e7e8ec;
+  --ore-nav-thick: #b1b2b6;
+  --ore-nav-shadow: rgb(30 30 31 / 65%);
+  --ore-nav-foreground: #1e1e1f;
+  --ore-nav-action-surface: #e7e8ec;
+  --ore-nav-action-edge-light: #ffffff;
+  --ore-nav-action-edge-dark: #a1a2a4;
+  --ore-nav-text-offset: calc(var(--ore-nav-unit) / 2);
+  --ore-nav-icon-offset: 0px;
+
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  box-sizing: border-box;
+  min-height: calc(var(--ore-nav-unit) * 20);
+  padding-bottom: calc(var(--ore-nav-unit) * 2);
+  color: var(--ore-nav-foreground);
+  background: linear-gradient(
+    to bottom,
+    var(--ore-nav-surface) 0 calc(100% - var(--ore-nav-unit) * 2),
+    var(--ore-nav-thick) calc(100% - var(--ore-nav-unit) * 2) 100%
+  );
+  box-shadow: 0 var(--ore-nav-unit) 0 var(--ore-nav-shadow);
+  font-family: var(--ore-font-body);
+}
+
+:where(ore-nav > .ore-nav-start) {
+  display: flex;
+  grid-column: 1;
+  align-items: center;
+  justify-self: start;
+  min-width: 0;
+}
+
+:where(ore-nav > .ore-nav-title) {
+  grid-column: 2;
+  min-width: 0;
+  overflow: hidden;
+  font-size: calc(var(--ore-nav-unit) * 8);
+  line-height: calc(var(--ore-nav-unit) * 10);
+  text-align: center;
+  text-overflow: ellipsis;
+  transform: translateY(var(--ore-nav-text-offset));
+  white-space: nowrap;
+}
+
+:where(ore-nav > .ore-nav-actions) {
+  display: flex;
+  grid-column: 3;
+  align-self: stretch;
+  justify-self: end;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+:where(ore-nav .ore-nav-button, ore-nav .ore-nav-action) {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: calc(var(--ore-nav-unit) * 18);
+  padding: 0 calc(var(--ore-nav-unit) * 5);
+  border: 0;
+  color: inherit;
+  background: var(--ore-nav-action-surface);
+  font: inherit;
+  font-size: calc(var(--ore-nav-unit) * 8);
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+:where(ore-nav .ore-nav-action-label) {
+  transform: translateY(var(--ore-nav-text-offset));
+}
+
+:where(ore-nav .ore-nav-button > ore-icon, ore-nav .ore-nav-action > ore-icon) {
+  transform: translateY(var(--ore-nav-icon-offset));
+}
+
+:where(ore-nav .ore-nav-button) {
+  justify-content: center;
+  width: calc(var(--ore-nav-unit) * 18);
+  padding: 0;
+}
+
+:where(ore-nav .ore-nav-action) {
+  gap: calc(var(--ore-nav-unit) * 4);
+  border-left: var(--ore-nav-unit) solid var(--ore-nav-action-edge-dark);
+  box-shadow: inset var(--ore-nav-unit) 0 0 var(--ore-nav-action-edge-light);
+  white-space: nowrap;
+}
+
+:where(ore-nav .ore-nav-button:hover, ore-nav .ore-nav-action:hover) {
+  filter: brightness(0.96);
+}
+
+:where(ore-nav .ore-nav-button:active, ore-nav .ore-nav-action:active) {
+  filter: brightness(0.9);
+}
+
+:where(
+  ore-nav .ore-nav-button:focus-visible,
+  ore-nav .ore-nav-action:focus-visible
+) {
+  outline: var(--ore-nav-unit) solid var(--ore-color-focus);
+  outline-offset: calc(var(--ore-nav-unit) * -1);
+}
+
+:where(ore-nav .ore-nav-button > ore-icon) {
+  width: calc(var(--ore-nav-unit) * 7);
+  height: calc(var(--ore-nav-unit) * 7);
+}
+
+:where(ore-nav .ore-nav-action > ore-icon) {
+  width: calc(var(--ore-nav-unit) * 8);
+  height: calc(var(--ore-nav-unit) * 8);
+}

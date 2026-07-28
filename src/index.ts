@@ -27,6 +27,7 @@ export {
   type OreModalCloseDetail,
   type OreModalCloseReason,
 } from "./components/modal/modal.js";
+export { OreNav } from "./components/nav/nav.js";
 export {
   OreProgress,
   type OreProgressLabelAlign,
