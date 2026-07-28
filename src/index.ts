@@ -38,6 +38,7 @@ export { OreRadio } from "./components/radio/radio.js";
 export { OreScrollbar } from "./components/scrollbar/scrollbar.js";
 export {
   OreSlider,
+  type OreSliderOrientation,
   type OreSliderVariant,
 } from "./components/slider/slider.js";
 export {

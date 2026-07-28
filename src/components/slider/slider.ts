@@ -1,6 +1,7 @@
 import { type PropertyValues, ReactiveElement } from "lit";
 
 export type OreSliderVariant = "default" | "segmented";
+export type OreSliderOrientation = "horizontal" | "vertical";
 
 export class OreSlider extends ReactiveElement {
   static formAssociated = true;
@@ -10,6 +11,7 @@ export class OreSlider extends ReactiveElement {
     max: { type: Number, reflect: true },
     min: { type: Number, reflect: true },
     name: { type: String, reflect: true },
+    orientation: { type: String, reflect: true },
     step: { type: Number, reflect: true },
     value: { type: Number, reflect: true },
     variant: { type: String, reflect: true },
@@ -19,6 +21,7 @@ export class OreSlider extends ReactiveElement {
   declare max: number;
   declare min: number;
   declare name: string;
+  declare orientation: OreSliderOrientation;
   declare step: number;
   declare value: number;
   declare variant: OreSliderVariant;
@@ -33,6 +36,7 @@ export class OreSlider extends ReactiveElement {
     this.max = 100;
     this.min = 0;
     this.name = "";
+    this.orientation = "horizontal";
     this.step = 1;
     this.value = 0;
     this.variant = "default";
@@ -79,6 +83,7 @@ export class OreSlider extends ReactiveElement {
       changed.has("disabled") ||
       changed.has("max") ||
       changed.has("min") ||
+      changed.has("orientation") ||
       changed.has("step") ||
       changed.has("value")
     ) {
@@ -115,6 +120,7 @@ export class OreSlider extends ReactiveElement {
     input.max = String(this.max);
     input.step = String(this.step);
     input.value = String(value);
+    input.setAttribute("aria-orientation", this.orientation);
     input.setAttribute(
       "aria-label",
       this.getAttribute("aria-label") ??

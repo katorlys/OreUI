@@ -1,6 +1,7 @@
 :where(ore-scrollbar, .ore-scrollbar) {
   --ore-scrollbar-unit: 0.125rem;
   --ore-scrollbar-size: calc(var(--ore-scrollbar-unit) * 6);
+  --ore-scrollbar-horizontal-size: calc(var(--ore-scrollbar-unit) * 8);
   --ore-scrollbar-track-size: calc(var(--ore-scrollbar-unit) * 2);
   --ore-scrollbar-track: #5a5b5c;
   --ore-scrollbar-thumb-outline: #1e1e1f;
@@ -14,7 +15,7 @@
 
 :where(ore-scrollbar, .ore-scrollbar)::-webkit-scrollbar {
   width: var(--ore-scrollbar-size);
-  height: var(--ore-scrollbar-size);
+  height: var(--ore-scrollbar-horizontal-size);
 }
 
 :where(ore-scrollbar, .ore-scrollbar)::-webkit-scrollbar-button {
@@ -23,7 +24,7 @@
   height: 0;
 }
 
-:where(ore-scrollbar, .ore-scrollbar)::-webkit-scrollbar-track {
+:where(ore-scrollbar, .ore-scrollbar)::-webkit-scrollbar-track:vertical {
   background: linear-gradient(
       var(--ore-scrollbar-track),
       var(--ore-scrollbar-track)
@@ -31,7 +32,15 @@
     center / var(--ore-scrollbar-track-size) 100% no-repeat;
 }
 
-:where(ore-scrollbar, .ore-scrollbar)::-webkit-scrollbar-thumb {
+:where(ore-scrollbar, .ore-scrollbar)::-webkit-scrollbar-track:horizontal {
+  background: linear-gradient(
+      var(--ore-scrollbar-track),
+      var(--ore-scrollbar-track)
+    )
+    center / 100% var(--ore-scrollbar-track-size) no-repeat;
+}
+
+:where(ore-scrollbar, .ore-scrollbar)::-webkit-scrollbar-thumb:vertical {
   border-radius: 0;
   background:
     linear-gradient(
@@ -55,6 +64,33 @@
       center var(--ore-scrollbar-unit) /
       calc(100% - var(--ore-scrollbar-unit) * 2)
       calc(100% - var(--ore-scrollbar-unit) * 4) no-repeat,
+    var(--ore-scrollbar-thumb-outline);
+}
+
+:where(ore-scrollbar, .ore-scrollbar)::-webkit-scrollbar-thumb:horizontal {
+  border-radius: 0;
+  background:
+    linear-gradient(
+        var(--ore-scrollbar-thumb-surface),
+        var(--ore-scrollbar-thumb-surface)
+      )
+      center calc(var(--ore-scrollbar-unit) * 2) /
+      calc(100% - var(--ore-scrollbar-unit) * 4)
+      calc(var(--ore-scrollbar-unit) * 2) no-repeat,
+    linear-gradient(
+        var(--ore-scrollbar-thumb-border-dark),
+        var(--ore-scrollbar-thumb-border-dark)
+      )
+      center bottom var(--ore-scrollbar-unit) /
+      calc(100% - var(--ore-scrollbar-unit) * 2)
+      calc(var(--ore-scrollbar-unit) * 2) no-repeat,
+    linear-gradient(
+        var(--ore-scrollbar-thumb-border-light),
+        var(--ore-scrollbar-thumb-border-light)
+      )
+      center var(--ore-scrollbar-unit) /
+      calc(100% - var(--ore-scrollbar-unit) * 2)
+      calc(var(--ore-scrollbar-unit) * 4) no-repeat,
     var(--ore-scrollbar-thumb-outline);
 }
 

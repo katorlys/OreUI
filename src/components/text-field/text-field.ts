@@ -6,6 +6,7 @@ export class OreTextField extends ReactiveElement {
   static properties = {
     description: { type: String, reflect: true },
     disabled: { type: Boolean, reflect: true },
+    error: { type: String, reflect: true },
     label: { type: String, reflect: true },
     name: { type: String, reflect: true },
     placeholder: { type: String, reflect: true },
@@ -17,6 +18,7 @@ export class OreTextField extends ReactiveElement {
 
   declare description: string;
   declare disabled: boolean;
+  declare error: string;
   declare label: string;
   declare name: string;
   declare placeholder: string;
@@ -33,6 +35,7 @@ export class OreTextField extends ReactiveElement {
     super();
     this.description = "";
     this.disabled = false;
+    this.error = "";
     this.label = "";
     this.name = "";
     this.placeholder = "";
@@ -83,14 +86,20 @@ export class OreTextField extends ReactiveElement {
       const control = document.createElement("span");
       const input = document.createElement("input");
       const description = document.createElement("span");
+      const error = document.createElement("span");
+      const icon = this.querySelector<HTMLElement>(
+        ":scope > .ore-text-field-icon",
+      );
 
       label.className = "ore-text-field-label";
       control.className = "ore-text-field-control";
       input.className = "ore-text-field-input";
       input.defaultValue = this.#defaultValue;
       description.className = "ore-text-field-description";
-      control.append(input);
-      this.append(label, control, description);
+      error.className = "ore-text-field-error";
+      error.setAttribute("aria-live", "polite");
+      control.append(...(icon ? [icon, input] : [input]));
+      this.append(label, control, description, error);
       label.addEventListener("click", () => input.focus());
       input.addEventListener("input", this.#handleInput);
       input.addEventListener("change", this.#handleChange);
@@ -107,6 +116,7 @@ export class OreTextField extends ReactiveElement {
     if (
       changed.has("description") ||
       changed.has("disabled") ||
+      changed.has("error") ||
       changed.has("label") ||
       changed.has("placeholder") ||
       changed.has("readonly") ||
@@ -136,8 +146,11 @@ export class OreTextField extends ReactiveElement {
     const description = this.querySelector<HTMLElement>(
       ":scope > .ore-text-field-description",
     );
+    const error = this.querySelector<HTMLElement>(
+      ":scope > .ore-text-field-error",
+    );
 
-    if (!input || !label || !description) {
+    if (!input || !label || !description || !error) {
       return;
     }
 
@@ -153,22 +166,43 @@ export class OreTextField extends ReactiveElement {
     input.required = this.required;
     input.type = this.type;
     input.value = this.value;
+    input.setCustomValidity(this.error);
     input.setAttribute(
       "aria-label",
       this.getAttribute("aria-label") || this.label || "Text field",
     );
-    input.toggleAttribute("aria-describedby", Boolean(this.description));
+    const describedBy: string[] = [];
+
     if (this.description) {
       const id =
         description.id || `ore-text-field-description-${crypto.randomUUID()}`;
       description.id = id;
-      input.setAttribute("aria-describedby", id);
+      describedBy.push(id);
     }
+
+    const invalid = !input.validity.valid;
+    const errorMessage = invalid ? input.validationMessage : "";
+
+    error.textContent = errorMessage;
+    error.hidden = !errorMessage;
+    if (errorMessage) {
+      const id = error.id || `ore-text-field-error-${crypto.randomUUID()}`;
+      error.id = id;
+      describedBy.push(id);
+    }
+
+    if (describedBy.length > 0) {
+      input.setAttribute("aria-describedby", describedBy.join(" "));
+    } else {
+      input.removeAttribute("aria-describedby");
+    }
+
+    input.setAttribute("aria-invalid", String(invalid));
 
     this.#internals.setFormValue(this.value);
     this.#internals.setValidity(input.validity, input.validationMessage, input);
     this.setAttribute("aria-disabled", String(disabled));
-    this.setAttribute("aria-invalid", String(!input.validity.valid));
+    this.setAttribute("aria-invalid", String(invalid));
   }
 
   readonly #handleInput = (event: Event): void => {
