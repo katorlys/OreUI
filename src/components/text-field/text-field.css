@@ -1,13 +1,13 @@
 :where(ore-text-field) {
   --ore-text-field-unit: 0.125rem;
-  --ore-text-field-surface: #313233;
-  --ore-text-field-thick: #242425;
-  --ore-text-field-outline: var(--ore-color-outline);
+  --ore-text-field-background: #313233;
+  --ore-text-field-shadow: #242425;
+  --ore-text-field-border: var(--ore-color-border);
   --ore-text-field-foreground: var(--ore-color-foreground);
   --ore-text-field-description: var(--ore-color-disabled);
-  --ore-text-field-error: var(--ore-color-destructive-border-hover);
-  --ore-text-field-ring: transparent;
-  --ore-text-field-caret: var(--ore-color-primary-surface);
+  --ore-text-field-error: var(--ore-color-destructive-highlight-hover);
+  --ore-text-field-focus-ring: transparent;
+  --ore-text-field-caret: var(--ore-color-primary-background);
 
   display: inline-grid;
   width: min(100%, calc(var(--ore-text-field-unit) * 122));
@@ -30,19 +30,19 @@
   padding: calc(var(--ore-text-field-unit) * 3)
     calc(var(--ore-text-field-unit) * 1) calc(var(--ore-text-field-unit) * 1);
   background:
-    linear-gradient(var(--ore-text-field-thick), var(--ore-text-field-thick))
+    linear-gradient(var(--ore-text-field-shadow), var(--ore-text-field-shadow))
       center var(--ore-text-field-unit) /
       calc(100% - var(--ore-text-field-unit) * 2)
       calc(var(--ore-text-field-unit) * 2) no-repeat,
     linear-gradient(
-        var(--ore-text-field-surface),
-        var(--ore-text-field-surface)
+        var(--ore-text-field-background),
+        var(--ore-text-field-background)
       )
       center calc(var(--ore-text-field-unit) * 3) /
       calc(100% - var(--ore-text-field-unit) * 2)
       calc(100% - var(--ore-text-field-unit) * 4) no-repeat,
-    var(--ore-text-field-outline);
-  box-shadow: 0 0 0 var(--ore-text-field-unit) var(--ore-text-field-ring);
+    var(--ore-text-field-border);
+  box-shadow: 0 0 0 var(--ore-text-field-unit) var(--ore-text-field-focus-ring);
 }
 
 :where(ore-text-field .ore-text-field-input) {
@@ -94,18 +94,18 @@
 }
 
 :where(ore-text-field[aria-invalid="true"] > .ore-text-field-control) {
-  --ore-text-field-outline: var(--ore-color-destructive-border);
-  --ore-text-field-thick: var(--ore-color-destructive-thick);
+  --ore-text-field-border: var(--ore-color-destructive-highlight);
+  --ore-text-field-shadow: var(--ore-color-destructive-shadow);
 }
 
 :where(ore-text-field:has(.ore-text-field-input:focus-visible)) {
-  --ore-text-field-ring: var(--ore-color-focus);
+  --ore-text-field-focus-ring: var(--ore-color-focus-ring);
 }
 
 :where(ore-text-field[disabled], ore-text-field[form-disabled]) {
-  --ore-text-field-surface: var(--ore-color-disabled);
-  --ore-text-field-thick: #b1b2b5;
-  --ore-text-field-outline: var(--ore-color-disabled-outline);
+  --ore-text-field-background: var(--ore-color-disabled);
+  --ore-text-field-shadow: #b1b2b5;
+  --ore-text-field-border: var(--ore-color-disabled-border);
   --ore-text-field-foreground: var(--ore-color-disabled);
 }
 

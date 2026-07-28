@@ -1,10 +1,10 @@
 :where(ore-icon-button) {
   --ore-icon-button-unit: 0.125rem;
-  --ore-icon-button-surface: #48494a;
-  --ore-icon-button-edge-light: #5a5b5c;
-  --ore-icon-button-edge-dark: #333334;
+  --ore-icon-button-background: #48494a;
+  --ore-icon-button-highlight: #5a5b5c;
+  --ore-icon-button-shadow-color: #333334;
   --ore-icon-button-corner: #49494b;
-  --ore-icon-button-outline: var(--ore-color-outline);
+  --ore-icon-button-border: var(--ore-color-border);
   --ore-icon-button-foreground: var(--ore-color-foreground);
 
   display: inline-grid;
@@ -28,33 +28,33 @@
       left bottom / var(--ore-icon-button-unit) var(--ore-icon-button-unit)
       no-repeat,
     linear-gradient(
-        var(--ore-icon-button-edge-light),
-        var(--ore-icon-button-edge-light)
+        var(--ore-icon-button-highlight),
+        var(--ore-icon-button-highlight)
       )
       left top / calc(100% - var(--ore-icon-button-unit))
       var(--ore-icon-button-unit) no-repeat,
     linear-gradient(
-        var(--ore-icon-button-edge-light),
-        var(--ore-icon-button-edge-light)
+        var(--ore-icon-button-highlight),
+        var(--ore-icon-button-highlight)
       )
       left top / var(--ore-icon-button-unit)
       calc(100% - var(--ore-icon-button-unit)) no-repeat,
     linear-gradient(
-        var(--ore-icon-button-edge-dark),
-        var(--ore-icon-button-edge-dark)
+        var(--ore-icon-button-shadow-color),
+        var(--ore-icon-button-shadow-color)
       )
       right bottom / calc(100% - var(--ore-icon-button-unit))
       var(--ore-icon-button-unit) no-repeat,
     linear-gradient(
-        var(--ore-icon-button-edge-dark),
-        var(--ore-icon-button-edge-dark)
+        var(--ore-icon-button-shadow-color),
+        var(--ore-icon-button-shadow-color)
       )
       right bottom / var(--ore-icon-button-unit)
       calc(100% - var(--ore-icon-button-unit)) no-repeat,
-    var(--ore-icon-button-surface);
+    var(--ore-icon-button-background);
   box-shadow: var(
-    --ore-icon-button-shadow,
-    0 0 0 var(--ore-icon-button-unit) var(--ore-icon-button-outline)
+    --ore-icon-button-box-shadow,
+    0 0 0 var(--ore-icon-button-unit) var(--ore-icon-button-border)
   );
   cursor: pointer;
   user-select: none;
@@ -67,32 +67,32 @@
 }
 
 :where(ore-icon-button:hover:not([disabled], [form-disabled])) {
-  --ore-icon-button-surface: var(--ore-color-neutral-surface-hover);
-  --ore-icon-button-edge-light: var(--ore-color-neutral-border-hover);
-  --ore-icon-button-corner: var(--ore-color-neutral-border);
+  --ore-icon-button-background: var(--ore-color-neutral-background-hover);
+  --ore-icon-button-highlight: var(--ore-color-neutral-highlight-hover);
+  --ore-icon-button-corner: var(--ore-color-neutral-highlight);
 }
 
 :where(
   ore-icon-button:active:not([disabled], [form-disabled]),
   ore-icon-button[pressed]:not([disabled], [form-disabled])
 ) {
-  --ore-icon-button-surface: var(--ore-color-neutral-surface-pressed);
-  --ore-icon-button-edge-light: var(--ore-color-neutral-thick);
-  --ore-icon-button-edge-dark: var(--ore-color-neutral-border-pressed);
-  --ore-icon-button-corner: var(--ore-color-neutral-surface);
+  --ore-icon-button-background: var(--ore-color-neutral-background-pressed);
+  --ore-icon-button-highlight: var(--ore-color-neutral-shadow);
+  --ore-icon-button-shadow-color: var(--ore-color-neutral-highlight-pressed);
+  --ore-icon-button-corner: var(--ore-color-neutral-background);
 }
 
 :where(ore-icon-button:focus-visible) {
-  outline: var(--ore-icon-button-unit) solid var(--ore-color-focus);
+  outline: var(--ore-icon-button-unit) solid var(--ore-color-focus-ring);
   outline-offset: var(--ore-icon-button-unit);
 }
 
 :where(ore-icon-button[disabled], ore-icon-button[form-disabled]) {
-  --ore-icon-button-surface: var(--ore-color-disabled);
-  --ore-icon-button-edge-light: var(--ore-color-disabled-outline);
-  --ore-icon-button-edge-dark: #b1b2b5;
+  --ore-icon-button-background: var(--ore-color-disabled);
+  --ore-icon-button-highlight: var(--ore-color-disabled-border);
+  --ore-icon-button-shadow-color: #b1b2b5;
   --ore-icon-button-corner: #a3a4a6;
-  --ore-icon-button-outline: var(--ore-color-disabled-outline);
+  --ore-icon-button-border: var(--ore-color-disabled-border);
   --ore-icon-button-foreground: #666666;
 
   cursor: not-allowed;

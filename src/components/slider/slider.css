@@ -5,38 +5,38 @@
     var(--ore-slider-unit) * 7.25 + (100% - var(--ore-slider-unit) * 14.5) *
       var(--ore-slider-progress)
   );
-  --ore-slider-track-outline: var(--ore-color-outline);
-  --ore-slider-range-surface: var(--ore-color-primary-surface);
-  --ore-slider-range-border: var(--ore-color-primary-border);
-  --ore-slider-track-surface: #8c8d90;
-  --ore-slider-track-border: #a3a4a6;
-  --ore-slider-thumb-surface: var(--ore-color-secondary-surface);
-  --ore-slider-thumb-border: var(--ore-color-secondary-border);
-  --ore-slider-thumb-thick: var(--ore-color-secondary-thick);
-  --ore-slider-thumb-outline: var(--ore-color-outline);
-  --ore-slider-thumb-ring: transparent;
-  --ore-slider-thumb-background:
+  --ore-slider-track-border: var(--ore-color-border);
+  --ore-slider-range-background: var(--ore-color-primary-background);
+  --ore-slider-range-highlight: var(--ore-color-primary-highlight);
+  --ore-slider-track-background: #8c8d90;
+  --ore-slider-track-highlight: #a3a4a6;
+  --ore-slider-thumb-background: var(--ore-color-secondary-background);
+  --ore-slider-thumb-highlight: var(--ore-color-secondary-highlight);
+  --ore-slider-thumb-shadow: var(--ore-color-secondary-shadow);
+  --ore-slider-thumb-border: var(--ore-color-border);
+  --ore-slider-thumb-focus-ring: transparent;
+  --ore-slider-thumb-image:
     linear-gradient(
-        var(--ore-slider-thumb-surface),
-        var(--ore-slider-thumb-surface)
+        var(--ore-slider-thumb-background),
+        var(--ore-slider-thumb-background)
       )
       center calc(var(--ore-slider-unit) * 2) /
       calc(var(--ore-slider-unit) * 10.5) calc(var(--ore-slider-unit) * 8.5)
       no-repeat,
     linear-gradient(
-        var(--ore-slider-thumb-thick),
-        var(--ore-slider-thumb-thick)
+        var(--ore-slider-thumb-shadow),
+        var(--ore-slider-thumb-shadow)
       )
       center calc(var(--ore-slider-unit) * 11.5) /
       calc(var(--ore-slider-unit) * 12.5) calc(var(--ore-slider-unit) * 2)
       no-repeat,
     linear-gradient(
-        var(--ore-slider-thumb-border),
-        var(--ore-slider-thumb-border)
+        var(--ore-slider-thumb-highlight),
+        var(--ore-slider-thumb-highlight)
       )
       center var(--ore-slider-unit) / calc(var(--ore-slider-unit) * 12.5)
       calc(var(--ore-slider-unit) * 10.5) no-repeat,
-    var(--ore-slider-thumb-outline);
+    var(--ore-slider-thumb-border);
   --ore-slider-segments: none;
 
   position: relative;
@@ -49,7 +49,7 @@
   --ore-slider-segments: repeating-linear-gradient(
     to right,
     transparent 0 calc(10% - var(--ore-slider-unit) / 2),
-    var(--ore-slider-track-outline) calc(10% - var(--ore-slider-unit) / 2)
+    var(--ore-slider-track-border) calc(10% - var(--ore-slider-unit) / 2)
       calc(10% + var(--ore-slider-unit) / 2),
     transparent calc(10% + var(--ore-slider-unit) / 2) 10%
   );
@@ -69,7 +69,7 @@
   --ore-slider-segments: repeating-linear-gradient(
     to top,
     transparent 0 calc(10% - var(--ore-slider-unit) / 2),
-    var(--ore-slider-track-outline) calc(10% - var(--ore-slider-unit) / 2)
+    var(--ore-slider-track-border) calc(10% - var(--ore-slider-unit) / 2)
       calc(10% + var(--ore-slider-unit) / 2),
     transparent calc(10% + var(--ore-slider-unit) / 2) 10%
   );
@@ -85,19 +85,19 @@
     var(--ore-slider-segments),
     linear-gradient(
         to right,
-        var(--ore-slider-range-surface) 0 var(--ore-slider-value),
-        var(--ore-slider-track-surface) var(--ore-slider-value) 100%
+        var(--ore-slider-range-background) 0 var(--ore-slider-value),
+        var(--ore-slider-track-background) var(--ore-slider-value) 100%
       )
       center / calc(100% - var(--ore-slider-unit) * 4)
       calc(var(--ore-slider-unit) * 1.5) no-repeat,
     linear-gradient(
         to right,
-        var(--ore-slider-range-border) 0 var(--ore-slider-value),
-        var(--ore-slider-track-border) var(--ore-slider-value) 100%
+        var(--ore-slider-range-highlight) 0 var(--ore-slider-value),
+        var(--ore-slider-track-highlight) var(--ore-slider-value) 100%
       )
       center / calc(100% - var(--ore-slider-unit) * 2)
       calc(var(--ore-slider-unit) * 3.5) no-repeat,
-    var(--ore-slider-track-outline);
+    var(--ore-slider-track-border);
   content: "";
   transform: translateY(-50%);
   pointer-events: none;
@@ -114,19 +114,19 @@
     var(--ore-slider-segments),
     linear-gradient(
         to top,
-        var(--ore-slider-range-surface) 0 var(--ore-slider-value),
-        var(--ore-slider-track-surface) var(--ore-slider-value) 100%
+        var(--ore-slider-range-background) 0 var(--ore-slider-value),
+        var(--ore-slider-track-background) var(--ore-slider-value) 100%
       )
       center / calc(var(--ore-slider-unit) * 1.5)
       calc(100% - var(--ore-slider-unit) * 4) no-repeat,
     linear-gradient(
         to top,
-        var(--ore-slider-range-border) 0 var(--ore-slider-value),
-        var(--ore-slider-track-border) var(--ore-slider-value) 100%
+        var(--ore-slider-range-highlight) 0 var(--ore-slider-value),
+        var(--ore-slider-track-highlight) var(--ore-slider-value) 100%
       )
       center / calc(var(--ore-slider-unit) * 3.5)
       calc(100% - var(--ore-slider-unit) * 2) no-repeat,
-    var(--ore-slider-track-outline);
+    var(--ore-slider-track-border);
   transform: translateX(-50%);
 }
 
@@ -177,8 +177,8 @@
   appearance: none;
   border: 0;
   border-radius: 0;
-  background: var(--ore-slider-thumb-background);
-  box-shadow: 0 0 0 var(--ore-slider-unit) var(--ore-slider-thumb-ring);
+  background: var(--ore-slider-thumb-image);
+  box-shadow: 0 0 0 var(--ore-slider-unit) var(--ore-slider-thumb-focus-ring);
 }
 
 :where(
@@ -194,23 +194,23 @@
   appearance: none;
   border: 0;
   border-radius: 0;
-  background: var(--ore-slider-thumb-background);
-  box-shadow: 0 0 0 var(--ore-slider-unit) var(--ore-slider-thumb-ring);
+  background: var(--ore-slider-thumb-image);
+  box-shadow: 0 0 0 var(--ore-slider-unit) var(--ore-slider-thumb-focus-ring);
 }
 
 :where(ore-slider:hover:not([disabled], [form-disabled])) {
-  --ore-slider-thumb-surface: var(--ore-color-secondary-surface-hover);
-  --ore-slider-thumb-border: var(--ore-color-secondary-border-hover);
+  --ore-slider-thumb-background: var(--ore-color-secondary-background-hover);
+  --ore-slider-thumb-highlight: var(--ore-color-secondary-highlight-hover);
 }
 
 :where(ore-slider:active:not([disabled], [form-disabled])) {
-  --ore-slider-thumb-surface: var(--ore-color-secondary-surface-pressed);
-  --ore-slider-thumb-border: var(--ore-color-secondary-border-pressed);
+  --ore-slider-thumb-background: var(--ore-color-secondary-background-pressed);
+  --ore-slider-thumb-highlight: var(--ore-color-secondary-highlight-pressed);
 }
 
 :where(ore-slider:has(> input[type="range"]:focus-visible)) {
-  --ore-slider-thumb-border: #ecedee;
-  --ore-slider-thumb-ring: var(--ore-color-focus);
+  --ore-slider-thumb-highlight: #ecedee;
+  --ore-slider-thumb-focus-ring: var(--ore-color-focus-ring);
 }
 
 :where(ore-slider > input[type="range"]:focus-visible) {
@@ -218,15 +218,15 @@
 }
 
 :where(ore-slider[disabled], ore-slider[form-disabled]) {
-  --ore-slider-track-outline: var(--ore-color-disabled-outline);
-  --ore-slider-range-surface: var(--ore-color-disabled);
-  --ore-slider-range-border: #d5d6d8;
-  --ore-slider-track-surface: var(--ore-color-disabled);
-  --ore-slider-track-border: #d9dadd;
-  --ore-slider-thumb-surface: var(--ore-color-disabled);
-  --ore-slider-thumb-border: #ecedee;
-  --ore-slider-thumb-thick: #b1b2b5;
-  --ore-slider-thumb-outline: var(--ore-color-disabled-outline);
+  --ore-slider-track-border: var(--ore-color-disabled-border);
+  --ore-slider-range-background: var(--ore-color-disabled);
+  --ore-slider-range-highlight: #d5d6d8;
+  --ore-slider-track-background: var(--ore-color-disabled);
+  --ore-slider-track-highlight: #d9dadd;
+  --ore-slider-thumb-background: var(--ore-color-disabled);
+  --ore-slider-thumb-highlight: #ecedee;
+  --ore-slider-thumb-shadow: #b1b2b5;
+  --ore-slider-thumb-border: var(--ore-color-disabled-border);
 }
 
 :where(ore-slider[disabled], ore-slider[form-disabled]) > input[type="range"] {

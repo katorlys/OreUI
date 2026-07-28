@@ -1,7 +1,7 @@
 :where(ore-accordion) {
   --ore-accordion-unit: 0.125rem;
-  --ore-accordion-outline: #1e1e1f;
-  --ore-accordion-surface: #48494a;
+  --ore-accordion-border: #1e1e1f;
+  --ore-accordion-background: #48494a;
   --ore-accordion-foreground: var(--ore-color-foreground);
   --ore-accordion-content-foreground: #d0d1d4;
 
@@ -17,8 +17,8 @@
   --ore-icon-button-padding: var(--ore-accordion-unit)
     calc(var(--ore-accordion-unit) * 8);
   --ore-icon-button-place-items: center stretch;
-  --ore-icon-button-shadow: 0 0 0 var(--ore-accordion-unit)
-    var(--ore-accordion-outline);
+  --ore-icon-button-box-shadow: 0 0 0 var(--ore-accordion-unit)
+    var(--ore-accordion-border);
 
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -48,14 +48,21 @@
   mask-image: url("../../assets/icons/chevron-up.svg");
 }
 
+:where(ore-accordion[open] > .ore-accordion-trigger) {
+  --ore-icon-button-background: var(--ore-color-neutral-background-pressed);
+  --ore-icon-button-highlight: var(--ore-color-neutral-shadow);
+  --ore-icon-button-shadow-color: var(--ore-color-neutral-highlight-pressed);
+  --ore-icon-button-corner: var(--ore-color-neutral-background);
+}
+
 :where(ore-accordion > .ore-accordion-content) {
   box-sizing: border-box;
   padding: calc(var(--ore-accordion-unit) * 4)
     calc(var(--ore-accordion-unit) * 8);
-  border: var(--ore-accordion-unit) solid var(--ore-accordion-outline);
+  border: var(--ore-accordion-unit) solid var(--ore-accordion-border);
   border-top: 0;
   color: var(--ore-accordion-content-foreground);
-  background: var(--ore-accordion-surface);
+  background: var(--ore-accordion-background);
   font-size: calc(var(--ore-accordion-unit) * 6);
   line-height: calc(var(--ore-accordion-unit) * 7);
 }

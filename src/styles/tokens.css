@@ -5,42 +5,42 @@
   --ore-line-height-body: 1.25;
 
   --ore-color-foreground: #ffffff;
-  --ore-color-outline: #1e1e1f;
-  --ore-color-focus: #ffffff;
+  --ore-color-border: #1e1e1f;
+  --ore-color-focus-ring: #ffffff;
   --ore-color-disabled: #d0d1d4;
-  --ore-color-disabled-outline: #8c8d90;
+  --ore-color-disabled-border: #8c8d90;
 
-  --ore-color-primary-surface: #3c8527;
-  --ore-color-primary-surface-hover: #52a535;
-  --ore-color-primary-surface-pressed: #2a641c;
-  --ore-color-primary-border: #639d52;
-  --ore-color-primary-border-hover: #75b75d;
-  --ore-color-primary-border-pressed: #3f7332;
-  --ore-color-primary-thick: #1d4d13;
+  --ore-color-primary-background: #3c8527;
+  --ore-color-primary-background-hover: #52a535;
+  --ore-color-primary-background-pressed: #2a641c;
+  --ore-color-primary-highlight: #639d52;
+  --ore-color-primary-highlight-hover: #75b75d;
+  --ore-color-primary-highlight-pressed: #3f7332;
+  --ore-color-primary-shadow: #1d4d13;
 
-  --ore-color-secondary-surface: #d0d1d4;
-  --ore-color-secondary-surface-hover: #f4f6f9;
-  --ore-color-secondary-surface-pressed: #b1b2b5;
-  --ore-color-secondary-border: #e3e3e5;
-  --ore-color-secondary-border-hover: #fdfdfe;
-  --ore-color-secondary-border-pressed: #d0d1d3;
-  --ore-color-secondary-thick: #58585a;
+  --ore-color-secondary-background: #d0d1d4;
+  --ore-color-secondary-background-hover: #f4f6f9;
+  --ore-color-secondary-background-pressed: #b1b2b5;
+  --ore-color-secondary-highlight: #e3e3e5;
+  --ore-color-secondary-highlight-hover: #fdfdfe;
+  --ore-color-secondary-highlight-pressed: #d0d1d3;
+  --ore-color-secondary-shadow: #58585a;
 
-  --ore-color-neutral-surface: #48494a;
-  --ore-color-neutral-surface-hover: #58585a;
-  --ore-color-neutral-surface-pressed: #313233;
-  --ore-color-neutral-border: #6d6d6e;
-  --ore-color-neutral-border-hover: #79797b;
-  --ore-color-neutral-border-pressed: #5a5b5c;
-  --ore-color-neutral-thick: #313233;
+  --ore-color-neutral-background: #48494a;
+  --ore-color-neutral-background-hover: #58585a;
+  --ore-color-neutral-background-pressed: #313233;
+  --ore-color-neutral-highlight: #6d6d6e;
+  --ore-color-neutral-highlight-hover: #79797b;
+  --ore-color-neutral-highlight-pressed: #5a5b5c;
+  --ore-color-neutral-shadow: #313233;
 
-  --ore-color-destructive-surface: #ca3636;
-  --ore-color-destructive-surface-hover: #ff8080;
-  --ore-color-destructive-surface-pressed: #c02d2d;
-  --ore-color-destructive-border: #cf4a4a;
-  --ore-color-destructive-border-hover: #ff8c8c;
-  --ore-color-destructive-border-pressed: #c64242;
-  --ore-color-destructive-thick: #ad1d1d;
+  --ore-color-destructive-background: #ca3636;
+  --ore-color-destructive-background-hover: #ff8080;
+  --ore-color-destructive-background-pressed: #c02d2d;
+  --ore-color-destructive-highlight: #cf4a4a;
+  --ore-color-destructive-highlight-hover: #ff8c8c;
+  --ore-color-destructive-highlight-pressed: #c64242;
+  --ore-color-destructive-shadow: #ad1d1d;
 
   --ore-unit: 0.0625rem;
   --ore-focus-width: calc(var(--ore-unit) * 2);

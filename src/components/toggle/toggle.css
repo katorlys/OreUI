@@ -1,20 +1,20 @@
 :where(ore-toggle) {
   --ore-toggle-unit: 0.125rem;
-  --ore-toggle-status-surface: #8c8d90;
-  --ore-toggle-status-border: #a3a4a6;
-  --ore-toggle-status-outline: var(--ore-color-outline);
-  --ore-toggle-button-surface: #d0d1d4;
-  --ore-toggle-button-border: #e3e3e5;
-  --ore-toggle-button-thick: #58585a;
-  --ore-toggle-button-outline: var(--ore-color-outline);
-  --ore-toggle-button-ring: transparent;
+  --ore-toggle-track-background: #8c8d90;
+  --ore-toggle-track-highlight: #a3a4a6;
+  --ore-toggle-track-border: var(--ore-color-border);
+  --ore-toggle-thumb-background: #d0d1d4;
+  --ore-toggle-thumb-highlight: #e3e3e5;
+  --ore-toggle-thumb-shadow: #58585a;
+  --ore-toggle-thumb-border: var(--ore-color-border);
+  --ore-toggle-thumb-focus-ring: transparent;
   --ore-toggle-icon: #242425;
 
   display: inline-flex;
   align-items: center;
   gap: calc(var(--ore-toggle-unit) * 4);
   min-height: calc(var(--ore-toggle-unit) * 15);
-  color: var(--ore-color-outline);
+  color: var(--ore-color-border);
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
@@ -36,18 +36,18 @@
   height: calc(var(--ore-toggle-unit) * 13);
   background:
     linear-gradient(
-        var(--ore-toggle-status-surface),
-        var(--ore-toggle-status-surface)
+        var(--ore-toggle-track-background),
+        var(--ore-toggle-track-background)
       )
       left calc(var(--ore-toggle-unit) * 2) / calc(var(--ore-toggle-unit) * 11)
       calc(var(--ore-toggle-unit) * 9) no-repeat,
     linear-gradient(
-        var(--ore-toggle-status-border),
-        var(--ore-toggle-status-border)
+        var(--ore-toggle-track-highlight),
+        var(--ore-toggle-track-highlight)
       )
       left var(--ore-toggle-unit) / calc(var(--ore-toggle-unit) * 12)
       calc(var(--ore-toggle-unit) * 11) no-repeat,
-    var(--ore-toggle-status-outline);
+    var(--ore-toggle-track-border);
 }
 
 :where(ore-toggle) .ore-toggle-button {
@@ -59,27 +59,27 @@
   height: calc(var(--ore-toggle-unit) * 15);
   background:
     linear-gradient(
-        var(--ore-toggle-button-surface),
-        var(--ore-toggle-button-surface)
+        var(--ore-toggle-thumb-background),
+        var(--ore-toggle-thumb-background)
       )
       center calc(var(--ore-toggle-unit) * 2) /
       calc(var(--ore-toggle-unit) * 11) calc(var(--ore-toggle-unit) * 9)
       no-repeat,
     linear-gradient(
-        var(--ore-toggle-button-thick),
-        var(--ore-toggle-button-thick)
+        var(--ore-toggle-thumb-shadow),
+        var(--ore-toggle-thumb-shadow)
       )
       center calc(var(--ore-toggle-unit) * 12) /
       calc(var(--ore-toggle-unit) * 13) calc(var(--ore-toggle-unit) * 2)
       no-repeat,
     linear-gradient(
-        var(--ore-toggle-button-border),
-        var(--ore-toggle-button-border)
+        var(--ore-toggle-thumb-highlight),
+        var(--ore-toggle-thumb-highlight)
       )
       center var(--ore-toggle-unit) / calc(var(--ore-toggle-unit) * 13)
       calc(var(--ore-toggle-unit) * 11) no-repeat,
-    var(--ore-toggle-button-outline);
-  box-shadow: 0 0 0 var(--ore-toggle-unit) var(--ore-toggle-button-ring);
+    var(--ore-toggle-thumb-border);
+  box-shadow: 0 0 0 var(--ore-toggle-unit) var(--ore-toggle-thumb-focus-ring);
   order: -1;
 }
 
@@ -95,8 +95,8 @@
 }
 
 :where(ore-toggle[checked]) {
-  --ore-toggle-status-surface: var(--ore-color-primary-surface);
-  --ore-toggle-status-border: var(--ore-color-primary-border);
+  --ore-toggle-track-background: var(--ore-color-primary-background);
+  --ore-toggle-track-highlight: var(--ore-color-primary-highlight);
   --ore-toggle-icon: #ffffff;
 }
 
@@ -117,31 +117,31 @@
 }
 
 :where(ore-toggle:hover:not([disabled], [form-disabled])) {
-  --ore-toggle-button-surface: #f4f6f9;
-  --ore-toggle-button-border: #fbfbfd;
+  --ore-toggle-thumb-background: #f4f6f9;
+  --ore-toggle-thumb-highlight: #fbfbfd;
 }
 
 :where(
   ore-toggle:active:not([disabled], [form-disabled]),
   ore-toggle[pressed]:not([disabled], [form-disabled])
 ) {
-  --ore-toggle-button-surface: #b1b2b5;
-  --ore-toggle-button-border: #e0e0e1;
+  --ore-toggle-thumb-background: #b1b2b5;
+  --ore-toggle-thumb-highlight: #e0e0e1;
 }
 
 :where(ore-toggle:focus-visible) {
-  --ore-toggle-button-border: #ecedee;
-  --ore-toggle-button-ring: var(--ore-color-focus);
+  --ore-toggle-thumb-highlight: #ecedee;
+  --ore-toggle-thumb-focus-ring: var(--ore-color-focus-ring);
 }
 
 :where(ore-toggle[disabled], ore-toggle[form-disabled]) {
-  --ore-toggle-status-surface: var(--ore-color-disabled);
-  --ore-toggle-status-border: var(--ore-color-disabled);
-  --ore-toggle-status-outline: var(--ore-color-disabled-outline);
-  --ore-toggle-button-surface: var(--ore-color-disabled);
-  --ore-toggle-button-border: var(--ore-color-disabled);
-  --ore-toggle-button-thick: #b1b2b5;
-  --ore-toggle-button-outline: var(--ore-color-disabled-outline);
+  --ore-toggle-track-background: var(--ore-color-disabled);
+  --ore-toggle-track-highlight: var(--ore-color-disabled);
+  --ore-toggle-track-border: var(--ore-color-disabled-border);
+  --ore-toggle-thumb-background: var(--ore-color-disabled);
+  --ore-toggle-thumb-highlight: var(--ore-color-disabled);
+  --ore-toggle-thumb-shadow: #b1b2b5;
+  --ore-toggle-thumb-border: var(--ore-color-disabled-border);
   --ore-toggle-icon: #666666;
 
   cursor: not-allowed;

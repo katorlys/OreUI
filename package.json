@@ -1,6 +1,6 @@
 {
   "name": "@katorlys/oreui",
-  "version": "0.0.0-alpha.1",
+  "version": "0.0.0-alpha.2",
   "description": "An unofficial Ore UI cross-framework component library.",
   "type": "module",
   "license": "MPL-2.0",

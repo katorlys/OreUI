@@ -1,23 +1,23 @@
 :where(ore-tab-button) {
-  --ore-tab-off-surface: var(--ore-color-neutral-surface);
-  --ore-tab-off-surface-hover: var(--ore-color-neutral-surface-hover);
-  --ore-tab-off-surface-pressed: var(--ore-color-neutral-surface-pressed);
-  --ore-tab-off-border: var(--ore-color-neutral-border);
-  --ore-tab-off-border-hover: var(--ore-color-neutral-border-hover);
-  --ore-tab-off-border-pressed: var(--ore-color-neutral-border-pressed);
-  --ore-tab-off-thick: var(--ore-color-neutral-thick);
+  --ore-tab-off-background: var(--ore-color-neutral-background);
+  --ore-tab-off-background-hover: var(--ore-color-neutral-background-hover);
+  --ore-tab-off-background-pressed: var(--ore-color-neutral-background-pressed);
+  --ore-tab-off-highlight: var(--ore-color-neutral-highlight);
+  --ore-tab-off-highlight-hover: var(--ore-color-neutral-highlight-hover);
+  --ore-tab-off-highlight-pressed: var(--ore-color-neutral-highlight-pressed);
+  --ore-tab-off-shadow: var(--ore-color-neutral-shadow);
   --ore-tab-off-foreground: var(--ore-color-foreground);
-  --ore-tab-on-surface: #313233;
-  --ore-tab-on-border: #5a5b5c;
+  --ore-tab-on-background: #313233;
+  --ore-tab-on-highlight: #5a5b5c;
   --ore-tab-on-foreground: #ffffff;
   --ore-tab-indicator: #ffffff;
-  --ore-button-surface-default: var(--ore-tab-off-surface);
-  --ore-button-surface-hover: var(--ore-tab-off-surface-hover);
-  --ore-button-surface-pressed: var(--ore-tab-off-surface-pressed);
-  --ore-button-border-default: var(--ore-tab-off-border);
-  --ore-button-border-hover: var(--ore-tab-off-border-hover);
-  --ore-button-border-pressed: var(--ore-tab-off-border-pressed);
-  --ore-button-thick: var(--ore-tab-off-thick);
+  --ore-button-background-default: var(--ore-tab-off-background);
+  --ore-button-background-hover: var(--ore-tab-off-background-hover);
+  --ore-button-background-pressed: var(--ore-tab-off-background-pressed);
+  --ore-button-highlight-default: var(--ore-tab-off-highlight);
+  --ore-button-highlight-hover: var(--ore-tab-off-highlight-hover);
+  --ore-button-highlight-pressed: var(--ore-tab-off-highlight-pressed);
+  --ore-button-shadow: var(--ore-tab-off-shadow);
   --ore-button-foreground: var(--ore-tab-off-foreground);
 
   position: relative;
@@ -25,16 +25,16 @@
 }
 
 :where(ore-tab-button[selected]) {
-  --ore-button-surface-default: var(--ore-tab-on-surface);
-  --ore-button-surface-hover: var(--ore-tab-on-surface);
-  --ore-button-surface-pressed: var(--ore-tab-on-surface);
-  --ore-button-border-default: var(--ore-tab-on-border);
-  --ore-button-border-hover: var(--ore-tab-on-border);
-  --ore-button-border-pressed: var(--ore-tab-on-border);
-  --ore-button-surface: var(--ore-tab-on-surface);
-  --ore-button-border: var(--ore-tab-on-border);
-  --ore-button-outline: var(--ore-color-outline);
-  --ore-button-thick: transparent;
+  --ore-button-background-default: var(--ore-tab-on-background);
+  --ore-button-background-hover: var(--ore-tab-on-background);
+  --ore-button-background-pressed: var(--ore-tab-on-background);
+  --ore-button-highlight-default: var(--ore-tab-on-highlight);
+  --ore-button-highlight-hover: var(--ore-tab-on-highlight);
+  --ore-button-highlight-pressed: var(--ore-tab-on-highlight);
+  --ore-button-background: var(--ore-tab-on-background);
+  --ore-button-highlight: var(--ore-tab-on-highlight);
+  --ore-button-border: var(--ore-color-border);
+  --ore-button-shadow: transparent;
   --ore-button-foreground: var(--ore-tab-on-foreground);
 
   height: calc(var(--ore-button-unit) * 22);
@@ -42,29 +42,29 @@
   padding-top: calc(var(--ore-button-unit) * 2);
   padding-bottom: 0;
   background:
-    linear-gradient(var(--ore-button-surface), var(--ore-button-surface)) center
-      calc(100% - var(--ore-button-unit) * 2) /
+    linear-gradient(var(--ore-button-background), var(--ore-button-background))
+      center calc(100% - var(--ore-button-unit) * 2) /
       calc(100% - var(--ore-button-unit) * 4)
       calc(100% - var(--ore-button-unit) * 6) no-repeat,
-    linear-gradient(var(--ore-button-border), var(--ore-button-border)) center
-      calc(100% - var(--ore-button-unit)) /
+    linear-gradient(var(--ore-button-highlight), var(--ore-button-highlight))
+      center calc(100% - var(--ore-button-unit)) /
       calc(100% - var(--ore-button-unit) * 2)
       calc(100% - var(--ore-button-unit) * 4) no-repeat,
-    linear-gradient(var(--ore-button-outline), var(--ore-button-outline)) center
+    linear-gradient(var(--ore-button-border), var(--ore-button-border)) center
       bottom / 100% calc(100% - var(--ore-button-unit) * 2) no-repeat;
 }
 
 :where(ore-tab-button[palette="toggle"]) {
-  --ore-tab-off-surface: var(--ore-color-secondary-surface);
-  --ore-tab-off-surface-hover: var(--ore-color-secondary-surface);
-  --ore-tab-off-surface-pressed: var(--ore-color-secondary-surface);
-  --ore-tab-off-border: var(--ore-color-secondary-border);
-  --ore-tab-off-border-hover: var(--ore-color-secondary-border);
-  --ore-tab-off-border-pressed: var(--ore-color-secondary-border);
-  --ore-tab-off-thick: var(--ore-color-secondary-thick);
-  --ore-tab-off-foreground: var(--ore-color-outline);
-  --ore-tab-on-surface: var(--ore-color-primary-surface);
-  --ore-tab-on-border: #4f913c;
+  --ore-tab-off-background: var(--ore-color-secondary-background);
+  --ore-tab-off-background-hover: var(--ore-color-secondary-background);
+  --ore-tab-off-background-pressed: var(--ore-color-secondary-background);
+  --ore-tab-off-highlight: var(--ore-color-secondary-highlight);
+  --ore-tab-off-highlight-hover: var(--ore-color-secondary-highlight);
+  --ore-tab-off-highlight-pressed: var(--ore-color-secondary-highlight);
+  --ore-tab-off-shadow: var(--ore-color-secondary-shadow);
+  --ore-tab-off-foreground: var(--ore-color-border);
+  --ore-tab-on-background: var(--ore-color-primary-background);
+  --ore-tab-on-highlight: #4f913c;
   --ore-tab-on-foreground: #ffffff;
 }
 
@@ -90,7 +90,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  box-shadow: 0 0 0 var(--ore-button-unit) var(--ore-color-focus);
+  box-shadow: 0 0 0 var(--ore-button-unit) var(--ore-color-focus-ring);
   content: "";
   pointer-events: none;
 }
@@ -120,14 +120,14 @@
   ore-tab-button:not([selected]):active:not([disabled], [form-disabled]),
   ore-tab-button:not([selected])[pressed]:not([disabled], [form-disabled])
 ) {
-  --ore-button-thick: transparent;
+  --ore-button-shadow: transparent;
 }
 
 :where(ore-tab-button[disabled], ore-tab-button[form-disabled]) {
-  --ore-button-surface: var(--ore-tab-off-surface);
-  --ore-button-border: var(--ore-tab-off-border);
-  --ore-button-outline: var(--ore-color-outline);
-  --ore-button-thick: var(--ore-tab-off-thick);
+  --ore-button-background: var(--ore-tab-off-background);
+  --ore-button-highlight: var(--ore-tab-off-highlight);
+  --ore-button-border: var(--ore-color-border);
+  --ore-button-shadow: var(--ore-tab-off-shadow);
 
   color: var(--ore-tab-off-foreground);
 }
@@ -136,10 +136,10 @@
   ore-tab-button[selected][disabled],
   ore-tab-button[selected][form-disabled]
 ) {
-  --ore-button-surface: var(--ore-tab-on-surface);
-  --ore-button-border: var(--ore-tab-on-border);
-  --ore-button-outline: var(--ore-color-outline);
-  --ore-button-thick: transparent;
+  --ore-button-background: var(--ore-tab-on-background);
+  --ore-button-highlight: var(--ore-tab-on-highlight);
+  --ore-button-border: var(--ore-color-border);
+  --ore-button-shadow: transparent;
 
   color: var(--ore-tab-on-foreground);
 }

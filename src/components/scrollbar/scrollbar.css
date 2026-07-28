@@ -4,10 +4,10 @@
   --ore-scrollbar-horizontal-size: calc(var(--ore-scrollbar-unit) * 8);
   --ore-scrollbar-track-size: calc(var(--ore-scrollbar-unit) * 2);
   --ore-scrollbar-track: #5a5b5c;
-  --ore-scrollbar-thumb-outline: #1e1e1f;
-  --ore-scrollbar-thumb-border-light: #e3e3e5;
-  --ore-scrollbar-thumb-surface: #d0d1d4;
-  --ore-scrollbar-thumb-border-dark: #58585a;
+  --ore-scrollbar-thumb-border: #1e1e1f;
+  --ore-scrollbar-thumb-highlight: #e3e3e5;
+  --ore-scrollbar-thumb-background: #d0d1d4;
+  --ore-scrollbar-thumb-shadow: #58585a;
 
   display: block;
   overflow: auto;
@@ -44,54 +44,54 @@
   border-radius: 0;
   background:
     linear-gradient(
-        var(--ore-scrollbar-thumb-surface),
-        var(--ore-scrollbar-thumb-surface)
+        var(--ore-scrollbar-thumb-background),
+        var(--ore-scrollbar-thumb-background)
       )
       center calc(var(--ore-scrollbar-unit) * 2) /
       calc(100% - var(--ore-scrollbar-unit) * 4)
       calc(100% - var(--ore-scrollbar-unit) * 6) no-repeat,
     linear-gradient(
-        var(--ore-scrollbar-thumb-border-dark),
-        var(--ore-scrollbar-thumb-border-dark)
+        var(--ore-scrollbar-thumb-shadow),
+        var(--ore-scrollbar-thumb-shadow)
       )
       center bottom var(--ore-scrollbar-unit) /
       calc(100% - var(--ore-scrollbar-unit) * 2)
       calc(var(--ore-scrollbar-unit) * 2) no-repeat,
     linear-gradient(
-        var(--ore-scrollbar-thumb-border-light),
-        var(--ore-scrollbar-thumb-border-light)
+        var(--ore-scrollbar-thumb-highlight),
+        var(--ore-scrollbar-thumb-highlight)
       )
       center var(--ore-scrollbar-unit) /
       calc(100% - var(--ore-scrollbar-unit) * 2)
       calc(100% - var(--ore-scrollbar-unit) * 4) no-repeat,
-    var(--ore-scrollbar-thumb-outline);
+    var(--ore-scrollbar-thumb-border);
 }
 
 :where(ore-scrollbar, .ore-scrollbar)::-webkit-scrollbar-thumb:horizontal {
   border-radius: 0;
   background:
     linear-gradient(
-        var(--ore-scrollbar-thumb-surface),
-        var(--ore-scrollbar-thumb-surface)
+        var(--ore-scrollbar-thumb-background),
+        var(--ore-scrollbar-thumb-background)
       )
       center calc(var(--ore-scrollbar-unit) * 2) /
       calc(100% - var(--ore-scrollbar-unit) * 4)
       calc(var(--ore-scrollbar-unit) * 2) no-repeat,
     linear-gradient(
-        var(--ore-scrollbar-thumb-border-dark),
-        var(--ore-scrollbar-thumb-border-dark)
+        var(--ore-scrollbar-thumb-shadow),
+        var(--ore-scrollbar-thumb-shadow)
       )
       center bottom var(--ore-scrollbar-unit) /
       calc(100% - var(--ore-scrollbar-unit) * 2)
       calc(var(--ore-scrollbar-unit) * 2) no-repeat,
     linear-gradient(
-        var(--ore-scrollbar-thumb-border-light),
-        var(--ore-scrollbar-thumb-border-light)
+        var(--ore-scrollbar-thumb-highlight),
+        var(--ore-scrollbar-thumb-highlight)
       )
       center var(--ore-scrollbar-unit) /
       calc(100% - var(--ore-scrollbar-unit) * 2)
       calc(var(--ore-scrollbar-unit) * 4) no-repeat,
-    var(--ore-scrollbar-thumb-outline);
+    var(--ore-scrollbar-thumb-border);
 }
 
 :where(ore-scrollbar, .ore-scrollbar)::-webkit-scrollbar-corner {
@@ -100,7 +100,7 @@
 
 @supports not selector(::-webkit-scrollbar) {
   :where(ore-scrollbar, .ore-scrollbar) {
-    scrollbar-color: var(--ore-scrollbar-thumb-surface)
+    scrollbar-color: var(--ore-scrollbar-thumb-background)
       var(--ore-scrollbar-track);
     scrollbar-width: thin;
   }

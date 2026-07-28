@@ -1,8 +1,8 @@
 :where(ore-checkbox) {
   --ore-checkbox-unit: 0.125rem;
-  --ore-checkbox-surface: #8c8d90;
-  --ore-checkbox-border: #97989b;
-  --ore-checkbox-outline: var(--ore-color-outline);
+  --ore-checkbox-background: #8c8d90;
+  --ore-checkbox-highlight: #97989b;
+  --ore-checkbox-border: var(--ore-color-border);
   --ore-checkbox-indicator: var(--ore-color-foreground);
 
   position: relative;
@@ -10,7 +10,7 @@
   align-items: center;
   gap: calc(var(--ore-checkbox-unit) * 4);
   min-height: calc(var(--ore-checkbox-unit) * 12);
-  color: var(--ore-color-outline);
+  color: var(--ore-color-border);
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
@@ -21,10 +21,10 @@
   box-sizing: border-box;
   width: calc(var(--ore-checkbox-unit) * 12);
   height: calc(var(--ore-checkbox-unit) * 12);
-  background: var(--ore-checkbox-surface);
+  background: var(--ore-checkbox-background);
   box-shadow:
-    inset 0 0 0 var(--ore-checkbox-unit) var(--ore-checkbox-outline),
-    inset 0 0 0 calc(var(--ore-checkbox-unit) * 2) var(--ore-checkbox-border);
+    inset 0 0 0 var(--ore-checkbox-unit) var(--ore-checkbox-border),
+    inset 0 0 0 calc(var(--ore-checkbox-unit) * 2) var(--ore-checkbox-highlight);
   content: "";
 }
 
@@ -41,52 +41,52 @@
 }
 
 :where(ore-checkbox[checked]) {
-  --ore-checkbox-surface: var(--ore-color-primary-surface);
-  --ore-checkbox-border: var(--ore-color-primary-border);
+  --ore-checkbox-background: var(--ore-color-primary-background);
+  --ore-checkbox-highlight: var(--ore-color-primary-highlight);
 }
 
 :where(ore-checkbox:hover:not([disabled], [form-disabled])) {
-  --ore-checkbox-surface: #b1b2b5;
-  --ore-checkbox-border: #b9babc;
+  --ore-checkbox-background: #b1b2b5;
+  --ore-checkbox-highlight: #b9babc;
 }
 
 :where(ore-checkbox[checked]:hover:not([disabled], [form-disabled])) {
-  --ore-checkbox-surface: var(--ore-color-primary-surface-hover);
-  --ore-checkbox-border: var(--ore-color-primary-border-hover);
+  --ore-checkbox-background: var(--ore-color-primary-background-hover);
+  --ore-checkbox-highlight: var(--ore-color-primary-highlight-hover);
 }
 
 :where(
   ore-checkbox:active:not([disabled], [form-disabled]),
   ore-checkbox[pressed]:not([disabled], [form-disabled])
 ) {
-  --ore-checkbox-surface: #58585a;
-  --ore-checkbox-border: #68686a;
+  --ore-checkbox-background: #58585a;
+  --ore-checkbox-highlight: #68686a;
 }
 
 :where(
   ore-checkbox[checked]:active:not([disabled], [form-disabled]),
   ore-checkbox[checked][pressed]:not([disabled], [form-disabled])
 ) {
-  --ore-checkbox-surface: var(--ore-color-primary-surface-pressed);
-  --ore-checkbox-border: var(--ore-color-primary-border-pressed);
+  --ore-checkbox-background: var(--ore-color-primary-background-pressed);
+  --ore-checkbox-highlight: var(--ore-color-primary-highlight-pressed);
 }
 
 :where(ore-checkbox:focus-visible)::before {
   box-shadow:
-    0 0 0 var(--ore-checkbox-unit) var(--ore-color-focus),
-    inset 0 0 0 var(--ore-checkbox-unit) var(--ore-checkbox-outline),
-    inset 0 0 0 calc(var(--ore-checkbox-unit) * 2) var(--ore-checkbox-border);
+    0 0 0 var(--ore-checkbox-unit) var(--ore-color-focus-ring),
+    inset 0 0 0 var(--ore-checkbox-unit) var(--ore-checkbox-border),
+    inset 0 0 0 calc(var(--ore-checkbox-unit) * 2) var(--ore-checkbox-highlight);
 }
 
 :where(ore-checkbox:focus-visible:not([checked])) {
-  --ore-checkbox-border: #a3a4a6;
+  --ore-checkbox-highlight: #a3a4a6;
 }
 
 :where(ore-checkbox[disabled], ore-checkbox[form-disabled]) {
-  --ore-checkbox-surface: var(--ore-color-disabled);
-  --ore-checkbox-border: var(--ore-color-disabled);
-  --ore-checkbox-outline: var(--ore-color-disabled-outline);
-  --ore-checkbox-indicator: var(--ore-color-disabled-outline);
+  --ore-checkbox-background: var(--ore-color-disabled);
+  --ore-checkbox-highlight: var(--ore-color-disabled);
+  --ore-checkbox-border: var(--ore-color-disabled-border);
+  --ore-checkbox-indicator: var(--ore-color-disabled-border);
 
   cursor: not-allowed;
 }

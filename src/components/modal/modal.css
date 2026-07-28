@@ -1,9 +1,9 @@
 :where(ore-modal) {
   --ore-modal-unit: 0.125rem;
-  --ore-modal-outline: var(--ore-color-outline);
-  --ore-modal-section-surface: #48494a;
-  --ore-modal-edge-light: #5a5b5c;
-  --ore-modal-edge-dark: #333334;
+  --ore-modal-border: var(--ore-color-border);
+  --ore-modal-section-background: #48494a;
+  --ore-modal-highlight: #5a5b5c;
+  --ore-modal-shadow: #333334;
   --ore-modal-foreground: var(--ore-color-foreground);
 }
 
@@ -32,7 +32,7 @@
   display: grid;
   box-sizing: border-box;
   padding: var(--ore-modal-unit);
-  background: var(--ore-modal-outline);
+  background: var(--ore-modal-border);
 }
 
 :where(ore-modal .ore-modal-header) {
@@ -45,14 +45,14 @@
   box-sizing: border-box;
   min-height: calc(var(--ore-modal-unit) * 19);
   padding: var(--ore-modal-unit);
-  background: var(--ore-modal-outline);
+  background: var(--ore-modal-border);
 }
 
 :where(ore-modal .ore-modal-header)::before {
   position: absolute;
   inset: var(--ore-modal-unit);
-  background: var(--ore-modal-section-surface);
-  box-shadow: 0 0 0 var(--ore-modal-unit) var(--ore-modal-edge-light);
+  background: var(--ore-modal-section-background);
+  box-shadow: 0 0 0 var(--ore-modal-unit) var(--ore-modal-highlight);
   content: "";
 }
 
@@ -89,11 +89,11 @@
 }
 
 :where(ore-modal .ore-modal-header-button:hover) {
-  background: var(--ore-color-neutral-surface-hover);
+  background: var(--ore-color-neutral-background-hover);
 }
 
 :where(ore-modal .ore-modal-header-button:focus-visible) {
-  outline: var(--ore-modal-unit) solid var(--ore-color-focus);
+  outline: var(--ore-modal-unit) solid var(--ore-color-focus-ring);
 }
 
 :where(ore-modal .ore-modal-header-button > ore-icon) {

@@ -1,8 +1,8 @@
 :where(ore-dropdown) {
   --ore-dropdown-unit: 0.125rem;
-  --ore-dropdown-menu-surface: #1e1e1f;
-  --ore-dropdown-item-surface: #313233;
-  --ore-dropdown-item-surface-hover: #242425;
+  --ore-dropdown-menu-background: #1e1e1f;
+  --ore-dropdown-item-background: #313233;
+  --ore-dropdown-item-background-hover: #242425;
   --ore-dropdown-item-border: #5a5b5c;
   --ore-dropdown-foreground: var(--ore-color-foreground);
 
@@ -43,7 +43,7 @@
   padding: var(--ore-dropdown-unit);
   border: 0;
   color: var(--ore-dropdown-foreground);
-  background: var(--ore-dropdown-menu-surface);
+  background: var(--ore-dropdown-menu-background);
   font-family: var(--ore-font-body);
 }
 
@@ -62,7 +62,7 @@
     calc(var(--ore-dropdown-unit) * 11);
   border: var(--ore-dropdown-unit) solid transparent;
   color: inherit;
-  background: var(--ore-dropdown-item-surface);
+  background: var(--ore-dropdown-item-background);
   font: inherit;
   font-size: calc(var(--ore-dropdown-unit) * 7);
   line-height: 1;
@@ -78,7 +78,7 @@
 
 :where(ore-dropdown[variant="bordered"] .ore-dropdown-item:hover),
 :where(ore-dropdown[variant="bordered"] .ore-dropdown-item:focus-visible) {
-  background: var(--ore-dropdown-item-surface-hover);
+  background: var(--ore-dropdown-item-background-hover);
 }
 
 :where(
@@ -92,7 +92,7 @@
 }
 
 :where(ore-dropdown .ore-dropdown-item[disabled]) {
-  color: var(--ore-color-disabled-outline);
+  color: var(--ore-color-disabled-border);
   cursor: not-allowed;
 }
 

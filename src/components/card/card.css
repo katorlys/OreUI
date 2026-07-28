@@ -1,9 +1,9 @@
 :where(ore-card) {
   --ore-card-unit: 0.125rem;
-  --ore-card-outline: var(--ore-color-outline);
-  --ore-card-surface: #48494a;
-  --ore-card-edge-light: #5a5b5c;
-  --ore-card-edge-dark: #333334;
+  --ore-card-border: var(--ore-color-border);
+  --ore-card-background: #48494a;
+  --ore-card-highlight: #5a5b5c;
+  --ore-card-shadow: #333334;
   --ore-card-foreground: var(--ore-color-foreground);
   --ore-card-description: var(--ore-color-disabled);
 
@@ -14,8 +14,8 @@
   width: min(100%, calc(var(--ore-card-unit) * 148));
   row-gap: var(--ore-card-unit);
   color: var(--ore-card-foreground);
-  background: var(--ore-card-edge-dark);
-  box-shadow: 0 0 0 var(--ore-card-unit) var(--ore-card-outline);
+  background: var(--ore-card-shadow);
+  box-shadow: 0 0 0 var(--ore-card-unit) var(--ore-card-border);
   font-family: var(--ore-font-body);
 }
 
@@ -31,7 +31,7 @@
   position: absolute;
   z-index: 1;
   inset: 0;
-  box-shadow: 0 0 0 var(--ore-card-unit) var(--ore-card-outline);
+  box-shadow: 0 0 0 var(--ore-card-unit) var(--ore-card-border);
   content: "";
   pointer-events: none;
 }
@@ -75,11 +75,11 @@
   box-sizing: border-box;
   min-width: 0;
   min-height: calc(var(--ore-card-unit) * 29.25);
-  border-top: var(--ore-card-unit) solid var(--ore-card-edge-light);
-  border-right: var(--ore-card-unit) solid var(--ore-card-edge-dark);
-  border-bottom: var(--ore-card-unit) solid var(--ore-card-edge-dark);
-  border-left: var(--ore-card-unit) solid var(--ore-card-edge-light);
-  background: var(--ore-card-surface);
+  border-top: var(--ore-card-unit) solid var(--ore-card-highlight);
+  border-right: var(--ore-card-unit) solid var(--ore-card-shadow);
+  border-bottom: var(--ore-card-unit) solid var(--ore-card-shadow);
+  border-left: var(--ore-card-unit) solid var(--ore-card-highlight);
+  background: var(--ore-card-background);
 }
 
 :where(ore-card .ore-card-caption) {
@@ -118,8 +118,8 @@
 :where(ore-card .ore-card-action) {
   --ore-icon-button-width: calc(var(--ore-card-unit) * 29.25);
   --ore-icon-button-height: calc(100% + var(--ore-card-unit) * 2);
-  --ore-icon-button-shadow: calc(var(--ore-card-unit) * -1) 0 0
-    var(--ore-icon-button-outline);
+  --ore-icon-button-box-shadow: calc(var(--ore-card-unit) * -1) 0 0
+    var(--ore-icon-button-border);
 
   align-self: stretch;
   flex: 0 0 calc(var(--ore-card-unit) * 29.25);
@@ -142,7 +142,7 @@
   height: calc(var(--ore-card-unit) * 18);
   color: var(--ore-card-foreground);
   background: #313233;
-  box-shadow: 0 0 0 var(--ore-card-unit) var(--ore-card-outline);
+  box-shadow: 0 0 0 var(--ore-card-unit) var(--ore-card-border);
 }
 
 :where(ore-card .ore-card-overlay-top-end > ore-icon) {

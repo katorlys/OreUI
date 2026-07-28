@@ -1,12 +1,12 @@
 :where(ore-nav) {
   --ore-nav-unit: 0.125rem;
-  --ore-nav-surface: #e7e8ec;
-  --ore-nav-thick: #b1b2b6;
+  --ore-nav-background: #e7e8ec;
+  --ore-nav-bottom-shadow: #b1b2b6;
   --ore-nav-shadow: rgb(30 30 31 / 65%);
   --ore-nav-foreground: #1e1e1f;
-  --ore-nav-action-surface: #e7e8ec;
-  --ore-nav-action-edge-light: #ffffff;
-  --ore-nav-action-edge-dark: #a1a2a4;
+  --ore-nav-action-background: #e7e8ec;
+  --ore-nav-action-highlight: #ffffff;
+  --ore-nav-action-shadow: #a1a2a4;
   --ore-nav-text-offset: calc(var(--ore-nav-unit) / 2);
   --ore-nav-icon-offset: 0px;
 
@@ -20,8 +20,8 @@
   color: var(--ore-nav-foreground);
   background: linear-gradient(
     to bottom,
-    var(--ore-nav-surface) 0 calc(100% - var(--ore-nav-unit) * 2),
-    var(--ore-nav-thick) calc(100% - var(--ore-nav-unit) * 2) 100%
+    var(--ore-nav-background) 0 calc(100% - var(--ore-nav-unit) * 2),
+    var(--ore-nav-bottom-shadow) calc(100% - var(--ore-nav-unit) * 2) 100%
   );
   box-shadow: 0 var(--ore-nav-unit) 0 var(--ore-nav-shadow);
   font-family: var(--ore-font-body);
@@ -66,7 +66,7 @@
   padding: 0 calc(var(--ore-nav-unit) * 5);
   border: 0;
   color: inherit;
-  background: var(--ore-nav-action-surface);
+  background: var(--ore-nav-action-background);
   font: inherit;
   font-size: calc(var(--ore-nav-unit) * 8);
   line-height: 1;
@@ -90,8 +90,8 @@
 
 :where(ore-nav .ore-nav-action) {
   gap: calc(var(--ore-nav-unit) * 4);
-  border-left: var(--ore-nav-unit) solid var(--ore-nav-action-edge-dark);
-  box-shadow: inset var(--ore-nav-unit) 0 0 var(--ore-nav-action-edge-light);
+  border-left: var(--ore-nav-unit) solid var(--ore-nav-action-shadow);
+  box-shadow: inset var(--ore-nav-unit) 0 0 var(--ore-nav-action-highlight);
   white-space: nowrap;
 }
 
@@ -107,7 +107,7 @@
   ore-nav .ore-nav-button:focus-visible,
   ore-nav .ore-nav-action:focus-visible
 ) {
-  outline: var(--ore-nav-unit) solid var(--ore-color-focus);
+  outline: var(--ore-nav-unit) solid var(--ore-color-focus-ring);
   outline-offset: calc(var(--ore-nav-unit) * -1);
 }
 

@@ -1,15 +1,15 @@
 :where(ore-button, ore-tab-button) {
   --ore-button-unit: 0.125rem;
-  --ore-button-surface-default: var(--ore-color-primary-surface);
-  --ore-button-surface-hover: var(--ore-color-primary-surface-hover);
-  --ore-button-surface-pressed: var(--ore-color-primary-surface-pressed);
-  --ore-button-border-default: var(--ore-color-primary-border);
-  --ore-button-border-hover: var(--ore-color-primary-border-hover);
-  --ore-button-border-pressed: var(--ore-color-primary-border-pressed);
-  --ore-button-surface: var(--ore-button-surface-default);
-  --ore-button-border: var(--ore-button-border-default);
-  --ore-button-outline: var(--ore-color-outline);
-  --ore-button-thick: var(--ore-color-primary-thick);
+  --ore-button-background-default: var(--ore-color-primary-background);
+  --ore-button-background-hover: var(--ore-color-primary-background-hover);
+  --ore-button-background-pressed: var(--ore-color-primary-background-pressed);
+  --ore-button-highlight-default: var(--ore-color-primary-highlight);
+  --ore-button-highlight-hover: var(--ore-color-primary-highlight-hover);
+  --ore-button-highlight-pressed: var(--ore-color-primary-highlight-pressed);
+  --ore-button-background: var(--ore-button-background-default);
+  --ore-button-highlight: var(--ore-button-highlight-default);
+  --ore-button-border: var(--ore-color-border);
+  --ore-button-shadow: var(--ore-color-primary-shadow);
   --ore-button-foreground: var(--ore-color-foreground);
   --ore-button-font-family: var(--ore-font-body);
   --ore-button-font-size: calc(var(--ore-button-unit) * 7);
@@ -25,35 +25,36 @@
   padding: 0 calc(var(--ore-button-unit) * 8) calc(var(--ore-button-unit) * 2);
   color: var(--ore-button-foreground);
   background:
-    linear-gradient(var(--ore-button-outline), var(--ore-button-outline)) center
+    linear-gradient(var(--ore-button-border), var(--ore-button-border)) center
       var(--ore-button-face-offset) / 100% var(--ore-button-unit) no-repeat,
-    linear-gradient(var(--ore-button-outline), var(--ore-button-outline)) center
+    linear-gradient(var(--ore-button-border), var(--ore-button-border)) center
       bottom / 100% var(--ore-button-unit) no-repeat,
-    linear-gradient(var(--ore-button-outline), var(--ore-button-outline)) left
+    linear-gradient(var(--ore-button-border), var(--ore-button-border)) left
       var(--ore-button-face-offset) / var(--ore-button-unit)
       calc(100% - var(--ore-button-face-offset)) no-repeat,
-    linear-gradient(var(--ore-button-outline), var(--ore-button-outline)) right
+    linear-gradient(var(--ore-button-border), var(--ore-button-border)) right
       var(--ore-button-face-offset) / var(--ore-button-unit)
       calc(100% - var(--ore-button-face-offset)) no-repeat,
-    linear-gradient(var(--ore-button-border), var(--ore-button-border)) center
-      calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
+    linear-gradient(var(--ore-button-highlight), var(--ore-button-highlight))
+      center calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
       calc(100% - var(--ore-button-unit) * 2) var(--ore-button-unit) no-repeat,
-    linear-gradient(var(--ore-button-border), var(--ore-button-border)) center
+    linear-gradient(var(--ore-button-highlight), var(--ore-button-highlight))
+      center
       calc(100% - var(--ore-button-unit) * 3 + var(--ore-button-face-offset)) /
       calc(100% - var(--ore-button-unit) * 2) var(--ore-button-unit) no-repeat,
-    linear-gradient(var(--ore-button-border), var(--ore-button-border)) left
-      calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
+    linear-gradient(var(--ore-button-highlight), var(--ore-button-highlight))
+      left calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
       calc(var(--ore-button-unit) * 2) calc(100% - var(--ore-button-unit) * 4)
       no-repeat,
-    linear-gradient(var(--ore-button-border), var(--ore-button-border)) right
-      calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
+    linear-gradient(var(--ore-button-highlight), var(--ore-button-highlight))
+      right calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
       calc(var(--ore-button-unit) * 2) calc(100% - var(--ore-button-unit) * 4)
       no-repeat,
-    linear-gradient(var(--ore-button-thick), var(--ore-button-thick)) center
+    linear-gradient(var(--ore-button-shadow), var(--ore-button-shadow)) center
       calc(100% - var(--ore-button-unit)) /
       calc(100% - var(--ore-button-unit) * 2) calc(var(--ore-button-unit) * 2)
       no-repeat,
-    var(--ore-button-surface);
+    var(--ore-button-background);
   font-family: var(--ore-button-font-family);
   font-size: var(--ore-button-font-size);
   font-weight: 400;
@@ -73,38 +74,44 @@
 }
 
 :where(ore-button[variant="secondary"]) {
-  --ore-button-surface-default: var(--ore-color-secondary-surface);
-  --ore-button-surface-hover: var(--ore-color-secondary-surface-hover);
-  --ore-button-surface-pressed: var(--ore-color-secondary-surface-pressed);
-  --ore-button-border-default: var(--ore-color-secondary-border);
-  --ore-button-border-hover: var(--ore-color-secondary-border-hover);
-  --ore-button-border-pressed: var(--ore-color-secondary-border-pressed);
-  --ore-button-thick: var(--ore-color-secondary-thick);
-  --ore-button-foreground: var(--ore-color-outline);
+  --ore-button-background-default: var(--ore-color-secondary-background);
+  --ore-button-background-hover: var(--ore-color-secondary-background-hover);
+  --ore-button-background-pressed: var(
+    --ore-color-secondary-background-pressed
+  );
+  --ore-button-highlight-default: var(--ore-color-secondary-highlight);
+  --ore-button-highlight-hover: var(--ore-color-secondary-highlight-hover);
+  --ore-button-highlight-pressed: var(--ore-color-secondary-highlight-pressed);
+  --ore-button-shadow: var(--ore-color-secondary-shadow);
+  --ore-button-foreground: var(--ore-color-border);
 }
 
 :where(ore-button[variant="destructive"]) {
-  --ore-button-surface-default: var(--ore-color-destructive-surface);
-  --ore-button-surface-hover: var(--ore-color-destructive-surface-hover);
-  --ore-button-surface-pressed: var(--ore-color-destructive-surface-pressed);
-  --ore-button-border-default: var(--ore-color-destructive-border);
-  --ore-button-border-hover: var(--ore-color-destructive-border-hover);
-  --ore-button-border-pressed: var(--ore-color-destructive-border-pressed);
-  --ore-button-thick: var(--ore-color-destructive-thick);
+  --ore-button-background-default: var(--ore-color-destructive-background);
+  --ore-button-background-hover: var(--ore-color-destructive-background-hover);
+  --ore-button-background-pressed: var(
+    --ore-color-destructive-background-pressed
+  );
+  --ore-button-highlight-default: var(--ore-color-destructive-highlight);
+  --ore-button-highlight-hover: var(--ore-color-destructive-highlight-hover);
+  --ore-button-highlight-pressed: var(
+    --ore-color-destructive-highlight-pressed
+  );
+  --ore-button-shadow: var(--ore-color-destructive-shadow);
 }
 
 :where(ore-button, ore-tab-button):hover:not([disabled], [form-disabled]) {
-  --ore-button-surface: var(--ore-button-surface-hover);
-  --ore-button-border: var(--ore-button-border-hover);
+  --ore-button-background: var(--ore-button-background-hover);
+  --ore-button-highlight: var(--ore-button-highlight-hover);
 }
 
 :where(
   :is(ore-button, ore-tab-button):active:not([disabled], [form-disabled]),
   :is(ore-button, ore-tab-button)[pressed]:not([disabled], [form-disabled])
 ) {
-  --ore-button-surface: var(--ore-button-surface-pressed);
-  --ore-button-border: var(--ore-button-border-pressed);
-  --ore-button-thick: transparent;
+  --ore-button-background: var(--ore-button-background-pressed);
+  --ore-button-highlight: var(--ore-button-highlight-pressed);
+  --ore-button-shadow: transparent;
   --ore-button-face-offset: calc(var(--ore-button-unit) * 2);
 
   padding-top: var(--ore-button-face-offset);
@@ -113,7 +120,7 @@
 }
 
 :where(ore-button, ore-tab-button):focus-visible {
-  outline: var(--ore-button-unit) solid var(--ore-color-focus);
+  outline: var(--ore-button-unit) solid var(--ore-color-focus-ring);
   outline-offset: 0;
 }
 
@@ -123,10 +130,10 @@
   ore-tab-button[disabled],
   ore-tab-button[form-disabled]
 ) {
-  --ore-button-surface: var(--ore-color-disabled);
-  --ore-button-border: var(--ore-color-disabled);
-  --ore-button-outline: var(--ore-color-disabled-outline);
-  --ore-button-thick: var(--ore-color-secondary-surface-pressed);
+  --ore-button-background: var(--ore-color-disabled);
+  --ore-button-highlight: var(--ore-color-disabled);
+  --ore-button-border: var(--ore-color-disabled-border);
+  --ore-button-shadow: var(--ore-color-secondary-background-pressed);
 
   color: #48494a;
   --ore-button-text-shadow: none;

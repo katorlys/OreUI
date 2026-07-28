@@ -2,8 +2,8 @@
   --ore-tooltip-unit: 0.125rem;
   --_ore-tooltip-pixel-size: 0.125rem;
   --ore-tooltip-corner-size: var(--_ore-tooltip-pixel-size);
-  --ore-tooltip-surface: #2e6be5;
-  --ore-tooltip-outline: var(--ore-color-outline);
+  --ore-tooltip-background: #2e6be5;
+  --ore-tooltip-border: var(--ore-color-border);
   --ore-tooltip-foreground: var(--ore-color-foreground);
 
   display: inline-block;
@@ -34,7 +34,7 @@
   position: absolute;
   z-index: -2;
   inset: 0;
-  background: var(--ore-tooltip-outline);
+  background: var(--ore-tooltip-border);
   clip-path: polygon(
     var(--ore-tooltip-corner-size) 0,
     calc(100% - var(--ore-tooltip-corner-size)) 0,
@@ -56,7 +56,7 @@
 :where(ore-tooltip > .ore-tooltip-content)::after {
   z-index: -1;
   inset: var(--ore-tooltip-unit);
-  background: var(--ore-tooltip-surface);
+  background: var(--ore-tooltip-background);
 }
 
 :where(ore-tooltip > .ore-tooltip-content:not(:popover-open)) {
@@ -68,7 +68,7 @@
   z-index: 0;
   width: calc(var(--_ore-tooltip-pixel-size) * 3 + var(--ore-tooltip-unit) * 2);
   height: calc(var(--_ore-tooltip-pixel-size) * 3 + var(--ore-tooltip-unit));
-  color: var(--ore-tooltip-outline);
+  color: var(--ore-tooltip-border);
 }
 
 :where(ore-tooltip .ore-tooltip-arrow)::before,
@@ -109,7 +109,7 @@
   height: calc(
     var(--_ore-tooltip-pixel-size) * 3 + var(--ore-tooltip-unit) * 2
   );
-  background: var(--ore-tooltip-surface);
+  background: var(--ore-tooltip-background);
   clip-path: polygon(
     0 0,
     100% 0,

@@ -86,7 +86,6 @@ export class OreAccordion extends ReactiveElement {
     const content = this.content;
 
     trigger?.setAttribute("aria-expanded", String(this.open));
-    trigger?.toggleAttribute("pressed", this.open);
 
     if (content) {
       content.hidden = !this.open;
@@ -96,7 +95,7 @@ export class OreAccordion extends ReactiveElement {
   readonly #handleClick = (event: MouseEvent): void => {
     if (
       event.target instanceof Element &&
-      event.target.closest(".ore-accordion-trigger")
+      event.target.closest(".ore-accordion-trigger") === this.trigger
     ) {
       this.open = !this.open;
     }
