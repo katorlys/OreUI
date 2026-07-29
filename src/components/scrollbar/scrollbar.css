@@ -9,6 +9,7 @@
   --ore-scrollbar-size: calc(var(--ore-scrollbar-unit) * 6);
   --ore-scrollbar-horizontal-size: calc(var(--ore-scrollbar-unit) * 8);
   --ore-scrollbar-track-size: calc(var(--ore-scrollbar-unit) * 2);
+  --ore-scrollbar-thumb-min-size: calc(var(--ore-scrollbar-unit) * 12);
   --ore-scrollbar-track: var(--ore-color-neutral-highlight-pressed);
   --ore-scrollbar-thumb-border: var(--ore-color-border);
   --ore-scrollbar-thumb-highlight: var(--ore-color-secondary-highlight);
@@ -79,6 +80,7 @@
     ore-table,
     ore-dropdown > .ore-dropdown-menu
   )::-webkit-scrollbar-thumb:vertical {
+  min-height: var(--ore-scrollbar-thumb-min-size);
   border-radius: 0;
   background:
     linear-gradient(
@@ -112,6 +114,7 @@
     ore-table,
     ore-dropdown > .ore-dropdown-menu
   )::-webkit-scrollbar-thumb:horizontal {
+  min-width: var(--ore-scrollbar-thumb-min-size);
   border-radius: 0;
   background:
     linear-gradient(

@@ -1,6 +1,8 @@
 :where(ore-dropdown) {
   --ore-dropdown-unit: var(--ore-size-unit);
   --ore-dropdown-menu-background: var(--ore-color-neutral-surface-deep);
+  --ore-dropdown-menu-outline: var(--ore-color-border);
+  --ore-dropdown-scrollbar-width: 0px;
   --ore-dropdown-item-background: var(--ore-color-neutral-surface-raised);
   --ore-dropdown-item-background-hover: var(--ore-color-neutral-surface-sunken);
   --ore-dropdown-item-border: var(--ore-color-neutral-specular);
@@ -48,7 +50,35 @@
   overflow-y: auto;
   border: 0;
   color: var(--ore-dropdown-foreground);
-  background: var(--ore-dropdown-menu-background);
+  background:
+    linear-gradient(
+        var(--ore-dropdown-menu-outline),
+        var(--ore-dropdown-menu-outline)
+      )
+      left top / calc(100% - var(--ore-dropdown-scrollbar-width))
+      var(--ore-dropdown-unit) no-repeat,
+    linear-gradient(
+        var(--ore-dropdown-menu-outline),
+        var(--ore-dropdown-menu-outline)
+      )
+      left bottom / calc(100% - var(--ore-dropdown-scrollbar-width))
+      var(--ore-dropdown-unit) no-repeat,
+    linear-gradient(
+        var(--ore-dropdown-menu-outline),
+        var(--ore-dropdown-menu-outline)
+      )
+      left top / var(--ore-dropdown-unit) 100% no-repeat,
+    linear-gradient(
+        var(--ore-dropdown-menu-outline),
+        var(--ore-dropdown-menu-outline)
+      )
+      right var(--ore-dropdown-scrollbar-width) top / var(--ore-dropdown-unit)
+      100% no-repeat,
+    linear-gradient(
+        var(--ore-dropdown-menu-background),
+        var(--ore-dropdown-menu-background)
+      )
+      left top / calc(100% - var(--ore-dropdown-scrollbar-width)) 100% no-repeat;
   font-family: var(--ore-font-body);
 }
 

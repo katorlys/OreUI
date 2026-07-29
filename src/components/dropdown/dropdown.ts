@@ -147,10 +147,40 @@ export class OreDropdown extends ReactiveElement {
   }
 
   #syncSelection(): void {
+    let selectedItem: HTMLElement | undefined;
+
     for (const item of this.items) {
       const selected = item.dataset.value === this.value;
       item.toggleAttribute("selected", selected);
       item.setAttribute("aria-checked", String(selected));
+
+      if (selected) {
+        selectedItem = item;
+      }
+    }
+
+    const label = selectedItem?.textContent?.trim();
+    const trigger = this.trigger;
+
+    if (!label || !trigger) {
+      return;
+    }
+
+    const labelElement = trigger.querySelector<HTMLElement>(
+      ":scope > .ore-dropdown-trigger-label",
+    );
+
+    if (labelElement) {
+      labelElement.textContent = label;
+      return;
+    }
+
+    const textNode = [...trigger.childNodes].find(
+      (node) => node.nodeType === Node.TEXT_NODE && node.textContent?.trim(),
+    );
+
+    if (textNode) {
+      textNode.textContent = label;
     }
   }
 
@@ -164,6 +194,12 @@ export class OreDropdown extends ReactiveElement {
 
     const triggerRect = trigger.getBoundingClientRect();
     menu.style.width = `${triggerRect.width}px`;
+    const scrollbarWidth = menu.offsetWidth - menu.clientWidth;
+    menu.style.setProperty(
+      "--ore-dropdown-scrollbar-width",
+      `${scrollbarWidth}px`,
+    );
+    menu.style.width = `${triggerRect.width + scrollbarWidth}px`;
     const menuRect = menu.getBoundingClientRect();
     const unit = Number.parseFloat(getComputedStyle(menu).paddingTop);
     const inset = 2;
@@ -171,10 +207,11 @@ export class OreDropdown extends ReactiveElement {
       Math.max(triggerRect.left, inset),
       innerWidth - menuRect.width - inset,
     );
-    const below = triggerRect.bottom + menuRect.height <= innerHeight - inset;
+    const below =
+      triggerRect.top - unit + menuRect.height <= innerHeight - inset;
 
     menu.style.left = `${left}px`;
-    menu.style.top = `${below ? triggerRect.bottom - unit : triggerRect.top - menuRect.height + unit}px`;
+    menu.style.top = `${below ? triggerRect.top - unit : triggerRect.bottom - menuRect.height + unit}px`;
   };
 
   #enabledItems(): HTMLElement[] {
