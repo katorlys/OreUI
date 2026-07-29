@@ -1,6 +1,6 @@
 import { type PropertyValues, ReactiveElement } from "lit";
 
-export class OreTextField extends ReactiveElement {
+export class OreTextfield extends ReactiveElement {
   static formAssociated = true;
 
   static properties = {
@@ -93,7 +93,7 @@ export class OreTextField extends ReactiveElement {
   }
 
   get input(): HTMLInputElement | null {
-    return this.querySelector(":scope > .ore-text-field-control > input");
+    return this.querySelector(":scope > .ore-textfield-control > input");
   }
 
   checkValidity(): boolean {
@@ -116,15 +116,15 @@ export class OreTextField extends ReactiveElement {
       const description = document.createElement("span");
       const error = document.createElement("span");
       const icon = this.querySelector<HTMLElement>(
-        ":scope > .ore-text-field-icon",
+        ":scope > .ore-textfield-icon",
       );
 
-      label.className = "ore-text-field-label";
-      control.className = "ore-text-field-control";
-      input.className = "ore-text-field-input";
+      label.className = "ore-textfield-label";
+      control.className = "ore-textfield-control";
+      input.className = "ore-textfield-input";
       input.defaultValue = this.#defaultValue;
-      description.className = "ore-text-field-description";
-      error.className = "ore-text-field-error";
+      description.className = "ore-textfield-description";
+      error.className = "ore-textfield-error";
       error.setAttribute("aria-live", "polite");
       control.append(...(icon ? [icon, input] : [input]));
       this.append(label, control, description, error);
@@ -183,13 +183,13 @@ export class OreTextField extends ReactiveElement {
   #sync(): void {
     const input = this.input;
     const label = this.querySelector<HTMLElement>(
-      ":scope > .ore-text-field-label",
+      ":scope > .ore-textfield-label",
     );
     const description = this.querySelector<HTMLElement>(
-      ":scope > .ore-text-field-description",
+      ":scope > .ore-textfield-description",
     );
     const error = this.querySelector<HTMLElement>(
-      ":scope > .ore-text-field-error",
+      ":scope > .ore-textfield-error",
     );
 
     if (!input || !label || !description || !error) {
@@ -267,7 +267,7 @@ export class OreTextField extends ReactiveElement {
 
     if (this.description) {
       const id =
-        description.id || `ore-text-field-description-${crypto.randomUUID()}`;
+        description.id || `ore-textfield-description-${crypto.randomUUID()}`;
       description.id = id;
       describedBy.push(id);
     }
@@ -278,7 +278,7 @@ export class OreTextField extends ReactiveElement {
     error.textContent = errorMessage;
     error.hidden = !errorMessage;
     if (errorMessage) {
-      const id = error.id || `ore-text-field-error-${crypto.randomUUID()}`;
+      const id = error.id || `ore-textfield-error-${crypto.randomUUID()}`;
       error.id = id;
       describedBy.push(id);
     }
@@ -311,12 +311,12 @@ export class OreTextField extends ReactiveElement {
   };
 }
 
-if (!customElements.get("ore-text-field")) {
-  customElements.define("ore-text-field", OreTextField);
+if (!customElements.get("ore-textfield")) {
+  customElements.define("ore-textfield", OreTextfield);
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ore-text-field": OreTextField;
+    "ore-textfield": OreTextfield;
   }
 }

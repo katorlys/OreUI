@@ -2,7 +2,7 @@
   ore-scrollbar,
   .ore-scrollbar,
   ore-modal .ore-modal-content > ore-container[variant="dark"],
-  ore-data-table,
+  ore-table,
   ore-dropdown > .ore-dropdown-menu
 ) {
   --ore-scrollbar-unit: var(--ore-size-unit);
@@ -25,7 +25,7 @@
   ore-scrollbar,
   .ore-scrollbar,
   ore-modal .ore-modal-content > ore-container[variant="dark"],
-  ore-data-table,
+  ore-table,
   ore-dropdown > .ore-dropdown-menu
 )::-webkit-scrollbar {
   width: var(--ore-scrollbar-size);
@@ -36,7 +36,7 @@
   ore-scrollbar,
   .ore-scrollbar,
   ore-modal .ore-modal-content > ore-container[variant="dark"],
-  ore-data-table,
+  ore-table,
   ore-dropdown > .ore-dropdown-menu
 )::-webkit-scrollbar-button {
   display: none;
@@ -48,7 +48,7 @@
     ore-scrollbar,
     .ore-scrollbar,
     ore-modal .ore-modal-content > ore-container[variant="dark"],
-    ore-data-table,
+    ore-table,
     ore-dropdown > .ore-dropdown-menu
   )::-webkit-scrollbar-track:vertical {
   background: linear-gradient(
@@ -62,7 +62,7 @@
     ore-scrollbar,
     .ore-scrollbar,
     ore-modal .ore-modal-content > ore-container[variant="dark"],
-    ore-data-table,
+    ore-table,
     ore-dropdown > .ore-dropdown-menu
   )::-webkit-scrollbar-track:horizontal {
   background: linear-gradient(
@@ -76,7 +76,7 @@
     ore-scrollbar,
     .ore-scrollbar,
     ore-modal .ore-modal-content > ore-container[variant="dark"],
-    ore-data-table,
+    ore-table,
     ore-dropdown > .ore-dropdown-menu
   )::-webkit-scrollbar-thumb:vertical {
   border-radius: 0;
@@ -109,7 +109,7 @@
     ore-scrollbar,
     .ore-scrollbar,
     ore-modal .ore-modal-content > ore-container[variant="dark"],
-    ore-data-table,
+    ore-table,
     ore-dropdown > .ore-dropdown-menu
   )::-webkit-scrollbar-thumb:horizontal {
   border-radius: 0;
@@ -142,7 +142,7 @@
   ore-scrollbar,
   .ore-scrollbar,
   ore-modal .ore-modal-content > ore-container[variant="dark"],
-  ore-data-table,
+  ore-table,
   ore-dropdown > .ore-dropdown-menu
 )::-webkit-scrollbar-corner {
   background: transparent;
@@ -153,7 +153,7 @@
     ore-scrollbar,
     .ore-scrollbar,
     ore-modal .ore-modal-content > ore-container[variant="dark"],
-    ore-data-table,
+    ore-table,
     ore-dropdown > .ore-dropdown-menu
   ) {
     scrollbar-color: var(--ore-scrollbar-thumb-background)

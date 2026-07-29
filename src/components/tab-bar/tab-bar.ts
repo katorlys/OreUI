@@ -1,12 +1,9 @@
 import { ReactiveElement } from "lit";
 
-export class OreNav extends ReactiveElement {
+export class OreTabBar extends ReactiveElement {
   override connectedCallback(): void {
     super.connectedCallback();
-
-    if (!this.hasAttribute("role")) {
-      this.setAttribute("role", "navigation");
-    }
+    this.setAttribute("role", "tablist");
   }
 
   protected override createRenderRoot(): HTMLElement {
@@ -14,12 +11,12 @@ export class OreNav extends ReactiveElement {
   }
 }
 
-if (!customElements.get("ore-nav")) {
-  customElements.define("ore-nav", OreNav);
+if (!customElements.get("ore-tab-bar")) {
+  customElements.define("ore-tab-bar", OreTabBar);
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ore-nav": OreNav;
+    "ore-tab-bar": OreTabBar;
   }
 }

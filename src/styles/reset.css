@@ -4,20 +4,23 @@
   ore-card,
   ore-checkbox,
   ore-container,
-  ore-data-table,
+  ore-table,
   ore-dropdown,
   ore-icon-button,
   ore-modal,
-  ore-nav,
-  ore-progress,
+  ore-navbar,
+  ore-progress-bar,
   ore-radio,
+  ore-radio-group,
   ore-scrollbar,
   ore-slider,
+  ore-spinner,
+  ore-switch,
+  ore-tab-bar,
   ore-tab-button,
   ore-tag,
-  ore-text-field,
-  ore-toggle,
-  ore-toggle-button,
+  ore-textfield,
+  ore-toggles,
   ore-tooltip
 ) {
   box-sizing: border-box;
@@ -39,22 +42,4 @@
   display: block;
   width: 100%;
   height: 100%;
-}
-
-:where(ore-icon[icon="loader"] > svg) {
-  width: 3475%;
-  max-width: none;
-  animation: ore-loader 800ms steps(16, jump-none) infinite;
-}
-
-@keyframes ore-loader {
-  to {
-    transform: translateX(-97.125%);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  :where(ore-icon[icon="loader"] > svg) {
-    animation: none;
-  }
 }

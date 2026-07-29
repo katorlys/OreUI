@@ -1,10 +1,10 @@
 import { type PropertyValues, ReactiveElement } from "lit";
 
-export type OreProgressVariant = "labeled" | "plain";
-export type OreProgressLabelPosition = "bottom" | "top";
-export type OreProgressLabelAlign = "center" | "end" | "start";
+export type OreProgressBarVariant = "labeled" | "plain";
+export type OreProgressBarLabelPosition = "bottom" | "top";
+export type OreProgressBarLabelAlign = "center" | "end" | "start";
 
-export class OreProgress extends ReactiveElement {
+export class OreProgressBar extends ReactiveElement {
   static properties = {
     label: { type: String, reflect: true },
     labelAlign: { type: String, attribute: "label-align", reflect: true },
@@ -19,11 +19,11 @@ export class OreProgress extends ReactiveElement {
   };
 
   declare label: string;
-  declare labelAlign: OreProgressLabelAlign;
-  declare labelPosition: OreProgressLabelPosition;
+  declare labelAlign: OreProgressBarLabelAlign;
+  declare labelPosition: OreProgressBarLabelPosition;
   declare max: number;
   declare value: number;
-  declare variant: OreProgressVariant;
+  declare variant: OreProgressBarVariant;
 
   constructor() {
     super();
@@ -75,10 +75,10 @@ export class OreProgress extends ReactiveElement {
     this.setAttribute("aria-valuemin", "0");
     this.setAttribute("aria-valuemax", String(max));
     this.setAttribute("aria-valuenow", String(value));
-    this.style.setProperty("--ore-progress-value", String(progress));
+    this.style.setProperty("--ore-progress-bar-value", String(progress));
 
     const label = this.querySelector<HTMLElement>(
-      ":scope > .ore-progress-label",
+      ":scope > .ore-progress-bar-label",
     );
 
     if (!label) {
@@ -103,19 +103,23 @@ export class OreProgress extends ReactiveElement {
   }
 
   #setup(): void {
-    let track = this.querySelector<HTMLElement>(":scope > .ore-progress-track");
-    let label = this.querySelector<HTMLElement>(":scope > .ore-progress-label");
+    let track = this.querySelector<HTMLElement>(
+      ":scope > .ore-progress-bar-track",
+    );
+    let label = this.querySelector<HTMLElement>(
+      ":scope > .ore-progress-bar-label",
+    );
 
     if (!track) {
       track = document.createElement("span");
-      track.className = "ore-progress-track";
+      track.className = "ore-progress-bar-track";
       track.setAttribute("aria-hidden", "true");
       this.prepend(track);
     }
 
     if (!label) {
       label = document.createElement("span");
-      label.className = "ore-progress-label";
+      label.className = "ore-progress-bar-label";
       this.append(label);
     } else if (label.textContent?.trim()) {
       label.setAttribute("data-custom-label", "");
@@ -123,12 +127,12 @@ export class OreProgress extends ReactiveElement {
   }
 }
 
-if (!customElements.get("ore-progress")) {
-  customElements.define("ore-progress", OreProgress);
+if (!customElements.get("ore-progress-bar")) {
+  customElements.define("ore-progress-bar", OreProgressBar);
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ore-progress": OreProgress;
+    "ore-progress-bar": OreProgressBar;
   }
 }

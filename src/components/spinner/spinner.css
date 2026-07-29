@@ -1,0 +1,30 @@
+:where(ore-spinner) {
+  display: inline-block;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 1em;
+  height: 1em;
+  color: inherit;
+  line-height: 1;
+  vertical-align: -0.125em;
+}
+
+:where(ore-spinner > svg) {
+  display: block;
+  width: 3475%;
+  max-width: none;
+  height: 100%;
+  animation: ore-spinner 800ms steps(15, jump-end) infinite;
+}
+
+@keyframes ore-spinner {
+  to {
+    transform: translateX(-97.122302%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(ore-spinner > svg) {
+    animation: none;
+  }
+}

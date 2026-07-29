@@ -11,11 +11,11 @@ export {
   type OreContainerVariant,
 } from "./components/container/container.js";
 export {
-  OreDataTable,
-  type OreDataTableSortDetail,
-  type OreDataTableSortDirection,
-  type OreDataTableVariant,
-} from "./components/data-table/data-table.js";
+  OreTable,
+  type OreTableSortDetail,
+  type OreTableSortDirection,
+  type OreTableVariant,
+} from "./components/table/table.js";
 export {
   OreDropdown,
   type OreDropdownChangeDetail,
@@ -27,32 +27,36 @@ export {
   type OreModalCloseDetail,
   type OreModalCloseReason,
 } from "./components/modal/modal.js";
-export { OreNav } from "./components/nav/nav.js";
+export { OreNavbar } from "./components/navbar/navbar.js";
 export {
-  OreProgress,
-  type OreProgressLabelAlign,
-  type OreProgressLabelPosition,
-  type OreProgressVariant,
-} from "./components/progress/progress.js";
+  OreProgressBar,
+  type OreProgressBarLabelAlign,
+  type OreProgressBarLabelPosition,
+  type OreProgressBarVariant,
+} from "./components/progress-bar/progress-bar.js";
 export { OreRadio } from "./components/radio/radio.js";
+export { OreRadioGroup } from "./components/radio-group/radio-group.js";
 export { OreScrollbar } from "./components/scrollbar/scrollbar.js";
 export {
   OreSlider,
   type OreSliderOrientation,
   type OreSliderVariant,
 } from "./components/slider/slider.js";
+export { OreSpinner } from "./components/spinner/spinner.js";
+export {
+  OreSwitch,
+  type OreSwitchVariant,
+} from "./components/switch/switch.js";
+export { OreTabBar } from "./components/tab-bar/tab-bar.js";
 export {
   OreTabButton,
   type OreTabButtonPalette,
 } from "./components/tab-button/tab-button.js";
 export { OreTag, type OreTagVariant } from "./components/tag/tag.js";
-export { OreTextField } from "./components/text-field/text-field.js";
+export { OreTextfield } from "./components/textfield/textfield.js";
 export {
   OreTooltip,
   type OreTooltipSide,
 } from "./components/tooltip/tooltip.js";
-export {
-  OreToggle,
-  type OreToggleVariant,
-} from "./components/toggle/toggle.js";
+export { OreToggles } from "./components/toggles/toggles.js";
 export type OreElement = HTMLElement;

@@ -1,8 +1,8 @@
 import { type PropertyValues, ReactiveElement } from "lit";
 
-export type OreToggleVariant = "default" | "icons";
+export type OreSwitchVariant = "default" | "icons";
 
-export class OreToggle extends ReactiveElement {
+export class OreSwitch extends ReactiveElement {
   static formAssociated = true;
 
   static properties = {
@@ -19,7 +19,7 @@ export class OreToggle extends ReactiveElement {
   declare name: string;
   declare required: boolean;
   declare value: string;
-  declare variant: OreToggleVariant;
+  declare variant: OreSwitchVariant;
 
   readonly #internals = this.attachInternals();
   #defaultChecked = false;
@@ -68,15 +68,15 @@ export class OreToggle extends ReactiveElement {
     this.#defaultChecked = this.hasAttribute("checked");
     super.connectedCallback();
 
-    if (!this.querySelector(":scope > .ore-toggle-control")) {
+    if (!this.querySelector(":scope > .ore-switch-control")) {
       const control = document.createElement("span");
       const status = document.createElement("span");
       const button = document.createElement("span");
 
-      control.className = "ore-toggle-control";
+      control.className = "ore-switch-control";
       control.setAttribute("aria-hidden", "true");
-      status.className = "ore-toggle-status";
-      button.className = "ore-toggle-button";
+      status.className = "ore-switch-status";
+      button.className = "ore-switch-button";
       control.append(status, button);
       this.prepend(control);
     }
@@ -207,12 +207,12 @@ export class OreToggle extends ReactiveElement {
   };
 }
 
-if (!customElements.get("ore-toggle")) {
-  customElements.define("ore-toggle", OreToggle);
+if (!customElements.get("ore-switch")) {
+  customElements.define("ore-switch", OreSwitch);
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ore-toggle": OreToggle;
+    "ore-switch": OreSwitch;
   }
 }

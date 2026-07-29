@@ -1,19 +1,19 @@
 import { ReactiveElement } from "lit";
 
-export type OreDataTableVariant = "plain" | "striped";
-export type OreDataTableSortDirection = "none" | "ascending" | "descending";
+export type OreTableVariant = "plain" | "striped";
+export type OreTableSortDirection = "none" | "ascending" | "descending";
 
-export interface OreDataTableSortDetail {
+export interface OreTableSortDetail {
   column: string;
-  direction: OreDataTableSortDirection;
+  direction: OreTableSortDirection;
 }
 
-export class OreDataTable extends ReactiveElement {
+export class OreTable extends ReactiveElement {
   static properties = {
     variant: { type: String, reflect: true },
   };
 
-  declare variant: OreDataTableVariant;
+  declare variant: OreTableVariant;
 
   constructor() {
     super();
@@ -39,9 +39,7 @@ export class OreDataTable extends ReactiveElement {
       return;
     }
 
-    const button = event.target.closest<HTMLButtonElement>(
-      ".ore-data-table-sort",
-    );
+    const button = event.target.closest<HTMLButtonElement>(".ore-table-sort");
     const header = button?.closest<HTMLTableCellElement>("th");
 
     if (!button || !header || button.disabled || !this.contains(button)) {
@@ -49,7 +47,7 @@ export class OreDataTable extends ReactiveElement {
     }
 
     const current = header.getAttribute("aria-sort") ?? "none";
-    const direction: OreDataTableSortDirection =
+    const direction: OreTableSortDirection =
       current === "none"
         ? "ascending"
         : current === "ascending"
@@ -62,7 +60,7 @@ export class OreDataTable extends ReactiveElement {
     header.setAttribute("aria-sort", direction);
 
     this.dispatchEvent(
-      new CustomEvent<OreDataTableSortDetail>("sort", {
+      new CustomEvent<OreTableSortDetail>("sort", {
         bubbles: true,
         composed: true,
         detail: { column: button.value, direction },
@@ -71,12 +69,12 @@ export class OreDataTable extends ReactiveElement {
   };
 }
 
-if (!customElements.get("ore-data-table")) {
-  customElements.define("ore-data-table", OreDataTable);
+if (!customElements.get("ore-table")) {
+  customElements.define("ore-table", OreTable);
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ore-data-table": OreDataTable;
+    "ore-table": OreTable;
   }
 }

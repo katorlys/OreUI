@@ -1,0 +1,115 @@
+:where(ore-textfield) {
+  --ore-textfield-unit: var(--ore-size-unit);
+  --ore-textfield-background: var(--ore-color-neutral-surface-raised);
+  --ore-textfield-shadow: var(--ore-color-neutral-surface-sunken);
+  --ore-textfield-border: var(--ore-color-border);
+  --ore-textfield-foreground: var(--ore-color-foreground);
+  --ore-textfield-description: var(--ore-color-disabled);
+  --ore-textfield-error: var(--ore-color-destructive-highlight-hover);
+  --ore-textfield-focus-ring: transparent;
+  --ore-textfield-caret: var(--ore-color-primary-background);
+
+  display: inline-grid;
+  width: min(100%, calc(var(--ore-textfield-unit) * 122));
+  color: var(--ore-textfield-foreground);
+  font-family: var(--ore-font-body);
+}
+
+:where(ore-textfield > .ore-textfield-label) {
+  font-size: calc(var(--ore-textfield-unit) * 8);
+  line-height: calc(var(--ore-textfield-unit) * 10);
+  cursor: text;
+}
+
+:where(ore-textfield > .ore-textfield-control) {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: calc(var(--ore-textfield-unit) * 22);
+  margin-top: var(--ore-textfield-unit);
+  padding: calc(var(--ore-textfield-unit) * 3)
+    calc(var(--ore-textfield-unit) * 1) calc(var(--ore-textfield-unit) * 1);
+  background:
+    linear-gradient(var(--ore-textfield-shadow), var(--ore-textfield-shadow))
+      center var(--ore-textfield-unit) /
+      calc(100% - var(--ore-textfield-unit) * 2)
+      calc(var(--ore-textfield-unit) * 2) no-repeat,
+    linear-gradient(
+        var(--ore-textfield-background),
+        var(--ore-textfield-background)
+      )
+      center calc(var(--ore-textfield-unit) * 3) /
+      calc(100% - var(--ore-textfield-unit) * 2)
+      calc(100% - var(--ore-textfield-unit) * 4) no-repeat,
+    var(--ore-textfield-border);
+  box-shadow: 0 0 0 var(--ore-textfield-unit) var(--ore-textfield-focus-ring);
+}
+
+:where(ore-textfield .ore-textfield-input) {
+  box-sizing: border-box;
+  min-width: 0;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 calc(var(--ore-textfield-unit) * 3);
+  border: 0;
+  outline: 0;
+  color: var(--ore-textfield-foreground);
+  background: transparent;
+  font: inherit;
+  font-size: calc(var(--ore-textfield-unit) * 8);
+  caret-color: var(--ore-textfield-caret);
+}
+
+:where(ore-textfield .ore-textfield-icon) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: calc(var(--ore-textfield-unit) * 8);
+  height: calc(var(--ore-textfield-unit) * 8);
+  margin-left: calc(var(--ore-textfield-unit) * 3);
+  color: var(--ore-textfield-foreground);
+  pointer-events: none;
+}
+
+:where(ore-textfield .ore-textfield-input::placeholder) {
+  color: var(--ore-color-disabled-foreground-dim);
+  opacity: 1;
+}
+
+:where(ore-textfield > .ore-textfield-description) {
+  margin-top: calc(var(--ore-textfield-unit) * 2);
+  color: var(--ore-textfield-description);
+  font-size: calc(var(--ore-textfield-unit) * 6);
+  line-height: calc(var(--ore-textfield-unit) * 7);
+}
+
+:where(ore-textfield > .ore-textfield-error) {
+  margin-top: calc(var(--ore-textfield-unit) * 2);
+  color: var(--ore-textfield-error);
+  font-size: calc(var(--ore-textfield-unit) * 6);
+  line-height: calc(var(--ore-textfield-unit) * 7);
+}
+
+:where(ore-textfield[aria-invalid="true"] > .ore-textfield-control) {
+  --ore-textfield-border: var(--ore-color-destructive-highlight);
+  --ore-textfield-shadow: var(--ore-color-destructive-shadow);
+}
+
+:where(ore-textfield:has(.ore-textfield-input:focus-visible)) {
+  --ore-textfield-focus-ring: var(--ore-color-focus-ring);
+}
+
+:where(ore-textfield[disabled], ore-textfield[form-disabled]) {
+  --ore-textfield-background: var(--ore-color-disabled);
+  --ore-textfield-shadow: var(--ore-color-disabled-shadow);
+  --ore-textfield-border: var(--ore-color-disabled-border);
+  --ore-textfield-foreground: var(--ore-color-disabled);
+}
+
+:where(ore-textfield[disabled], ore-textfield[form-disabled])
+  > .ore-textfield-label {
+  cursor: not-allowed;
+}

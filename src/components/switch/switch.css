@@ -1,0 +1,160 @@
+:where(ore-switch) {
+  --ore-switch-unit: var(--ore-size-unit);
+  --ore-switch-track-background: var(--ore-color-neutral-50-background);
+  --ore-switch-track-highlight: var(--ore-color-neutral-50-highlight-focus);
+  --ore-switch-track-border: var(--ore-color-border);
+  --ore-switch-thumb-background: var(--ore-color-secondary-background);
+  --ore-switch-thumb-highlight: var(--ore-color-secondary-highlight);
+  --ore-switch-thumb-shadow: var(--ore-color-secondary-shadow);
+  --ore-switch-thumb-border: var(--ore-color-border);
+  --ore-switch-thumb-focus-ring: transparent;
+  --ore-switch-icon: var(--ore-color-gray-90);
+
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--ore-switch-unit) * 4);
+  min-height: calc(var(--ore-switch-unit) * 15);
+  color: var(--ore-color-border);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(ore-switch) .ore-switch-control {
+  display: flex;
+  align-items: flex-end;
+  width: calc(var(--ore-switch-unit) * 28);
+  height: calc(var(--ore-switch-unit) * 15);
+}
+
+:where(ore-switch) .ore-switch-status {
+  position: relative;
+  z-index: 0;
+  flex: none;
+  box-sizing: border-box;
+  width: calc(var(--ore-switch-unit) * 13);
+  height: calc(var(--ore-switch-unit) * 13);
+  background:
+    linear-gradient(
+        var(--ore-switch-track-background),
+        var(--ore-switch-track-background)
+      )
+      left calc(var(--ore-switch-unit) * 2) / calc(var(--ore-switch-unit) * 11)
+      calc(var(--ore-switch-unit) * 9) no-repeat,
+    linear-gradient(
+        var(--ore-switch-track-highlight),
+        var(--ore-switch-track-highlight)
+      )
+      left var(--ore-switch-unit) / calc(var(--ore-switch-unit) * 12)
+      calc(var(--ore-switch-unit) * 11) no-repeat,
+    var(--ore-switch-track-border);
+}
+
+:where(ore-switch) .ore-switch-button {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  box-sizing: border-box;
+  width: calc(var(--ore-switch-unit) * 15);
+  height: calc(var(--ore-switch-unit) * 15);
+  background:
+    linear-gradient(
+        var(--ore-switch-thumb-background),
+        var(--ore-switch-thumb-background)
+      )
+      center calc(var(--ore-switch-unit) * 2) /
+      calc(var(--ore-switch-unit) * 11) calc(var(--ore-switch-unit) * 9)
+      no-repeat,
+    linear-gradient(
+        var(--ore-switch-thumb-shadow),
+        var(--ore-switch-thumb-shadow)
+      )
+      center calc(var(--ore-switch-unit) * 12) /
+      calc(var(--ore-switch-unit) * 13) calc(var(--ore-switch-unit) * 2)
+      no-repeat,
+    linear-gradient(
+        var(--ore-switch-thumb-highlight),
+        var(--ore-switch-thumb-highlight)
+      )
+      center var(--ore-switch-unit) / calc(var(--ore-switch-unit) * 13)
+      calc(var(--ore-switch-unit) * 11) no-repeat,
+    var(--ore-switch-thumb-border);
+  box-shadow: 0 0 0 var(--ore-switch-unit) var(--ore-switch-thumb-focus-ring);
+  order: -1;
+}
+
+:where(ore-switch[checked]) .ore-switch-button {
+  order: 0;
+}
+
+:where(ore-switch[checked]) .ore-switch-status {
+  background-position:
+    right calc(var(--ore-switch-unit) * 2),
+    right var(--ore-switch-unit),
+    center;
+}
+
+:where(ore-switch[checked]) {
+  --ore-switch-track-background: var(--ore-color-primary-background);
+  --ore-switch-track-highlight: var(--ore-color-primary-highlight);
+  --ore-switch-icon: var(--ore-color-white);
+}
+
+:where(ore-switch[variant="icons"]) .ore-switch-status::after {
+  position: absolute;
+  top: calc(var(--ore-switch-unit) * 2.5);
+  left: calc(var(--ore-switch-unit) * 2);
+  width: calc(var(--ore-switch-unit) * 8);
+  height: calc(var(--ore-switch-unit) * 8);
+  background: var(--ore-switch-icon);
+  content: "";
+  mask: url("../../assets/icons/off.svg") center / contain no-repeat;
+}
+
+:where(ore-switch[checked][variant="icons"]) .ore-switch-status::after {
+  left: calc(var(--ore-switch-unit) * 3);
+  mask-image: url("../../assets/icons/on.svg");
+}
+
+:where(ore-switch:hover:not([disabled], [form-disabled])) {
+  --ore-switch-thumb-background: var(--ore-color-secondary-background-hover);
+  --ore-switch-thumb-highlight: color-mix(
+    in srgb,
+    var(--ore-color-secondary-background-hover),
+    var(--ore-color-white) 60%
+  );
+}
+
+:where(
+  ore-switch:active:not([disabled], [form-disabled]),
+  ore-switch[pressed]:not([disabled], [form-disabled])
+) {
+  --ore-switch-thumb-background: var(--ore-color-secondary-background-pressed);
+  --ore-switch-thumb-highlight: color-mix(
+    in srgb,
+    var(--ore-color-secondary-background-pressed),
+    var(--ore-color-white) 40%
+  );
+}
+
+:where(ore-switch:focus-visible) {
+  --ore-switch-thumb-highlight: color-mix(
+    in srgb,
+    var(--ore-color-secondary-background),
+    var(--ore-color-white) 60%
+  );
+  --ore-switch-thumb-focus-ring: var(--ore-color-focus-ring);
+}
+
+:where(ore-switch[disabled], ore-switch[form-disabled]) {
+  --ore-switch-track-background: var(--ore-color-disabled);
+  --ore-switch-track-highlight: var(--ore-color-disabled);
+  --ore-switch-track-border: var(--ore-color-disabled-border);
+  --ore-switch-thumb-background: var(--ore-color-disabled);
+  --ore-switch-thumb-highlight: var(--ore-color-disabled);
+  --ore-switch-thumb-shadow: var(--ore-color-disabled-shadow);
+  --ore-switch-thumb-border: var(--ore-color-disabled-border);
+  --ore-switch-icon: var(--ore-color-disabled-foreground);
+
+  cursor: not-allowed;
+}
