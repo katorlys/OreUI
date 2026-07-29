@@ -38,15 +38,15 @@
   background:
     linear-gradient(
         to right,
-        var(--ore-radio-indicator-light) 50%,
-        var(--ore-radio-indicator-dim) 0
+        var(--ore-radio-indicator-dim) 50%,
+        var(--ore-radio-indicator-light) 0
       )
       center calc(50% - var(--ore-radio-unit)) / calc(var(--ore-radio-unit) * 4)
       calc(var(--ore-radio-unit) * 2) no-repeat,
     linear-gradient(
         to right,
-        var(--ore-radio-indicator-dim) 50%,
-        var(--ore-radio-indicator-dark) 0
+        var(--ore-radio-indicator-dark) 50%,
+        var(--ore-radio-indicator-dim) 0
       )
       center calc(50% + var(--ore-radio-unit)) / calc(var(--ore-radio-unit) * 4)
       calc(var(--ore-radio-unit) * 2) no-repeat,

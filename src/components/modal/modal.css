@@ -17,7 +17,7 @@
   max-height: calc(100vh - var(--ore-modal-unit) * 16);
   margin: auto;
   padding: 0;
-  overflow: auto;
+  overflow: hidden;
   border: 0;
   color: var(--ore-modal-foreground);
   background: transparent;
@@ -29,10 +29,26 @@
 }
 
 :where(ore-modal .ore-modal-content) {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
+  max-height: inherit;
   padding: var(--ore-modal-unit);
+  overflow: hidden;
   background: var(--ore-modal-border);
+}
+
+:where(ore-modal .ore-modal-content > ore-container[variant="dark"]) {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+}
+
+:where(
+  ore-modal .ore-modal-header,
+  ore-modal .ore-modal-content > ore-container[variant="light"]
+) {
+  flex: none;
 }
 
 :where(ore-modal .ore-modal-header) {

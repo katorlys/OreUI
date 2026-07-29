@@ -130,7 +130,6 @@ export class OreTextField extends ReactiveElement {
       this.append(label, control, description, error);
       label.addEventListener("click", () => input.focus());
       input.addEventListener("input", this.#handleInput);
-      input.addEventListener("change", this.#handleChange);
     }
 
     this.#sync();
@@ -303,11 +302,6 @@ export class OreTextField extends ReactiveElement {
     this.value = this.input?.value ?? this.value;
     this.#sync();
     this.dispatchEvent(new Event("input", { bubbles: true, composed: true }));
-  };
-
-  readonly #handleChange = (event: Event): void => {
-    event.stopPropagation();
-    this.dispatchEvent(new Event("change", { bubbles: true }));
   };
 
   readonly #handleClick = (event: MouseEvent): void => {

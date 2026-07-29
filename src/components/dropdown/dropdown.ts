@@ -130,6 +130,8 @@ export class OreDropdown extends ReactiveElement {
       menu.showPopover();
       window.addEventListener("resize", this.#position);
       window.addEventListener("scroll", this.#position, true);
+      this.#position();
+      window.setTimeout(this.#position);
       requestAnimationFrame(this.#position);
     } else if (!this.open && menu.matches(":popover-open")) {
       menu.hidePopover();
@@ -161,6 +163,7 @@ export class OreDropdown extends ReactiveElement {
     }
 
     const triggerRect = trigger.getBoundingClientRect();
+    menu.style.width = `${triggerRect.width}px`;
     const menuRect = menu.getBoundingClientRect();
     const unit = Number.parseFloat(getComputedStyle(menu).paddingTop);
     const inset = 2;
@@ -172,7 +175,6 @@ export class OreDropdown extends ReactiveElement {
 
     menu.style.left = `${left}px`;
     menu.style.top = `${below ? triggerRect.bottom - unit : triggerRect.top - menuRect.height + unit}px`;
-    menu.style.width = `${triggerRect.width}px`;
   };
 
   #enabledItems(): HTMLElement[] {
@@ -183,7 +185,10 @@ export class OreDropdown extends ReactiveElement {
     const items = this.#enabledItems();
 
     if (items.length > 0) {
-      items[(index + items.length) % items.length]?.focus();
+      const item = items[(index + items.length) % items.length];
+
+      item?.focus();
+      item?.scrollIntoView({ block: "nearest" });
     }
   }
 
