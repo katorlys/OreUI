@@ -99,6 +99,7 @@ export class OreSlider extends ReactiveElement {
 
   formResetCallback(): void {
     this.value = this.#defaultValue;
+    this.#sync();
   }
 
   get input(): HTMLInputElement | null {
@@ -140,6 +141,7 @@ export class OreSlider extends ReactiveElement {
   readonly #handleInput = (event: Event): void => {
     event.stopPropagation();
     this.value = this.input?.valueAsNumber ?? this.value;
+    this.#sync();
     this.dispatchEvent(new Event("input", { bubbles: true, composed: true }));
   };
 

@@ -19,6 +19,13 @@ export class OreModal extends ReactiveElement {
 
   #reason: OreModalCloseReason = "close";
   #trigger: HTMLElement | null = null;
+  #boundDialog: HTMLDialogElement | null = null;
+  #closeNotified = true;
+  readonly #dialogObserver = new MutationObserver(() => {
+    if (this.#boundDialog && !this.#boundDialog.open) {
+      this.#finishClose();
+    }
+  });
 
   constructor() {
     super();
@@ -33,8 +40,11 @@ export class OreModal extends ReactiveElement {
   override connectedCallback(): void {
     super.connectedCallback();
     this.addEventListener("click", this.#handleClick);
-    this.dialog?.addEventListener("cancel", this.#handleCancel);
-    this.#setup();
+    void this.updateComplete.then(() => {
+      if (this.isConnected) {
+        this.#connectDialog();
+      }
+    });
 
     if (this.defaultOpen) {
       this.open = true;
@@ -43,7 +53,10 @@ export class OreModal extends ReactiveElement {
 
   override disconnectedCallback(): void {
     this.removeEventListener("click", this.#handleClick);
-    this.dialog?.removeEventListener("cancel", this.#handleCancel);
+    this.#boundDialog?.removeEventListener("cancel", this.#handleCancel);
+    this.#boundDialog?.removeEventListener("close", this.#handleClose);
+    this.#dialogObserver.disconnect();
+    this.#boundDialog = null;
     super.disconnectedCallback();
   }
 
@@ -74,6 +87,25 @@ export class OreModal extends ReactiveElement {
   close(reason: OreModalCloseReason = "close"): void {
     this.#reason = reason;
     this.open = false;
+  }
+
+  #connectDialog(): void {
+    const dialog = this.dialog;
+
+    if (!dialog || dialog === this.#boundDialog) {
+      return;
+    }
+
+    this.#boundDialog?.removeEventListener("cancel", this.#handleCancel);
+    this.#boundDialog?.removeEventListener("close", this.#handleClose);
+    this.#boundDialog = dialog;
+    dialog.addEventListener("cancel", this.#handleCancel);
+    dialog.addEventListener("close", this.#handleClose);
+    this.#dialogObserver.observe(dialog, {
+      attributeFilter: ["open"],
+    });
+    this.#setup();
+    this.#syncOpen();
   }
 
   #setup(): void {
@@ -107,6 +139,7 @@ export class OreModal extends ReactiveElement {
     }
 
     if (this.open && !dialog.open) {
+      this.#closeNotified = false;
       this.#trigger =
         document.activeElement instanceof HTMLElement
           ? document.activeElement
@@ -114,11 +147,16 @@ export class OreModal extends ReactiveElement {
       dialog.showModal();
     } else if (!this.open && dialog.open) {
       dialog.close();
-      this.#finishClose();
     }
   }
 
   #finishClose(): void {
+    if (this.#closeNotified) {
+      return;
+    }
+
+    this.#closeNotified = true;
+
     if (this.open) {
       this.open = false;
     }
@@ -153,6 +191,10 @@ export class OreModal extends ReactiveElement {
   readonly #handleCancel = (event: Event): void => {
     event.preventDefault();
     this.close("escape");
+  };
+
+  readonly #handleClose = (): void => {
+    this.#finishClose();
   };
 }
 

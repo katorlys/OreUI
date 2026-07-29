@@ -27,6 +27,10 @@ export class OreButton extends ReactiveElement {
     this.variant = "primary";
   }
 
+  get form(): HTMLFormElement | null {
+    return this.#internals.form;
+  }
+
   override connectedCallback(): void {
     super.connectedCallback();
 
@@ -97,7 +101,7 @@ export class OreButton extends ReactiveElement {
 
     if (this.type === "reset") {
       this.#internals.form?.reset();
-    } else if (this.type === "submit") {
+    } else if (this.type !== "button") {
       this.#internals.form?.requestSubmit();
     }
   };

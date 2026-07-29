@@ -103,6 +103,7 @@ export class OreRadio extends ReactiveElement {
 
   formResetCallback(): void {
     this.checked = this.#defaultChecked;
+    this.#syncGroup();
   }
 
   #isDisabled(): boolean {
@@ -159,6 +160,7 @@ export class OreRadio extends ReactiveElement {
     }
 
     this.checked = true;
+    this.#syncGroup();
     this.dispatchEvent(new Event("input", { bubbles: true, composed: true }));
     this.dispatchEvent(new Event("change", { bubbles: true }));
   }
@@ -205,7 +207,7 @@ export class OreRadio extends ReactiveElement {
     if (!this.#isDisabled() && event.key === " ") {
       event.preventDefault();
       this.#releasePress();
-      this.#select();
+      this.click();
     }
   };
 

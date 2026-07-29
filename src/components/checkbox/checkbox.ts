@@ -108,6 +108,7 @@ export class OreCheckbox extends ReactiveElement {
 
   formResetCallback(): void {
     this.checked = this.#defaultChecked;
+    this.#sync();
   }
 
   #isDisabled(): boolean {
@@ -139,6 +140,7 @@ export class OreCheckbox extends ReactiveElement {
 
   #toggle(): void {
     this.checked = !this.checked;
+    this.#sync();
     this.dispatchEvent(new Event("input", { bubbles: true, composed: true }));
     this.dispatchEvent(new Event("change", { bubbles: true }));
   }
@@ -164,7 +166,7 @@ export class OreCheckbox extends ReactiveElement {
     if (!this.#isDisabled() && event.key === " ") {
       event.preventDefault();
       this.#releasePress();
-      this.#toggle();
+      this.click();
     }
   };
 
