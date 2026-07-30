@@ -1,7 +1,7 @@
 {
   "name": "@katorlys/oreui-react",
   "version": "0.0.0-alpha.3",
-  "description": "An unofficial Ore UI React component library.",
+  "description": "React wrapper for the unofficial Ore UI component library.",
   "type": "module",
   "repository": {
     "type": "git",
@@ -35,6 +35,10 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/components/*.d.ts",
+      "import": "./dist/components/*.js"
     },
     "./package.json": "./package.json"
   },
