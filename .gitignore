@@ -3,6 +3,10 @@ refs/
 PLAN.md
 AGENTS.md
 
+next-env.d.ts
+# Fumadocs generated content
+.source
+
 # Created by https://www.toptal.com/developers/gitignore/api/node
 # Edit at https://www.toptal.com/developers/gitignore?templates=node
 
