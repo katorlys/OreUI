@@ -1,8 +1,27 @@
 {
   "name": "@katorlys/oreui",
-  "version": "0.0.0-alpha.2",
+  "version": "0.0.0-alpha.3",
   "description": "An unofficial Ore UI cross-framework component library.",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katorlys/OreUI.git"
+  },
+  "keywords": [
+    "ore-ui",
+    "oreui",
+    "minecraft",
+    "css",
+    "component",
+    "library",
+    "style",
+    "ui",
+    "ugc"
+  ],
+  "homepage": "https://lab.katorly.com/OreUI",
+  "bugs": {
+    "url": "https://github.com/katorlys/OreUI/issues"
+  },
   "license": "MPL-2.0",
   "sideEffects": [
     "**/*.css"
@@ -30,10 +49,12 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && tsc -p tsconfig.build.json && node scripts/copy-assets.js",
+    "build": "pnpm build:core && pnpm --filter @katorlys/oreui-react build",
+    "build:core": "vite build && tsc -p tsconfig.build.json && node scripts/copy-assets.js",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "pnpm typecheck:core && pnpm --filter @katorlys/oreui-react typecheck",
+    "typecheck:core": "tsc --noEmit",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -41,8 +62,12 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
-    "@types/node": "^24.10.1",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
     "prettier": "^3.9.6",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "vite": "^8.1.5"
