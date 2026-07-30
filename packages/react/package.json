@@ -1,0 +1,67 @@
+{
+  "name": "@katorlys/oreui-react",
+  "version": "0.0.0-alpha.3",
+  "description": "An unofficial Ore UI React component library.",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katorlys/OreUI.git",
+    "directory": "packages/react"
+  },
+  "keywords": [
+    "ore-ui",
+    "oreui",
+    "minecraft",
+    "react",
+    "component",
+    "library",
+    "style",
+    "ui",
+    "ugc"
+  ],
+  "homepage": "https://lab.katorly.com/OreUI",
+  "bugs": {
+    "url": "https://github.com/katorlys/OreUI/issues"
+  },
+  "license": "MPL-2.0",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@lit/react": "^1.0.8"
+  },
+  "peerDependencies": {
+    "@katorlys/oreui": "0.0.0-alpha.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@katorlys/oreui": "workspace:*",
+    "@types/react": "^19.2.9",
+    "@types/react-dom": "^19.2.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "typescript": "^7.0.2"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
