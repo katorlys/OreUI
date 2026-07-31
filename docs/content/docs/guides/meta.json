@@ -1,0 +1,10 @@
+{
+  "title": "Guides",
+  "icon": "BookOpen",
+  "pages": [
+    "composition",
+    "styling",
+    "forms-and-events",
+    "state-and-accessibility"
+  ]
+}

@@ -1,0 +1,72 @@
+---
+title: React
+description: OreUI for React applications.
+---
+
+## Install
+```bash tab="pnpm"
+pnpm add @katorlys/oreui @katorlys/oreui-react
+```
+
+```bash tab="yarn"
+yarn add @katorlys/oreui @katorlys/oreui-react
+```
+
+```bash tab="npm"
+npm install @katorlys/oreui @katorlys/oreui-react
+```
+
+```bash tab="bun"
+bun add @katorlys/oreui @katorlys/oreui-react
+```
+
+## Add styles
+Import the stylesheet once in your app entry:
+
+```ts
+import "@katorlys/oreui/styles.css";
+```
+
+## Use a component
+```tsx title="App.tsx"
+import { OreButton } from "@katorlys/oreui-react/button";
+
+export function App() {
+  return <OreButton type="button">Create new world</OreButton>;
+}
+```
+
+<Callout type="info">
+  Import from `@katorlys/oreui-react` to use all the components from the package root.
+</Callout>
+
+## Examples
+Typed events:
+```tsx title="GameMode.tsx"
+import { OreButton } from "@katorlys/oreui-react/button";
+import { OreDropdown } from "@katorlys/oreui-react/dropdown";
+
+export function GameMode() {
+  return (
+    <OreDropdown
+      onChange={(event) => console.log(event.detail.value)}
+      onOpenChange={(event) => console.log(event.detail)}
+    >
+      <OreButton className="ore-dropdown-trigger" type="button">
+        Game mode
+      </OreButton>
+      <div className="ore-dropdown-menu">
+        <button className="ore-dropdown-item" data-value="survival">
+          Survival
+        </button>
+      </div>
+    </OreDropdown>
+  );
+}
+```
+
+The React wrappers forward `children`, `className`, properties, aria attributes, and refs.
+
+<Callout type="warn">
+  OreUI React currently only supports client applications. We may extend support to server components and server-side rendering in the future.
+</Callout>

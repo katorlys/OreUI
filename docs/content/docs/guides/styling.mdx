@@ -1,0 +1,47 @@
+---
+title: Styling
+description: Customize OreUI with CSS variables, TailwindCSS classes, and so on.
+---
+
+Import the default styles once in your application:
+```css
+@import "@katorlys/oreui/styles.css";
+```
+
+## Classes
+Apply classes to the component to override default styles.
+```html
+<ore-button class="danger-action" type="button">Delete</ore-button>
+```
+
+```css
+.danger-action {
+  background: #CA3636;
+  color: white;
+  min-height: 3rem;
+}
+
+.danger-action:hover {
+  background: #D54242;
+}
+```
+
+## CSS variables
+Modify CSS variables to change default styles.
+```html
+<ore-switch class="large-thumb">Music</ore-switch>
+```
+
+```css
+.large-thumb {
+  --ore-switch-thumb-size: 1.25rem;
+}
+```
+
+## TailwindCSS
+TailwindCSS works directly on the element.
+```html
+<ore-button class="min-h-12 bg-red-600 text-white hover:bg-red-500">
+  Delete
+</ore-button>
+```

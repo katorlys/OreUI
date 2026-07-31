@@ -1,0 +1,32 @@
+---
+title: State and Accessibility
+description: Set component state and accessibility.
+---
+
+## Default state
+```html
+<ore-accordion default-open>
+  <ore-button class="ore-accordion-trigger" type="button">Details</ore-button>
+  <div class="ore-accordion-content">World settings</div>
+</ore-accordion>
+```
+
+## Controlled state
+Set the element property when the application controls the state, and then listen for changes:
+```ts
+const accordion = document.querySelector("ore-accordion");
+
+if (accordion) {
+  accordion.open = true;
+  accordion.addEventListener("open-change", (event) => {
+    console.log((event as CustomEvent<boolean>).detail);
+  });
+}
+```
+
+## Accessibility checklist
+- [ ] Add `aria-label` to icon-only controls.
+- [ ] Use native headings, tables, links, and form labels.
+- [ ] Keep focus styles visible.
+- [ ] Avoid overriding keyboard handling or aria state managed by OreUI.
+- [ ] Place errors and help text in the component's documented public parts.

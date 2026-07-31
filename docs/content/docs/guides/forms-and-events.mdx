@@ -1,0 +1,37 @@
+---
+title: Forms and Events
+description: Connect OreUI components to forms and event listeners.
+---
+
+## FormData
+OreUI form controls work with native `forms` and `FormData`.
+
+```html
+<form id="settings">
+  <ore-checkbox name="updates" value="enabled"> Receive updates </ore-checkbox>
+  <ore-button type="submit">Save</ore-button>
+  <ore-button type="reset" variant="secondary">Reset</ore-button>
+</form>
+```
+
+```ts
+const form = document.querySelector<HTMLFormElement>("#settings");
+
+form?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log(new FormData(form).get("updates"));
+});
+```
+
+## Events
+```ts
+import type { OreDropdownChangeDetail } from "@katorlys/oreui/dropdown";
+
+const dropdown = document.querySelector("ore-dropdown");
+
+dropdown?.addEventListener("change", (event) => {
+  const detail = (event as CustomEvent<OreDropdownChangeDetail>).detail;
+  console.log(detail.value);
+});
+```
+Component events bubble through the DOM. Their detailed types can be imported from the same component entry.

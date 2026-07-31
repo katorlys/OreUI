@@ -1,0 +1,30 @@
+---
+title: Composition
+description: Compose OreUI components with Light DOM markup.
+---
+
+OreUI renders component content in Light DOM, so the markup remains visible and can be styled like regular HTML.
+```html
+<ore-card>
+  <div class="ore-card-body">
+    <h2 class="ore-card-title">Realm settings</h2>
+    <p class="ore-card-description">Choose how players join.</p>
+    <ore-button type="button">Save</ore-button>
+  </div>
+</ore-card>
+```
+
+Complex components use public classes to identify each part:
+```html
+<ore-dropdown value="survival">
+  <ore-button class="ore-dropdown-trigger" type="button">
+    Game mode
+  </ore-button>
+  <div class="ore-dropdown-menu">
+    <button class="ore-dropdown-item" data-value="survival">Survival</button>
+    <button class="ore-dropdown-item" data-value="creative">Creative</button>
+  </div>
+</ore-dropdown>
+```
+
+The HTML element used for a part can be changed as long as its class stays the same.
