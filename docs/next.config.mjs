@@ -1,6 +1,8 @@
 import { createMDX } from "fumadocs-mdx/next";
+import { createNextStory } from "@fumadocs/story/next";
 
 const withMDX = createMDX();
+const withStory = createNextStory();
 
 /** @type {import("next").NextConfig} */
 const config = {
@@ -16,4 +18,4 @@ const config = {
   },
 };
 
-export default withMDX(config);
+export default withStory(withMDX(config));

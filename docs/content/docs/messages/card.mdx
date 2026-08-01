@@ -1,0 +1,133 @@
+---
+title: Card
+description: Present a grouped block of content.
+---
+
+import { CardStory } from "@/components/stories/card.story";
+
+Card groups media, a caption, metadata, and an optional action.
+
+<CardStory />
+
+## Usage
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/card";
+import "@katorlys/oreui/icon";
+import "@katorlys/oreui/tag";
+```
+
+```html
+<ore-card>
+	<div class="ore-card-media">
+		<img src="/world.webp" alt="A village beside a river" />
+		<div class="ore-card-overlay-bottom-start card-tag-group">
+			<ore-tag outlined variant="informative">Local</ore-tag>
+			<ore-tag outlined variant="notice">New</ore-tag>
+		</div>
+		<span class="ore-card-overlay-top-end" aria-hidden="true">
+			<ore-icon><svg viewBox="0 0 8 8"><path fill="currentColor" d="M1 2h1v1H1zm1 1h1v1H2zm1 1h1v1H3zm1 1h1v1H4zm1-1h1v1H5zm1-1h1v1H6z" /></svg></ore-icon>
+		</span>
+	</div>
+	<div class="ore-card-body">
+		<div class="ore-card-caption">
+			<div class="ore-card-title">Survival World</div>
+			<div class="ore-card-description">Last played today</div>
+		</div>
+		<span class="ore-card-meta">1.21</span>
+	</div>
+</ore-card>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreCard } from "@katorlys/oreui-react/card";
+import { OreTag } from "@katorlys/oreui-react/tag";
+
+export function WorldCard() {
+	return (
+		<OreCard>
+			<div className="ore-card-media">
+				<img src="/world.webp" alt="A village beside a river" />
+				<div className="ore-card-overlay-bottom-start card-tag-group">
+					<OreTag outlined variant="informative">Local</OreTag>
+					<OreTag outlined variant="notice">New</OreTag>
+				</div>
+				<span className="ore-card-overlay-top-end" aria-hidden="true">
+					<ore-icon><svg viewBox="0 0 8 8"><path fill="currentColor" d="M1 2h1v1H1zm1 1h1v1H2zm1 1h1v1H3zm1 1h1v1H4zm1-1h1v1H5zm1-1h1v1H6z" /></svg></ore-icon>
+				</span>
+			</div>
+			<div className="ore-card-body">
+				<div className="ore-card-caption">
+					<div className="ore-card-title">Survival World</div>
+					<div className="ore-card-description">Last played today</div>
+				</div>
+				<span className="ore-card-meta">1.21</span>
+			</div>
+		</OreCard>
+	);
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-card>
+	<div class="ore-card-media">
+		<img src="/world.webp" alt="A village beside a river" />
+		<div class="ore-card-overlay-bottom-start card-tag-group">
+			<ore-tag outlined variant="informative">Local</ore-tag>
+			<ore-tag outlined variant="notice">New</ore-tag>
+		</div>
+		<span class="ore-card-overlay-top-end" aria-hidden="true">
+			<ore-icon><svg viewBox="0 0 8 8"><path fill="currentColor" d="M1 2h1v1H1zm1 1h1v1H2zm1 1h1v1H3zm1 1h1v1H4zm1-1h1v1H5zm1-1h1v1H6z" /></svg></ore-icon>
+		</span>
+	</div>
+	<div class="ore-card-body">
+		<div class="ore-card-caption">
+			<div class="ore-card-title">Survival World</div>
+			<div class="ore-card-description">Last played today</div>
+		</div>
+		<span class="ore-card-meta">1.21</span>
+	</div>
+</ore-card>
+
+<script>
+	import "@katorlys/oreui/card";
+	import "@katorlys/oreui/icon";
+	import "@katorlys/oreui/tag";
+</script>
+```
+	</Tab>
+</Tabs>
+
+```css
+.card-tag-group {
+	display: flex;
+	gap: var(--ore-card-unit);
+}
+```
+
+## Overlays
+Place labels over media with the overlay classes.
+
+```html
+<div class="ore-card-media">
+	<img src="/world.webp" alt="A forest village" />
+	<ore-tag class="ore-card-overlay-top-start">New</ore-tag>
+</div>
+```
+
+## Public classes
+|Class|Purpose|
+|---|---|
+|`.ore-card-media`|16:9 media area|
+|`.ore-card-body`|Caption and action row|
+|`.ore-card-caption`|Title and description group|
+|`.ore-card-title`|Primary label|
+|`.ore-card-description`|Supporting text|
+|`.ore-card-meta`|Short trailing metadata|
+|`.ore-card-action`|Trailing Icon Button|
+|`.ore-card-overlay-top-start`|Top-start media overlay|
+|`.ore-card-overlay-bottom-start`|Bottom-start media overlay|
+|`.ore-card-overlay-top-end`|Top-end media overlay|

@@ -1,0 +1,89 @@
+---
+title: Tab Button
+description: Select a tab or related view.
+---
+
+import { TabButtonStory } from "@/components/stories/tab-button.story";
+
+Tab Buttons switch between related views.
+
+This should only be used in Tab Bar components, which makes selection and keyboard navigation work as a group.
+
+<TabButtonStory />
+
+## Usage
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/tab-bar";
+import "@katorlys/oreui/tab-button";
+```
+
+```html
+<ore-tab-bar aria-label="Play menu">
+	<ore-tab-button selected>Worlds</ore-tab-button>
+	<ore-tab-button>Realms</ore-tab-button>
+	<ore-tab-button>Discover</ore-tab-button>
+</ore-tab-bar>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreTabBar } from "@katorlys/oreui-react/tab-bar";
+import { OreTabButton } from "@katorlys/oreui-react/tab-button";
+
+export function PlayMenu() {
+	return (
+		<OreTabBar aria-label="Play menu">
+			<OreTabButton selected>Worlds</OreTabButton>
+			<OreTabButton>Realms</OreTabButton>
+			<OreTabButton>Discover</OreTabButton>
+		</OreTabBar>
+	);
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-tab-bar aria-label="Play menu">
+	<ore-tab-button selected>Worlds</ore-tab-button>
+	<ore-tab-button>Realms</ore-tab-button>
+	<ore-tab-button>Discover</ore-tab-button>
+</ore-tab-bar>
+
+<script>
+	import "@katorlys/oreui/tab-bar";
+	import "@katorlys/oreui/tab-button";
+</script>
+```
+	</Tab>
+</Tabs>
+
+## Palettes
+```html
+<ore-tab-button palette="default" selected>Worlds</ore-tab-button>
+<ore-tab-button palette="toggle" selected>Enabled</ore-tab-button>
+```
+
+## Events
+Tab Button dispatches `change` after it becomes selected.
+
+```js
+const tab = document.querySelector("ore-tab-button");
+tab?.addEventListener("change", () => console.log(tab.selected));
+```
+
+## API
+|Property|Attribute|Type|Default|
+|---|---|---|---|
+|`disabled`|`disabled`|`boolean`|`false`|
+|`palette`|`palette`|`"default" \|"toggle"`|`"default"`|
+|`selected`|`selected`|`boolean`|`false`|
+|`type`|`type`|`"button" \|"reset" \|"submit"`|`"button"`|
+
+|Event|Detail|
+|---|---|
+|`change`|None|
+
+## Accessibility
+Tab Button uses `role="tab"` and updates `aria-selected`. `Arrow keys` move through enabled tabs, while `Home` and `End` select the first and last tab.

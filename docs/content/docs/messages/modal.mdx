@@ -1,0 +1,215 @@
+---
+title: Modal
+description: Present content in a modal dialog.
+---
+
+import { ModalStory } from "@/components/stories/modal.story";
+
+Modal keeps a focused task above the current screen.
+
+<ModalStory />
+
+## Usage
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/modal";
+import "@katorlys/oreui/button";
+import "@katorlys/oreui/checkbox";
+import "@katorlys/oreui/container";
+import "@katorlys/oreui/icon";
+import "@katorlys/oreui/textfield";
+```
+
+```html
+<ore-modal>
+	<ore-button class="ore-modal-trigger" type="button">Open modal</ore-button>
+	<dialog class="ore-modal-dialog">
+		<form class="ore-modal-content">
+			<header class="ore-modal-header">
+				<button class="ore-modal-close ore-modal-header-button" type="button" aria-label="Back">
+					<ore-icon aria-hidden="true"><svg viewBox="0 0 8 8"><path fill="currentColor" fill-rule="evenodd" d="M5 2h1V1H5zM2 5h1V4H2zm3-3H4v1h1-1v.003H3v1h1-1V6h1v-.997 1h.034V7H5v1h1V2z" transform="translate(0 -.5)" /></svg></ore-icon>
+				</button>
+				<h2 class="ore-modal-title">Header</h2>
+				<button class="ore-modal-close ore-modal-header-button" type="button" aria-label="Close">
+					<ore-icon aria-hidden="true"><svg viewBox="0 0 8 8"><path fill="currentColor" fill-rule="evenodd" d="M.5.5h1v1h.966v1h-1v-1H.5zm7 1h-1v-1h1zm-2 1v-1h1v1zm-1 1h1v-1h-1zm0 1v-1h-1v-1h-1v1h1v1h-1v1h-1v1h-1v1h1v-1h1v-1h1v-1zm0 0h1v1h-1zm1.034 2H6.5v1h1v-1h-.966v-1h-1z" /></svg></ore-icon>
+				</button>
+			</header>
+			<ore-container class="modal-form-body" variant="dark">
+				<p class="ore-modal-description">Add the information for this form.</p>
+				<ore-textfield label="Label" placeholder="Placeholder" description="Description"></ore-textfield>
+			</ore-container>
+			<ore-container class="modal-confirmation" variant="light">
+				<ore-checkbox>Checkbox example for confirmation</ore-checkbox>
+			</ore-container>
+			<ore-container class="modal-actions" variant="light">
+				<ore-button class="ore-modal-close" type="button">Confirm</ore-button>
+				<ore-button class="ore-modal-close" type="button" variant="secondary">Cancel</ore-button>
+			</ore-container>
+		</form>
+	</dialog>
+</ore-modal>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreButton } from "@katorlys/oreui-react/button";
+import { OreCheckbox } from "@katorlys/oreui-react/checkbox";
+import { OreContainer } from "@katorlys/oreui-react/container";
+import { OreModal } from "@katorlys/oreui-react/modal";
+import { OreTextfield } from "@katorlys/oreui-react/textfield";
+import { useId } from "react";
+
+export function FormModal() {
+	const id = useId();
+	const titleId = `${id}-title`;
+	const descriptionId = `${id}-description`;
+
+	return (
+		<OreModal onModalClose={(event) => console.log(event.detail.reason)}>
+			<OreButton className="ore-modal-trigger" type="button">Open modal</OreButton>
+			<dialog className="ore-modal-dialog" aria-labelledby={titleId} aria-describedby={descriptionId}>
+				<form className="ore-modal-content">
+					<header className="ore-modal-header">
+						<button className="ore-modal-close ore-modal-header-button" type="button" aria-label="Back">
+							<ore-icon aria-hidden="true"><svg viewBox="0 0 8 8"><path fill="currentColor" fillRule="evenodd" d="M5 2h1V1H5zM2 5h1V4H2zm3-3H4v1h1-1v.003H3v1h1-1V6h1v-.997 1h.034V7H5v1h1V2z" transform="translate(0 -.5)" /></svg></ore-icon>
+						</button>
+						<h2 className="ore-modal-title" id={titleId}>Header</h2>
+						<button className="ore-modal-close ore-modal-header-button" type="button" aria-label="Close">
+							<ore-icon aria-hidden="true"><svg viewBox="0 0 8 8"><path fill="currentColor" fillRule="evenodd" d="M.5.5h1v1h.966v1h-1v-1H.5zm7 1h-1v-1h1zm-2 1v-1h1v1zm-1 1h1v-1h-1zm0 1v-1h-1v-1h-1v1h1v1h-1v1h-1v1h-1v1h1v-1h1v-1h1v-1zm0 0h1v1h-1zm1.034 2H6.5v1h1v-1h-.966v-1h-1z" /></svg></ore-icon>
+						</button>
+					</header>
+					<OreContainer className="modal-form-body" variant="dark">
+						<p className="ore-modal-description" id={descriptionId}>Add the information for this form.</p>
+						<OreTextfield label="Label" placeholder="Placeholder" description="Description" />
+					</OreContainer>
+					<OreContainer className="modal-confirmation" variant="light">
+						<OreCheckbox>Checkbox example for confirmation</OreCheckbox>
+					</OreContainer>
+					<OreContainer className="modal-actions" variant="light">
+						<OreButton className="ore-modal-close" type="button">Confirm</OreButton>
+						<OreButton className="ore-modal-close" type="button" variant="secondary">Cancel</OreButton>
+					</OreContainer>
+				</form>
+			</dialog>
+		</OreModal>
+	);
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-modal>
+	<ore-button class="ore-modal-trigger" type="button">Open modal</ore-button>
+	<dialog class="ore-modal-dialog">
+		<form class="ore-modal-content">
+			<header class="ore-modal-header">
+				<button class="ore-modal-close ore-modal-header-button" type="button" aria-label="Back">
+					<ore-icon aria-hidden="true"><svg viewBox="0 0 8 8"><path fill="currentColor" fill-rule="evenodd" d="M5 2h1V1H5zM2 5h1V4H2zm3-3H4v1h1-1v.003H3v1h1-1V6h1v-.997 1h.034V7H5v1h1V2z" transform="translate(0 -.5)" /></svg></ore-icon>
+				</button>
+				<h2 class="ore-modal-title">Header</h2>
+				<button class="ore-modal-close ore-modal-header-button" type="button" aria-label="Close">
+					<ore-icon aria-hidden="true"><svg viewBox="0 0 8 8"><path fill="currentColor" fill-rule="evenodd" d="M.5.5h1v1h.966v1h-1v-1H.5zm7 1h-1v-1h1zm-2 1v-1h1v1zm-1 1h1v-1h-1zm0 1v-1h-1v-1h-1v1h1v1h-1v1h-1v1h-1v1h1v-1h1v-1h1v-1zm0 0h1v1h-1zm1.034 2H6.5v1h1v-1h-.966v-1h-1z" /></svg></ore-icon>
+				</button>
+			</header>
+			<ore-container class="modal-form-body" variant="dark">
+				<p class="ore-modal-description">Add the information for this form.</p>
+				<ore-textfield label="Label" placeholder="Placeholder" description="Description"></ore-textfield>
+			</ore-container>
+			<ore-container class="modal-confirmation" variant="light">
+				<ore-checkbox>Checkbox example for confirmation</ore-checkbox>
+			</ore-container>
+			<ore-container class="modal-actions" variant="light">
+				<ore-button class="ore-modal-close" type="button">Confirm</ore-button>
+				<ore-button class="ore-modal-close" type="button" variant="secondary">Cancel</ore-button>
+			</ore-container>
+		</form>
+	</dialog>
+</ore-modal>
+
+<script>
+	import "@katorlys/oreui/modal";
+	import "@katorlys/oreui/button";
+	import "@katorlys/oreui/checkbox";
+	import "@katorlys/oreui/container";
+	import "@katorlys/oreui/icon";
+	import "@katorlys/oreui/textfield";
+</script>
+```
+	</Tab>
+</Tabs>
+
+```css
+.modal-form-body {
+	--ore-container-padding: 1rem 1.375rem;
+	--ore-container-gap: 1rem;
+}
+
+.modal-form-body > ore-textfield {
+	width: min(100%, 15.25rem);
+}
+
+.modal-confirmation {
+	--ore-container-padding: 0.5rem 1.375rem;
+	--ore-container-gap: 0;
+}
+
+.modal-confirmation > ore-checkbox {
+	color: var(--ore-color-foreground);
+}
+
+.modal-actions {
+	--ore-container-padding: 0.875rem 1.375rem;
+	--ore-container-gap: 0.25rem;
+}
+
+.modal-actions > ore-button {
+	width: 100%;
+}
+```
+
+## Open and close
+Elements with `.ore-modal-trigger` open the dialog. Elements with `.ore-modal-close` close it. You can also call `show()` and `close(reason)`.
+
+```js
+const modal = document.querySelector("ore-modal");
+modal.show();
+modal.close("close");
+```
+
+## Events
+`open-change` reports the boolean open state. `modal-close` reports whether the dialog closed through `"backdrop"`, `"close"`, or `"escape"`.
+
+```js
+modal.addEventListener("modal-close", (event) => {
+	console.log(event.detail.reason);
+});
+```
+
+In React, use `onOpenChange` and `onModalClose`.
+
+## API
+|Property|Attribute|Type|Default|
+|---|---|---|---|
+|`defaultOpen`|`default-open`|`boolean`|`false`|
+|`open`|`open`|`boolean`|`false`|
+
+|Method|Description|
+|---|---|
+|`show()`|Open the modal|
+|`close(reason?)`|Close the modal with an optional reason|
+
+## Public classes
+|Class|Purpose|
+|---|---|
+|`.ore-modal-trigger`|Control that opens the dialog|
+|`.ore-modal-dialog`|Native dialog element|
+|`.ore-modal-content`|Dialog frame|
+|`.ore-modal-header`|Title bar|
+|`.ore-modal-title`|Accessible dialog title|
+|`.ore-modal-description`|Accessible supporting text|
+|`.ore-modal-close`|Control that closes the dialog|
+|`.ore-modal-header-button`|Header action|
+
+## Accessibility
+Modal uses the native `<dialog>` element for focus containment and Escape handling. It connects the title and description to the dialog, and then restores focus to the control that opened it.

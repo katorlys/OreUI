@@ -1,0 +1,72 @@
+---
+title: Tag
+description: Display a compact label.
+---
+
+import { TagStory } from "@/components/stories/tag.story";
+
+<TagStory />
+
+## Usage
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/tag";
+```
+
+```html
+<ore-tag variant="primary">New</ore-tag>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreTag } from "@katorlys/oreui-react/tag";
+
+export function Status() {
+	return <OreTag variant="primary">New</OreTag>;
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-tag variant="primary">New</ore-tag>
+
+<script>
+	import "@katorlys/oreui/tag";
+</script>
+```
+	</Tab>
+</Tabs>
+
+## Variants
+```html
+<ore-tag>Neutral</ore-tag>
+<ore-tag variant="secondary">Secondary</ore-tag>
+<ore-tag variant="primary">Primary</ore-tag>
+<ore-tag variant="informative">Info</ore-tag>
+<ore-tag variant="notice">Notice</ore-tag>
+<ore-tag variant="warning">Warning</ore-tag>
+<ore-tag variant="realms-informative">Realms</ore-tag>
+```
+
+Add `outlined` when the label needs a visible border.
+
+```html
+<ore-tag outlined>Outlined</ore-tag>
+```
+
+## API
+|Property|Attribute|Type|Default|
+|---|---|---|---|
+|`outlined`|`outlined`|`boolean`|`false`|
+|`variant`|`variant`|`"neutral" \| "secondary" \| "primary" \| "informative" \| "notice" \| "warning" \| "realms-informative"`|`"neutral"`|
+
+## CSS variables
+|Variable|Purpose|
+|---|---|
+|`--ore-tag-background`|Label background|
+|`--ore-tag-foreground`|Label text color|
+|`--ore-tag-border`|Outline color|
+
+## Accessibility
+Tag is non-interactive.

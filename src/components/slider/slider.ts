@@ -129,8 +129,14 @@ export class OreSlider extends ReactiveElement {
         "Slider",
     );
     const progress = range > 0 ? (value - this.min) / range : 0;
+    const segmentSize =
+      range > 0 && this.step > 0 ? Math.min(this.step / range, 1) : 1;
 
     this.style.setProperty("--ore-slider-progress", String(progress));
+    this.style.setProperty(
+      "--ore-slider-segment-size",
+      `${segmentSize * 100}%`,
+    );
     this.#internals.setFormValue(String(value));
 
     if (value !== this.value) {

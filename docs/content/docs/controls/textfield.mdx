@@ -1,0 +1,109 @@
+---
+title: Textfield
+description: Enter and edit text.
+---
+
+import { TextfieldStory } from "@/components/stories/textfield.story";
+
+<TextfieldStory />
+
+## Usage
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/textfield";
+```
+
+```html
+<ore-textfield
+	name="world"
+	label="World name"
+	description="Shown to other players"
+	placeholder="New World"
+></ore-textfield>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreTextfield } from "@katorlys/oreui-react/textfield";
+import { useState } from "react";
+
+export function WorldNameField() {
+	const [value, setValue] = useState("");
+
+	return (
+		<OreTextfield
+			name="world"
+			label="World name"
+			description="Shown to other players"
+			placeholder="New World"
+			value={value}
+			onInput={(event) => {
+				const field = event.target as HTMLElement & { value: string };
+				setValue(field.value);
+			}}
+		/>
+	);
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-textfield
+	name="world"
+	label="World name"
+	description="Shown to other players"
+	placeholder="New World"
+></ore-textfield>
+
+<script>
+	import "@katorlys/oreui/textfield";
+</script>
+```
+	</Tab>
+</Tabs>
+
+## Validation
+Use native input constraints or set `error` for a custom validation message.
+
+```html
+<ore-textfield label="Seed" type="number" required></ore-textfield>
+<ore-textfield label="World name" error="This name is already in use"></ore-textfield>
+```
+
+## Events
+Textfield dispatches `input` whenever the value changes. Its public `value` property stays synchronized with the internal input.
+
+## API
+|Property|Attribute|Type|Default|
+|---|---|---|---|
+|`autocomplete`|`autocomplete`|`string`|`""`|
+|`description`|`description`|`string`|`""`|
+|`disabled`|`disabled`|`boolean`|`false`|
+|`error`|`error`|`string`|`""`|
+|`inputMode`|`inputmode`|`string`|`""`|
+|`label`|`label`|`string`|`""`|
+|`list`|`list`|`string`|`""`|
+|`max` / `min`|`max` / `min`|`string`|`""`|
+|`maxLength` / `minLength`|`maxlength` / `minlength`|`number`|`-1`|
+|`name`|`name`|`string`|`""`|
+|`pattern`|`pattern`|`string`|`""`|
+|`placeholder`|`placeholder`|`string`|`""`|
+|`readonly`|`readonly`|`boolean`|`false`|
+|`required`|`required`|`boolean`|`false`|
+|`step`|`step`|`string`|`""`|
+|`type`|`type`|`string`|`"text"`|
+|`value`|`value`|`string`|`""`|
+
+## Public classes
+|Class|Purpose|
+|---|---|
+|`.ore-textfield-label`|Visible label|
+|`.ore-textfield-control`|Input frame|
+|`.ore-textfield-input`|Native input|
+|`.ore-textfield-icon`|Leading icon|
+|`.ore-textfield-description`|Supporting text|
+|`.ore-textfield-error`|Validation message|
+
+## Accessibility
+Textfield connects its label, description, and validation message to the native input. Use a visible `label`, and use `aria-label` only when visible label is not appropriate.

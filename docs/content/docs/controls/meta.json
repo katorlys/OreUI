@@ -1,0 +1,13 @@
+{
+  "title": "Controls",
+  "pages": [
+    "checkbox",
+    "dropdown",
+    "radio",
+    "radio-group",
+    "slider",
+    "switch",
+    "textfield",
+    "toggles"
+  ]
+}

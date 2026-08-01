@@ -1,0 +1,84 @@
+---
+title: Slider
+description: Select a numeric value from a range.
+---
+
+import { SliderStory } from "@/components/stories/slider.story";
+
+<SliderStory />
+
+## Usage
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/slider";
+```
+
+```html
+<ore-slider name="distance" min="2" max="32" step="1" value="12" aria-label="Render distance"></ore-slider>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreSlider } from "@katorlys/oreui-react/slider";
+import { useState } from "react";
+
+export function RenderDistanceSlider() {
+	const [value, setValue] = useState(12);
+
+	return (
+		<OreSlider
+			aria-label="Render distance"
+			min={2}
+			max={32}
+			step={1}
+			value={value}
+			onInput={(event) => {
+				const slider = event.target as HTMLElement & { value: number };
+				setValue(slider.value);
+			}}
+		/>
+	);
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-slider name="distance" min="2" max="32" step="1" value="12" aria-label="Render distance"></ore-slider>
+
+<script>
+	import "@katorlys/oreui/slider";
+</script>
+```
+	</Tab>
+</Tabs>
+
+## Variants
+```html
+<ore-slider value="40" variant="default" aria-label="Volume"></ore-slider>
+<ore-slider value="40" variant="segmented" aria-label="Volume"></ore-slider>
+```
+
+## Orientation
+```html
+<ore-slider orientation="horizontal" value="40" aria-label="Horizontal value"></ore-slider>
+<ore-slider orientation="vertical" value="40" aria-label="Vertical value"></ore-slider>
+```
+
+## Events
+Slider dispatches `input` while its value changes and `change` when the interaction is committed.
+
+## API
+|Property|Attribute|Type|Default|
+|---|---|---|---|
+|`disabled`|`disabled`|`boolean`|`false`|
+|`max`|`max`|`number`|`100`|
+|`min`|`min`|`number`|`0`|
+|`name`|`name`|`string`|`""`|
+|`orientation`|`orientation`|`"horizontal" \| "vertical"`|`"horizontal"`|
+|`step`|`step`|`number`|`1`|
+|`value`|`value`|`number`|`0`|
+|`variant`|`variant`|`"default" \| "segmented"`|`"default"`|
+
+## Accessibility
+Add an accessible name with `aria-label`. Slider uses a native range input for pointer and keyboard interaction.

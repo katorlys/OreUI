@@ -1,0 +1,69 @@
+---
+title: Container
+description: Group content inside an OreUI surface.
+---
+
+import { ContainerStory } from "@/components/stories/container.story";
+
+Container groups related content on a dark or light surface.
+
+<ContainerStory />
+
+## Usage
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/container";
+```
+
+```html
+<ore-container variant="dark">
+	<h2>World settings</h2>
+	<p>Choose how players join your world.</p>
+</ore-container>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreContainer } from "@katorlys/oreui-react/container";
+
+export function WorldSettings() {
+	return (
+		<OreContainer variant="dark">
+			<h2>World settings</h2>
+			<p>Choose how players join your world.</p>
+		</OreContainer>
+	);
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-container variant="dark">
+	<h2>World settings</h2>
+	<p>Choose how players join your world.</p>
+</ore-container>
+
+<script>
+	import "@katorlys/oreui/container";
+</script>
+```
+	</Tab>
+</Tabs>
+
+## Variants
+```html
+<ore-container variant="dark">Dark surface</ore-container>
+<ore-container variant="light">Light surface</ore-container>
+```
+
+## API
+|Property|Attribute|Type|Default|
+|---|---|---|---|
+|`variant`|`variant`|`"dark" \|"light"`|`"dark"`|
+
+## CSS variables
+|Variable|Purpose|
+|---|---|
+|`--ore-container-padding`|Space between the surface edge and its content|
+|`--ore-container-gap`|Space between direct children|

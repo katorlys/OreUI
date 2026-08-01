@@ -1,0 +1,114 @@
+---
+title: Table
+description: Present structured data in rows and columns.
+---
+
+import { TableStory } from "@/components/stories/table.story";
+
+<TableStory />
+
+## Usage
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/table";
+```
+
+```html
+<ore-table variant="striped">
+	<table>
+		<caption>Available worlds</caption>
+		<thead>
+			<tr><th scope="col">World</th><th scope="col">Players</th></tr>
+		</thead>
+		<tbody>
+			<tr><th scope="row">Mountains</th><td>4 / 10</td></tr>
+			<tr><th scope="row">Village</th><td>8 / 20</td></tr>
+		</tbody>
+	</table>
+</ore-table>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreTable } from "@katorlys/oreui-react/table";
+
+export function WorldsTable() {
+	return (
+		<OreTable variant="striped">
+			<table>
+				<caption>Available worlds</caption>
+				<thead><tr><th scope="col">World</th><th scope="col">Players</th></tr></thead>
+				<tbody>
+					<tr><th scope="row">Mountains</th><td>4 / 10</td></tr>
+					<tr><th scope="row">Village</th><td>8 / 20</td></tr>
+				</tbody>
+			</table>
+		</OreTable>
+	);
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-table variant="striped">
+	<table>
+		<caption>Available worlds</caption>
+		<thead><tr><th scope="col">World</th><th scope="col">Players</th></tr></thead>
+		<tbody>
+			<tr><th scope="row">Mountains</th><td>4 / 10</td></tr>
+			<tr><th scope="row">Village</th><td>8 / 20</td></tr>
+		</tbody>
+	</table>
+</ore-table>
+
+<script>
+	import "@katorlys/oreui/table";
+</script>
+```
+	</Tab>
+</Tabs>
+
+## Sorting
+Put a button with `.ore-table-sort` inside a header with `aria-sort`. Its `value` identifies the column.
+
+```html
+<th scope="col" aria-sort="none">
+	<button class="ore-table-sort" type="button" value="players">
+		Players
+		<span class="ore-table-sort-indicator" aria-hidden="true"></span>
+	</button>
+</th>
+```
+
+The `sort` event provides the column and the next direction. Sort the data in your application.
+
+```js
+table.addEventListener("sort", (event) => {
+	console.log(event.detail.column, event.detail.direction);
+});
+```
+
+In React, use `onSort`.
+
+## API
+|Property|Attribute|Type|Default|
+|---|---|---|---|
+|`variant`|`variant`|`"plain" \| "striped"`|`"plain"`|
+
+|Event|Detail|
+|---|---|
+|`sort`|`{ column: string; direction: "none" \| "ascending" \| "descending" }`|
+
+## Public classes
+|Class|Purpose|
+|---|---|
+|`.ore-table-row-header-column`|Row-header column width|
+|`.ore-table-data-column`|Data column width|
+|`.ore-table-corner`|Empty top-left corner cell|
+|`.ore-table-sort`|Sortable header button|
+|`.ore-table-sort-indicator`|Ascending and descending indicator|
+
+## Accessibility
+Keep the native table structure, add a caption, and use `scope` on headers.  
+Sorting updates `aria-sort`. Announce reordered results when the change is not otherwise clear.

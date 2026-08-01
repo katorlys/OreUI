@@ -3,6 +3,19 @@
   "pages": [
     "index",
     "getting-started",
-    "guides"
+    "guides",
+    "---Foundation---",
+    "typography",
+    "colors",
+    "icons",
+    "css-variable-override",
+    "---Components---",
+    "overview",
+    "layout",
+    "buttons",
+    "controls",
+    "navigation",
+    "messages",
+    "loading-and-progress"
   ]
 }

@@ -1,0 +1,94 @@
+---
+title: Navbar
+description: Display application navigation.
+---
+
+import { NavbarStory } from "@/components/stories/navbar.story";
+
+Navbar arranges a leading area, centered title, and trailing actions across the top of a screen.
+
+<NavbarStory />
+
+## Usage
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/navbar";
+import "@katorlys/oreui/icon";
+```
+
+```html
+<ore-navbar aria-label="Screen navigation">
+	<div class="ore-navbar-start">
+		<button class="ore-navbar-button" type="button" aria-label="Back">
+			<ore-icon aria-hidden="true"><svg viewBox="0 0 8 8"><path fill="currentColor" fill-rule="evenodd" d="M5 2h1V1H5zm0 0v1H4V2zm1 6H5V7h-.966V6h1v1H6zM3 4h1V3H3zm0 1V4H2v1zm0 0h1v1H3z" transform="translate(0 -.5)" /></svg></ore-icon>
+		</button>
+	</div>
+	<span class="ore-navbar-title">Worlds</span>
+	<div class="ore-navbar-actions">
+		<button class="ore-navbar-action" type="button">
+			<span class="ore-navbar-action-label">Edit</span>
+		</button>
+	</div>
+</ore-navbar>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreNavbar } from "@katorlys/oreui-react/navbar";
+
+export function WorldsNavbar() {
+	return (
+		<OreNavbar aria-label="Screen navigation">
+			<div className="ore-navbar-start">
+				<button className="ore-navbar-button" type="button" aria-label="Back">
+					<ore-icon aria-hidden="true"><svg viewBox="0 0 8 8"><path fill="currentColor" fillRule="evenodd" d="M5 2h1V1H5zm0 0v1H4V2zm1 6H5V7h-.966V6h1v1H6zM3 4h1V3H3zm0 1V4H2v1zm0 0h1v1H3z" transform="translate(0 -.5)" /></svg></ore-icon>
+				</button>
+			</div>
+			<span className="ore-navbar-title">Worlds</span>
+			<div className="ore-navbar-actions">
+				<button className="ore-navbar-action" type="button">
+					<span className="ore-navbar-action-label">Edit</span>
+				</button>
+			</div>
+		</OreNavbar>
+	);
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-navbar aria-label="Screen navigation">
+	<div class="ore-navbar-start">
+		<button class="ore-navbar-button" type="button" aria-label="Back">
+			<ore-icon aria-hidden="true"><svg viewBox="0 0 8 8"><path fill="currentColor" fill-rule="evenodd" d="M5 2h1V1H5zm0 0v1H4V2zm1 6H5V7h-.966V6h1v1H6zM3 4h1V3H3zm0 1V4H2v1zm0 0h1v1H3z" transform="translate(0 -.5)" /></svg></ore-icon>
+		</button>
+	</div>
+	<span class="ore-navbar-title">Worlds</span>
+	<div class="ore-navbar-actions">
+		<button class="ore-navbar-action" type="button">
+			<span class="ore-navbar-action-label">Edit</span>
+		</button>
+	</div>
+</ore-navbar>
+
+<script>
+	import "@katorlys/oreui/navbar";
+	import "@katorlys/oreui/icon";
+</script>
+```
+	</Tab>
+</Tabs>
+
+## Public classes
+|Class|Purpose|
+|---|---|
+|`.ore-navbar-start`|Leading controls|
+|`.ore-navbar-title`|Centered screen title|
+|`.ore-navbar-actions`|Trailing action group|
+|`.ore-navbar-button`|Square icon action|
+|`.ore-navbar-action`|Text or icon-and-text action|
+|`.ore-navbar-action-label`|Action text alignment|
+
+## Accessibility
+Navbar uses `role="navigation"` unless another role is provided. Add an accessible label when the page contains more than one navigation, and label icon-only buttons in it.

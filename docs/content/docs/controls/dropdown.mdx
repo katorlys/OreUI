@@ -1,0 +1,106 @@
+---
+title: Dropdown
+description: Select an option from a menu.
+---
+
+import { DropdownStory } from "@/components/stories/dropdown.story";
+
+<DropdownStory />
+
+## Usage
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/button";
+import "@katorlys/oreui/dropdown";
+```
+
+```html
+<ore-dropdown variant="bordered" value="creative">
+	<ore-button class="ore-dropdown-trigger" type="button" variant="secondary">
+		<span class="ore-dropdown-trigger-label">Game mode</span>
+	</ore-button>
+	<div class="ore-dropdown-menu">
+		<button class="ore-dropdown-item" type="button" data-value="survival">Survival</button>
+		<button class="ore-dropdown-item" type="button" data-value="creative">Creative</button>
+		<button class="ore-dropdown-item" type="button" data-value="adventure">Adventure</button>
+		<button class="ore-dropdown-item" type="button" data-value="spectator" disabled>Spectator</button>
+	</div>
+</ore-dropdown>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreButton } from "@katorlys/oreui-react/button";
+import { OreDropdown } from "@katorlys/oreui-react/dropdown";
+import { useState } from "react";
+
+export function GameModeDropdown() {
+	const [value, setValue] = useState("creative");
+
+	return (
+		<OreDropdown value={value} variant="bordered" onChange={(event) => setValue(event.detail.value)}>
+			<OreButton className="ore-dropdown-trigger" type="button" variant="secondary">
+				<span className="ore-dropdown-trigger-label">Game mode</span>
+			</OreButton>
+			<div className="ore-dropdown-menu">
+				<button className="ore-dropdown-item" type="button" data-value="survival">Survival</button>
+				<button className="ore-dropdown-item" type="button" data-value="creative">Creative</button>
+				<button className="ore-dropdown-item" type="button" data-value="adventure">Adventure</button>
+			</div>
+		</OreDropdown>
+	);
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-dropdown variant="bordered" value="creative">
+	<ore-button class="ore-dropdown-trigger" type="button" variant="secondary">
+		<span class="ore-dropdown-trigger-label">Game mode</span>
+	</ore-button>
+	<div class="ore-dropdown-menu">
+		<button class="ore-dropdown-item" type="button" data-value="survival">Survival</button>
+		<button class="ore-dropdown-item" type="button" data-value="creative">Creative</button>
+		<button class="ore-dropdown-item" type="button" data-value="adventure">Adventure</button>
+	</div>
+</ore-dropdown>
+
+<script>
+	import "@katorlys/oreui/button";
+	import "@katorlys/oreui/dropdown";
+</script>
+```
+	</Tab>
+</Tabs>
+
+## Variants
+`borderless` shows item borders on interaction, while `bordered` keeps them visible.
+
+## Events
+|Event|Detail|
+|---|---|
+|`change`|`{ item: HTMLElement; value: string }`|
+|`open-change`|`boolean`|
+
+In React, use `onChange` and `onOpenChange`.
+
+## API
+|Property|Attribute|Type|Default|
+|---|---|---|---|
+|`defaultOpen`|`default-open`|`boolean`|`false`|
+|`open`|`open`|`boolean`|`false`|
+|`value`|`value`|`string`|`""`|
+|`variant`|`variant`|`"bordered" \| "borderless"`|`"borderless"`|
+
+## Public classes
+|Class|Purpose|
+|---|---|
+|`.ore-dropdown-trigger`|Button that opens the menu|
+|`.ore-dropdown-trigger-label`|Text updated from the selected item|
+|`.ore-dropdown-menu`|Popover menu|
+|`.ore-dropdown-item`|Selectable menu item|
+
+## Accessibility
+Dropdown manages menu roles, selection state, focus, and `Arrow`, `Home`, `End`, `Enter`, `Space`, `Escape`, and `Tab` keys.  
+Use native `disabled` on unavailable items.

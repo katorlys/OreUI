@@ -1,0 +1,96 @@
+---
+title: Tooltip
+description: Show short contextual information.
+---
+
+import { TooltipStory } from "@/components/stories/tooltip.story";
+
+Tooltip adds a short description to a hovered control.
+
+<TooltipStory />
+
+## Usage
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/tooltip";
+import "@katorlys/oreui/button";
+```
+
+```html
+<ore-tooltip side="top">
+	<ore-button class="ore-tooltip-trigger" type="button">Copy</ore-button>
+	<div class="ore-tooltip-content">
+		Create a copy of this world
+		<span class="ore-tooltip-arrow" aria-hidden="true"></span>
+	</div>
+</ore-tooltip>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreButton } from "@katorlys/oreui-react/button";
+import { OreTooltip } from "@katorlys/oreui-react/tooltip";
+
+export function CopyWorld() {
+	return (
+		<OreTooltip side="top">
+			<OreButton className="ore-tooltip-trigger" type="button">Copy</OreButton>
+			<div className="ore-tooltip-content">
+				Create a copy of this world
+				<span className="ore-tooltip-arrow" aria-hidden="true" />
+			</div>
+		</OreTooltip>
+	);
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-tooltip side="top">
+	<ore-button class="ore-tooltip-trigger" type="button">Copy</ore-button>
+	<div class="ore-tooltip-content">
+		Create a copy of this world
+		<span class="ore-tooltip-arrow" aria-hidden="true"></span>
+	</div>
+</ore-tooltip>
+
+<script>
+	import "@katorlys/oreui/tooltip";
+	import "@katorlys/oreui/button";
+</script>
+```
+	</Tab>
+</Tabs>
+
+## Placement
+Use `side="top"`, `"right"`, `"bottom"`, or `"left"`. Position updates while the page scrolls or resizes.
+
+## Delay
+`delay` is the time in milliseconds before the tooltip opens. Default: `500`.
+
+```html
+<ore-tooltip delay="200">...</ore-tooltip>
+```
+
+## Events
+`open-change` fires after `open` changes. Its `detail` is the new boolean state.  
+In React, use `onOpenChange`.
+
+## API
+|Property|Attribute|Type|Default|
+|---|---|---|---|
+|`defaultOpen`|`default-open`|`boolean`|`false`|
+|`delay`|`delay`|`number`|`500`|
+|`open`|`open`|`boolean`|`false`|
+|`side`|`side`|`"top" \| "right" \| "bottom" \| "left"`|`"top"`|
+
+## Public classes
+|Class|Purpose|
+|---|---|
+|`.ore-tooltip-trigger`|Element described by the tooltip|
+|`.ore-tooltip-content`|Popover content|
+|`.ore-tooltip-arrow`|Directional arrow|
+
+## Accessibility
+Tooltip connects its trigger and content with `aria-describedby` and closes on pointer leave or `Esc`.

@@ -1,6 +1,7 @@
 :where(ore-slider) {
   --ore-slider-unit: var(--ore-size-unit);
   --ore-slider-progress: 0;
+  --ore-slider-segment-size: 10%;
   --ore-slider-value: calc(
     var(--ore-slider-unit) * 7.25 + (100% - var(--ore-slider-unit) * 14.5) *
       var(--ore-slider-progress)
@@ -48,10 +49,12 @@
 :where(ore-slider[variant="segmented"]) {
   --ore-slider-segments: repeating-linear-gradient(
     to right,
-    transparent 0 calc(10% - var(--ore-slider-unit) / 2),
-    var(--ore-slider-track-border) calc(10% - var(--ore-slider-unit) / 2)
-      calc(10% + var(--ore-slider-unit) / 2),
-    transparent calc(10% + var(--ore-slider-unit) / 2) 10%
+    var(--ore-slider-track-border) 0 calc(var(--ore-slider-unit) / 2),
+    transparent calc(var(--ore-slider-unit) / 2)
+      calc(var(--ore-slider-segment-size) - var(--ore-slider-unit) / 2),
+    var(--ore-slider-track-border)
+      calc(var(--ore-slider-segment-size) - var(--ore-slider-unit) / 2)
+      var(--ore-slider-segment-size)
   );
 }
 
@@ -68,10 +71,12 @@
 :where(ore-slider[orientation="vertical"][variant="segmented"]) {
   --ore-slider-segments: repeating-linear-gradient(
     to top,
-    transparent 0 calc(10% - var(--ore-slider-unit) / 2),
-    var(--ore-slider-track-border) calc(10% - var(--ore-slider-unit) / 2)
-      calc(10% + var(--ore-slider-unit) / 2),
-    transparent calc(10% + var(--ore-slider-unit) / 2) 10%
+    var(--ore-slider-track-border) 0 calc(var(--ore-slider-unit) / 2),
+    transparent calc(var(--ore-slider-unit) / 2)
+      calc(var(--ore-slider-segment-size) - var(--ore-slider-unit) / 2),
+    var(--ore-slider-track-border)
+      calc(var(--ore-slider-segment-size) - var(--ore-slider-unit) / 2)
+      var(--ore-slider-segment-size)
   );
 }
 
@@ -82,7 +87,8 @@
   left: 0;
   height: calc(var(--ore-slider-unit) * 5.5);
   background:
-    var(--ore-slider-segments),
+    var(--ore-slider-segments) center / calc(100% - var(--ore-slider-unit) * 14.5)
+      100% no-repeat,
     linear-gradient(
         to right,
         var(--ore-slider-range-background) 0 var(--ore-slider-value),
@@ -111,7 +117,8 @@
   width: calc(var(--ore-slider-unit) * 5.5);
   height: auto;
   background:
-    var(--ore-slider-segments),
+    var(--ore-slider-segments) center / 100%
+      calc(100% - var(--ore-slider-unit) * 14.5) no-repeat,
     linear-gradient(
         to top,
         var(--ore-slider-range-background) 0 var(--ore-slider-value),

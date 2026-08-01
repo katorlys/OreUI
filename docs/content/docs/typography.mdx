@@ -1,0 +1,77 @@
+---
+title: Typography
+description: Typography used by OreUI components.
+---
+
+OreUI includes two Minecraft typefaces with the default stylesheet. These fonts are the only resources that are directly from Mojang.
+
+## Display
+Use `--ore-font-display` for headings and hero text.
+
+<div style={{ fontFamily: "var(--ore-font-display)", fontSize: "2rem", lineHeight: 1.1 }}>
+	CREATE NEW WORLD
+</div>
+
+```css
+.screen-title {
+	font-family: var(--ore-font-display);
+}
+```
+
+## Body
+### Minecraft
+Minecraft Regular is the primary typeface for controls, labels, and most interface text. Use `--ore-font-body` to apply the default body font stack.
+
+<div style={{ fontFamily: "var(--ore-font-body)", fontSize: "1.5rem", lineHeight: 1.25 }}>
+	The quick brown fox jumps over the lazy dog.
+</div>
+
+```css
+.body-text {
+	font-family: var(--ore-font-body);
+	font-size: var(--ore-font-size-body);
+	line-height: var(--ore-line-height-body);
+}
+```
+
+### GNU Unifont
+GNU Unifont provides glyphs that Minecraft Regular does not support. The browser uses it only for unsupported characters, while supported characters remain in Minecraft Regular.
+
+GNU Unifont is not included with OreUI. Load it in your application using the family name `GNU Unifont`:
+```css
+@font-face {
+	font-family: "GNU Unifont";
+	src: url("/fonts/unifont.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+```
+
+### Noto Sans
+Noto Sans is intended for large bodies of text, such as descriptions and content pages. Its conventional letterforms reduce the reading effort that long passages set in a pixel font can cause.
+
+Noto Sans is also not included with OreUI. Load it separately and apply it explicitly to long-form content:
+```css
+@font-face {
+	font-family: "Noto Sans";
+	src: url("/fonts/noto-sans-regular.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+
+.long-form-content {
+	font-family: "Noto Sans", sans-serif;
+}
+```
+
+## Tokens
+|Token|Default|
+|---|---|
+|`--ore-font-body`|`"Minecraft", "Noto Sans", "GNU Unifont", sans-serif`|
+|`--ore-font-display`|`"Minecraft Ten", "Minecraft", "Noto Sans", sans-serif`|
+|`--ore-font-size-body`|`1rem`|
+|`--ore-line-height-body`|`1.25`|
+
+Both bundled fonts have one regular weight. Use size, color, and spacing to create hierarchy instead of synthetic bold styles.
