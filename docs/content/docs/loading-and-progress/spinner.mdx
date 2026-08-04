@@ -5,8 +5,6 @@ description: Show an indeterminate loading state.
 
 import { SpinnerStory } from "@/components/stories/spinner.story";
 
-Use a Spinner when progress cannot be measured.
-
 <SpinnerStory />
 
 ## Usage
@@ -42,7 +40,6 @@ export function LoadingWorlds() {
 
 ## Size and color
 Spinner uses the current font size and text color.
-
 ```html
 <span style="font-size: 2rem; color: #52A535;">
 	<ore-spinner aria-label="Loading worlds"></ore-spinner>
@@ -51,7 +48,6 @@ Spinner uses the current font size and text color.
 
 ## Decorative
 Hide the Spinner from assistive technology when nearby text already describes the loading state.
-
 ```html
 <ore-spinner aria-hidden="true"></ore-spinner>
 <span>Loading worlds</span>

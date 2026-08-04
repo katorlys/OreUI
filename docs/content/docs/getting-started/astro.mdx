@@ -1,6 +1,6 @@
 ---
 title: Astro
-description: OreUI for Astro applications.
+description: Use OreUI in Astro.
 ---
 
 ## Install
@@ -21,8 +21,7 @@ bun add @katorlys/oreui
 ```
 
 ## Use a component
-Import styles from a shared layout:
-
+Import styles in a shared layout:
 ```astro title="src/layouts/Layout.astro"
 ---
 import "@katorlys/oreui/styles.css";
@@ -32,7 +31,6 @@ import "@katorlys/oreui/styles.css";
 ```
 
 Register components in client script:
-
 ```astro title="src/pages/index.astro"
 <ore-button type="button">Create new world</ore-button>
 
@@ -42,7 +40,7 @@ Register components in client script:
 ```
 
 <Callout type="info">
-  Import from `@katorlys/oreui` to use all the components.
+  To use all the components, import `@katorlys/oreui`.
 </Callout>
 
 ## Examples

@@ -1,0 +1,36 @@
+---
+title: 表单与事件
+description: 将 OreUI 组件连接到表单和事件监听器
+---
+
+## FormData
+OreUI 表单可与原生 `forms` 和 `FormData` 配合使用。
+```html
+<form id="settings">
+  <ore-checkbox name="updates" value="enabled"> Receive updates </ore-checkbox>
+  <ore-button type="submit">Save</ore-button>
+  <ore-button type="reset" variant="secondary">Reset</ore-button>
+</form>
+```
+
+```ts
+const form = document.querySelector<HTMLFormElement>("#settings");
+
+form?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log(new FormData(form).get("updates"));
+});
+```
+
+## 事件
+```ts
+import type { OreDropdownChangeDetail } from "@katorlys/oreui/dropdown";
+
+const dropdown = document.querySelector("ore-dropdown");
+
+dropdown?.addEventListener("change", (event) => {
+  const detail = (event as CustomEvent<OreDropdownChangeDetail>).detail;
+  console.log(detail.value);
+});
+```
+组件触发的事件会沿 DOM 树向父元素传播。事件的详细数据类型可从对应组件的入口导入。

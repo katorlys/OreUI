@@ -37,7 +37,7 @@ Set tokens in a container to limit them to parts of the page.
 ```
 
 ## One component
-Use component-level variables to change a specific part without replacing the global theme.
+Use component-level variables to change a specific component without replacing the global theme.
 ```html
 <ore-button class="realms-action">Create Realm</ore-button>
 ```
@@ -55,7 +55,7 @@ Use component-level variables to change a specific part without replacing the gl
 Component-level variables are listed at the top of each component stylesheet in [source code](https://github.com/katorlys/OreUI/tree/main/src/components) and use the `--ore-<component>-*` prefix.
 
 ## Fallbacks
-Wrap overrides in your own variables when an application needs a public theme API.
+Wrap overrides in your own variables when you need a public theme API.
 ```css
 .game-menu {
 	--ore-button-background-default: var(--menu-action-background, var(--ore-color-primary-background));

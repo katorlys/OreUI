@@ -1,4 +1,5 @@
 import { getMDXComponents } from "@/components/mdx";
+import type { Locale } from "@/lib/i18n";
 import { source } from "@/lib/source";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import {
@@ -10,13 +11,16 @@ import {
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-interface PageProps {
+export interface DocsPageProps {
   params: Promise<{ slug?: string[] }>;
 }
 
-export default async function Page({ params }: PageProps) {
+export async function renderDocsPage(
+  locale: Locale,
+  { params }: DocsPageProps,
+) {
   const { slug } = await params;
-  const page = source.getPage(slug);
+  const page = source.getPage(slug, locale);
 
   if (!page) {
     notFound();
@@ -39,15 +43,12 @@ export default async function Page({ params }: PageProps) {
   );
 }
 
-export function generateStaticParams() {
-  return source.generateParams();
-}
-
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export async function getDocsMetadata(
+  locale: Locale,
+  { params }: DocsPageProps,
+): Promise<Metadata> {
   const { slug } = await params;
-  const page = source.getPage(slug);
+  const page = source.getPage(slug, locale);
 
   if (!page) {
     notFound();

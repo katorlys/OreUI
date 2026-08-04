@@ -1,0 +1,37 @@
+---
+title: Tab Button 选项卡按钮
+description: Tab Bar 的基础组件
+---
+
+Tab Button 只能用于 Tab Bar 组件中，由 Tab Bar 统一处理选中状态和键盘导航。
+
+## 用法
+见 [Tab Bar](../../navigation/tab-bar)。
+
+## 颜色
+```html
+<ore-tab-button palette="default" selected>Worlds</ore-tab-button>
+<ore-tab-button palette="toggle" selected>Enabled</ore-tab-button>
+```
+
+## 事件
+Tab Button 在变为选中状态后触发 `change` 事件。
+```js
+const tab = document.querySelector("ore-tab-button");
+tab?.addEventListener("change", () => console.log(tab.selected));
+```
+
+## API
+|Prop|属性|类型|默认值|
+|---|---|---|---|
+|`disabled`|`disabled`|`boolean`|`false`|
+|`palette`|`palette`|`"default" \|"toggle"`|`"default"`|
+|`selected`|`selected`|`boolean`|`false`|
+|`type`|`type`|`"button" \|"reset" \|"submit"`|`"button"`|
+
+|事件|详情|
+|---|---|
+|`change`|无|
+
+## 无障碍
+Tab Button 使用 `role="tab"` 并更新 `aria-selected`。`方向键`可在非 disabled 状态的标签之间移动；`Home` 和 `End` 键分别选择第一个和最后一个标签。

@@ -1,6 +1,6 @@
 ---
 title: React
-description: OreUI for React applications.
+description: Use OreUI in React applications.
 ---
 
 ## Install
@@ -22,7 +22,6 @@ bun add @katorlys/oreui @katorlys/oreui-react
 
 ## Add styles
 Import the stylesheet once in your app entry:
-
 ```ts
 import "@katorlys/oreui/styles.css";
 ```
@@ -37,7 +36,7 @@ export function App() {
 ```
 
 <Callout type="info">
-  Import from `@katorlys/oreui-react` to use all the components from the package root.
+  To use all the components from the package root, import `@katorlys/oreui-react`.
 </Callout>
 
 ## Examples
@@ -65,8 +64,8 @@ export function GameMode() {
 }
 ```
 
-The React wrappers forward `children`, `className`, properties, aria attributes, and refs.
+The React wrappers forward `children`, `className`, properties, aria attributes, as well as refs.
 
 <Callout type="warn">
-  OreUI React currently only supports client applications. We may extend support to server components and server-side rendering in the future.
+  Currently, OreUI React only supports client applications. We may extend support to server components and server-side rendering in the future.
 </Callout>

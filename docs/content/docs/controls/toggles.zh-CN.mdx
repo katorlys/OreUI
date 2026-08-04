@@ -1,0 +1,66 @@
+---
+title: Toggles 切换
+description: 在一组 Tab 中进行选择
+---
+
+import { TogglesStory } from "@/components/stories/toggles.story";
+
+<TogglesStory />
+
+## 用法
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/tab-button";
+import "@katorlys/oreui/toggles";
+```
+
+```html
+<ore-toggles aria-label="Daylight cycle">
+	<ore-tab-button selected>Day</ore-tab-button>
+	<ore-tab-button>Night</ore-tab-button>
+	<ore-tab-button>Always</ore-tab-button>
+</ore-toggles>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreTabButton } from "@katorlys/oreui-react/tab-button";
+import { OreToggles } from "@katorlys/oreui-react/toggles";
+import { useState } from "react";
+
+export function DaylightToggles() {
+	const [value, setValue] = useState("day");
+
+	return (
+		<OreToggles aria-label="Daylight cycle">
+			<OreTabButton selected={value === "day"} onChange={() => setValue("day")}>Day</OreTabButton>
+			<OreTabButton selected={value === "night"} onChange={() => setValue("night")}>Night</OreTabButton>
+			<OreTabButton selected={value === "always"} onChange={() => setValue("always")}>Always</OreTabButton>
+		</OreToggles>
+	);
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-toggles aria-label="Daylight cycle">
+	<ore-tab-button selected>Day</ore-tab-button>
+	<ore-tab-button>Night</ore-tab-button>
+	<ore-tab-button>Always</ore-tab-button>
+</ore-toggles>
+
+<script>
+	import "@katorlys/oreui/tab-button";
+	import "@katorlys/oreui/toggles";
+</script>
+```
+	</Tab>
+</Tabs>
+
+## 行为
+Toggles 设置 `role="tablist"`、排列其子元素，并将 `toggle` 颜色应用在直接或嵌套的 Tab Button 上。  
+更多信息请见 [Tab Button](../../buttons/tab-button/)。
+
+## 无障碍
+为 Tab 组提供无障碍名称。使用`方向键`在已启用的选项间移动；`Home` 和 `End` 分别选择第一个和最后一个选项。

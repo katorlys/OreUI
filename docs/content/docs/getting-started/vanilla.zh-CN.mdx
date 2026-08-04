@@ -1,0 +1,54 @@
+---
+title: Vanilla
+description: 在 原生 HTML 和 JavaScript中 使用 OreUI
+---
+
+## 安装
+```bash tab="pnpm"
+pnpm add @katorlys/oreui
+```
+
+```bash tab="yarn"
+yarn add @katorlys/oreui
+```
+
+```bash tab="npm"
+npm install @katorlys/oreui
+```
+
+```bash tab="bun"
+bun add @katorlys/oreui
+```
+
+## 使用组件
+```js title="script.js"
+import "@katorlys/oreui/styles.css";
+import "@katorlys/oreui/button";
+```
+
+```html title="index.html"
+<ore-button type="button">Create new world</ore-button>
+```
+
+<Callout type="info">
+  导入 `@katorlys/oreui` 即可使用所有组件。
+</Callout>
+
+## 示例
+表单：
+```html title="index.html"
+<form id="account">
+  <ore-checkbox name="terms" required>Accept terms</ore-checkbox>
+  <ore-button type="submit">Continue</ore-button>
+</form>
+```
+
+事件：
+```js title="script.js"
+const form = document.querySelector<HTMLFormElement>("#account");
+
+form?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log(new FormData(form).get("terms"));
+});
+```

@@ -1,0 +1,94 @@
+---
+title: Tooltip 工具提示
+description: 显示简短的提示信息
+---
+
+import { TooltipStory } from "@/components/stories/tooltip.story";
+
+<TooltipStory />
+
+## 用法
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/tooltip";
+import "@katorlys/oreui/button";
+```
+
+```html
+<ore-tooltip side="top">
+	<ore-button class="ore-tooltip-trigger" type="button">Copy</ore-button>
+	<div class="ore-tooltip-content">
+		Create a copy of this world
+		<span class="ore-tooltip-arrow" aria-hidden="true"></span>
+	</div>
+</ore-tooltip>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreButton } from "@katorlys/oreui-react/button";
+import { OreTooltip } from "@katorlys/oreui-react/tooltip";
+
+export function CopyWorld() {
+	return (
+		<OreTooltip side="top">
+			<OreButton className="ore-tooltip-trigger" type="button">Copy</OreButton>
+			<div className="ore-tooltip-content">
+				Create a copy of this world
+				<span className="ore-tooltip-arrow" aria-hidden="true" />
+			</div>
+		</OreTooltip>
+	);
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-tooltip side="top">
+	<ore-button class="ore-tooltip-trigger" type="button">Copy</ore-button>
+	<div class="ore-tooltip-content">
+		Create a copy of this world
+		<span class="ore-tooltip-arrow" aria-hidden="true"></span>
+	</div>
+</ore-tooltip>
+
+<script>
+	import "@katorlys/oreui/tooltip";
+	import "@katorlys/oreui/button";
+</script>
+```
+	</Tab>
+</Tabs>
+
+## 位置
+可选 `side="top"`、`"right"`、`"bottom"` 或 `"left"`。页面滚动和调整大小时，位置会一起更新。
+
+## 延迟
+`delay` 是 Tooltip 显示前的等待时间，单位为毫秒。默认值：`500`。
+
+```html
+<ore-tooltip delay="200">...</ore-tooltip>
+```
+
+## 事件
+`open` 变化后会触发 `open-change`，其 `detail` 是新的 boolean 状态。  
+对于 React，请使用 `onOpenChange`。
+
+## API
+|Prop|属性|类型|默认值|
+|---|---|---|---|
+|`defaultOpen`|`default-open`|`boolean`|`false`|
+|`delay`|`delay`|`number`|`500`|
+|`open`|`open`|`boolean`|`false`|
+|`side`|`side`|`"top" \| "right" \| "bottom" \| "left"`|`"top"`|
+
+## 公开类
+|类|用途|
+|---|---|
+|`.ore-tooltip-trigger`|由 Tooltip 描述的元素|
+|`.ore-tooltip-content`|弹出内容|
+|`.ore-tooltip-arrow`|方向箭头|
+
+## 无障碍
+Tooltip 使用 `aria-describedby` 关联触发器与内容，并在指针移出或按下 `Esc` 时关闭。

@@ -1,0 +1,73 @@
+---
+title: Tab Bar 选项卡栏
+description: 将选项卡按钮组合在一起
+---
+
+import { TabBarStory } from "@/components/stories/tab-bar.story";
+
+<TabBarStory />
+
+## 用法
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/tab-bar";
+import "@katorlys/oreui/tab-button";
+```
+
+```html
+<ore-tab-bar aria-label="Play menu">
+	<ore-tab-button selected>Worlds</ore-tab-button>
+	<ore-tab-button>Friends</ore-tab-button>
+	<ore-tab-button>Servers</ore-tab-button>
+</ore-tab-bar>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreTabBar } from "@katorlys/oreui-react/tab-bar";
+import { OreTabButton } from "@katorlys/oreui-react/tab-button";
+
+export function PlayMenu() {
+	return (
+		<OreTabBar aria-label="Play menu">
+			<OreTabButton selected>Worlds</OreTabButton>
+			<OreTabButton>Friends</OreTabButton>
+			<OreTabButton>Servers</OreTabButton>
+		</OreTabBar>
+	);
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-tab-bar aria-label="Play menu">
+	<ore-tab-button selected>Worlds</ore-tab-button>
+	<ore-tab-button>Friends</ore-tab-button>
+	<ore-tab-button>Servers</ore-tab-button>
+</ore-tab-bar>
+
+<script>
+	import "@katorlys/oreui/tab-bar";
+	import "@katorlys/oreui/tab-button";
+</script>
+```
+	</Tab>
+</Tabs>
+
+## 选择
+Tab Button 在最近的 Tab Bar 中管理选择状态，并在选中新的标签时触发 `change` 事件。
+```js
+const tabBar = document.querySelector("ore-tab-bar");
+tabBar?.addEventListener("change", (event) => {
+	const selected = event.target;
+	console.log(selected);
+});
+```
+
+## API
+见 [Tab Button](../../buttons/tab-button#api)。
+
+## 无障碍
+Tab Bar 使用 `role="tablist"`。设置无障碍标签，并使用 Tab Button 作为其直接交互子元素。  
+更多信息请见 [Tab Button](../../buttons/tab-button#无障碍)。

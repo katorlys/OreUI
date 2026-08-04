@@ -1,11 +1,9 @@
 ---
 title: Accordion
-description: Show and hide a section of content.
+description: Show and hide a section of text.
 ---
 
 import { AccordionStory } from "@/components/stories/accordion.story";
-
-Accordion reveals supporting content without leaving the current screen.
 
 <AccordionStory />
 
@@ -68,14 +66,12 @@ export function Realms() {
 
 ## Default state
 Use `default-open` for an accordion that starts expanded. Set the `open` property when the application controls its state.
-
 ```html
 <ore-accordion default-open>...</ore-accordion>
 ```
 
 ## Events
 `open-change` fires after `open` changes. Its `detail` is the new boolean state.
-
 ```js
 accordion.addEventListener("open-change", (event) => {
 	console.log(event.detail);

@@ -1,11 +1,9 @@
 ---
 title: Tab Bar
-description: Arrange tab buttons in a navigation bar.
+description: Arrange tab buttons together.
 ---
 
 import { TabBarStory } from "@/components/stories/tab-bar.story";
-
-Tab Bar groups Tab Buttons and provides their shared tab-list semantics.
 
 <TabBarStory />
 
@@ -59,7 +57,6 @@ export function PlayMenu() {
 
 ## Selection
 Tab Buttons manage selection within their nearest Tab Bar and dispatch `change` when a new tab is selected.
-
 ```js
 const tabBar = document.querySelector("ore-tab-bar");
 tabBar?.addEventListener("change", (event) => {

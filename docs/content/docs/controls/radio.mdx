@@ -1,40 +1,10 @@
 ---
 title: Radio
-description: Select one option in a radio group.
+description: The base component for Radio Group.
 ---
 
-import { RadioStory } from "@/components/stories/radio.story";
-
-<RadioStory />
-
 ## Usage
-<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
-	<Tab value="Vanilla">
-```js
-import "@katorlys/oreui/radio";
-```
-
-```html
-<ore-radio name="mode" value="creative">Creative</ore-radio>
-```
-	</Tab>
-	<Tab value="React">
-```tsx
-import { OreRadio } from "@katorlys/oreui-react/radio";
-
-<OreRadio name="mode" value="creative">Creative</OreRadio>
-```
-	</Tab>
-	<Tab value="Astro">
-```astro
-<ore-radio name="mode" value="creative">Creative</ore-radio>
-
-<script>
-	import "@katorlys/oreui/radio";
-</script>
-```
-	</Tab>
-</Tabs>
+See [Radio Group](../radio-group).
 
 ## States
 ```html
@@ -57,4 +27,4 @@ Selecting a new option dispatches native `input` and `change` events.
 |`value`|`value`|`string`|`"on"`|
 
 ## Accessibility
-Radio provides radio semantics. Use `Arrow keys` to move within a named group and `Space` to select the focused option.
+Radio provides radio semantics. Use `Arrow keys` to move within a group and `Space` to select the focused option.

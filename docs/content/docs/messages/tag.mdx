@@ -1,6 +1,6 @@
 ---
 title: Tag
-description: Display a compact label.
+description: Display a single-line label.
 ---
 
 import { TagStory } from "@/components/stories/tag.story";
@@ -49,8 +49,7 @@ export function Status() {
 <ore-tag variant="realms-informative">Realms</ore-tag>
 ```
 
-Add `outlined` when the label needs a visible border.
-
+Add `outlined` to add a visible border to the label.
 ```html
 <ore-tag outlined>Outlined</ore-tag>
 ```
@@ -67,6 +66,3 @@ Add `outlined` when the label needs a visible border.
 |`--ore-tag-background`|Label background|
 |`--ore-tag-foreground`|Label text color|
 |`--ore-tag-border`|Outline color|
-
-## Accessibility
-Tag is non-interactive.

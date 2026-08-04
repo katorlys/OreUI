@@ -1,0 +1,106 @@
+---
+title: Dropdown 下拉菜单
+description: 从菜单中选择一个选项
+---
+
+import { DropdownStory } from "@/components/stories/dropdown.story";
+
+<DropdownStory />
+
+## 用法
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/button";
+import "@katorlys/oreui/dropdown";
+```
+
+```html
+<ore-dropdown variant="bordered" value="creative">
+	<ore-button class="ore-dropdown-trigger" type="button" variant="secondary">
+		<span class="ore-dropdown-trigger-label">Game mode</span>
+	</ore-button>
+	<div class="ore-dropdown-menu">
+		<button class="ore-dropdown-item" type="button" data-value="survival">Survival</button>
+		<button class="ore-dropdown-item" type="button" data-value="creative">Creative</button>
+		<button class="ore-dropdown-item" type="button" data-value="adventure">Adventure</button>
+		<button class="ore-dropdown-item" type="button" data-value="spectator" disabled>Spectator</button>
+	</div>
+</ore-dropdown>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreButton } from "@katorlys/oreui-react/button";
+import { OreDropdown } from "@katorlys/oreui-react/dropdown";
+import { useState } from "react";
+
+export function GameModeDropdown() {
+	const [value, setValue] = useState("creative");
+
+	return (
+		<OreDropdown value={value} variant="bordered" onChange={(event) => setValue(event.detail.value)}>
+			<OreButton className="ore-dropdown-trigger" type="button" variant="secondary">
+				<span className="ore-dropdown-trigger-label">Game mode</span>
+			</OreButton>
+			<div className="ore-dropdown-menu">
+				<button className="ore-dropdown-item" type="button" data-value="survival">Survival</button>
+				<button className="ore-dropdown-item" type="button" data-value="creative">Creative</button>
+				<button className="ore-dropdown-item" type="button" data-value="adventure">Adventure</button>
+			</div>
+		</OreDropdown>
+	);
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-dropdown variant="bordered" value="creative">
+	<ore-button class="ore-dropdown-trigger" type="button" variant="secondary">
+		<span class="ore-dropdown-trigger-label">Game mode</span>
+	</ore-button>
+	<div class="ore-dropdown-menu">
+		<button class="ore-dropdown-item" type="button" data-value="survival">Survival</button>
+		<button class="ore-dropdown-item" type="button" data-value="creative">Creative</button>
+		<button class="ore-dropdown-item" type="button" data-value="adventure">Adventure</button>
+	</div>
+</ore-dropdown>
+
+<script>
+	import "@katorlys/oreui/button";
+	import "@katorlys/oreui/dropdown";
+</script>
+```
+	</Tab>
+</Tabs>
+
+## 变体
+`borderless` 只在交互时才显示选项边框，而 `bordered` 会始终显示边框。
+
+## 事件
+|事件|详情|
+|---|---|
+|`change`|`{ item: HTMLElement; value: string }`|
+|`open-change`|`boolean`|
+
+对于 React，请使用 `onChange` 和 `onOpenChange`。
+
+## API
+|Prop|属性|类型|默认值|
+|---|---|---|---|
+|`defaultOpen`|`default-open`|`boolean`|`false`|
+|`open`|`open`|`boolean`|`false`|
+|`value`|`value`|`string`|`""`|
+|`variant`|`variant`|`"bordered" \| "borderless"`|`"borderless"`|
+
+## 公开类
+|类|用途|
+|---|---|
+|`.ore-dropdown-trigger`|打开菜单的按钮|
+|`.ore-dropdown-trigger-label`|根据所选菜单项更新的文本|
+|`.ore-dropdown-menu`|弹出菜单|
+|`.ore-dropdown-item`|可选择的菜单项|
+
+## 无障碍
+Dropdown 管理菜单角色、选中状态和焦点，支持`方向键`、`Home`、`End`、`Enter`、空格键、`Esc` 和 `Tab` 键。  
+对于不可用的菜单项，请使用原生 `disabled` 属性。

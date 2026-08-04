@@ -1,0 +1,11 @@
+{
+  "title": "指南",
+  "description": "了解 OreUI 的样式、事件和无障碍设计",
+  "icon": "BookOpen",
+  "pages": [
+    "composition",
+    "styling",
+    "forms-and-events",
+    "state-and-accessibility"
+  ]
+}

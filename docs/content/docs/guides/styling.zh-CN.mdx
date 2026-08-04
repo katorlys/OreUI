@@ -1,0 +1,47 @@
+---
+title: 样式
+description: 使用 CSS 变量、TailwindCSS 等自定义 OreUI
+---
+
+先在应用程序中导入一次默认样式：
+```css
+@import "@katorlys/oreui/styles.css";
+```
+
+## Class
+在组件上使用 class 即可覆盖默认样式。
+```html
+<ore-button class="danger-action" type="button">Delete</ore-button>
+```
+
+```css
+.danger-action {
+  background: #CA3636;
+  color: white;
+  min-height: 3rem;
+}
+
+.danger-action:hover {
+  background: #D54242;
+}
+```
+
+## CSS 变量
+在 CSS 中修改变量以更改默认样式。
+```html
+<ore-switch class="large-thumb">Music</ore-switch>
+```
+
+```css
+.large-thumb {
+  --ore-switch-thumb-size: 1.25rem;
+}
+```
+
+## TailwindCSS
+可直接将 TailwindCSS 应用到元素上。
+```html
+<ore-button class="min-h-12 bg-red-600 text-white hover:bg-red-500">
+  Delete
+</ore-button>
+```

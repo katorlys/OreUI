@@ -1,0 +1,112 @@
+---
+title: Table 表格
+description: 用行和列呈现数据
+---
+
+import { TableStory } from "@/components/stories/table.story";
+
+<TableStory />
+
+## 用法
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/table";
+```
+
+```html
+<ore-table variant="striped">
+	<table>
+		<caption>Available worlds</caption>
+		<thead>
+			<tr><th scope="col">World</th><th scope="col">Players</th></tr>
+		</thead>
+		<tbody>
+			<tr><th scope="row">Mountains</th><td>4 / 10</td></tr>
+			<tr><th scope="row">Village</th><td>8 / 20</td></tr>
+		</tbody>
+	</table>
+</ore-table>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreTable } from "@katorlys/oreui-react/table";
+
+export function WorldsTable() {
+	return (
+		<OreTable variant="striped">
+			<table>
+				<caption>Available worlds</caption>
+				<thead><tr><th scope="col">World</th><th scope="col">Players</th></tr></thead>
+				<tbody>
+					<tr><th scope="row">Mountains</th><td>4 / 10</td></tr>
+					<tr><th scope="row">Village</th><td>8 / 20</td></tr>
+				</tbody>
+			</table>
+		</OreTable>
+	);
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-table variant="striped">
+	<table>
+		<caption>Available worlds</caption>
+		<thead><tr><th scope="col">World</th><th scope="col">Players</th></tr></thead>
+		<tbody>
+			<tr><th scope="row">Mountains</th><td>4 / 10</td></tr>
+			<tr><th scope="row">Village</th><td>8 / 20</td></tr>
+		</tbody>
+	</table>
+</ore-table>
+
+<script>
+	import "@katorlys/oreui/table";
+</script>
+```
+	</Tab>
+</Tabs>
+
+## 排序
+在带有 `aria-sort` 的表头中放置一个带有 `.ore-table-sort` 的按钮。其 `value` 值用于标识列。
+```html
+<th scope="col" aria-sort="none">
+	<button class="ore-table-sort" type="button" value="players">
+		Players
+		<span class="ore-table-sort-indicator" aria-hidden="true"></span>
+	</button>
+</th>
+```
+
+`sort` 事件提供列和下一个排序方向。数据排序功能应由应用程序提供。
+```js
+table.addEventListener("sort", (event) => {
+	console.log(event.detail.column, event.detail.direction);
+});
+```
+
+对于 React，请使用 `onSort`。
+
+## API
+|Prop|属性|类型|默认值|
+|---|---|---|---|
+|`variant`|`variant`|`"plain" \| "striped"`|`"plain"`|
+
+|事件|详细信息|
+|---|---|
+|`sort`|`{ column: string; direction: "none" \| "ascending" \| "descending" }`|
+
+## 公开类
+|类|用途|
+|---|---|
+|`.ore-table-row-header-column`|行标题列宽度|
+|`.ore-table-data-column`|数据列宽度|
+|`.ore-table-corner`|左上角的空单元格|
+|`.ore-table-sort`|可排序的表头按钮|
+|`.ore-table-sort-indicator`|升序和降序指示器|
+
+## 无障碍
+保留原生表格结构、添加表格标题，并在表头上使用 `scope`。  
+排序会更新 `aria-sort`。当排序后顺序没有变化时，请提示用户重新排序后的结果。

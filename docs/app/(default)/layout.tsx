@@ -1,18 +1,11 @@
-import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import { Provider } from "@/components/provider";
+import { metadata } from "@/lib/metadata";
 
-import "./global.css";
+import "../global.css";
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://lab.katorly.com/OreUI/"),
-  title: {
-    default: "OreUI",
-    template: "%s | OreUI",
-  },
-  description: "An unofficial Ore UI cross-framework component library.",
-};
+export { metadata };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

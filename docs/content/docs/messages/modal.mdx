@@ -5,8 +5,6 @@ description: Present content in a modal dialog.
 
 import { ModalStory } from "@/components/stories/modal.story";
 
-Modal keeps a focused task above the current screen.
-
 <ModalStory />
 
 ## Usage
@@ -170,7 +168,6 @@ export function FormModal() {
 
 ## Open and close
 Elements with `.ore-modal-trigger` open the dialog. Elements with `.ore-modal-close` close it. You can also call `show()` and `close(reason)`.
-
 ```js
 const modal = document.querySelector("ore-modal");
 modal.show();
@@ -179,7 +176,6 @@ modal.close("close");
 
 ## Events
 `open-change` reports the boolean open state. `modal-close` reports whether the dialog closed through `"backdrop"`, `"close"`, or `"escape"`.
-
 ```js
 modal.addEventListener("modal-close", (event) => {
 	console.log(event.detail.reason);

@@ -1,11 +1,9 @@
 ---
 title: Progress Bar
-description: Show the progress of a task.
+description: Show current progress.
 ---
 
 import { ProgressBarStory } from "@/components/stories/progress-bar.story";
-
-Use a Progress Bar when the current value and total are known.
 
 <ProgressBarStory />
 
@@ -42,14 +40,12 @@ export function DownloadProgress() {
 
 ## Labels
 The labeled variant shows a percentage by default. Set `label` to display custom text.
-
 ```html
 <ore-progress-bar value="65" variant="labeled" label="Loading resources"></ore-progress-bar>
 <ore-progress-bar value="65" variant="labeled" label-position="top" label-align="start"></ore-progress-bar>
 ```
 
 Custom label markup can use the public label class:
-
 ```html
 <ore-progress-bar value="65" variant="labeled">
 	<span class="ore-progress-bar-label">65 of 100 chunks</span>

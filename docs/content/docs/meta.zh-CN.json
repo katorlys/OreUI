@@ -1,0 +1,21 @@
+{
+  "title": "文档",
+  "pages": [
+    "index",
+    "getting-started",
+    "guides",
+    "---基础---",
+    "typography",
+    "colors",
+    "icons",
+    "css-variable-override",
+    "---组件---",
+    "overview",
+    "layout",
+    "buttons",
+    "controls",
+    "navigation",
+    "messages",
+    "loading-and-progress"
+  ]
+}

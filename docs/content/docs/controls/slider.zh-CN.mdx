@@ -1,0 +1,84 @@
+---
+title: Slider 滑块
+description: 在范围内用滑块选取数值
+---
+
+import { SliderStory } from "@/components/stories/slider.story";
+
+<SliderStory />
+
+## 用法
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/slider";
+```
+
+```html
+<ore-slider name="distance" min="2" max="32" step="1" value="12" aria-label="Render distance"></ore-slider>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreSlider } from "@katorlys/oreui-react/slider";
+import { useState } from "react";
+
+export function RenderDistanceSlider() {
+	const [value, setValue] = useState(12);
+
+	return (
+		<OreSlider
+			aria-label="Render distance"
+			min={2}
+			max={32}
+			step={1}
+			value={value}
+			onInput={(event) => {
+				const slider = event.target as HTMLElement & { value: number };
+				setValue(slider.value);
+			}}
+		/>
+	);
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-slider name="distance" min="2" max="32" step="1" value="12" aria-label="Render distance"></ore-slider>
+
+<script>
+	import "@katorlys/oreui/slider";
+</script>
+```
+	</Tab>
+</Tabs>
+
+## 变体
+```html
+<ore-slider value="40" variant="default" aria-label="Volume"></ore-slider>
+<ore-slider value="40" variant="segmented" aria-label="Volume"></ore-slider>
+```
+
+## 方向
+```html
+<ore-slider orientation="horizontal" value="40" aria-label="Horizontal value"></ore-slider>
+<ore-slider orientation="vertical" value="40" aria-label="Vertical value"></ore-slider>
+```
+
+## 事件
+Slider 的值变化时会触发 `input` 事件，提交交互时会触发 `change` 事件。
+
+## API
+|Prop|属性|类型|默认值|
+|---|---|---|---|
+|`disabled`|`disabled`|`boolean`|`false`|
+|`max`|`max`|`number`|`100`|
+|`min`|`min`|`number`|`0`|
+|`name`|`name`|`string`|`""`|
+|`orientation`|`orientation`|`"horizontal" \| "vertical"`|`"horizontal"`|
+|`step`|`step`|`number`|`1`|
+|`value`|`value`|`number`|`0`|
+|`variant`|`variant`|`"default" \| "segmented"`|`"default"`|
+
+## 无障碍
+使用 `aria-label` 设置无障碍名称。Slider 使用原生范围输入来处理指针和键盘交互。

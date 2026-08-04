@@ -3,7 +3,7 @@ title: Composition
 description: Compose OreUI components with Light DOM markup.
 ---
 
-OreUI renders component content in Light DOM, so the markup remains visible and can be styled like regular HTML.
+OreUI renders components in Light DOM, so the markup can be styled like regular HTML.
 ```html
 <ore-card>
   <div class="ore-card-body">
@@ -14,7 +14,7 @@ OreUI renders component content in Light DOM, so the markup remains visible and 
 </ore-card>
 ```
 
-Complex components use public classes to identify each part:
+Complex components use public classes to identify their parts:
 ```html
 <ore-dropdown value="survival">
   <ore-button class="ore-dropdown-trigger" type="button">
@@ -27,4 +27,4 @@ Complex components use public classes to identify each part:
 </ore-dropdown>
 ```
 
-The HTML element used for a part can be changed as long as its class stays the same.
+HTML elements can be changed as long as their classes stay the same.

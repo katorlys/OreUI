@@ -1,0 +1,109 @@
+---
+title: Textfield 文本框
+description: 输入和编辑文本
+---
+
+import { TextfieldStory } from "@/components/stories/textfield.story";
+
+<TextfieldStory />
+
+## 用法
+<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/textfield";
+```
+
+```html
+<ore-textfield
+	name="world"
+	label="World name"
+	description="Shown to other players"
+	placeholder="New World"
+></ore-textfield>
+```
+	</Tab>
+	<Tab value="React">
+```tsx
+import { OreTextfield } from "@katorlys/oreui-react/textfield";
+import { useState } from "react";
+
+export function WorldNameField() {
+	const [value, setValue] = useState("");
+
+	return (
+		<OreTextfield
+			name="world"
+			label="World name"
+			description="Shown to other players"
+			placeholder="New World"
+			value={value}
+			onInput={(event) => {
+				const field = event.target as HTMLElement & { value: string };
+				setValue(field.value);
+			}}
+		/>
+	);
+}
+```
+	</Tab>
+	<Tab value="Astro">
+```astro
+<ore-textfield
+	name="world"
+	label="World name"
+	description="Shown to other players"
+	placeholder="New World"
+></ore-textfield>
+
+<script>
+	import "@katorlys/oreui/textfield";
+</script>
+```
+	</Tab>
+</Tabs>
+
+## 验证
+使用原生输入验证，或设置 `error` 来显示自定义验证信息。
+
+```html
+<ore-textfield label="Seed" type="number" required></ore-textfield>
+<ore-textfield label="World name" error="This name is already in use"></ore-textfield>
+```
+
+## 事件
+Textfield 的值每次变化时都会触发 `input` 事件。其公共 `value` 属性会与内部输入保持同步。
+
+## API
+|Prop|属性|类型|默认值|
+|---|---|---|---|
+|`autocomplete`|`autocomplete`|`string`|`""`|
+|`description`|`description`|`string`|`""`|
+|`disabled`|`disabled`|`boolean`|`false`|
+|`error`|`error`|`string`|`""`|
+|`inputMode`|`inputmode`|`string`|`""`|
+|`label`|`label`|`string`|`""`|
+|`list`|`list`|`string`|`""`|
+|`max` / `min`|`max` / `min`|`string`|`""`|
+|`maxLength` / `minLength`|`maxlength` / `minlength`|`number`|`-1`|
+|`name`|`name`|`string`|`""`|
+|`pattern`|`pattern`|`string`|`""`|
+|`placeholder`|`placeholder`|`string`|`""`|
+|`readonly`|`readonly`|`boolean`|`false`|
+|`required`|`required`|`boolean`|`false`|
+|`step`|`step`|`string`|`""`|
+|`type`|`type`|`string`|`"text"`|
+|`value`|`value`|`string`|`""`|
+
+## 公开类
+|类|用途|
+|---|---|
+|`.ore-textfield-label`|可见标签|
+|`.ore-textfield-control`|输入框架|
+|`.ore-textfield-input`|原生输入|
+|`.ore-textfield-icon`|前置图标|
+|`.ore-textfield-description`|辅助文本|
+|`.ore-textfield-error`|验证信息|
+
+## 无障碍
+Textfield 会将标签、描述和验证信息与原生输入关联。请优先使用可见的 `label`；仅当可见标签不合适时，才使用 `aria-label`。

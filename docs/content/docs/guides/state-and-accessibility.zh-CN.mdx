@@ -1,0 +1,32 @@
+---
+title: 状态和无障碍
+description: 组件状态和无障碍属性
+---
+
+## 默认状态
+```html
+<ore-accordion default-open>
+  <ore-button class="ore-accordion-trigger" type="button">Details</ore-button>
+  <div class="ore-accordion-content">World settings</div>
+</ore-accordion>
+```
+
+## 受控状态
+状态受应用控制时，设置元素属性，并监听变化：
+```ts
+const accordion = document.querySelector("ore-accordion");
+
+if (accordion) {
+  accordion.open = true;
+  accordion.addEventListener("open-change", (event) => {
+    console.log((event as CustomEvent<boolean>).detail);
+  });
+}
+```
+
+## 无障碍检查清单
+- [ ] 为只含图标的控件添加 `aria-label`。
+- [ ] 使用原生标题、表格、链接和表单标签。
+- [ ] 使焦点样式清晰可见。
+- [ ] 避免覆盖 OreUI 管理的键盘操作和 ARIA 状态。
+- [ ] 将错误信息和帮助文本放在组件文档说明的公开部分中。

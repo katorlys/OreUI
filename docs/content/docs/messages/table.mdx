@@ -71,7 +71,6 @@ export function WorldsTable() {
 
 ## Sorting
 Put a button with `.ore-table-sort` inside a header with `aria-sort`. Its `value` identifies the column.
-
 ```html
 <th scope="col" aria-sort="none">
 	<button class="ore-table-sort" type="button" value="players">
@@ -81,8 +80,7 @@ Put a button with `.ore-table-sort` inside a header with `aria-sort`. Its `value
 </th>
 ```
 
-The `sort` event provides the column and the next direction. Sort the data in your application.
-
+The `sort` event provides the column and the next direction. The data sorting functionality should be provided by your application.
 ```js
 table.addEventListener("sort", (event) => {
 	console.log(event.detail.column, event.detail.direction);
@@ -111,4 +109,4 @@ In React, use `onSort`.
 
 ## Accessibility
 Keep the native table structure, add a caption, and use `scope` on headers.  
-Sorting updates `aria-sort`. Announce reordered results when the change is not otherwise clear.
+Sorting updates `aria-sort`. Announce results when there are no changes.

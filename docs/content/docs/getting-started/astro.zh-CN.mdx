@@ -1,0 +1,69 @@
+---
+title: Astro
+description: 在 Astro 中使用 OreUI
+---
+
+## 安装
+```bash tab="pnpm"
+pnpm add @katorlys/oreui
+```
+
+```bash tab="yarn"
+yarn add @katorlys/oreui
+```
+
+```bash tab="npm"
+npm install @katorlys/oreui
+```
+
+```bash tab="bun"
+bun add @katorlys/oreui
+```
+
+## 使用组件
+在共享 Layout 中导入样式：
+```astro title="src/layouts/Layout.astro"
+---
+import "@katorlys/oreui/styles.css";
+---
+
+<slot />
+```
+
+在客户端脚本中注册组件：
+```astro title="src/pages/index.astro"
+<ore-button type="button">Create new world</ore-button>
+
+<script>
+  import "@katorlys/oreui/button";
+</script>
+```
+
+<Callout type="info">
+  导入 `@katorlys/oreui` 即可使用所有组件。
+</Callout>
+
+## 示例
+表单与事件：
+```astro title="src/pages/account.astro"
+<form id="account">
+  <ore-checkbox name="terms" required>Accept terms</ore-checkbox>
+  <ore-button type="submit">Continue</ore-button>
+</form>
+
+<script>
+  import "@katorlys/oreui/button";
+  import "@katorlys/oreui/checkbox";
+
+  const form = document.querySelector<HTMLFormElement>("#account");
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    console.log(new FormData(form).get("terms"));
+  });
+</script>
+```
+
+<Callout type="warn">
+  请勿使用 `is:inline` 打包软件包导入。
+</Callout>
