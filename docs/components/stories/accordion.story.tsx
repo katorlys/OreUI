@@ -3,6 +3,7 @@
 import { defineStoryFactory } from "@fumadocs/story/next/client";
 import { OreAccordion } from "@katorlys/oreui-react/accordion";
 import { OreIconButton } from "@katorlys/oreui-react/icon-button";
+import { useEffect, useState } from "react";
 
 interface AccordionPreviewProps {
   content: string;
@@ -15,6 +16,16 @@ function AccordionPreview({
   defaultOpen,
   title,
 }: AccordionPreviewProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <OreAccordion defaultOpen={defaultOpen} value="realms">
       <OreIconButton

@@ -1,12 +1,20 @@
 import defaultMdxComponents from "fumadocs-ui/mdx";
-import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { Tab } from "fumadocs-ui/components/tabs";
+import { BookOpen, Rocket, Component } from "lucide-react";
 import type { MDXComponents } from "mdx/types";
+
+import { FrameworkTabs } from "@/components/framework-tabs";
+import { MdxCard } from "@/components/mdx-card";
 
 export function getMDXComponents(components?: MDXComponents) {
   return {
     ...defaultMdxComponents,
+    BookOpen,
+    Card: MdxCard,
+    Component,
+    Rocket,
     Tab,
-    Tabs,
+    Tabs: FrameworkTabs,
     ...components,
   } satisfies MDXComponents;
 }

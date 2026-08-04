@@ -2,6 +2,7 @@
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
 import { OreSpinner } from "@katorlys/oreui-react/spinner";
+import { useEffect, useState } from "react";
 
 interface SpinnerPreviewProps {
   decorative: boolean;
@@ -10,6 +11,16 @@ interface SpinnerPreviewProps {
 }
 
 function SpinnerPreview({ decorative, label, size }: SpinnerPreviewProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <span style={{ fontSize: `${size}px` }}>
       <OreSpinner

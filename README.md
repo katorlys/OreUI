@@ -10,7 +10,7 @@
 </h1>
 
 <p>
-  An unofficial Ore UI cross-framework component library.
+  Unofficial Ore UI cross-framework component library.
 </p>
 
 [![Pull Requests][github-pr-badge]][github-pr-link]

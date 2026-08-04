@@ -9,6 +9,9 @@
     "typecheck": "fumadocs-mdx && next typegen && tsc --noEmit"
   },
   "dependencies": {
+    "@fontsource-variable/geist-mono": "^5.3.0",
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource/poppins": "^5.3.0",
     "@fumadocs/story": "^1.2.0",
     "@katorlys/oreui": "workspace:*",
     "@katorlys/oreui-react": "workspace:*",
