@@ -12,7 +12,6 @@ import { RadioGroupStory } from "@/components/stories/radio-group.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/radio";
 import "@katorlys/oreui/radio-group";
 ```
 
@@ -28,8 +27,7 @@ import "@katorlys/oreui/radio-group";
     <Tab value="React">
 
 ```tsx
-import { OreRadio } from "@katorlys/oreui-react/radio";
-import { OreRadioGroup } from "@katorlys/oreui-react/radio-group";
+import { OreRadio, OreRadioGroup } from "@katorlys/oreui-react/radio-group";
 
 export function WorldType() {
   return (
@@ -59,7 +57,6 @@ export function WorldType() {
 </ore-radio-group>
 
 <script>
-	import "@katorlys/oreui/radio";
 	import "@katorlys/oreui/radio-group";
 </script>
 ```

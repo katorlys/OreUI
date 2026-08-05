@@ -1,8 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreTabBar } from "@katorlys/oreui-react/tab-bar";
-import { OreTabButton } from "@katorlys/oreui-react/tab-button";
+import { OreTabBar, OreTabButton } from "@katorlys/oreui-react/tab-bar";
 import { useState } from "react";
 
 interface TabBarPreviewProps {

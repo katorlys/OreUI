@@ -115,13 +115,13 @@ importers:
 
   packages/react:
     dependencies:
+      '@katorlys/oreui':
+        specifier: workspace:*
+        version: link:../..
       '@lit/react':
         specifier: ^1.0.8
         version: 1.0.8(@types/react@19.2.17)
     devDependencies:
-      '@katorlys/oreui':
-        specifier: workspace:*
-        version: link:../..
       '@types/react':
         specifier: ^19.2.9
         version: 19.2.17

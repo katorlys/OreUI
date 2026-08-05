@@ -1,9 +1,9 @@
 <a name="readme-top"></a>
 <div align="center">
 
-<!-- <a href="#">
-  <img src="https://github.com/katorlys/.github/blob/main/assets/mark/mark.png" height="100">
-</a><br> -->
+<a href="#">
+  <img src="https://github.com/katorlys/OreUI/blob/main/docs/public/og-image.png" width="100%">
+</a><br>
 
 <h1>
   OreUI

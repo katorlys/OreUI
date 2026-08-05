@@ -1,8 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreTabButton } from "@katorlys/oreui-react/tab-button";
-import { OreToggles } from "@katorlys/oreui-react/toggles";
+import { OreTabButton, OreToggles } from "@katorlys/oreui-react/toggles";
 import { useEffect, useState } from "react";
 
 interface TogglesPreviewProps {

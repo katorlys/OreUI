@@ -2,6 +2,8 @@ import { createComponent } from "@lit/react";
 import { OreRadioGroup as OreRadioGroupElement } from "@katorlys/oreui/radio-group";
 import React from "react";
 
+export { OreRadio, type OreRadioProps } from "./radio.js";
+
 export const OreRadioGroup = createComponent({
   react: React,
   tagName: "ore-radio-group",

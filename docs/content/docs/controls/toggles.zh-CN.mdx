@@ -12,7 +12,6 @@ import { TogglesStory } from "@/components/stories/toggles.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/tab-button";
 import "@katorlys/oreui/toggles";
 ```
 
@@ -28,8 +27,7 @@ import "@katorlys/oreui/toggles";
     <Tab value="React">
 
 ```tsx
-import { OreTabButton } from "@katorlys/oreui-react/tab-button";
-import { OreToggles } from "@katorlys/oreui-react/toggles";
+import { OreTabButton, OreToggles } from "@katorlys/oreui-react/toggles";
 import { useState } from "react";
 
 export function DaylightToggles() {
@@ -68,7 +66,6 @@ export function DaylightToggles() {
 </ore-toggles>
 
 <script>
-	import "@katorlys/oreui/tab-button";
 	import "@katorlys/oreui/toggles";
 </script>
 ```

@@ -18,7 +18,7 @@ function CardPreview({ description, showMedia, title }: CardPreviewProps) {
         <div className="ore-card-media">
           <img
             alt="Sunlight through a forest"
-            src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=80"
+            src="https://images.unsplash.com/photo-1697479670670-d2a299df749c?auto=format&fit=crop&w=900&q=80"
           />
           <div
             className="ore-card-overlay-bottom-start"

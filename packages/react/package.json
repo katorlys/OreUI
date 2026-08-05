@@ -24,9 +24,12 @@
     "url": "https://github.com/katorlys/OreUI/issues"
   },
   "license": "MPL-2.0",
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css"
+  ],
   "files": [
-    "dist"
+    "dist",
+    "styles.css"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -40,6 +43,7 @@
       "types": "./dist/components/*.d.ts",
       "import": "./dist/components/*.js"
     },
+    "./styles.css": "./styles.css",
     "./package.json": "./package.json"
   },
   "scripts": {
@@ -47,10 +51,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@katorlys/oreui": "workspace:*",
     "@lit/react": "^1.0.8"
   },
   "peerDependencies": {
-    "@katorlys/oreui": "0.0.0-alpha.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

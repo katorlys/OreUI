@@ -21,6 +21,28 @@ npm install @katorlys/oreui
 bun add @katorlys/oreui
 ```
 
+### Use from CDN
+
+You can use a CDN to avoid installing any dependencies.
+
+```html title="index.html"
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@katorlys/oreui@latest/dist/styles.css"
+/>
+
+<ore-button type="button">Create new world</ore-button>
+
+<script type="module">
+  import "https://cdn.jsdelivr.net/npm/@katorlys/oreui@latest/+esm";
+</script>
+```
+
+<Callout type="info">
+  In production you should pin an exact version, for example,
+  `@katorlys/oreui@0.1.0`.
+</Callout>
+
 ## Use a component
 
 ```js title="script.js"

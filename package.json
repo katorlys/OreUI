@@ -24,7 +24,8 @@
   },
   "license": "MPL-2.0",
   "sideEffects": [
-    "**/*.css"
+    "**/*.css",
+    "dist/components/**/*.js"
   ],
   "files": [
     "dist",

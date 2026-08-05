@@ -1,5 +1,7 @@
 import { ReactiveElement } from "lit";
 
+import "../tab-button/tab-button.js";
+
 export class OreToggles extends ReactiveElement {
   readonly #observer = new MutationObserver(() => this.#syncTabs());
 

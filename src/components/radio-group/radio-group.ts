@@ -1,5 +1,7 @@
 import { ReactiveElement } from "lit";
 
+import "../radio/radio.js";
+
 export class OreRadioGroup extends ReactiveElement {
   override connectedCallback(): void {
     super.connectedCallback();

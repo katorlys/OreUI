@@ -1,6 +1,6 @@
 ---
 title: Vanilla
-description: 在 原生 HTML 和 JavaScript中 使用 OreUI
+description: 在 原生 HTML 和 JavaScript 中 使用 OreUI
 ---
 
 ## 安装
@@ -20,6 +20,27 @@ npm install @katorlys/oreui
 ```bash tab="bun"
 bun add @katorlys/oreui
 ```
+
+### 使用 CDN
+
+可以选择使用 CDN，而无需安装依赖。
+
+```html title="index.html"
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@katorlys/oreui@latest/dist/styles.css"
+/>
+
+<ore-button type="button">Create new world</ore-button>
+
+<script type="module">
+  import "https://cdn.jsdelivr.net/npm/@katorlys/oreui@latest/+esm";
+</script>
+```
+
+<Callout type="info">
+  生产环境中应固定具体版本，例如 `@katorlys/oreui@0.1.0`。
+</Callout>
 
 ## 使用组件
 
