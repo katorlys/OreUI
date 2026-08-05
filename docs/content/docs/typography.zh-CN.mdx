@@ -6,70 +6,90 @@ description: OreUI 组件使用的字体
 OreUI 包含两款 Minecraft 字体。这些字体是 OreUI 里唯一直接来自 Mojang 的资源。
 
 ## 展示字体
+
 标题使用 `--ore-font-display`。
 
-<div style={{ fontFamily: "var(--ore-font-display)", fontSize: "2rem", lineHeight: 1.1 }}>
-	CREATE NEW WORLD
+<div
+  style={{
+    fontFamily: "var(--ore-font-display)",
+    fontSize: "2rem",
+    lineHeight: 1.1,
+  }}
+>
+  CREATE NEW WORLD
 </div>
 
 ```css
 .screen-title {
-	font-family: var(--ore-font-display);
+  font-family: var(--ore-font-display);
 }
 ```
 
 ## 正文字体
+
 ### Minecraft
+
 Minecraft Regular 用于控件、标签和大多数界面文本。使用 `--ore-font-body` 即可应用默认的正文字体。
 
-<div style={{ fontFamily: "var(--ore-font-body)", fontSize: "1.5rem", lineHeight: 1.25 }}>
-	The quick brown fox jumps over the lazy dog.
+<div
+  style={{
+    fontFamily: "var(--ore-font-body)",
+    fontSize: "1.5rem",
+    lineHeight: 1.25,
+  }}
+>
+  The quick brown fox jumps over the lazy dog.
 </div>
 
 ```css
 .body-text {
-	font-family: var(--ore-font-body);
-	font-size: var(--ore-font-size-body);
-	line-height: var(--ore-line-height-body);
+  font-family: var(--ore-font-body);
+  font-size: var(--ore-font-size-body);
+  line-height: var(--ore-line-height-body);
 }
 ```
 
 ### GNU Unifont
+
 GNU Unifont 作为 Minecraft Regular 不支持的字形的补充。应当仅对不受支持的字符使用该字体。  
 OreUI 不自带 GNU Unifont。请自行引入，并使用字体族名称 `GNU Unifont`：
+
 ```css
 @font-face {
-	font-family: "GNU Unifont";
-	src: url("/fonts/unifont.woff2") format("woff2");
-	font-style: normal;
-	font-weight: 400;
-	font-display: swap;
+  font-family: "GNU Unifont";
+  src: url("/fonts/unifont.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
 }
 ```
 
 ### Noto Sans
+
 Noto Sans 用于说明和内容等大段文本。与像素字体相比，它采用常规字形，能够减轻阅读长文时的负担。  
 OreUI 同样不自带 Noto Sans。请自行引入，并在长篇内容上应用它：
+
 ```css
 @font-face {
-	font-family: "Noto Sans";
-	src: url("/fonts/noto-sans-regular.woff2") format("woff2");
-	font-style: normal;
-	font-weight: 400;
-	font-display: swap;
+  font-family: "Noto Sans";
+  src: url("/fonts/noto-sans-regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
 }
 
 .long-form-content {
-	font-family: "Noto Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
 }
 ```
 
 ## 变量
-|变量|默认值|
-|---|---|
-|`--ore-font-body`|`"Minecraft", "Noto Sans", "GNU Unifont", sans-serif`|
-|`--ore-font-display`|`"Minecraft Ten", "Minecraft", "Noto Sans", sans-serif`|
-|`--ore-font-size-body`|`1rem`|
-|`--ore-line-height-body`|`1.25`|
+
+| 变量                     | 默认值                                                  |
+| ------------------------ | ------------------------------------------------------- |
+| `--ore-font-body`        | `"Minecraft", "Noto Sans", "GNU Unifont", sans-serif`   |
+| `--ore-font-display`     | `"Minecraft Ten", "Minecraft", "Noto Sans", sans-serif` |
+| `--ore-font-size-body`   | `1rem`                                                  |
+| `--ore-line-height-body` | `1.25`                                                  |
 
 两款内置字体都只有常规字重。使用字号、颜色和间距建立层级，而不要使用合成的粗体样式。

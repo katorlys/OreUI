@@ -6,65 +6,87 @@ description: 使用 CSS 变量自定义 OreUI
 OreUI 提供全局设计变量和组件级变量。导入默认样式表后，在常规 CSS 中进行设置。
 
 ## 全局主题
+
 覆盖根变量可修改所有使用这些变量的组件。
+
 ```css
 @import "@katorlys/oreui/styles.css";
 
 :root {
-	--ore-color-primary-background: #2e6be5;
-	--ore-color-primary-background-hover: #8cb3ff;
-	--ore-color-primary-background-pressed: #1452cc;
-	--ore-color-primary-shadow: #1452cc;
+  --ore-color-primary-background: #2e6be5;
+  --ore-color-primary-background-hover: #8cb3ff;
+  --ore-color-primary-background-pressed: #1452cc;
+  --ore-color-primary-shadow: #1452cc;
 }
 ```
 
 ## 局部主题
+
 在容器中设置变量，将作用范围限制在该容器内。
+
 ```html
 <section class="realms-theme">
-	<ore-button>Create Realm</ore-button>
-	<ore-progress-bar value="65"></ore-progress-bar>
+  <ore-button>Create Realm</ore-button>
+  <ore-progress-bar value="65"></ore-progress-bar>
 </section>
 ```
 
 ```css
 .realms-theme {
-	--ore-color-primary-background: var(--ore-color-realms-primary-background);
-	--ore-color-primary-background-hover: var(--ore-color-realms-primary-background-hover);
-	--ore-color-primary-background-pressed: var(--ore-color-realms-primary-background-pressed);
-	--ore-color-primary-shadow: var(--ore-color-realms-primary-shadow);
+  --ore-color-primary-background: var(--ore-color-realms-primary-background);
+  --ore-color-primary-background-hover: var(
+    --ore-color-realms-primary-background-hover
+  );
+  --ore-color-primary-background-pressed: var(
+    --ore-color-realms-primary-background-pressed
+  );
+  --ore-color-primary-shadow: var(--ore-color-realms-primary-shadow);
 }
 ```
 
 ## 单个组件
+
 使用组件级变量更改特定组件的变量，而不影响全局主题。
+
 ```html
 <ore-button class="realms-action">Create Realm</ore-button>
 ```
 
 ```css
 .realms-action {
-	--ore-button-background-default: var(--ore-color-realms-primary-background);
-	--ore-button-background-hover: var(--ore-color-realms-primary-background-hover);
-	--ore-button-background-pressed: var(--ore-color-realms-primary-background-pressed);
-	--ore-button-shadow: var(--ore-color-realms-primary-shadow);
-	min-width: 12rem;
+  --ore-button-background-default: var(--ore-color-realms-primary-background);
+  --ore-button-background-hover: var(
+    --ore-color-realms-primary-background-hover
+  );
+  --ore-button-background-pressed: var(
+    --ore-color-realms-primary-background-pressed
+  );
+  --ore-button-shadow: var(--ore-color-realms-primary-shadow);
+  min-width: 12rem;
 }
 ```
 
 [源代码](https://github.com/katorlys/OreUI/tree/main/src/components)中每个组件样式表顶部都列出了组件级变量，`--ore-<component>-*` 前缀的即为组件级变量。
 
 ## 回退值
+
 需要使用公共主题的 API 时，请用自己的变量包住要覆盖的变量值。
+
 ```css
 .game-menu {
-	--ore-button-background-default: var(--menu-action-background, var(--ore-color-primary-background));
+  --ore-button-background-default: var(
+    --menu-action-background,
+    var(--ore-color-primary-background)
+  );
 }
 ```
 
 OreUI 组件选择器位于最底层，因此 class 和 工具 class 也能覆盖常规 CSS 属性，无需使用 `!important`。
 
 例如，TailwindCSS 可以直接覆盖 OreUI 按钮的颜色：
+
 ```html
-<ore-button class="bg-blue-600 hover:bg-blue-500 active:bg-blue-700">Create a server</ore-button>
+<ore-button class="bg-blue-600 hover:bg-blue-500 active:bg-blue-700"
+  >Create a server</ore-button
+>
 ```

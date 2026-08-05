@@ -4,6 +4,7 @@ description: Use OreUI in React applications.
 ---
 
 ## Install
+
 ```bash tab="pnpm"
 pnpm add @katorlys/oreui @katorlys/oreui-react
 ```
@@ -21,12 +22,15 @@ bun add @katorlys/oreui @katorlys/oreui-react
 ```
 
 ## Add styles
+
 Import the stylesheet once in your app entry:
+
 ```ts
 import "@katorlys/oreui/styles.css";
 ```
 
 ## Use a component
+
 ```tsx title="App.tsx"
 import { OreButton } from "@katorlys/oreui-react/button";
 
@@ -36,11 +40,14 @@ export function App() {
 ```
 
 <Callout type="info">
-  To use all the components from the package root, import `@katorlys/oreui-react`.
+  To use all the components from the package root, import
+  `@katorlys/oreui-react`.
 </Callout>
 
 ## Examples
+
 Typed events:
+
 ```tsx title="GameMode.tsx"
 import { OreButton } from "@katorlys/oreui-react/button";
 import { OreDropdown } from "@katorlys/oreui-react/dropdown";
@@ -67,5 +74,6 @@ export function GameMode() {
 The React wrappers forward `children`, `className`, properties, aria attributes, as well as refs.
 
 <Callout type="warn">
-  Currently, OreUI React only supports client applications. We may extend support to server components and server-side rendering in the future.
+  Currently, OreUI React only supports client applications. We may extend
+  support to server components and server-side rendering in the future.
 </Callout>

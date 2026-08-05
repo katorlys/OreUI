@@ -4,6 +4,7 @@ description: Component state and accessibility.
 ---
 
 ## Default state
+
 ```html
 <ore-accordion default-open>
   <ore-button class="ore-accordion-trigger" type="button">Details</ore-button>
@@ -12,7 +13,9 @@ description: Component state and accessibility.
 ```
 
 ## Controlled state
+
 When the application controls the state, set the element property, and listen for changes:
+
 ```ts
 const accordion = document.querySelector("ore-accordion");
 
@@ -25,6 +28,7 @@ if (accordion) {
 ```
 
 ## Accessibility checklist
+
 - [ ] Add `aria-label` to icon-only controls.
 - [ ] Use native headings, tables, links, and form labels.
 - [ ] Keep focus styles visible.

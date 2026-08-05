@@ -8,6 +8,7 @@ import { SwitchStory } from "@/components/stories/switch.story";
 <SwitchStory />
 
 ## 用法
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -16,36 +17,40 @@ import "@katorlys/oreui/switch";
 
 ```html
 <ore-switch name="autosave" value="enabled" variant="icons">
-	Enable autosave
+  Enable autosave
 </ore-switch>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreSwitch } from "@katorlys/oreui-react/switch";
 import { useState } from "react";
 
 export function AutosaveSwitch() {
-	const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(false);
 
-	return (
-		<OreSwitch
-			checked={checked}
-			name="autosave"
-			value="enabled"
-			variant="icons"
-			onChange={(event) => {
-				const control = event.target as HTMLElement & { checked: boolean };
-				setChecked(control.checked);
-			}}
-		>
-			Enable autosave
-		</OreSwitch>
-	);
+  return (
+    <OreSwitch
+      checked={checked}
+      name="autosave"
+      value="enabled"
+      variant="icons"
+      onChange={(event) => {
+        const control = event.target as HTMLElement & { checked: boolean };
+        setChecked(control.checked);
+      }}
+    >
+      Enable autosave
+    </OreSwitch>
+  );
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-switch name="autosave" value="enabled" variant="icons">
 	Enable autosave
@@ -55,30 +60,37 @@ export function AutosaveSwitch() {
 	import "@katorlys/oreui/switch";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## 变体
+
 ```html
 <ore-switch variant="default">Default</ore-switch>
 <ore-switch variant="icons">Icons</ore-switch>
 ```
 
 ## 表单
+
 选中项的值会包含在 `FormData` 中，重置表单会恢复初始状态。
 
 ## 事件
+
 Switch 的值发生变化后，会触发原生 `input` 和 `change` 事件。
 
 ## API
-|Prop|属性|类型|默认值|
-|---|---|---|---|
-|`checked`|`checked`|`boolean`|`false`|
-|`disabled`|`disabled`|`boolean`|`false`|
-|`name`|`name`|`string`|`""`|
-|`required`|`required`|`boolean`|`false`|
-|`value`|`value`|`string`|`"on"`|
-|`variant`|`variant`|`"default" \| "icons"`|`"default"`|
+
+| Prop       | 属性       | 类型                   | 默认值      |
+| ---------- | ---------- | ---------------------- | ----------- |
+| `checked`  | `checked`  | `boolean`              | `false`     |
+| `disabled` | `disabled` | `boolean`              | `false`     |
+| `name`     | `name`     | `string`               | `""`        |
+| `required` | `required` | `boolean`              | `false`     |
+| `value`    | `value`    | `string`               | `"on"`      |
+| `variant`  | `variant`  | `"default" \| "icons"` | `"default"` |
 
 ## 无障碍
+
 Switch 提供相应的无障碍语义，并支持`空格键`。使用标签描述对应的内容。

@@ -10,6 +10,7 @@ Use buttons for actions such as confirming a choice, opening a screen, or submit
 <ButtonStory />
 
 ## Usage
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -19,17 +20,21 @@ import "@katorlys/oreui/button";
 ```html
 <ore-button type="button">Create new world</ore-button>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreButton } from "@katorlys/oreui-react/button";
 
 export function App() {
-	return <OreButton type="button">Create new world</OreButton>;
+  return <OreButton type="button">Create new world</OreButton>;
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-button type="button">Create new world</ore-button>
 
@@ -37,10 +42,13 @@ export function App() {
 	import "@katorlys/oreui/button";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## Variants
+
 ```html
 <ore-button variant="primary">Primary</ore-button>
 <ore-button variant="secondary">Secondary</ore-button>
@@ -49,25 +57,30 @@ export function App() {
 ```
 
 ## Disabled
+
 ```html
 <ore-button disabled>Unavailable</ore-button>
 ```
 
 ## Forms
+
 The default `type` is `submit`. Set `type="button"` when the button should not submit its form.
+
 ```html
 <form>
-	<ore-button type="submit">Save</ore-button>
-	<ore-button type="reset" variant="secondary">Reset</ore-button>
+  <ore-button type="submit">Save</ore-button>
+  <ore-button type="reset" variant="secondary">Reset</ore-button>
 </form>
 ```
 
 ## API
-|Property|Attribute|Type|Default|
-|---|---|---|---|
-|`disabled`|`disabled`|`boolean`|`false`|
-|`type`|`type`|`"button" \|"reset" \|"submit"`|`"submit"`|
-|`variant`|`variant`|`"destructive" \|"hero" \|"primary" \|"secondary"`|`"primary"`|
+
+| Property   | Attribute  | Type                                               | Default     |
+| ---------- | ---------- | -------------------------------------------------- | ----------- |
+| `disabled` | `disabled` | `boolean`                                          | `false`     |
+| `type`     | `type`     | `"button" \|"reset" \|"submit"`                    | `"submit"`  |
+| `variant`  | `variant`  | `"destructive" \|"hero" \|"primary" \|"secondary"` | `"primary"` |
 
 ## Accessibility
+
 The component uses button semantics and supports `Enter` and `Space`. Disabled buttons are removed from the tab and expose `aria-disabled="true"`.

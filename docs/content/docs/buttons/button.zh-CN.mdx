@@ -10,6 +10,7 @@ Button 用于确认选择、打开页面、提交表单等操作。
 <ButtonStory />
 
 ## 用法
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -19,17 +20,21 @@ import "@katorlys/oreui/button";
 ```html
 <ore-button type="button">Create new world</ore-button>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreButton } from "@katorlys/oreui-react/button";
 
 export function App() {
-	return <OreButton type="button">Create new world</OreButton>;
+  return <OreButton type="button">Create new world</OreButton>;
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-button type="button">Create new world</ore-button>
 
@@ -37,10 +42,13 @@ export function App() {
 	import "@katorlys/oreui/button";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## 变体
+
 ```html
 <ore-button variant="primary">Primary</ore-button>
 <ore-button variant="secondary">Secondary</ore-button>
@@ -49,25 +57,30 @@ export function App() {
 ```
 
 ## Disabled
+
 ```html
 <ore-button disabled>Unavailable</ore-button>
 ```
 
 ## 表单
+
 默认的 `type` 为 `submit`。当按钮不应提交表单时，需设置 `type="button"`。
+
 ```html
 <form>
-	<ore-button type="submit">Save</ore-button>
-	<ore-button type="reset" variant="secondary">Reset</ore-button>
+  <ore-button type="submit">Save</ore-button>
+  <ore-button type="reset" variant="secondary">Reset</ore-button>
 </form>
 ```
 
 ## API
-|Prop|属性|类型|默认值|
-|---|---|---|---|
-|`disabled`|`disabled`|`boolean`|`false`|
-|`type`|`type`|`"button" \|"reset" \|"submit"`|`"submit"`|
-|`variant`|`variant`|`"destructive" \|"hero" \|"primary" \|"secondary"`|`"primary"`|
+
+| Prop       | 属性       | 类型                                               | 默认值      |
+| ---------- | ---------- | -------------------------------------------------- | ----------- |
+| `disabled` | `disabled` | `boolean`                                          | `false`     |
+| `type`     | `type`     | `"button" \|"reset" \|"submit"`                    | `"submit"`  |
+| `variant`  | `variant`  | `"destructive" \|"hero" \|"primary" \|"secondary"` | `"primary"` |
 
 ## 无障碍
+
 该组件使用按钮语义，并支持 `Enter` 和 `Space` 键。禁用的按钮不会被 Tab 键选中，并带有 `aria-disabled="true"`。

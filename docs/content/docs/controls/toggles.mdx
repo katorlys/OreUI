@@ -8,6 +8,7 @@ import { TogglesStory } from "@/components/stories/toggles.story";
 <TogglesStory />
 
 ## Usage
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -17,32 +18,48 @@ import "@katorlys/oreui/toggles";
 
 ```html
 <ore-toggles aria-label="Daylight cycle">
-	<ore-tab-button selected>Day</ore-tab-button>
-	<ore-tab-button>Night</ore-tab-button>
-	<ore-tab-button>Always</ore-tab-button>
+  <ore-tab-button selected>Day</ore-tab-button>
+  <ore-tab-button>Night</ore-tab-button>
+  <ore-tab-button>Always</ore-tab-button>
 </ore-toggles>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreTabButton } from "@katorlys/oreui-react/tab-button";
 import { OreToggles } from "@katorlys/oreui-react/toggles";
 import { useState } from "react";
 
 export function DaylightToggles() {
-	const [value, setValue] = useState("day");
+  const [value, setValue] = useState("day");
 
-	return (
-		<OreToggles aria-label="Daylight cycle">
-			<OreTabButton selected={value === "day"} onChange={() => setValue("day")}>Day</OreTabButton>
-			<OreTabButton selected={value === "night"} onChange={() => setValue("night")}>Night</OreTabButton>
-			<OreTabButton selected={value === "always"} onChange={() => setValue("always")}>Always</OreTabButton>
-		</OreToggles>
-	);
+  return (
+    <OreToggles aria-label="Daylight cycle">
+      <OreTabButton selected={value === "day"} onChange={() => setValue("day")}>
+        Day
+      </OreTabButton>
+      <OreTabButton
+        selected={value === "night"}
+        onChange={() => setValue("night")}
+      >
+        Night
+      </OreTabButton>
+      <OreTabButton
+        selected={value === "always"}
+        onChange={() => setValue("always")}
+      >
+        Always
+      </OreTabButton>
+    </OreToggles>
+  );
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-toggles aria-label="Daylight cycle">
 	<ore-tab-button selected>Day</ore-tab-button>
@@ -55,12 +72,16 @@ export function DaylightToggles() {
 	import "@katorlys/oreui/toggles";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## Behavior
+
 Toggles sets `role="tablist"`, lays out its children, and applies the `toggle` palette to direct and nested Tab Buttons.  
 For more information, see [Tab Button](../../buttons/tab-button/).
 
 ## Accessibility
+
 Give the tab group an accessible name. `Arrow keys` move through enabled options. `Home` and `End` select the first and last option.

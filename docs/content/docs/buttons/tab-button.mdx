@@ -6,32 +6,38 @@ description: The base component for Tab Bar.
 This should only be used in Tab Bar components, which makes selection and keyboard navigation work as a group.
 
 ## Usage
+
 See [Tab Bar](../../navigation/tab-bar).
 
 ## Palettes
+
 ```html
 <ore-tab-button palette="default" selected>Worlds</ore-tab-button>
 <ore-tab-button palette="toggle" selected>Enabled</ore-tab-button>
 ```
 
 ## Events
+
 Tab Button dispatches `change` after it becomes selected.
+
 ```js
 const tab = document.querySelector("ore-tab-button");
 tab?.addEventListener("change", () => console.log(tab.selected));
 ```
 
 ## API
-|Property|Attribute|Type|Default|
-|---|---|---|---|
-|`disabled`|`disabled`|`boolean`|`false`|
-|`palette`|`palette`|`"default" \|"toggle"`|`"default"`|
-|`selected`|`selected`|`boolean`|`false`|
-|`type`|`type`|`"button" \|"reset" \|"submit"`|`"button"`|
 
-|Event|Detail|
-|---|---|
-|`change`|None|
+| Property   | Attribute  | Type                            | Default     |
+| ---------- | ---------- | ------------------------------- | ----------- |
+| `disabled` | `disabled` | `boolean`                       | `false`     |
+| `palette`  | `palette`  | `"default" \|"toggle"`          | `"default"` |
+| `selected` | `selected` | `boolean`                       | `false`     |
+| `type`     | `type`     | `"button" \|"reset" \|"submit"` | `"button"`  |
+
+| Event    | Detail |
+| -------- | ------ |
+| `change` | None   |
 
 ## Accessibility
+
 Tab Button uses `role="tab"` and updates `aria-selected`. `Arrow keys` move through tabs that are not disabled, while `Home` and `End` select the first and last tab.

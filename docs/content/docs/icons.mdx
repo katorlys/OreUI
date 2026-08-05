@@ -6,17 +6,20 @@ description: Icons used in OreUI.
 Currently, OreUI does not provide a component for icons. Use the SVG files directly or inline them.
 
 ## Library
-|Navigation|Actions|Status|
-|---|---|---|
-|`arrow-up`|`chevron-up`|`tick`|
-|`arrow-right`|`chevron-right`|`cross`|
-|`arrow-down`|`chevron-down`|`circle`|
-|`arrow-left`|`chevron-left`|`on`|
-|||`off`|
-|||`spinner`|
+
+| Navigation    | Actions         | Status    |
+| ------------- | --------------- | --------- |
+| `arrow-up`    | `chevron-up`    | `tick`    |
+| `arrow-right` | `chevron-right` | `cross`   |
+| `arrow-down`  | `chevron-down`  | `circle`  |
+| `arrow-left`  | `chevron-left`  | `on`      |
+|               |                 | `off`     |
+|               |                 | `spinner` |
 
 ## Origin
+
 Use the exported file directly when the icon does not need to inherit text color.
+
 ```js
 import arrowRightUrl from "@katorlys/oreui/icons/arrow-right";
 
@@ -30,32 +33,36 @@ document.querySelector(".next-action").prepend(icon);
 ```
 
 ## Current color
+
 Inline an icon inside `ore-icon` when it should inherit the surrounding color.
+
 ```html
 <ore-icon aria-hidden="true">
-	<svg viewBox="0 0 8 8">
-		<path fill="currentColor" d="..." />
-	</svg>
+  <svg viewBox="0 0 8 8">
+    <path fill="currentColor" d="..." />
+  </svg>
 </ore-icon>
 ```
 
 ```css
 .success-icon {
-	color: var(--ore-color-success-background);
-	font-size: 1.5rem;
+  color: var(--ore-color-success-background);
+  font-size: 1.5rem;
 }
 ```
 
 `ore-icon` is a lightweight styling element. Currently, it does not load an icon from a name.
 
 ## Icon button
+
 Place inline SVG inside an [Icon Button](../buttons/icon-button) and provide an accessible label on the button.
+
 ```html
 <ore-icon-button aria-label="Back">
-	<ore-icon aria-hidden="true">
-		<svg viewBox="0 0 8 8">
-			<path fill="currentColor" d="..." />
-		</svg>
-	</ore-icon>
+  <ore-icon aria-hidden="true">
+    <svg viewBox="0 0 8 8">
+      <path fill="currentColor" d="..." />
+    </svg>
+  </ore-icon>
 </ore-icon-button>
 ```

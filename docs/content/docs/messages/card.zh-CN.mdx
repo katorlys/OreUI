@@ -10,6 +10,7 @@ Card 将媒体、说明文字、元数据和按钮组合在一起。
 <CardStory />
 
 ## 用法
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -20,57 +21,78 @@ import "@katorlys/oreui/tag";
 
 ```html
 <ore-card>
-	<div class="ore-card-media">
-		<img src="/world.webp" alt="A village beside a river" />
-		<div class="ore-card-overlay-bottom-start card-tag-group">
-			<ore-tag outlined variant="informative">Local</ore-tag>
-			<ore-tag outlined variant="notice">New</ore-tag>
-		</div>
-		<span class="ore-card-overlay-top-end" aria-hidden="true">
-			<ore-icon><svg viewBox="0 0 8 8"><path fill="currentColor" d="M1 2h1v1H1zm1 1h1v1H2zm1 1h1v1H3zm1 1h1v1H4zm1-1h1v1H5zm1-1h1v1H6z" /></svg></ore-icon>
-		</span>
-	</div>
-	<div class="ore-card-body">
-		<div class="ore-card-caption">
-			<div class="ore-card-title">Survival World</div>
-			<div class="ore-card-description">Last played today</div>
-		</div>
-		<span class="ore-card-meta">1.21</span>
-	</div>
+  <div class="ore-card-media">
+    <img src="/world.webp" alt="A village beside a river" />
+    <div class="ore-card-overlay-bottom-start card-tag-group">
+      <ore-tag outlined variant="informative">Local</ore-tag>
+      <ore-tag outlined variant="notice">New</ore-tag>
+    </div>
+    <span class="ore-card-overlay-top-end" aria-hidden="true">
+      <ore-icon
+        ><svg viewBox="0 0 8 8">
+          <path
+            fill="currentColor"
+            d="M1 2h1v1H1zm1 1h1v1H2zm1 1h1v1H3zm1 1h1v1H4zm1-1h1v1H5zm1-1h1v1H6z"
+          /></svg
+      ></ore-icon>
+    </span>
+  </div>
+  <div class="ore-card-body">
+    <div class="ore-card-caption">
+      <div class="ore-card-title">Survival World</div>
+      <div class="ore-card-description">Last played today</div>
+    </div>
+    <span class="ore-card-meta">1.21</span>
+  </div>
 </ore-card>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreCard } from "@katorlys/oreui-react/card";
 import { OreTag } from "@katorlys/oreui-react/tag";
 
 export function WorldCard() {
-	return (
-		<OreCard>
-			<div className="ore-card-media">
-				<img src="/world.webp" alt="A village beside a river" />
-				<div className="ore-card-overlay-bottom-start card-tag-group">
-					<OreTag outlined variant="informative">Local</OreTag>
-					<OreTag outlined variant="notice">New</OreTag>
-				</div>
-				<span className="ore-card-overlay-top-end" aria-hidden="true">
-					<ore-icon><svg viewBox="0 0 8 8"><path fill="currentColor" d="M1 2h1v1H1zm1 1h1v1H2zm1 1h1v1H3zm1 1h1v1H4zm1-1h1v1H5zm1-1h1v1H6z" /></svg></ore-icon>
-				</span>
-			</div>
-			<div className="ore-card-body">
-				<div className="ore-card-caption">
-					<div className="ore-card-title">Survival World</div>
-					<div className="ore-card-description">Last played today</div>
-				</div>
-				<span className="ore-card-meta">1.21</span>
-			</div>
-		</OreCard>
-	);
+  return (
+    <OreCard>
+      <div className="ore-card-media">
+        <img src="/world.webp" alt="A village beside a river" />
+        <div className="ore-card-overlay-bottom-start card-tag-group">
+          <OreTag outlined variant="informative">
+            Local
+          </OreTag>
+          <OreTag outlined variant="notice">
+            New
+          </OreTag>
+        </div>
+        <span className="ore-card-overlay-top-end" aria-hidden="true">
+          <ore-icon>
+            <svg viewBox="0 0 8 8">
+              <path
+                fill="currentColor"
+                d="M1 2h1v1H1zm1 1h1v1H2zm1 1h1v1H3zm1 1h1v1H4zm1-1h1v1H5zm1-1h1v1H6z"
+              />
+            </svg>
+          </ore-icon>
+        </span>
+      </div>
+      <div className="ore-card-body">
+        <div className="ore-card-caption">
+          <div className="ore-card-title">Survival World</div>
+          <div className="ore-card-description">Last played today</div>
+        </div>
+        <span className="ore-card-meta">1.21</span>
+      </div>
+    </OreCard>
+  );
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-card>
 	<div class="ore-card-media">
@@ -98,35 +120,40 @@ export function WorldCard() {
 	import "@katorlys/oreui/tag";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ```css
 .card-tag-group {
-	display: flex;
-	gap: var(--ore-card-unit);
+  display: flex;
+  gap: var(--ore-card-unit);
 }
 ```
 
 ## 叠加层
+
 使用叠加层类将标签放置在媒体之上。
+
 ```html
 <div class="ore-card-media">
-	<img src="/world.webp" alt="A forest village" />
-	<ore-tag class="ore-card-overlay-top-start">New</ore-tag>
+  <img src="/world.webp" alt="A forest village" />
+  <ore-tag class="ore-card-overlay-top-start">New</ore-tag>
 </div>
 ```
 
 ## 公开类
-|类|用途|
-|---|---|
-|`.ore-card-media`|16:9 媒体区域|
-|`.ore-card-body`|说明文字和操作行|
-|`.ore-card-caption`|标题和描述组|
-|`.ore-card-title`|主要标签|
-|`.ore-card-description`|辅助文本|
-|`.ore-card-meta`|末尾的简短元数据|
-|`.ore-card-action`|末尾的图标按钮|
-|`.ore-card-overlay-top-start`|媒体左上方叠加层|
-|`.ore-card-overlay-bottom-start`|媒体左下方叠加层|
-|`.ore-card-overlay-top-end`|媒体右上方叠加层|
+
+| 类                               | 用途             |
+| -------------------------------- | ---------------- |
+| `.ore-card-media`                | 16:9 媒体区域    |
+| `.ore-card-body`                 | 说明文字和操作行 |
+| `.ore-card-caption`              | 标题和描述组     |
+| `.ore-card-title`                | 主要标签         |
+| `.ore-card-description`          | 辅助文本         |
+| `.ore-card-meta`                 | 末尾的简短元数据 |
+| `.ore-card-action`               | 末尾的图标按钮   |
+| `.ore-card-overlay-top-start`    | 媒体左上方叠加层 |
+| `.ore-card-overlay-bottom-start` | 媒体左下方叠加层 |
+| `.ore-card-overlay-top-end`      | 媒体右上方叠加层 |

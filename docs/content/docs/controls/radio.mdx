@@ -4,9 +4,11 @@ description: The base component for Radio Group.
 ---
 
 ## Usage
+
 See [Radio Group](../radio-group).
 
 ## States
+
 ```html
 <ore-radio name="mode" value="survival" checked>Survival</ore-radio>
 <ore-radio name="mode" value="hardcore" disabled>Hardcore</ore-radio>
@@ -15,16 +17,19 @@ See [Radio Group](../radio-group).
 Radios with the same `name` and form are mutually exclusive.
 
 ## Events
+
 Selecting a new option dispatches native `input` and `change` events.
 
 ## API
-|Property|Attribute|Type|Default|
-|---|---|---|---|
-|`checked`|`checked`|`boolean`|`false`|
-|`disabled`|`disabled`|`boolean`|`false`|
-|`name`|`name`|`string`|`""`|
-|`required`|`required`|`boolean`|`false`|
-|`value`|`value`|`string`|`"on"`|
+
+| Property   | Attribute  | Type      | Default |
+| ---------- | ---------- | --------- | ------- |
+| `checked`  | `checked`  | `boolean` | `false` |
+| `disabled` | `disabled` | `boolean` | `false` |
+| `name`     | `name`     | `string`  | `""`    |
+| `required` | `required` | `boolean` | `false` |
+| `value`    | `value`    | `string`  | `"on"`  |
 
 ## Accessibility
+
 Radio provides radio semantics. Use `Arrow keys` to move within a group and `Space` to select the focused option.

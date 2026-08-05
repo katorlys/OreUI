@@ -8,6 +8,7 @@ import { SpinnerStory } from "@/components/stories/spinner.story";
 <SpinnerStory />
 
 ## 用法
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -17,17 +18,21 @@ import "@katorlys/oreui/spinner";
 ```html
 <ore-spinner aria-label="Loading worlds"></ore-spinner>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreSpinner } from "@katorlys/oreui-react/spinner";
 
 export function LoadingWorlds() {
-	return <OreSpinner aria-label="Loading worlds" />;
+  return <OreSpinner aria-label="Loading worlds" />;
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-spinner aria-label="Loading worlds"></ore-spinner>
 
@@ -35,24 +40,30 @@ export function LoadingWorlds() {
 	import "@katorlys/oreui/spinner";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## 大小和颜色
+
 Spinner 使用 current 字体大小和文本颜色。
+
 ```html
 <span style="font-size: 2rem; color: #52A535;">
-	<ore-spinner aria-label="Loading worlds"></ore-spinner>
+  <ore-spinner aria-label="Loading worlds"></ore-spinner>
 </span>
 ```
 
 ## 装饰用途
+
 当附近的文本已经能够描述加载状态时，对辅助技术隐藏 Spinner。
+
 ```html
-<ore-spinner aria-hidden="true"></ore-spinner>
-<span>Loading worlds</span>
+<ore-spinner aria-hidden="true"></ore-spinner> <span>Loading worlds</span>
 ```
 
 ## 无障碍
+
 Spinner 使用 `role="status"`，默认标签为 `Loading`。当它仅用于装饰作用时，应设置更具体的 `aria-label`，或使用 `aria-hidden="true"`。  
 启用 reduced motion 效果后，动画会停止。

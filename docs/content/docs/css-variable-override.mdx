@@ -6,65 +6,87 @@ description: Customize OreUI with CSS variables.
 OreUI exposes global design tokens and component-level variables. Set them in normal CSS after importing the default stylesheet.
 
 ## Global theme
+
 Override root tokens to update every component that uses them.
+
 ```css
 @import "@katorlys/oreui/styles.css";
 
 :root {
-	--ore-color-primary-background: #2e6be5;
-	--ore-color-primary-background-hover: #8cb3ff;
-	--ore-color-primary-background-pressed: #1452cc;
-	--ore-color-primary-shadow: #1452cc;
+  --ore-color-primary-background: #2e6be5;
+  --ore-color-primary-background-hover: #8cb3ff;
+  --ore-color-primary-background-pressed: #1452cc;
+  --ore-color-primary-shadow: #1452cc;
 }
 ```
 
 ## Scoped theme
+
 Set tokens in a container to limit them to parts of the page.
+
 ```html
 <section class="realms-theme">
-	<ore-button>Create Realm</ore-button>
-	<ore-progress-bar value="65"></ore-progress-bar>
+  <ore-button>Create Realm</ore-button>
+  <ore-progress-bar value="65"></ore-progress-bar>
 </section>
 ```
 
 ```css
 .realms-theme {
-	--ore-color-primary-background: var(--ore-color-realms-primary-background);
-	--ore-color-primary-background-hover: var(--ore-color-realms-primary-background-hover);
-	--ore-color-primary-background-pressed: var(--ore-color-realms-primary-background-pressed);
-	--ore-color-primary-shadow: var(--ore-color-realms-primary-shadow);
+  --ore-color-primary-background: var(--ore-color-realms-primary-background);
+  --ore-color-primary-background-hover: var(
+    --ore-color-realms-primary-background-hover
+  );
+  --ore-color-primary-background-pressed: var(
+    --ore-color-realms-primary-background-pressed
+  );
+  --ore-color-primary-shadow: var(--ore-color-realms-primary-shadow);
 }
 ```
 
 ## One component
+
 Use component-level variables to change a specific component without replacing the global theme.
+
 ```html
 <ore-button class="realms-action">Create Realm</ore-button>
 ```
 
 ```css
 .realms-action {
-	--ore-button-background-default: var(--ore-color-realms-primary-background);
-	--ore-button-background-hover: var(--ore-color-realms-primary-background-hover);
-	--ore-button-background-pressed: var(--ore-color-realms-primary-background-pressed);
-	--ore-button-shadow: var(--ore-color-realms-primary-shadow);
-	min-width: 12rem;
+  --ore-button-background-default: var(--ore-color-realms-primary-background);
+  --ore-button-background-hover: var(
+    --ore-color-realms-primary-background-hover
+  );
+  --ore-button-background-pressed: var(
+    --ore-color-realms-primary-background-pressed
+  );
+  --ore-button-shadow: var(--ore-color-realms-primary-shadow);
+  min-width: 12rem;
 }
 ```
 
 Component-level variables are listed at the top of each component stylesheet in [source code](https://github.com/katorlys/OreUI/tree/main/src/components) and use the `--ore-<component>-*` prefix.
 
 ## Fallbacks
+
 Wrap overrides in your own variables when you need a public theme API.
+
 ```css
 .game-menu {
-	--ore-button-background-default: var(--menu-action-background, var(--ore-color-primary-background));
+  --ore-button-background-default: var(
+    --menu-action-background,
+    var(--ore-color-primary-background)
+  );
 }
 ```
 
 OreUI component selectors use low specificity, so classes and utilities can also override regular CSS properties without `!important`.
 
 For example, TailwindCSS classes can override OreUI button colors:
+
 ```html
-<ore-button class="bg-blue-600 hover:bg-blue-500 active:bg-blue-700">Create a server</ore-button>
+<ore-button class="bg-blue-600 hover:bg-blue-500 active:bg-blue-700"
+  >Create a server</ore-button
+>
 ```

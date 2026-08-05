@@ -8,6 +8,7 @@ import { CheckboxStory } from "@/components/stories/checkbox.story";
 <CheckboxStory />
 
 ## Usage
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -15,36 +16,38 @@ import "@katorlys/oreui/checkbox";
 ```
 
 ```html
-<ore-checkbox name="updates" value="yes">
-	Receive updates
-</ore-checkbox>
+<ore-checkbox name="updates" value="yes"> Receive updates </ore-checkbox>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreCheckbox } from "@katorlys/oreui-react/checkbox";
 import { useState } from "react";
 
 export function UpdatesCheckbox() {
-	const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(false);
 
-	return (
-		<OreCheckbox
-			checked={checked}
-			name="updates"
-			value="yes"
-			onChange={(event) => {
-				const checkbox = event.target as HTMLElement & { checked: boolean };
-				setChecked(checkbox.checked);
-			}}
-		>
-			Receive updates
-		</OreCheckbox>
-	);
+  return (
+    <OreCheckbox
+      checked={checked}
+      name="updates"
+      value="yes"
+      onChange={(event) => {
+        const checkbox = event.target as HTMLElement & { checked: boolean };
+        setChecked(checkbox.checked);
+      }}
+    >
+      Receive updates
+    </OreCheckbox>
+  );
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-checkbox name="updates" value="yes">
 	Receive updates
@@ -54,10 +57,13 @@ export function UpdatesCheckbox() {
 	import "@katorlys/oreui/checkbox";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## States
+
 ```html
 <ore-checkbox checked>Enabled</ore-checkbox>
 <ore-checkbox disabled>Unavailable</ore-checkbox>
@@ -65,33 +71,38 @@ export function UpdatesCheckbox() {
 ```
 
 ## Forms
+
 Checked values are included in `FormData`. Reset restores the initial `checked` state.
+
 ```html
 <form>
-	<ore-checkbox name="terms" value="accepted" required>
-		Accept the terms
-	</ore-checkbox>
-	<ore-button type="submit">Continue</ore-button>
-	<ore-button type="reset" variant="secondary">Reset</ore-button>
+  <ore-checkbox name="terms" value="accepted" required>
+    Accept the terms
+  </ore-checkbox>
+  <ore-button type="submit">Continue</ore-button>
+  <ore-button type="reset" variant="secondary">Reset</ore-button>
 </form>
 ```
 
 ## Events
+
 Checkbox dispatches native `input` and `change` events after its value changes.
 
 ## API
-|Property|Attribute|Type|Default|
-|---|---|---|---|
-|`checked`|`checked`|`boolean`|`false`|
-|`disabled`|`disabled`|`boolean`|`false`|
-|`name`|`name`|`string`|`""`|
-|`required`|`required`|`boolean`|`false`|
-|`value`|`value`|`string`|`"on"`|
 
-|Method|Description|
-|---|---|
-|`checkValidity()`|Check the current validity|
-|`reportValidity()`|Check validity and report an error|
+| Property   | Attribute  | Type      | Default |
+| ---------- | ---------- | --------- | ------- |
+| `checked`  | `checked`  | `boolean` | `false` |
+| `disabled` | `disabled` | `boolean` | `false` |
+| `name`     | `name`     | `string`  | `""`    |
+| `required` | `required` | `boolean` | `false` |
+| `value`    | `value`    | `string`  | `"on"`  |
+
+| Method             | Description                        |
+| ------------------ | ---------------------------------- |
+| `checkValidity()`  | Check the current validity         |
+| `reportValidity()` | Check validity and report an error |
 
 ## Accessibility
+
 Checkbox provides checkbox semantics and supports Space.

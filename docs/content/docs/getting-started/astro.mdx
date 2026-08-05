@@ -4,6 +4,7 @@ description: Use OreUI in Astro.
 ---
 
 ## Install
+
 ```bash tab="pnpm"
 pnpm add @katorlys/oreui
 ```
@@ -21,7 +22,9 @@ bun add @katorlys/oreui
 ```
 
 ## Use a component
+
 Import styles in a shared layout:
+
 ```astro title="src/layouts/Layout.astro"
 ---
 import "@katorlys/oreui/styles.css";
@@ -31,6 +34,7 @@ import "@katorlys/oreui/styles.css";
 ```
 
 Register components in client script:
+
 ```astro title="src/pages/index.astro"
 <ore-button type="button">Create new world</ore-button>
 
@@ -44,7 +48,9 @@ Register components in client script:
 </Callout>
 
 ## Examples
+
 Forms and events:
+
 ```astro title="src/pages/account.astro"
 <form id="account">
   <ore-checkbox name="terms" required>Accept terms</ore-checkbox>
@@ -64,6 +70,4 @@ Forms and events:
 </script>
 ```
 
-<Callout type="warn">
-  `is:inline` cannot bundle package imports.
-</Callout>
+<Callout type="warn">`is:inline` cannot bundle package imports.</Callout>

@@ -8,6 +8,7 @@ import { CheckboxStory } from "@/components/stories/checkbox.story";
 <CheckboxStory />
 
 ## 用法
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -15,36 +16,38 @@ import "@katorlys/oreui/checkbox";
 ```
 
 ```html
-<ore-checkbox name="updates" value="yes">
-	Receive updates
-</ore-checkbox>
+<ore-checkbox name="updates" value="yes"> Receive updates </ore-checkbox>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreCheckbox } from "@katorlys/oreui-react/checkbox";
 import { useState } from "react";
 
 export function UpdatesCheckbox() {
-	const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(false);
 
-	return (
-		<OreCheckbox
-			checked={checked}
-			name="updates"
-			value="yes"
-			onChange={(event) => {
-				const checkbox = event.target as HTMLElement & { checked: boolean };
-				setChecked(checkbox.checked);
-			}}
-		>
-			Receive updates
-		</OreCheckbox>
-	);
+  return (
+    <OreCheckbox
+      checked={checked}
+      name="updates"
+      value="yes"
+      onChange={(event) => {
+        const checkbox = event.target as HTMLElement & { checked: boolean };
+        setChecked(checkbox.checked);
+      }}
+    >
+      Receive updates
+    </OreCheckbox>
+  );
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-checkbox name="updates" value="yes">
 	Receive updates
@@ -54,10 +57,13 @@ export function UpdatesCheckbox() {
 	import "@katorlys/oreui/checkbox";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## 状态
+
 ```html
 <ore-checkbox checked>Enabled</ore-checkbox>
 <ore-checkbox disabled>Unavailable</ore-checkbox>
@@ -65,33 +71,38 @@ export function UpdatesCheckbox() {
 ```
 
 ## 表单
+
 勾选的项的值会包含在 `FormData` 中。重置表单会恢复初始的 `checked` 的状态。
+
 ```html
 <form>
-	<ore-checkbox name="terms" value="accepted" required>
-		Accept the terms
-	</ore-checkbox>
-	<ore-button type="submit">Continue</ore-button>
-	<ore-button type="reset" variant="secondary">Reset</ore-button>
+  <ore-checkbox name="terms" value="accepted" required>
+    Accept the terms
+  </ore-checkbox>
+  <ore-button type="submit">Continue</ore-button>
+  <ore-button type="reset" variant="secondary">Reset</ore-button>
 </form>
 ```
 
 ## 事件
+
 Checkbox 的值发生变化后，会触发原生 `input` 和 `change` 事件。
 
 ## API
-|Prop|属性|类型|默认值|
-|---|---|---|---|
-|`checked`|`checked`|`boolean`|`false`|
-|`disabled`|`disabled`|`boolean`|`false`|
-|`name`|`name`|`string`|`""`|
-|`required`|`required`|`boolean`|`false`|
-|`value`|`value`|`string`|`"on"`|
 
-|方法|描述|
-|---|---|
-|`checkValidity()`|检查当前有效性|
-|`reportValidity()`|检查有效性并报告错误|
+| Prop       | 属性       | 类型      | 默认值  |
+| ---------- | ---------- | --------- | ------- |
+| `checked`  | `checked`  | `boolean` | `false` |
+| `disabled` | `disabled` | `boolean` | `false` |
+| `name`     | `name`     | `string`  | `""`    |
+| `required` | `required` | `boolean` | `false` |
+| `value`    | `value`    | `string`  | `"on"`  |
+
+| 方法               | 描述                 |
+| ------------------ | -------------------- |
+| `checkValidity()`  | 检查当前有效性       |
+| `reportValidity()` | 检查有效性并报告错误 |
 
 ## 无障碍
+
 Checkbox 提供相应的无障碍语义，并支持空格键。

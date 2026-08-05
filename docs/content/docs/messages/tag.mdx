@@ -8,6 +8,7 @@ import { TagStory } from "@/components/stories/tag.story";
 <TagStory />
 
 ## Usage
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -17,17 +18,21 @@ import "@katorlys/oreui/tag";
 ```html
 <ore-tag variant="primary">New</ore-tag>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreTag } from "@katorlys/oreui-react/tag";
 
 export function Status() {
-	return <OreTag variant="primary">New</OreTag>;
+  return <OreTag variant="primary">New</OreTag>;
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-tag variant="primary">New</ore-tag>
 
@@ -35,10 +40,13 @@ export function Status() {
 	import "@katorlys/oreui/tag";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## Variants
+
 ```html
 <ore-tag>Neutral</ore-tag>
 <ore-tag variant="secondary">Secondary</ore-tag>
@@ -50,19 +58,22 @@ export function Status() {
 ```
 
 Add `outlined` to add a visible border to the label.
+
 ```html
 <ore-tag outlined>Outlined</ore-tag>
 ```
 
 ## API
-|Property|Attribute|Type|Default|
-|---|---|---|---|
-|`outlined`|`outlined`|`boolean`|`false`|
-|`variant`|`variant`|`"neutral" \| "secondary" \| "primary" \| "informative" \| "notice" \| "warning" \| "realms-informative"`|`"neutral"`|
+
+| Property   | Attribute  | Type                                                                                                      | Default     |
+| ---------- | ---------- | --------------------------------------------------------------------------------------------------------- | ----------- |
+| `outlined` | `outlined` | `boolean`                                                                                                 | `false`     |
+| `variant`  | `variant`  | `"neutral" \| "secondary" \| "primary" \| "informative" \| "notice" \| "warning" \| "realms-informative"` | `"neutral"` |
 
 ## CSS variables
-|Variable|Purpose|
-|---|---|
-|`--ore-tag-background`|Label background|
-|`--ore-tag-foreground`|Label text color|
-|`--ore-tag-border`|Outline color|
+
+| Variable               | Purpose          |
+| ---------------------- | ---------------- |
+| `--ore-tag-background` | Label background |
+| `--ore-tag-foreground` | Label text color |
+| `--ore-tag-border`     | Outline color    |

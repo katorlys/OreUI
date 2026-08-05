@@ -21,11 +21,7 @@ interface NavbarPreviewProps {
   title: string;
 }
 
-function NavbarPreview({
-  action,
-  showBackButton,
-  title,
-}: NavbarPreviewProps) {
+function NavbarPreview({ action, showBackButton, title }: NavbarPreviewProps) {
   return (
     <OreNavbar
       aria-label="Screen navigation"

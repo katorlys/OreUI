@@ -8,6 +8,7 @@ import { ScrollbarStory } from "@/components/stories/scrollbar.story";
 <ScrollbarStory />
 
 ## Usage
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -16,28 +17,32 @@ import "@katorlys/oreui/scrollbar";
 
 ```html
 <ore-scrollbar aria-label="World list" style="max-height: 12rem;">
-	<div>World 1</div>
-	<div>World 2</div>
-	<div>World 3</div>
+  <div>World 1</div>
+  <div>World 2</div>
+  <div>World 3</div>
 </ore-scrollbar>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreScrollbar } from "@katorlys/oreui-react/scrollbar";
 
 export function WorldList() {
-	return (
-		<OreScrollbar aria-label="World list" style={{ maxHeight: "12rem" }}>
-			<div>World 1</div>
-			<div>World 2</div>
-			<div>World 3</div>
-		</OreScrollbar>
-	);
+  return (
+    <OreScrollbar aria-label="World list" style={{ maxHeight: "12rem" }}>
+      <div>World 1</div>
+      <div>World 2</div>
+      <div>World 3</div>
+    </OreScrollbar>
+  );
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-scrollbar aria-label="World list" style="max-height: 12rem;">
 	<div>World 1</div>
@@ -49,18 +54,23 @@ export function WorldList() {
 	import "@katorlys/oreui/scrollbar";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## CSS class
+
 Use `.ore-scrollbar` when only the visual scrollbar style is needed on another element.
+
 ```html
 <div class="ore-scrollbar" style="max-height: 12rem; overflow: auto;">
-	Scrollable content
+  Scrollable content
 </div>
 ```
 
 The class does not add the keyboard behavior or automatic `tabindex` management provided by `ore-scrollbar`.
 
 ## Accessibility
+
 Scrollbar enters the tab order only when its content overflows. `Arrow keys` scroll by a small amount, `Page Up` and `Page Down` scroll by one viewport, and `Home` and `End` move to either edge. Add an accessible label that describes the scroll region.

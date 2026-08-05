@@ -8,6 +8,7 @@ import { AccordionStory } from "@/components/stories/accordion.story";
 <AccordionStory />
 
 ## Usage
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -17,35 +18,47 @@ import "@katorlys/oreui/icon-button";
 
 ```html
 <ore-accordion value="realms">
-	<ore-icon-button class="ore-accordion-trigger" type="button" aria-label="Toggle What is Realms?">
-		<span class="ore-accordion-title">What is Realms?</span>
-	</ore-icon-button>
-	<div class="ore-accordion-content">
-		Realms are private, cloud-hosted worlds where you can play with friends.
-	</div>
+  <ore-icon-button
+    class="ore-accordion-trigger"
+    type="button"
+    aria-label="Toggle What is Realms?"
+  >
+    <span class="ore-accordion-title">What is Realms?</span>
+  </ore-icon-button>
+  <div class="ore-accordion-content">
+    Realms are private, cloud-hosted worlds where you can play with friends.
+  </div>
 </ore-accordion>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreAccordion } from "@katorlys/oreui-react/accordion";
 import { OreIconButton } from "@katorlys/oreui-react/icon-button";
 
 export function Realms() {
-	return (
-		<OreAccordion value="realms">
-			<OreIconButton className="ore-accordion-trigger" type="button" aria-label="Toggle What is Realms?">
-				<span className="ore-accordion-title">What is Realms?</span>
-			</OreIconButton>
-			<div className="ore-accordion-content">
-				Realms are private, cloud-hosted worlds where you can play with friends.
-			</div>
-		</OreAccordion>
-	);
+  return (
+    <OreAccordion value="realms">
+      <OreIconButton
+        className="ore-accordion-trigger"
+        type="button"
+        aria-label="Toggle What is Realms?"
+      >
+        <span className="ore-accordion-title">What is Realms?</span>
+      </OreIconButton>
+      <div className="ore-accordion-content">
+        Realms are private, cloud-hosted worlds where you can play with friends.
+      </div>
+    </OreAccordion>
+  );
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-accordion value="realms">
 	<ore-icon-button class="ore-accordion-trigger" type="button" aria-label="Toggle What is Realms?">
@@ -61,38 +74,47 @@ export function Realms() {
 	import "@katorlys/oreui/icon-button";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## Default state
+
 Use `default-open` for an accordion that starts expanded. Set the `open` property when the application controls its state.
+
 ```html
 <ore-accordion default-open>...</ore-accordion>
 ```
 
 ## Events
+
 `open-change` fires after `open` changes. Its `detail` is the new boolean state.
+
 ```js
 accordion.addEventListener("open-change", (event) => {
-	console.log(event.detail);
+  console.log(event.detail);
 });
 ```
 
 In React, use `onOpenChange`.
 
 ## API
-|Property|Attribute|Type|Default|
-|---|---|---|---|
-|`defaultOpen`|`default-open`|`boolean`|`false`|
-|`open`|`open`|`boolean`|`false`|
-|`value`|`value`|`string`|`""`|
+
+| Property      | Attribute      | Type      | Default |
+| ------------- | -------------- | --------- | ------- |
+| `defaultOpen` | `default-open` | `boolean` | `false` |
+| `open`        | `open`         | `boolean` | `false` |
+| `value`       | `value`        | `string`  | `""`    |
 
 ## Public classes
-|Class|Purpose|
-|---|---|
-|`.ore-accordion-trigger`|Button that toggles the section|
-|`.ore-accordion-title`|Trigger label|
-|`.ore-accordion-content`|Collapsible content|
+
+| Class                    | Purpose                         |
+| ------------------------ | ------------------------------- |
+| `.ore-accordion-trigger` | Button that toggles the section |
+| `.ore-accordion-title`   | Trigger label                   |
+| `.ore-accordion-content` | Collapsible content             |
 
 ## Accessibility
+
 Accordion links the trigger and content with `aria-controls`, updates `aria-expanded`, and hides collapsed content. Use a real button for the trigger.

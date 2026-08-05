@@ -4,7 +4,9 @@ description: Connect OreUI components to forms and event listeners.
 ---
 
 ## FormData
+
 OreUI form controls work with native `forms` and `FormData`.
+
 ```html
 <form id="settings">
   <ore-checkbox name="updates" value="enabled"> Receive updates </ore-checkbox>
@@ -23,6 +25,7 @@ form?.addEventListener("submit", (event) => {
 ```
 
 ## Events
+
 ```ts
 import type { OreDropdownChangeDetail } from "@katorlys/oreui/dropdown";
 
@@ -33,4 +36,5 @@ dropdown?.addEventListener("change", (event) => {
   console.log(detail.value);
 });
 ```
+
 Component events bubble through the DOM. Their detailed types can be imported from the corresponding component entry.

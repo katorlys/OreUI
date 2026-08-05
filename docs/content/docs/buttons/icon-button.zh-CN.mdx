@@ -8,6 +8,7 @@ import { IconButtonStory } from "@/components/stories/icon-button.story";
 <IconButtonStory />
 
 ## 用法
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -17,24 +18,43 @@ import "@katorlys/oreui/icon";
 
 ```html
 <ore-icon-button type="button" aria-label="Close">
-	<ore-icon aria-hidden="true"><svg viewBox="0 0 8 8"><path fill="currentColor" fill-rule="evenodd" d="M.5.5h1v1h.966v1h-1v-1H.5zm7 1h-1v-1h1zm-2 1v-1h1v1zm-1 1h1v-1h-1zm0 1v-1h-1v-1h-1v1h1v1h-1v1h-1v1h-1v1h1v-1h1v-1h1v-1zm0 0h1v1h-1zm1.034 2H6.5v1h1v-1h-.966v-1h-1z" /></svg></ore-icon>
+  <ore-icon aria-hidden="true"
+    ><svg viewBox="0 0 8 8">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M.5.5h1v1h.966v1h-1v-1H.5zm7 1h-1v-1h1zm-2 1v-1h1v1zm-1 1h1v-1h-1zm0 1v-1h-1v-1h-1v1h1v1h-1v1h-1v1h-1v1h1v-1h1v-1h1v-1zm0 0h1v1h-1zm1.034 2H6.5v1h1v-1h-.966v-1h-1z"
+      /></svg
+  ></ore-icon>
 </ore-icon-button>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreIconButton } from "@katorlys/oreui-react/icon-button";
 
 export function CloseButton() {
-	return (
-		<OreIconButton type="button" aria-label="Close">
-			<ore-icon aria-hidden="true"><svg viewBox="0 0 8 8"><path fill="currentColor" fillRule="evenodd" d="M.5.5h1v1h.966v1h-1v-1H.5zm7 1h-1v-1h1zm-2 1v-1h1v1zm-1 1h1v-1h-1zm0 1v-1h-1v-1h-1v1h1v1h-1v1h-1v1h-1v1h1v-1h1v-1h1v-1zm0 0h1v1h-1zm1.034 2H6.5v1h1v-1h-.966v-1h-1z" /></svg></ore-icon>
-		</OreIconButton>
-	);
+  return (
+    <OreIconButton type="button" aria-label="Close">
+      <ore-icon aria-hidden="true">
+        <svg viewBox="0 0 8 8">
+          <path
+            fill="currentColor"
+            fillRule="evenodd"
+            d="M.5.5h1v1h.966v1h-1v-1H.5zm7 1h-1v-1h1zm-2 1v-1h1v1zm-1 1h1v-1h-1zm0 1v-1h-1v-1h-1v1h1v1h-1v1h-1v1h-1v1h1v-1h1v-1h1v-1zm0 0h1v1h-1zm1.034 2H6.5v1h1v-1h-.966v-1h-1z"
+          />
+        </svg>
+      </ore-icon>
+    </OreIconButton>
+  );
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-icon-button type="button" aria-label="Close">
 	<ore-icon aria-hidden="true"><svg viewBox="0 0 8 8"><path fill="currentColor" fill-rule="evenodd" d="M.5.5h1v1h.966v1h-1v-1H.5zm7 1h-1v-1h1zm-2 1v-1h1v1zm-1 1h1v-1h-1zm0 1v-1h-1v-1h-1v1h1v1h-1v1h-1v1h-1v1h1v-1h1v-1h1v-1zm0 0h1v1h-1zm1.034 2H6.5v1h1v-1h-.966v-1h-1z" /></svg></ore-icon>
@@ -45,23 +65,35 @@ export function CloseButton() {
 	import "@katorlys/oreui/icon";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## Disabled
+
 ```html
 <ore-icon-button type="button" aria-label="Close" disabled>
-	<ore-icon aria-hidden="true"><svg viewBox="0 0 8 8"><path fill="currentColor" fill-rule="evenodd" d="M.5.5h1v1h.966v1h-1v-1H.5zm7 1h-1v-1h1zm-2 1v-1h1v1zm-1 1h1v-1h-1zm0 1v-1h-1v-1h-1v1h1v1h-1v1h-1v1h-1v1h1v-1h1v-1h1v-1zm0 0h1v1h-1zm1.034 2H6.5v1h1v-1h-.966v-1h-1z" /></svg></ore-icon>
+  <ore-icon aria-hidden="true"
+    ><svg viewBox="0 0 8 8">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M.5.5h1v1h.966v1h-1v-1H.5zm7 1h-1v-1h1zm-2 1v-1h1v1zm-1 1h1v-1h-1zm0 1v-1h-1v-1h-1v1h1v1h-1v1h-1v1h-1v1h1v-1h1v-1h1v-1zm0 0h1v1h-1zm1.034 2H6.5v1h1v-1h-.966v-1h-1z"
+      /></svg
+  ></ore-icon>
 </ore-icon-button>
 ```
 
 ## API
+
 Icon Button 继承 Button 的 API。
 
-|Prop|属性|类型|默认值|
-|---|---|---|---|
-|`disabled`|`disabled`|`boolean`|`false`|
-|`type`|`type`|`"button" \|"reset" \|"submit"`|`"submit"`|
+| Prop       | 属性       | 类型                            | 默认值     |
+| ---------- | ---------- | ------------------------------- | ---------- |
+| `disabled` | `disabled` | `boolean`                       | `false`    |
+| `type`     | `type`     | `"button" \|"reset" \|"submit"` | `"submit"` |
 
 ## 无障碍
+
 在 `aria-label` 中描述操作。按钮内的图标应使用 `aria-hidden="true"`。

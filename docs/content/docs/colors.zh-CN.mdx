@@ -6,107 +6,539 @@ description: OreUI 内置的颜色变量
 一般情况下使用语义变量。需要固定颜色时，再使用色板变量。
 
 ## 色板
+
 ### Green
-<div style={{ display: "grid", gridTemplateColumns: "repeat(10, minmax(0, 1fr))", minHeight: "4rem" }}>
-	{[10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map((shade) => <div key={shade} title={`--ore-color-green-${shade}`} style={{ background: `var(--ore-color-green-${shade})` }} />)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(10, minmax(0, 1fr))",
+    minHeight: "4rem",
+  }}
+>
+  {[10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map((shade) => (
+    <div
+      key={shade}
+      title={`--ore-color-green-${shade}`}
+      style={{ background: `var(--ore-color-green-${shade})` }}
+    />
+  ))}
 </div>
 
 ### Red
-<div style={{ display: "grid", gridTemplateColumns: "repeat(10, minmax(0, 1fr))", minHeight: "4rem" }}>
-	{[10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map((shade) => <div key={shade} title={`--ore-color-red-${shade}`} style={{ background: `var(--ore-color-red-${shade})` }} />)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(10, minmax(0, 1fr))",
+    minHeight: "4rem",
+  }}
+>
+  {[10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map((shade) => (
+    <div
+      key={shade}
+      title={`--ore-color-red-${shade}`}
+      style={{ background: `var(--ore-color-red-${shade})` }}
+    />
+  ))}
 </div>
 
 ### Blue
-<div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", minHeight: "4rem" }}>
-	{[10, 20, 30].map((shade) => <div key={shade} title={`--ore-color-blue-${shade}`} style={{ background: `var(--ore-color-blue-${shade})` }} />)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+    minHeight: "4rem",
+  }}
+>
+  {[10, 20, 30].map((shade) => (
+    <div
+      key={shade}
+      title={`--ore-color-blue-${shade}`}
+      style={{ background: `var(--ore-color-blue-${shade})` }}
+    />
+  ))}
 </div>
 
 ### Yellow
-<div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", minHeight: "4rem" }}>
-	{[10, 20, 30].map((shade) => <div key={shade} title={`--ore-color-yellow-${shade}`} style={{ background: `var(--ore-color-yellow-${shade})` }} />)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+    minHeight: "4rem",
+  }}
+>
+  {[10, 20, 30].map((shade) => (
+    <div
+      key={shade}
+      title={`--ore-color-yellow-${shade}`}
+      style={{ background: `var(--ore-color-yellow-${shade})` }}
+    />
+  ))}
 </div>
 
 ### Orange
-<div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", minHeight: "4rem" }}>
-	{[10, 20, 30].map((shade) => <div key={shade} title={`--ore-color-orange-${shade}`} style={{ background: `var(--ore-color-orange-${shade})` }} />)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+    minHeight: "4rem",
+  }}
+>
+  {[10, 20, 30].map((shade) => (
+    <div
+      key={shade}
+      title={`--ore-color-orange-${shade}`}
+      style={{ background: `var(--ore-color-orange-${shade})` }}
+    />
+  ))}
 </div>
 
 ### Deep blue
-<div style={{ display: "grid", gridTemplateColumns: "repeat(7, minmax(0, 1fr))", minHeight: "4rem" }}>
-	{[10, 20, 40, 50, 60, 70, 100].map((shade) => <div key={shade} title={`--ore-color-deep-blue-${shade}`} style={{ background: `var(--ore-color-deep-blue-${shade})` }} />)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(7, minmax(0, 1fr))",
+    minHeight: "4rem",
+  }}
+>
+  {[10, 20, 40, 50, 60, 70, 100].map((shade) => (
+    <div
+      key={shade}
+      title={`--ore-color-deep-blue-${shade}`}
+      style={{ background: `var(--ore-color-deep-blue-${shade})` }}
+    />
+  ))}
 </div>
 
 ### Gray
-<div style={{ display: "grid", gridTemplateColumns: "repeat(10, minmax(0, 1fr))", minHeight: "4rem", outline: "1px solid var(--ore-color-gray-30)" }}>
-	{[10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map((shade) => <div key={shade} title={`--ore-color-gray-${shade}`} style={{ background: `var(--ore-color-gray-${shade})` }} />)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(10, minmax(0, 1fr))",
+    minHeight: "4rem",
+    outline: "1px solid var(--ore-color-gray-30)",
+  }}
+>
+  {[10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map((shade) => (
+    <div
+      key={shade}
+      title={`--ore-color-gray-${shade}`}
+      style={{ background: `var(--ore-color-gray-${shade})` }}
+    />
+  ))}
 </div>
 
 ### Black and white
-<div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", minHeight: "4rem", outline: "1px solid var(--ore-color-gray-30)" }}>
-	<div title="--ore-color-white" style={{ background: "var(--ore-color-white)" }} />
-	<div title="--ore-color-black" style={{ background: "var(--ore-color-black)" }} />
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+    minHeight: "4rem",
+    outline: "1px solid var(--ore-color-gray-30)",
+  }}
+>
+  <div
+    title="--ore-color-white"
+    style={{ background: "var(--ore-color-white)" }}
+  />
+  <div
+    title="--ore-color-black"
+    style={{ background: "var(--ore-color-black)" }}
+  />
 </div>
 
 ## 透明度
+
 ### Black
-<div style={{ display: "grid", gridTemplateColumns: "repeat(9, minmax(0, 1fr))", minHeight: "4rem", background: "var(--ore-color-white)" }}>
-	{[10, 20, 30, 40, 50, 60, 70, 80, 90].map((opacity) => <div key={opacity} title={`--ore-color-black-opacity-${opacity}`} style={{ background: `var(--ore-color-black-opacity-${opacity})` }} />)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(9, minmax(0, 1fr))",
+    minHeight: "4rem",
+    background: "var(--ore-color-white)",
+  }}
+>
+  {[10, 20, 30, 40, 50, 60, 70, 80, 90].map((opacity) => (
+    <div
+      key={opacity}
+      title={`--ore-color-black-opacity-${opacity}`}
+      style={{ background: `var(--ore-color-black-opacity-${opacity})` }}
+    />
+  ))}
 </div>
 
 ### White
-<div style={{ display: "grid", gridTemplateColumns: "repeat(9, minmax(0, 1fr))", minHeight: "4rem", background: "var(--ore-color-black)" }}>
-	{[10, 20, 30, 40, 50, 60, 70, 80, 90].map((opacity) => <div key={opacity} title={`--ore-color-white-opacity-${opacity}`} style={{ background: `var(--ore-color-white-opacity-${opacity})` }} />)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(9, minmax(0, 1fr))",
+    minHeight: "4rem",
+    background: "var(--ore-color-black)",
+  }}
+>
+  {[10, 20, 30, 40, 50, 60, 70, 80, 90].map((opacity) => (
+    <div
+      key={opacity}
+      title={`--ore-color-white-opacity-${opacity}`}
+      style={{ background: `var(--ore-color-white-opacity-${opacity})` }}
+    />
+  ))}
 </div>
 
 ## Core
-<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))", gap: "0.5rem" }}>
-	{["foreground", "border", "focus-ring", "disabled", "disabled-shadow", "disabled-foreground", "disabled-foreground-dim", "disabled-border"].map((token) => <div key={token} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><span style={{ width: "2rem", height: "2rem", flex: "0 0 auto", background: `var(--ore-color-${token})`, outline: "1px solid var(--ore-color-gray-50)" }} /><code>{`--ore-color-${token}`}</code></div>)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))",
+    gap: "0.5rem",
+  }}
+>
+  {[
+    "foreground",
+    "border",
+    "focus-ring",
+    "disabled",
+    "disabled-shadow",
+    "disabled-foreground",
+    "disabled-foreground-dim",
+    "disabled-border",
+  ].map((token) => (
+    <div
+      key={token}
+      style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+    >
+      <span
+        style={{
+          width: "2rem",
+          height: "2rem",
+          flex: "0 0 auto",
+          background: `var(--ore-color-${token})`,
+          outline: "1px solid var(--ore-color-gray-50)",
+        }}
+      />
+      <code>{`--ore-color-${token}`}</code>
+    </div>
+  ))}
 </div>
 
 ## 语义变量
+
 ### Primary
-<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))", gap: "0.5rem" }}>
-	{["primary-background", "primary-background-hover", "primary-background-pressed", "primary-highlight", "primary-highlight-hover", "primary-highlight-pressed", "primary-shadow"].map((token) => <div key={token} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><span style={{ width: "2rem", height: "2rem", flex: "0 0 auto", background: `var(--ore-color-${token})` }} /><code>{`--ore-color-${token}`}</code></div>)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))",
+    gap: "0.5rem",
+  }}
+>
+  {[
+    "primary-background",
+    "primary-background-hover",
+    "primary-background-pressed",
+    "primary-highlight",
+    "primary-highlight-hover",
+    "primary-highlight-pressed",
+    "primary-shadow",
+  ].map((token) => (
+    <div
+      key={token}
+      style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+    >
+      <span
+        style={{
+          width: "2rem",
+          height: "2rem",
+          flex: "0 0 auto",
+          background: `var(--ore-color-${token})`,
+        }}
+      />
+      <code>{`--ore-color-${token}`}</code>
+    </div>
+  ))}
 </div>
 
 ### Secondary
-<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))", gap: "0.5rem" }}>
-	{["secondary-background", "secondary-background-hover", "secondary-background-pressed", "secondary-highlight", "secondary-highlight-hover", "secondary-highlight-pressed", "secondary-shadow"].map((token) => <div key={token} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><span style={{ width: "2rem", height: "2rem", flex: "0 0 auto", background: `var(--ore-color-${token})` }} /><code>{`--ore-color-${token}`}</code></div>)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))",
+    gap: "0.5rem",
+  }}
+>
+  {[
+    "secondary-background",
+    "secondary-background-hover",
+    "secondary-background-pressed",
+    "secondary-highlight",
+    "secondary-highlight-hover",
+    "secondary-highlight-pressed",
+    "secondary-shadow",
+  ].map((token) => (
+    <div
+      key={token}
+      style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+    >
+      <span
+        style={{
+          width: "2rem",
+          height: "2rem",
+          flex: "0 0 auto",
+          background: `var(--ore-color-${token})`,
+        }}
+      />
+      <code>{`--ore-color-${token}`}</code>
+    </div>
+  ))}
 </div>
 
 ### Neutral
-<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))", gap: "0.5rem" }}>
-	{["neutral-background", "neutral-background-hover", "neutral-background-pressed", "neutral-highlight", "neutral-highlight-hover", "neutral-highlight-pressed", "neutral-shadow", "neutral-text", "neutral-text-dim", "neutral-text-dimmer", "neutral-border", "neutral-surface", "neutral-surface-raised", "neutral-surface-sunken", "neutral-surface-deep", "neutral-specular", "neutral-bevel-shadow", "neutral-corner", "neutral-divider"].map((token) => <div key={token} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><span style={{ width: "2rem", height: "2rem", flex: "0 0 auto", background: `var(--ore-color-${token})`, outline: "1px solid var(--ore-color-gray-50)" }} /><code>{`--ore-color-${token}`}</code></div>)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))",
+    gap: "0.5rem",
+  }}
+>
+  {[
+    "neutral-background",
+    "neutral-background-hover",
+    "neutral-background-pressed",
+    "neutral-highlight",
+    "neutral-highlight-hover",
+    "neutral-highlight-pressed",
+    "neutral-shadow",
+    "neutral-text",
+    "neutral-text-dim",
+    "neutral-text-dimmer",
+    "neutral-border",
+    "neutral-surface",
+    "neutral-surface-raised",
+    "neutral-surface-sunken",
+    "neutral-surface-deep",
+    "neutral-specular",
+    "neutral-bevel-shadow",
+    "neutral-corner",
+    "neutral-divider",
+  ].map((token) => (
+    <div
+      key={token}
+      style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+    >
+      <span
+        style={{
+          width: "2rem",
+          height: "2rem",
+          flex: "0 0 auto",
+          background: `var(--ore-color-${token})`,
+          outline: "1px solid var(--ore-color-gray-50)",
+        }}
+      />
+      <code>{`--ore-color-${token}`}</code>
+    </div>
+  ))}
 </div>
 
 ### Neutral 50
-<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))", gap: "0.5rem" }}>
-	{["neutral-50-background", "neutral-50-background-hover", "neutral-50-background-pressed", "neutral-50-highlight", "neutral-50-highlight-hover", "neutral-50-highlight-pressed", "neutral-50-highlight-focus"].map((token) => <div key={token} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><span style={{ width: "2rem", height: "2rem", flex: "0 0 auto", background: `var(--ore-color-${token})` }} /><code>{`--ore-color-${token}`}</code></div>)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))",
+    gap: "0.5rem",
+  }}
+>
+  {[
+    "neutral-50-background",
+    "neutral-50-background-hover",
+    "neutral-50-background-pressed",
+    "neutral-50-highlight",
+    "neutral-50-highlight-hover",
+    "neutral-50-highlight-pressed",
+    "neutral-50-highlight-focus",
+  ].map((token) => (
+    <div
+      key={token}
+      style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+    >
+      <span
+        style={{
+          width: "2rem",
+          height: "2rem",
+          flex: "0 0 auto",
+          background: `var(--ore-color-${token})`,
+        }}
+      />
+      <code>{`--ore-color-${token}`}</code>
+    </div>
+  ))}
 </div>
 
 ### Destructive
-<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))", gap: "0.5rem" }}>
-	{["destructive-background", "destructive-background-hover", "destructive-background-pressed", "destructive-highlight", "destructive-highlight-hover", "destructive-highlight-pressed", "destructive-shadow"].map((token) => <div key={token} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><span style={{ width: "2rem", height: "2rem", flex: "0 0 auto", background: `var(--ore-color-${token})` }} /><code>{`--ore-color-${token}`}</code></div>)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))",
+    gap: "0.5rem",
+  }}
+>
+  {[
+    "destructive-background",
+    "destructive-background-hover",
+    "destructive-background-pressed",
+    "destructive-highlight",
+    "destructive-highlight-hover",
+    "destructive-highlight-pressed",
+    "destructive-shadow",
+  ].map((token) => (
+    <div
+      key={token}
+      style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+    >
+      <span
+        style={{
+          width: "2rem",
+          height: "2rem",
+          flex: "0 0 auto",
+          background: `var(--ore-color-${token})`,
+        }}
+      />
+      <code>{`--ore-color-${token}`}</code>
+    </div>
+  ))}
 </div>
 
 ## Feedback
-<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))", gap: "0.5rem" }}>
-	{["primary-tint-background", "primary-tint-foreground", "success-background", "success-foreground", "success-tint-background", "success-tint-foreground", "informative-background", "informative-foreground", "informative-tint-background", "informative-tint-foreground", "notice-background", "notice-tint-background", "notice-tint-foreground", "destructive-tint-background", "destructive-tint-foreground"].map((token) => <div key={token} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><span style={{ width: "2rem", height: "2rem", flex: "0 0 auto", background: `var(--ore-color-${token})`, outline: "1px solid var(--ore-color-gray-50)" }} /><code>{`--ore-color-${token}`}</code></div>)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))",
+    gap: "0.5rem",
+  }}
+>
+  {[
+    "primary-tint-background",
+    "primary-tint-foreground",
+    "success-background",
+    "success-foreground",
+    "success-tint-background",
+    "success-tint-foreground",
+    "informative-background",
+    "informative-foreground",
+    "informative-tint-background",
+    "informative-tint-foreground",
+    "notice-background",
+    "notice-tint-background",
+    "notice-tint-foreground",
+    "destructive-tint-background",
+    "destructive-tint-foreground",
+  ].map((token) => (
+    <div
+      key={token}
+      style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+    >
+      <span
+        style={{
+          width: "2rem",
+          height: "2rem",
+          flex: "0 0 auto",
+          background: `var(--ore-color-${token})`,
+          outline: "1px solid var(--ore-color-gray-50)",
+        }}
+      />
+      <code>{`--ore-color-${token}`}</code>
+    </div>
+  ))}
 </div>
 
 ## Realms
-<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))", gap: "0.5rem" }}>
-	{["realms-primary-background", "realms-primary-background-hover", "realms-primary-background-pressed", "realms-primary-shadow", "realms-primary-tint-background", "realms-informative-background", "realms-informative-tint-background"].map((token) => <div key={token} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><span style={{ width: "2rem", height: "2rem", flex: "0 0 auto", background: `var(--ore-color-${token})` }} /><code>{`--ore-color-${token}`}</code></div>)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))",
+    gap: "0.5rem",
+  }}
+>
+  {[
+    "realms-primary-background",
+    "realms-primary-background-hover",
+    "realms-primary-background-pressed",
+    "realms-primary-shadow",
+    "realms-primary-tint-background",
+    "realms-informative-background",
+    "realms-informative-tint-background",
+  ].map((token) => (
+    <div
+      key={token}
+      style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+    >
+      <span
+        style={{
+          width: "2rem",
+          height: "2rem",
+          flex: "0 0 auto",
+          background: `var(--ore-color-${token})`,
+        }}
+      />
+      <code>{`--ore-color-${token}`}</code>
+    </div>
+  ))}
 </div>
 
 ## 效果与导航
-<div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))", gap: "0.5rem" }}>
-	{["overlay", "text-shadow", "nav-background", "nav-shadow", "nav-drop-shadow", "nav-action-highlight", "nav-action-shadow"].map((token) => <div key={token} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}><span style={{ width: "2rem", height: "2rem", flex: "0 0 auto", background: `var(--ore-color-${token})`, outline: "1px solid var(--ore-color-gray-50)" }} /><code>{`--ore-color-${token}`}</code></div>)}
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))",
+    gap: "0.5rem",
+  }}
+>
+  {[
+    "overlay",
+    "text-shadow",
+    "nav-background",
+    "nav-shadow",
+    "nav-drop-shadow",
+    "nav-action-highlight",
+    "nav-action-shadow",
+  ].map((token) => (
+    <div
+      key={token}
+      style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+    >
+      <span
+        style={{
+          width: "2rem",
+          height: "2rem",
+          flex: "0 0 auto",
+          background: `var(--ore-color-${token})`,
+          outline: "1px solid var(--ore-color-gray-50)",
+        }}
+      />
+      <code>{`--ore-color-${token}`}</code>
+    </div>
+  ))}
 </div>
 
 ```css
 .status-message {
-	background: var(--ore-color-informative-tint-background);
-	color: var(--ore-color-informative-tint-foreground);
+  background: var(--ore-color-informative-tint-background);
+  color: var(--ore-color-informative-tint-foreground);
 }
 ```

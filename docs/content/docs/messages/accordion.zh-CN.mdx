@@ -8,6 +8,7 @@ import { AccordionStory } from "@/components/stories/accordion.story";
 <AccordionStory />
 
 ## 用法
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -17,35 +18,47 @@ import "@katorlys/oreui/icon-button";
 
 ```html
 <ore-accordion value="realms">
-	<ore-icon-button class="ore-accordion-trigger" type="button" aria-label="Toggle What is Realms?">
-		<span class="ore-accordion-title">What is Realms?</span>
-	</ore-icon-button>
-	<div class="ore-accordion-content">
-		Realms are private, cloud-hosted worlds where you can play with friends.
-	</div>
+  <ore-icon-button
+    class="ore-accordion-trigger"
+    type="button"
+    aria-label="Toggle What is Realms?"
+  >
+    <span class="ore-accordion-title">What is Realms?</span>
+  </ore-icon-button>
+  <div class="ore-accordion-content">
+    Realms are private, cloud-hosted worlds where you can play with friends.
+  </div>
 </ore-accordion>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreAccordion } from "@katorlys/oreui-react/accordion";
 import { OreIconButton } from "@katorlys/oreui-react/icon-button";
 
 export function Realms() {
-	return (
-		<OreAccordion value="realms">
-			<OreIconButton className="ore-accordion-trigger" type="button" aria-label="Toggle What is Realms?">
-				<span className="ore-accordion-title">What is Realms?</span>
-			</OreIconButton>
-			<div className="ore-accordion-content">
-				Realms are private, cloud-hosted worlds where you can play with friends.
-			</div>
-		</OreAccordion>
-	);
+  return (
+    <OreAccordion value="realms">
+      <OreIconButton
+        className="ore-accordion-trigger"
+        type="button"
+        aria-label="Toggle What is Realms?"
+      >
+        <span className="ore-accordion-title">What is Realms?</span>
+      </OreIconButton>
+      <div className="ore-accordion-content">
+        Realms are private, cloud-hosted worlds where you can play with friends.
+      </div>
+    </OreAccordion>
+  );
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-accordion value="realms">
 	<ore-icon-button class="ore-accordion-trigger" type="button" aria-label="Toggle What is Realms?">
@@ -61,38 +74,47 @@ export function Realms() {
 	import "@katorlys/oreui/icon-button";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## 默认状态
+
 使用 `default-open` 将 Accordion 的初始默认状态设置为展开状态。当由应用程序控制其状态时，应设置 `open` 属性。
+
 ```html
 <ore-accordion default-open>...</ore-accordion>
 ```
 
 ## 事件
+
 `open` 属性发生变化后会触发 `open-change`。其 `detail` 是新的 boolean 状态。
+
 ```js
 accordion.addEventListener("open-change", (event) => {
-	console.log(event.detail);
+  console.log(event.detail);
 });
 ```
 
 对于 React，请使用 `onOpenChange`。
 
 ## API
-|Prop|属性|类型|默认值|
-|---|---|---|---|
-|`defaultOpen`|`default-open`|`boolean`|`false`|
-|`open`|`open`|`boolean`|`false`|
-|`value`|`value`|`string`|`""`|
+
+| Prop          | 属性           | 类型      | 默认值  |
+| ------------- | -------------- | --------- | ------- |
+| `defaultOpen` | `default-open` | `boolean` | `false` |
+| `open`        | `open`         | `boolean` | `false` |
+| `value`       | `value`        | `string`  | `""`    |
 
 ## 公开类
-|类|用途|
-|---|---|
-|`.ore-accordion-trigger`|切换内容区域的按钮|
-|`.ore-accordion-title`|触发器标签|
-|`.ore-accordion-content`|可折叠内容|
+
+| 类                       | 用途               |
+| ------------------------ | ------------------ |
+| `.ore-accordion-trigger` | 切换内容区域的按钮 |
+| `.ore-accordion-title`   | 触发器标签         |
+| `.ore-accordion-content` | 可折叠内容         |
 
 ## 无障碍
+
 Accordion 使用 `aria-controls` 关联触发器与内容、更新 `aria-expanded`，并隐藏已折叠的内容。应使用真正的按钮作为触发器。

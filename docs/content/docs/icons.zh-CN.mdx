@@ -6,17 +6,20 @@ description: OreUI 中的图标
 OreUI 尚未提供图标组件。请直接使用 SVG 文件或将其内嵌到 HTML 中。
 
 ## 图标库
-|导航|操作|状态|
-|---|---|---|
-|`arrow-up`|`chevron-up`|`tick`|
-|`arrow-right`|`chevron-right`|`cross`|
-|`arrow-down`|`chevron-down`|`circle`|
-|`arrow-left`|`chevron-left`|`on`|
-|||`off`|
-|||`spinner`|
+
+| 导航          | 操作            | 状态      |
+| ------------- | --------------- | --------- |
+| `arrow-up`    | `chevron-up`    | `tick`    |
+| `arrow-right` | `chevron-right` | `cross`   |
+| `arrow-down`  | `chevron-down`  | `circle`  |
+| `arrow-left`  | `chevron-left`  | `on`      |
+|               |                 | `off`     |
+|               |                 | `spinner` |
 
 ## 原文件
+
 当图标不需要继承文本颜色时，直接使用 SVG 文件。
+
 ```js
 import arrowRightUrl from "@katorlys/oreui/icons/arrow-right";
 
@@ -30,33 +33,36 @@ document.querySelector(".next-action").prepend(icon);
 ```
 
 ## currentColor
+
 需要继承周围颜色时，应将图标内联到 `ore-icon` 中。
+
 ```html
 <ore-icon aria-hidden="true">
-	<svg viewBox="0 0 8 8">
-		<path fill="currentColor" d="..." />
-	</svg>
+  <svg viewBox="0 0 8 8">
+    <path fill="currentColor" d="..." />
+  </svg>
 </ore-icon>
 ```
 
 ```css
 .success-icon {
-	color: var(--ore-color-success-background);
-	font-size: 1.5rem;
+  color: var(--ore-color-success-background);
+  font-size: 1.5rem;
 }
 ```
 
 `ore-icon` 是一个轻量的样式元素。目前它还不会根据名称加载图标。
 
 ## 图标按钮
+
 将嵌入式 SVG 放入[图标按钮](../buttons/icon-button)，并为按钮提供无障碍标签。
 
 ```html
 <ore-icon-button aria-label="Back">
-	<ore-icon aria-hidden="true">
-		<svg viewBox="0 0 8 8">
-			<path fill="currentColor" d="..." />
-		</svg>
-	</ore-icon>
+  <ore-icon aria-hidden="true">
+    <svg viewBox="0 0 8 8">
+      <path fill="currentColor" d="..." />
+    </svg>
+  </ore-icon>
 </ore-icon-button>
 ```

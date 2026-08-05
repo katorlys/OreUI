@@ -36,7 +36,11 @@ function DropdownPreview({
         variant={variant}
         onChange={(event) => setValue(event.detail.value)}
       >
-        <OreButton className="ore-dropdown-trigger" type="button" variant="secondary">
+        <OreButton
+          className="ore-dropdown-trigger"
+          type="button"
+          variant="secondary"
+        >
           <span className="ore-dropdown-trigger-label">{label}</span>
         </OreButton>
         <div className="ore-dropdown-menu">

@@ -4,6 +4,7 @@ description: 组件状态和无障碍属性
 ---
 
 ## 默认状态
+
 ```html
 <ore-accordion default-open>
   <ore-button class="ore-accordion-trigger" type="button">Details</ore-button>
@@ -12,7 +13,9 @@ description: 组件状态和无障碍属性
 ```
 
 ## 受控状态
+
 状态受应用控制时，设置元素属性，并监听变化：
+
 ```ts
 const accordion = document.querySelector("ore-accordion");
 
@@ -25,6 +28,7 @@ if (accordion) {
 ```
 
 ## 无障碍检查清单
+
 - [ ] 为只含图标的控件添加 `aria-label`。
 - [ ] 使用原生标题、表格、链接和表单标签。
 - [ ] 使焦点样式清晰可见。

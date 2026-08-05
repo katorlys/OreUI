@@ -8,6 +8,7 @@ import { ProgressBarStory } from "@/components/stories/progress-bar.story";
 <ProgressBarStory />
 
 ## Usage
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -17,17 +18,21 @@ import "@katorlys/oreui/progress-bar";
 ```html
 <ore-progress-bar value="65" max="100" variant="labeled"></ore-progress-bar>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreProgressBar } from "@katorlys/oreui-react/progress-bar";
 
 export function DownloadProgress() {
-	return <OreProgressBar value={65} max={100} variant="labeled" />;
+  return <OreProgressBar value={65} max={100} variant="labeled" />;
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-progress-bar value="65" max="100" variant="labeled"></ore-progress-bar>
 
@@ -35,38 +40,55 @@ export function DownloadProgress() {
 	import "@katorlys/oreui/progress-bar";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## Labels
+
 The labeled variant shows a percentage by default. Set `label` to display custom text.
+
 ```html
-<ore-progress-bar value="65" variant="labeled" label="Loading resources"></ore-progress-bar>
-<ore-progress-bar value="65" variant="labeled" label-position="top" label-align="start"></ore-progress-bar>
+<ore-progress-bar
+  value="65"
+  variant="labeled"
+  label="Loading resources"
+></ore-progress-bar>
+<ore-progress-bar
+  value="65"
+  variant="labeled"
+  label-position="top"
+  label-align="start"
+></ore-progress-bar>
 ```
 
 Custom label markup can use the public label class:
+
 ```html
 <ore-progress-bar value="65" variant="labeled">
-	<span class="ore-progress-bar-label">65 of 100 chunks</span>
+  <span class="ore-progress-bar-label">65 of 100 chunks</span>
 </ore-progress-bar>
 ```
 
 ## API
-|Property|Attribute|Type|Default|
-|---|---|---|---|
-|`label`|`label`|`string`|`""`|
-|`labelAlign`|`label-align`|`"center" \|"end" \|"start"`|`"center"`|
-|`labelPosition`|`label-position`|`"bottom" \|"top"`|`"bottom"`|
-|`max`|`max`|`number`|`100`|
-|`value`|`value`|`number`|`0`|
-|`variant`|`variant`|`"labeled" \|"plain"`|`"plain"`|
+
+| Property        | Attribute        | Type                         | Default    |
+| --------------- | ---------------- | ---------------------------- | ---------- |
+| `label`         | `label`          | `string`                     | `""`       |
+| `labelAlign`    | `label-align`    | `"center" \|"end" \|"start"` | `"center"` |
+| `labelPosition` | `label-position` | `"bottom" \|"top"`           | `"bottom"` |
+| `max`           | `max`            | `number`                     | `100`      |
+| `value`         | `value`          | `number`                     | `0`        |
+| `variant`       | `variant`        | `"labeled" \|"plain"`        | `"plain"`  |
 
 ## Public classes
-|Class|Purpose|
-|---|---|
-|`.ore-progress-bar-track`|Progress track and fill|
-|`.ore-progress-bar-label`|Percentage or custom label|
+
+| Class                     | Purpose                    |
+| ------------------------- | -------------------------- |
+| `.ore-progress-bar-track` | Progress track and fill    |
+| `.ore-progress-bar-label` | Percentage or custom label |
 
 ## Accessibility
+
 Progress Bar uses `role="progressbar"` and keeps `aria-valuemin`, `aria-valuemax`, and `aria-valuenow` in sync. Custom label is exposed through `aria-valuetext`.

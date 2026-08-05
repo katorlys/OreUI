@@ -8,6 +8,7 @@ import { ProgressBarStory } from "@/components/stories/progress-bar.story";
 <ProgressBarStory />
 
 ## 用法
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -17,17 +18,21 @@ import "@katorlys/oreui/progress-bar";
 ```html
 <ore-progress-bar value="65" max="100" variant="labeled"></ore-progress-bar>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreProgressBar } from "@katorlys/oreui-react/progress-bar";
 
 export function DownloadProgress() {
-	return <OreProgressBar value={65} max={100} variant="labeled" />;
+  return <OreProgressBar value={65} max={100} variant="labeled" />;
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-progress-bar value="65" max="100" variant="labeled"></ore-progress-bar>
 
@@ -35,38 +40,55 @@ export function DownloadProgress() {
 	import "@katorlys/oreui/progress-bar";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## 标签
+
 带标签的变体默认显示百分比。设置 `label` 以显示自定义文本。
+
 ```html
-<ore-progress-bar value="65" variant="labeled" label="Loading resources"></ore-progress-bar>
-<ore-progress-bar value="65" variant="labeled" label-position="top" label-align="start"></ore-progress-bar>
+<ore-progress-bar
+  value="65"
+  variant="labeled"
+  label="Loading resources"
+></ore-progress-bar>
+<ore-progress-bar
+  value="65"
+  variant="labeled"
+  label-position="top"
+  label-align="start"
+></ore-progress-bar>
 ```
 
 自定义标签标记可使用公共标签类：
+
 ```html
 <ore-progress-bar value="65" variant="labeled">
-	<span class="ore-progress-bar-label">65 of 100 chunks</span>
+  <span class="ore-progress-bar-label">65 of 100 chunks</span>
 </ore-progress-bar>
 ```
 
 ## API
-|Prop|属性|类型|默认值|
-|---|---|---|---|
-|`label`|`label`|`string`|`""`|
-|`labelAlign`|`label-align`|`"center" \|"end" \|"start"`|`"center"`|
-|`labelPosition`|`label-position`|`"bottom" \|"top"`|`"bottom"`|
-|`max`|`max`|`number`|`100`|
-|`value`|`value`|`number`|`0`|
-|`variant`|`variant`|`"labeled" \|"plain"`|`"plain"`|
+
+| Prop            | 属性             | 类型                         | 默认值     |
+| --------------- | ---------------- | ---------------------------- | ---------- |
+| `label`         | `label`          | `string`                     | `""`       |
+| `labelAlign`    | `label-align`    | `"center" \|"end" \|"start"` | `"center"` |
+| `labelPosition` | `label-position` | `"bottom" \|"top"`           | `"bottom"` |
+| `max`           | `max`            | `number`                     | `100`      |
+| `value`         | `value`          | `number`                     | `0`        |
+| `variant`       | `variant`        | `"labeled" \|"plain"`        | `"plain"`  |
 
 ## 公开类
-|类|用途|
-|---|---|
-|`.ore-progress-bar-track`|进度轨道和填充部分|
-|`.ore-progress-bar-label`|百分比或自定义标签|
+
+| 类                        | 用途               |
+| ------------------------- | ------------------ |
+| `.ore-progress-bar-track` | 进度轨道和填充部分 |
+| `.ore-progress-bar-label` | 百分比或自定义标签 |
 
 ## 无障碍
+
 Progress Bar 使用 `role="progressbar"`，并保持 `aria-valuemin`、`aria-valuemax` 和 `aria-valuenow` 同步。自定义标签通过 `aria-valuetext` 提供给辅助技术。

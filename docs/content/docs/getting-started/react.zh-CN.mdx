@@ -4,6 +4,7 @@ description: 在 React 应用中使用 OreUI
 ---
 
 ## 安装
+
 ```bash tab="pnpm"
 pnpm add @katorlys/oreui @katorlys/oreui-react
 ```
@@ -21,12 +22,15 @@ bun add @katorlys/oreui @katorlys/oreui-react
 ```
 
 ## 添加样式
+
 在 app entry 中导入一次样式表即可：
+
 ```ts
 import "@katorlys/oreui/styles.css";
 ```
 
 ## 使用组件
+
 ```tsx title="App.tsx"
 import { OreButton } from "@katorlys/oreui-react/button";
 
@@ -35,12 +39,12 @@ export function App() {
 }
 ```
 
-<Callout type="info">
-  导入 `@katorlys/oreui-react` 即可使用所有组件。
-</Callout>
+<Callout type="info">导入 `@katorlys/oreui-react` 即可使用所有组件。</Callout>
 
 ## 示例
+
 事件：
+
 ```tsx title="GameMode.tsx"
 import { OreButton } from "@katorlys/oreui-react/button";
 import { OreDropdown } from "@katorlys/oreui-react/dropdown";
@@ -67,5 +71,6 @@ export function GameMode() {
 React 封装组件会转发 `children`、`className`、属性、aria 属性 以及 ref。
 
 <Callout type="warn">
-  OreUI React 目前仅支持客户端应用。未来可能会增加对服务器组件和服务端渲染的支持。
+  OreUI React
+  目前仅支持客户端应用。未来可能会增加对服务器组件和服务端渲染的支持。
 </Callout>

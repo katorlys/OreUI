@@ -20,11 +20,7 @@ interface IconButtonPreviewProps {
   type: "button" | "reset" | "submit";
 }
 
-function IconButtonPreview({
-  disabled,
-  label,
-  type,
-}: IconButtonPreviewProps) {
+function IconButtonPreview({ disabled, label, type }: IconButtonPreviewProps) {
   return (
     <OreIconButton aria-label={label} disabled={disabled} type={type}>
       {createElement("ore-icon", { "aria-hidden": "true" }, closeIcon)}

@@ -8,6 +8,7 @@ import { ScrollbarStory } from "@/components/stories/scrollbar.story";
 <ScrollbarStory />
 
 ## 用法
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -16,28 +17,32 @@ import "@katorlys/oreui/scrollbar";
 
 ```html
 <ore-scrollbar aria-label="World list" style="max-height: 12rem;">
-	<div>World 1</div>
-	<div>World 2</div>
-	<div>World 3</div>
+  <div>World 1</div>
+  <div>World 2</div>
+  <div>World 3</div>
 </ore-scrollbar>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreScrollbar } from "@katorlys/oreui-react/scrollbar";
 
 export function WorldList() {
-	return (
-		<OreScrollbar aria-label="World list" style={{ maxHeight: "12rem" }}>
-			<div>World 1</div>
-			<div>World 2</div>
-			<div>World 3</div>
-		</OreScrollbar>
-	);
+  return (
+    <OreScrollbar aria-label="World list" style={{ maxHeight: "12rem" }}>
+      <div>World 1</div>
+      <div>World 2</div>
+      <div>World 3</div>
+    </OreScrollbar>
+  );
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-scrollbar aria-label="World list" style="max-height: 12rem;">
 	<div>World 1</div>
@@ -49,18 +54,23 @@ export function WorldList() {
 	import "@katorlys/oreui/scrollbar";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## CSS 类
+
 若有其他元素只需要滚动条的视觉样式，使用 `.ore-scrollbar`。
+
 ```html
 <div class="ore-scrollbar" style="max-height: 12rem; overflow: auto;">
-	Scrollable content
+  Scrollable content
 </div>
 ```
 
 该类不会添加 Scrollbar 提供的键盘行为和自动 `tabindex` 管理功能。
 
 ## 无障碍
+
 Scrollbar 仅在内容溢出时进入 `Tab` 顺序。按`方向键`可小幅滚动，按 `Page Up` 和 `Page Down` 可滚动一个 viewport，按 `Home` 和 `End` 可移动到任一边缘。应设置描述滚动区域的无障碍标签。

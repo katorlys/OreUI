@@ -8,6 +8,7 @@ import { RadioGroupStory } from "@/components/stories/radio-group.story";
 <RadioGroupStory />
 
 ## 用法
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -17,29 +18,39 @@ import "@katorlys/oreui/radio-group";
 
 ```html
 <ore-radio-group aria-label="World type">
-	<ore-radio name="world" value="survival" checked>Survival</ore-radio>
-	<ore-radio name="world" value="creative">Creative</ore-radio>
-	<ore-radio name="world" value="hardcore" disabled>Hardcore</ore-radio>
+  <ore-radio name="world" value="survival" checked>Survival</ore-radio>
+  <ore-radio name="world" value="creative">Creative</ore-radio>
+  <ore-radio name="world" value="hardcore" disabled>Hardcore</ore-radio>
 </ore-radio-group>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreRadio } from "@katorlys/oreui-react/radio";
 import { OreRadioGroup } from "@katorlys/oreui-react/radio-group";
 
 export function WorldType() {
-	return (
-		<OreRadioGroup aria-label="World type">
-			<OreRadio name="world" value="survival" checked>Survival</OreRadio>
-			<OreRadio name="world" value="creative">Creative</OreRadio>
-			<OreRadio name="world" value="hardcore" disabled>Hardcore</OreRadio>
-		</OreRadioGroup>
-	);
+  return (
+    <OreRadioGroup aria-label="World type">
+      <OreRadio name="world" value="survival" checked>
+        Survival
+      </OreRadio>
+      <OreRadio name="world" value="creative">
+        Creative
+      </OreRadio>
+      <OreRadio name="world" value="hardcore" disabled>
+        Hardcore
+      </OreRadio>
+    </OreRadioGroup>
+  );
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-radio-group aria-label="World type">
 	<ore-radio name="world" value="survival" checked>Survival</ore-radio>
@@ -52,13 +63,17 @@ export function WorldType() {
 	import "@katorlys/oreui/radio-group";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## 行为
+
 Radio Group 提供 `role="radiogroup"` 和间距。  
 更多信息请见 [Radio](../radio)。
 
 ## 无障碍
+
 使用 `aria-label` 或 `aria-labelledby` 为每个组设置无障碍名称。所有子选项应共用一个 `name`。  
 更多信息请见 [Radio](../radio#无障碍)。

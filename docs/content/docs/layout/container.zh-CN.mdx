@@ -8,6 +8,7 @@ import { ContainerStory } from "@/components/stories/container.story";
 <ContainerStory />
 
 ## 用法
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -16,26 +17,30 @@ import "@katorlys/oreui/container";
 
 ```html
 <ore-container variant="dark">
-	<h2>World settings</h2>
-	<p>Choose how players join your world.</p>
+  <h2>World settings</h2>
+  <p>Choose how players join your world.</p>
 </ore-container>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreContainer } from "@katorlys/oreui-react/container";
 
 export function WorldSettings() {
-	return (
-		<OreContainer variant="dark">
-			<h2>World settings</h2>
-			<p>Choose how players join your world.</p>
-		</OreContainer>
-	);
+  return (
+    <OreContainer variant="dark">
+      <h2>World settings</h2>
+      <p>Choose how players join your world.</p>
+    </OreContainer>
+  );
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-container variant="dark">
 	<h2>World settings</h2>
@@ -46,22 +51,27 @@ export function WorldSettings() {
 	import "@katorlys/oreui/container";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## 变体
+
 ```html
 <ore-container variant="dark">Dark surface</ore-container>
 <ore-container variant="light">Light surface</ore-container>
 ```
 
 ## API
-|Prop|属性|类型|默认值|
-|---|---|---|---|
-|`variant`|`variant`|`"dark" \|"light"`|`"dark"`|
+
+| Prop      | 属性      | 类型               | 默认值   |
+| --------- | --------- | ------------------ | -------- |
+| `variant` | `variant` | `"dark" \|"light"` | `"dark"` |
 
 ## CSS 变量
-|变量|用途|
-|---|---|
-|`--ore-container-padding`|表面边缘与内容之间的间距|
-|`--ore-container-gap`|直接子元素之间的间距|
+
+| 变量                      | 用途                     |
+| ------------------------- | ------------------------ |
+| `--ore-container-padding` | 表面边缘与内容之间的间距 |
+| `--ore-container-gap`     | 直接子元素之间的间距     |

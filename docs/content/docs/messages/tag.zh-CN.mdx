@@ -8,6 +8,7 @@ import { TagStory } from "@/components/stories/tag.story";
 <TagStory />
 
 ## 用法
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -17,17 +18,21 @@ import "@katorlys/oreui/tag";
 ```html
 <ore-tag variant="primary">New</ore-tag>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreTag } from "@katorlys/oreui-react/tag";
 
 export function Status() {
-	return <OreTag variant="primary">New</OreTag>;
+  return <OreTag variant="primary">New</OreTag>;
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-tag variant="primary">New</ore-tag>
 
@@ -35,10 +40,13 @@ export function Status() {
 	import "@katorlys/oreui/tag";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## 变体
+
 ```html
 <ore-tag>Neutral</ore-tag>
 <ore-tag variant="secondary">Secondary</ore-tag>
@@ -50,19 +58,22 @@ export function Status() {
 ```
 
 添加 `outlined` 以使 Tag 出现可见边框。
+
 ```html
 <ore-tag outlined>Outlined</ore-tag>
 ```
 
 ## API
-|Prop|属性|类型|默认值|
-|---|---|---|---|
-|`outlined`|`outlined`|`boolean`|`false`|
-|`variant`|`variant`|`"neutral" \| "secondary" \| "primary" \| "informative" \| "notice" \| "warning" \| "realms-informative"`|`"neutral"`|
+
+| Prop       | 属性       | 类型                                                                                                      | 默认值      |
+| ---------- | ---------- | --------------------------------------------------------------------------------------------------------- | ----------- |
+| `outlined` | `outlined` | `boolean`                                                                                                 | `false`     |
+| `variant`  | `variant`  | `"neutral" \| "secondary" \| "primary" \| "informative" \| "notice" \| "warning" \| "realms-informative"` | `"neutral"` |
 
 ## CSS 变量
-|变量|用途|
-|---|---|
-|`--ore-tag-background`|标签背景|
-|`--ore-tag-foreground`|标签文本颜色|
-|`--ore-tag-border`|描边颜色|
+
+| 变量                   | 用途         |
+| ---------------------- | ------------ |
+| `--ore-tag-background` | 标签背景     |
+| `--ore-tag-foreground` | 标签文本颜色 |
+| `--ore-tag-border`     | 描边颜色     |

@@ -8,6 +8,7 @@ import { SpinnerStory } from "@/components/stories/spinner.story";
 <SpinnerStory />
 
 ## Usage
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -17,17 +18,21 @@ import "@katorlys/oreui/spinner";
 ```html
 <ore-spinner aria-label="Loading worlds"></ore-spinner>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreSpinner } from "@katorlys/oreui-react/spinner";
 
 export function LoadingWorlds() {
-	return <OreSpinner aria-label="Loading worlds" />;
+  return <OreSpinner aria-label="Loading worlds" />;
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-spinner aria-label="Loading worlds"></ore-spinner>
 
@@ -35,24 +40,30 @@ export function LoadingWorlds() {
 	import "@katorlys/oreui/spinner";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## Size and color
+
 Spinner uses the current font size and text color.
+
 ```html
 <span style="font-size: 2rem; color: #52A535;">
-	<ore-spinner aria-label="Loading worlds"></ore-spinner>
+  <ore-spinner aria-label="Loading worlds"></ore-spinner>
 </span>
 ```
 
 ## Decorative
+
 Hide the Spinner from assistive technology when nearby text already describes the loading state.
+
 ```html
-<ore-spinner aria-hidden="true"></ore-spinner>
-<span>Loading worlds</span>
+<ore-spinner aria-hidden="true"></ore-spinner> <span>Loading worlds</span>
 ```
 
 ## Accessibility
+
 Spinner uses `role="status"` and the default label `Loading`. When it is decorative, set a more specific `aria-label`, or use `aria-hidden="true"`.  
 Animation stops when reduced motion is enabled.

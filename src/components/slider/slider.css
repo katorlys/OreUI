@@ -87,8 +87,8 @@
   left: 0;
   height: calc(var(--ore-slider-unit) * 5.5);
   background:
-    var(--ore-slider-segments) center / calc(100% - var(--ore-slider-unit) * 14.5)
-      100% no-repeat,
+    var(--ore-slider-segments) center /
+      calc(100% - var(--ore-slider-unit) * 14.5) 100% no-repeat,
     linear-gradient(
         to right,
         var(--ore-slider-range-background) 0 var(--ore-slider-value),

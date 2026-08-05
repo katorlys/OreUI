@@ -4,6 +4,7 @@ description: Use OreUI in vanilla HTML and JavaScript.
 ---
 
 ## Install
+
 ```bash tab="pnpm"
 pnpm add @katorlys/oreui
 ```
@@ -21,6 +22,7 @@ bun add @katorlys/oreui
 ```
 
 ## Use a component
+
 ```js title="script.js"
 import "@katorlys/oreui/styles.css";
 import "@katorlys/oreui/button";
@@ -35,7 +37,9 @@ import "@katorlys/oreui/button";
 </Callout>
 
 ## Examples
+
 Forms:
+
 ```html title="index.html"
 <form id="account">
   <ore-checkbox name="terms" required>Accept terms</ore-checkbox>
@@ -44,8 +48,9 @@ Forms:
 ```
 
 Events:
+
 ```js title="script.js"
-const form = document.querySelector<HTMLFormElement>("#account");
+const form = document.querySelector < HTMLFormElement > "#account";
 
 form?.addEventListener("submit", (event) => {
   event.preventDefault();

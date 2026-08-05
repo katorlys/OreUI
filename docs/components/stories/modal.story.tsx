@@ -41,11 +41,7 @@ interface ModalPreviewProps {
   triggerLabel: string;
 }
 
-function ModalPreview({
-  description,
-  title,
-  triggerLabel,
-}: ModalPreviewProps) {
+function ModalPreview({ description, title, triggerLabel }: ModalPreviewProps) {
   const [mounted, setMounted] = useState(false);
   const id = useId();
   const titleId = `${id}-title`;
@@ -91,10 +87,12 @@ function ModalPreview({
           </header>
           <OreContainer
             className="modal-form-body"
-            style={{
-              "--ore-container-gap": "1rem",
-              "--ore-container-padding": "1rem 1.375rem",
-            } as CSSProperties}
+            style={
+              {
+                "--ore-container-gap": "1rem",
+                "--ore-container-padding": "1rem 1.375rem",
+              } as CSSProperties
+            }
             variant="dark"
           >
             <p className="ore-modal-description" id={descriptionId}>
@@ -109,11 +107,13 @@ function ModalPreview({
           </OreContainer>
           <OreContainer
             className="modal-confirmation"
-            style={{
-              "--ore-container-gap": "0",
-              "--ore-container-padding": "0.5rem 1.375rem",
-              color: "var(--ore-color-foreground)",
-            } as CSSProperties}
+            style={
+              {
+                "--ore-container-gap": "0",
+                "--ore-container-padding": "0.5rem 1.375rem",
+                color: "var(--ore-color-foreground)",
+              } as CSSProperties
+            }
             variant="light"
           >
             <OreCheckbox style={{ color: "var(--ore-color-foreground)" }}>
@@ -122,13 +122,19 @@ function ModalPreview({
           </OreContainer>
           <OreContainer
             className="modal-actions"
-            style={{
-              "--ore-container-gap": "0.25rem",
-              "--ore-container-padding": "0.875rem 1.375rem",
-            } as CSSProperties}
+            style={
+              {
+                "--ore-container-gap": "0.25rem",
+                "--ore-container-padding": "0.875rem 1.375rem",
+              } as CSSProperties
+            }
             variant="light"
           >
-            <OreButton className="ore-modal-close" style={{ width: "100%" }} type="button">
+            <OreButton
+              className="ore-modal-close"
+              style={{ width: "100%" }}
+              type="button"
+            >
               Confirm
             </OreButton>
             <OreButton

@@ -47,15 +47,25 @@ function TablePreview({ caption, variant }: TablePreviewProps) {
             <tr>
               <th scope="col">World</th>
               <th aria-sort="none" scope="col">
-                <button className="ore-table-sort" type="button" value="players">
+                <button
+                  className="ore-table-sort"
+                  type="button"
+                  value="players"
+                >
                   Players
-                  <span aria-hidden="true" className="ore-table-sort-indicator" />
+                  <span
+                    aria-hidden="true"
+                    className="ore-table-sort-indicator"
+                  />
                 </button>
               </th>
               <th aria-sort="none" scope="col">
                 <button className="ore-table-sort" type="button" value="ping">
                   Ping
-                  <span aria-hidden="true" className="ore-table-sort-indicator" />
+                  <span
+                    aria-hidden="true"
+                    className="ore-table-sort-indicator"
+                  />
                 </button>
               </th>
             </tr>
@@ -64,7 +74,9 @@ function TablePreview({ caption, variant }: TablePreviewProps) {
             {sortedRows.map((row) => (
               <tr key={row.name}>
                 <th scope="row">{row.name}</th>
-                <td>{row.players} / {row.slots}</td>
+                <td>
+                  {row.players} / {row.slots}
+                </td>
                 <td>{row.ping} ms</td>
               </tr>
             ))}

@@ -8,6 +8,7 @@ import { SwitchStory } from "@/components/stories/switch.story";
 <SwitchStory />
 
 ## Usage
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -16,36 +17,40 @@ import "@katorlys/oreui/switch";
 
 ```html
 <ore-switch name="autosave" value="enabled" variant="icons">
-	Enable autosave
+  Enable autosave
 </ore-switch>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreSwitch } from "@katorlys/oreui-react/switch";
 import { useState } from "react";
 
 export function AutosaveSwitch() {
-	const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(false);
 
-	return (
-		<OreSwitch
-			checked={checked}
-			name="autosave"
-			value="enabled"
-			variant="icons"
-			onChange={(event) => {
-				const control = event.target as HTMLElement & { checked: boolean };
-				setChecked(control.checked);
-			}}
-		>
-			Enable autosave
-		</OreSwitch>
-	);
+  return (
+    <OreSwitch
+      checked={checked}
+      name="autosave"
+      value="enabled"
+      variant="icons"
+      onChange={(event) => {
+        const control = event.target as HTMLElement & { checked: boolean };
+        setChecked(control.checked);
+      }}
+    >
+      Enable autosave
+    </OreSwitch>
+  );
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-switch name="autosave" value="enabled" variant="icons">
 	Enable autosave
@@ -55,30 +60,37 @@ export function AutosaveSwitch() {
 	import "@katorlys/oreui/switch";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## Variants
+
 ```html
 <ore-switch variant="default">Default</ore-switch>
 <ore-switch variant="icons">Icons</ore-switch>
 ```
 
 ## Forms
+
 Checked values are included in `FormData`, and reset restores the initial state.
 
 ## Events
+
 Switch dispatches native `input` and `change` events after its value changes.
 
 ## API
-|Property|Attribute|Type|Default|
-|---|---|---|---|
-|`checked`|`checked`|`boolean`|`false`|
-|`disabled`|`disabled`|`boolean`|`false`|
-|`name`|`name`|`string`|`""`|
-|`required`|`required`|`boolean`|`false`|
-|`value`|`value`|`string`|`"on"`|
-|`variant`|`variant`|`"default" \| "icons"`|`"default"`|
+
+| Property   | Attribute  | Type                   | Default     |
+| ---------- | ---------- | ---------------------- | ----------- |
+| `checked`  | `checked`  | `boolean`              | `false`     |
+| `disabled` | `disabled` | `boolean`              | `false`     |
+| `name`     | `name`     | `string`               | `""`        |
+| `required` | `required` | `boolean`              | `false`     |
+| `value`    | `value`    | `string`               | `"on"`      |
+| `variant`  | `variant`  | `"default" \| "icons"` | `"default"` |
 
 ## Accessibility
+
 Switch provides switch semantics and supports `Space`. Use a label to describe the content.

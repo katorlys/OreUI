@@ -12,10 +12,7 @@ interface TogglesPreviewProps {
 
 const options = ["Day", "Night", "Always"];
 
-function TogglesPreview({
-  disabledOption,
-  initialValue,
-}: TogglesPreviewProps) {
+function TogglesPreview({ disabledOption, initialValue }: TogglesPreviewProps) {
   const [mounted, setMounted] = useState(false);
   const [value, setValue] = useState(initialValue);
 

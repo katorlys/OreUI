@@ -8,6 +8,7 @@ import { TabBarStory } from "@/components/stories/tab-bar.story";
 <TabBarStory />
 
 ## Usage
+
 <Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
@@ -17,29 +18,33 @@ import "@katorlys/oreui/tab-button";
 
 ```html
 <ore-tab-bar aria-label="Play menu">
-	<ore-tab-button selected>Worlds</ore-tab-button>
-	<ore-tab-button>Friends</ore-tab-button>
-	<ore-tab-button>Servers</ore-tab-button>
+  <ore-tab-button selected>Worlds</ore-tab-button>
+  <ore-tab-button>Friends</ore-tab-button>
+  <ore-tab-button>Servers</ore-tab-button>
 </ore-tab-bar>
 ```
-	</Tab>
-	<Tab value="React">
+
+    </Tab>
+    <Tab value="React">
+
 ```tsx
 import { OreTabBar } from "@katorlys/oreui-react/tab-bar";
 import { OreTabButton } from "@katorlys/oreui-react/tab-button";
 
 export function PlayMenu() {
-	return (
-		<OreTabBar aria-label="Play menu">
-			<OreTabButton selected>Worlds</OreTabButton>
-			<OreTabButton>Friends</OreTabButton>
-			<OreTabButton>Servers</OreTabButton>
-		</OreTabBar>
-	);
+  return (
+    <OreTabBar aria-label="Play menu">
+      <OreTabButton selected>Worlds</OreTabButton>
+      <OreTabButton>Friends</OreTabButton>
+      <OreTabButton>Servers</OreTabButton>
+    </OreTabBar>
+  );
 }
 ```
-	</Tab>
-	<Tab value="Astro">
+
+    </Tab>
+    <Tab value="Astro">
+
 ```astro
 <ore-tab-bar aria-label="Play menu">
 	<ore-tab-button selected>Worlds</ore-tab-button>
@@ -52,22 +57,28 @@ export function PlayMenu() {
 	import "@katorlys/oreui/tab-button";
 </script>
 ```
-	</Tab>
+
+    </Tab>
+
 </Tabs>
 
 ## Selection
+
 Tab Buttons manage selection within their nearest Tab Bar and dispatch `change` when a new tab is selected.
+
 ```js
 const tabBar = document.querySelector("ore-tab-bar");
 tabBar?.addEventListener("change", (event) => {
-	const selected = event.target;
-	console.log(selected);
+  const selected = event.target;
+  console.log(selected);
 });
 ```
 
 ## API
+
 See [Tab Button](../../buttons/tab-button#api).
 
 ## Accessibility
+
 Tab Bar uses `role="tablist"`. Add an accessible label and use Tab Button as its direct interactive children.  
 For more information, see [Tab Button](../../buttons/tab-button#accessibility).
