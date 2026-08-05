@@ -2,11 +2,11 @@ import { createComponent } from "@lit/react";
 import { OreProgressBar as OreProgressBarElement } from "@katorlys/oreui/progress-bar";
 import React from "react";
 
-export const OreProgressBar = createComponent({
+export const ProgressBar = createComponent({
   react: React,
   tagName: "ore-progress-bar",
   elementClass: OreProgressBarElement,
-  displayName: "OreProgressBar",
+  displayName: "ProgressBar",
 });
 
-export type OreProgressBarProps = React.ComponentProps<typeof OreProgressBar>;
+export type ProgressBarProps = React.ComponentProps<typeof ProgressBar>;

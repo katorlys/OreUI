@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreTabButton, OreToggles } from "@katorlys/oreui-react/toggles";
+import { TabButton, Toggles } from "@katorlys/oreui-react/toggles";
 import { useEffect, useState } from "react";
 
 interface TogglesPreviewProps {
@@ -25,21 +25,21 @@ function TogglesPreview({ disabledOption, initialValue }: TogglesPreviewProps) {
 
   return (
     <div style={{ display: "grid", gap: "1rem" }}>
-      <OreToggles aria-label="Daylight cycle">
+      <Toggles aria-label="Daylight cycle">
         {options.map((option) => {
           const optionValue = option.toLowerCase();
           return (
-            <OreTabButton
+            <TabButton
               key={optionValue}
               disabled={disabledOption && optionValue === "always"}
               selected={value === optionValue}
               onChange={() => setValue(optionValue)}
             >
               {option}
-            </OreTabButton>
+            </TabButton>
           );
         })}
-      </OreToggles>
+      </Toggles>
       <output aria-live="polite">Selected: {value}</output>
     </div>
   );

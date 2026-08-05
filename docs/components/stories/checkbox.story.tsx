@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreCheckbox } from "@katorlys/oreui-react/checkbox";
+import { Checkbox } from "@katorlys/oreui-react/checkbox";
 import { useEffect, useState } from "react";
 
 interface CheckboxPreviewProps {
@@ -30,7 +30,7 @@ function CheckboxPreview({
 
   return (
     <div style={{ display: "grid", gap: "1rem" }}>
-      <OreCheckbox
+      <Checkbox
         checked={checked}
         disabled={disabled}
         required={required}
@@ -40,7 +40,7 @@ function CheckboxPreview({
         }}
       >
         {label}
-      </OreCheckbox>
+      </Checkbox>
       <output aria-live="polite">{checked ? "Checked" : "Not checked"}</output>
     </div>
   );

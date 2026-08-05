@@ -2,11 +2,11 @@ import { createComponent } from "@lit/react";
 import { OreButton as OreButtonElement } from "@katorlys/oreui/button";
 import React from "react";
 
-export const OreButton = createComponent({
+export const Button = createComponent({
   react: React,
   tagName: "ore-button",
   elementClass: OreButtonElement,
-  displayName: "OreButton",
+  displayName: "Button",
 });
 
-export type OreButtonProps = React.ComponentProps<typeof OreButton>;
+export type ButtonProps = React.ComponentProps<typeof Button>;

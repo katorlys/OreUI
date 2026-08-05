@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreSlider } from "@katorlys/oreui-react/slider";
+import { Slider } from "@katorlys/oreui-react/slider";
 import { useEffect, useState } from "react";
 
 interface SliderPreviewProps {
@@ -36,7 +36,7 @@ function SliderPreview({
 
   return (
     <div style={{ display: "grid", gap: "1rem", justifyItems: "start" }}>
-      <OreSlider
+      <Slider
         aria-label="Render distance"
         disabled={disabled}
         max={max}

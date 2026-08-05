@@ -1,8 +1,8 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreButton } from "@katorlys/oreui-react/button";
-import { OreTooltip } from "@katorlys/oreui-react/tooltip";
+import { Button } from "@katorlys/oreui-react/button";
+import { Tooltip } from "@katorlys/oreui-react/tooltip";
 import { useEffect, useState } from "react";
 
 interface TooltipPreviewProps {
@@ -21,15 +21,15 @@ function TooltipPreview({ content, delay, side }: TooltipPreviewProps) {
   return (
     <div style={{ padding: "4rem" }}>
       {mounted ? (
-        <OreTooltip delay={delay} side={side}>
-          <OreButton className="ore-tooltip-trigger" type="button">
+        <Tooltip delay={delay} side={side}>
+          <Button className="ore-tooltip-trigger" type="button">
             Hover
-          </OreButton>
+          </Button>
           <div className="ore-tooltip-content">
             {content}
             <span aria-hidden="true" className="ore-tooltip-arrow" />
           </div>
-        </OreTooltip>
+        </Tooltip>
       ) : null}
     </div>
   );

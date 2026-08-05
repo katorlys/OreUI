@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreButton } from "@katorlys/oreui-react/button";
+import { Button } from "@katorlys/oreui-react/button";
 
 interface ButtonPreviewProps {
   children: string;
@@ -17,9 +17,9 @@ function ButtonPreview({
   variant,
 }: ButtonPreviewProps) {
   return (
-    <OreButton disabled={disabled} type={type} variant={variant}>
+    <Button disabled={disabled} type={type} variant={variant}>
       {children}
-    </OreButton>
+    </Button>
   );
 }
 

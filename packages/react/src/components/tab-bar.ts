@@ -2,13 +2,13 @@ import { createComponent } from "@lit/react";
 import { OreTabBar as OreTabBarElement } from "@katorlys/oreui/tab-bar";
 import React from "react";
 
-export { OreTabButton, type OreTabButtonProps } from "./tab-button.js";
+export { TabButton, type TabButtonProps } from "./tab-button.js";
 
-export const OreTabBar = createComponent({
+export const TabBar = createComponent({
   react: React,
   tagName: "ore-tab-bar",
   elementClass: OreTabBarElement,
-  displayName: "OreTabBar",
+  displayName: "TabBar",
 });
 
-export type OreTabBarProps = React.ComponentProps<typeof OreTabBar>;
+export type TabBarProps = React.ComponentProps<typeof TabBar>;

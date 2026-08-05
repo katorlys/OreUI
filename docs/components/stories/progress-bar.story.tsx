@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreProgressBar } from "@katorlys/oreui-react/progress-bar";
+import { ProgressBar } from "@katorlys/oreui-react/progress-bar";
 
 interface ProgressBarPreviewProps {
   label: string;
@@ -13,7 +13,7 @@ interface ProgressBarPreviewProps {
 }
 
 function ProgressBarPreview(props: ProgressBarPreviewProps) {
-  return <OreProgressBar {...props} />;
+  return <ProgressBar {...props} />;
 }
 
 const { defineStory } = defineStoryFactory();

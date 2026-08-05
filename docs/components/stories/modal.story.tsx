@@ -1,11 +1,11 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreButton } from "@katorlys/oreui-react/button";
-import { OreCheckbox } from "@katorlys/oreui-react/checkbox";
-import { OreContainer } from "@katorlys/oreui-react/container";
-import { OreModal } from "@katorlys/oreui-react/modal";
-import { OreTextfield } from "@katorlys/oreui-react/textfield";
+import { Button } from "@katorlys/oreui-react/button";
+import { Checkbox } from "@katorlys/oreui-react/checkbox";
+import { Container } from "@katorlys/oreui-react/container";
+import { Modal } from "@katorlys/oreui-react/modal";
+import { Textfield } from "@katorlys/oreui-react/textfield";
 import {
   createElement,
   type CSSProperties,
@@ -56,10 +56,10 @@ function ModalPreview({ description, title, triggerLabel }: ModalPreviewProps) {
   }
 
   return (
-    <OreModal>
-      <OreButton className="ore-modal-trigger" type="button">
+    <Modal>
+      <Button className="ore-modal-trigger" type="button">
         {triggerLabel}
-      </OreButton>
+      </Button>
       <dialog
         aria-describedby={descriptionId}
         aria-labelledby={titleId}
@@ -85,7 +85,7 @@ function ModalPreview({ description, title, triggerLabel }: ModalPreviewProps) {
               {createElement("ore-icon", { "aria-hidden": "true" }, closeIcon)}
             </button>
           </header>
-          <OreContainer
+          <Container
             className="modal-form-body"
             style={
               {
@@ -98,14 +98,14 @@ function ModalPreview({ description, title, triggerLabel }: ModalPreviewProps) {
             <p className="ore-modal-description" id={descriptionId}>
               {description}
             </p>
-            <OreTextfield
+            <Textfield
               description="Description"
               label="Label"
               placeholder="Placeholder"
               style={{ width: "min(100%, 15.25rem)" }}
             />
-          </OreContainer>
-          <OreContainer
+          </Container>
+          <Container
             className="modal-confirmation"
             style={
               {
@@ -116,11 +116,11 @@ function ModalPreview({ description, title, triggerLabel }: ModalPreviewProps) {
             }
             variant="light"
           >
-            <OreCheckbox style={{ color: "var(--ore-color-foreground)" }}>
+            <Checkbox style={{ color: "var(--ore-color-foreground)" }}>
               Checkbox example for confirmation
-            </OreCheckbox>
-          </OreContainer>
-          <OreContainer
+            </Checkbox>
+          </Container>
+          <Container
             className="modal-actions"
             style={
               {
@@ -130,25 +130,25 @@ function ModalPreview({ description, title, triggerLabel }: ModalPreviewProps) {
             }
             variant="light"
           >
-            <OreButton
+            <Button
               className="ore-modal-close"
               style={{ width: "100%" }}
               type="button"
             >
               Confirm
-            </OreButton>
-            <OreButton
+            </Button>
+            <Button
               className="ore-modal-close"
               style={{ width: "100%" }}
               type="button"
               variant="secondary"
             >
               Cancel
-            </OreButton>
-          </OreContainer>
+            </Button>
+          </Container>
         </form>
       </dialog>
-    </OreModal>
+    </Modal>
   );
 }
 

@@ -2,11 +2,11 @@ import { createComponent } from "@lit/react";
 import { OreSpinner as OreSpinnerElement } from "@katorlys/oreui/spinner";
 import React from "react";
 
-export const OreSpinner = createComponent({
+export const Spinner = createComponent({
   react: React,
   tagName: "ore-spinner",
   elementClass: OreSpinnerElement,
-  displayName: "OreSpinner",
+  displayName: "Spinner",
 });
 
-export type OreSpinnerProps = React.ComponentProps<typeof OreSpinner>;
+export type SpinnerProps = React.ComponentProps<typeof Spinner>;

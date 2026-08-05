@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreNavbar } from "@katorlys/oreui-react/navbar";
+import { Navbar } from "@katorlys/oreui-react/navbar";
 import { createElement } from "react";
 
 const backIcon = (
@@ -23,7 +23,7 @@ interface NavbarPreviewProps {
 
 function NavbarPreview({ action, showBackButton, title }: NavbarPreviewProps) {
   return (
-    <OreNavbar
+    <Navbar
       aria-label="Screen navigation"
       style={{ width: "min(100%, 40rem)" }}
     >
@@ -40,7 +40,7 @@ function NavbarPreview({ action, showBackButton, title }: NavbarPreviewProps) {
           <span className="ore-navbar-action-label">{action}</span>
         </button>
       </div>
-    </OreNavbar>
+    </Navbar>
   );
 }
 

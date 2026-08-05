@@ -30,14 +30,14 @@ import "@katorlys/oreui/slider";
     <Tab value="React">
 
 ```tsx
-import { OreSlider } from "@katorlys/oreui-react/slider";
+import { Slider } from "@katorlys/oreui-react/slider";
 import { useState } from "react";
 
 export function RenderDistanceSlider() {
   const [value, setValue] = useState(12);
 
   return (
-    <OreSlider
+    <Slider
       aria-label="Render distance"
       min={2}
       max={32}

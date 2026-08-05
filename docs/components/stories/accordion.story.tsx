@@ -1,8 +1,8 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreAccordion } from "@katorlys/oreui-react/accordion";
-import { OreIconButton } from "@katorlys/oreui-react/icon-button";
+import { Accordion } from "@katorlys/oreui-react/accordion";
+import { IconButton } from "@katorlys/oreui-react/icon-button";
 import { useEffect, useState } from "react";
 
 interface AccordionPreviewProps {
@@ -27,16 +27,16 @@ function AccordionPreview({
   }
 
   return (
-    <OreAccordion defaultOpen={defaultOpen} value="realms">
-      <OreIconButton
+    <Accordion defaultOpen={defaultOpen} value="realms">
+      <IconButton
         aria-label={`Toggle ${title}`}
         className="ore-accordion-trigger"
         type="button"
       >
         <span className="ore-accordion-title">{title}</span>
-      </OreIconButton>
+      </IconButton>
       <div className="ore-accordion-content">{content}</div>
-    </OreAccordion>
+    </Accordion>
   );
 }
 

@@ -2,7 +2,7 @@ import { createComponent, type EventName } from "@lit/react";
 import { OreRadio as OreRadioElement } from "@katorlys/oreui/radio";
 import React from "react";
 
-export const OreRadio = createComponent({
+export const Radio = createComponent({
   react: React,
   tagName: "ore-radio",
   elementClass: OreRadioElement,
@@ -10,7 +10,7 @@ export const OreRadio = createComponent({
     onInput: "input" as EventName<Event>,
     onChange: "change" as EventName<Event>,
   },
-  displayName: "OreRadio",
+  displayName: "Radio",
 });
 
-export type OreRadioProps = React.ComponentProps<typeof OreRadio>;
+export type RadioProps = React.ComponentProps<typeof Radio>;

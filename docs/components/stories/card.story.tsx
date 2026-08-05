@@ -1,8 +1,8 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreCard } from "@katorlys/oreui-react/card";
-import { OreTag } from "@katorlys/oreui-react/tag";
+import { Card } from "@katorlys/oreui-react/card";
+import { Tag } from "@katorlys/oreui-react/tag";
 import { createElement } from "react";
 
 interface CardPreviewProps {
@@ -13,7 +13,7 @@ interface CardPreviewProps {
 
 function CardPreview({ description, showMedia, title }: CardPreviewProps) {
   return (
-    <OreCard>
+    <Card>
       {showMedia ? (
         <div className="ore-card-media">
           <img
@@ -24,12 +24,12 @@ function CardPreview({ description, showMedia, title }: CardPreviewProps) {
             className="ore-card-overlay-bottom-start"
             style={{ display: "flex", gap: "var(--ore-card-unit)" }}
           >
-            <OreTag outlined variant="informative">
+            <Tag outlined variant="informative">
               Local
-            </OreTag>
-            <OreTag outlined variant="notice">
+            </Tag>
+            <Tag outlined variant="notice">
               New
-            </OreTag>
+            </Tag>
           </div>
           <span aria-hidden="true" className="ore-card-overlay-top-end">
             {createElement(
@@ -52,7 +52,7 @@ function CardPreview({ description, showMedia, title }: CardPreviewProps) {
         </div>
         <span className="ore-card-meta">1.21</span>
       </div>
-    </OreCard>
+    </Card>
   );
 }
 

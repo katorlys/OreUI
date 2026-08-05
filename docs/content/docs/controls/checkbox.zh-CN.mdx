@@ -23,14 +23,14 @@ import "@katorlys/oreui/checkbox";
     <Tab value="React">
 
 ```tsx
-import { OreCheckbox } from "@katorlys/oreui-react/checkbox";
+import { Checkbox } from "@katorlys/oreui-react/checkbox";
 import { useState } from "react";
 
 export function UpdatesCheckbox() {
   const [checked, setChecked] = useState(false);
 
   return (
-    <OreCheckbox
+    <Checkbox
       checked={checked}
       name="updates"
       value="yes"
@@ -40,7 +40,7 @@ export function UpdatesCheckbox() {
       }}
     >
       Receive updates
-    </OreCheckbox>
+    </Checkbox>
   );
 }
 ```

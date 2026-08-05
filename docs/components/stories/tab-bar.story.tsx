@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreTabBar, OreTabButton } from "@katorlys/oreui-react/tab-bar";
+import { TabBar, TabButton } from "@katorlys/oreui-react/tab-bar";
 import { useState } from "react";
 
 interface TabBarPreviewProps {
@@ -18,13 +18,13 @@ function TabBarPreview({
   const [selected, setSelected] = useState("worlds");
 
   return (
-    <OreTabBar aria-label={label}>
+    <TabBar aria-label={label}>
       {[
         ["worlds", "Worlds"],
         ["realms", "Realms"],
         ["discover", "Discover"],
       ].map(([value, text], index) => (
-        <OreTabButton
+        <TabButton
           disabled={disabledLastTab && index === 2}
           key={value}
           palette={palette}
@@ -32,9 +32,9 @@ function TabBarPreview({
           onChange={() => setSelected(value)}
         >
           {text}
-        </OreTabButton>
+        </TabButton>
       ))}
-    </OreTabBar>
+    </TabBar>
   );
 }
 

@@ -47,26 +47,26 @@ import "@katorlys/oreui/dropdown";
     <Tab value="React">
 
 ```tsx
-import { OreButton } from "@katorlys/oreui-react/button";
-import { OreDropdown } from "@katorlys/oreui-react/dropdown";
+import { Button } from "@katorlys/oreui-react/button";
+import { Dropdown } from "@katorlys/oreui-react/dropdown";
 import { useState } from "react";
 
 export function GameModeDropdown() {
   const [value, setValue] = useState("creative");
 
   return (
-    <OreDropdown
+    <Dropdown
       value={value}
       variant="bordered"
       onChange={(event) => setValue(event.detail.value)}
     >
-      <OreButton
+      <Button
         className="ore-dropdown-trigger"
         type="button"
         variant="secondary"
       >
         <span className="ore-dropdown-trigger-label">Game mode</span>
-      </OreButton>
+      </Button>
       <div className="ore-dropdown-menu">
         <button
           className="ore-dropdown-item"
@@ -90,7 +90,7 @@ export function GameModeDropdown() {
           Adventure
         </button>
       </div>
-    </OreDropdown>
+    </Dropdown>
   );
 }
 ```

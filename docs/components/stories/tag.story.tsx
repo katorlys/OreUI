@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreTag } from "@katorlys/oreui-react/tag";
+import { Tag } from "@katorlys/oreui-react/tag";
 
 interface TagPreviewProps {
   label: string;
@@ -18,9 +18,9 @@ interface TagPreviewProps {
 
 function TagPreview({ label, outlined, variant }: TagPreviewProps) {
   return (
-    <OreTag outlined={outlined} variant={variant}>
+    <Tag outlined={outlined} variant={variant}>
       {label}
-    </OreTag>
+    </Tag>
   );
 }
 

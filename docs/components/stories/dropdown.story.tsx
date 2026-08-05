@@ -1,8 +1,8 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreButton } from "@katorlys/oreui-react/button";
-import { OreDropdown } from "@katorlys/oreui-react/dropdown";
+import { Button } from "@katorlys/oreui-react/button";
+import { Dropdown } from "@katorlys/oreui-react/dropdown";
 import { useEffect, useState } from "react";
 
 interface DropdownPreviewProps {
@@ -31,18 +31,18 @@ function DropdownPreview({
 
   return (
     <div style={{ display: "grid", gap: "1rem" }}>
-      <OreDropdown
+      <Dropdown
         value={value}
         variant={variant}
         onChange={(event) => setValue(event.detail.value)}
       >
-        <OreButton
+        <Button
           className="ore-dropdown-trigger"
           type="button"
           variant="secondary"
         >
           <span className="ore-dropdown-trigger-label">{label}</span>
-        </OreButton>
+        </Button>
         <div className="ore-dropdown-menu">
           {items.map((item) => {
             const itemValue = item.toLowerCase();
@@ -59,7 +59,7 @@ function DropdownPreview({
             );
           })}
         </div>
-      </OreDropdown>
+      </Dropdown>
       <output aria-live="polite">Selected: {value || "none"}</output>
     </div>
   );

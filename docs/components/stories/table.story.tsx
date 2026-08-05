@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreTable } from "@katorlys/oreui-react/table";
+import { Table } from "@katorlys/oreui-react/table";
 import { useState } from "react";
 
 interface TablePreviewProps {
@@ -32,7 +32,7 @@ function TablePreview({ caption, variant }: TablePreviewProps) {
 
   return (
     <div>
-      <OreTable
+      <Table
         variant={variant}
         onSort={(event) => {
           const column = event.detail.column;
@@ -82,7 +82,7 @@ function TablePreview({ caption, variant }: TablePreviewProps) {
             ))}
           </tbody>
         </table>
-      </OreTable>
+      </Table>
       <p aria-live="polite">
         {sort.column
           ? `${sort.column}: ${sort.direction}`

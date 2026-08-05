@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreRadio, OreRadioGroup } from "@katorlys/oreui-react/radio-group";
+import { Radio, RadioGroup } from "@katorlys/oreui-react/radio-group";
 import { useEffect, useId, useState } from "react";
 
 interface RadioGroupPreviewProps {
@@ -26,11 +26,11 @@ function RadioGroupPreview({ disabledOption, label }: RadioGroupPreviewProps) {
 
   return (
     <div style={{ display: "grid", gap: "1rem" }}>
-      <OreRadioGroup aria-label={label}>
+      <RadioGroup aria-label={label}>
         {options.map((option) => {
           const optionValue = option.toLowerCase();
           return (
-            <OreRadio
+            <Radio
               key={optionValue}
               checked={value === optionValue}
               disabled={disabledOption && optionValue === "hardcore"}
@@ -39,10 +39,10 @@ function RadioGroupPreview({ disabledOption, label }: RadioGroupPreviewProps) {
               onChange={() => setValue(optionValue)}
             >
               {option}
-            </OreRadio>
+            </Radio>
           );
         })}
-      </OreRadioGroup>
+      </RadioGroup>
       <output aria-live="polite">Selected: {value}</output>
     </div>
   );

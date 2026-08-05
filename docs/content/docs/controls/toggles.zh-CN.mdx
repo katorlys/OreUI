@@ -27,30 +27,30 @@ import "@katorlys/oreui/toggles";
     <Tab value="React">
 
 ```tsx
-import { OreTabButton, OreToggles } from "@katorlys/oreui-react/toggles";
+import { TabButton, Toggles } from "@katorlys/oreui-react/toggles";
 import { useState } from "react";
 
 export function DaylightToggles() {
   const [value, setValue] = useState("day");
 
   return (
-    <OreToggles aria-label="Daylight cycle">
-      <OreTabButton selected={value === "day"} onChange={() => setValue("day")}>
+    <Toggles aria-label="Daylight cycle">
+      <TabButton selected={value === "day"} onChange={() => setValue("day")}>
         Day
-      </OreTabButton>
-      <OreTabButton
+      </TabButton>
+      <TabButton
         selected={value === "night"}
         onChange={() => setValue("night")}
       >
         Night
-      </OreTabButton>
-      <OreTabButton
+      </TabButton>
+      <TabButton
         selected={value === "always"}
         onChange={() => setValue("always")}
       >
         Always
-      </OreTabButton>
-    </OreToggles>
+      </TabButton>
+    </Toggles>
   );
 }
 ```

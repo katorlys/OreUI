@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreContainer } from "@katorlys/oreui-react/container";
+import { Container } from "@katorlys/oreui-react/container";
 
 interface ContainerPreviewProps {
   description: string;
@@ -15,10 +15,10 @@ function ContainerPreview({
   variant,
 }: ContainerPreviewProps) {
   return (
-    <OreContainer variant={variant} style={{ width: "min(100%, 32rem)" }}>
+    <Container variant={variant} style={{ width: "min(100%, 32rem)" }}>
       <strong>{title}</strong>
       <span>{description}</span>
-    </OreContainer>
+    </Container>
   );
 }
 

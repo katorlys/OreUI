@@ -35,23 +35,23 @@ import "@katorlys/oreui/icon-button";
     <Tab value="React">
 
 ```tsx
-import { OreAccordion } from "@katorlys/oreui-react/accordion";
-import { OreIconButton } from "@katorlys/oreui-react/icon-button";
+import { Accordion } from "@katorlys/oreui-react/accordion";
+import { IconButton } from "@katorlys/oreui-react/icon-button";
 
 export function Realms() {
   return (
-    <OreAccordion value="realms">
-      <OreIconButton
+    <Accordion value="realms">
+      <IconButton
         className="ore-accordion-trigger"
         type="button"
         aria-label="Toggle What is Realms?"
       >
         <span className="ore-accordion-title">What is Realms?</span>
-      </OreIconButton>
+      </IconButton>
       <div className="ore-accordion-content">
         Realms are private, cloud-hosted worlds where you can play with friends.
       </div>
-    </OreAccordion>
+    </Accordion>
   );
 }
 ```

@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreSpinner } from "@katorlys/oreui-react/spinner";
+import { Spinner } from "@katorlys/oreui-react/spinner";
 import { useEffect, useState } from "react";
 
 interface SpinnerPreviewProps {
@@ -23,7 +23,7 @@ function SpinnerPreview({ decorative, label, size }: SpinnerPreviewProps) {
 
   return (
     <span style={{ fontSize: `${size}px` }}>
-      <OreSpinner
+      <Spinner
         aria-hidden={decorative ? "true" : undefined}
         aria-label={decorative ? undefined : label}
       />

@@ -27,21 +27,21 @@ import "@katorlys/oreui/radio-group";
     <Tab value="React">
 
 ```tsx
-import { OreRadio, OreRadioGroup } from "@katorlys/oreui-react/radio-group";
+import { Radio, RadioGroup } from "@katorlys/oreui-react/radio-group";
 
 export function WorldType() {
   return (
-    <OreRadioGroup aria-label="World type">
-      <OreRadio name="world" value="survival" checked>
+    <RadioGroup aria-label="World type">
+      <Radio name="world" value="survival" checked>
         Survival
-      </OreRadio>
-      <OreRadio name="world" value="creative">
+      </Radio>
+      <Radio name="world" value="creative">
         Creative
-      </OreRadio>
-      <OreRadio name="world" value="hardcore" disabled>
+      </Radio>
+      <Radio name="world" value="hardcore" disabled>
         Hardcore
-      </OreRadio>
-    </OreRadioGroup>
+      </Radio>
+    </RadioGroup>
   );
 }
 ```

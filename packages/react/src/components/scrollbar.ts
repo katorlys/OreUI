@@ -2,11 +2,11 @@ import { createComponent } from "@lit/react";
 import { OreScrollbar as OreScrollbarElement } from "@katorlys/oreui/scrollbar";
 import React from "react";
 
-export const OreScrollbar = createComponent({
+export const Scrollbar = createComponent({
   react: React,
   tagName: "ore-scrollbar",
   elementClass: OreScrollbarElement,
-  displayName: "OreScrollbar",
+  displayName: "Scrollbar",
 });
 
-export type OreScrollbarProps = React.ComponentProps<typeof OreScrollbar>;
+export type ScrollbarProps = React.ComponentProps<typeof Scrollbar>;

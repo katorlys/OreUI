@@ -2,7 +2,7 @@ import { createComponent, type EventName } from "@lit/react";
 import { OreSwitch as OreSwitchElement } from "@katorlys/oreui/switch";
 import React from "react";
 
-export const OreSwitch = createComponent({
+export const Switch = createComponent({
   react: React,
   tagName: "ore-switch",
   elementClass: OreSwitchElement,
@@ -10,7 +10,7 @@ export const OreSwitch = createComponent({
     onInput: "input" as EventName<Event>,
     onChange: "change" as EventName<Event>,
   },
-  displayName: "OreSwitch",
+  displayName: "Switch",
 });
 
-export type OreSwitchProps = React.ComponentProps<typeof OreSwitch>;
+export type SwitchProps = React.ComponentProps<typeof Switch>;

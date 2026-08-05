@@ -28,14 +28,14 @@ import "@katorlys/oreui/textfield";
     <Tab value="React">
 
 ```tsx
-import { OreTextfield } from "@katorlys/oreui-react/textfield";
+import { Textfield } from "@katorlys/oreui-react/textfield";
 import { useState } from "react";
 
 export function WorldNameField() {
   const [value, setValue] = useState("");
 
   return (
-    <OreTextfield
+    <Textfield
       name="world"
       label="World name"
       description="Shown to other players"

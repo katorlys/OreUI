@@ -5,14 +5,14 @@ import {
 } from "@katorlys/oreui/table";
 import React from "react";
 
-export const OreTable = createComponent({
+export const Table = createComponent({
   react: React,
   tagName: "ore-table",
   elementClass: OreTableElement,
   events: {
     onSort: "sort" as EventName<CustomEvent<OreTableSortDetail>>,
   },
-  displayName: "OreTable",
+  displayName: "Table",
 });
 
-export type OreTableProps = React.ComponentProps<typeof OreTable>;
+export type TableProps = React.ComponentProps<typeof Table>;

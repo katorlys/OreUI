@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreSwitch } from "@katorlys/oreui-react/switch";
+import { Switch } from "@katorlys/oreui-react/switch";
 import { useEffect, useState } from "react";
 
 interface SwitchPreviewProps {
@@ -30,7 +30,7 @@ function SwitchPreview({
 
   return (
     <div style={{ display: "grid", gap: "1rem" }}>
-      <OreSwitch
+      <Switch
         checked={checked}
         disabled={disabled}
         variant={variant}
@@ -40,7 +40,7 @@ function SwitchPreview({
         }}
       >
         {label}
-      </OreSwitch>
+      </Switch>
       <output aria-live="polite">{checked ? "On" : "Off"}</output>
     </div>
   );

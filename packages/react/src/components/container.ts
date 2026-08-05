@@ -2,11 +2,11 @@ import { createComponent } from "@lit/react";
 import { OreContainer as OreContainerElement } from "@katorlys/oreui/container";
 import React from "react";
 
-export const OreContainer = createComponent({
+export const Container = createComponent({
   react: React,
   tagName: "ore-container",
   elementClass: OreContainerElement,
-  displayName: "OreContainer",
+  displayName: "Container",
 });
 
-export type OreContainerProps = React.ComponentProps<typeof OreContainer>;
+export type ContainerProps = React.ComponentProps<typeof Container>;

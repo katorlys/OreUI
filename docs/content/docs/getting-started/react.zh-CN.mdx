@@ -32,10 +32,10 @@ import "@katorlys/oreui-react/styles.css";
 ## 使用组件
 
 ```tsx title="App.tsx"
-import { OreButton } from "@katorlys/oreui-react/button";
+import { Button } from "@katorlys/oreui-react/button";
 
 export function App() {
-  return <OreButton type="button">Create new world</OreButton>;
+  return <Button type="button">Create new world</Button>;
 }
 ```
 
@@ -46,24 +46,24 @@ export function App() {
 事件：
 
 ```tsx title="GameMode.tsx"
-import { OreButton } from "@katorlys/oreui-react/button";
-import { OreDropdown } from "@katorlys/oreui-react/dropdown";
+import { Button } from "@katorlys/oreui-react/button";
+import { Dropdown } from "@katorlys/oreui-react/dropdown";
 
 export function GameMode() {
   return (
-    <OreDropdown
+    <Dropdown
       onChange={(event) => console.log(event.detail.value)}
       onOpenChange={(event) => console.log(event.detail)}
     >
-      <OreButton className="ore-dropdown-trigger" type="button">
+      <Button className="ore-dropdown-trigger" type="button">
         Game mode
-      </OreButton>
+      </Button>
       <div className="ore-dropdown-menu">
         <button className="ore-dropdown-item" data-value="survival">
           Survival
         </button>
       </div>
-    </OreDropdown>
+    </Dropdown>
   );
 }
 ```

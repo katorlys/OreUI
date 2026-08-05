@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreTextfield } from "@katorlys/oreui-react/textfield";
+import { Textfield } from "@katorlys/oreui-react/textfield";
 import { useEffect, useState } from "react";
 
 interface TextfieldPreviewProps {
@@ -36,7 +36,7 @@ function TextfieldPreview({
 
   return (
     <div style={{ display: "grid", gap: "1rem" }}>
-      <OreTextfield
+      <Textfield
         description={description}
         disabled={disabled}
         error={error}

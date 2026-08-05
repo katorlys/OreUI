@@ -1,8 +1,8 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreContainer } from "@katorlys/oreui-react/container";
-import { OreScrollbar } from "@katorlys/oreui-react/scrollbar";
+import { Container } from "@katorlys/oreui-react/container";
+import { Scrollbar } from "@katorlys/oreui-react/scrollbar";
 
 interface ScrollbarPreviewProps {
   height: number;
@@ -11,16 +11,16 @@ interface ScrollbarPreviewProps {
 
 function ScrollbarPreview({ height, itemCount }: ScrollbarPreviewProps) {
   return (
-    <OreScrollbar
+    <Scrollbar
       aria-label="World list"
       style={{ height: `${height}px`, width: "min(100%, 28rem)" }}
     >
       {Array.from({ length: itemCount }, (_, index) => (
-        <OreContainer key={index} variant={index % 2 === 0 ? "dark" : "light"}>
+        <Container key={index} variant={index % 2 === 0 ? "dark" : "light"}>
           World {index + 1}
-        </OreContainer>
+        </Container>
       ))}
-    </OreScrollbar>
+    </Scrollbar>
   );
 }
 

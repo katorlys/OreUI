@@ -5,7 +5,7 @@ import {
 } from "@katorlys/oreui/modal";
 import React from "react";
 
-export const OreModal = createComponent({
+export const Modal = createComponent({
   react: React,
   tagName: "ore-modal",
   elementClass: OreModalElement,
@@ -13,7 +13,7 @@ export const OreModal = createComponent({
     onOpenChange: "open-change" as EventName<CustomEvent<boolean>>,
     onModalClose: "modal-close" as EventName<CustomEvent<OreModalCloseDetail>>,
   },
-  displayName: "OreModal",
+  displayName: "Modal",
 });
 
-export type OreModalProps = React.ComponentProps<typeof OreModal>;
+export type ModalProps = React.ComponentProps<typeof Modal>;

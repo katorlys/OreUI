@@ -5,7 +5,7 @@ import {
 } from "@katorlys/oreui/dropdown";
 import React from "react";
 
-export const OreDropdown = createComponent({
+export const Dropdown = createComponent({
   react: React,
   tagName: "ore-dropdown",
   elementClass: OreDropdownElement,
@@ -13,7 +13,7 @@ export const OreDropdown = createComponent({
     onOpenChange: "open-change" as EventName<CustomEvent<boolean>>,
     onChange: "change" as EventName<CustomEvent<OreDropdownChangeDetail>>,
   },
-  displayName: "OreDropdown",
+  displayName: "Dropdown",
 });
 
-export type OreDropdownProps = React.ComponentProps<typeof OreDropdown>;
+export type DropdownProps = React.ComponentProps<typeof Dropdown>;

@@ -2,7 +2,7 @@ import { createComponent, type EventName } from "@lit/react";
 import { OreTextfield as OreTextfieldElement } from "@katorlys/oreui/textfield";
 import React from "react";
 
-export const OreTextfield = createComponent({
+export const Textfield = createComponent({
   react: React,
   tagName: "ore-textfield",
   elementClass: OreTextfieldElement,
@@ -10,7 +10,7 @@ export const OreTextfield = createComponent({
     onInput: "input" as EventName<Event>,
     onChange: "change" as EventName<Event>,
   },
-  displayName: "OreTextfield",
+  displayName: "Textfield",
 });
 
-export type OreTextfieldProps = React.ComponentProps<typeof OreTextfield>;
+export type TextfieldProps = React.ComponentProps<typeof Textfield>;

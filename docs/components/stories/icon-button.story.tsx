@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { OreIconButton } from "@katorlys/oreui-react/icon-button";
+import { IconButton } from "@katorlys/oreui-react/icon-button";
 import { createElement } from "react";
 
 const closeIcon = (
@@ -22,9 +22,9 @@ interface IconButtonPreviewProps {
 
 function IconButtonPreview({ disabled, label, type }: IconButtonPreviewProps) {
   return (
-    <OreIconButton aria-label={label} disabled={disabled} type={type}>
+    <IconButton aria-label={label} disabled={disabled} type={type}>
       {createElement("ore-icon", { "aria-hidden": "true" }, closeIcon)}
-    </OreIconButton>
+    </IconButton>
   );
 }
 

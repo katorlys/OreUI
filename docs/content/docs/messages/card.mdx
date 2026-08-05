@@ -51,21 +51,21 @@ import "@katorlys/oreui/tag";
     <Tab value="React">
 
 ```tsx
-import { OreCard } from "@katorlys/oreui-react/card";
-import { OreTag } from "@katorlys/oreui-react/tag";
+import { Card } from "@katorlys/oreui-react/card";
+import { Tag } from "@katorlys/oreui-react/tag";
 
 export function WorldCard() {
   return (
-    <OreCard>
+    <Card>
       <div className="ore-card-media">
         <img src="/world.webp" alt="A village beside a river" />
         <div className="ore-card-overlay-bottom-start card-tag-group">
-          <OreTag outlined variant="informative">
+          <Tag outlined variant="informative">
             Local
-          </OreTag>
-          <OreTag outlined variant="notice">
+          </Tag>
+          <Tag outlined variant="notice">
             New
-          </OreTag>
+          </Tag>
         </div>
         <span className="ore-card-overlay-top-end" aria-hidden="true">
           <ore-icon>
@@ -85,7 +85,7 @@ export function WorldCard() {
         </div>
         <span className="ore-card-meta">1.21</span>
       </div>
-    </OreCard>
+    </Card>
   );
 }
 ```
