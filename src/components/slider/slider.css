@@ -7,8 +7,10 @@
       var(--ore-slider-progress)
   );
   --ore-slider-track-border: var(--ore-color-border);
-  --ore-slider-range-background: var(--ore-color-primary-background);
-  --ore-slider-range-highlight: var(--ore-color-primary-highlight);
+  --ore-slider-active-range-background: var(--ore-color-primary-background);
+  --ore-slider-active-range-highlight: var(--ore-color-primary-highlight);
+  --ore-slider-range-background: var(--ore-slider-active-range-background);
+  --ore-slider-range-highlight: var(--ore-slider-active-range-highlight);
   --ore-slider-track-background: var(--ore-color-neutral-50-background);
   --ore-slider-track-highlight: var(--ore-color-neutral-50-highlight-focus);
   --ore-slider-thumb-background: var(--ore-color-secondary-background);
@@ -56,6 +58,36 @@
       calc(var(--ore-slider-segment-size) - var(--ore-slider-unit) / 2)
       var(--ore-slider-segment-size)
   );
+}
+
+:where(ore-slider[color="secondary"]) {
+  --ore-slider-active-range-background: var(--ore-color-secondary-background);
+  --ore-slider-active-range-highlight: var(--ore-color-secondary-highlight);
+}
+
+:where(ore-slider[color="destructive"]) {
+  --ore-slider-active-range-background: var(--ore-color-destructive-background);
+  --ore-slider-active-range-highlight: var(--ore-color-destructive-highlight);
+}
+
+:where(ore-slider[color="dungeons"]) {
+  --ore-slider-active-range-background: var(--ore-color-dungeons-background);
+  --ore-slider-active-range-highlight: var(--ore-color-dungeons-highlight);
+}
+
+:where(ore-slider[color="legends"]) {
+  --ore-slider-active-range-background: var(--ore-color-legends-background);
+  --ore-slider-active-range-highlight: var(--ore-color-legends-highlight);
+}
+
+:where(ore-slider[color="realms"]) {
+  --ore-slider-active-range-background: var(--ore-color-realms-background);
+  --ore-slider-active-range-highlight: var(--ore-color-realms-highlight);
+}
+
+:where(ore-slider[color="gold"]) {
+  --ore-slider-active-range-background: var(--ore-color-gold-background);
+  --ore-slider-active-range-highlight: var(--ore-color-gold-highlight);
 }
 
 :where(ore-slider[orientation="vertical"]) {

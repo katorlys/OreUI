@@ -63,10 +63,20 @@ import { Button } from "@katorlys/oreui-vue/button";
 ## 变体
 
 ```html
-<ore-button variant="primary">Primary</ore-button>
-<ore-button variant="secondary">Secondary</ore-button>
+<ore-button variant="default">Default</ore-button>
 <ore-button variant="hero">Hero</ore-button>
-<ore-button variant="destructive">Delete</ore-button>
+```
+
+## 颜色
+
+```html
+<ore-button color="primary">Primary</ore-button>
+<ore-button color="secondary">Secondary</ore-button>
+<ore-button color="destructive">Delete</ore-button>
+<ore-button color="dungeons">Dungeons</ore-button>
+<ore-button color="legends">Legends</ore-button>
+<ore-button color="gold">Gold</ore-button>
+<ore-button color="realms">Realms</ore-button>
 ```
 
 ## Disabled
@@ -82,7 +92,7 @@ import { Button } from "@katorlys/oreui-vue/button";
 ```html
 <form>
   <ore-button type="submit">Save</ore-button>
-  <ore-button type="reset" variant="secondary">Reset</ore-button>
+  <ore-button type="reset" color="secondary">Reset</ore-button>
 </form>
 ```
 
@@ -90,9 +100,10 @@ import { Button } from "@katorlys/oreui-vue/button";
 
 | Prop       | 属性       | 类型                                               | 默认值      |
 | ---------- | ---------- | -------------------------------------------------- | ----------- |
+| `color`    | `color`    | `"destructive" \| "dungeons" \| "gold" \| "legends" \| "primary" \| "realms" \| "secondary"` | `"primary"` |
 | `disabled` | `disabled` | `boolean`                                          | `false`     |
 | `type`     | `type`     | `"button" \|"reset" \|"submit"`                    | `"submit"`  |
-| `variant`  | `variant`  | `"destructive" \|"hero" \|"primary" \|"secondary"` | `"primary"` |
+| `variant`  | `variant`  | `"default" \| "hero"`                              | `"default"` |
 
 ## 无障碍
 

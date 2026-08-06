@@ -5,6 +5,7 @@ import { Checkbox } from "@katorlys/oreui-react/checkbox";
 import { useEffect, useState } from "react";
 
 interface CheckboxPreviewProps {
+  color: "primary" | "secondary" | "destructive" | "dungeons" | "legends" | "realms" | "gold";
   disabled: boolean;
   initialChecked: boolean;
   label: string;
@@ -12,6 +13,7 @@ interface CheckboxPreviewProps {
 }
 
 function CheckboxPreview({
+  color,
   disabled,
   initialChecked,
   label,
@@ -32,6 +34,7 @@ function CheckboxPreview({
     <div style={{ display: "grid", gap: "1rem" }}>
       <Checkbox
         checked={checked}
+        color={color}
         disabled={disabled}
         required={required}
         onChange={(event) => {
@@ -53,6 +56,7 @@ export const checkboxStory = defineStory({
   displayName: "Checkbox",
   args: {
     initial: {
+      color: "primary",
       disabled: false,
       initialChecked: false,
       label: "Receive updates",

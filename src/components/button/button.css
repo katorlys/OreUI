@@ -73,7 +73,7 @@
     var(--ore-color-text-shadow);
 }
 
-:where(ore-button[variant="secondary"]) {
+:where(ore-button[color="secondary"]) {
   --ore-button-background-default: var(--ore-color-secondary-background);
   --ore-button-background-hover: var(--ore-color-secondary-background-hover);
   --ore-button-background-pressed: var(
@@ -86,7 +86,7 @@
   --ore-button-foreground: var(--ore-color-border);
 }
 
-:where(ore-button[variant="destructive"]) {
+:where(ore-button[color="destructive"]) {
   --ore-button-background-default: var(--ore-color-destructive-background);
   --ore-button-background-hover: var(--ore-color-destructive-background-hover);
   --ore-button-background-pressed: var(
@@ -98,6 +98,55 @@
     --ore-color-destructive-highlight-pressed
   );
   --ore-button-shadow: var(--ore-color-destructive-shadow);
+}
+
+:where(
+  ore-button[color="dungeons"],
+  ore-button[color="legends"],
+  ore-button[color="gold"],
+  ore-button[color="realms"]
+) {
+  --ore-button-background-default: var(--ore-color-dungeons-background);
+  --ore-button-background-hover: var(--ore-color-dungeons-background-hover);
+  --ore-button-background-pressed: var(--ore-color-dungeons-background-pressed);
+  --ore-button-highlight-default: var(--ore-color-dungeons-highlight);
+  --ore-button-highlight-hover: var(--ore-color-dungeons-highlight);
+  --ore-button-highlight-pressed: var(--ore-color-dungeons-highlight);
+  --ore-button-shadow: var(--ore-color-dungeons-shadow);
+  --ore-button-foreground: var(--ore-color-gray-100);
+}
+
+:where(ore-button[color="legends"]) {
+  --ore-button-background-default: var(--ore-color-legends-background);
+  --ore-button-background-hover: var(--ore-color-legends-background-hover);
+  --ore-button-background-pressed: var(--ore-color-legends-background-pressed);
+  --ore-button-highlight-default: var(--ore-color-legends-highlight);
+  --ore-button-highlight-hover: var(--ore-color-legends-highlight);
+  --ore-button-highlight-pressed: var(--ore-color-legends-highlight);
+  --ore-button-shadow: var(--ore-color-legends-shadow);
+  --ore-button-foreground: var(--ore-color-gray-100);
+}
+
+:where(ore-button[color="gold"]) {
+  --ore-button-background-default: var(--ore-color-gold-background);
+  --ore-button-background-hover: var(--ore-color-gold-background-hover);
+  --ore-button-background-pressed: var(--ore-color-gold-background-pressed);
+  --ore-button-highlight-default: var(--ore-color-gold-highlight);
+  --ore-button-highlight-hover: var(--ore-color-gold-highlight);
+  --ore-button-highlight-pressed: var(--ore-color-gold-highlight);
+  --ore-button-shadow: var(--ore-color-gold-shadow);
+  --ore-button-foreground: var(--ore-color-gray-100);
+}
+
+:where(ore-button[color="realms"]) {
+  --ore-button-background-default: var(--ore-color-realms-background);
+  --ore-button-background-hover: var(--ore-color-realms-background-hover);
+  --ore-button-background-pressed: var(--ore-color-realms-background-pressed);
+  --ore-button-highlight-default: var(--ore-color-realms-highlight);
+  --ore-button-highlight-hover: var(--ore-color-realms-highlight);
+  --ore-button-highlight-pressed: var(--ore-color-realms-highlight);
+  --ore-button-shadow: var(--ore-color-realms-shadow);
+  --ore-button-foreground: var(--ore-color-white);
 }
 
 :where(ore-button, ore-tab-button):hover:not([disabled], [form-disabled]) {

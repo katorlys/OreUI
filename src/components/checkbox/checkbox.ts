@@ -1,10 +1,20 @@
 import { type PropertyValues, ReactiveElement } from "lit";
 
+export type OreCheckboxColor =
+  | "destructive"
+  | "dungeons"
+  | "gold"
+  | "legends"
+  | "primary"
+  | "realms"
+  | "secondary";
+
 export class OreCheckbox extends ReactiveElement {
   static formAssociated = true;
 
   static properties = {
     checked: { type: Boolean, reflect: true },
+    color: { type: String, reflect: true },
     disabled: { type: Boolean, reflect: true },
     name: { type: String, reflect: true },
     required: { type: Boolean, reflect: true },
@@ -12,6 +22,7 @@ export class OreCheckbox extends ReactiveElement {
   };
 
   declare checked: boolean;
+  declare color: OreCheckboxColor;
   declare disabled: boolean;
   declare name: string;
   declare required: boolean;
@@ -25,6 +36,7 @@ export class OreCheckbox extends ReactiveElement {
   constructor() {
     super();
     this.checked = false;
+    this.color = "primary";
     this.disabled = false;
     this.name = "";
     this.required = false;

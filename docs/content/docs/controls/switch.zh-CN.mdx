@@ -89,6 +89,20 @@ const checked = ref(false);
 <ore-switch variant="icons">Icons</ore-switch>
 ```
 
+## 颜色
+
+使用 `color` 修改开启状态的颜色。
+
+```html
+<ore-switch color="primary" checked>Primary</ore-switch>
+<ore-switch color="secondary" checked>Secondary</ore-switch>
+<ore-switch color="destructive" checked>Destructive</ore-switch>
+<ore-switch color="dungeons" checked>Dungeons</ore-switch>
+<ore-switch color="legends" checked>Legends</ore-switch>
+<ore-switch color="realms" checked>Realms</ore-switch>
+<ore-switch color="gold" checked>Gold</ore-switch>
+```
+
 ## 表单
 
 选中项的值会包含在 `FormData` 中，重置表单会恢复初始状态。
@@ -102,6 +116,7 @@ Switch 的值发生变化后，会触发原生 `input` 和 `change` 事件。
 | Prop       | 属性       | 类型                   | 默认值      |
 | ---------- | ---------- | ---------------------- | ----------- |
 | `checked`  | `checked`  | `boolean`              | `false`     |
+| `color`    | `color`    | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"` |
 | `disabled` | `disabled` | `boolean`              | `false`     |
 | `name`     | `name`     | `string`               | `""`        |
 | `required` | `required` | `boolean`              | `false`     |

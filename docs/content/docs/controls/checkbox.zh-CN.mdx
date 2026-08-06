@@ -79,6 +79,18 @@ const checked = ref(false);
 
 </Tabs>
 
+## 颜色
+
+```html
+<ore-checkbox color="primary" checked>Primary</ore-checkbox>
+<ore-checkbox color="secondary" checked>Secondary</ore-checkbox>
+<ore-checkbox color="destructive" checked>Destructive</ore-checkbox>
+<ore-checkbox color="dungeons" checked>Dungeons</ore-checkbox>
+<ore-checkbox color="legends" checked>Legends</ore-checkbox>
+<ore-checkbox color="realms" checked>Realms</ore-checkbox>
+<ore-checkbox color="gold" checked>Gold</ore-checkbox>
+```
+
 ## 状态
 
 ```html
@@ -97,7 +109,7 @@ const checked = ref(false);
     Accept the terms
   </ore-checkbox>
   <ore-button type="submit">Continue</ore-button>
-  <ore-button type="reset" variant="secondary">Reset</ore-button>
+  <ore-button type="reset" color="secondary">Reset</ore-button>
 </form>
 ```
 
@@ -110,6 +122,7 @@ Checkbox 的值发生变化后，会触发原生 `input` 和 `change` 事件。
 | Prop       | 属性       | 类型      | 默认值  |
 | ---------- | ---------- | --------- | ------- |
 | `checked`  | `checked`  | `boolean` | `false` |
+| `color`    | `color`    | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"` |
 | `disabled` | `disabled` | `boolean` | `false` |
 | `name`     | `name`     | `string`  | `""`    |
 | `required` | `required` | `boolean` | `false` |

@@ -1,10 +1,20 @@
 import { type PropertyValues, ReactiveElement } from "lit";
 
+export type OreRadioColor =
+  | "destructive"
+  | "dungeons"
+  | "gold"
+  | "legends"
+  | "primary"
+  | "realms"
+  | "secondary";
+
 export class OreRadio extends ReactiveElement {
   static formAssociated = true;
 
   static properties = {
     checked: { type: Boolean, reflect: true },
+    color: { type: String, reflect: true },
     disabled: { type: Boolean, reflect: true },
     name: { type: String, reflect: true },
     required: { type: Boolean, reflect: true },
@@ -12,6 +22,7 @@ export class OreRadio extends ReactiveElement {
   };
 
   declare checked: boolean;
+  declare color: OreRadioColor;
   declare disabled: boolean;
   declare name: string;
   declare required: boolean;
@@ -24,6 +35,7 @@ export class OreRadio extends ReactiveElement {
   constructor() {
     super();
     this.checked = false;
+    this.color = "primary";
     this.disabled = false;
     this.name = "";
     this.required = false;

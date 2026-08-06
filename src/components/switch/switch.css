@@ -7,6 +7,8 @@
   --ore-switch-thumb-highlight: var(--ore-color-secondary-highlight);
   --ore-switch-thumb-shadow: var(--ore-color-secondary-shadow);
   --ore-switch-thumb-border: var(--ore-color-border);
+  --ore-switch-active-track-background: var(--ore-color-primary-background);
+  --ore-switch-active-track-highlight: var(--ore-color-primary-highlight);
   --ore-switch-thumb-focus-ring: transparent;
   --ore-switch-icon: var(--ore-color-gray-90);
 
@@ -95,9 +97,48 @@
 }
 
 :where(ore-switch[checked]) {
-  --ore-switch-track-background: var(--ore-color-primary-background);
-  --ore-switch-track-highlight: var(--ore-color-primary-highlight);
+  --ore-switch-track-background: var(--ore-switch-active-track-background);
+  --ore-switch-track-highlight: var(--ore-switch-active-track-highlight);
   --ore-switch-icon: var(--ore-color-white);
+}
+
+:where(ore-switch[color="secondary"]) {
+  --ore-switch-active-track-background: var(--ore-color-secondary-background);
+  --ore-switch-active-track-highlight: var(--ore-color-secondary-highlight);
+}
+
+:where(ore-switch[color="destructive"]) {
+  --ore-switch-active-track-background: var(--ore-color-destructive-background);
+  --ore-switch-active-track-highlight: var(--ore-color-destructive-highlight);
+}
+
+:where(ore-switch[color="dungeons"]) {
+  --ore-switch-active-track-background: var(--ore-color-dungeons-background);
+  --ore-switch-active-track-highlight: var(--ore-color-dungeons-highlight);
+}
+
+:where(ore-switch[color="legends"]) {
+  --ore-switch-active-track-background: var(--ore-color-legends-background);
+  --ore-switch-active-track-highlight: var(--ore-color-legends-highlight);
+}
+
+:where(ore-switch[color="realms"]) {
+  --ore-switch-active-track-background: var(--ore-color-realms-background);
+  --ore-switch-active-track-highlight: var(--ore-color-realms-highlight);
+}
+
+:where(ore-switch[color="gold"]) {
+  --ore-switch-active-track-background: var(--ore-color-gold-background);
+  --ore-switch-active-track-highlight: var(--ore-color-gold-highlight);
+}
+
+:where(
+  ore-switch[color="secondary"],
+  ore-switch[color="dungeons"],
+  ore-switch[color="legends"],
+  ore-switch[color="gold"]
+) {
+  --ore-switch-icon: var(--ore-color-gray-100);
 }
 
 :where(ore-switch[variant="icons"]) .ore-switch-status::after {

@@ -90,6 +90,20 @@ const checked = ref(false);
 <ore-switch variant="icons">Icons</ore-switch>
 ```
 
+## Colors
+
+Use `color` to change the checked state color.
+
+```html
+<ore-switch color="primary" checked>Primary</ore-switch>
+<ore-switch color="secondary" checked>Secondary</ore-switch>
+<ore-switch color="destructive" checked>Destructive</ore-switch>
+<ore-switch color="dungeons" checked>Dungeons</ore-switch>
+<ore-switch color="legends" checked>Legends</ore-switch>
+<ore-switch color="realms" checked>Realms</ore-switch>
+<ore-switch color="gold" checked>Gold</ore-switch>
+```
+
 ## Forms
 
 Checked values are included in `FormData`, and reset restores the initial state.
@@ -103,6 +117,7 @@ Switch dispatches native `input` and `change` events after its value changes.
 | Property   | Attribute  | Type                   | Default     |
 | ---------- | ---------- | ---------------------- | ----------- |
 | `checked`  | `checked`  | `boolean`              | `false`     |
+| `color`    | `color`    | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"` |
 | `disabled` | `disabled` | `boolean`              | `false`     |
 | `name`     | `name`     | `string`               | `""`        |
 | `required` | `required` | `boolean`              | `false`     |

@@ -96,6 +96,18 @@ const value = ref(12);
 <ore-slider value="40" variant="segmented" aria-label="Volume"></ore-slider>
 ```
 
+## 颜色
+
+```html
+<ore-slider color="primary" value="40" aria-label="Primary volume"></ore-slider>
+<ore-slider color="secondary" value="40" aria-label="Secondary volume"></ore-slider>
+<ore-slider color="destructive" value="40" aria-label="Destructive volume"></ore-slider>
+<ore-slider color="dungeons" value="40" aria-label="Dungeons volume"></ore-slider>
+<ore-slider color="legends" value="40" aria-label="Legends volume"></ore-slider>
+<ore-slider color="realms" value="40" aria-label="Realms volume"></ore-slider>
+<ore-slider color="gold" value="40" aria-label="Gold volume"></ore-slider>
+```
+
 ## 方向
 
 ```html
@@ -119,6 +131,7 @@ Slider 的值变化时会触发 `input` 事件，提交交互时会触发 `chang
 
 | Prop          | 属性          | 类型                         | 默认值         |
 | ------------- | ------------- | ---------------------------- | -------------- |
+| `color`       | `color`       | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"` |
 | `disabled`    | `disabled`    | `boolean`                    | `false`        |
 | `max`         | `max`         | `number`                     | `100`          |
 | `min`         | `min`         | `number`                     | `0`            |

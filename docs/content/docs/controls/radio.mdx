@@ -7,6 +7,18 @@ description: The base component for Radio Group.
 
 See [Radio Group](../radio-group).
 
+## Colors
+
+```html
+<ore-radio color="primary" checked>Primary</ore-radio>
+<ore-radio color="secondary" checked>Secondary</ore-radio>
+<ore-radio color="destructive" checked>Destructive</ore-radio>
+<ore-radio color="dungeons" checked>Dungeons</ore-radio>
+<ore-radio color="legends" checked>Legends</ore-radio>
+<ore-radio color="realms" checked>Realms</ore-radio>
+<ore-radio color="gold" checked>Gold</ore-radio>
+```
+
 ## States
 
 ```html
@@ -25,6 +37,7 @@ Selecting a new option dispatches native `input` and `change` events.
 | Property   | Attribute  | Type      | Default |
 | ---------- | ---------- | --------- | ------- |
 | `checked`  | `checked`  | `boolean` | `false` |
+| `color`    | `color`    | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"` |
 | `disabled` | `disabled` | `boolean` | `false` |
 | `name`     | `name`     | `string`  | `""`    |
 | `required` | `required` | `boolean` | `false` |

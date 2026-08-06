@@ -18,7 +18,7 @@ import "@katorlys/oreui/dropdown";
 
 ```html
 <ore-dropdown variant="bordered" value="creative">
-  <ore-button class="ore-dropdown-trigger" type="button" variant="secondary">
+  <ore-button class="ore-dropdown-trigger" type="button" color="secondary">
     <span class="ore-dropdown-trigger-label">Game mode</span>
   </ore-button>
   <div class="ore-dropdown-menu">
@@ -63,7 +63,7 @@ export function GameModeDropdown() {
       <Button
         className="ore-dropdown-trigger"
         type="button"
-        variant="secondary"
+        color="secondary"
       >
         <span className="ore-dropdown-trigger-label">Game mode</span>
       </Button>
@@ -108,7 +108,7 @@ const value = ref("creative");
 
 <template>
   <Dropdown v-model="value" variant="bordered">
-    <Button class="ore-dropdown-trigger" type="button" variant="secondary">
+    <Button class="ore-dropdown-trigger" type="button" color="secondary">
       <span class="ore-dropdown-trigger-label">Game mode</span>
     </Button>
     <div class="ore-dropdown-menu">
@@ -139,7 +139,7 @@ const value = ref("creative");
 
 ```astro
 <ore-dropdown variant="bordered" value="creative">
-	<ore-button class="ore-dropdown-trigger" type="button" variant="secondary">
+  <ore-button class="ore-dropdown-trigger" type="button" color="secondary">
 		<span class="ore-dropdown-trigger-label">Game mode</span>
 	</ore-button>
 	<div class="ore-dropdown-menu">

@@ -4,20 +4,29 @@ import { defineStoryFactory } from "@fumadocs/story/next/client";
 import { Button } from "@katorlys/oreui-react/button";
 
 interface ButtonPreviewProps {
+  color:
+    | "destructive"
+    | "dungeons"
+    | "gold"
+    | "legends"
+    | "primary"
+    | "realms"
+    | "secondary";
   children: string;
   disabled: boolean;
   type: "button" | "reset" | "submit";
-  variant: "destructive" | "hero" | "primary" | "secondary";
+  variant: "default" | "hero";
 }
 
 function ButtonPreview({
+  color,
   children,
   disabled,
   type,
   variant,
 }: ButtonPreviewProps) {
   return (
-    <Button disabled={disabled} type={type} variant={variant}>
+    <Button color={color} disabled={disabled} type={type} variant={variant}>
       {children}
     </Button>
   );
@@ -31,9 +40,10 @@ export const buttonStory = defineStory({
   args: {
     initial: {
       children: "Create new world",
+      color: "primary",
       disabled: false,
       type: "button",
-      variant: "primary",
+      variant: "default",
     },
   },
 });

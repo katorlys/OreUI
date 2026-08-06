@@ -1,18 +1,28 @@
 import { type PropertyValues, ReactiveElement } from "lit";
 
 export type OreButtonType = "button" | "reset" | "submit";
-export type OreButtonVariant = "destructive" | "hero" | "primary" | "secondary";
+export type OreButtonColor =
+  | "destructive"
+  | "dungeons"
+  | "gold"
+  | "legends"
+  | "primary"
+  | "realms"
+  | "secondary";
+export type OreButtonVariant = "default" | "hero";
 
 export class OreButton extends ReactiveElement {
   static formAssociated = true;
 
   static properties = {
+    color: { type: String, reflect: true },
     disabled: { type: Boolean, reflect: true },
     type: { type: String, reflect: true },
     variant: { type: String, reflect: true },
   };
 
   declare disabled: boolean;
+  declare color: OreButtonColor;
   declare type: OreButtonType;
   declare variant: OreButtonVariant;
 
@@ -22,9 +32,10 @@ export class OreButton extends ReactiveElement {
 
   constructor() {
     super();
+    this.color = "primary";
     this.disabled = false;
     this.type = "submit";
-    this.variant = "primary";
+    this.variant = "default";
   }
 
   get form(): HTMLFormElement | null {

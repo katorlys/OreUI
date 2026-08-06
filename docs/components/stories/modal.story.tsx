@@ -141,7 +141,7 @@ function ModalPreview({ description, title, triggerLabel }: ModalPreviewProps) {
               className="ore-modal-close"
               style={{ width: "100%" }}
               type="button"
-              variant="secondary"
+              color="secondary"
             >
               Cancel
             </Button>

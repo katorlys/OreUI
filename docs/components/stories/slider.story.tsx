@@ -5,6 +5,7 @@ import { Slider } from "@katorlys/oreui-react/slider";
 import { useEffect, useState } from "react";
 
 interface SliderPreviewProps {
+  color: "primary" | "secondary" | "destructive" | "dungeons" | "legends" | "realms" | "gold";
   disabled: boolean;
   initialValue: number;
   max: number;
@@ -15,6 +16,7 @@ interface SliderPreviewProps {
 }
 
 function SliderPreview({
+  color,
   disabled,
   initialValue,
   max,
@@ -38,6 +40,7 @@ function SliderPreview({
     <div style={{ display: "grid", gap: "1rem", justifyItems: "start" }}>
       <Slider
         aria-label="Render distance"
+        color={color}
         disabled={disabled}
         max={max}
         min={min}
@@ -62,6 +65,7 @@ export const sliderStory = defineStory({
   displayName: "Slider",
   args: {
     initial: {
+      color: "primary",
       disabled: false,
       initialValue: 12,
       max: 32,

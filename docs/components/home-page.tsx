@@ -76,7 +76,7 @@ export function OreHomePage({ lang }: HomePageProps) {
             <Button
               className="max-sm:w-full"
               type="button"
-              variant="secondary"
+              color="secondary"
               onClick={() => router.push(`${prefix}/docs/overview`)}
             >
               View components

@@ -80,6 +80,18 @@ const checked = ref(false);
 
 </Tabs>
 
+## Colors
+
+```html
+<ore-checkbox color="primary" checked>Primary</ore-checkbox>
+<ore-checkbox color="secondary" checked>Secondary</ore-checkbox>
+<ore-checkbox color="destructive" checked>Destructive</ore-checkbox>
+<ore-checkbox color="dungeons" checked>Dungeons</ore-checkbox>
+<ore-checkbox color="legends" checked>Legends</ore-checkbox>
+<ore-checkbox color="realms" checked>Realms</ore-checkbox>
+<ore-checkbox color="gold" checked>Gold</ore-checkbox>
+```
+
 ## States
 
 ```html
@@ -98,7 +110,7 @@ Checked values are included in `FormData`. Reset restores the initial `checked` 
     Accept the terms
   </ore-checkbox>
   <ore-button type="submit">Continue</ore-button>
-  <ore-button type="reset" variant="secondary">Reset</ore-button>
+  <ore-button type="reset" color="secondary">Reset</ore-button>
 </form>
 ```
 
@@ -111,6 +123,7 @@ Checkbox dispatches native `input` and `change` events after its value changes.
 | Property   | Attribute  | Type      | Default |
 | ---------- | ---------- | --------- | ------- |
 | `checked`  | `checked`  | `boolean` | `false` |
+| `color`    | `color`    | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"` |
 | `disabled` | `disabled` | `boolean` | `false` |
 | `name`     | `name`     | `string`  | `""`    |
 | `required` | `required` | `boolean` | `false` |

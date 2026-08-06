@@ -1,5 +1,13 @@
 import { type PropertyValues, ReactiveElement } from "lit";
 
+export type OreSliderColor =
+  | "destructive"
+  | "dungeons"
+  | "gold"
+  | "legends"
+  | "primary"
+  | "realms"
+  | "secondary";
 export type OreSliderVariant = "default" | "segmented";
 export type OreSliderOrientation = "horizontal" | "vertical";
 
@@ -8,6 +16,7 @@ export class OreSlider extends ReactiveElement {
 
   static properties = {
     disabled: { type: Boolean, reflect: true },
+    color: { type: String, reflect: true },
     max: { type: Number, reflect: true },
     min: { type: Number, reflect: true },
     name: { type: String, reflect: true },
@@ -18,6 +27,7 @@ export class OreSlider extends ReactiveElement {
   };
 
   declare disabled: boolean;
+  declare color: OreSliderColor;
   declare max: number;
   declare min: number;
   declare name: string;
@@ -33,6 +43,7 @@ export class OreSlider extends ReactiveElement {
   constructor() {
     super();
     this.disabled = false;
+    this.color = "primary";
     this.max = 100;
     this.min = 0;
     this.name = "";

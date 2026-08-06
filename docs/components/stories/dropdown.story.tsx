@@ -39,7 +39,7 @@ function DropdownPreview({
         <Button
           className="ore-dropdown-trigger"
           type="button"
-          variant="secondary"
+          color="secondary"
         >
           <span className="ore-dropdown-trigger-label">{label}</span>
         </Button>

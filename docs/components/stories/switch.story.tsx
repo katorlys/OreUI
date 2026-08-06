@@ -5,6 +5,7 @@ import { Switch } from "@katorlys/oreui-react/switch";
 import { useEffect, useState } from "react";
 
 interface SwitchPreviewProps {
+  color: "primary" | "secondary" | "destructive" | "dungeons" | "legends" | "realms" | "gold";
   disabled: boolean;
   initialChecked: boolean;
   label: string;
@@ -12,6 +13,7 @@ interface SwitchPreviewProps {
 }
 
 function SwitchPreview({
+  color,
   disabled,
   initialChecked,
   label,
@@ -32,6 +34,7 @@ function SwitchPreview({
     <div style={{ display: "grid", gap: "1rem" }}>
       <Switch
         checked={checked}
+        color={color}
         disabled={disabled}
         variant={variant}
         onChange={(event) => {
@@ -53,6 +56,7 @@ export const switchStory = defineStory({
   displayName: "Switch",
   args: {
     initial: {
+      color: "primary",
       disabled: false,
       initialChecked: false,
       label: "Enable autosave",
