@@ -66,6 +66,21 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+:where(ore-button)::before {
+  position: absolute;
+  top: var(--ore-button-face-offset);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: inset 0 0 0 var(--ore-button-unit) var(--ore-button-border);
+  content: "";
+  pointer-events: none;
+}
+
+:where(ore-button) {
+  position: relative;
+}
+
 :where(ore-button[variant="hero"]) {
   --ore-button-font-family: var(--ore-font-display);
   --ore-button-font-size: calc(var(--ore-button-unit) * 9);
