@@ -2,5 +2,5 @@
   "title": "快速开始",
   "description": "将 OreUI 添加到你的项目中",
   "icon": "Rocket",
-  "pages": ["vanilla", "react", "astro"]
+  "pages": ["vanilla", "react", "vue", "astro"]
 }

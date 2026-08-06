@@ -9,7 +9,7 @@ import { ModalStory } from "@/components/stories/modal.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "@katorlys/oreui/modal";
@@ -172,6 +172,88 @@ export function FormModal() {
     </Modal>
   );
 }
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import {
+  Button,
+  Checkbox,
+  Container,
+  Modal,
+  Textfield,
+} from "@katorlys/oreui-vue";
+import "@katorlys/oreui/icon";
+
+const titleId = "form-modal-title";
+const descriptionId = "form-modal-description";
+</script>
+<template>
+  <Modal @modal-close="console.log($event.detail.reason)">
+    <Button class="ore-modal-trigger" type="button">Open modal</Button>
+    <dialog
+      class="ore-modal-dialog"
+      :aria-labelledby="titleId"
+      :aria-describedby="descriptionId"
+    >
+      <form class="ore-modal-content">
+        <header class="ore-modal-header">
+          <button
+            class="ore-modal-close ore-modal-header-button"
+            type="button"
+            aria-label="Back"
+          >
+            <ore-icon aria-hidden="true"
+              ><svg viewBox="0 0 8 8">
+                <path
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  d="M5 2h1V1H5zM2 5h1V4H2zm3-3H4v1h1-1v.003H3v1h1-1V6h1v-.997 1h.034V7H5v1h1V2z"
+                  transform="translate(0 -.5)"
+                /></svg
+            ></ore-icon>
+          </button>
+          <h2 :id="titleId" class="ore-modal-title">Header</h2>
+          <button
+            class="ore-modal-close ore-modal-header-button"
+            type="button"
+            aria-label="Close"
+          >
+            <ore-icon aria-hidden="true"
+              ><svg viewBox="0 0 8 8">
+                <path
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  d="M.5.5h1v1h.966v1h-1v-1H.5zm7 1h-1v-1h1zm-2 1v-1h1v1zm-1 1h1v-1h-1zm0 1v-1h-1v-1h-1v1h1v1h-1v1h-1v1h-1v1h1v-1h1v-1h1v-1zm0 0h1v1h-1zm1.034 2H6.5v1h1v-1h-.966v-1h-1z"
+                /></svg
+            ></ore-icon>
+          </button>
+        </header>
+        <Container class="modal-form-body" variant="dark"
+          ><p :id="descriptionId" class="ore-modal-description">
+            Add the information for this form.
+          </p>
+          <Textfield
+            label="Label"
+            placeholder="Placeholder"
+            description="Description"
+        /></Container>
+        <Container class="modal-confirmation" variant="light"
+          ><Checkbox>Checkbox example for confirmation</Checkbox></Container
+        >
+        <Container class="modal-actions" variant="light"
+          ><Button class="ore-modal-close" type="button">Confirm</Button
+          ><Button class="ore-modal-close" type="button" variant="secondary"
+            >Cancel</Button
+          ></Container
+        >
+      </form>
+    </dialog>
+  </Modal>
+</template>
 ```
 
     </Tab>

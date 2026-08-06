@@ -9,7 +9,7 @@ import { ProgressBarStory } from "@/components/stories/progress-bar.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "@katorlys/oreui/progress-bar";
@@ -28,6 +28,16 @@ import { ProgressBar } from "@katorlys/oreui-react/progress-bar";
 export function DownloadProgress() {
   return <ProgressBar value={65} max={100} variant="labeled" />;
 }
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { ProgressBar } from "@katorlys/oreui-vue/progress-bar";
+</script>
+<template><ProgressBar :value="65" :max="100" variant="labeled" /></template>
 ```
 
     </Tab>

@@ -9,7 +9,7 @@ import { DropdownStory } from "@/components/stories/dropdown.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "@katorlys/oreui/button";
@@ -93,6 +93,43 @@ export function GameModeDropdown() {
     </Dropdown>
   );
 }
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { Button, Dropdown } from "@katorlys/oreui-vue";
+const value = ref("creative");
+</script>
+
+<template>
+  <Dropdown v-model="value" variant="bordered">
+    <Button class="ore-dropdown-trigger" type="button" variant="secondary">
+      <span class="ore-dropdown-trigger-label">Game mode</span>
+    </Button>
+    <div class="ore-dropdown-menu">
+      <button class="ore-dropdown-item" type="button" data-value="survival">
+        Survival</button
+      ><button class="ore-dropdown-item" type="button" data-value="creative">
+        Creative
+      </button>
+      <button class="ore-dropdown-item" type="button" data-value="adventure">
+        Adventure
+      </button>
+      <button
+        class="ore-dropdown-item"
+        type="button"
+        data-value="spectator"
+        disabled
+      >
+        Spectator
+      </button>
+    </div>
+  </Dropdown>
+</template>
 ```
 
     </Tab>

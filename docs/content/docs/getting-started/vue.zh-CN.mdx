@@ -1,0 +1,84 @@
+---
+title: Vue
+description: 在 Vue 应用中使用 OreUI
+---
+
+## 安装
+
+```bash tab="pnpm"
+pnpm add @katorlys/oreui-vue
+```
+
+```bash tab="yarn"
+yarn add @katorlys/oreui-vue
+```
+
+```bash tab="npm"
+npm install @katorlys/oreui-vue
+```
+
+```bash tab="bun"
+bun add @katorlys/oreui-vue
+```
+
+## 添加样式
+
+在 app entry 中导入一次样式表即可：
+
+```ts
+import "@katorlys/oreui-vue/styles.css";
+```
+
+## 使用组件
+
+```vue title="App.vue"
+<script setup lang="ts">
+import { Button } from "@katorlys/oreui-vue/button";
+</script>
+
+<template>
+  <Button type="button">Create new world</Button>
+</template>
+```
+
+## 使用 v-model
+
+带有值的控件使用 Vue 标准的 `modelValue` 与 `update:modelValue` contract。Checkbox、Switch、Slider、Textfield 和 Dropdown 均支持 `v-model`。
+
+```vue title="Settings.vue"
+<script setup lang="ts">
+import { ref } from "vue";
+import { Checkbox, Slider } from "@katorlys/oreui-vue";
+
+const enabled = ref(false);
+const volume = ref(40);
+</script>
+
+<template>
+  <Checkbox v-model="enabled">Enable updates</Checkbox>
+  <Slider v-model="volume" :min="0" :max="100" />
+</template>
+```
+
+<Callout type="info">
+  导入 `@katorlys/oreui-vue` 即可使用所有 Vue 组件。
+</Callout>
+
+## 直接使用自定义元素
+
+Vue 组件不需要编译配置。直接使用 `<ore-*>` 标签时，需配置 Vue 将其识别为自定义元素：
+
+```ts title="vite.config.ts"
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+
+export default defineConfig({
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: { isCustomElement: (tag) => tag.startsWith("ore-") },
+      },
+    }),
+  ],
+});
+```

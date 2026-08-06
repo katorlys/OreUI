@@ -9,7 +9,7 @@ import { ContainerStory } from "@/components/stories/container.story";
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "@katorlys/oreui/container";
@@ -36,6 +36,22 @@ export function WorldSettings() {
     </Container>
   );
 }
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { Container } from "@katorlys/oreui-vue/container";
+</script>
+
+<template>
+  <Container variant="dark"
+    ><h2>World settings</h2>
+    <p>Choose how players join your world.</p></Container
+  >
+</template>
 ```
 
     </Tab>

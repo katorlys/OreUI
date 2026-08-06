@@ -9,7 +9,7 @@ import { ScrollbarStory } from "@/components/stories/scrollbar.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "@katorlys/oreui/scrollbar";
@@ -38,6 +38,22 @@ export function WorldList() {
     </Scrollbar>
   );
 }
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { Scrollbar } from "@katorlys/oreui-vue/scrollbar";
+</script>
+<template>
+  <Scrollbar aria-label="World list" style="max-height: 12rem"
+    ><div>World 1</div>
+    <div>World 2</div>
+    <div>World 3</div></Scrollbar
+  >
+</template>
 ```
 
     </Tab>

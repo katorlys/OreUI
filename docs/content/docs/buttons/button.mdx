@@ -11,7 +11,7 @@ Use buttons for actions such as confirming a choice, opening a screen, or submit
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "@katorlys/oreui/button";
@@ -30,6 +30,19 @@ import { Button } from "@katorlys/oreui-react/button";
 export function App() {
   return <Button type="button">Create new world</Button>;
 }
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { Button } from "@katorlys/oreui-vue/button";
+</script>
+
+<template>
+  <Button type="button">Create new world</Button>
+</template>
 ```
 
     </Tab>

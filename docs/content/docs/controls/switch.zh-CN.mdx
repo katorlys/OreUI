@@ -9,7 +9,7 @@ import { SwitchStory } from "@/components/stories/switch.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "@katorlys/oreui/switch";
@@ -46,6 +46,23 @@ export function AutosaveSwitch() {
     </Switch>
   );
 }
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { Switch } from "@katorlys/oreui-vue/switch";
+const checked = ref(false);
+</script>
+
+<template>
+  <Switch v-model="checked" name="autosave" value="enabled" variant="icons"
+    >Enable autosave</Switch
+  >
+</template>
 ```
 
     </Tab>

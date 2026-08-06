@@ -9,7 +9,7 @@ import { CheckboxStory } from "@/components/stories/checkbox.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "@katorlys/oreui/checkbox";
@@ -43,6 +43,23 @@ export function UpdatesCheckbox() {
     </Checkbox>
   );
 }
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { Checkbox } from "@katorlys/oreui-vue/checkbox";
+const checked = ref(false);
+</script>
+
+<template>
+  <Checkbox v-model="checked" name="updates" value="yes"
+    >Receive updates</Checkbox
+  >
+</template>
 ```
 
     </Tab>

@@ -9,7 +9,7 @@ import { SliderStory } from "@/components/stories/slider.story";
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "@katorlys/oreui/slider";
@@ -50,6 +50,29 @@ export function RenderDistanceSlider() {
     />
   );
 }
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { Slider } from "@katorlys/oreui-vue/slider";
+
+const value = ref(12);
+</script>
+
+<template>
+  <Slider
+    v-model="value"
+    name="distance"
+    aria-label="Render distance"
+    :min="2"
+    :max="32"
+    :step="1"
+  />
+</template>
 ```
 
     </Tab>

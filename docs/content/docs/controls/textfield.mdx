@@ -9,7 +9,7 @@ import { TextfieldStory } from "@/components/stories/textfield.story";
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "@katorlys/oreui/textfield";
@@ -48,6 +48,28 @@ export function WorldNameField() {
     />
   );
 }
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { Textfield } from "@katorlys/oreui-vue/textfield";
+
+const value = ref("");
+</script>
+
+<template>
+  <Textfield
+    v-model="value"
+    name="world"
+    label="World name"
+    placeholder="New World"
+    description="Shown to other players"
+  />
+</template>
 ```
 
     </Tab>

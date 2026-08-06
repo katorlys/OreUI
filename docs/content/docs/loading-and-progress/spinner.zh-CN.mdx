@@ -9,7 +9,7 @@ import { SpinnerStory } from "@/components/stories/spinner.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "@katorlys/oreui/spinner";
@@ -28,6 +28,16 @@ import { Spinner } from "@katorlys/oreui-react/spinner";
 export function LoadingWorlds() {
   return <Spinner aria-label="Loading worlds" />;
 }
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { Spinner } from "@katorlys/oreui-vue/spinner";
+</script>
+<template><Spinner aria-label="Loading worlds" /></template>
 ```
 
     </Tab>

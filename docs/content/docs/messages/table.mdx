@@ -9,7 +9,7 @@ import { TableStory } from "@/components/stories/table.story";
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "@katorlys/oreui/table";
@@ -72,6 +72,41 @@ export function WorldsTable() {
     </Table>
   );
 }
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { Table } from "@katorlys/oreui-vue/table";
+</script>
+
+<template>
+  <Table variant="striped">
+    <table>
+      <caption>
+        Available worlds
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">World</th>
+          <th scope="col">Players</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Mountains</th>
+          <td>4 / 10</td>
+        </tr>
+        <tr>
+          <th scope="row">Village</th>
+          <td>8 / 20</td>
+        </tr>
+      </tbody>
+    </table>
+  </Table>
+</template>
 ```
 
     </Tab>

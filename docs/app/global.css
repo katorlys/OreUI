@@ -59,9 +59,9 @@ html > body[data-scroll-locked] {
 }
 
 .ore-framework-tabs [role="tab"]:nth-of-type(3)::before {
-  background-image: url("/OreUI/frameworks/astro.svg");
+  background-image: url("/OreUI/frameworks/vue.svg");
 }
 
 .ore-framework-tabs [role="tab"]:nth-of-type(4)::before {
-  background-image: url("/OreUI/frameworks/vue.svg");
+  background-image: url("/OreUI/frameworks/astro.svg");
 }

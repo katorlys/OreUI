@@ -9,7 +9,7 @@ import { TogglesStory } from "@/components/stories/toggles.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "@katorlys/oreui/toggles";
@@ -53,6 +53,30 @@ export function DaylightToggles() {
     </Toggles>
   );
 }
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { TabButton, Toggles } from "@katorlys/oreui-vue";
+
+const value = ref("day");
+</script>
+
+<template>
+  <Toggles aria-label="Daylight cycle"
+    ><TabButton :selected="value === 'day'" @change="value = 'day'"
+      >Day</TabButton
+    ><TabButton :selected="value === 'night'" @change="value = 'night'"
+      >Night</TabButton
+    ><TabButton :selected="value === 'always'" @change="value = 'always'"
+      >Always</TabButton
+    ></Toggles
+  >
+</template>
 ```
 
     </Tab>

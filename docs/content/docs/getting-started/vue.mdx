@@ -1,0 +1,85 @@
+---
+title: Vue
+description: OreUI for Vue applications.
+---
+
+## Install
+
+```bash tab="pnpm"
+pnpm add @katorlys/oreui-vue
+```
+
+```bash tab="yarn"
+yarn add @katorlys/oreui-vue
+```
+
+```bash tab="npm"
+npm install @katorlys/oreui-vue
+```
+
+```bash tab="bun"
+bun add @katorlys/oreui-vue
+```
+
+## Add styles
+
+Import the stylesheet once in your app entry:
+
+```ts
+import "@katorlys/oreui-vue/styles.css";
+```
+
+## Use a component
+
+```vue title="App.vue"
+<script setup lang="ts">
+import { Button } from "@katorlys/oreui-vue/button";
+</script>
+
+<template>
+  <Button type="button">Create new world</Button>
+</template>
+```
+
+## Use v-model
+
+Value controls expose the standard Vue `modelValue` and `update:modelValue` contract. Use `v-model` with Checkbox, Switch, Slider, Textfield, and Dropdown.
+
+```vue title="Settings.vue"
+<script setup lang="ts">
+import { ref } from "vue";
+import { Checkbox, Slider } from "@katorlys/oreui-vue";
+
+const enabled = ref(false);
+const volume = ref(40);
+</script>
+
+<template>
+  <Checkbox v-model="enabled">Enable updates</Checkbox>
+  <Slider v-model="volume" :min="0" :max="100" />
+</template>
+```
+
+<Callout type="info">
+  To use all the components, import `@katorlys/oreui-vue`.
+</Callout>
+
+## Direct custom elements
+
+The Vue wrappers need no compiler configuration. When using `<ore-*>` tags
+directly, configure Vue to treat them as custom elements:
+
+```ts title="vite.config.ts"
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+
+export default defineConfig({
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: { isCustomElement: (tag) => tag.startsWith("ore-") },
+      },
+    }),
+  ],
+});
+```
