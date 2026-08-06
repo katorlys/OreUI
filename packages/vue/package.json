@@ -1,17 +1,17 @@
 {
-  "name": "@katorlys/oreui-react",
+  "name": "@katorlys/oreui-vue",
   "version": "0.0.0-alpha.3",
-  "description": "React wrapper for the unofficial Ore UI component library.",
+  "description": "Vue wrapper for the unofficial Ore UI component library.",
   "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/katorlys/OreUI.git",
-    "directory": "packages/react"
+    "directory": "packages/vue"
   },
   "keywords": [
     "ore-ui",
     "oreui",
-    "react",
+    "vue",
     "minecraft",
     "component",
     "ui",
@@ -49,20 +49,15 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@katorlys/oreui": "workspace:*",
-    "@lit/react": "^1.0.8"
+    "@katorlys/oreui": "workspace:*"
   },
   "peerDependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "vue": "^3.5.0"
   },
   "devDependencies": {
     "@katorlys/oreui": "workspace:*",
-    "@types/react": "^19.2.9",
-    "@types/react-dom": "^19.2.3",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "vue": "^3.5.0"
   },
   "engines": {
     "node": ">=20.19.0"

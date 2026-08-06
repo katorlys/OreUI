@@ -50,14 +50,14 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "pnpm build:core && pnpm --filter @katorlys/oreui-react build",
+    "build": "pnpm build:core && pnpm --filter @katorlys/oreui-react build && pnpm --filter @katorlys/oreui-vue build",
     "build:core": "vite build && tsc -p tsconfig.build.json && node scripts/copy-assets.js",
     "docs:build": "pnpm --filter @katorlys/oreui-docs build",
     "docs:dev": "pnpm --filter @katorlys/oreui-docs dev",
     "docs:typecheck": "pnpm --filter @katorlys/oreui-docs typecheck",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "typecheck": "pnpm typecheck:core && pnpm --filter @katorlys/oreui-react typecheck",
+    "typecheck": "pnpm typecheck:core && pnpm --filter @katorlys/oreui-react typecheck && pnpm --filter @katorlys/oreui-vue typecheck",
     "typecheck:core": "tsc --noEmit",
     "preview": "vite preview"
   },
@@ -74,7 +74,8 @@
     "react-dom": "^19.2.8",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
-    "vite": "^8.2.0"
+    "vite": "^8.2.0",
+    "vue": "^3.5.0"
   },
   "engines": {
     "node": ">=20.19.0"
