@@ -98,7 +98,7 @@ Palette tokens are available when a fixed color is needed.
   ))}
 </div>
 
-### Deep blue
+### Purple
 
 <div
   style={{
@@ -110,8 +110,62 @@ Palette tokens are available when a fixed color is needed.
   {[10, 20, 40, 50, 60, 70, 100].map((shade) => (
     <div
       key={shade}
-      title={`--ore-color-deep-blue-${shade}`}
-      style={{ background: `var(--ore-color-deep-blue-${shade})` }}
+      title={`--ore-color-purple-${shade}`}
+      style={{ background: `var(--ore-color-purple-${shade})` }}
+    />
+  ))}
+</div>
+
+### Legends
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
+    minHeight: "4rem",
+  }}
+>
+  {[10, 20, 30, 40, 50].map((shade) => (
+    <div
+      key={shade}
+      title={`--ore-color-legends-${shade}`}
+      style={{ background: `var(--ore-color-legends-${shade})` }}
+    />
+  ))}
+</div>
+
+### Dungeons
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
+    minHeight: "4rem",
+  }}
+>
+  {[10, 20, 30, 40, 50].map((shade) => (
+    <div
+      key={shade}
+      title={`--ore-color-dungeons-${shade}`}
+      style={{ background: `var(--ore-color-dungeons-${shade})` }}
+    />
+  ))}
+</div>
+
+### Gold
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
+    minHeight: "4rem",
+  }}
+>
+  {[10, 20, 30, 40, 50].map((shade) => (
+    <div
+      key={shade}
+      title={`--ore-color-gold-${shade}`}
+      style={{ background: `var(--ore-color-gold-${shade})` }}
     />
   ))}
 </div>
@@ -422,6 +476,98 @@ Palette tokens are available when a fixed color is needed.
   ))}
 </div>
 
+### Dungeons
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))",
+    gap: "0.5rem",
+  }}
+>
+  {[
+    "dungeons-background",
+    "dungeons-background-hover",
+    "dungeons-background-pressed",
+    "dungeons-highlight",
+    "dungeons-shadow",
+  ].map((token) => (
+    <div key={token} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+      <span style={{ width: "2rem", height: "2rem", flex: "0 0 auto", background: `var(--ore-color-${token})` }} />
+      <code>{`--ore-color-${token}`}</code>
+    </div>
+  ))}
+</div>
+
+### Legends
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))",
+    gap: "0.5rem",
+  }}
+>
+  {[
+    "legends-background",
+    "legends-background-hover",
+    "legends-background-pressed",
+    "legends-highlight",
+    "legends-shadow",
+  ].map((token) => (
+    <div key={token} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+      <span style={{ width: "2rem", height: "2rem", flex: "0 0 auto", background: `var(--ore-color-${token})` }} />
+      <code>{`--ore-color-${token}`}</code>
+    </div>
+  ))}
+</div>
+
+### Gold
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))",
+    gap: "0.5rem",
+  }}
+>
+  {[
+    "gold-background",
+    "gold-background-hover",
+    "gold-background-pressed",
+    "gold-highlight",
+    "gold-shadow",
+  ].map((token) => (
+    <div key={token} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+      <span style={{ width: "2rem", height: "2rem", flex: "0 0 auto", background: `var(--ore-color-${token})` }} />
+      <code>{`--ore-color-${token}`}</code>
+    </div>
+  ))}
+</div>
+
+### Realms
+
+<div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(11rem, 1fr))",
+    gap: "0.5rem",
+  }}
+>
+  {[
+    "realms-background",
+    "realms-background-hover",
+    "realms-background-pressed",
+    "realms-highlight",
+    "realms-shadow",
+  ].map((token) => (
+    <div key={token} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+      <span style={{ width: "2rem", height: "2rem", flex: "0 0 auto", background: `var(--ore-color-${token})` }} />
+      <code>{`--ore-color-${token}`}</code>
+    </div>
+  ))}
+</div>
+
 ## Feedback
 
 <div
@@ -476,11 +622,7 @@ Palette tokens are available when a fixed color is needed.
   }}
 >
   {[
-    "realms-primary-background",
-    "realms-primary-background-hover",
-    "realms-primary-background-pressed",
-    "realms-primary-shadow",
-    "realms-primary-tint-background",
+    "realms-tint-background",
     "realms-informative-background",
     "realms-informative-tint-background",
   ].map((token) => (

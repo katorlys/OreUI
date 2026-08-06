@@ -33,14 +33,15 @@ Set tokens in a container to limit them to parts of the page.
 
 ```css
 .realms-theme {
-  --ore-color-primary-background: var(--ore-color-realms-primary-background);
+  --ore-color-primary-background: var(--ore-color-realms-background);
   --ore-color-primary-background-hover: var(
-    --ore-color-realms-primary-background-hover
+    --ore-color-realms-background-hover
   );
   --ore-color-primary-background-pressed: var(
-    --ore-color-realms-primary-background-pressed
+    --ore-color-realms-background-pressed
   );
-  --ore-color-primary-shadow: var(--ore-color-realms-primary-shadow);
+  --ore-color-primary-highlight: var(--ore-color-realms-highlight);
+  --ore-color-primary-shadow: var(--ore-color-realms-shadow);
 }
 ```
 
@@ -54,14 +55,15 @@ Use component-level variables to change a specific component without replacing t
 
 ```css
 .realms-action {
-  --ore-button-background-default: var(--ore-color-realms-primary-background);
+  --ore-button-background-default: var(--ore-color-realms-background);
   --ore-button-background-hover: var(
-    --ore-color-realms-primary-background-hover
+    --ore-color-realms-background-hover
   );
   --ore-button-background-pressed: var(
-    --ore-color-realms-primary-background-pressed
+    --ore-color-realms-background-pressed
   );
-  --ore-button-shadow: var(--ore-color-realms-primary-shadow);
+  --ore-button-highlight-default: var(--ore-color-realms-highlight);
+  --ore-button-shadow: var(--ore-color-realms-shadow);
   min-width: 12rem;
 }
 ```

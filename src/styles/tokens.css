@@ -42,13 +42,25 @@
   --ore-color-orange-20: #d3791f;
   --ore-color-orange-30: #a65b11;
 
-  --ore-color-deep-blue-10: #ac90f3;
-  --ore-color-deep-blue-20: #9471e0;
-  --ore-color-deep-blue-40: #8557f8;
-  --ore-color-deep-blue-50: #7345e5;
-  --ore-color-deep-blue-60: #5d2cc6;
-  --ore-color-deep-blue-70: #4a1cac;
-  --ore-color-deep-blue-100: #050029;
+  --ore-color-purple-10: #ac90f3;
+  --ore-color-purple-20: #9471e0;
+  --ore-color-purple-40: #8557f8;
+  --ore-color-purple-50: #7345e5;
+  --ore-color-purple-60: #5d2cc6;
+  --ore-color-purple-70: #4a1cac;
+  --ore-color-purple-100: #050029;
+
+  --ore-color-legends-10: #c4f5fe;
+  --ore-color-legends-20: #bdf5ff;
+  --ore-color-legends-30: #acf2ff;
+  --ore-color-legends-40: #70dfff;
+  --ore-color-legends-50: #339bd6;
+
+  --ore-color-gold-10: #ffe175;
+  --ore-color-gold-20: #ffd953;
+  --ore-color-gold-30: #ffc42b;
+  --ore-color-gold-40: #db9f21;
+  --ore-color-gold-50: #a47b2a;
 
   --ore-color-white: #ffffff;
   --ore-color-gray-10: #f4f6f9;
@@ -82,6 +94,12 @@
   --ore-color-white-opacity-70: #ffffffb3;
   --ore-color-white-opacity-80: #ffffffcc;
   --ore-color-white-opacity-90: #ffffffe6;
+
+  --ore-color-dungeons-10: #ffd953;
+  --ore-color-dungeons-20: #ffb64c;
+  --ore-color-dungeons-30: #ffa41f;
+  --ore-color-dungeons-40: #ff791a;
+  --ore-color-dungeons-50: #de7523;
 
   --ore-color-foreground: var(--ore-color-white);
   --ore-color-border: var(--ore-color-gray-100);
@@ -131,6 +149,30 @@
     var(--ore-color-white) 20%
   );
   --ore-color-secondary-shadow: var(--ore-color-gray-60);
+
+  --ore-color-dungeons-background: var(--ore-color-dungeons-30);
+  --ore-color-dungeons-background-hover: var(--ore-color-dungeons-20);
+  --ore-color-dungeons-background-pressed: var(--ore-color-dungeons-40);
+  --ore-color-dungeons-highlight: var(--ore-color-dungeons-10);
+  --ore-color-dungeons-shadow: var(--ore-color-dungeons-50);
+
+  --ore-color-legends-background: var(--ore-color-legends-30);
+  --ore-color-legends-background-hover: var(--ore-color-legends-20);
+  --ore-color-legends-background-pressed: var(--ore-color-legends-40);
+  --ore-color-legends-highlight: var(--ore-color-legends-10);
+  --ore-color-legends-shadow: var(--ore-color-legends-50);
+
+  --ore-color-gold-background: var(--ore-color-gold-30);
+  --ore-color-gold-background-hover: var(--ore-color-gold-10);
+  --ore-color-gold-background-pressed: var(--ore-color-gold-40);
+  --ore-color-gold-highlight: var(--ore-color-gold-20);
+  --ore-color-gold-shadow: var(--ore-color-gold-50);
+
+  --ore-color-realms-background: var(--ore-color-purple-50);
+  --ore-color-realms-background-hover: var(--ore-color-purple-40);
+  --ore-color-realms-background-pressed: var(--ore-color-purple-60);
+  --ore-color-realms-highlight: var(--ore-color-purple-40);
+  --ore-color-realms-shadow: var(--ore-color-purple-70);
 
   --ore-color-neutral-background: var(--ore-color-gray-70);
   --ore-color-neutral-background-hover: var(--ore-color-gray-60);
@@ -235,13 +277,9 @@
   --ore-color-notice-tint-foreground: var(--ore-color-gray-100);
   --ore-color-destructive-tint-background: var(--ore-color-red-10);
   --ore-color-destructive-tint-foreground: var(--ore-color-gray-100);
-  --ore-color-realms-primary-background: var(--ore-color-deep-blue-50);
-  --ore-color-realms-primary-background-hover: var(--ore-color-deep-blue-40);
-  --ore-color-realms-primary-background-pressed: var(--ore-color-deep-blue-60);
-  --ore-color-realms-primary-shadow: var(--ore-color-deep-blue-70);
-  --ore-color-realms-primary-tint-background: var(--ore-color-deep-blue-10);
-  --ore-color-realms-informative-background: var(--ore-color-deep-blue-100);
-  --ore-color-realms-informative-tint-background: var(--ore-color-deep-blue-10);
+  --ore-color-realms-tint-background: var(--ore-color-purple-10);
+  --ore-color-realms-informative-background: var(--ore-color-purple-100);
+  --ore-color-realms-informative-tint-background: var(--ore-color-purple-10);
 
   --ore-color-overlay: color-mix(
     in srgb,
