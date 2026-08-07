@@ -33,8 +33,8 @@ export function SiteBrand() {
           src="/OreUI/icon.svg"
           alt=""
           aria-hidden="true"
-          width={34}
-          height={34}
+          width={32}
+          height={32}
         />
         <span style={{ fontFamily: "var(--ore-font-display)" }}>OreUI</span>
       </a>

@@ -75,6 +75,7 @@
 :where(ore-modal .ore-modal-title) {
   z-index: 1;
   margin: 0;
+  font-family: var(--ore-font-body);
   font-size: calc(var(--ore-modal-unit) * 8);
   font-weight: 400;
   line-height: calc(var(--ore-modal-unit) * 10);

@@ -120,7 +120,8 @@
   height: calc(var(--ore-slider-unit) * 5.5);
   background:
     var(--ore-slider-segments) center /
-      calc(100% - var(--ore-slider-unit) * 14.5) 100% no-repeat,
+      calc(100% - var(--ore-slider-unit) * 14.5)
+      calc(var(--ore-slider-unit) * 3.5) no-repeat,
     linear-gradient(
         to right,
         var(--ore-slider-range-background) 0 var(--ore-slider-value),
@@ -136,6 +137,28 @@
       center / calc(100% - var(--ore-slider-unit) * 2)
       calc(var(--ore-slider-unit) * 3.5) no-repeat,
     var(--ore-slider-track-border);
+  content: "";
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+:where(ore-slider[variant="segmented"])::after {
+  position: absolute;
+  top: 50%;
+  right: calc(var(--ore-slider-unit) * 7.25);
+  left: calc(var(--ore-slider-unit) * 7.25);
+  height: calc(var(--ore-slider-unit) * 3.5);
+  background:
+    linear-gradient(
+        var(--ore-slider-track-border),
+        var(--ore-slider-track-border)
+      )
+      left / var(--ore-slider-unit) 100% no-repeat,
+    linear-gradient(
+        var(--ore-slider-track-border),
+        var(--ore-slider-track-border)
+      )
+      right / var(--ore-slider-unit) 100% no-repeat;
   content: "";
   transform: translateY(-50%);
   pointer-events: none;
@@ -166,6 +189,27 @@
       center / calc(var(--ore-slider-unit) * 3.5)
       calc(100% - var(--ore-slider-unit) * 2) no-repeat,
     var(--ore-slider-track-border);
+  transform: translateX(-50%);
+}
+
+:where(ore-slider[orientation="vertical"][variant="segmented"])::after {
+  top: calc(var(--ore-slider-unit) * 7.25);
+  right: auto;
+  bottom: calc(var(--ore-slider-unit) * 7.25);
+  left: 50%;
+  width: calc(var(--ore-slider-unit) * 3.5);
+  height: auto;
+  background:
+    linear-gradient(
+        var(--ore-slider-track-border),
+        var(--ore-slider-track-border)
+      )
+      bottom / 100% var(--ore-slider-unit) no-repeat,
+    linear-gradient(
+        var(--ore-slider-track-border),
+        var(--ore-slider-track-border)
+      )
+      top / 100% var(--ore-slider-unit) no-repeat;
   transform: translateX(-50%);
 }
 

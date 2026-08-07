@@ -74,7 +74,11 @@ function ModalPreview({ description, title, triggerLabel }: ModalPreviewProps) {
             >
               {createElement("ore-icon", { "aria-hidden": "true" }, backIcon)}
             </button>
-            <h2 className="ore-modal-title" id={titleId}>
+            <h2
+              className="ore-modal-title"
+              id={titleId}
+              style={{ fontFamily: "var(--ore-font-body)" }}
+            >
               {title}
             </h2>
             <button

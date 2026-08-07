@@ -2,7 +2,7 @@
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
 import { Textfield } from "@katorlys/oreui-react/textfield";
-import { useEffect, useState } from "react";
+import { type CSSProperties, useEffect, useState } from "react";
 
 interface TextfieldPreviewProps {
   description: string;
@@ -45,6 +45,12 @@ function TextfieldPreview({
         required={required}
         type={type}
         value={value}
+        style={
+          {
+            "--ore-textfield-description": "var(--color-fd-muted-foreground)",
+            "--ore-textfield-foreground": "var(--color-fd-foreground)",
+          } as CSSProperties
+        }
         onInput={(event) => {
           const field = event.target as HTMLElement & { value: string };
           setValue(field.value);

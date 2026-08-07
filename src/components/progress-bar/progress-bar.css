@@ -1,9 +1,9 @@
 :where(ore-progress-bar) {
   --ore-progress-bar-unit: var(--ore-size-unit);
   --ore-progress-bar-value: 0;
-  --ore-progress-bar-frame: var(--ore-color-foreground);
-  --ore-progress-bar-fill: var(--ore-color-foreground);
-  --ore-progress-bar-label: var(--ore-color-foreground);
+  --ore-progress-bar-frame: currentColor;
+  --ore-progress-bar-fill: currentColor;
+  --ore-progress-bar-label: currentColor;
   --ore-progress-bar-label-gap: calc(var(--ore-progress-bar-unit) * 2);
 
   display: inline-grid;
