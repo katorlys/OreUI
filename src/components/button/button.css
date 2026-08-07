@@ -35,6 +35,10 @@
     linear-gradient(var(--ore-button-border), var(--ore-button-border)) right
       var(--ore-button-face-offset) / var(--ore-button-unit)
       calc(100% - var(--ore-button-face-offset)) no-repeat,
+    linear-gradient(var(--ore-button-shadow), var(--ore-button-shadow)) center
+      calc(100% - var(--ore-button-unit)) /
+      calc(100% - var(--ore-button-unit) * 2) calc(var(--ore-button-unit) * 2)
+      no-repeat,
     linear-gradient(var(--ore-button-highlight), var(--ore-button-highlight))
       center calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
       calc(100% - var(--ore-button-unit) * 2) var(--ore-button-unit) no-repeat,
@@ -44,15 +48,13 @@
       calc(100% - var(--ore-button-unit) * 2) var(--ore-button-unit) no-repeat,
     linear-gradient(var(--ore-button-highlight), var(--ore-button-highlight))
       left calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
-      calc(var(--ore-button-unit) * 2) calc(100% - var(--ore-button-unit) * 4)
+      calc(var(--ore-button-unit) * 2)
+      calc(100% - var(--ore-button-unit) * 4 - 1px)
       no-repeat,
     linear-gradient(var(--ore-button-highlight), var(--ore-button-highlight))
       right calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
-      calc(var(--ore-button-unit) * 2) calc(100% - var(--ore-button-unit) * 4)
-      no-repeat,
-    linear-gradient(var(--ore-button-shadow), var(--ore-button-shadow)) center
-      calc(100% - var(--ore-button-unit)) /
-      calc(100% - var(--ore-button-unit) * 2) calc(var(--ore-button-unit) * 2)
+      calc(var(--ore-button-unit) * 2)
+      calc(100% - var(--ore-button-unit) * 4 - 1px)
       no-repeat,
     var(--ore-button-background);
   font-family: var(--ore-button-font-family);
