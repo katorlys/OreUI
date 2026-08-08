@@ -1,35 +1,35 @@
 ---
-title: Popup
+title: Toast
 description: Show a short-lived status message in the viewport.
 ---
 
-import { PopupStory } from "@/components/stories/popup.story";
+import { ToastStory } from "@/components/stories/toast.story";
 
-<PopupStory />
+<ToastStory />
 
 ## Usage
 
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/popup";
+import "@katorlys/oreui/toast";
 ```
 
 ```html
-<ore-popup open aria-label="World saved">Saved</ore-popup>
+<ore-toast open aria-label="World saved">Saved</ore-toast>
 ```
 
     </Tab>
     <Tab value="React">
 
 ```tsx
-import { Popup } from "@katorlys/oreui-react/popup";
+import { Toast } from "@katorlys/oreui-react/toast";
 
 export function SavedMessage() {
   return (
-    <Popup open aria-label="World saved">
+    <Toast open aria-label="World saved">
       Saved
-    </Popup>
+    </Toast>
   );
 }
 ```
@@ -39,11 +39,11 @@ export function SavedMessage() {
 
 ```vue
 <script setup lang="ts">
-import { Popup } from "@katorlys/oreui-vue/popup";
+import { Toast } from "@katorlys/oreui-vue/toast";
 </script>
 
 <template>
-  <Popup open aria-label="World saved">Saved</Popup>
+  <Toast open aria-label="World saved">Saved</Toast>
 </template>
 ```
 
@@ -51,10 +51,10 @@ import { Popup } from "@katorlys/oreui-vue/popup";
     <Tab value="Astro">
 
 ```astro
-<ore-popup open aria-label="World saved">Saved</ore-popup>
+<ore-toast open aria-label="World saved">Saved</ore-toast>
 
 <script>
-	import "@katorlys/oreui/popup";
+	import "@katorlys/oreui/toast";
 </script>
 ```
 
@@ -64,29 +64,29 @@ import { Popup } from "@katorlys/oreui-vue/popup";
 
 ## Open and close
 
-Popup is closed by default. Set `open`, call `show()`, or call `close()` on the element. The `open-change` event reports controlled state changes.
+Toast is closed by default. Set `open`, call `show()`, or call `close()` on the element. The `open-change` event reports controlled state changes.
 
 ```js
-const popup = document.querySelector("ore-popup");
-popup.show();
-popup.addEventListener("open-change", (event) => {
+const toast = document.querySelector("ore-toast");
+toast.show();
+toast.addEventListener("open-change", (event) => {
   console.log(event.detail); // true or false
 });
 ```
 
 ## Duration and position
 
-`duration` defaults to `3000` ms. Set it to `0` to keep the Popup open until `close()` is called. The default position is `bottom-center`; use `top-start`, `top-center`, `top-end`, `bottom-start`, or `bottom-end` for another viewport corner or edge.
+`duration` defaults to `3000` ms. Set it to `0` to keep the Toast open until `close()` is called. The default position is `bottom-center`; use `top-start`, `top-center`, `top-end`, `bottom-start`, or `bottom-end` for another viewport corner or edge.
 
 ```html
-<ore-popup open duration="5000" position="top-end" aria-label="Settings saved">
+<ore-toast open duration="5000" position="top-end" aria-label="Settings saved">
   Saved
-</ore-popup>
+</ore-toast>
 ```
 
 ## Color
 
-Popup uses the same background variants as Tag: `neutral`, `secondary`, `primary`, `informative`, `notice`, `warning`, and `realms-informative`. The host also accepts `class` and `--ore-popup-*` variables.
+Toast uses the same background variants as Tag: `neutral`, `secondary`, `primary`, `informative`, `notice`, `warning`, and `realms-informative`. The host also accepts `class` and `--ore-toast-*` variables.
 
 ## Events
 
@@ -105,20 +105,22 @@ In React, use `onOpenChange`.
 
 | Method    | Description                                   |
 | --------- | --------------------------------------------- |
-| `show()`  | Open the Popup and start its duration timer   |
-| `close()` | Close the Popup and cancel its duration timer |
+| `show()`  | Open the Toast and start its duration timer   |
+| `close()` | Close the Toast and cancel its duration timer |
+
+The Toast has no public child classes. Use the host `class` for layout and `--ore-toast-*` variables for component details.
 
 ## CSS variables
 
 | Variable                 | Purpose                         |
 | ------------------------ | ------------------------------- |
-| `--ore-popup-unit`       | Base size unit                  |
-| `--ore-popup-inset`      | Distance from the viewport edge |
-| `--ore-popup-background` | Popup background color          |
-| `--ore-popup-foreground` | Popup text color                |
-| `--ore-popup-border`     | Popup border color              |
-| `--ore-popup-shadow`     | Popup shadow color              |
+| `--ore-toast-unit`       | Base size unit                  |
+| `--ore-toast-inset`      | Distance from the viewport edge |
+| `--ore-toast-background` | Toast background color          |
+| `--ore-toast-foreground` | Toast text color                |
+| `--ore-toast-border`     | Toast border color              |
+| `--ore-toast-shadow`     | Toast shadow color              |
 
 ## Accessibility
 
-Popup uses `role="status"`, `aria-live="polite"`, and `aria-atomic="true"` so short status messages do not interrupt the current task. Always provide an accessible name with `aria-label` or `aria-labelledby`. Keep the message concise and do not use Popup for actions that require a user decision.
+Toast uses `role="status"`, `aria-live="polite"`, and `aria-atomic="true"` so short status messages do not interrupt the current task. Always provide an accessible name with `aria-label` or `aria-labelledby`. Keep the message concise and do not use Toast for actions that require a user decision.

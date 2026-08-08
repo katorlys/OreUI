@@ -1,0 +1,111 @@
+:where(ore-toast) {
+  --ore-toast-unit: var(--ore-size-unit);
+  --ore-toast-inset: calc(var(--ore-toast-unit) * 16);
+  --ore-toast-background: var(--ore-color-neutral-surface-deep);
+  --ore-toast-foreground: var(--ore-color-neutral-text);
+  --ore-toast-border: var(--ore-color-border);
+  --ore-toast-shadow: var(--ore-color-black-opacity-30);
+
+  position: fixed;
+  inset: auto;
+  box-sizing: border-box;
+  max-width: min(calc(100vw - var(--ore-toast-inset) * 2), 32rem);
+  min-height: calc(var(--ore-toast-unit) * 16);
+  margin: 0;
+  padding: calc(var(--ore-toast-unit) * 3) calc(var(--ore-toast-unit) * 5);
+  overflow-wrap: anywhere;
+  border: var(--ore-toast-unit) solid var(--ore-toast-border);
+  color: var(--ore-toast-foreground);
+  background: var(--ore-toast-background);
+  box-shadow: var(--ore-toast-unit) var(--ore-toast-unit) 0
+    var(--ore-toast-shadow);
+  font-family: var(--ore-font-body);
+  font-size: calc(var(--ore-toast-unit) * 8);
+  font-weight: 400;
+  line-height: calc(var(--ore-toast-unit) * 8);
+  text-align: center;
+}
+
+ore-toast:popover-open {
+  inset: auto;
+  margin: 0;
+}
+
+:where(ore-toast:not(:popover-open)) {
+  display: none;
+}
+
+ore-toast:popover-open[position="top-start"] {
+  top: var(--ore-toast-inset);
+  left: var(--ore-toast-inset);
+}
+
+ore-toast:popover-open[position="top-center"] {
+  top: var(--ore-toast-inset);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+ore-toast:popover-open[position="top-end"] {
+  top: var(--ore-toast-inset);
+  right: var(--ore-toast-inset);
+}
+
+ore-toast:popover-open[position="bottom-start"] {
+  bottom: var(--ore-toast-inset);
+  left: var(--ore-toast-inset);
+}
+
+ore-toast:popover-open[position="bottom-center"] {
+  bottom: var(--ore-toast-inset);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+ore-toast:popover-open[position="bottom-end"] {
+  right: var(--ore-toast-inset);
+  bottom: var(--ore-toast-inset);
+  left: auto;
+  transform: none;
+}
+
+:where(ore-toast[variant="secondary"]) {
+  --ore-toast-background: var(--ore-color-neutral-surface-raised);
+}
+
+:where(ore-toast[variant="primary"]) {
+  --ore-toast-background: var(--ore-color-primary-tint-background);
+  --ore-toast-foreground: var(--ore-color-primary-tint-foreground);
+}
+
+:where(ore-toast[variant="informative"]) {
+  --ore-toast-background: var(--ore-color-informative-tint-background);
+  --ore-toast-foreground: var(--ore-color-informative-tint-foreground);
+}
+
+:where(ore-toast[variant="notice"]) {
+  --ore-toast-background: var(--ore-color-notice-tint-background);
+  --ore-toast-foreground: var(--ore-color-notice-tint-foreground);
+}
+
+:where(ore-toast[variant="warning"]) {
+  --ore-toast-background: var(--ore-color-destructive-tint-background);
+  --ore-toast-foreground: var(--ore-color-destructive-tint-foreground);
+}
+
+:where(ore-toast[variant="realms-informative"]) {
+  --ore-toast-background: var(--ore-color-realms-informative-tint-background);
+  --ore-toast-foreground: var(--ore-color-neutral-border);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :where(ore-toast:popover-open) {
+    animation: ore-toast-show var(--ore-motion-fast) steps(2, jump-none);
+  }
+}
+
+@keyframes ore-toast-show {
+  from {
+    opacity: 0;
+  }
+}

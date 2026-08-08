@@ -1,9 +1,9 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Popup } from "@katorlys/oreui-react/popup";
+import { Toast } from "@katorlys/oreui-react/toast";
 
-interface PopupPreviewProps {
+interface ToastPreviewProps {
   duration: number;
   label: string;
   open: boolean;
@@ -24,15 +24,15 @@ interface PopupPreviewProps {
     | "realms-informative";
 }
 
-function PopupPreview({
+function ToastPreview({
   duration,
   label,
   open,
   position,
   variant,
-}: PopupPreviewProps) {
+}: ToastPreviewProps) {
   return (
-    <Popup
+    <Toast
       aria-label={label}
       duration={duration}
       open={open}
@@ -40,15 +40,15 @@ function PopupPreview({
       variant={variant}
     >
       Saved
-    </Popup>
+    </Toast>
   );
 }
 
 const { defineStory } = defineStoryFactory();
 
-export const popupStory = defineStory({
-  Component: PopupPreview,
-  displayName: "Popup",
+export const toastStory = defineStory({
+  Component: ToastPreview,
+  displayName: "Toast",
   args: {
     initial: {
       duration: 0,
@@ -60,4 +60,4 @@ export const popupStory = defineStory({
   },
 });
 
-export const PopupStory = popupStory.WithControl;
+export const ToastStory = toastStory.WithControl;

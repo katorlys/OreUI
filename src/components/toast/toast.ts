@@ -2,16 +2,16 @@ import { type PropertyValues, ReactiveElement } from "lit";
 
 import type { OreTagVariant } from "../tag/tag.js";
 
-export type OrePopupPosition =
+export type OreToastPosition =
   | "top-start"
   | "top-center"
   | "top-end"
   | "bottom-start"
   | "bottom-center"
   | "bottom-end";
-export type OrePopupVariant = OreTagVariant;
+export type OreToastVariant = OreTagVariant;
 
-export class OrePopup extends ReactiveElement {
+export class OreToast extends ReactiveElement {
   static properties = {
     defaultOpen: { type: Boolean, attribute: "default-open" },
     duration: { type: Number, reflect: true },
@@ -23,8 +23,8 @@ export class OrePopup extends ReactiveElement {
   declare defaultOpen: boolean;
   declare duration: number;
   declare open: boolean;
-  declare position: OrePopupPosition;
-  declare variant: OrePopupVariant;
+  declare position: OreToastPosition;
+  declare variant: OreToastVariant;
 
   #timer: number | undefined;
 
@@ -111,12 +111,12 @@ export class OrePopup extends ReactiveElement {
   }
 }
 
-if (!customElements.get("ore-popup")) {
-  customElements.define("ore-popup", OrePopup);
+if (!customElements.get("ore-toast")) {
+  customElements.define("ore-toast", OreToast);
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ore-popup": OrePopup;
+    "ore-toast": OreToast;
   }
 }

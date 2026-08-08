@@ -13,7 +13,6 @@
 @import "../components/icon-button/icon-button.css" layer(components);
 @import "../components/modal/modal.css" layer(components);
 @import "../components/navbar/navbar.css" layer(components);
-@import "../components/popup/popup.css" layer(components);
 @import "../components/progress-bar/progress-bar.css" layer(components);
 @import "../components/progress-ring/progress-ring.css" layer(components);
 @import "../components/radio/radio.css" layer(components);
@@ -26,5 +25,6 @@
 @import "../components/tab-button/tab-button.css" layer(components);
 @import "../components/tag/tag.css" layer(components);
 @import "../components/textfield/textfield.css" layer(components);
+@import "../components/toast/toast.css" layer(components);
 @import "../components/tooltip/tooltip.css" layer(components);
 @import "../components/toggles/toggles.css" layer(components);

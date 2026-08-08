@@ -1,0 +1,126 @@
+---
+title: Toast 通知
+description: 显示短暂的状态消息
+---
+
+import { ToastStory } from "@/components/stories/toast.story";
+
+<ToastStory />
+
+## 用法
+
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/toast";
+```
+
+```html
+<ore-toast open aria-label="World saved">Saved</ore-toast>
+```
+
+    </Tab>
+    <Tab value="React">
+
+```tsx
+import { Toast } from "@katorlys/oreui-react/toast";
+
+export function SavedMessage() {
+  return (
+    <Toast open aria-label="World saved">
+      Saved
+    </Toast>
+  );
+}
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { Toast } from "@katorlys/oreui-vue/toast";
+</script>
+
+<template>
+  <Toast open aria-label="World saved">Saved</Toast>
+</template>
+```
+
+    </Tab>
+    <Tab value="Astro">
+
+```astro
+<ore-toast open aria-label="World saved">Saved</ore-toast>
+
+<script>
+	import "@katorlys/oreui/toast";
+</script>
+```
+
+    </Tab>
+
+</Tabs>
+
+## 打开与关闭
+
+Toast 默认关闭。可设置 `open`，或调用 `show()`、`close()` 方法。`open-change` 事件反映受控状态变化。
+
+```js
+const toast = document.querySelector("ore-toast");
+toast.show();
+toast.addEventListener("open-change", (event) => {
+  console.log(event.detail); // true 或 false
+});
+```
+
+## 持续时间与位置
+
+`duration` 默认为 `3000` 毫秒。设置为 `0` 时，Toast 会保持打开状态，直到调用 `close()`。默认位置为 `bottom-center`，可使用其它位置：`top-start`、`top-center`、`top-end`、`bottom-start` 和 `bottom-end`。
+
+```html
+<ore-toast open duration="5000" position="top-end" aria-label="Settings saved">
+  Saved
+</ore-toast>
+```
+
+## 颜色
+
+Toast 使用与 Tag 相同的背景变体：`neutral`、`secondary`、`primary`、`informative`、`notice`、`warning` 和 `realms-informative`。host 还支持 `class` 与 `--ore-toast-*` 变量。
+
+## 事件
+
+`open-change` 会在 `open` 状态变化时触发，`detail` 是新的 boolean 状态。  
+对于 React，请使用 `onOpenChange`。
+
+## API
+
+| Prop          | 属性           | 类型                                                                                                      | 默认值            |
+| ------------- | -------------- | --------------------------------------------------------------------------------------------------------- | ----------------- |
+| `defaultOpen` | `default-open` | `boolean`                                                                                                 | `false`           |
+| `duration`    | `duration`     | `number`                                                                                                  | `3000`            |
+| `open`        | `open`         | `boolean`                                                                                                 | `false`           |
+| `position`    | `position`     | `"top-start" \| "top-center" \| "top-end" \| "bottom-start" \| "bottom-center" \| "bottom-end"`           | `"bottom-center"` |
+| `variant`     | `variant`      | `"neutral" \| "secondary" \| "primary" \| "informative" \| "notice" \| "warning" \| "realms-informative"` | `"neutral"`       |
+
+| 方法      | 描述                           |
+| --------- | ------------------------------ |
+| `show()`  | 打开 Toast，并开始持续时间计时 |
+| `close()` | 关闭 Toast，并取消持续时间计时 |
+
+Toast 没有公开的子元素类名。使用 host 的 `class` 调整布局，并通过 `--ore-toast-*` 变量定制组件细节。
+
+## CSS 变量
+
+| 变量                     | 用途                   |
+| ------------------------ | ---------------------- |
+| `--ore-toast-unit`       | 基础尺寸单位           |
+| `--ore-toast-inset`      | 与 viewport 边缘的距离 |
+| `--ore-toast-background` | Toast 背景颜色         |
+| `--ore-toast-foreground` | Toast 文本颜色         |
+| `--ore-toast-border`     | Toast 描边颜色         |
+| `--ore-toast-shadow`     | Toast 阴影颜色         |
+
+## 无障碍
+
+Toast 使用 `role="status"`、`aria-live="polite"` 和 `aria-atomic="true"`，使简短的状态消息不会打断当前任务。应始终通过 `aria-label` 或 `aria-labelledby` 提供无障碍名称。消息应保持简短，不要使用 Toast 替代需要用户决策的交互。
