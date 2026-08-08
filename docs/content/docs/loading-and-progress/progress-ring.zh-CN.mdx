@@ -1,0 +1,93 @@
+---
+title: Progress Ring 环形进度指示器
+description: 显示确定的进度
+---
+
+import { ProgressRingStory } from "@/components/stories/progress-ring.story";
+
+<ProgressRingStory />
+
+## 用法
+
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/progress-ring";
+```
+
+```html
+<ore-progress-ring
+  value="40"
+  aria-label="World generation progress"
+></ore-progress-ring>
+```
+
+    </Tab>
+    <Tab value="React">
+
+```tsx
+import { ProgressRing } from "@katorlys/oreui-react/progress-ring";
+
+export function LoadingWorlds() {
+  return <ProgressRing value={40} aria-label="World generation progress" />;
+}
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { ProgressRing } from "@katorlys/oreui-vue/progress-ring";
+</script>
+
+<template>
+  <ProgressRing :value="40" aria-label="World generation progress" />
+</template>
+```
+
+    </Tab>
+    <Tab value="Astro">
+
+```astro
+<ore-progress-ring value="40" aria-label="World generation progress"></ore-progress-ring>
+
+<script>
+	import "@katorlys/oreui/progress-ring";
+</script>
+```
+
+    </Tab>
+
+</Tabs>
+
+## 大小和颜色
+
+Progress Ring 使用 current 字体大小和文本颜色。
+
+```html
+<span style="font-size: 2rem; color: #52A535;">
+  <ore-progress-ring
+    value="40"
+    aria-label="World generation progress"
+  ></ore-progress-ring>
+</span>
+```
+
+## 当前值和最大值
+
+`value` 默认为 `0`，`max` 默认为 `100`。超出范围的值会被限制到有效范围内。进度使用其他刻度时，应设置 `max`。
+
+```html
+<ore-progress-ring
+  value="3"
+  max="8"
+  aria-label="Chunks loaded"
+></ore-progress-ring>
+```
+
+SVG 一共包含 16 帧。标准化后的进度会被划分为相等的 6.25% 区间：第 1 帧对应 `[0%, 6.25%)`，第 2 帧对应 `[6.25%, 12.5%)`，......，第 16 帧对应 `[93.75%, 100%]`。
+
+## 无障碍
+
+Progress Ring 使用 `role="progressbar"`，并同步 `aria-valuemin`、`aria-valuemax` 和 `aria-valuenow`。应使用 `aria-label`，或通过 `aria-labelledby` 关联可见标签，描述正在进行的任务。

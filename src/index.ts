@@ -34,6 +34,7 @@ export {
   type OreProgressBarLabelPosition,
   type OreProgressBarVariant,
 } from "./components/progress-bar/progress-bar.js";
+export { OreProgressRing } from "./components/progress-ring/progress-ring.js";
 export { OreRadio } from "./components/radio/radio.js";
 export { OreRadioGroup } from "./components/radio-group/radio-group.js";
 export { OreScrollbar } from "./components/scrollbar/scrollbar.js";

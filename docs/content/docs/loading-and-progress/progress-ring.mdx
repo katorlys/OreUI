@@ -1,0 +1,93 @@
+---
+title: Progress Ring
+description: Show determinate progress.
+---
+
+import { ProgressRingStory } from "@/components/stories/progress-ring.story";
+
+<ProgressRingStory />
+
+## Usage
+
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/progress-ring";
+```
+
+```html
+<ore-progress-ring
+  value="40"
+  aria-label="World generation progress"
+></ore-progress-ring>
+```
+
+    </Tab>
+    <Tab value="React">
+
+```tsx
+import { ProgressRing } from "@katorlys/oreui-react/progress-ring";
+
+export function LoadingWorlds() {
+  return <ProgressRing value={40} aria-label="World generation progress" />;
+}
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { ProgressRing } from "@katorlys/oreui-vue/progress-ring";
+</script>
+
+<template>
+  <ProgressRing :value="40" aria-label="World generation progress" />
+</template>
+```
+
+    </Tab>
+    <Tab value="Astro">
+
+```astro
+<ore-progress-ring value="40" aria-label="World generation progress"></ore-progress-ring>
+
+<script>
+	import "@katorlys/oreui/progress-ring";
+</script>
+```
+
+    </Tab>
+
+</Tabs>
+
+## Size and color
+
+Progress Ring uses the current font size and text color.
+
+```html
+<span style="font-size: 2rem; color: #52A535;">
+  <ore-progress-ring
+    value="40"
+    aria-label="World generation progress"
+  ></ore-progress-ring>
+</span>
+```
+
+## Value and maximum value
+
+`value` defaults to `0` and `max` defaults to `100`. Values outside the range are clamped. Set `max` when progress uses a different scale.
+
+```html
+<ore-progress-ring
+  value="3"
+  max="8"
+  aria-label="Chunks loaded"
+></ore-progress-ring>
+```
+
+The SVG contains 16 frames. The normalized progress is split into equal 6.25% ranges: frame 1 represents `[0%, 6.25%)`, frame 2 represents `[6.25%, 12.5%)`, ... , and frame 16 represents `[93.75%, 100%]`.
+
+## Accessibility
+
+Progress Ring uses `role="progressbar"` and synchronizes `aria-valuemin`, `aria-valuemax`, and `aria-valuenow`. Add an `aria-label` or associate a visible label with `aria-labelledby` to describe what is progressing.

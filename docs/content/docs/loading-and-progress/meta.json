@@ -1,4 +1,4 @@
 {
   "title": "Loading & Progress",
-  "pages": ["progress-bar", "spinner"]
+  "pages": ["progress-bar", "progress-ring", "spinner"]
 }
