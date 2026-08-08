@@ -1,0 +1,124 @@
+---
+title: Popup 弹出通知
+description: 显示短暂的状态消息
+---
+
+import { PopupStory } from "@/components/stories/popup.story";
+
+<PopupStory />
+
+## 用法
+
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/popup";
+```
+
+```html
+<ore-popup open aria-label="World saved">Saved</ore-popup>
+```
+
+    </Tab>
+    <Tab value="React">
+
+```tsx
+import { Popup } from "@katorlys/oreui-react/popup";
+
+export function SavedMessage() {
+  return (
+    <Popup open aria-label="World saved">
+      Saved
+    </Popup>
+  );
+}
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { Popup } from "@katorlys/oreui-vue/popup";
+</script>
+
+<template>
+  <Popup open aria-label="World saved">Saved</Popup>
+</template>
+```
+
+    </Tab>
+    <Tab value="Astro">
+
+```astro
+<ore-popup open aria-label="World saved">Saved</ore-popup>
+
+<script>
+	import "@katorlys/oreui/popup";
+</script>
+```
+
+    </Tab>
+
+</Tabs>
+
+## 打开与关闭
+
+Popup 默认关闭。可设置 `open`，或调用 `show()`、`close()` 方法。`open-change` 事件反映受控状态变化。
+
+```js
+const popup = document.querySelector("ore-popup");
+popup.show();
+popup.addEventListener("open-change", (event) => {
+  console.log(event.detail); // true 或 false
+});
+```
+
+## 持续时间与位置
+
+`duration` 默认为 `3000` 毫秒。设置为 `0` 时，Popup 会保持打开状态，直到调用 `close()`。默认位置为 `bottom-center`，可使用其它位置：`top-start`、`top-center`、`top-end`、`bottom-start` 和 `bottom-end`。
+
+```html
+<ore-popup open duration="5000" position="top-end" aria-label="Settings saved">
+  Saved
+</ore-popup>
+```
+
+## 颜色
+
+Popup 使用与 Tag 相同的背景变体：`neutral`、`secondary`、`primary`、`informative`、`notice`、`warning` 和 `realms-informative`。host 还支持 `class` 与 `--ore-popup-*` 变量。
+
+## 事件
+
+`open-change` 会在 `open` 状态变化时触发，`detail` 是新的 boolean 状态。  
+对于 React，请使用 `onOpenChange`。
+
+## API
+
+| Prop          | 属性           | 类型                                                                                                      | 默认值            |
+| ------------- | -------------- | --------------------------------------------------------------------------------------------------------- | ----------------- |
+| `defaultOpen` | `default-open` | `boolean`                                                                                                 | `false`           |
+| `duration`    | `duration`     | `number`                                                                                                  | `3000`            |
+| `open`        | `open`         | `boolean`                                                                                                 | `false`           |
+| `position`    | `position`     | `"top-start" \| "top-center" \| "top-end" \| "bottom-start" \| "bottom-center" \| "bottom-end"`           | `"bottom-center"` |
+| `variant`     | `variant`      | `"neutral" \| "secondary" \| "primary" \| "informative" \| "notice" \| "warning" \| "realms-informative"` | `"neutral"`       |
+
+| 方法      | 描述                           |
+| --------- | ------------------------------ |
+| `show()`  | 打开 Popup，并开始持续时间计时 |
+| `close()` | 关闭 Popup，并取消持续时间计时 |
+
+## CSS 变量
+
+| 变量                     | 用途             |
+| ------------------------ | ---------------- |
+| `--ore-popup-unit`       | 基础尺寸单位     |
+| `--ore-popup-inset`      | 与 viewport 边缘的距离 |
+| `--ore-popup-background` | Popup 背景颜色   |
+| `--ore-popup-foreground` | Popup 文本颜色   |
+| `--ore-popup-border`     | Popup 描边颜色   |
+| `--ore-popup-shadow`     | Popup 阴影颜色   |
+
+## 无障碍
+
+Popup 使用 `role="status"`、`aria-live="polite"` 和 `aria-atomic="true"`，应使简短的状态消息不会打断当前任务。应始终通过 `aria-label` 或 `aria-labelledby` 提供无障碍名称。消息应保持简短，不要使用 Popup 替代需要用户决策的交互。

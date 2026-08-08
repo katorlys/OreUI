@@ -7,6 +7,7 @@ export * from "./components/dropdown.js";
 export * from "./components/icon-button.js";
 export * from "./components/modal.js";
 export * from "./components/navbar.js";
+export * from "./components/popup.js";
 export * from "./components/progress-bar.js";
 export * from "./components/progress-ring.js";
 export * from "./components/radio.js";

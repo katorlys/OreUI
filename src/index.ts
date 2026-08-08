@@ -29,6 +29,11 @@ export {
 } from "./components/modal/modal.js";
 export { OreNavbar } from "./components/navbar/navbar.js";
 export {
+  OrePopup,
+  type OrePopupPosition,
+  type OrePopupVariant,
+} from "./components/popup/popup.js";
+export {
   OreProgressBar,
   type OreProgressBarLabelAlign,
   type OreProgressBarLabelPosition,

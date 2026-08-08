@@ -1,4 +1,4 @@
 {
   "title": "信息",
-  "pages": ["accordion", "card", "tag", "modal", "table", "tooltip"]
+  "pages": ["accordion", "card", "tag", "modal", "popup", "table", "tooltip"]
 }

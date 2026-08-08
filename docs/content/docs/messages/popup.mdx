@@ -1,0 +1,124 @@
+---
+title: Popup
+description: Show a short-lived status message in the viewport.
+---
+
+import { PopupStory } from "@/components/stories/popup.story";
+
+<PopupStory />
+
+## Usage
+
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/popup";
+```
+
+```html
+<ore-popup open aria-label="World saved">Saved</ore-popup>
+```
+
+    </Tab>
+    <Tab value="React">
+
+```tsx
+import { Popup } from "@katorlys/oreui-react/popup";
+
+export function SavedMessage() {
+  return (
+    <Popup open aria-label="World saved">
+      Saved
+    </Popup>
+  );
+}
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { Popup } from "@katorlys/oreui-vue/popup";
+</script>
+
+<template>
+  <Popup open aria-label="World saved">Saved</Popup>
+</template>
+```
+
+    </Tab>
+    <Tab value="Astro">
+
+```astro
+<ore-popup open aria-label="World saved">Saved</ore-popup>
+
+<script>
+	import "@katorlys/oreui/popup";
+</script>
+```
+
+    </Tab>
+
+</Tabs>
+
+## Open and close
+
+Popup is closed by default. Set `open`, call `show()`, or call `close()` on the element. The `open-change` event reports controlled state changes.
+
+```js
+const popup = document.querySelector("ore-popup");
+popup.show();
+popup.addEventListener("open-change", (event) => {
+  console.log(event.detail); // true or false
+});
+```
+
+## Duration and position
+
+`duration` defaults to `3000` ms. Set it to `0` to keep the Popup open until `close()` is called. The default position is `bottom-center`; use `top-start`, `top-center`, `top-end`, `bottom-start`, or `bottom-end` for another viewport corner or edge.
+
+```html
+<ore-popup open duration="5000" position="top-end" aria-label="Settings saved">
+  Saved
+</ore-popup>
+```
+
+## Color
+
+Popup uses the same background variants as Tag: `neutral`, `secondary`, `primary`, `informative`, `notice`, `warning`, and `realms-informative`. The host also accepts `class` and `--ore-popup-*` variables.
+
+## Events
+
+`open-change` fires when the `open` state changes. Its `detail` is the new boolean state.  
+In React, use `onOpenChange`.
+
+## API
+
+| Property      | Attribute      | Type                                                                                                      | Default           |
+| ------------- | -------------- | --------------------------------------------------------------------------------------------------------- | ----------------- |
+| `defaultOpen` | `default-open` | `boolean`                                                                                                 | `false`           |
+| `duration`    | `duration`     | `number`                                                                                                  | `3000`            |
+| `open`        | `open`         | `boolean`                                                                                                 | `false`           |
+| `position`    | `position`     | `"top-start" \| "top-center" \| "top-end" \| "bottom-start" \| "bottom-center" \| "bottom-end"`           | `"bottom-center"` |
+| `variant`     | `variant`      | `"neutral" \| "secondary" \| "primary" \| "informative" \| "notice" \| "warning" \| "realms-informative"` | `"neutral"`       |
+
+| Method    | Description                                   |
+| --------- | --------------------------------------------- |
+| `show()`  | Open the Popup and start its duration timer   |
+| `close()` | Close the Popup and cancel its duration timer |
+
+## CSS variables
+
+| Variable                 | Purpose                         |
+| ------------------------ | ------------------------------- |
+| `--ore-popup-unit`       | Base size unit                  |
+| `--ore-popup-inset`      | Distance from the viewport edge |
+| `--ore-popup-background` | Popup background color          |
+| `--ore-popup-foreground` | Popup text color                |
+| `--ore-popup-border`     | Popup border color              |
+| `--ore-popup-shadow`     | Popup shadow color              |
+
+## Accessibility
+
+Popup uses `role="status"`, `aria-live="polite"`, and `aria-atomic="true"` so short status messages do not interrupt the current task. Always provide an accessible name with `aria-label` or `aria-labelledby`. Keep the message concise and do not use Popup for actions that require a user decision.

@@ -1,4 +1,4 @@
 {
   "title": "Messages",
-  "pages": ["accordion", "card", "tag", "modal", "table", "tooltip"]
+  "pages": ["accordion", "card", "tag", "modal", "popup", "table", "tooltip"]
 }

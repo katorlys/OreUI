@@ -88,6 +88,13 @@ Progress Ring uses the current font size and text color.
 
 The SVG contains 16 frames. The normalized progress is split into equal 6.25% ranges: frame 1 represents `[0%, 6.25%)`, frame 2 represents `[6.25%, 12.5%)`, ... , and frame 16 represents `[93.75%, 100%]`.
 
+## API
+
+| Property | Attribute | Type     | Default |
+| -------- | --------- | -------- | ------- |
+| `max`    | `max`     | `number` | `100`   |
+| `value`  | `value`   | `number` | `0`     |
+
 ## Accessibility
 
 Progress Ring uses `role="progressbar"` and synchronizes `aria-valuemin`, `aria-valuemax`, and `aria-valuenow`. Add an `aria-label` or associate a visible label with `aria-labelledby` to describe what is progressing.

@@ -88,6 +88,13 @@ Progress Ring 使用 current 字体大小和文本颜色。
 
 SVG 一共包含 16 帧。标准化后的进度会被划分为相等的 6.25% 区间：第 1 帧对应 `[0%, 6.25%)`，第 2 帧对应 `[6.25%, 12.5%)`，......，第 16 帧对应 `[93.75%, 100%]`。
 
+## API
+
+| Prop    | 属性    | 类型     | 默认值 |
+| ------- | ------- | -------- | ------ |
+| `max`   | `max`   | `number` | `100`  |
+| `value` | `value` | `number` | `0`    |
+
 ## 无障碍
 
 Progress Ring 使用 `role="progressbar"`，并同步 `aria-valuemin`、`aria-valuemax` 和 `aria-valuenow`。应使用 `aria-label`，或通过 `aria-labelledby` 关联可见标签，描述正在进行的任务。

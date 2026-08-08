@@ -13,6 +13,7 @@
 @import "../components/icon-button/icon-button.css" layer(components);
 @import "../components/modal/modal.css" layer(components);
 @import "../components/navbar/navbar.css" layer(components);
+@import "../components/popup/popup.css" layer(components);
 @import "../components/progress-bar/progress-bar.css" layer(components);
 @import "../components/progress-ring/progress-ring.css" layer(components);
 @import "../components/radio/radio.css" layer(components);
