@@ -5,7 +5,14 @@ import { Switch } from "@katorlys/oreui-react/switch";
 import { useEffect, useState } from "react";
 
 interface SwitchPreviewProps {
-  color: "primary" | "secondary" | "destructive" | "dungeons" | "legends" | "realms" | "gold";
+  color:
+    | "primary"
+    | "secondary"
+    | "destructive"
+    | "dungeons"
+    | "legends"
+    | "realms"
+    | "gold";
   disabled: boolean;
   initialChecked: boolean;
   label: string;
@@ -33,6 +40,7 @@ function SwitchPreview({
   return (
     <div style={{ display: "grid", gap: "1rem" }}>
       <Switch
+        className="text-current"
         checked={checked}
         color={color}
         disabled={disabled}

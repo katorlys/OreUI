@@ -49,13 +49,11 @@
     linear-gradient(var(--ore-button-highlight), var(--ore-button-highlight))
       left calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
       calc(var(--ore-button-unit) * 2)
-      calc(100% - var(--ore-button-unit) * 4 - 1px)
-      no-repeat,
+      calc(100% - var(--ore-button-unit) * 4 - 1px) no-repeat,
     linear-gradient(var(--ore-button-highlight), var(--ore-button-highlight))
       right calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
       calc(var(--ore-button-unit) * 2)
-      calc(100% - var(--ore-button-unit) * 4 - 1px)
-      no-repeat,
+      calc(100% - var(--ore-button-unit) * 4 - 1px) no-repeat,
     var(--ore-button-background);
   font-family: var(--ore-button-font-family);
   font-size: var(--ore-button-font-size);

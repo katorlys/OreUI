@@ -101,9 +101,21 @@ const value = ref(12);
 
 ```html
 <ore-slider color="primary" value="40" aria-label="Primary volume"></ore-slider>
-<ore-slider color="secondary" value="40" aria-label="Secondary volume"></ore-slider>
-<ore-slider color="destructive" value="40" aria-label="Destructive volume"></ore-slider>
-<ore-slider color="dungeons" value="40" aria-label="Dungeons volume"></ore-slider>
+<ore-slider
+  color="secondary"
+  value="40"
+  aria-label="Secondary volume"
+></ore-slider>
+<ore-slider
+  color="destructive"
+  value="40"
+  aria-label="Destructive volume"
+></ore-slider>
+<ore-slider
+  color="dungeons"
+  value="40"
+  aria-label="Dungeons volume"
+></ore-slider>
 <ore-slider color="legends" value="40" aria-label="Legends volume"></ore-slider>
 <ore-slider color="realms" value="40" aria-label="Realms volume"></ore-slider>
 <ore-slider color="gold" value="40" aria-label="Gold volume"></ore-slider>
@@ -130,17 +142,17 @@ Slider dispatches `input` while its value changes and `change` when the interact
 
 ## API
 
-| Property      | Attribute     | Type                         | Default        |
-| ------------- | ------------- | ---------------------------- | -------------- |
-| `color`       | `color`       | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"` |
-| `disabled`    | `disabled`    | `boolean`                    | `false`        |
-| `max`         | `max`         | `number`                     | `100`          |
-| `min`         | `min`         | `number`                     | `0`            |
-| `name`        | `name`        | `string`                     | `""`           |
-| `orientation` | `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` |
-| `step`        | `step`        | `number`                     | `1`            |
-| `value`       | `value`       | `number`                     | `0`            |
-| `variant`     | `variant`     | `"default" \| "segmented"`   | `"default"`    |
+| Property      | Attribute     | Type                                                                                         | Default        |
+| ------------- | ------------- | -------------------------------------------------------------------------------------------- | -------------- |
+| `color`       | `color`       | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"`    |
+| `disabled`    | `disabled`    | `boolean`                                                                                    | `false`        |
+| `max`         | `max`         | `number`                                                                                     | `100`          |
+| `min`         | `min`         | `number`                                                                                     | `0`            |
+| `name`        | `name`        | `string`                                                                                     | `""`           |
+| `orientation` | `orientation` | `"horizontal" \| "vertical"`                                                                 | `"horizontal"` |
+| `step`        | `step`        | `number`                                                                                     | `1`            |
+| `value`       | `value`       | `number`                                                                                     | `0`            |
+| `variant`     | `variant`     | `"default" \| "segmented"`                                                                   | `"default"`    |
 
 ## Accessibility
 

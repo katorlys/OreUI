@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 
 import { Button } from "@katorlys/oreui-react/button";
 import chevronRightUrl from "@katorlys/oreui/icons/chevron-right";
+import { HomeShowcase } from "@/components/home-showcase";
 import { baseOptions } from "@/lib/layout";
 import packageMetadata from "../../package.json";
 
@@ -16,17 +17,19 @@ type HomePageProps = {
 export function OreHomePage({ lang }: HomePageProps) {
   const prefix = lang === "zh-CN" ? "/zh-CN" : "";
   const router = useRouter();
+  const year = new Date().getFullYear();
   const version = packageMetadata.version;
   const chevronRightSource =
     typeof chevronRightUrl === "string" ? chevronRightUrl : chevronRightUrl.src;
-  const title = lang === "zh-CN" ? "将 Ore UI 带入您的项目" : "Ore UI in your projects";
+  const title =
+    lang === "zh-CN" ? "将 Ore UI 带入您的项目" : "Ore UI in your projects";
   const description =
     lang === "zh-CN"
       ? "非官方粉丝向的 Ore UI 跨框架组件库，将 Ore UI 设计系统应用到你的项目中"
       : "An unofficial cross-framework component library that implements the OreUI design system into your project.";
 
   return (
-    <HomeLayout {...baseOptions()}>
+    <HomeLayout {...baseOptions(true)}>
       <main className="min-h-full bg-fd-background font-(--ore-font-body) text-fd-foreground">
         <section
           className="flex flex-col items-center px-6 py-10 text-center md:py-16"
@@ -83,6 +86,23 @@ export function OreHomePage({ lang }: HomePageProps) {
             </Button>
           </div>
         </section>
+
+        <HomeShowcase />
+
+        <footer className="mx-auto box-border flex w-full max-w-7xl flex-col items-center justify-center gap-2 px-6 py-8 text-center text-sm text-fd-muted-foreground sm:px-10 md:flex-row">
+          <span>Made with ❤ by Minecraft enthusiasts.</span>
+          <span>
+            © {year === 2026 ? "2026" : `2026-${year}`}{" "}
+            <a
+              className="font-medium text-fd-foreground underline-offset-4 hover:underline"
+              href="https://katorly.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Katorly Lab
+            </a>
+          </span>
+        </footer>
       </main>
     </HomeLayout>
   );

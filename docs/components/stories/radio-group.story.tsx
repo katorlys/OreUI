@@ -5,14 +5,25 @@ import { Radio, RadioGroup } from "@katorlys/oreui-react/radio-group";
 import { useEffect, useId, useState } from "react";
 
 interface RadioGroupPreviewProps {
-  color: "primary" | "secondary" | "destructive" | "dungeons" | "legends" | "realms" | "gold";
+  color:
+    | "primary"
+    | "secondary"
+    | "destructive"
+    | "dungeons"
+    | "legends"
+    | "realms"
+    | "gold";
   disabledOption: boolean;
   label: string;
 }
 
 const options = ["Survival", "Creative", "Hardcore"];
 
-function RadioGroupPreview({ color, disabledOption, label }: RadioGroupPreviewProps) {
+function RadioGroupPreview({
+  color,
+  disabledOption,
+  label,
+}: RadioGroupPreviewProps) {
   const [mounted, setMounted] = useState(false);
   const [value, setValue] = useState("survival");
   const name = useId();
@@ -32,6 +43,7 @@ function RadioGroupPreview({ color, disabledOption, label }: RadioGroupPreviewPr
           const optionValue = option.toLowerCase();
           return (
             <Radio
+              className="text-current"
               key={optionValue}
               checked={value === optionValue}
               color={color}

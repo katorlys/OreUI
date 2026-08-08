@@ -5,7 +5,14 @@ import { Checkbox } from "@katorlys/oreui-react/checkbox";
 import { useEffect, useState } from "react";
 
 interface CheckboxPreviewProps {
-  color: "primary" | "secondary" | "destructive" | "dungeons" | "legends" | "realms" | "gold";
+  color:
+    | "primary"
+    | "secondary"
+    | "destructive"
+    | "dungeons"
+    | "legends"
+    | "realms"
+    | "gold";
   disabled: boolean;
   initialChecked: boolean;
   label: string;
@@ -33,6 +40,7 @@ function CheckboxPreview({
   return (
     <div style={{ display: "grid", gap: "1rem" }}>
       <Checkbox
+        className="text-current"
         checked={checked}
         color={color}
         disabled={disabled}

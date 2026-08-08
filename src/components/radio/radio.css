@@ -7,11 +7,17 @@
   --ore-radio-indicator-dim: var(--ore-color-gray-20);
   --ore-radio-indicator-dark: var(--ore-color-gray-30);
   --ore-radio-active-background: var(--ore-color-primary-background);
-  --ore-radio-active-background-hover: var(--ore-color-primary-background-hover);
-  --ore-radio-active-background-pressed: var(--ore-color-primary-background-pressed);
+  --ore-radio-active-background-hover: var(
+    --ore-color-primary-background-hover
+  );
+  --ore-radio-active-background-pressed: var(
+    --ore-color-primary-background-pressed
+  );
   --ore-radio-active-highlight: var(--ore-color-primary-highlight);
   --ore-radio-active-highlight-hover: var(--ore-color-primary-highlight-hover);
-  --ore-radio-active-highlight-pressed: var(--ore-color-primary-highlight-pressed);
+  --ore-radio-active-highlight-pressed: var(
+    --ore-color-primary-highlight-pressed
+  );
 
   position: relative;
   display: inline-flex;
@@ -103,17 +109,29 @@
 
 :where(ore-radio[color="secondary"]) {
   --ore-radio-active-background: var(--ore-color-secondary-background);
-  --ore-radio-active-background-hover: var(--ore-color-secondary-background-hover);
-  --ore-radio-active-background-pressed: var(--ore-color-secondary-background-pressed);
+  --ore-radio-active-background-hover: var(
+    --ore-color-secondary-background-hover
+  );
+  --ore-radio-active-background-pressed: var(
+    --ore-color-secondary-background-pressed
+  );
   --ore-radio-active-highlight: var(--ore-color-secondary-highlight);
-  --ore-radio-active-highlight-hover: var(--ore-color-secondary-highlight-hover);
-  --ore-radio-active-highlight-pressed: var(--ore-color-secondary-highlight-pressed);
+  --ore-radio-active-highlight-hover: var(
+    --ore-color-secondary-highlight-hover
+  );
+  --ore-radio-active-highlight-pressed: var(
+    --ore-color-secondary-highlight-pressed
+  );
 }
 
 :where(ore-radio[color="destructive"]) {
   --ore-radio-active-background: var(--ore-color-destructive-background);
-  --ore-radio-active-background-hover: var(--ore-color-destructive-background-hover);
-  --ore-radio-active-background-pressed: var(--ore-color-destructive-background-pressed);
+  --ore-radio-active-background-hover: var(
+    --ore-color-destructive-background-hover
+  );
+  --ore-radio-active-background-pressed: var(
+    --ore-color-destructive-background-pressed
+  );
   --ore-radio-active-highlight: var(--ore-color-destructive-highlight);
   --ore-radio-active-highlight-hover: var(--ore-color-destructive-highlight);
   --ore-radio-active-highlight-pressed: var(--ore-color-destructive-highlight);
@@ -121,8 +139,12 @@
 
 :where(ore-radio[color="dungeons"]) {
   --ore-radio-active-background: var(--ore-color-dungeons-background);
-  --ore-radio-active-background-hover: var(--ore-color-dungeons-background-hover);
-  --ore-radio-active-background-pressed: var(--ore-color-dungeons-background-pressed);
+  --ore-radio-active-background-hover: var(
+    --ore-color-dungeons-background-hover
+  );
+  --ore-radio-active-background-pressed: var(
+    --ore-color-dungeons-background-pressed
+  );
   --ore-radio-active-highlight: var(--ore-color-dungeons-highlight);
   --ore-radio-active-highlight-hover: var(--ore-color-dungeons-highlight);
   --ore-radio-active-highlight-pressed: var(--ore-color-dungeons-highlight);
@@ -130,8 +152,12 @@
 
 :where(ore-radio[color="legends"]) {
   --ore-radio-active-background: var(--ore-color-legends-background);
-  --ore-radio-active-background-hover: var(--ore-color-legends-background-hover);
-  --ore-radio-active-background-pressed: var(--ore-color-legends-background-pressed);
+  --ore-radio-active-background-hover: var(
+    --ore-color-legends-background-hover
+  );
+  --ore-radio-active-background-pressed: var(
+    --ore-color-legends-background-pressed
+  );
   --ore-radio-active-highlight: var(--ore-color-legends-highlight);
   --ore-radio-active-highlight-hover: var(--ore-color-legends-highlight);
   --ore-radio-active-highlight-pressed: var(--ore-color-legends-highlight);
@@ -140,7 +166,9 @@
 :where(ore-radio[color="realms"]) {
   --ore-radio-active-background: var(--ore-color-realms-background);
   --ore-radio-active-background-hover: var(--ore-color-realms-background-hover);
-  --ore-radio-active-background-pressed: var(--ore-color-realms-background-pressed);
+  --ore-radio-active-background-pressed: var(
+    --ore-color-realms-background-pressed
+  );
   --ore-radio-active-highlight: var(--ore-color-realms-highlight);
   --ore-radio-active-highlight-hover: var(--ore-color-realms-highlight);
   --ore-radio-active-highlight-pressed: var(--ore-color-realms-highlight);
@@ -149,7 +177,9 @@
 :where(ore-radio[color="gold"]) {
   --ore-radio-active-background: var(--ore-color-gold-background);
   --ore-radio-active-background-hover: var(--ore-color-gold-background-hover);
-  --ore-radio-active-background-pressed: var(--ore-color-gold-background-pressed);
+  --ore-radio-active-background-pressed: var(
+    --ore-color-gold-background-pressed
+  );
   --ore-radio-active-highlight: var(--ore-color-gold-highlight);
   --ore-radio-active-highlight-hover: var(--ore-color-gold-highlight);
   --ore-radio-active-highlight-pressed: var(--ore-color-gold-highlight);

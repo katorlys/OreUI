@@ -100,9 +100,21 @@ const value = ref(12);
 
 ```html
 <ore-slider color="primary" value="40" aria-label="Primary volume"></ore-slider>
-<ore-slider color="secondary" value="40" aria-label="Secondary volume"></ore-slider>
-<ore-slider color="destructive" value="40" aria-label="Destructive volume"></ore-slider>
-<ore-slider color="dungeons" value="40" aria-label="Dungeons volume"></ore-slider>
+<ore-slider
+  color="secondary"
+  value="40"
+  aria-label="Secondary volume"
+></ore-slider>
+<ore-slider
+  color="destructive"
+  value="40"
+  aria-label="Destructive volume"
+></ore-slider>
+<ore-slider
+  color="dungeons"
+  value="40"
+  aria-label="Dungeons volume"
+></ore-slider>
 <ore-slider color="legends" value="40" aria-label="Legends volume"></ore-slider>
 <ore-slider color="realms" value="40" aria-label="Realms volume"></ore-slider>
 <ore-slider color="gold" value="40" aria-label="Gold volume"></ore-slider>
@@ -129,17 +141,17 @@ Slider 的值变化时会触发 `input` 事件，提交交互时会触发 `chang
 
 ## API
 
-| Prop          | 属性          | 类型                         | 默认值         |
-| ------------- | ------------- | ---------------------------- | -------------- |
-| `color`       | `color`       | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"` |
-| `disabled`    | `disabled`    | `boolean`                    | `false`        |
-| `max`         | `max`         | `number`                     | `100`          |
-| `min`         | `min`         | `number`                     | `0`            |
-| `name`        | `name`        | `string`                     | `""`           |
-| `orientation` | `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` |
-| `step`        | `step`        | `number`                     | `1`            |
-| `value`       | `value`       | `number`                     | `0`            |
-| `variant`     | `variant`     | `"default" \| "segmented"`   | `"default"`    |
+| Prop          | 属性          | 类型                                                                                         | 默认值         |
+| ------------- | ------------- | -------------------------------------------------------------------------------------------- | -------------- |
+| `color`       | `color`       | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"`    |
+| `disabled`    | `disabled`    | `boolean`                                                                                    | `false`        |
+| `max`         | `max`         | `number`                                                                                     | `100`          |
+| `min`         | `min`         | `number`                                                                                     | `0`            |
+| `name`        | `name`        | `string`                                                                                     | `""`           |
+| `orientation` | `orientation` | `"horizontal" \| "vertical"`                                                                 | `"horizontal"` |
+| `step`        | `step`        | `number`                                                                                     | `1`            |
+| `value`       | `value`       | `number`                                                                                     | `0`            |
+| `variant`     | `variant`     | `"default" \| "segmented"`                                                                   | `"default"`    |
 
 ## 无障碍
 

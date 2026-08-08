@@ -13,7 +13,9 @@ interface ProgressBarPreviewProps {
 }
 
 function ProgressBarPreview(props: ProgressBarPreviewProps) {
-  return <ProgressBar {...props} style={{ color: "var(--color-fd-foreground)" }} />;
+  return (
+    <ProgressBar {...props} style={{ color: "var(--color-fd-foreground)" }} />
+  );
 }
 
 const { defineStory } = defineStoryFactory();

@@ -5,7 +5,14 @@ import { Slider } from "@katorlys/oreui-react/slider";
 import { useEffect, useState } from "react";
 
 interface SliderPreviewProps {
-  color: "primary" | "secondary" | "destructive" | "dungeons" | "legends" | "realms" | "gold";
+  color:
+    | "primary"
+    | "secondary"
+    | "destructive"
+    | "dungeons"
+    | "legends"
+    | "realms"
+    | "gold";
   disabled: boolean;
   initialValue: number;
   max: number;

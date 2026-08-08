@@ -5,11 +5,19 @@
   --ore-checkbox-border: var(--ore-color-border);
   --ore-checkbox-indicator: var(--ore-color-foreground);
   --ore-checkbox-active-background: var(--ore-color-primary-background);
-  --ore-checkbox-active-background-hover: var(--ore-color-primary-background-hover);
-  --ore-checkbox-active-background-pressed: var(--ore-color-primary-background-pressed);
+  --ore-checkbox-active-background-hover: var(
+    --ore-color-primary-background-hover
+  );
+  --ore-checkbox-active-background-pressed: var(
+    --ore-color-primary-background-pressed
+  );
   --ore-checkbox-active-highlight: var(--ore-color-primary-highlight);
-  --ore-checkbox-active-highlight-hover: var(--ore-color-primary-highlight-hover);
-  --ore-checkbox-active-highlight-pressed: var(--ore-color-primary-highlight-pressed);
+  --ore-checkbox-active-highlight-hover: var(
+    --ore-color-primary-highlight-hover
+  );
+  --ore-checkbox-active-highlight-pressed: var(
+    --ore-color-primary-highlight-pressed
+  );
 
   position: relative;
   display: inline-flex;
@@ -88,26 +96,46 @@
 
 :where(ore-checkbox[color="secondary"]) {
   --ore-checkbox-active-background: var(--ore-color-secondary-background);
-  --ore-checkbox-active-background-hover: var(--ore-color-secondary-background-hover);
-  --ore-checkbox-active-background-pressed: var(--ore-color-secondary-background-pressed);
+  --ore-checkbox-active-background-hover: var(
+    --ore-color-secondary-background-hover
+  );
+  --ore-checkbox-active-background-pressed: var(
+    --ore-color-secondary-background-pressed
+  );
   --ore-checkbox-active-highlight: var(--ore-color-secondary-highlight);
-  --ore-checkbox-active-highlight-hover: var(--ore-color-secondary-highlight-hover);
-  --ore-checkbox-active-highlight-pressed: var(--ore-color-secondary-highlight-pressed);
+  --ore-checkbox-active-highlight-hover: var(
+    --ore-color-secondary-highlight-hover
+  );
+  --ore-checkbox-active-highlight-pressed: var(
+    --ore-color-secondary-highlight-pressed
+  );
 }
 
 :where(ore-checkbox[color="destructive"]) {
   --ore-checkbox-active-background: var(--ore-color-destructive-background);
-  --ore-checkbox-active-background-hover: var(--ore-color-destructive-background-hover);
-  --ore-checkbox-active-background-pressed: var(--ore-color-destructive-background-pressed);
+  --ore-checkbox-active-background-hover: var(
+    --ore-color-destructive-background-hover
+  );
+  --ore-checkbox-active-background-pressed: var(
+    --ore-color-destructive-background-pressed
+  );
   --ore-checkbox-active-highlight: var(--ore-color-destructive-highlight);
-  --ore-checkbox-active-highlight-hover: var(--ore-color-destructive-highlight-hover);
-  --ore-checkbox-active-highlight-pressed: var(--ore-color-destructive-highlight-pressed);
+  --ore-checkbox-active-highlight-hover: var(
+    --ore-color-destructive-highlight-hover
+  );
+  --ore-checkbox-active-highlight-pressed: var(
+    --ore-color-destructive-highlight-pressed
+  );
 }
 
 :where(ore-checkbox[color="dungeons"]) {
   --ore-checkbox-active-background: var(--ore-color-dungeons-background);
-  --ore-checkbox-active-background-hover: var(--ore-color-dungeons-background-hover);
-  --ore-checkbox-active-background-pressed: var(--ore-color-dungeons-background-pressed);
+  --ore-checkbox-active-background-hover: var(
+    --ore-color-dungeons-background-hover
+  );
+  --ore-checkbox-active-background-pressed: var(
+    --ore-color-dungeons-background-pressed
+  );
   --ore-checkbox-active-highlight: var(--ore-color-dungeons-highlight);
   --ore-checkbox-active-highlight-hover: var(--ore-color-dungeons-highlight);
   --ore-checkbox-active-highlight-pressed: var(--ore-color-dungeons-highlight);
@@ -115,8 +143,12 @@
 
 :where(ore-checkbox[color="legends"]) {
   --ore-checkbox-active-background: var(--ore-color-legends-background);
-  --ore-checkbox-active-background-hover: var(--ore-color-legends-background-hover);
-  --ore-checkbox-active-background-pressed: var(--ore-color-legends-background-pressed);
+  --ore-checkbox-active-background-hover: var(
+    --ore-color-legends-background-hover
+  );
+  --ore-checkbox-active-background-pressed: var(
+    --ore-color-legends-background-pressed
+  );
   --ore-checkbox-active-highlight: var(--ore-color-legends-highlight);
   --ore-checkbox-active-highlight-hover: var(--ore-color-legends-highlight);
   --ore-checkbox-active-highlight-pressed: var(--ore-color-legends-highlight);
@@ -124,8 +156,12 @@
 
 :where(ore-checkbox[color="realms"]) {
   --ore-checkbox-active-background: var(--ore-color-realms-background);
-  --ore-checkbox-active-background-hover: var(--ore-color-realms-background-hover);
-  --ore-checkbox-active-background-pressed: var(--ore-color-realms-background-pressed);
+  --ore-checkbox-active-background-hover: var(
+    --ore-color-realms-background-hover
+  );
+  --ore-checkbox-active-background-pressed: var(
+    --ore-color-realms-background-pressed
+  );
   --ore-checkbox-active-highlight: var(--ore-color-realms-highlight);
   --ore-checkbox-active-highlight-hover: var(--ore-color-realms-highlight);
   --ore-checkbox-active-highlight-pressed: var(--ore-color-realms-highlight);
@@ -133,8 +169,12 @@
 
 :where(ore-checkbox[color="gold"]) {
   --ore-checkbox-active-background: var(--ore-color-gold-background);
-  --ore-checkbox-active-background-hover: var(--ore-color-gold-background-hover);
-  --ore-checkbox-active-background-pressed: var(--ore-color-gold-background-pressed);
+  --ore-checkbox-active-background-hover: var(
+    --ore-color-gold-background-hover
+  );
+  --ore-checkbox-active-background-pressed: var(
+    --ore-color-gold-background-pressed
+  );
   --ore-checkbox-active-highlight: var(--ore-color-gold-highlight);
   --ore-checkbox-active-highlight-hover: var(--ore-color-gold-highlight);
   --ore-checkbox-active-highlight-pressed: var(--ore-color-gold-highlight);
