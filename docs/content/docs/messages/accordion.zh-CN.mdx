@@ -12,8 +12,8 @@ import { AccordionStory } from "@/components/stories/accordion.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/accordion";
-import "@katorlys/oreui/icon-button";
+import "oreui-web/accordion";
+import "oreui-web/icon-button";
 ```
 
 ```html
@@ -35,8 +35,8 @@ import "@katorlys/oreui/icon-button";
     <Tab value="React">
 
 ```tsx
-import { Accordion } from "@katorlys/oreui-react/accordion";
-import { IconButton } from "@katorlys/oreui-react/icon-button";
+import { Accordion } from "@oreui-web/react/accordion";
+import { IconButton } from "@oreui-web/react/icon-button";
 
 export function Realms() {
   return (
@@ -61,7 +61,7 @@ export function Realms() {
 
 ```vue
 <script setup lang="ts">
-import { Accordion, IconButton } from "@katorlys/oreui-vue";
+import { Accordion, IconButton } from "@oreui-web/vue";
 </script>
 <template>
   <Accordion value="realms"
@@ -92,8 +92,8 @@ import { Accordion, IconButton } from "@katorlys/oreui-vue";
 </ore-accordion>
 
 <script>
-	import "@katorlys/oreui/accordion";
-	import "@katorlys/oreui/icon-button";
+	import "oreui-web/accordion";
+	import "oreui-web/icon-button";
 </script>
 ```
 

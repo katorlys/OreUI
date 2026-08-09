@@ -12,7 +12,7 @@ import { ProgressBarStory } from "@/components/stories/progress-bar.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/progress-bar";
+import "oreui-web/progress-bar";
 ```
 
 ```html
@@ -23,7 +23,7 @@ import "@katorlys/oreui/progress-bar";
     <Tab value="React">
 
 ```tsx
-import { ProgressBar } from "@katorlys/oreui-react/progress-bar";
+import { ProgressBar } from "@oreui-web/react/progress-bar";
 
 export function DownloadProgress() {
   return <ProgressBar value={65} max={100} variant="labeled" />;
@@ -35,7 +35,7 @@ export function DownloadProgress() {
 
 ```vue
 <script setup lang="ts">
-import { ProgressBar } from "@katorlys/oreui-vue/progress-bar";
+import { ProgressBar } from "@oreui-web/vue/progress-bar";
 </script>
 
 <template>
@@ -50,7 +50,7 @@ import { ProgressBar } from "@katorlys/oreui-vue/progress-bar";
 <ore-progress-bar value="65" max="100" variant="labeled"></ore-progress-bar>
 
 <script>
-	import "@katorlys/oreui/progress-bar";
+	import "oreui-web/progress-bar";
 </script>
 ```
 

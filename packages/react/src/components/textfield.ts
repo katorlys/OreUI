@@ -1,5 +1,5 @@
 import { createComponent, type EventName } from "@lit/react";
-import { OreTextfield as OreTextfieldElement } from "@katorlys/oreui/textfield";
+import { OreTextfield as OreTextfieldElement } from "oreui-web/textfield";
 import React from "react";
 
 export const Textfield = createComponent({

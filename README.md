@@ -41,9 +41,9 @@ Read the full documentation at [lab.katorly.com/OreUI](https://lab.katorly.com/O
 ## Packages
 | Package | Version | Links |
 | ------- | ------- | ----- |
-| <img src="docs/public/frameworks/javascript.svg" alt="" width="16" height="16"> `@katorlys/oreui` |         | [Docs](https://lab.katorly.com/OreUI/docs/getting-started/vanilla) · [Source](https://github.com/katorlys/OreUI) |
-| <img src="docs/public/frameworks/react.svg" alt="" width="16" height="16"> `@katorlys/oreui-react` |         | [Docs](https://lab.katorly.com/OreUI/docs/getting-started/react) · [Source](https://github.com/katorlys/OreUI/tree/main/packages/react) |
-| <img src="docs/public/frameworks/vue.svg" alt="" width="16" height="16"> `@katorlys/oreui-vue` |         | [Docs](https://lab.katorly.com/OreUI/docs/getting-started/vue) · [Source](https://github.com/katorlys/OreUI/tree/main/packages/vue) |
+| <img src="docs/public/frameworks/javascript.svg" alt="" width="16" height="16"> `oreui-web` |         | [Docs](https://lab.katorly.com/OreUI/docs/getting-started/vanilla) · [Source](https://github.com/katorlys/OreUI) |
+| <img src="docs/public/frameworks/react.svg" alt="" width="16" height="16"> `@oreui-web/react` |         | [Docs](https://lab.katorly.com/OreUI/docs/getting-started/react) · [Source](https://github.com/katorlys/OreUI/tree/main/packages/react) |
+| <img src="docs/public/frameworks/vue.svg" alt="" width="16" height="16"> `@oreui-web/vue` |         | [Docs](https://lab.katorly.com/OreUI/docs/getting-started/vue) · [Source](https://github.com/katorlys/OreUI/tree/main/packages/vue) |
 
 
 ## Getting started

@@ -1,5 +1,5 @@
 import { createComponent } from "@lit/react";
-import { OreCard as OreCardElement } from "@katorlys/oreui/card";
+import { OreCard as OreCardElement } from "oreui-web/card";
 import React from "react";
 
 export const Card = createComponent({

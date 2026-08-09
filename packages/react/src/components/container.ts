@@ -1,5 +1,5 @@
 import { createComponent } from "@lit/react";
-import { OreContainer as OreContainerElement } from "@katorlys/oreui/container";
+import { OreContainer as OreContainerElement } from "oreui-web/container";
 import React from "react";
 
 export const Container = createComponent({

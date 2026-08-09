@@ -4,21 +4,21 @@
 </a>
 </div>
 
-# OreUI Vue
+# @oreui-web/vue
 OreUI for Vue applications.
 
 ## Install
 ```bash
-pnpm add @katorlys/oreui-vue
+pnpm add @oreui-web/vue
 ```
 ```bash
-yarn add @katorlys/oreui-vue
+yarn add @oreui-web/vue
 ```
 ```bash
-npm install @katorlys/oreui-vue
+npm install @oreui-web/vue
 ```
 ```bash
-bun add @katorlys/oreui-vue
+bun add @oreui-web/vue
 ```
 
 ## Documentation

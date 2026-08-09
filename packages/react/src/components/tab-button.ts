@@ -1,5 +1,5 @@
 import { createComponent, type EventName } from "@lit/react";
-import { OreTabButton as OreTabButtonElement } from "@katorlys/oreui/tab-button";
+import { OreTabButton as OreTabButtonElement } from "oreui-web/tab-button";
 import React from "react";
 
 export const TabButton = createComponent({

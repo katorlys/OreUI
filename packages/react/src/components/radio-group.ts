@@ -1,5 +1,5 @@
 import { createComponent } from "@lit/react";
-import { OreRadioGroup as OreRadioGroupElement } from "@katorlys/oreui/radio-group";
+import { OreRadioGroup as OreRadioGroupElement } from "oreui-web/radio-group";
 import React from "react";
 
 export { Radio, type RadioProps } from "./radio.js";

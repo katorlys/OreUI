@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { IconButton } from "@katorlys/oreui-react/icon-button";
+import { IconButton } from "@oreui-web/react/icon-button";
 import { createElement } from "react";
 
 const closeIcon = (

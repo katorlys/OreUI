@@ -60,15 +60,12 @@ importers:
       '@fumadocs/story':
         specifier: ^1.2.0
         version: 1.2.0(@fumadocs/base-ui@16.13.0(@types/mdx@2.0.14)(@types/react@19.2.18)(fumadocs-core@16.13.0(@mdx-js/mdx@3.1.1)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.2.18)(lucide-react@1.30.0(react@19.2.8))(next@16.2.12(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(zod@4.4.3))(next@16.2.12(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tailwindcss@4.3.3))(@types/react@19.2.18)(fumadocs-core@16.13.0(@mdx-js/mdx@3.1.1)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.2.18)(lucide-react@1.30.0(react@19.2.8))(next@16.2.12(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(zod@4.4.3))(next@16.2.12(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.0))
-      '@katorlys/oreui':
-        specifier: workspace:*
-        version: link:..
-      '@katorlys/oreui-react':
-        specifier: workspace:*
-        version: link:../packages/react
       '@orama/orama':
         specifier: ^3.1.18
         version: 3.1.18
+      '@oreui-web/react':
+        specifier: workspace:*
+        version: link:../packages/react
       fumadocs-core:
         specifier: 16.13.0
         version: 16.13.0(@mdx-js/mdx@3.1.1)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.2.18)(lucide-react@1.30.0(react@19.2.8))(next@16.2.12(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(zod@4.4.3)
@@ -84,6 +81,9 @@ importers:
       next:
         specifier: 16.2.12
         version: 16.2.12(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      oreui-web:
+        specifier: workspace:*
+        version: link:..
       react:
         specifier: ^19.2.8
         version: 19.2.8
@@ -118,12 +118,12 @@ importers:
 
   packages/react:
     dependencies:
-      '@katorlys/oreui':
-        specifier: workspace:*
-        version: link:../..
       '@lit/react':
         specifier: ^1.0.8
         version: 1.0.8(@types/react@19.2.18)
+      oreui-web:
+        specifier: workspace:*
+        version: link:../..
     devDependencies:
       '@types/react':
         specifier: ^19.2.18
@@ -143,7 +143,7 @@ importers:
 
   packages/vue:
     dependencies:
-      '@katorlys/oreui':
+      oreui-web:
         specifier: workspace:*
         version: link:../..
     devDependencies:
@@ -1217,8 +1217,8 @@ packages:
     resolution: {integrity: sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==}
     engines: {node: 18 || 20 || >=22}
 
-  baseline-browser-mapping@2.11.12:
-    resolution: {integrity: sha512-r7WnVImvVCeFpf2DOXfy41aPWzeNg3H/A2X4dKmy1QL0MSyyk/e7z8ihJ3N6Nn2PsdhkVlqnEfnUE4a05P2aTA==}
+  baseline-browser-mapping@2.11.13:
+    resolution: {integrity: sha512-k9HNuUVMlqVjQ9UHzfPjIqiDbWw7WqT1AoT7GL8VwvF3r0ZfArtgiSPAlmupyNquNgOJHTuH4CKYf8ttMTWBTQ==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -3075,7 +3075,7 @@ snapshots:
 
   balanced-match@4.0.4: {}
 
-  baseline-browser-mapping@2.11.12: {}
+  baseline-browser-mapping@2.11.13: {}
 
   brace-expansion@5.0.9:
     dependencies:
@@ -4032,7 +4032,7 @@ snapshots:
     dependencies:
       '@next/env': 16.2.12
       '@swc/helpers': 0.5.15
-      baseline-browser-mapping: 2.11.12
+      baseline-browser-mapping: 2.11.13
       caniuse-lite: 1.0.30001809
       postcss: 8.4.31
       react: 19.2.8

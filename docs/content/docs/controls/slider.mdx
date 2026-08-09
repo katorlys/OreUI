@@ -12,7 +12,7 @@ import { SliderStory } from "@/components/stories/slider.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/slider";
+import "oreui-web/slider";
 ```
 
 ```html
@@ -30,7 +30,7 @@ import "@katorlys/oreui/slider";
     <Tab value="React">
 
 ```tsx
-import { Slider } from "@katorlys/oreui-react/slider";
+import { Slider } from "@oreui-web/react/slider";
 import { useState } from "react";
 
 export function RenderDistanceSlider() {
@@ -58,7 +58,7 @@ export function RenderDistanceSlider() {
 ```vue
 <script setup lang="ts">
 import { ref } from "vue";
-import { Slider } from "@katorlys/oreui-vue/slider";
+import { Slider } from "@oreui-web/vue/slider";
 
 const value = ref(12);
 </script>
@@ -82,7 +82,7 @@ const value = ref(12);
 <ore-slider name="distance" min="2" max="32" step="1" value="12" aria-label="Render distance"></ore-slider>
 
 <script>
-	import "@katorlys/oreui/slider";
+	import "oreui-web/slider";
 </script>
 ```
 

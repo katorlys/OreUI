@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Radio, RadioGroup } from "@katorlys/oreui-react/radio-group";
+import { Radio, RadioGroup } from "@oreui-web/react/radio-group";
 import { useEffect, useId, useState } from "react";
 
 interface RadioGroupPreviewProps {

@@ -1,5 +1,5 @@
 import { createComponent, type EventName } from "@lit/react";
-import { OreSwitch as OreSwitchElement } from "@katorlys/oreui/switch";
+import { OreSwitch as OreSwitchElement } from "oreui-web/switch";
 import React from "react";
 
 export const Switch = createComponent({

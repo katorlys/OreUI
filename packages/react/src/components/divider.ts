@@ -1,5 +1,5 @@
 import { createComponent } from "@lit/react";
-import { OreDivider as OreDividerElement } from "@katorlys/oreui/divider";
+import { OreDivider as OreDividerElement } from "oreui-web/divider";
 import React from "react";
 
 export const Divider = createComponent({

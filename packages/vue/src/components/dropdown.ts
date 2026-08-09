@@ -1,4 +1,4 @@
-import { OreDropdown } from "@katorlys/oreui/dropdown";
+import { OreDropdown } from "oreui-web/dropdown";
 import { createOreComponent } from "../factory.js";
 
 export const Dropdown = createOreComponent("ore-dropdown", {

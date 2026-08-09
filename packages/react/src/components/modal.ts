@@ -2,7 +2,7 @@ import { createComponent, type EventName } from "@lit/react";
 import {
   OreModal as OreModalElement,
   type OreModalCloseDetail,
-} from "@katorlys/oreui/modal";
+} from "oreui-web/modal";
 import React from "react";
 
 export const Modal = createComponent({

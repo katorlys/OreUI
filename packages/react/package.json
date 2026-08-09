@@ -1,6 +1,6 @@
 {
-  "name": "@katorlys/oreui-react",
-  "version": "0.0.0-alpha.3",
+  "name": "@oreui-web/react",
+  "version": "0.0.0-beta.1",
   "description": "React wrapper for the unofficial Ore UI component library.",
   "type": "module",
   "repository": {
@@ -49,15 +49,14 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@katorlys/oreui": "workspace:*",
-    "@lit/react": "^1.0.8"
+    "@lit/react": "^1.0.8",
+    "oreui-web": "workspace:*"
   },
   "peerDependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@katorlys/oreui": "workspace:*",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
     "react": "^19.2.8",

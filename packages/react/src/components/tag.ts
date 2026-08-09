@@ -1,5 +1,5 @@
 import { createComponent } from "@lit/react";
-import { OreTag as OreTagElement } from "@katorlys/oreui/tag";
+import { OreTag as OreTagElement } from "oreui-web/tag";
 import React from "react";
 
 export const Tag = createComponent({

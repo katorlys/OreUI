@@ -1,4 +1,4 @@
-import { OreTextfield } from "@katorlys/oreui/textfield";
+import { OreTextfield } from "oreui-web/textfield";
 import { createOreComponent } from "../factory.js";
 
 export const Textfield = createOreComponent("ore-textfield", {

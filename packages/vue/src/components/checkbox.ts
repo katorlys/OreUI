@@ -1,4 +1,4 @@
-import { OreCheckbox } from "@katorlys/oreui/checkbox";
+import { OreCheckbox } from "oreui-web/checkbox";
 import { createOreComponent } from "../factory.js";
 
 export const Checkbox = createOreComponent("ore-checkbox", {

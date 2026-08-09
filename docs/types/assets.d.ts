@@ -1,4 +1,4 @@
-declare module "@katorlys/oreui/icons/*" {
+declare module "oreui-web/icons/*" {
   const source: string | { src: string };
   export default source;
 }

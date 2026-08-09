@@ -6,19 +6,19 @@ description: 在 Astro 中使用 OreUI
 ## 安装
 
 ```bash tab="pnpm"
-pnpm add @katorlys/oreui
+pnpm add oreui-web
 ```
 
 ```bash tab="yarn"
-yarn add @katorlys/oreui
+yarn add oreui-web
 ```
 
 ```bash tab="npm"
-npm install @katorlys/oreui
+npm install oreui-web
 ```
 
 ```bash tab="bun"
-bun add @katorlys/oreui
+bun add oreui-web
 ```
 
 ## 使用组件
@@ -27,7 +27,7 @@ bun add @katorlys/oreui
 
 ```astro title="src/layouts/Layout.astro"
 ---
-import "@katorlys/oreui/styles.css";
+import "oreui-web/styles.css";
 ---
 
 <slot />
@@ -39,11 +39,11 @@ import "@katorlys/oreui/styles.css";
 <ore-button type="button">Create new world</ore-button>
 
 <script>
-  import "@katorlys/oreui/button";
+  import "oreui-web/button";
 </script>
 ```
 
-<Callout type="info">导入 `@katorlys/oreui` 即可使用所有组件。</Callout>
+<Callout type="info">导入 `oreui-web` 即可使用所有组件。</Callout>
 
 ## 示例
 
@@ -56,8 +56,8 @@ import "@katorlys/oreui/styles.css";
 </form>
 
 <script>
-  import "@katorlys/oreui/button";
-  import "@katorlys/oreui/checkbox";
+  import "oreui-web/button";
+  import "oreui-web/checkbox";
 
   const form = document.querySelector<HTMLFormElement>("#account");
 

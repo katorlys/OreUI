@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Tag } from "@katorlys/oreui-react/tag";
+import { Tag } from "@oreui-web/react/tag";
 
 interface TagPreviewProps {
   label: string;

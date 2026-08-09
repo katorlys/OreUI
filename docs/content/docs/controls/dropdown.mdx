@@ -12,8 +12,8 @@ import { DropdownStory } from "@/components/stories/dropdown.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/button";
-import "@katorlys/oreui/dropdown";
+import "oreui-web/button";
+import "oreui-web/dropdown";
 ```
 
 ```html
@@ -47,8 +47,8 @@ import "@katorlys/oreui/dropdown";
     <Tab value="React">
 
 ```tsx
-import { Button } from "@katorlys/oreui-react/button";
-import { Dropdown } from "@katorlys/oreui-react/dropdown";
+import { Button } from "@oreui-web/react/button";
+import { Dropdown } from "@oreui-web/react/dropdown";
 import { useState } from "react";
 
 export function GameModeDropdown() {
@@ -97,7 +97,7 @@ export function GameModeDropdown() {
 ```vue
 <script setup lang="ts">
 import { ref } from "vue";
-import { Button, Dropdown } from "@katorlys/oreui-vue";
+import { Button, Dropdown } from "@oreui-web/vue";
 
 const value = ref("creative");
 </script>
@@ -146,8 +146,8 @@ const value = ref("creative");
 </ore-dropdown>
 
 <script>
-	import "@katorlys/oreui/button";
-	import "@katorlys/oreui/dropdown";
+	import "oreui-web/button";
+	import "oreui-web/dropdown";
 </script>
 ```
 

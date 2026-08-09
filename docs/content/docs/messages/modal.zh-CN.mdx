@@ -12,12 +12,12 @@ import { ModalStory } from "@/components/stories/modal.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/modal";
-import "@katorlys/oreui/button";
-import "@katorlys/oreui/checkbox";
-import "@katorlys/oreui/container";
-import "@katorlys/oreui/icon";
-import "@katorlys/oreui/textfield";
+import "oreui-web/modal";
+import "oreui-web/button";
+import "oreui-web/checkbox";
+import "oreui-web/container";
+import "oreui-web/icon";
+import "oreui-web/textfield";
 ```
 
 ```html
@@ -83,11 +83,11 @@ import "@katorlys/oreui/textfield";
     <Tab value="React">
 
 ```tsx
-import { Button } from "@katorlys/oreui-react/button";
-import { Checkbox } from "@katorlys/oreui-react/checkbox";
-import { Container } from "@katorlys/oreui-react/container";
-import { Modal } from "@katorlys/oreui-react/modal";
-import { Textfield } from "@katorlys/oreui-react/textfield";
+import { Button } from "@oreui-web/react/button";
+import { Checkbox } from "@oreui-web/react/checkbox";
+import { Container } from "@oreui-web/react/container";
+import { Modal } from "@oreui-web/react/modal";
+import { Textfield } from "@oreui-web/react/textfield";
 import { useId } from "react";
 
 export function FormModal() {
@@ -175,14 +175,8 @@ export function FormModal() {
 
 ```vue
 <script setup lang="ts">
-import {
-  Button,
-  Checkbox,
-  Container,
-  Modal,
-  Textfield,
-} from "@katorlys/oreui-vue";
-import "@katorlys/oreui/icon";
+import { Button, Checkbox, Container, Modal, Textfield } from "@oreui-web/vue";
+import "oreui-web/icon";
 
 const titleId = "form-modal-title";
 const descriptionId = "form-modal-description";
@@ -285,12 +279,12 @@ const descriptionId = "form-modal-description";
 </ore-modal>
 
 <script>
-	import "@katorlys/oreui/modal";
-	import "@katorlys/oreui/button";
-	import "@katorlys/oreui/checkbox";
-	import "@katorlys/oreui/container";
-	import "@katorlys/oreui/icon";
-	import "@katorlys/oreui/textfield";
+	import "oreui-web/modal";
+	import "oreui-web/button";
+	import "oreui-web/checkbox";
+	import "oreui-web/container";
+	import "oreui-web/icon";
+	import "oreui-web/textfield";
 </script>
 ```
 

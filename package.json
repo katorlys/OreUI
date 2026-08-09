@@ -1,6 +1,6 @@
 {
-  "name": "@katorlys/oreui",
-  "version": "0.0.0-alpha.3",
+  "name": "oreui-web",
+  "version": "0.0.0-beta.1",
   "description": "An unofficial Ore UI cross-framework component library.",
   "type": "module",
   "repository": {
@@ -50,14 +50,14 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "pnpm build:core && pnpm --filter @katorlys/oreui-react build && pnpm --filter @katorlys/oreui-vue build",
+    "build": "pnpm build:core && pnpm --filter @oreui-web/react build && pnpm --filter @oreui-web/vue build",
     "build:core": "vite build && tsc -p tsconfig.build.json && node scripts/copy-assets.js",
     "docs:build": "pnpm --filter @katorlys/oreui-docs build",
     "docs:dev": "pnpm --filter @katorlys/oreui-docs dev",
     "docs:typecheck": "pnpm --filter @katorlys/oreui-docs typecheck",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "typecheck": "pnpm typecheck:core && pnpm --filter @katorlys/oreui-react typecheck && pnpm --filter @katorlys/oreui-vue typecheck",
+    "typecheck": "pnpm typecheck:core && pnpm --filter @oreui-web/react typecheck && pnpm --filter @oreui-web/vue typecheck",
     "typecheck:core": "tsc --noEmit",
     "preview": "vite preview"
   },

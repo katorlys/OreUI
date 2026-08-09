@@ -6,19 +6,19 @@ description: 在 Vue 应用中使用 OreUI
 ## 安装
 
 ```bash tab="pnpm"
-pnpm add @katorlys/oreui-vue
+pnpm add @oreui-web/vue
 ```
 
 ```bash tab="yarn"
-yarn add @katorlys/oreui-vue
+yarn add @oreui-web/vue
 ```
 
 ```bash tab="npm"
-npm install @katorlys/oreui-vue
+npm install @oreui-web/vue
 ```
 
 ```bash tab="bun"
-bun add @katorlys/oreui-vue
+bun add @oreui-web/vue
 ```
 
 ## 添加样式
@@ -26,14 +26,14 @@ bun add @katorlys/oreui-vue
 在 app entry 中导入一次样式表即可：
 
 ```ts
-import "@katorlys/oreui-vue/styles.css";
+import "@oreui-web/vue/styles.css";
 ```
 
 ## 使用组件
 
 ```vue title="App.vue"
 <script setup lang="ts">
-import { Button } from "@katorlys/oreui-vue/button";
+import { Button } from "@oreui-web/vue/button";
 </script>
 
 <template>
@@ -48,7 +48,7 @@ import { Button } from "@katorlys/oreui-vue/button";
 ```vue title="Settings.vue"
 <script setup lang="ts">
 import { ref } from "vue";
-import { Checkbox, Slider } from "@katorlys/oreui-vue";
+import { Checkbox, Slider } from "@oreui-web/vue";
 
 const enabled = ref(false);
 const volume = ref(40);
@@ -60,9 +60,7 @@ const volume = ref(40);
 </template>
 ```
 
-<Callout type="info">
-  导入 `@katorlys/oreui-vue` 即可使用所有 Vue 组件。
-</Callout>
+<Callout type="info">导入 `@oreui-web/vue` 即可使用所有 Vue 组件。</Callout>
 
 ## 直接使用自定义元素
 

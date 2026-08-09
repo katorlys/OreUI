@@ -1,5 +1,5 @@
 import { createComponent, type EventName } from "@lit/react";
-import { OreTooltip as OreTooltipElement } from "@katorlys/oreui/tooltip";
+import { OreTooltip as OreTooltipElement } from "oreui-web/tooltip";
 import React from "react";
 
 export const Tooltip = createComponent({

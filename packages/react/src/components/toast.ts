@@ -3,7 +3,7 @@ import {
   OreToast as OreToastElement,
   type OreToastPosition,
   type OreToastVariant,
-} from "@katorlys/oreui/toast";
+} from "oreui-web/toast";
 import React from "react";
 
 export const Toast = createComponent({

@@ -6,19 +6,19 @@ description: 在 React 应用中使用 OreUI
 ## 安装
 
 ```bash tab="pnpm"
-pnpm add @katorlys/oreui-react
+pnpm add @oreui-web/react
 ```
 
 ```bash tab="yarn"
-yarn add @katorlys/oreui-react
+yarn add @oreui-web/react
 ```
 
 ```bash tab="npm"
-npm install @katorlys/oreui-react
+npm install @oreui-web/react
 ```
 
 ```bash tab="bun"
-bun add @katorlys/oreui-react
+bun add @oreui-web/react
 ```
 
 ## 添加样式
@@ -26,28 +26,28 @@ bun add @katorlys/oreui-react
 在 app entry 中导入一次样式表即可：
 
 ```ts
-import "@katorlys/oreui-react/styles.css";
+import "@oreui-web/react/styles.css";
 ```
 
 ## 使用组件
 
 ```tsx title="App.tsx"
-import { Button } from "@katorlys/oreui-react/button";
+import { Button } from "@oreui-web/react/button";
 
 export function App() {
   return <Button type="button">Create new world</Button>;
 }
 ```
 
-<Callout type="info">导入 `@katorlys/oreui-react` 即可使用所有组件。</Callout>
+<Callout type="info">导入 `@oreui-web/react` 即可使用所有组件。</Callout>
 
 ## 示例
 
 事件：
 
 ```tsx title="GameMode.tsx"
-import { Button } from "@katorlys/oreui-react/button";
-import { Dropdown } from "@katorlys/oreui-react/dropdown";
+import { Button } from "@oreui-web/react/button";
+import { Dropdown } from "@oreui-web/react/dropdown";
 
 export function GameMode() {
   return (

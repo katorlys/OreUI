@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Table } from "@katorlys/oreui-react/table";
+import { Table } from "@oreui-web/react/table";
 import { useState } from "react";
 
 interface TablePreviewProps {

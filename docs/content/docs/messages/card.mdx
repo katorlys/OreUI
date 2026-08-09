@@ -14,9 +14,9 @@ Card groups media, a caption, metadata, and an optional action.
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/card";
-import "@katorlys/oreui/icon";
-import "@katorlys/oreui/tag";
+import "oreui-web/card";
+import "oreui-web/icon";
+import "oreui-web/tag";
 ```
 
 ```html
@@ -51,8 +51,8 @@ import "@katorlys/oreui/tag";
     <Tab value="React">
 
 ```tsx
-import { Card } from "@katorlys/oreui-react/card";
-import { Tag } from "@katorlys/oreui-react/tag";
+import { Card } from "@oreui-web/react/card";
+import { Tag } from "@oreui-web/react/tag";
 
 export function WorldCard() {
   return (
@@ -95,8 +95,8 @@ export function WorldCard() {
 
 ```vue
 <script setup lang="ts">
-import { Card, Tag } from "@katorlys/oreui-vue";
-import "@katorlys/oreui/icon";
+import { Card, Tag } from "@oreui-web/vue";
+import "oreui-web/icon";
 </script>
 
 <template>
@@ -152,9 +152,9 @@ import "@katorlys/oreui/icon";
 </ore-card>
 
 <script>
-	import "@katorlys/oreui/card";
-	import "@katorlys/oreui/icon";
-	import "@katorlys/oreui/tag";
+	import "oreui-web/card";
+	import "oreui-web/icon";
+	import "oreui-web/tag";
 </script>
 ```
 

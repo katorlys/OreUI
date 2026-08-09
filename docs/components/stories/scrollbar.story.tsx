@@ -1,8 +1,8 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Container } from "@katorlys/oreui-react/container";
-import { Scrollbar } from "@katorlys/oreui-react/scrollbar";
+import { Container } from "@oreui-web/react/container";
+import { Scrollbar } from "@oreui-web/react/scrollbar";
 
 interface ScrollbarPreviewProps {
   height: number;

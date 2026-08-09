@@ -1,5 +1,5 @@
 import { createComponent } from "@lit/react";
-import { OreTabBar as OreTabBarElement } from "@katorlys/oreui/tab-bar";
+import { OreTabBar as OreTabBarElement } from "oreui-web/tab-bar";
 import React from "react";
 
 export { TabButton, type TabButtonProps } from "./tab-button.js";

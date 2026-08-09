@@ -1,5 +1,5 @@
 import { createComponent } from "@lit/react";
-import { OreToggles as OreTogglesElement } from "@katorlys/oreui/toggles";
+import { OreToggles as OreTogglesElement } from "oreui-web/toggles";
 import React from "react";
 
 export { TabButton, type TabButtonProps } from "./tab-button.js";

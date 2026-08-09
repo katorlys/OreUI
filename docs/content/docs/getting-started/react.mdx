@@ -6,19 +6,19 @@ description: OreUI for React applications.
 ## Install
 
 ```bash tab="pnpm"
-pnpm add @katorlys/oreui-react
+pnpm add @oreui-web/react
 ```
 
 ```bash tab="yarn"
-yarn add @katorlys/oreui-react
+yarn add @oreui-web/react
 ```
 
 ```bash tab="npm"
-npm install @katorlys/oreui-react
+npm install @oreui-web/react
 ```
 
 ```bash tab="bun"
-bun add @katorlys/oreui-react
+bun add @oreui-web/react
 ```
 
 ## Add styles
@@ -26,13 +26,13 @@ bun add @katorlys/oreui-react
 Import the stylesheet once in your app entry:
 
 ```ts
-import "@katorlys/oreui-react/styles.css";
+import "@oreui-web/react/styles.css";
 ```
 
 ## Use a component
 
 ```tsx title="App.tsx"
-import { Button } from "@katorlys/oreui-react/button";
+import { Button } from "@oreui-web/react/button";
 
 export function App() {
   return <Button type="button">Create new world</Button>;
@@ -40,8 +40,7 @@ export function App() {
 ```
 
 <Callout type="info">
-  To use all the components from the package root, import
-  `@katorlys/oreui-react`.
+  To use all the components from the package root, import `@oreui-web/react`.
 </Callout>
 
 ## Examples
@@ -49,8 +48,8 @@ export function App() {
 Typed events:
 
 ```tsx title="GameMode.tsx"
-import { Button } from "@katorlys/oreui-react/button";
-import { Dropdown } from "@katorlys/oreui-react/dropdown";
+import { Button } from "@oreui-web/react/button";
+import { Dropdown } from "@oreui-web/react/dropdown";
 
 export function GameMode() {
   return (

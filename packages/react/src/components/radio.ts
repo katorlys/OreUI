@@ -1,5 +1,5 @@
 import { createComponent, type EventName } from "@lit/react";
-import { OreRadio as OreRadioElement } from "@katorlys/oreui/radio";
+import { OreRadio as OreRadioElement } from "oreui-web/radio";
 import React from "react";
 
 export const Radio = createComponent({

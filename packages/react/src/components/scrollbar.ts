@@ -1,5 +1,5 @@
 import { createComponent } from "@lit/react";
-import { OreScrollbar as OreScrollbarElement } from "@katorlys/oreui/scrollbar";
+import { OreScrollbar as OreScrollbarElement } from "oreui-web/scrollbar";
 import React from "react";
 
 export const Scrollbar = createComponent({

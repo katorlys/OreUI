@@ -12,7 +12,7 @@ import { CheckboxStory } from "@/components/stories/checkbox.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/checkbox";
+import "oreui-web/checkbox";
 ```
 
 ```html
@@ -23,7 +23,7 @@ import "@katorlys/oreui/checkbox";
     <Tab value="React">
 
 ```tsx
-import { Checkbox } from "@katorlys/oreui-react/checkbox";
+import { Checkbox } from "@oreui-web/react/checkbox";
 import { useState } from "react";
 
 export function UpdatesCheckbox() {
@@ -51,7 +51,7 @@ export function UpdatesCheckbox() {
 ```vue
 <script setup lang="ts">
 import { ref } from "vue";
-import { Checkbox } from "@katorlys/oreui-vue/checkbox";
+import { Checkbox } from "@oreui-web/vue/checkbox";
 
 const checked = ref(false);
 </script>
@@ -72,7 +72,7 @@ const checked = ref(false);
 </ore-checkbox>
 
 <script>
-	import "@katorlys/oreui/checkbox";
+	import "oreui-web/checkbox";
 </script>
 ```
 

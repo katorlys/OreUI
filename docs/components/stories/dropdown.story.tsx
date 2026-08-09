@@ -1,8 +1,8 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Button } from "@katorlys/oreui-react/button";
-import { Dropdown } from "@katorlys/oreui-react/dropdown";
+import { Button } from "@oreui-web/react/button";
+import { Dropdown } from "@oreui-web/react/dropdown";
 import { useEffect, useState } from "react";
 
 interface DropdownPreviewProps {

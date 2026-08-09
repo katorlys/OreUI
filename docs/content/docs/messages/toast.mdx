@@ -12,7 +12,7 @@ import { ToastStory } from "@/components/stories/toast.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/toast";
+import "oreui-web/toast";
 ```
 
 ```html
@@ -23,7 +23,7 @@ import "@katorlys/oreui/toast";
     <Tab value="React">
 
 ```tsx
-import { Toast } from "@katorlys/oreui-react/toast";
+import { Toast } from "@oreui-web/react/toast";
 
 export function SavedMessage() {
   return (
@@ -39,7 +39,7 @@ export function SavedMessage() {
 
 ```vue
 <script setup lang="ts">
-import { Toast } from "@katorlys/oreui-vue/toast";
+import { Toast } from "@oreui-web/vue/toast";
 </script>
 
 <template>
@@ -54,7 +54,7 @@ import { Toast } from "@katorlys/oreui-vue/toast";
 <ore-toast open aria-label="World saved">Saved</ore-toast>
 
 <script>
-	import "@katorlys/oreui/toast";
+	import "oreui-web/toast";
 </script>
 ```
 

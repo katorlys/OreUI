@@ -6,19 +6,19 @@ description: OreUI for Vue applications.
 ## Install
 
 ```bash tab="pnpm"
-pnpm add @katorlys/oreui-vue
+pnpm add @oreui-web/vue
 ```
 
 ```bash tab="yarn"
-yarn add @katorlys/oreui-vue
+yarn add @oreui-web/vue
 ```
 
 ```bash tab="npm"
-npm install @katorlys/oreui-vue
+npm install @oreui-web/vue
 ```
 
 ```bash tab="bun"
-bun add @katorlys/oreui-vue
+bun add @oreui-web/vue
 ```
 
 ## Add styles
@@ -26,14 +26,14 @@ bun add @katorlys/oreui-vue
 Import the stylesheet once in your app entry:
 
 ```ts
-import "@katorlys/oreui-vue/styles.css";
+import "@oreui-web/vue/styles.css";
 ```
 
 ## Use a component
 
 ```vue title="App.vue"
 <script setup lang="ts">
-import { Button } from "@katorlys/oreui-vue/button";
+import { Button } from "@oreui-web/vue/button";
 </script>
 
 <template>
@@ -48,7 +48,7 @@ Value controls expose the standard Vue `modelValue` and `update:modelValue` cont
 ```vue title="Settings.vue"
 <script setup lang="ts">
 import { ref } from "vue";
-import { Checkbox, Slider } from "@katorlys/oreui-vue";
+import { Checkbox, Slider } from "@oreui-web/vue";
 
 const enabled = ref(false);
 const volume = ref(40);
@@ -61,7 +61,7 @@ const volume = ref(40);
 ```
 
 <Callout type="info">
-  To use all the components, import `@katorlys/oreui-vue`.
+  To use all the components, import `@oreui-web/vue`.
 </Callout>
 
 ## Direct custom elements

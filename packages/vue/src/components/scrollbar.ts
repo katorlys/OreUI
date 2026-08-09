@@ -1,4 +1,4 @@
-import "@katorlys/oreui/scrollbar";
+import "oreui-web/scrollbar";
 import { createOreComponent } from "../factory.js";
 
 export const Scrollbar = createOreComponent("ore-scrollbar", {

@@ -12,7 +12,7 @@ import { TogglesStory } from "@/components/stories/toggles.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/toggles";
+import "oreui-web/toggles";
 ```
 
 ```html
@@ -27,7 +27,7 @@ import "@katorlys/oreui/toggles";
     <Tab value="React">
 
 ```tsx
-import { TabButton, Toggles } from "@katorlys/oreui-react/toggles";
+import { TabButton, Toggles } from "@oreui-web/react/toggles";
 import { useState } from "react";
 
 export function DaylightToggles() {
@@ -61,7 +61,7 @@ export function DaylightToggles() {
 ```vue
 <script setup lang="ts">
 import { ref } from "vue";
-import { TabButton, Toggles } from "@katorlys/oreui-vue";
+import { TabButton, Toggles } from "@oreui-web/vue";
 
 const value = ref("day");
 </script>
@@ -90,7 +90,7 @@ const value = ref("day");
 </ore-toggles>
 
 <script>
-	import "@katorlys/oreui/toggles";
+	import "oreui-web/toggles";
 </script>
 ```
 

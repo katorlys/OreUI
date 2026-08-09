@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Switch } from "@katorlys/oreui-react/switch";
+import { Switch } from "@oreui-web/react/switch";
 import { useEffect, useState } from "react";
 
 interface SwitchPreviewProps {

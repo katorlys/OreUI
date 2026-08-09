@@ -4,8 +4,8 @@ import { HomeLayout } from "fumadocs-ui/layouts/home";
 
 import { useRouter } from "next/navigation";
 
-import { Button } from "@katorlys/oreui-react/button";
-import chevronRightUrl from "@katorlys/oreui/icons/chevron-right";
+import { Button } from "@oreui-web/react/button";
+import chevronRightUrl from "oreui-web/icons/chevron-right";
 import { HomeShowcase } from "@/components/home-showcase";
 import { baseOptions } from "@/lib/layout";
 import packageMetadata from "../../package.json";

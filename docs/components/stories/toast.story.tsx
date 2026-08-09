@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Toast } from "@katorlys/oreui-react/toast";
+import { Toast } from "@oreui-web/react/toast";
 
 interface ToastPreviewProps {
   duration: number;

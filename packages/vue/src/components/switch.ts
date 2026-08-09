@@ -1,4 +1,4 @@
-import { OreSwitch } from "@katorlys/oreui/switch";
+import { OreSwitch } from "oreui-web/switch";
 import { createOreComponent } from "../factory.js";
 
 export const Switch = createOreComponent("ore-switch", {

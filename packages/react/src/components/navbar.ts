@@ -1,5 +1,5 @@
 import { createComponent } from "@lit/react";
-import { OreNavbar as OreNavbarElement } from "@katorlys/oreui/navbar";
+import { OreNavbar as OreNavbarElement } from "oreui-web/navbar";
 import React from "react";
 
 export const Navbar = createComponent({

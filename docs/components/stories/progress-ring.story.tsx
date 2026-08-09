@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { ProgressRing } from "@katorlys/oreui-react/progress-ring";
+import { ProgressRing } from "@oreui-web/react/progress-ring";
 import { useEffect, useState } from "react";
 
 interface ProgressRingPreviewProps {

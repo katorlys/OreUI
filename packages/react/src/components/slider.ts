@@ -1,5 +1,5 @@
 import { createComponent, type EventName } from "@lit/react";
-import { OreSlider as OreSliderElement } from "@katorlys/oreui/slider";
+import { OreSlider as OreSliderElement } from "oreui-web/slider";
 import React from "react";
 
 export const Slider = createComponent({

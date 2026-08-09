@@ -12,7 +12,7 @@ import { ProgressRingStory } from "@/components/stories/progress-ring.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/progress-ring";
+import "oreui-web/progress-ring";
 ```
 
 ```html
@@ -26,7 +26,7 @@ import "@katorlys/oreui/progress-ring";
     <Tab value="React">
 
 ```tsx
-import { ProgressRing } from "@katorlys/oreui-react/progress-ring";
+import { ProgressRing } from "@oreui-web/react/progress-ring";
 
 export function LoadingWorlds() {
   return <ProgressRing value={40} aria-label="World generation progress" />;
@@ -38,7 +38,7 @@ export function LoadingWorlds() {
 
 ```vue
 <script setup lang="ts">
-import { ProgressRing } from "@katorlys/oreui-vue/progress-ring";
+import { ProgressRing } from "@oreui-web/vue/progress-ring";
 </script>
 
 <template>
@@ -53,7 +53,7 @@ import { ProgressRing } from "@katorlys/oreui-vue/progress-ring";
 <ore-progress-ring value="40" aria-label="World generation progress"></ore-progress-ring>
 
 <script>
-	import "@katorlys/oreui/progress-ring";
+	import "oreui-web/progress-ring";
 </script>
 ```
 

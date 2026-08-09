@@ -4,21 +4,21 @@
 </a>
 </div>
 
-# OreUI React
+# @oreui-web/react
 OreUI for React applications.
 
 ## Install
 ```bash
-pnpm add @katorlys/oreui-react
+pnpm add @oreui-web/react
 ```
 ```bash
-yarn add @katorlys/oreui-react
+yarn add @oreui-web/react
 ```
 ```bash
-npm install @katorlys/oreui-react
+npm install @oreui-web/react
 ```
 ```bash
-bun add @katorlys/oreui-react
+bun add @oreui-web/react
 ```
 
 ## Documentation

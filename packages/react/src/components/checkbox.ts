@@ -1,5 +1,5 @@
 import { createComponent, type EventName } from "@lit/react";
-import { OreCheckbox as OreCheckboxElement } from "@katorlys/oreui/checkbox";
+import { OreCheckbox as OreCheckboxElement } from "oreui-web/checkbox";
 import React from "react";
 
 export const Checkbox = createComponent({

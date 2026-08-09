@@ -1,8 +1,8 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Card } from "@katorlys/oreui-react/card";
-import { Tag } from "@katorlys/oreui-react/tag";
+import { Card } from "@oreui-web/react/card";
+import { Tag } from "@oreui-web/react/tag";
 import { createElement } from "react";
 
 interface CardPreviewProps {

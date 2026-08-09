@@ -12,7 +12,7 @@ import { TableStory } from "@/components/stories/table.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/table";
+import "oreui-web/table";
 ```
 
 ```html
@@ -45,7 +45,7 @@ import "@katorlys/oreui/table";
     <Tab value="React">
 
 ```tsx
-import { Table } from "@katorlys/oreui-react/table";
+import { Table } from "@oreui-web/react/table";
 
 export function WorldsTable() {
   return (
@@ -79,7 +79,7 @@ export function WorldsTable() {
 
 ```vue
 <script setup lang="ts">
-import { Table } from "@katorlys/oreui-vue/table";
+import { Table } from "@oreui-web/vue/table";
 </script>
 <template>
   <Table variant="striped"
@@ -124,7 +124,7 @@ import { Table } from "@katorlys/oreui-vue/table";
 </ore-table>
 
 <script>
-	import "@katorlys/oreui/table";
+	import "oreui-web/table";
 </script>
 ```
 

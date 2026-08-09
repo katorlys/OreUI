@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Container } from "@katorlys/oreui-react/container";
+import { Container } from "@oreui-web/react/container";
 
 interface ContainerPreviewProps {
   description: string;

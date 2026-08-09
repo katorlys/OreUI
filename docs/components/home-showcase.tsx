@@ -14,7 +14,7 @@ import {
   Switch,
   Tag,
   Textfield,
-} from "@katorlys/oreui-react";
+} from "@oreui-web/react";
 
 const textfieldStyle = {
   "--ore-textfield-description": "var(--color-fd-muted-foreground)",

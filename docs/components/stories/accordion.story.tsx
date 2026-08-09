@@ -1,8 +1,8 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Accordion } from "@katorlys/oreui-react/accordion";
-import { IconButton } from "@katorlys/oreui-react/icon-button";
+import { Accordion } from "@oreui-web/react/accordion";
+import { IconButton } from "@oreui-web/react/icon-button";
 import { useEffect, useState } from "react";
 
 interface AccordionPreviewProps {

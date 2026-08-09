@@ -12,8 +12,8 @@ import { IconButtonStory } from "@/components/stories/icon-button.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/icon-button";
-import "@katorlys/oreui/icon";
+import "oreui-web/icon-button";
+import "oreui-web/icon";
 ```
 
 ```html
@@ -33,7 +33,7 @@ import "@katorlys/oreui/icon";
     <Tab value="React">
 
 ```tsx
-import { IconButton } from "@katorlys/oreui-react/icon-button";
+import { IconButton } from "@oreui-web/react/icon-button";
 
 export function CloseButton() {
   return (
@@ -57,7 +57,7 @@ export function CloseButton() {
 
 ```vue
 <script setup lang="ts">
-import { IconButton } from "@katorlys/oreui-vue/icon-button";
+import { IconButton } from "@oreui-web/vue/icon-button";
 </script>
 
 <template>
@@ -76,8 +76,8 @@ import { IconButton } from "@katorlys/oreui-vue/icon-button";
 </ore-icon-button>
 
 <script>
-	import "@katorlys/oreui/icon-button";
-	import "@katorlys/oreui/icon";
+	import "oreui-web/icon-button";
+	import "oreui-web/icon";
 </script>
 ```
 

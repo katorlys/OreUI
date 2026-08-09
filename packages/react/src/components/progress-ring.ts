@@ -1,5 +1,5 @@
 import { createComponent } from "@lit/react";
-import { OreProgressRing as OreProgressRingElement } from "@katorlys/oreui/progress-ring";
+import { OreProgressRing as OreProgressRingElement } from "oreui-web/progress-ring";
 import React from "react";
 
 export const ProgressRing = createComponent({

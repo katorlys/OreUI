@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Slider } from "@katorlys/oreui-react/slider";
+import { Slider } from "@oreui-web/react/slider";
 import { useEffect, useState } from "react";
 
 interface SliderPreviewProps {

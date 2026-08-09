@@ -2,7 +2,7 @@ import { createComponent, type EventName } from "@lit/react";
 import {
   OreTable as OreTableElement,
   type OreTableSortDetail,
-} from "@katorlys/oreui/table";
+} from "oreui-web/table";
 import React from "react";
 
 export const Table = createComponent({

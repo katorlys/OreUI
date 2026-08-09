@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Spinner } from "@katorlys/oreui-react/spinner";
+import { Spinner } from "@oreui-web/react/spinner";
 import { useEffect, useState } from "react";
 
 interface SpinnerPreviewProps {

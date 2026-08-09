@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Button } from "@katorlys/oreui-react/button";
+import { Button } from "@oreui-web/react/button";
 
 interface ButtonPreviewProps {
   color:

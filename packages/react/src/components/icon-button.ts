@@ -1,5 +1,5 @@
 import { createComponent } from "@lit/react";
-import { OreIconButton as OreIconButtonElement } from "@katorlys/oreui/icon-button";
+import { OreIconButton as OreIconButtonElement } from "oreui-web/icon-button";
 import React from "react";
 
 export const IconButton = createComponent({

@@ -6,19 +6,19 @@ description: 在 原生 HTML 和 JavaScript 中 使用 OreUI
 ## 安装
 
 ```bash tab="pnpm"
-pnpm add @katorlys/oreui
+pnpm add oreui-web
 ```
 
 ```bash tab="yarn"
-yarn add @katorlys/oreui
+yarn add oreui-web
 ```
 
 ```bash tab="npm"
-npm install @katorlys/oreui
+npm install oreui-web
 ```
 
 ```bash tab="bun"
-bun add @katorlys/oreui
+bun add oreui-web
 ```
 
 ### 使用 CDN
@@ -28,32 +28,32 @@ bun add @katorlys/oreui
 ```html title="index.html"
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@katorlys/oreui@latest/dist/styles.css"
+  href="https://cdn.jsdelivr.net/npm/oreui-web@latest/dist/styles.css"
 />
 
 <ore-button type="button">Create new world</ore-button>
 
 <script type="module">
-  import "https://cdn.jsdelivr.net/npm/@katorlys/oreui@latest/+esm";
+  import "https://cdn.jsdelivr.net/npm/oreui-web@latest/+esm";
 </script>
 ```
 
 <Callout type="info">
-  生产环境中应固定具体版本，例如 `@katorlys/oreui@0.1.0`。
+  生产环境中应固定具体版本，例如 `oreui-web@0.1.0`。
 </Callout>
 
 ## 使用组件
 
 ```js title="script.js"
-import "@katorlys/oreui/styles.css";
-import "@katorlys/oreui/button";
+import "oreui-web/styles.css";
+import "oreui-web/button";
 ```
 
 ```html title="index.html"
 <ore-button type="button">Create new world</ore-button>
 ```
 
-<Callout type="info">导入 `@katorlys/oreui` 即可使用所有组件。</Callout>
+<Callout type="info">导入 `oreui-web` 即可使用所有组件。</Callout>
 
 ## 示例
 

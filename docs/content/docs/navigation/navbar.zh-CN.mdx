@@ -12,8 +12,8 @@ import { NavbarStory } from "@/components/stories/navbar.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/navbar";
-import "@katorlys/oreui/icon";
+import "oreui-web/navbar";
+import "oreui-web/icon";
 ```
 
 ```html
@@ -44,7 +44,7 @@ import "@katorlys/oreui/icon";
     <Tab value="React">
 
 ```tsx
-import { Navbar } from "@katorlys/oreui-react/navbar";
+import { Navbar } from "@oreui-web/react/navbar";
 
 export function WorldsNavbar() {
   return (
@@ -79,8 +79,8 @@ export function WorldsNavbar() {
 
 ```vue
 <script setup lang="ts">
-import { Navbar } from "@katorlys/oreui-vue/navbar";
-import "@katorlys/oreui/icon";
+import { Navbar } from "@oreui-web/vue/navbar";
+import "oreui-web/icon";
 </script>
 <template>
   <Navbar aria-label="Screen navigation"
@@ -126,8 +126,8 @@ import "@katorlys/oreui/icon";
 </ore-navbar>
 
 <script>
-	import "@katorlys/oreui/navbar";
-	import "@katorlys/oreui/icon";
+	import "oreui-web/navbar";
+	import "oreui-web/icon";
 </script>
 ```
 

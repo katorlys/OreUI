@@ -12,7 +12,7 @@ import { ContainerStory } from "@/components/stories/container.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/container";
+import "oreui-web/container";
 ```
 
 ```html
@@ -26,7 +26,7 @@ import "@katorlys/oreui/container";
     <Tab value="React">
 
 ```tsx
-import { Container } from "@katorlys/oreui-react/container";
+import { Container } from "@oreui-web/react/container";
 
 export function WorldSettings() {
   return (
@@ -43,7 +43,7 @@ export function WorldSettings() {
 
 ```vue
 <script setup lang="ts">
-import { Container } from "@katorlys/oreui-vue/container";
+import { Container } from "@oreui-web/vue/container";
 </script>
 
 <template>
@@ -64,7 +64,7 @@ import { Container } from "@katorlys/oreui-vue/container";
 </ore-container>
 
 <script>
-	import "@katorlys/oreui/container";
+	import "oreui-web/container";
 </script>
 ```
 

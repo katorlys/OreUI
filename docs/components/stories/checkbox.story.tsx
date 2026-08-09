@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Checkbox } from "@katorlys/oreui-react/checkbox";
+import { Checkbox } from "@oreui-web/react/checkbox";
 import { useEffect, useState } from "react";
 
 interface CheckboxPreviewProps {

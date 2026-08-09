@@ -1,8 +1,8 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Button } from "@katorlys/oreui-react/button";
-import { Tooltip } from "@katorlys/oreui-react/tooltip";
+import { Button } from "@oreui-web/react/button";
+import { Tooltip } from "@oreui-web/react/tooltip";
 import { useEffect, useState } from "react";
 
 interface TooltipPreviewProps {

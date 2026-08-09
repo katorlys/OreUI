@@ -2,7 +2,7 @@ import { createComponent, type EventName } from "@lit/react";
 import {
   OreDropdown as OreDropdownElement,
   type OreDropdownChangeDetail,
-} from "@katorlys/oreui/dropdown";
+} from "oreui-web/dropdown";
 import React from "react";
 
 export const Dropdown = createComponent({

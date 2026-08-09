@@ -1,4 +1,4 @@
-import { OreSlider } from "@katorlys/oreui/slider";
+import { OreSlider } from "oreui-web/slider";
 import { createOreComponent } from "../factory.js";
 
 export const Slider = createOreComponent("ore-slider", {

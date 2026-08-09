@@ -12,7 +12,7 @@ import { TabBarStory } from "@/components/stories/tab-bar.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/tab-bar";
+import "oreui-web/tab-bar";
 ```
 
 ```html
@@ -27,7 +27,7 @@ import "@katorlys/oreui/tab-bar";
     <Tab value="React">
 
 ```tsx
-import { TabBar, TabButton } from "@katorlys/oreui-react/tab-bar";
+import { TabBar, TabButton } from "@oreui-web/react/tab-bar";
 
 export function PlayMenu() {
   return (
@@ -45,7 +45,7 @@ export function PlayMenu() {
 
 ```vue
 <script setup lang="ts">
-import { TabBar, TabButton } from "@katorlys/oreui-vue";
+import { TabBar, TabButton } from "@oreui-web/vue";
 </script>
 
 <template>
@@ -68,7 +68,7 @@ import { TabBar, TabButton } from "@katorlys/oreui-vue";
 </ore-tab-bar>
 
 <script>
-	import "@katorlys/oreui/tab-bar";
+	import "oreui-web/tab-bar";
 </script>
 ```
 

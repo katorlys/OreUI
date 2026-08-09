@@ -1,5 +1,5 @@
 import { createComponent, type EventName } from "@lit/react";
-import { OreAccordion as OreAccordionElement } from "@katorlys/oreui/accordion";
+import { OreAccordion as OreAccordionElement } from "oreui-web/accordion";
 import React from "react";
 
 export const Accordion = createComponent({

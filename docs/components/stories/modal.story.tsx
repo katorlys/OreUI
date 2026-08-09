@@ -1,11 +1,11 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Button } from "@katorlys/oreui-react/button";
-import { Checkbox } from "@katorlys/oreui-react/checkbox";
-import { Container } from "@katorlys/oreui-react/container";
-import { Modal } from "@katorlys/oreui-react/modal";
-import { Textfield } from "@katorlys/oreui-react/textfield";
+import { Button } from "@oreui-web/react/button";
+import { Checkbox } from "@oreui-web/react/checkbox";
+import { Container } from "@oreui-web/react/container";
+import { Modal } from "@oreui-web/react/modal";
+import { Textfield } from "@oreui-web/react/textfield";
 import {
   createElement,
   type CSSProperties,

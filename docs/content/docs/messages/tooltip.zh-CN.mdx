@@ -12,8 +12,8 @@ import { TooltipStory } from "@/components/stories/tooltip.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/tooltip";
-import "@katorlys/oreui/button";
+import "oreui-web/tooltip";
+import "oreui-web/button";
 ```
 
 ```html
@@ -30,8 +30,8 @@ import "@katorlys/oreui/button";
     <Tab value="React">
 
 ```tsx
-import { Button } from "@katorlys/oreui-react/button";
-import { Tooltip } from "@katorlys/oreui-react/tooltip";
+import { Button } from "@oreui-web/react/button";
+import { Tooltip } from "@oreui-web/react/tooltip";
 
 export function CopyWorld() {
   return (
@@ -53,7 +53,7 @@ export function CopyWorld() {
 
 ```vue
 <script setup lang="ts">
-import { Button, Tooltip } from "@katorlys/oreui-vue";
+import { Button, Tooltip } from "@oreui-web/vue";
 </script>
 <template>
   <Tooltip side="top"
@@ -80,8 +80,8 @@ import { Button, Tooltip } from "@katorlys/oreui-vue";
 </ore-tooltip>
 
 <script>
-	import "@katorlys/oreui/tooltip";
-	import "@katorlys/oreui/button";
+	import "oreui-web/tooltip";
+	import "oreui-web/button";
 </script>
 ```
 

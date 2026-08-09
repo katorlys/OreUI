@@ -12,7 +12,7 @@ import { SwitchStory } from "@/components/stories/switch.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/switch";
+import "oreui-web/switch";
 ```
 
 ```html
@@ -25,7 +25,7 @@ import "@katorlys/oreui/switch";
     <Tab value="React">
 
 ```tsx
-import { Switch } from "@katorlys/oreui-react/switch";
+import { Switch } from "@oreui-web/react/switch";
 import { useState } from "react";
 
 export function AutosaveSwitch() {
@@ -54,7 +54,7 @@ export function AutosaveSwitch() {
 ```vue
 <script setup lang="ts">
 import { ref } from "vue";
-import { Switch } from "@katorlys/oreui-vue/switch";
+import { Switch } from "@oreui-web/vue/switch";
 
 const checked = ref(false);
 </script>
@@ -75,7 +75,7 @@ const checked = ref(false);
 </ore-switch>
 
 <script>
-	import "@katorlys/oreui/switch";
+	import "oreui-web/switch";
 </script>
 ```
 

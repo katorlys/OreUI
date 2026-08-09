@@ -41,9 +41,9 @@ OreUI 是一个非官方粉丝向的组件库，将 Minecraft 的 Ore UI 设计�
 ## 软件包
 | 软件包 | 版本 | 链接 |
 | ------ | ---- | ---- |
-| <img src="docs/public/frameworks/javascript.svg" alt="" width="16" height="16"> `@katorlys/oreui` |         | [文档](https://lab.katorly.com/OreUI/docs/getting-started/vanilla) · [源码](https://github.com/katorlys/OreUI) |
-| <img src="docs/public/frameworks/react.svg" alt="" width="16" height="16"> `@katorlys/oreui-react` |         | [文档](https://lab.katorly.com/OreUI/docs/getting-started/react) · [源码](https://github.com/katorlys/OreUI/tree/main/packages/react) |
-| <img src="docs/public/frameworks/vue.svg" alt="" width="16" height="16"> `@katorlys/oreui-vue` |         | [文档](https://lab.katorly.com/OreUI/docs/getting-started/vue) · [源码](https://github.com/katorlys/OreUI/tree/main/packages/vue) |
+| <img src="docs/public/frameworks/javascript.svg" alt="" width="16" height="16"> `oreui-web` |         | [文档](https://lab.katorly.com/OreUI/docs/getting-started/vanilla) · [源码](https://github.com/katorlys/OreUI) |
+| <img src="docs/public/frameworks/react.svg" alt="" width="16" height="16"> `@oreui-web/react` |         | [文档](https://lab.katorly.com/OreUI/docs/getting-started/react) · [源码](https://github.com/katorlys/OreUI/tree/main/packages/react) |
+| <img src="docs/public/frameworks/vue.svg" alt="" width="16" height="16"> `@oreui-web/vue` |         | [文档](https://lab.katorly.com/OreUI/docs/getting-started/vue) · [源码](https://github.com/katorlys/OreUI/tree/main/packages/vue) |
 
 ## 开始使用
 在[快速开始](https://lab.katorly.com/OreUI/docs/getting-started)中选择框架，或浏览[所有组件](https://lab.katorly.com/OreUI/docs/overview)。

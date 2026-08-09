@@ -1,6 +1,5 @@
 {
   "name": "@katorlys/oreui-docs",
-  "version": "0.0.0",
   "private": true,
   "scripts": {
     "build": "next build",
@@ -13,14 +12,14 @@
     "@fontsource-variable/inter": "^5.3.0",
     "@fontsource/poppins": "^5.3.0",
     "@fumadocs/story": "^1.2.0",
-    "@katorlys/oreui": "workspace:*",
-    "@katorlys/oreui-react": "workspace:*",
+    "@oreui-web/react": "workspace:*",
     "@orama/orama": "^3.1.18",
     "fumadocs-core": "16.13.0",
     "fumadocs-mdx": "15.2.0",
     "fumadocs-ui": "npm:@fumadocs/base-ui@16.13.0",
     "lucide-react": "^1.30.0",
     "next": "16.2.12",
+    "oreui-web": "workspace:*",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },

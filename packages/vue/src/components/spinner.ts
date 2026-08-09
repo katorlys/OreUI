@@ -1,4 +1,4 @@
-import "@katorlys/oreui/spinner";
+import "oreui-web/spinner";
 import { createOreComponent } from "../factory.js";
 
 export const Spinner = createOreComponent("ore-spinner", {

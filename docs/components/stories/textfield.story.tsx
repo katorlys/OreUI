@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Textfield } from "@katorlys/oreui-react/textfield";
+import { Textfield } from "@oreui-web/react/textfield";
 import { type CSSProperties, useEffect, useState } from "react";
 
 interface TextfieldPreviewProps {

@@ -12,7 +12,7 @@ import { TextfieldStory } from "@/components/stories/textfield.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "@katorlys/oreui/textfield";
+import "oreui-web/textfield";
 ```
 
 ```html
@@ -28,7 +28,7 @@ import "@katorlys/oreui/textfield";
     <Tab value="React">
 
 ```tsx
-import { Textfield } from "@katorlys/oreui-react/textfield";
+import { Textfield } from "@oreui-web/react/textfield";
 import { useState } from "react";
 
 export function WorldNameField() {
@@ -56,7 +56,7 @@ export function WorldNameField() {
 ```vue
 <script setup lang="ts">
 import { ref } from "vue";
-import { Textfield } from "@katorlys/oreui-vue/textfield";
+import { Textfield } from "@oreui-web/vue/textfield";
 const value = ref("");
 </script>
 
@@ -83,7 +83,7 @@ const value = ref("");
 ></ore-textfield>
 
 <script>
-	import "@katorlys/oreui/textfield";
+	import "oreui-web/textfield";
 </script>
 ```
 

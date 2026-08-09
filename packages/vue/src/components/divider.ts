@@ -1,4 +1,4 @@
-import "@katorlys/oreui/divider";
+import "oreui-web/divider";
 import { createOreComponent } from "../factory.js";
 
 export const Divider = createOreComponent("ore-divider", {

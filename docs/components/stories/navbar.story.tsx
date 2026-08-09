@@ -1,7 +1,7 @@
 "use client";
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
-import { Navbar } from "@katorlys/oreui-react/navbar";
+import { Navbar } from "@oreui-web/react/navbar";
 import { createElement } from "react";
 
 const backIcon = (
