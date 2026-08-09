@@ -1,0 +1,104 @@
+---
+title: Contributing
+description: Best practices for contributing code to OreUI.
+icon: GitPullRequestArrow
+---
+
+## Development
+
+The core OreUI library uses Lit Web Components rendered to the Light DOM.
+
+Each component should be placed in `src/components/<name>/` and include `<name>.ts` and `<name>.css` files. The build tools scan these components automatically. Packages under `packages/` only provide adapters for different frameworks, while core component implementations should remain in `src/components/`.
+
+### Design guidelines
+
+- Design components in Figma before writing code
+- Keep the visuals as consistent with the official Ore UI as possible
+- For components not found in the official Ore UI, follow the design language of existing components
+
+### Development guidelines
+
+- Do not use code or assets from the official Ore UI
+- Prefer CSS. use TypeScript only for behaviors that CSS and native HTML cannot provide
+- Do not add unnecessary third-party dependencies to the core components
+- Use existing Design Token variables and their variants for colors
+- Use naming conventions commonly found in UI component libraries for components and their APIs
+- Use low-specificity selectors and `--ore-*` variables for internal details and default styles so they can be customized with plain CSS or TailwindCSS
+- The host and `class` values on public parts are the main customization entry points
+- Follow the best practices from [components.build](https://components.build)
+- Use semantic HTML and ensure correct keyboard, focus, and ARIA behavior (accessibility)
+
+### Build
+
+The project uses pnpm for dependency management, and pnpm workspaces for the core and framework adapter packages.
+
+Install dependencies:
+
+```bash
+pnpm install
+```
+
+Upgrade dependencies:
+
+```bash
+pnpm upgrade -r
+```
+
+Development & preview:
+
+```bash
+pnpm dev
+```
+
+Build the packages:
+
+```bash
+pnpm build
+```
+
+### Push changes
+
+Before pushing code, format the project with Prettier:
+
+```bash
+pnpm format
+```
+
+When opening a Pull Request, also follow Katorly Lab's [Contributing Guidelines](https://katorly.com/docs/contribute/contributing).
+
+## Documentation
+
+The documentation site is based on Fumadocs and uses React, Next.js, TailwindCSS, and MDX.
+
+Each component's documentation should include the following when applicable:
+
+- Storybook
+- Usage examples
+- Properties, events, and methods
+- Component states and variants
+- API and CSS variables
+- Accessibility guidance
+
+Usage examples should cover all supported approaches, such as Vanilla, React, and Vue.
+
+English documentation is the original source. Other languages may use machine translation. Code examples do not need to be translated.
+
+### Build
+
+Documentation preview:
+
+```bash
+pnpm docs:dev
+```
+
+Build the documentation:
+
+```bash
+pnpm docs:build
+```
+
+## References
+
+1. [Minecraft Wiki: Ore UI](https://minecraft.wiki/w/Ore_UI)
+2. [Minecraft Bedrock Edition 1.20.0 (Dev) Ore UI library overview](https://youtube.com/watch?v=NplrB97rKfM)
+3. [Mojang/ore-ui](https://github.com/Mojang/ore-ui) (react-facet. It does not provide useful UI-related reference)

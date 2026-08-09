@@ -1,6 +1,6 @@
 import { getMDXComponents } from "@/components/mdx";
 import type { Locale } from "@/lib/i18n";
-import { source } from "@/lib/source";
+import { getPageImageUrl, source } from "@/lib/source";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import {
   DocsBody,
@@ -54,8 +54,16 @@ export async function getDocsMetadata(
     notFound();
   }
 
+  const image = getPageImageUrl(page).url;
+
   return {
     title: page.data.title,
     description: page.data.description,
+    openGraph: {
+      images: image,
+    },
+    twitter: {
+      images: image,
+    },
   };
 }

@@ -1,5 +1,7 @@
 dist/
 node_modules/
 refs/
+.github/
 pnpm-lock.yaml
 README.md
+README.*.md

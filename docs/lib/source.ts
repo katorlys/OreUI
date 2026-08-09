@@ -10,3 +10,12 @@ export const source = loader({
   source: docs.toFumadocsSource(),
   plugins: [lucideIconsPlugin()],
 });
+
+export function getPageImageUrl(page: (typeof source)["$inferPage"]) {
+  const segments = [page.locale, ...page.slugs, "image.png"];
+
+  return {
+    segments,
+    url: `/og/docs/${segments.join("/")}`,
+  };
+}

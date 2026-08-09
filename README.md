@@ -2,7 +2,7 @@
 <div align="center">
 
 <a href="#">
-  <img src="https://github.com/katorlys/OreUI/blob/main/docs/public/og-image.png" width="100%">
+  <img src="docs/public/og-image.png" width="100%">
 </a><br>
 
 <h1>
@@ -17,30 +17,47 @@
 [![Issues][github-issue-badge]][github-issue-link]
 [![License][github-license-badge]](LICENSE)
 
+**English** · [简体中文](README.zh-CN.md)
+
 </div>
 
 
 <!-- Main Body -->
 
 ## Introduction
-An unofficial cross-framework component library that implements the OreUI design system into your project.
+OreUI is an unofficial fan-made component library that brings Minecraft's Ore UI design system to your web projects.
 
-> [!NOTE]
-> ⚠️ Disclaimer: This is an unofficial fan-made project. Not approved by or associated with Mojang or Microsoft.
+Its 25+ components share a framework-independent Web Component core, with light adapters for specific frameworks.
 
-## Development
-Install dependencies:
-```sh
-pnpm install
-```
-Run the development server:
-```sh
-pnpm dev
-```
+Read the full documentation at [lab.katorly.com/OreUI](https://lab.katorly.com/OreUI/docs).
+
+### Features
+- **Cross-framework**: Vanilla JavaScript, React, Vue, and more
+- **CSS-first**: Focus on visual design, with minimal JavaScript
+- **Small core**: Lit is the only runtime dependency
+- **Fully customizable**: Customize using CSS variables, TailwindCSS, and properties
+- **Accessibility**: Semantic HTML, keyboard support, focus management, and ARIA
+
+## Packages
+| Package | Version | Links |
+| ------- | ------- | ----- |
+| <img src="docs/public/frameworks/javascript.svg" alt="" width="16" height="16"> `@katorlys/oreui` |         | [Docs](https://lab.katorly.com/OreUI/docs/getting-started/vanilla) · [Source](https://github.com/katorlys/OreUI) |
+| <img src="docs/public/frameworks/react.svg" alt="" width="16" height="16"> `@katorlys/oreui-react` |         | [Docs](https://lab.katorly.com/OreUI/docs/getting-started/react) · [Source](https://github.com/katorlys/OreUI/tree/main/packages/react) |
+| <img src="docs/public/frameworks/vue.svg" alt="" width="16" height="16"> `@katorlys/oreui-vue` |         | [Docs](https://lab.katorly.com/OreUI/docs/getting-started/vue) · [Source](https://github.com/katorlys/OreUI/tree/main/packages/vue) |
 
 
-## Credits
-- Minecraft: Bedrock Edition in-game UI - The original Ore UI concept by Mojang.
+## Getting started
+Choose your framework in [getting started](https://lab.katorly.com/OreUI/docs/getting-started), or browse [all components](https://lab.katorly.com/OreUI/docs/overview).
+
+## Contributing
+For information on how to contribute, please refer to the [contributing guidelines](https://lab.katorly.com/OreUI/docs/contributing).
+
+
+## Legal notice
+OreUI is an **unofficial** fan-made project. It is neither a replacement for the official Ore UI, nor approved by or affiliated with Mojang or Microsoft. When using this project, you must also follow the [Minecraft EULA](https://www.minecraft.net/eula) and any other applicable terms.
+
+This project only takes visual inspiration from the official Ore UI. Except for the fonts, the code and assets in this project were created independently and do not contain source code from the official Ore UI.
+
 
 <!-- /Main Body -->
 

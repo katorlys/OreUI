@@ -1,0 +1,104 @@
+---
+title: 贡献指南
+description: 向 OreUI 贡献代码的最佳实践
+icon: GitPullRequestArrow
+---
+
+## 开发
+
+OreUI 组件库核心使用 Lit Web Components，并渲染到 Light DOM。
+
+每个组件都应放在 `src/components/<name>/` 下，并包含 `<name>.ts` 与 `<name>.css` 文件。构建工具会自动扫描这些组件。`packages/` 下的包只负责适配不同框架，组件的核心实现应保留在 `src/components/` 中。
+
+### 设计规范
+
+- 先在 Figma 中完成组件设计，再开始编写代码
+- 尽量在视觉上与官方 Ore UI 保持一致
+- 对于官方 Ore UI 没有的部分，沿用现有组件的设计语言
+
+### 开发规范
+
+- 不得使用来自官方 Ore UI 的代码或资源
+- CSS 优先，TypeScript 只处理 CSS 与原生 HTML 无法完成的行为
+- 不为核心组件增加不必要的第三方依赖
+- 颜色应使用 Design Tokens 中已有的变量及其变体
+- 组件及其 API 使用常见 UI 组件库的命名方式
+- 内部细节和默认样式使用低特异性选择器与 `--ore-*` 变量，方便普通 CSS 和 TailwindCSS 自定义
+- host 与公开部件的 `class` 是主要定制入口
+- 参考 [components.build](https://components.build) 的最佳实践
+- 使用语义化 HTML，并确保键盘、焦点和 ARIA 行为正确（无障碍）
+
+### 构建
+
+项目使用 pnpm 管理依赖，并通过 pnpm workspace 管理核心包和框架适配包。
+
+安装：
+
+```bash
+pnpm install
+```
+
+升级依赖：
+
+```bash
+pnpm upgrade -r
+```
+
+开发预览：
+
+```bash
+pnpm dev
+```
+
+构建：
+
+```bash
+pnpm build
+```
+
+### 推送
+
+每次推送代码前，请先使用 Prettier 格式化项目：
+
+```bash
+pnpm format
+```
+
+发起 Pull Request 时，还应遵循 Katorly Lab 的[贡献指南](https://katorly.com/docs/contribute/contributing)。
+
+## 文档
+
+文档网站基于 Fumadocs，使用 React、Next.js、TailwindCSS 和 MDX 构建。
+
+每个组件的文档应包含（若有）：
+
+- Storybook
+- 使用示例
+- 属性、事件和方法
+- 组件的状态和变体
+- API 和 CSS 变量
+- 无障碍说明
+
+使用示例应覆盖项目支持的全部用法，例如 Vanilla、React、Vue 等。
+
+文档以英文内容为准，其他语言可以借助机器翻译。示例代码不需要翻译。
+
+### 构建
+
+开发预览：
+
+```bash
+pnpm docs:dev
+```
+
+构建：
+
+```bash
+pnpm docs:build
+```
+
+## 参考
+
+1. [Minecraft Wiki: Ore UI](https://minecraft.wiki/w/Ore_UI)
+2. [Minecraft 基岩版 1.20.0 (Dev) Ore UI 库总览](https://youtube.com/watch?v=NplrB97rKfM)
+3. [Mojang/ore-ui](https://github.com/Mojang/ore-ui)（react-facet，不具备参考价值，没有与 UI 有关的内容）
