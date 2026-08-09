@@ -1,0 +1,73 @@
+---
+title: Divider
+description: Separate sections of content.
+---
+
+import { DividerStory } from "@/components/stories/divider.story";
+
+<DividerStory />
+
+## Usage
+
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/divider";
+```
+
+```html
+<ore-divider></ore-divider>
+```
+
+    </Tab>
+    <Tab value="React">
+
+```tsx
+import { Divider } from "@katorlys/oreui-react/divider";
+
+export function SettingsDivider() {
+  return <Divider />;
+}
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { Divider } from "@katorlys/oreui-vue/divider";
+</script>
+
+<template>
+  <Divider />
+</template>
+```
+
+    </Tab>
+    <Tab value="Astro">
+
+```astro
+<ore-divider></ore-divider>
+
+<script>
+	import "@katorlys/oreui/divider";
+</script>
+```
+
+    </Tab>
+
+</Tabs>
+
+Divider fills the available width. Use the host `class` or ordinary CSS to control its width and surrounding spacing.
+
+## CSS variables
+
+| Variable              | Purpose                 |
+| --------------------- | ----------------------- |
+| `--ore-divider-unit`  | Thickness of each line  |
+| `--ore-divider-dark`  | Color of the upper line |
+| `--ore-divider-light` | Color of the lower line |
+
+## Accessibility
+
+Divider has `role="separator"` by default and represents a horizontal separation between sections. When the line is only used for decoration and does not separate content, set `role="none"`.

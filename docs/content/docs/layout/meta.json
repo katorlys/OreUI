@@ -1,4 +1,4 @@
 {
   "title": "Layout",
-  "pages": ["container"]
+  "pages": ["container", "divider"]
 }

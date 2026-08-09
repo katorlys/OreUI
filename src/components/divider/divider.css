@@ -1,0 +1,16 @@
+:where(ore-divider) {
+  --ore-divider-unit: var(--ore-size-unit);
+  --ore-divider-dark: var(--ore-color-gray-80);
+  --ore-divider-light: var(--ore-color-gray-60);
+
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(var(--ore-divider-unit) * 2);
+  border: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--ore-divider-dark) 0 var(--ore-divider-unit),
+    var(--ore-divider-light) var(--ore-divider-unit) 100%
+  );
+}

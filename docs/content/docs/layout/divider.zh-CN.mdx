@@ -1,0 +1,73 @@
+---
+title: Divider 分割线
+description: 分隔区块内容
+---
+
+import { DividerStory } from "@/components/stories/divider.story";
+
+<DividerStory />
+
+## 用法
+
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "@katorlys/oreui/divider";
+```
+
+```html
+<ore-divider></ore-divider>
+```
+
+    </Tab>
+    <Tab value="React">
+
+```tsx
+import { Divider } from "@katorlys/oreui-react/divider";
+
+export function SettingsDivider() {
+  return <Divider />;
+}
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { Divider } from "@katorlys/oreui-vue/divider";
+</script>
+
+<template>
+  <Divider />
+</template>
+```
+
+    </Tab>
+    <Tab value="Astro">
+
+```astro
+<ore-divider></ore-divider>
+
+<script>
+	import "@katorlys/oreui/divider";
+</script>
+```
+
+    </Tab>
+
+</Tabs>
+
+Divider 默认填满可用宽度。使用 host 的 `class` 或普通 CSS 控制宽度和周围间距。
+
+## CSS 变量
+
+| 变量                  | 用途         |
+| --------------------- | ------------ |
+| `--ore-divider-unit`  | 每条线的粗细 |
+| `--ore-divider-dark`  | 上方暗线颜色 |
+| `--ore-divider-light` | 下方亮线颜色 |
+
+## 无障碍
+
+Divider 默认带有 `role="separator"`，表示内容区块之间的横向分隔。如果仅将其用于装饰用途，不用于分隔内容，应设置 `role="none"`。

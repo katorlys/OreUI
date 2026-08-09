@@ -3,6 +3,7 @@ export * from "./components/button.js";
 export * from "./components/card.js";
 export * from "./components/checkbox.js";
 export * from "./components/container.js";
+export * from "./components/divider.js";
 export * from "./components/dropdown.js";
 export * from "./components/icon-button.js";
 export * from "./components/modal.js";

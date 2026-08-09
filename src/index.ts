@@ -21,6 +21,7 @@ export {
   type OreDropdownChangeDetail,
   type OreDropdownVariant,
 } from "./components/dropdown/dropdown.js";
+export { OreDivider } from "./components/divider/divider.js";
 export { OreIconButton } from "./components/icon-button/icon-button.js";
 export {
   OreModal,

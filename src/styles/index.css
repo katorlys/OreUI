@@ -8,6 +8,7 @@
 @import "../components/card/card.css" layer(components);
 @import "../components/checkbox/checkbox.css" layer(components);
 @import "../components/container/container.css" layer(components);
+@import "../components/divider/divider.css" layer(components);
 @import "../components/table/table.css" layer(components);
 @import "../components/dropdown/dropdown.css" layer(components);
 @import "../components/icon-button/icon-button.css" layer(components);
