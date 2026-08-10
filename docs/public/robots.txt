@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /OreUI/
+
+Sitemap: https://lab.katorly.com/OreUI/sitemap.xml
