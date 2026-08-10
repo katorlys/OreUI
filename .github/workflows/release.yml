@@ -1,0 +1,55 @@
+name: Release packages to npm
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup pnpm and Node.js
+        uses: pnpm/setup@v2
+        with:
+          version: 11
+          runtime: node@24
+
+      - name: Validate version
+        run: |
+          node -e "
+            const versions = [
+              require('./package.json').version,
+              require('./packages/react/package.json').version,
+              require('./packages/vue/package.json').version,
+            ];
+            const releaseVersion = process.env.GITHUB_REF_NAME.replace(/^v/, '');
+            if (versions.some((version) => version !== releaseVersion)) {
+              throw new Error('Package versions must match release ' + process.env.GITHUB_REF_NAME + ': ' + versions.join(', '));
+            }
+          "
+
+      - name: Build packages
+        run: pnpm build
+
+      - name: Pack packages
+        run: |
+          mkdir packages-to-publish
+          pnpm pack --pack-destination packages-to-publish
+          pnpm --dir packages/react pack --pack-destination "$GITHUB_WORKSPACE/packages-to-publish"
+          pnpm --dir packages/vue pack --pack-destination "$GITHUB_WORKSPACE/packages-to-publish"
+
+      - name: Publish core package
+        run: npm publish packages-to-publish/oreui-web-[0-9]*.tgz --access public --tag beta
+
+      - name: Publish React package
+        run: npm publish packages-to-publish/oreui-web-react-*.tgz --access public --tag beta
+
+      - name: Publish Vue package
+        run: npm publish packages-to-publish/oreui-web-vue-*.tgz --access public --tag beta
