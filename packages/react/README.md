@@ -22,7 +22,7 @@ bun add @oreui-web/react
 ```
 
 ## Documentation
-For full documentation, please visit [lab.katorly.com/OreUI](https://lab.katorly.com/OreUI/docs/getting-started/react).
+For full documentation, please visit [katorly.dev/OreUI](https://katorly.dev/OreUI/docs/getting-started/react).
 
 ## Contributing
-For information on how to contribute, please refer to the [contributing guidelines](https://lab.katorly.com/OreUI/docs/contributing).
+For information on how to contribute, please refer to the [contributing guidelines](https://katorly.dev/OreUI/docs/contributing).

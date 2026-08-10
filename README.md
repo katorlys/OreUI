@@ -29,7 +29,7 @@ OreUI is an unofficial fan-made component library that brings Minecraft's Ore UI
 
 Its 25+ components share a framework-independent Web Component core, with light adapters for specific frameworks.
 
-Read the full documentation at [lab.katorly.com/OreUI](https://lab.katorly.com/OreUI/docs).
+Read the full documentation at [katorly.dev/OreUI](https://katorly.dev/OreUI/docs).
 
 ### Features
 - **Cross-framework**: Vanilla JavaScript, React, Vue, and more
@@ -41,16 +41,16 @@ Read the full documentation at [lab.katorly.com/OreUI](https://lab.katorly.com/O
 ## Packages
 | Package | Version | Links |
 | ------- | ------- | ----- |
-| <img src="docs/public/frameworks/javascript.svg" alt="" width="16" height="16"> `oreui-web` |         | [Docs](https://lab.katorly.com/OreUI/docs/getting-started/vanilla) · [Source](https://github.com/katorlys/OreUI) |
-| <img src="docs/public/frameworks/react.svg" alt="" width="16" height="16"> `@oreui-web/react` |         | [Docs](https://lab.katorly.com/OreUI/docs/getting-started/react) · [Source](https://github.com/katorlys/OreUI/tree/main/packages/react) |
-| <img src="docs/public/frameworks/vue.svg" alt="" width="16" height="16"> `@oreui-web/vue` |         | [Docs](https://lab.katorly.com/OreUI/docs/getting-started/vue) · [Source](https://github.com/katorlys/OreUI/tree/main/packages/vue) |
+| <img src="docs/public/frameworks/javascript.svg" alt="" width="16" height="16"> `oreui-web` |         | [Docs](https://katorly.dev/OreUI/docs/getting-started/vanilla) · [Source](https://github.com/katorlys/OreUI) |
+| <img src="docs/public/frameworks/react.svg" alt="" width="16" height="16"> `@oreui-web/react` |         | [Docs](https://katorly.dev/OreUI/docs/getting-started/react) · [Source](https://github.com/katorlys/OreUI/tree/main/packages/react) |
+| <img src="docs/public/frameworks/vue.svg" alt="" width="16" height="16"> `@oreui-web/vue` |         | [Docs](https://katorly.dev/OreUI/docs/getting-started/vue) · [Source](https://github.com/katorlys/OreUI/tree/main/packages/vue) |
 
 
 ## Getting started
-Choose your framework in [getting started](https://lab.katorly.com/OreUI/docs/getting-started), or browse [all components](https://lab.katorly.com/OreUI/docs/overview).
+Choose your framework in [getting started](https://katorly.dev/OreUI/docs/getting-started), or browse [all components](https://katorly.dev/OreUI/docs/overview).
 
 ## Contributing
-For information on how to contribute, please refer to the [contributing guidelines](https://lab.katorly.com/OreUI/docs/contributing).
+For information on how to contribute, please refer to the [contributing guidelines](https://katorly.dev/OreUI/docs/contributing).
 
 
 ## Legal notice

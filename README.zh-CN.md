@@ -29,7 +29,7 @@ OreUI 是一个非官方粉丝向的组件库，将 Minecraft 的 Ore UI 设计�
 
 包含超过 25 个组件，共享一个与框架无关的 Web Component 核心，并对特定框架提供轻量适配。
 
-完整文档请访问 [lab.katorly.com/OreUI](https://lab.katorly.com/OreUI/docs)。
+完整文档请访问 [katorly.dev/OreUI](https://katorly.dev/OreUI/docs)。
 
 ### 特性
 - **跨框架**：支持 Vanilla JavaScript、React、Vue 等
@@ -41,15 +41,15 @@ OreUI 是一个非官方粉丝向的组件库，将 Minecraft 的 Ore UI 设计�
 ## 软件包
 | 软件包 | 版本 | 链接 |
 | ------ | ---- | ---- |
-| <img src="docs/public/frameworks/javascript.svg" alt="" width="16" height="16"> `oreui-web` |         | [文档](https://lab.katorly.com/OreUI/docs/getting-started/vanilla) · [源码](https://github.com/katorlys/OreUI) |
-| <img src="docs/public/frameworks/react.svg" alt="" width="16" height="16"> `@oreui-web/react` |         | [文档](https://lab.katorly.com/OreUI/docs/getting-started/react) · [源码](https://github.com/katorlys/OreUI/tree/main/packages/react) |
-| <img src="docs/public/frameworks/vue.svg" alt="" width="16" height="16"> `@oreui-web/vue` |         | [文档](https://lab.katorly.com/OreUI/docs/getting-started/vue) · [源码](https://github.com/katorlys/OreUI/tree/main/packages/vue) |
+| <img src="docs/public/frameworks/javascript.svg" alt="" width="16" height="16"> `oreui-web` |         | [文档](https://katorly.dev/OreUI/docs/getting-started/vanilla) · [源码](https://github.com/katorlys/OreUI) |
+| <img src="docs/public/frameworks/react.svg" alt="" width="16" height="16"> `@oreui-web/react` |         | [文档](https://katorly.dev/OreUI/docs/getting-started/react) · [源码](https://github.com/katorlys/OreUI/tree/main/packages/react) |
+| <img src="docs/public/frameworks/vue.svg" alt="" width="16" height="16"> `@oreui-web/vue` |         | [文档](https://katorly.dev/OreUI/docs/getting-started/vue) · [源码](https://github.com/katorlys/OreUI/tree/main/packages/vue) |
 
 ## 开始使用
-在[快速开始](https://lab.katorly.com/OreUI/docs/getting-started)中选择框架，或浏览[所有组件](https://lab.katorly.com/OreUI/docs/overview)。
+在[快速开始](https://katorly.dev/OreUI/docs/getting-started)中选择框架，或浏览[所有组件](https://katorly.dev/OreUI/docs/overview)。
 
 ## 参与贡献
-向 OreUI 贡献代码，请访问[贡献指南](https://lab.katorly.com/OreUI/docs/contributing)。
+向 OreUI 贡献代码，请访问[贡献指南](https://katorly.dev/OreUI/docs/contributing)。
 
 ## 法律声明
 OreUI 是一个**非官方**的爱好者项目，不是官方 Ore UI 的替代产品，也未经 Mojang 或 Microsoft 批准或关联。使用本项目时，请同时遵守 [Minecraft EULA](https://www.minecraft.net/eula) 及其他适用条款。

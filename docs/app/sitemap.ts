@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { source } from "@/lib/source";
 
-const siteUrl = "https://lab.katorly.com/OreUI";
+const siteUrl = "https://katorly.dev/OreUI";
 
 export const dynamic = "force-static";
 

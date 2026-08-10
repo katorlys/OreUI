@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const metadataBase = new URL("https://lab.katorly.com/OreUI/");
+const metadataBase = new URL("https://katorly.dev/OreUI/");
 
 export const metadata: Metadata = {
   metadataBase,
