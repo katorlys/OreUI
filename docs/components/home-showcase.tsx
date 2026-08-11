@@ -23,8 +23,11 @@ const textfieldStyle = {
 
 export function HomeShowcase() {
   const [mounted, setMounted] = useState(false);
+  const [receiveUpdates, setReceiveUpdates] = useState(true);
   const [distance, setDistance] = useState(12);
   const [mode, setMode] = useState("survival");
+  const [type, setType] = useState("education");
+  const [store, setStore] = useState("realms");
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -178,9 +181,18 @@ export function HomeShowcase() {
               <Checkbox
                 className="text-current"
                 style={{ fontFamily: "var(--ore-font-body)" }}
-                checked={true}
+                checked={receiveUpdates}
                 name="updates"
                 value="yes"
+                onChange={(event) =>
+                  setReceiveUpdates(
+                    (
+                      event.target as HTMLElement & {
+                        checked: boolean;
+                      }
+                    ).checked,
+                  )
+                }
               >
                 Receive updates
               </Checkbox>
@@ -199,10 +211,22 @@ export function HomeShowcase() {
                 style={{ fontFamily: "var(--ore-font-body)" }}
                 aria-label="Choose type"
               >
-                <Radio className="text-current" value="experimental">
+                <Radio
+                  className="text-current"
+                  name="showcase-type"
+                  value="experimental"
+                  checked={type === "experimental"}
+                  onChange={() => setType("experimental")}
+                >
                   Experimental
                 </Radio>
-                <Radio className="text-current" value="education" checked>
+                <Radio
+                  className="text-current"
+                  name="showcase-type"
+                  value="education"
+                  checked={type === "education"}
+                  onChange={() => setType("education")}
+                >
                   Education
                 </Radio>
               </RadioGroup>
@@ -212,17 +236,22 @@ export function HomeShowcase() {
               >
                 <Radio
                   className="text-current"
+                  name="showcase-store"
                   value="realms"
                   color="realms"
-                  checked
+                  checked={store === "realms"}
+                  onChange={() => setStore("realms")}
                 >
                   Realms
                 </Radio>
                 <Radio
                   className="text-current"
+                  name="showcase-store"
                   value="shop"
                   color="gold"
                   disabled
+                  checked={store === "shop"}
+                  onChange={() => setStore("shop")}
                 >
                   Shop
                 </Radio>

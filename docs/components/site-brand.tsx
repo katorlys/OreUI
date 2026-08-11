@@ -4,12 +4,18 @@ import Image from "next/image";
 
 import type { ComponentProps } from "react";
 
-export function SiteBrand() {
+interface SiteBrandProps {
+  lang?: "zh-CN";
+}
+
+export function SiteBrand({ lang }: SiteBrandProps) {
+  const href = lang === "zh-CN" ? "/OreUI/zh-CN/" : "/OreUI/";
+
   return (
     <span className="inline-flex items-center text-fd-foreground">
       <a
         className="inline-flex items-center gap-2 text-lg font-normal leading-none max-sm:gap-1.5 max-sm:text-sm"
-        href="/OreUI/"
+        href={href}
         aria-label="OreUI home"
         style={{ fontFamily: "var(--ore-font-display)" }}
       >
@@ -30,6 +36,14 @@ export function SiteBrandSlot(props: ComponentProps<"a">) {
   return (
     <div className={props.className}>
       <SiteBrand />
+    </div>
+  );
+}
+
+export function SiteBrandZhCnSlot(props: ComponentProps<"a">) {
+  return (
+    <div className={props.className}>
+      <SiteBrand lang="zh-CN" />
     </div>
   );
 }

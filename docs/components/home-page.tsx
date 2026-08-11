@@ -27,9 +27,11 @@ export function OreHomePage({ lang }: HomePageProps) {
     lang === "zh-CN"
       ? "非官方粉丝向的 Ore UI 跨框架组件库，将 Ore UI 设计系统应用到你的项目中"
       : "An unofficial cross-framework component library that implements the OreUI design system into your project.";
+  const getStartedText = lang === "zh-CN" ? "快速开始" : "Get started";
+  const viewComponentsText = lang === "zh-CN" ? "查看组件" : "View components";
 
   return (
-    <HomeLayout {...baseOptions(true)}>
+    <HomeLayout {...baseOptions(true, lang)}>
       <main className="min-h-full bg-fd-background font-(--ore-font-body) text-fd-foreground">
         <section
           className="flex flex-col items-center px-6 py-10 text-center md:py-16"
@@ -74,7 +76,7 @@ export function OreHomePage({ lang }: HomePageProps) {
               type="button"
               onClick={() => router.push(`${prefix}/docs/getting-started`)}
             >
-              Get started
+              {getStartedText}
             </Button>
             <Button
               className="max-sm:w-full"
@@ -82,7 +84,7 @@ export function OreHomePage({ lang }: HomePageProps) {
               color="secondary"
               onClick={() => router.push(`${prefix}/docs/overview`)}
             >
-              View components
+              {viewComponentsText}
             </Button>
           </div>
         </section>
