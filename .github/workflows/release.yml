@@ -1,6 +1,7 @@
 name: Release packages to npm
 
 on:
+  workflow_dispatch:
   release:
     types: [published]
 

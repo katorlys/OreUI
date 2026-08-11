@@ -19,3 +19,14 @@ export function getPageImageUrl(page: (typeof source)["$inferPage"]) {
     url: `/og/docs/${segments.join("/")}`,
   };
 }
+
+export function getPageMarkdownUrl(page: (typeof source)["$inferPage"]) {
+  const segments = [
+    ...(page.locale === "zh-CN" ? [page.locale] : []),
+    "docs",
+    ...page.slugs,
+    "content.md",
+  ];
+
+  return `/llms.mdx/${segments.join("/")}`;
+}
