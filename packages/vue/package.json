@@ -1,6 +1,6 @@
 {
   "name": "@oreui-web/vue",
-  "version": "0.0.0-beta.1",
+  "version": "0.0.0-beta.2",
   "description": "Vue wrapper for the unofficial Ore UI component library.",
   "type": "module",
   "repository": {

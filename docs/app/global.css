@@ -19,6 +19,10 @@ html {
   scrollbar-gutter: stable;
 }
 
+html:has(.ore-home-scrollbar) {
+  scrollbar-gutter: auto;
+}
+
 h1,
 h2,
 h3,

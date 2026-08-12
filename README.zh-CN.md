@@ -10,7 +10,7 @@
 </h1>
 
 <p>
-  非官方 Ore UI 跨框架组件库，将 Ore UI 设计系统应用到你的项目中。
+  非官方 Ore UI 跨框架组件库，将 Ore UI 设计系统应用到您的项目中。
 </p>
 
 [![Pull Requests][github-pr-badge]][github-pr-link]
