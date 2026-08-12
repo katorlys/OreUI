@@ -43,3 +43,39 @@
   width: 100%;
   height: 100%;
 }
+
+/* Improvements for touch devices */
+:where(
+  ore-button,
+  ore-checkbox,
+  ore-icon-button,
+  ore-radio,
+  ore-switch,
+  ore-tab-button,
+  ore-dropdown .ore-dropdown-item,
+  ore-modal .ore-modal-header-button,
+  ore-navbar .ore-navbar-button,
+  ore-navbar .ore-navbar-action
+) {
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(ore-slider, ore-slider > input[type="range"]) {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(ore-textfield, ore-textfield .ore-textfield-input) {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(ore-slider:not([orientation="vertical"]) > input[type="range"]) {
+  touch-action: pan-y;
+}
+
+:where(ore-slider[orientation="vertical"] > input[type="range"]) {
+  touch-action: pan-x;
+}

@@ -157,13 +157,15 @@
   mask-image: url("../../assets/icons/on.svg");
 }
 
-:where(ore-switch:hover:not([disabled], [form-disabled])) {
-  --ore-switch-thumb-background: var(--ore-color-secondary-background-hover);
-  --ore-switch-thumb-highlight: color-mix(
-    in srgb,
-    var(--ore-color-secondary-background-hover),
-    var(--ore-color-white) 60%
-  );
+@media (hover: hover) and (pointer: fine) {
+  :where(ore-switch:hover:not([disabled], [form-disabled])) {
+    --ore-switch-thumb-background: var(--ore-color-secondary-background-hover);
+    --ore-switch-thumb-highlight: color-mix(
+      in srgb,
+      var(--ore-color-secondary-background-hover),
+      var(--ore-color-white) 60%
+    );
+  }
 }
 
 :where(

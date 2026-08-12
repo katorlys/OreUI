@@ -99,11 +99,13 @@
   white-space: nowrap;
 }
 
-:where(
-  ore-navbar .ore-navbar-button:hover,
-  ore-navbar .ore-navbar-action:hover
-) {
-  filter: brightness(0.96);
+@media (hover: hover) and (pointer: fine) {
+  :where(
+    ore-navbar .ore-navbar-button:hover,
+    ore-navbar .ore-navbar-action:hover
+  ) {
+    filter: brightness(0.96);
+  }
 }
 
 :where(

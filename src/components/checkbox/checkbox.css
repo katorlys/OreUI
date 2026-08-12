@@ -68,14 +68,16 @@
   --ore-checkbox-indicator: var(--ore-color-gray-100);
 }
 
-:where(ore-checkbox:hover:not([disabled], [form-disabled])) {
-  --ore-checkbox-background: var(--ore-color-neutral-50-background-hover);
-  --ore-checkbox-highlight: var(--ore-color-neutral-50-highlight-hover);
-}
+@media (hover: hover) and (pointer: fine) {
+  :where(ore-checkbox:hover:not([disabled], [form-disabled])) {
+    --ore-checkbox-background: var(--ore-color-neutral-50-background-hover);
+    --ore-checkbox-highlight: var(--ore-color-neutral-50-highlight-hover);
+  }
 
-:where(ore-checkbox[checked]:hover:not([disabled], [form-disabled])) {
-  --ore-checkbox-background: var(--ore-checkbox-active-background-hover);
-  --ore-checkbox-highlight: var(--ore-checkbox-active-highlight-hover);
+  :where(ore-checkbox[checked]:hover:not([disabled], [form-disabled])) {
+    --ore-checkbox-background: var(--ore-checkbox-active-background-hover);
+    --ore-checkbox-highlight: var(--ore-checkbox-active-highlight-hover);
+  }
 }
 
 :where(

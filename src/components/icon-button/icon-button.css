@@ -66,10 +66,12 @@
   height: calc(var(--ore-icon-button-unit) * 6);
 }
 
-:where(ore-icon-button:hover:not([disabled], [form-disabled])) {
-  --ore-icon-button-background: var(--ore-color-neutral-background-hover);
-  --ore-icon-button-highlight: var(--ore-color-neutral-highlight-hover);
-  --ore-icon-button-corner: var(--ore-color-neutral-highlight);
+@media (hover: hover) and (pointer: fine) {
+  :where(ore-icon-button:hover:not([disabled], [form-disabled])) {
+    --ore-icon-button-background: var(--ore-color-neutral-background-hover);
+    --ore-icon-button-highlight: var(--ore-color-neutral-highlight-hover);
+    --ore-icon-button-corner: var(--ore-color-neutral-highlight);
+  }
 }
 
 :where(

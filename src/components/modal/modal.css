@@ -14,7 +14,7 @@
     calc(100vw - var(--ore-modal-unit) * 16)
   );
   max-width: none;
-  max-height: calc(100vh - var(--ore-modal-unit) * 16);
+  max-height: calc(100dvh - var(--ore-modal-unit) * 16);
   margin: auto;
   padding: 0;
   overflow: hidden;
@@ -105,8 +105,14 @@
   margin-inline-end: var(--ore-modal-unit);
 }
 
-:where(ore-modal .ore-modal-header-button:hover) {
-  background: var(--ore-color-neutral-background-hover);
+@media (hover: hover) and (pointer: fine) {
+  :where(ore-modal .ore-modal-header-button:hover) {
+    background: var(--ore-color-neutral-background-hover);
+  }
+}
+
+:where(ore-modal .ore-modal-header-button:active) {
+  background: var(--ore-color-neutral-background-pressed);
 }
 
 :where(ore-modal .ore-modal-header-button:focus-visible) {

@@ -105,14 +105,30 @@
   cursor: pointer;
 }
 
-:where(ore-dropdown[variant="borderless"] .ore-dropdown-item:hover),
 :where(ore-dropdown[variant="borderless"] .ore-dropdown-item:focus-visible),
 :where(ore-dropdown[variant="bordered"] .ore-dropdown-item) {
   border-color: var(--ore-dropdown-item-border);
 }
 
-:where(ore-dropdown[variant="bordered"] .ore-dropdown-item:hover),
 :where(ore-dropdown[variant="bordered"] .ore-dropdown-item:focus-visible) {
+  background: var(--ore-dropdown-item-background-hover);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :where(ore-dropdown[variant="borderless"] .ore-dropdown-item:hover) {
+    border-color: var(--ore-dropdown-item-border);
+  }
+
+  :where(ore-dropdown[variant="bordered"] .ore-dropdown-item:hover) {
+    background: var(--ore-dropdown-item-background-hover);
+  }
+}
+
+:where(ore-dropdown[variant="borderless"] .ore-dropdown-item:active) {
+  border-color: var(--ore-dropdown-item-border);
+}
+
+:where(ore-dropdown[variant="bordered"] .ore-dropdown-item:active) {
   background: var(--ore-dropdown-item-background-hover);
 }
 

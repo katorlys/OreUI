@@ -281,9 +281,11 @@
   box-shadow: 0 0 0 var(--ore-slider-unit) var(--ore-slider-thumb-focus-ring);
 }
 
-:where(ore-slider:hover:not([disabled], [form-disabled])) {
-  --ore-slider-thumb-background: var(--ore-color-secondary-background-hover);
-  --ore-slider-thumb-highlight: var(--ore-color-secondary-highlight-hover);
+@media (hover: hover) and (pointer: fine) {
+  :where(ore-slider:hover:not([disabled], [form-disabled])) {
+    --ore-slider-thumb-background: var(--ore-color-secondary-background-hover);
+    --ore-slider-thumb-highlight: var(--ore-color-secondary-highlight-hover);
+  }
 }
 
 :where(ore-slider:active:not([disabled], [form-disabled])) {

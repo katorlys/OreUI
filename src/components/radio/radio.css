@@ -81,14 +81,16 @@
   --ore-radio-indicator-dark: var(--ore-color-gray-100);
 }
 
-:where(ore-radio:hover:not([disabled], [form-disabled])) {
-  --ore-radio-background: var(--ore-color-neutral-50-background-hover);
-  --ore-radio-highlight: var(--ore-color-neutral-50-highlight-hover);
-}
+@media (hover: hover) and (pointer: fine) {
+  :where(ore-radio:hover:not([disabled], [form-disabled])) {
+    --ore-radio-background: var(--ore-color-neutral-50-background-hover);
+    --ore-radio-highlight: var(--ore-color-neutral-50-highlight-hover);
+  }
 
-:where(ore-radio[checked]:hover:not([disabled], [form-disabled])) {
-  --ore-radio-background: var(--ore-radio-active-background-hover);
-  --ore-radio-highlight: var(--ore-radio-active-highlight-hover);
+  :where(ore-radio[checked]:hover:not([disabled], [form-disabled])) {
+    --ore-radio-background: var(--ore-radio-active-background-hover);
+    --ore-radio-highlight: var(--ore-radio-active-highlight-hover);
+  }
 }
 
 :where(

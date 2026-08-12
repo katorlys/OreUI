@@ -164,9 +164,11 @@
   --ore-button-foreground: var(--ore-color-white);
 }
 
-:where(ore-button, ore-tab-button):hover:not([disabled], [form-disabled]) {
-  --ore-button-background: var(--ore-button-background-hover);
-  --ore-button-highlight: var(--ore-button-highlight-hover);
+@media (hover: hover) and (pointer: fine) {
+  :where(ore-button, ore-tab-button):hover:not([disabled], [form-disabled]) {
+    --ore-button-background: var(--ore-button-background-hover);
+    --ore-button-highlight: var(--ore-button-highlight-hover);
+  }
 }
 
 :where(
