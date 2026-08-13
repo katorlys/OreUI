@@ -38,6 +38,25 @@ tab?.addEventListener("change", () => console.log(tab.selected));
 | -------- | ------ |
 | `change` | None   |
 
+## CSS variables
+
+Tab Button also accepts all [Button CSS variables](../button#css-variables).
+
+| Variable                           | Purpose                       |
+| ---------------------------------- | ----------------------------- |
+| `--ore-tab-off-background`         | Unselected background         |
+| `--ore-tab-off-background-hover`   | Unselected hover background   |
+| `--ore-tab-off-background-pressed` | Unselected pressed background |
+| `--ore-tab-off-highlight`          | Unselected highlight          |
+| `--ore-tab-off-highlight-hover`    | Unselected hover highlight    |
+| `--ore-tab-off-highlight-pressed`  | Unselected pressed highlight  |
+| `--ore-tab-off-shadow`             | Unselected shadow             |
+| `--ore-tab-off-foreground`         | Unselected text color         |
+| `--ore-tab-on-background`          | Selected background           |
+| `--ore-tab-on-highlight`           | Selected highlight            |
+| `--ore-tab-on-foreground`          | Selected text color           |
+| `--ore-tab-indicator`              | Selection indicator color     |
+
 ## Accessibility
 
 Tab Button uses `role="tab"` and updates `aria-selected`. `Arrow keys` move through tabs that are not disabled, while `Home` and `End` select the first and last tab.

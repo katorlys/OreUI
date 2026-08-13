@@ -368,6 +368,19 @@ modal.addEventListener("modal-close", (event) => {
 | `.ore-modal-close`         | 关闭对话框的控件   |
 | `.ore-modal-header-button` | 标题栏操作         |
 
+## CSS 变量
+
+可滚动区域也可使用所有的 [Scrollbar CSS 变量](../../navigation/scrollbar#css-变量)。
+
+| 变量                             | 用途                 |
+| -------------------------------- | -------------------- |
+| `--ore-modal-unit`               | 基础尺寸单位         |
+| `--ore-modal-border`             | 对话框框架颜色       |
+| `--ore-modal-section-background` | 页眉和页脚背景       |
+| `--ore-modal-highlight`          | 区块高光颜色         |
+| `--ore-modal-shadow`             | 区块阴影颜色         |
+| `--ore-modal-foreground`         | 对话框文本和图标颜色 |
+
 ## 无障碍
 
 Modal 使用原生 `<dialog>` 元素来限制焦点和处理 `Esc` 键。它将标题和描述关联到对话框，在关闭后将焦点恢复到打开它的控件上。

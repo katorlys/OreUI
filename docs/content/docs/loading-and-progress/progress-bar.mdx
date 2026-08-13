@@ -102,6 +102,16 @@ Custom label markup can use the public label class:
 | `.ore-progress-bar-track` | Progress track and fill    |
 | `.ore-progress-bar-label` | Percentage or custom label |
 
+## CSS variables
+
+| Variable                       | Purpose                       |
+| ------------------------------ | ----------------------------- |
+| `--ore-progress-bar-unit`      | Base size unit                |
+| `--ore-progress-bar-frame`     | Frame and empty track color   |
+| `--ore-progress-bar-fill`      | Filled track color            |
+| `--ore-progress-bar-label`     | Label text color              |
+| `--ore-progress-bar-label-gap` | Space between label and track |
+
 ## Accessibility
 
 Progress Bar uses `role="progressbar"` and keeps `aria-valuemin`, `aria-valuemax`, and `aria-valuenow` in sync. Custom label is exposed through `aria-valuetext`.

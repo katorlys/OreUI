@@ -370,6 +370,19 @@ In React, use `onOpenChange` and `onModalClose`.
 | `.ore-modal-close`         | Control that closes the dialog |
 | `.ore-modal-header-button` | Header action                  |
 
+## CSS variables
+
+The scrollable body also accepts all [Scrollbar CSS variables](../../navigation/scrollbar#css-variables).
+
+| Variable                         | Purpose                      |
+| -------------------------------- | ---------------------------- |
+| `--ore-modal-unit`               | Base size unit               |
+| `--ore-modal-border`             | Dialog frame color           |
+| `--ore-modal-section-background` | Header and footer background |
+| `--ore-modal-highlight`          | Section highlight color      |
+| `--ore-modal-shadow`             | Section shadow color         |
+| `--ore-modal-foreground`         | Dialog text and icon color   |
+
 ## Accessibility
 
 Modal uses the native `<dialog>` element for focus containment and Escape handling. It connects the title and description to the dialog, and then restores focus to the control that opened it.

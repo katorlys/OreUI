@@ -1,4 +1,5 @@
 import { getMDXComponents } from "@/components/mdx";
+import { ViewOptionsPopover } from "@/components/view-options-popover";
 import type { Locale } from "@/lib/i18n";
 import { getPageImageUrl, getPageMarkdownUrl, source } from "@/lib/source";
 import { createRelativeLink } from "fumadocs-ui/mdx";
@@ -8,7 +9,6 @@ import {
   DocsPage,
   DocsTitle,
   MarkdownCopyButton,
-  ViewOptionsPopover,
 } from "fumadocs-ui/layouts/docs/page";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";

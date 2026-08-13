@@ -88,6 +88,22 @@ Use `.ore-scrollbar` when only the visual scrollbar style is needed on another e
 
 The class does not add the keyboard behavior or automatic `tabindex` management provided by `ore-scrollbar`.
 
+## CSS variables
+
+| Variable                           | Purpose                     |
+| ---------------------------------- | --------------------------- |
+| `--ore-scrollbar-unit`             | Base size unit              |
+| `--ore-scrollbar-size`             | Vertical scrollbar width    |
+| `--ore-scrollbar-horizontal-size`  | Horizontal scrollbar height |
+| `--ore-scrollbar-track-size`       | Track line thickness        |
+| `--ore-scrollbar-thumb-min-size`   | Minimum thumb length        |
+| `--ore-scrollbar-track`            | Track color                 |
+| `--ore-scrollbar-thumb-border`     | Thumb border color          |
+| `--ore-scrollbar-thumb-highlight`  | Thumb highlight color       |
+| `--ore-scrollbar-thumb-background` | Thumb background color      |
+| `--ore-scrollbar-thumb-shadow`     | Thumb shadow color          |
+| `--ore-scrollbar-z-index`          | Custom track stacking level |
+
 ## Accessibility
 
 Scrollbar enters the tab order only when its content overflows. `Arrow keys` scroll by a small amount, `Page Up` and `Page Down` scroll by one viewport, and `Home` and `End` move to either edge. Add an accessible label that describes the scroll region.

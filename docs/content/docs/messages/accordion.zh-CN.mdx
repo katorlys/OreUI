@@ -137,6 +137,16 @@ accordion.addEventListener("open-change", (event) => {
 | `.ore-accordion-title`   | 触发器标签         |
 | `.ore-accordion-content` | 可折叠内容         |
 
+## CSS 变量
+
+| 变量                                 | 用途                 |
+| ------------------------------------ | -------------------- |
+| `--ore-accordion-unit`               | 基础尺寸单位         |
+| `--ore-accordion-border`             | 触发器和内容边框颜色 |
+| `--ore-accordion-background`         | 展开内容的背景颜色   |
+| `--ore-accordion-foreground`         | 触发器文本和图标颜色 |
+| `--ore-accordion-content-foreground` | 展开内容的文本颜色   |
+
 ## 无障碍
 
 Accordion 使用 `aria-controls` 关联触发器与内容、更新 `aria-expanded`，并隐藏已折叠的内容。应使用真正的按钮作为触发器。

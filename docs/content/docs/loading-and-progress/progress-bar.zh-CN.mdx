@@ -99,6 +99,16 @@ import { ProgressBar } from "@oreui-web/vue/progress-bar";
 | `.ore-progress-bar-track` | 进度轨道和填充部分 |
 | `.ore-progress-bar-label` | 百分比或自定义标签 |
 
+## CSS 变量
+
+| 变量                           | 用途               |
+| ------------------------------ | ------------------ |
+| `--ore-progress-bar-unit`      | 基础尺寸单位       |
+| `--ore-progress-bar-frame`     | 边框和空轨道颜色   |
+| `--ore-progress-bar-fill`      | 已填充轨道颜色     |
+| `--ore-progress-bar-label`     | 标签文本颜色       |
+| `--ore-progress-bar-label-gap` | 标签与轨道之间间距 |
+
 ## 无障碍
 
 Progress Bar 使用 `role="progressbar"`，并保持 `aria-valuemin`、`aria-valuemax` 和 `aria-valuenow` 同步。自定义标签通过 `aria-valuetext` 提供给辅助技术。

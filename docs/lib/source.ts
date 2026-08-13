@@ -3,6 +3,9 @@ import { loader } from "fumadocs-core/source";
 import { lucideIconsPlugin } from "fumadocs-core/source/lucide-icons";
 
 import { i18n } from "@/lib/i18n";
+import siteConfig from "@/site-config.json";
+
+export const siteBasePath = siteConfig.basePath;
 
 export const source = loader({
   baseUrl: "/docs",
@@ -21,12 +24,5 @@ export function getPageImageUrl(page: (typeof source)["$inferPage"]) {
 }
 
 export function getPageMarkdownUrl(page: (typeof source)["$inferPage"]) {
-  const segments = [
-    ...(page.locale === "zh-CN" ? [page.locale] : []),
-    "docs",
-    ...page.slugs,
-    "content.md",
-  ];
-
-  return `/llms.mdx/${segments.join("/")}`;
+  return `${siteBasePath}${page.url}.mdx`;
 }

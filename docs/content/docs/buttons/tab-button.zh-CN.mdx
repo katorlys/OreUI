@@ -38,6 +38,25 @@ tab?.addEventListener("change", () => console.log(tab.selected));
 | -------- | ---- |
 | `change` | 无   |
 
+## CSS 变量
+
+Tab Button 也可使用所有的 [Button CSS 变量](../button#css-变量)。
+
+| 变量                               | 用途           |
+| ---------------------------------- | -------------- |
+| `--ore-tab-off-background`         | 未选中背景     |
+| `--ore-tab-off-background-hover`   | 未选中悬停背景 |
+| `--ore-tab-off-background-pressed` | 未选中按下背景 |
+| `--ore-tab-off-highlight`          | 未选中高光     |
+| `--ore-tab-off-highlight-hover`    | 未选中悬停高光 |
+| `--ore-tab-off-highlight-pressed`  | 未选中按下高光 |
+| `--ore-tab-off-shadow`             | 未选中阴影     |
+| `--ore-tab-off-foreground`         | 未选中文本颜色 |
+| `--ore-tab-on-background`          | 选中背景       |
+| `--ore-tab-on-highlight`           | 选中高光       |
+| `--ore-tab-on-foreground`          | 选中文本颜色   |
+| `--ore-tab-indicator`              | 选中指示器颜色 |
+
 ## 无障碍
 
 Tab Button 使用 `role="tab"` 并更新 `aria-selected`。`方向键`可在非 disabled 状态的标签之间移动；`Home` 和 `End` 键分别选择第一个和最后一个标签。

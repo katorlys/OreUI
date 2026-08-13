@@ -9,10 +9,19 @@ import { i18nUI } from "@/lib/i18n";
 
 const localeStorageKey = "oreui-locale";
 
+type Locale = "en" | "zh-CN";
+
 function saveLocale(locale: string) {
   try {
     localStorage.setItem(localeStorageKey, locale);
   } catch {}
+}
+
+function localizePath(pathname: string, locale: Locale) {
+  const path = pathname.replace(/^\/zh-CN(?=\/|$)/, "") || "/";
+  const suffix = `${window.location.search}${window.location.hash}`;
+
+  return `${locale === "zh-CN" ? `/zh-CN${path === "/" ? "" : path}` : path}${suffix}`;
 }
 
 export function Provider({ children }: { children: ReactNode }) {
@@ -31,28 +40,38 @@ export function Provider({ children }: { children: ReactNode }) {
       savedLocale = localStorage.getItem(localeStorageKey);
     } catch {}
 
-    if (savedLocale === "en" || savedLocale === "zh-CN") {
+    if (locale === "zh-CN") {
+      saveLocale(locale);
       return;
     }
 
-    if (locale === "zh-CN") {
-      saveLocale(locale);
+    if (savedLocale === "en") {
+      return;
+    }
+
+    if (savedLocale === "zh-CN") {
+      router.replace(localizePath(pathname, savedLocale));
       return;
     }
 
     const browserLanguages = navigator.languages.length
       ? navigator.languages
       : [navigator.language];
-    const preferredLocale = browserLanguages.some((language) =>
-      /^zh(?:-|$)/i.test(language),
-    )
-      ? "zh-CN"
-      : "en";
+    const preferredLocale =
+      browserLanguages
+        .map((language): Locale | null => {
+          if (/^zh(?:-|$)/i.test(language)) {
+            return "zh-CN";
+          }
+
+          return /^en(?:-|$)/i.test(language) ? "en" : null;
+        })
+        .find((language) => language !== null) ?? "en";
 
     saveLocale(preferredLocale);
 
     if (preferredLocale === "zh-CN") {
-      router.replace(`/zh-CN${pathname === "/" ? "" : pathname}`);
+      router.replace(localizePath(pathname, preferredLocale));
     }
   }, [locale, pathname, router]);
 
@@ -63,9 +82,12 @@ export function Provider({ children }: { children: ReactNode }) {
       i18n={{
         ...provider,
         onLocaleChange(nextLocale) {
+          if (nextLocale !== "en" && nextLocale !== "zh-CN") {
+            return;
+          }
+
           saveLocale(nextLocale);
-          const path = pathname.replace(/^\/zh-CN(?=\/|$)/, "") || "/";
-          router.push(nextLocale === "zh-CN" ? `/zh-CN${path}` : path);
+          router.push(localizePath(pathname, nextLocale));
         },
       }}
       search={{ SearchDialog: DefaultSearchDialog }}

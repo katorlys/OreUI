@@ -16,6 +16,8 @@
 [![Pull Requests][github-pr-badge]][github-pr-link]
 [![Issues][github-issue-badge]][github-issue-link]
 [![License][github-license-badge]](LICENSE)
+[![Build][github-build-badge]][github-build-link]
+[![Release][github-release-badge]][github-release-link]
 
 [English](README.md) · **简体中文**
 
@@ -39,11 +41,11 @@ OreUI 是一个非官方粉丝向的组件库，将 Minecraft 的 Ore UI 设计�
 - **无障碍**：支持语义化 HTML、键盘操作、焦点管理和 ARIA
 
 ## 软件包
-| 软件包 | 版本 | 链接 |
-| ------ | ---- | ---- |
-| <img src="docs/public/frameworks/javascript.svg" alt="" width="16" height="16"> `oreui-web` |         | [文档](https://katorly.dev/OreUI/docs/getting-started/vanilla) · [源码](https://github.com/katorlys/OreUI) |
-| <img src="docs/public/frameworks/react.svg" alt="" width="16" height="16"> `@oreui-web/react` |         | [文档](https://katorly.dev/OreUI/docs/getting-started/react) · [源码](https://github.com/katorlys/OreUI/tree/main/packages/react) |
-| <img src="docs/public/frameworks/vue.svg" alt="" width="16" height="16"> `@oreui-web/vue` |         | [文档](https://katorly.dev/OreUI/docs/getting-started/vue) · [源码](https://github.com/katorlys/OreUI/tree/main/packages/vue) |
+| 软件包 | 版本 | 下载量 | 链接 |
+| ------ | ---- | ------ | ---- |
+| <img src="docs/public/frameworks/javascript.svg" alt="" width="16" height="16"> `oreui-web` | [![](https://img.shields.io/npm/v/oreui-web?style=flat-square)](https://www.npmjs.com/package/oreui-web) | [![](https://img.shields.io/npm/dm/oreui-web?style=flat-square)](https://www.npmjs.com/package/oreui-web) | [文档](https://katorly.dev/OreUI/docs/getting-started/vanilla) · [源码](https://github.com/katorlys/OreUI) |
+| <img src="docs/public/frameworks/react.svg" alt="" width="16" height="16"> `@oreui-web/react` | [![](https://img.shields.io/npm/v/%40oreui-web%2Freact?style=flat-square)](https://www.npmjs.com/package/@oreui-web/react) | [![](https://img.shields.io/npm/dm/%40oreui-web%2Freact?style=flat-square)](https://www.npmjs.com/package/@oreui-web/react) | [文档](https://katorly.dev/OreUI/docs/getting-started/react) · [源码](https://github.com/katorlys/OreUI/tree/main/packages/react) |
+| <img src="docs/public/frameworks/vue.svg" alt="" width="16" height="16"> `@oreui-web/vue` | [![](https://img.shields.io/npm/v/%40oreui-web%2Fvue?style=flat-square)](https://www.npmjs.com/package/@oreui-web/vue) | [![](https://img.shields.io/npm/dm/%40oreui-web%2Fvue?style=flat-square)](https://www.npmjs.com/package/@oreui-web/vue) | [文档](https://katorly.dev/OreUI/docs/getting-started/vue) · [源码](https://github.com/katorlys/OreUI/tree/main/packages/vue) |
 
 ## 开始使用
 在[快速开始](https://katorly.dev/OreUI/docs/getting-started)中选择框架，或浏览[所有组件](https://katorly.dev/OreUI/docs/overview)。
@@ -87,3 +89,7 @@ OreUI 是一个**非官方**的爱好者项目，不是官方 Ore UI 的替代�
 <!-- https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-EFEFEF?labelColor=151515&style=flat-square -->
 [github-license-badge-bottom]: https://img.shields.io/github/license/katorlys/OreUI?labelColor=151515&color=EFEFEF&style=for-the-badge
 <!-- https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-EFEFEF?labelColor=151515&style=for-the-badge -->
+[github-build-badge]: https://img.shields.io/github/actions/workflow/status/katorlys/OreUI/release.yml?labelColor=151515&style=flat-square
+[github-build-link]: https://github.com/katorlys/OreUI/actions/workflows/release.yml
+[github-release-badge]: https://img.shields.io/github/v/release/katorlys/OreUI?include_prereleases&labelColor=151515&color=8DD1E0&style=flat-square
+[github-release-link]: https://github.com/katorlys/OreUI/releases/latest

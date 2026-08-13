@@ -16,6 +16,8 @@
 [![Pull Requests][github-pr-badge]][github-pr-link]
 [![Issues][github-issue-badge]][github-issue-link]
 [![License][github-license-badge]](LICENSE)
+[![Build][github-build-badge]][github-build-link]
+[![Release][github-release-badge]][github-release-link]
 
 **English** · [简体中文](README.zh-CN.md)
 
@@ -39,11 +41,11 @@ Read the full documentation at [katorly.dev/OreUI](https://katorly.dev/OreUI/doc
 - **Accessibility**: Semantic HTML, keyboard support, focus management, and ARIA
 
 ## Packages
-| Package | Version | Links |
-| ------- | ------- | ----- |
-| <img src="docs/public/frameworks/javascript.svg" alt="" width="16" height="16"> `oreui-web` |         | [Docs](https://katorly.dev/OreUI/docs/getting-started/vanilla) · [Source](https://github.com/katorlys/OreUI) |
-| <img src="docs/public/frameworks/react.svg" alt="" width="16" height="16"> `@oreui-web/react` |         | [Docs](https://katorly.dev/OreUI/docs/getting-started/react) · [Source](https://github.com/katorlys/OreUI/tree/main/packages/react) |
-| <img src="docs/public/frameworks/vue.svg" alt="" width="16" height="16"> `@oreui-web/vue` |         | [Docs](https://katorly.dev/OreUI/docs/getting-started/vue) · [Source](https://github.com/katorlys/OreUI/tree/main/packages/vue) |
+| Package | Version | Downloads | Links |
+| ------- | ------- | --------- | ----- |
+| <img src="docs/public/frameworks/javascript.svg" alt="" width="16" height="16"> `oreui-web` | [![](https://img.shields.io/npm/v/oreui-web?style=flat-square)](https://www.npmjs.com/package/oreui-web) | [![](https://img.shields.io/npm/dm/oreui-web?style=flat-square)](https://www.npmjs.com/package/oreui-web) | [Docs](https://katorly.dev/OreUI/docs/getting-started/vanilla) · [Source](https://github.com/katorlys/OreUI) |
+| <img src="docs/public/frameworks/react.svg" alt="" width="16" height="16"> `@oreui-web/react` | [![](https://img.shields.io/npm/v/%40oreui-web%2Freact?style=flat-square)](https://www.npmjs.com/package/@oreui-web/react) | [![](https://img.shields.io/npm/dm/%40oreui-web%2Freact?style=flat-square)](https://www.npmjs.com/package/@oreui-web/react) | [Docs](https://katorly.dev/OreUI/docs/getting-started/react) · [Source](https://github.com/katorlys/OreUI/tree/main/packages/react) |
+| <img src="docs/public/frameworks/vue.svg" alt="" width="16" height="16"> `@oreui-web/vue` | [![](https://img.shields.io/npm/v/%40oreui-web%2Fvue?style=flat-square)](https://www.npmjs.com/package/@oreui-web/vue) | [![](https://img.shields.io/npm/dm/%40oreui-web%2Fvue?style=flat-square)](https://www.npmjs.com/package/@oreui-web/vue) | [Docs](https://katorly.dev/OreUI/docs/getting-started/vue) · [Source](https://github.com/katorlys/OreUI/tree/main/packages/vue) |
 
 
 ## Getting started
@@ -89,3 +91,7 @@ This project only takes visual inspiration from the official Ore UI. Except for 
 <!-- https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-EFEFEF?labelColor=151515&style=flat-square -->
 [github-license-badge-bottom]: https://img.shields.io/github/license/katorlys/OreUI?labelColor=151515&color=EFEFEF&style=for-the-badge
 <!-- https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-EFEFEF?labelColor=151515&style=for-the-badge -->
+[github-build-badge]: https://img.shields.io/github/actions/workflow/status/katorlys/OreUI/release.yml?labelColor=151515&style=flat-square
+[github-build-link]: https://github.com/katorlys/OreUI/actions/workflows/release.yml
+[github-release-badge]: https://img.shields.io/github/v/release/katorlys/OreUI?include_prereleases&labelColor=151515&color=8DD1E0&style=flat-square
+[github-release-link]: https://github.com/katorlys/OreUI/releases/latest

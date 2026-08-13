@@ -87,6 +87,22 @@ import { Scrollbar } from "@oreui-web/vue/scrollbar";
 
 该类不会添加 Scrollbar 提供的键盘行为和自动 `tabindex` 管理功能。
 
+## CSS 变量
+
+| 变量                               | 用途               |
+| ---------------------------------- | ------------------ |
+| `--ore-scrollbar-unit`             | 基础尺寸单位       |
+| `--ore-scrollbar-size`             | 垂直滚动条宽度     |
+| `--ore-scrollbar-horizontal-size`  | 水平滚动条高度     |
+| `--ore-scrollbar-track-size`       | 轨道线条粗细       |
+| `--ore-scrollbar-thumb-min-size`   | 滑块最小长度       |
+| `--ore-scrollbar-track`            | 轨道颜色           |
+| `--ore-scrollbar-thumb-border`     | 滑块边框颜色       |
+| `--ore-scrollbar-thumb-highlight`  | 滑块高光颜色       |
+| `--ore-scrollbar-thumb-background` | 滑块背景颜色       |
+| `--ore-scrollbar-thumb-shadow`     | 滑块阴影颜色       |
+| `--ore-scrollbar-z-index`          | 自定义轨道堆叠层级 |
+
 ## 无障碍
 
 Scrollbar 仅在内容溢出时进入 `Tab` 顺序。按`方向键`可小幅滚动，按 `Page Up` 和 `Page Down` 可滚动一个 viewport，按 `Home` 和 `End` 可移动到任一边缘。应设置描述滚动区域的无障碍标签。
