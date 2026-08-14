@@ -1,5 +1,6 @@
 import { resolve } from "node:path";
 
+import { svelte } from "@sveltejs/vite-plugin-svelte";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 
@@ -15,7 +16,7 @@ const components = Object.fromEntries(
 
 export default defineConfig({
   root: "demo",
-  plugins: [tailwindcss()],
+  plugins: [svelte(), tailwindcss()],
   build: {
     outDir: resolve(root, "dist"),
     emptyOutDir: true,

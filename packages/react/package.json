@@ -11,11 +11,19 @@
   "keywords": [
     "ore-ui",
     "oreui",
-    "react",
     "minecraft",
+    "bedrock",
+    "css",
     "component",
+    "library",
+    "component-library",
+    "minecraft-ui",
+    "style",
+    "pixel",
     "ui",
-    "ugc"
+    "ugc",
+    "react",
+    "react-component"
   ],
   "homepage": "https://katorly.dev/OreUI",
   "bugs": {

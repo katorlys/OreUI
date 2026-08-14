@@ -1,12 +1,12 @@
 {
-  "name": "@oreui-web/vue",
+  "name": "@oreui-web/svelte",
   "version": "0.0.0-beta.2",
-  "description": "Vue wrapper for the unofficial Ore UI component library.",
+  "description": "Svelte wrapper for the unofficial Ore UI component library.",
   "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/katorlys/OreUI.git",
-    "directory": "packages/vue"
+    "directory": "packages/svelte"
   },
   "keywords": [
     "ore-ui",
@@ -22,8 +22,8 @@
     "pixel",
     "ui",
     "ugc",
-    "vue",
-    "vue3"
+    "svelte",
+    "sveltekit"
   ],
   "homepage": "https://katorly.dev/OreUI",
   "bugs": {
@@ -37,34 +37,38 @@
     "dist",
     "styles.css"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js",
       "import": "./dist/index.js"
     },
     "./*": {
-      "types": "./dist/components/*.d.ts",
-      "import": "./dist/components/*.js"
+      "types": "./dist/components/*.svelte.d.ts",
+      "svelte": "./dist/components/*.svelte",
+      "import": "./dist/components/*.svelte"
     },
     "./styles.css": "./styles.css",
     "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "typecheck": "tsc --noEmit"
+    "build": "svelte-package -i src -o dist",
+    "typecheck": "svelte-check --tsconfig ./tsconfig.json --tsgo"
   },
   "dependencies": {
     "oreui-web": "workspace:*"
   },
   "peerDependencies": {
-    "vue": "^3.5.0"
+    "svelte": "^5.0.0"
   },
   "devDependencies": {
-    "typescript": "^7.0.2",
-    "vue": "^3.5.41"
+    "@sveltejs/package": "^2.5.0",
+    "@typescript/native": "npm:typescript@^7.0.0",
+    "svelte": "^5.0.0",
+    "svelte-check": "^4.0.0",
+    "typescript": "~5.9.0"
   },
   "engines": {
     "node": ">=20.19.0"

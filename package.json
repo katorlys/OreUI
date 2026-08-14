@@ -11,10 +11,14 @@
     "ore-ui",
     "oreui",
     "minecraft",
+    "bedrock",
     "css",
     "component",
     "library",
+    "component-library",
+    "minecraft-ui",
     "style",
+    "pixel",
     "ui",
     "ugc"
   ],
@@ -50,14 +54,14 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "pnpm build:core && pnpm --filter @oreui-web/react build && pnpm --filter @oreui-web/vue build",
+    "build": "pnpm build:core && pnpm --filter @oreui-web/react build && pnpm --filter @oreui-web/vue build && pnpm --filter @oreui-web/svelte build",
     "build:core": "vite build && tsc -p tsconfig.build.json && node scripts/copy-assets.js",
     "docs:build": "pnpm --filter @katorlys/oreui-docs build",
     "docs:dev": "pnpm --filter @katorlys/oreui-docs dev",
     "docs:typecheck": "pnpm --filter @katorlys/oreui-docs typecheck",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "typecheck": "pnpm typecheck:core && pnpm --filter @oreui-web/react typecheck && pnpm --filter @oreui-web/vue typecheck",
+    "typecheck": "pnpm typecheck:core && pnpm --filter @oreui-web/react typecheck && pnpm --filter @oreui-web/vue typecheck && pnpm --filter @oreui-web/svelte typecheck",
     "typecheck:core": "tsc --noEmit",
     "preview": "vite preview"
   },
@@ -65,6 +69,7 @@
     "lit": "^3.3.3"
   },
   "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.18",
@@ -72,6 +77,7 @@
     "prettier": "^3.9.6",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "svelte": "^5.46.4",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "vite": "^8.2.1",
