@@ -10,7 +10,7 @@ Each component should be placed in `src/components/<name>/` and include `<name>.
 
 ### Design guidelines
 
-- Design components in Figma before writing code
+- Design components in [Figma](https://figma.com/@oreui_web) before writing code
 - Keep the visuals as consistent with the official Ore UI as possible
 - For components not found in the official Ore UI, follow the design language of existing components
 
@@ -66,7 +66,7 @@ When opening a Pull Request, also follow Katorly Lab's [Contributing Guidelines]
 
 ## Documentation
 
-The documentation site is based on Fumadocs and uses React, Next.js, TailwindCSS, and MDX.
+The documentation site is based on [Fumadocs](https://fumadocs.dev) and uses React, Next.js, TailwindCSS, and MDX.
 
 Each component's documentation should include the following when applicable:
 

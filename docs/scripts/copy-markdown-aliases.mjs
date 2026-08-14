@@ -1,8 +1,10 @@
-import { cp, mkdir, readdir } from "node:fs/promises";
+// This file is for supporting appending .md and .mdx at the end of the path feature on static sites.
+import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const outputDir = path.resolve("out");
 const markdownDir = path.join(outputDir, "llms.mdx");
+const utf8Bom = Buffer.from([0xef, 0xbb, 0xbf]); // UTF-8 BOM
 
 async function copyMarkdownFiles(directory, segments = []) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -17,14 +19,23 @@ async function copyMarkdownFiles(directory, segments = []) {
     const contentPath = path.join(sourceDir, "content.md");
 
     try {
-      const targetPath = path.join(
+      const content = await readFile(contentPath);
+      const encodedContent = Buffer.concat([utf8Bom, content]);
+      const targetDir = path.join(
         outputDir,
         ...nextSegments.slice(0, -1),
-        `${nextSegments.at(-1)}.mdx`,
       );
+      const targetName = nextSegments.at(-1);
 
-      await mkdir(path.dirname(targetPath), { recursive: true });
-      await cp(contentPath, targetPath);
+      await mkdir(targetDir, { recursive: true });
+      await Promise.all(
+        ["md", "mdx"].map((extension) =>
+          writeFile(
+            path.join(targetDir, `${targetName}.${extension}`),
+            encodedContent,
+          ),
+        ),
+      );
     } catch (error) {
       if (error?.code !== "ENOENT") {
         throw error;
