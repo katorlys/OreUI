@@ -54,7 +54,9 @@
       right calc(var(--ore-button-unit) + var(--ore-button-face-offset)) /
       calc(var(--ore-button-unit) * 2)
       calc(100% - var(--ore-button-unit) * 4 - 1px) no-repeat,
-    var(--ore-button-background);
+    linear-gradient(var(--ore-button-background), var(--ore-button-background))
+      center var(--ore-button-face-offset) / 100%
+      calc(100% - var(--ore-button-face-offset)) no-repeat;
   font-family: var(--ore-button-font-family);
   font-size: var(--ore-button-font-size);
   font-weight: 400;
@@ -66,7 +68,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-:where(ore-button)::before {
+:where(ore-button, ore-tab-button)::before {
   position: absolute;
   top: var(--ore-button-face-offset);
   right: 0;
@@ -182,12 +184,16 @@
 
   padding-top: var(--ore-button-face-offset);
   padding-bottom: 0;
-  clip-path: inset(var(--ore-button-face-offset) 0 0);
 }
 
 :where(ore-button, ore-tab-button):focus-visible {
-  outline: var(--ore-button-unit) solid var(--ore-color-focus-ring);
-  outline-offset: 0;
+  outline: none;
+}
+
+:where(ore-button, ore-tab-button):focus-visible::before {
+  box-shadow:
+    inset 0 0 0 var(--ore-button-unit) var(--ore-color-focus-ring),
+    inset 0 0 0 calc(var(--ore-button-unit) * 2) var(--ore-button-border);
 }
 
 :where(

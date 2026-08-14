@@ -56,10 +56,12 @@
 
 :where(ore-tab-button[palette="toggle"]) {
   --ore-tab-off-background: var(--ore-color-secondary-background);
-  --ore-tab-off-background-hover: var(--ore-color-secondary-background);
+  --ore-tab-off-background-hover: var(
+    --ore-color-secondary-background-hover
+  );
   --ore-tab-off-background-pressed: var(--ore-color-secondary-background);
   --ore-tab-off-highlight: var(--ore-color-secondary-highlight);
-  --ore-tab-off-highlight-hover: var(--ore-color-secondary-highlight);
+  --ore-tab-off-highlight-hover: var(--ore-color-secondary-highlight-hover);
   --ore-tab-off-highlight-pressed: var(--ore-color-secondary-highlight);
   --ore-tab-off-shadow: var(--ore-color-secondary-shadow);
   --ore-tab-off-foreground: var(--ore-color-border);
@@ -84,8 +86,8 @@
   margin-inline-start: calc(var(--ore-button-unit) * -1);
 }
 
-:where(ore-tab-button[selected]):focus-visible {
-  outline: none;
+:where(ore-tab-button[selected])::before {
+  box-shadow: none;
 }
 
 :where(ore-tab-button[selected]):focus-visible::before {
@@ -94,7 +96,9 @@
   right: 0;
   bottom: 0;
   left: 0;
-  box-shadow: 0 0 0 var(--ore-button-unit) var(--ore-color-focus-ring);
+  box-shadow:
+    inset 0 0 0 var(--ore-button-unit) var(--ore-color-focus-ring),
+    inset 0 0 0 calc(var(--ore-button-unit) * 2) var(--ore-button-border);
   content: "";
   pointer-events: none;
 }

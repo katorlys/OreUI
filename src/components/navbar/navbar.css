@@ -119,8 +119,8 @@
   ore-navbar .ore-navbar-button:focus-visible,
   ore-navbar .ore-navbar-action:focus-visible
 ) {
-  outline: var(--ore-navbar-unit) solid var(--ore-color-focus-ring);
-  outline-offset: calc(var(--ore-navbar-unit) * -1);
+  outline: none;
+  box-shadow: inset 0 0 0 var(--ore-navbar-unit) var(--ore-color-focus-ring);
 }
 
 :where(ore-navbar .ore-navbar-button > ore-icon) {

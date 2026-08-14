@@ -194,6 +194,12 @@
     inset 0 0 0 calc(var(--ore-radio-unit) * 2) var(--ore-radio-highlight);
 }
 
+:where(ore-radio:focus-visible) {
+  border-radius: 0;
+  outline: var(--ore-radio-unit) solid var(--ore-color-focus-ring);
+  outline-offset: 0;
+}
+
 :where(ore-radio:focus-visible:not([checked])) {
   --ore-radio-highlight: var(--ore-color-neutral-50-highlight-focus);
 }

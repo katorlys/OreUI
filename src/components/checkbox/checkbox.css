@@ -189,6 +189,12 @@
     inset 0 0 0 calc(var(--ore-checkbox-unit) * 2) var(--ore-checkbox-highlight);
 }
 
+:where(ore-checkbox:focus-visible) {
+  border-radius: 0;
+  outline: var(--ore-checkbox-unit) solid var(--ore-color-focus-ring);
+  outline-offset: 0;
+}
+
 :where(ore-checkbox:focus-visible:not([checked])) {
   --ore-checkbox-highlight: var(--ore-color-neutral-50-highlight-focus);
 }

@@ -187,6 +187,10 @@
     var(--ore-color-white) 60%
   );
   --ore-switch-thumb-focus-ring: var(--ore-color-focus-ring);
+
+  border-radius: 0;
+  outline: var(--ore-switch-unit) solid var(--ore-color-focus-ring);
+  outline-offset: 0;
 }
 
 :where(ore-switch[disabled], ore-switch[form-disabled]) {
