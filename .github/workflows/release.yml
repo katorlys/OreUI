@@ -23,6 +23,7 @@ jobs:
           runtime: node@24
 
       - name: Validate version
+        id: version
         run: |
           node -e "
             const versions = [
@@ -30,10 +31,13 @@ jobs:
               require('./packages/react/package.json').version,
               require('./packages/vue/package.json').version,
             ];
-            const releaseVersion = process.env.GITHUB_REF_NAME.replace(/^v/, '');
+            const releaseVersion = process.env.GITHUB_EVENT_NAME === 'release'
+              ? process.env.GITHUB_REF_NAME.replace(/^v/, '')
+              : versions[0];
             if (versions.some((version) => version !== releaseVersion)) {
               throw new Error('Package versions must match release ' + process.env.GITHUB_REF_NAME + ': ' + versions.join(', '));
             }
+            require('node:fs').appendFileSync(process.env.GITHUB_OUTPUT, 'value=' + releaseVersion + '\n');
           "
 
       - name: Build packages
@@ -47,10 +51,10 @@ jobs:
           pnpm --dir packages/vue pack --pack-destination "$GITHUB_WORKSPACE/packages-to-publish"
 
       - name: Publish core package
-        run: npm publish packages-to-publish/oreui-web-[0-9]*.tgz --access public --tag beta
+        run: pnpm publish "$GITHUB_WORKSPACE/packages-to-publish/oreui-web-${{ steps.version.outputs.value }}.tgz" --access public --tag beta --provenance
 
       - name: Publish React package
-        run: npm publish packages-to-publish/oreui-web-react-*.tgz --access public --tag beta
+        run: pnpm publish "$GITHUB_WORKSPACE/packages-to-publish/oreui-web-react-${{ steps.version.outputs.value }}.tgz" --access public --tag beta --provenance
 
       - name: Publish Vue package
-        run: npm publish packages-to-publish/oreui-web-vue-*.tgz --access public --tag beta
+        run: pnpm publish "$GITHUB_WORKSPACE/packages-to-publish/oreui-web-vue-${{ steps.version.outputs.value }}.tgz" --access public --tag beta --provenance
