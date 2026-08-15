@@ -9,7 +9,7 @@ import { TogglesStory } from "@/components/stories/toggles.story";
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/toggles";
@@ -79,6 +79,24 @@ const value = ref("day");
     >
   </Toggles>
 </template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import TabButton from "@oreui-web/svelte/tab-button";
+  import Toggles from "@oreui-web/svelte/toggles";
+
+  let value = $state("day");
+</script>
+
+<Toggles aria-label="Daylight cycle">
+  <TabButton selected={value === "day"} onChange={() => (value = "day")}>Day</TabButton>
+  <TabButton selected={value === "night"} onChange={() => (value = "night")}>Night</TabButton>
+  <TabButton selected={value === "always"} onChange={() => (value = "always")}>Always</TabButton>
+</Toggles>
 ```
 
     </Tab>

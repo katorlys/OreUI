@@ -9,7 +9,7 @@ import { TabBarStory } from "@/components/stories/tab-bar.story";
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/tab-bar";
@@ -55,6 +55,22 @@ import { TabBar, TabButton } from "@oreui-web/vue";
     <TabButton>Servers</TabButton>
   </TabBar>
 </template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import TabBar from "@oreui-web/svelte/tab-bar";
+  import TabButton from "@oreui-web/svelte/tab-button";
+</script>
+
+<TabBar aria-label="Play menu">
+  <TabButton selected>Worlds</TabButton>
+  <TabButton>Friends</TabButton>
+  <TabButton>Servers</TabButton>
+</TabBar>
 ```
 
     </Tab>

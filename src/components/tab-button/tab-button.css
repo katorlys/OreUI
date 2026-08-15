@@ -56,9 +56,7 @@
 
 :where(ore-tab-button[palette="toggle"]) {
   --ore-tab-off-background: var(--ore-color-secondary-background);
-  --ore-tab-off-background-hover: var(
-    --ore-color-secondary-background-hover
-  );
+  --ore-tab-off-background-hover: var(--ore-color-secondary-background-hover);
   --ore-tab-off-background-pressed: var(--ore-color-secondary-background);
   --ore-tab-off-highlight: var(--ore-color-secondary-highlight);
   --ore-tab-off-highlight-hover: var(--ore-color-secondary-highlight-hover);

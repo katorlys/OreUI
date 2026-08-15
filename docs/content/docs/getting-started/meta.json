@@ -2,5 +2,5 @@
   "title": "Getting Started",
   "description": "Add OreUI to your existing projects.",
   "icon": "Rocket",
-  "pages": ["vanilla", "react", "vue", "astro"]
+  "pages": ["vanilla", "react", "vue", "svelte", "astro"]
 }

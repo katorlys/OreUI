@@ -91,6 +91,7 @@ export function Provider({ children }: { children: ReactNode }) {
         },
       }}
       search={{ SearchDialog: DefaultSearchDialog }}
+      theme={{ storageKey: "oreui-theme" }}
     >
       {children}
     </RootProvider>

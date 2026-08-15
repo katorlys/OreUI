@@ -9,7 +9,7 @@ import { DropdownStory } from "@/components/stories/dropdown.story";
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/button";
@@ -128,6 +128,29 @@ const value = ref("creative");
     </div>
   </Dropdown>
 </template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import Button from "@oreui-web/svelte/button";
+  import Dropdown from "@oreui-web/svelte/dropdown";
+
+  let value = $state("creative");
+</script>
+
+<Dropdown bind:value variant="bordered">
+  <Button class="ore-dropdown-trigger" type="button" color="secondary">
+    <span class="ore-dropdown-trigger-label">Game mode</span>
+  </Button>
+  <div class="ore-dropdown-menu">
+    <button class="ore-dropdown-item" type="button" data-value="survival">Survival</button>
+    <button class="ore-dropdown-item" type="button" data-value="creative">Creative</button>
+    <button class="ore-dropdown-item" type="button" data-value="adventure">Adventure</button>
+  </div>
+</Dropdown>
 ```
 
     </Tab>

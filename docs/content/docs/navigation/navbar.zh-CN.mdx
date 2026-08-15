@@ -9,7 +9,7 @@ import { NavbarStory } from "@/components/stories/navbar.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/navbar";
@@ -105,6 +105,39 @@ import "oreui-web/icon";
     </div></Navbar
   >
 </template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import Navbar from "@oreui-web/svelte/navbar";
+  import "oreui-web/icon";
+</script>
+
+<Navbar aria-label="Screen navigation">
+  <div class="ore-navbar-start">
+    <button class="ore-navbar-button" type="button" aria-label="Back">
+      <ore-icon aria-hidden="true">
+        <svg viewBox="0 0 8 8">
+          <path
+            fill="currentColor"
+            fill-rule="evenodd"
+            d="M5 2h1V1H5zm0 0v1H4V2zm1 6H5V7h-.966V6h1v1H6zM3 4h1V3H3zm0 1V4H2v1zm0 0h1v1H3z"
+            transform="translate(0 -.5)"
+          />
+        </svg>
+      </ore-icon>
+    </button>
+  </div>
+  <span class="ore-navbar-title">Worlds</span>
+  <div class="ore-navbar-actions">
+    <button class="ore-navbar-action" type="button">
+      <span class="ore-navbar-action-label">Edit</span>
+    </button>
+  </div>
+</Navbar>
 ```
 
     </Tab>

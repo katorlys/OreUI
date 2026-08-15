@@ -21,10 +21,7 @@ async function copyMarkdownFiles(directory, segments = []) {
     try {
       const content = await readFile(contentPath);
       const encodedContent = Buffer.concat([utf8Bom, content]);
-      const targetDir = path.join(
-        outputDir,
-        ...nextSegments.slice(0, -1),
-      );
+      const targetDir = path.join(outputDir, ...nextSegments.slice(0, -1));
       const targetName = nextSegments.at(-1);
 
       await mkdir(targetDir, { recursive: true });

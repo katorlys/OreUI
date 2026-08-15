@@ -9,7 +9,7 @@ import { ToastStory } from "@/components/stories/toast.story";
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/toast";
@@ -45,6 +45,17 @@ import { Toast } from "@oreui-web/vue/toast";
 <template>
   <Toast open aria-label="World saved">Saved</Toast>
 </template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import Toast from "@oreui-web/svelte/toast";
+</script>
+
+<Toast open aria-label="World saved">Saved</Toast>
 ```
 
     </Tab>

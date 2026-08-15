@@ -11,7 +11,7 @@ Card groups media, a caption, metadata, and an optional action.
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/card";
@@ -125,6 +125,44 @@ import "oreui-web/icon";
     </div>
   </Card>
 </template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import Card from "@oreui-web/svelte/card";
+  import Tag from "@oreui-web/svelte/tag";
+  import "oreui-web/icon";
+</script>
+
+<Card>
+  <div class="ore-card-media">
+    <img src="/world.webp" alt="A village beside a river" />
+    <div class="ore-card-overlay-bottom-start card-tag-group">
+      <Tag outlined variant="informative">Local</Tag>
+      <Tag outlined variant="notice">New</Tag>
+    </div>
+    <span class="ore-card-overlay-top-end" aria-hidden="true">
+      <ore-icon>
+        <svg viewBox="0 0 8 8">
+          <path
+            fill="currentColor"
+            d="M1 2h1v1H1zm1 1h1v1H2zm1 1h1v1H3zm1 1h1v1H4zm1-1h1v1H5zm1-1h1v1H6z"
+          />
+        </svg>
+      </ore-icon>
+    </span>
+  </div>
+  <div class="ore-card-body">
+    <div class="ore-card-caption">
+      <div class="ore-card-title">Survival World</div>
+      <div class="ore-card-description">Last played today</div>
+    </div>
+    <span class="ore-card-meta">1.21</span>
+  </div>
+</Card>
 ```
 
     </Tab>

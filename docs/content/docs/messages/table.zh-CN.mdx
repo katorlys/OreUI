@@ -9,7 +9,7 @@ import { TableStory } from "@/components/stories/table.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/table";
@@ -106,6 +106,28 @@ import { Table } from "@oreui-web/vue/table";
     </table></Table
   >
 </template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import Table from "@oreui-web/svelte/table";
+</script>
+
+<Table variant="striped">
+  <table>
+    <caption>Available worlds</caption>
+    <thead>
+      <tr><th scope="col">World</th><th scope="col">Players</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Mountains</th><td>4 / 10</td></tr>
+      <tr><th scope="row">Village</th><td>8 / 20</td></tr>
+    </tbody>
+  </table>
+</Table>
 ```
 
     </Tab>

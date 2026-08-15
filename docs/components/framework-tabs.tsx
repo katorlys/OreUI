@@ -6,13 +6,14 @@ import {
 } from "fumadocs-ui/components/tabs";
 
 export function FrameworkTabs({ className, items, ...props }: TabsProps) {
+  const isFrameworkGroup = props.groupId === "framework";
+
   return (
     <FumadocsTabs
-      className={
-        props.groupId === "framework" ? "ore-framework-tabs" : className
-      }
-      items={items}
       {...props}
+      className={isFrameworkGroup ? "ore-framework-tabs" : className}
+      groupId={isFrameworkGroup ? "oreui-framework" : props.groupId}
+      items={items}
     />
   );
 }

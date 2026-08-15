@@ -2,5 +2,5 @@
   "title": "快速开始",
   "description": "在您的项目中使用 Ore UI",
   "icon": "Rocket",
-  "pages": ["vanilla", "react", "vue", "astro"]
+  "pages": ["vanilla", "react", "vue", "svelte", "astro"]
 }

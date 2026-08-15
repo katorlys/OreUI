@@ -1,0 +1,98 @@
+---
+title: Svelte
+description: 在 Svelte 应用中使用 OreUI
+---
+
+## 安装
+
+```bash tab="pnpm"
+pnpm add @oreui-web/svelte
+```
+
+```bash tab="yarn"
+yarn add @oreui-web/svelte
+```
+
+```bash tab="npm"
+npm install @oreui-web/svelte
+```
+
+```bash tab="bun"
+bun add @oreui-web/svelte
+```
+
+## 添加样式
+
+在 app entry 中导入一次样式表即可：
+
+```ts
+import "@oreui-web/svelte/styles.css";
+```
+
+## 使用组件
+
+```svelte title="App.svelte"
+<script lang="ts">
+  import Button from "@oreui-web/svelte/button";
+</script>
+
+<Button type="button">Create new world</Button>
+```
+
+## 使用 bind
+
+Checkbox 和 Switch 支持 `bind:checked`，Slider、Textfield 和 Dropdown 支持 `bind:value`。
+
+```svelte title="Settings.svelte"
+<script lang="ts">
+  import Checkbox from "@oreui-web/svelte/checkbox";
+  import Slider from "@oreui-web/svelte/slider";
+
+  let enabled = $state(false);
+  let volume = $state(40);
+</script>
+
+<Checkbox bind:checked={enabled}>Enable updates</Checkbox>
+<Slider bind:value={volume} min={0} max={100} />
+```
+
+<Callout type="info">导入 `@oreui-web/svelte` 即可使用全部组件。</Callout>
+
+## 事件与底层元素访问
+
+事件使用 Svelte callback props。组件实例提供 `getElement()`，用于访问具有类型的底层 `Ore*` 自定义元素。
+
+```svelte
+<script lang="ts">
+  import Modal from "@oreui-web/svelte/modal";
+
+  let modal: ReturnType<typeof Modal>;
+</script>
+
+<Modal
+  bind:this={modal}
+  onModalClose={(event) => console.log(event.detail.reason)}
+>
+  <!-- Modal content -->
+</Modal>
+
+<button type="button" onclick={() => modal.getElement().show()}>
+  Open modal
+</button>
+```
+
+## 直接使用自定义元素
+
+Svelte 也可以直接渲染 `<ore-*>` 元素。导入对应的核心入口以注册元素：
+
+```svelte
+<script lang="ts">
+  import "oreui-web/button";
+</script>
+
+<ore-button type="button">Create new world</ore-button>
+```
+
+<Callout type="warn">
+  目前仅支持 Svelte 客户端应用，暂不支持 SvelteKit SSR 和 hydration。
+</Callout>

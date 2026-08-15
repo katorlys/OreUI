@@ -9,7 +9,7 @@ import { DividerStory } from "@/components/stories/divider.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/divider";
@@ -41,6 +41,17 @@ import { Divider } from "@oreui-web/vue/divider";
 <template>
   <Divider />
 </template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import Divider from "@oreui-web/svelte/divider";
+</script>
+
+<Divider />
 ```
 
     </Tab>

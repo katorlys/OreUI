@@ -9,7 +9,7 @@ import { TagStory } from "@/components/stories/tag.story";
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/tag";
@@ -44,6 +44,17 @@ import { Tag } from "@oreui-web/vue/tag";
 ```
 
         </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import Tag from "@oreui-web/svelte/tag";
+</script>
+
+<Tag variant="primary">New</Tag>
+```
+
+    </Tab>
     <Tab value="Astro">
 
 ```astro

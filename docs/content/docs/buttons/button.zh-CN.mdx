@@ -11,7 +11,7 @@ Button 用于确认选择、打开页面、提交表单等操作。
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/button";
@@ -43,6 +43,17 @@ import { Button } from "@oreui-web/vue/button";
 <template>
   <Button type="button">Create new world</Button>
 </template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import Button from "@oreui-web/svelte/button";
+</script>
+
+<Button type="button">Create new world</Button>
 ```
 
     </Tab>

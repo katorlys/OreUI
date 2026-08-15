@@ -9,7 +9,7 @@ import { ProgressBarStory } from "@/components/stories/progress-bar.story";
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/progress-bar";
@@ -41,6 +41,17 @@ import { ProgressBar } from "@oreui-web/vue/progress-bar";
 <template>
   <ProgressBar :value="65" :max="100" variant="labeled" />
 </template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import ProgressBar from "@oreui-web/svelte/progress-bar";
+</script>
+
+<ProgressBar value={65} max={100} variant="labeled" />
 ```
 
     </Tab>

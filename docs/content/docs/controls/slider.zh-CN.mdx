@@ -9,7 +9,7 @@ import { SliderStory } from "@/components/stories/slider.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/slider";
@@ -72,6 +72,26 @@ const value = ref(12);
     :step="1"
   />
 </template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import Slider from "@oreui-web/svelte/slider";
+
+  let value = $state(12);
+</script>
+
+<Slider
+  bind:value
+  name="distance"
+  min={2}
+  max={32}
+  step={1}
+  aria-label="Render distance"
+/>
 ```
 
     </Tab>

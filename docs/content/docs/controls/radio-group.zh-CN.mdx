@@ -9,7 +9,7 @@ import { RadioGroupStory } from "@/components/stories/radio-group.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/radio-group";
@@ -61,6 +61,22 @@ import { Radio, RadioGroup } from "@oreui-web/vue";
     ><Radio name="world" value="hardcore" disabled>Hardcore</Radio></RadioGroup
   >
 </template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import Radio from "@oreui-web/svelte/radio";
+  import RadioGroup from "@oreui-web/svelte/radio-group";
+</script>
+
+<RadioGroup aria-label="World type">
+  <Radio name="world" value="survival" checked>Survival</Radio>
+  <Radio name="world" value="creative">Creative</Radio>
+  <Radio name="world" value="hardcore" disabled>Hardcore</Radio>
+</RadioGroup>
 ```
 
     </Tab>

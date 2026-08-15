@@ -9,7 +9,7 @@ import { IconButtonStory } from "@/components/stories/icon-button.story";
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/icon-button";
@@ -73,6 +73,28 @@ import "oreui-web/icon";
     ></ore-icon>
   </IconButton>
 </template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import IconButton from "@oreui-web/svelte/icon-button";
+  import "oreui-web/icon";
+</script>
+
+<IconButton type="button" aria-label="Close">
+  <ore-icon aria-hidden="true">
+    <svg viewBox="0 0 8 8">
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M.5.5h1v1h.966v1h-1v-1H.5zm7 1h-1v-1h1zm-2 1v-1h1v1zm-1 1h1v-1h-1zm0 1v-1h-1v-1h-1v1h1v1h-1v1h-1v1h-1v1h1v-1h1v-1h1v-1zm0 0h1v1h-1zm1.034 2H6.5v1h1v-1h-.966v-1h-1z"
+      />
+    </svg>
+  </ore-icon>
+</IconButton>
 ```
 
     </Tab>

@@ -9,7 +9,7 @@ import { TextfieldStory } from "@/components/stories/textfield.story";
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/textfield";
@@ -70,6 +70,25 @@ const value = ref("");
     description="Shown to other players"
   />
 </template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import Textfield from "@oreui-web/svelte/textfield";
+
+  let value = $state("");
+</script>
+
+<Textfield
+  bind:value
+  name="world"
+  label="World name"
+  description="Shown to other players"
+  placeholder="New World"
+/>
 ```
 
     </Tab>

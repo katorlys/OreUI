@@ -67,5 +67,9 @@ html > body[data-scroll-locked] {
 }
 
 .ore-framework-tabs [role="tab"]:nth-of-type(4)::before {
+  background-image: url("/OreUI/frameworks/svelte.svg");
+}
+
+.ore-framework-tabs [role="tab"]:nth-of-type(5)::before {
   background-image: url("/OreUI/frameworks/astro.svg");
 }

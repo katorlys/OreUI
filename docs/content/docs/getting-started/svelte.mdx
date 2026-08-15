@@ -1,0 +1,101 @@
+---
+title: Svelte
+description: OreUI for Svelte applications.
+---
+
+## Install
+
+```bash tab="pnpm"
+pnpm add @oreui-web/svelte
+```
+
+```bash tab="yarn"
+yarn add @oreui-web/svelte
+```
+
+```bash tab="npm"
+npm install @oreui-web/svelte
+```
+
+```bash tab="bun"
+bun add @oreui-web/svelte
+```
+
+## Add styles
+
+Import the stylesheet once in your app entry:
+
+```ts
+import "@oreui-web/svelte/styles.css";
+```
+
+## Use a component
+
+```svelte title="App.svelte"
+<script lang="ts">
+  import Button from "@oreui-web/svelte/button";
+</script>
+
+<Button type="button">Create new world</Button>
+```
+
+## Use bind
+
+Checkbox and Switch expose `bind:checked`. Slider, Textfield, and Dropdown expose `bind:value`.
+
+```svelte title="Settings.svelte"
+<script lang="ts">
+  import Checkbox from "@oreui-web/svelte/checkbox";
+  import Slider from "@oreui-web/svelte/slider";
+
+  let enabled = $state(false);
+  let volume = $state(40);
+</script>
+
+<Checkbox bind:checked={enabled}>Enable updates</Checkbox>
+<Slider bind:value={volume} min={0} max={100} />
+```
+
+<Callout type="info">
+  Import named exports from `@oreui-web/svelte` to use all the components.
+</Callout>
+
+## Events and element access
+
+Use Svelte callback props for events. Component instances expose `getElement()` to access the underlying typed `Ore*` custom element.
+
+```svelte
+<script lang="ts">
+  import Modal from "@oreui-web/svelte/modal";
+
+  let modal: ReturnType<typeof Modal>;
+</script>
+
+<Modal
+  bind:this={modal}
+  onModalClose={(event) => console.log(event.detail.reason)}
+>
+  <!-- Modal content -->
+</Modal>
+
+<button type="button" onclick={() => modal.getElement().show()}>
+  Open modal
+</button>
+```
+
+## Direct custom elements
+
+Svelte can also render `<ore-*>` elements directly. Import the corresponding core entry to register the element:
+
+```svelte
+<script lang="ts">
+  import "oreui-web/button";
+</script>
+
+<ore-button type="button">Create new world</ore-button>
+```
+
+<Callout type="warn">
+  Currently, OreUI only supports Svelte 5 client-side applications. SvelteKit
+  SSR and hydration are not supported.
+</Callout>

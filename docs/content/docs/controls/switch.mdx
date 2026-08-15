@@ -9,7 +9,7 @@ import { SwitchStory } from "@/components/stories/switch.story";
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/switch";
@@ -64,6 +64,21 @@ const checked = ref(false);
     Enable autosave
   </Switch>
 </template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import Switch from "@oreui-web/svelte/switch";
+
+  let checked = $state(false);
+</script>
+
+<Switch bind:checked name="autosave" value="enabled" variant="icons">
+  Enable autosave
+</Switch>
 ```
 
     </Tab>
