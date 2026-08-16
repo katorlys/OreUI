@@ -13,5 +13,6 @@
     "skipLibCheck": true,
     "types": ["node", "vite/client"]
   },
-  "include": ["src", "demo", "vite.config.ts"]
+  "include": ["src", "demo", "vite.config.ts"],
+  "exclude": ["demo/solid.tsx"]
 }

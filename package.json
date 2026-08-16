@@ -54,14 +54,14 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "pnpm build:core && pnpm --filter @oreui-web/react build && pnpm --filter @oreui-web/vue build && pnpm --filter @oreui-web/svelte build",
+    "build": "pnpm build:core && pnpm --filter @oreui-web/react build && pnpm --filter @oreui-web/vue build && pnpm --filter @oreui-web/svelte build && pnpm --filter @oreui-web/solid build",
     "build:core": "vite build && tsc -p tsconfig.build.json && node scripts/copy-assets.js",
     "docs:build": "pnpm --filter @katorlys/oreui-docs build",
     "docs:dev": "pnpm --filter @katorlys/oreui-docs dev",
     "docs:typecheck": "pnpm --filter @katorlys/oreui-docs typecheck",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "typecheck": "pnpm typecheck:core && pnpm --filter @oreui-web/react typecheck && pnpm --filter @oreui-web/vue typecheck && pnpm --filter @oreui-web/svelte typecheck",
+    "typecheck": "pnpm typecheck:core && pnpm typecheck:solid-demo && pnpm --filter @oreui-web/react typecheck && pnpm --filter @oreui-web/vue typecheck && pnpm --filter @oreui-web/svelte typecheck && pnpm --filter @oreui-web/solid typecheck",
     "typecheck:core": "tsc --noEmit",
     "preview": "vite preview"
   },
@@ -76,9 +76,11 @@
     "prettier": "^3.9.6",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "solid-js": "^1.9.14",
     "svelte": "^5.56.9",
     "typescript": "^7.0.2",
     "vite": "^8.2.1",
+    "vite-plugin-solid": "^2.11.14",
     "vue": "^3.5.41"
   },
   "engines": {

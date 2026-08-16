@@ -2,6 +2,7 @@ import { resolve } from "node:path";
 
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import { defineConfig } from "vite";
+import solid from "vite-plugin-solid";
 
 import { getComponents } from "./scripts/components.js";
 
@@ -15,7 +16,12 @@ const components = Object.fromEntries(
 
 export default defineConfig({
   root: "demo",
-  plugins: [svelte()],
+  plugins: [
+    svelte(),
+    solid({
+      include: ["demo/solid.tsx", "packages/solid/src/**/*.tsx"],
+    }),
+  ],
   build: {
     outDir: resolve(root, "dist"),
     emptyOutDir: true,

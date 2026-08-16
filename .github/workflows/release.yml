@@ -31,6 +31,7 @@ jobs:
               require('./packages/react/package.json').version,
               require('./packages/vue/package.json').version,
               require('./packages/svelte/package.json').version,
+              require('./packages/solid/package.json').version,
             ];
             const releaseVersion = process.env.GITHUB_EVENT_NAME === 'release'
               ? process.env.GITHUB_REF_NAME.replace(/^v/, '')
@@ -51,6 +52,7 @@ jobs:
           pnpm --dir packages/react pack --pack-destination "$GITHUB_WORKSPACE/packages-to-publish"
           pnpm --dir packages/vue pack --pack-destination "$GITHUB_WORKSPACE/packages-to-publish"
           pnpm --dir packages/svelte pack --pack-destination "$GITHUB_WORKSPACE/packages-to-publish"
+          pnpm --dir packages/solid pack --pack-destination "$GITHUB_WORKSPACE/packages-to-publish"
 
       - name: Publish core package
         run: pnpm publish "$GITHUB_WORKSPACE/packages-to-publish/oreui-web-${{ steps.version.outputs.value }}.tgz" --access public --tag beta --provenance
@@ -63,3 +65,6 @@ jobs:
 
       - name: Publish Svelte package
         run: pnpm publish "$GITHUB_WORKSPACE/packages-to-publish/oreui-web-svelte-${{ steps.version.outputs.value }}.tgz" --access public --tag beta --provenance
+
+      - name: Publish Solid package
+        run: pnpm publish "$GITHUB_WORKSPACE/packages-to-publish/oreui-web-solid-${{ steps.version.outputs.value }}.tgz" --access public --tag beta --provenance

@@ -1,0 +1,77 @@
+{
+  "name": "@oreui-web/solid",
+  "version": "0.0.0-beta.2",
+  "description": "Unofficial Ore UI component library for SolidJS applications.",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katorlys/OreUI.git",
+    "directory": "packages/solid"
+  },
+  "keywords": [
+    "ore-ui",
+    "oreui",
+    "minecraft",
+    "bedrock",
+    "css",
+    "component",
+    "library",
+    "component-library",
+    "minecraft-ui",
+    "style",
+    "pixel",
+    "ui",
+    "ugc",
+    "solid",
+    "solidjs"
+  ],
+  "homepage": "https://katorly.dev/OreUI",
+  "bugs": {
+    "url": "https://github.com/katorlys/OreUI/issues"
+  },
+  "license": "MPL-2.0",
+  "sideEffects": [
+    "*.css"
+  ],
+  "files": [
+    "dist",
+    "styles.css"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/components/*.d.ts",
+      "import": "./dist/components/*.js"
+    },
+    "./styles.css": "./styles.css",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "vite build && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "oreui-web": "workspace:*"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.9.0"
+  },
+  "devDependencies": {
+    "solid-js": "^1.9.14",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.1",
+    "vite-plugin-solid": "^2.11.14"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
