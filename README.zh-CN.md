@@ -37,7 +37,7 @@ OreUI 是一个非官方粉丝向的组件库，将 Minecraft 的 Ore UI 设计�
 - **跨框架**：支持 Vanilla JavaScript、React、Vue 等
 - **CSS 优先**：专注视觉设计，仅使用少量 JavaScript
 - **精简核心**：Lit 是唯一的运行时依赖
-- **自定义程度高**：使用 CSS 变量、TailwindCSS 和 Props 进行自定义
+- **自定义程度高**：使用 CSS 变量、TailwindCSS、PandaCSS 和 Props 进行自定义
 - **无障碍**：支持语义化 HTML、键盘操作、焦点管理和 ARIA
 
 ## 软件包

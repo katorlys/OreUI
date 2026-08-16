@@ -77,12 +77,11 @@ OreUI 提供全局设计变量和组件级变量。导入默认样式表后，�
 }
 ```
 
-OreUI 组件选择器位于最底层，因此 class 和 工具 class 也能覆盖常规 CSS 属性，无需使用 `!important`。
-
-例如，TailwindCSS 可以直接覆盖 OreUI 按钮的颜色：
+OreUI 组件选择器位于最底层，class 和工具 class 也能覆盖常规 CSS 属性，无需使用 `!important`。Button 的颜色由组件变量绘制，因此需要使用任意属性工具覆盖这些变量：
 
 ```html
-<ore-button class="bg-blue-600 hover:bg-blue-500 active:bg-blue-700"
+<ore-button
+  class="[--ore-button-background-default:#2563eb] [--ore-button-background-hover:#3b82f6] active:[--ore-button-background:#1d4ed8]"
   >Create a server</ore-button
 >
 ```

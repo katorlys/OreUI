@@ -1,6 +1,6 @@
 ---
 title: Styling
-description: Customize OreUI with CSS variables, TailwindCSS classes, and more.
+description: Customize OreUI with CSS variables, TailwindCSS, PandaCSS, and more.
 ---
 
 Import the default styles once in your application:
@@ -45,10 +45,35 @@ Modify CSS variables to change default styles.
 
 ## TailwindCSS
 
-TailwindCSS works directly on the element.
+Use standard utilities for properties such as sizing and spacing. To preserve a component's state styles, customize its public `--ore-*` variables with arbitrary property utilities.
 
 ```html
-<ore-button class="min-h-12 bg-red-600 text-white hover:bg-red-500">
+<ore-button
+  class="min-h-12 [--ore-button-background-default:#dc2626] [--ore-button-background-hover:#ef4444] [--ore-button-background-pressed:#b91c1c] [--ore-button-foreground:white]"
+  type="button"
+>
   Delete
 </ore-button>
+```
+
+The Button background draws its face, highlight, border, and shadow together, so a `bg-*` utility would replace that drawing instead of only changing its color.
+
+## PandaCSS
+
+PandaCSS can generate a class that sets the same public variables. Apply the returned class name using your framework's normal class binding.
+
+```tsx
+import { css } from "../styled-system/css";
+
+const dangerAction = css({
+  minHeight: "3rem",
+  "--ore-button-background-default": "#dc2626",
+  "--ore-button-background-hover": "#ef4444",
+  "--ore-button-background-pressed": "#b91c1c",
+  "--ore-button-foreground": "white",
+});
+
+<ore-button className={dangerAction} type="button">
+  Delete
+</ore-button>;
 ```

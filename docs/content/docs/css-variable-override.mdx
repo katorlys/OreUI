@@ -77,12 +77,11 @@ Wrap overrides in your own variables when you need a public theme API.
 }
 ```
 
-OreUI component selectors use low specificity, so classes and utilities can also override regular CSS properties without `!important`.
-
-For example, TailwindCSS classes can override OreUI button colors:
+OreUI component selectors use low specificity, so classes and utilities can also override regular CSS properties without `!important`. Button colors are drawn from component variables, so override those variables with arbitrary property utilities:
 
 ```html
-<ore-button class="bg-blue-600 hover:bg-blue-500 active:bg-blue-700"
+<ore-button
+  class="[--ore-button-background-default:#2563eb] [--ore-button-background-hover:#3b82f6] active:[--ore-button-background:#1d4ed8]"
   >Create a server</ore-button
 >
 ```

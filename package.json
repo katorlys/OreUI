@@ -70,15 +70,13 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^7.3.0",
-    "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
     "prettier": "^3.9.6",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "svelte": "^5.46.4",
-    "tailwindcss": "^4.3.3",
+    "svelte": "^5.56.9",
     "typescript": "^7.0.2",
     "vite": "^8.2.1",
     "vue": "^3.5.41"

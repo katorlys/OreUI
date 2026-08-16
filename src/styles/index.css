@@ -1,4 +1,4 @@
-@layer theme, base, components, utilities;
+@layer reset, theme, base, tokens, components, recipes, utilities;
 
 @import "./fonts.css";
 @import "./tokens.css";

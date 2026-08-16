@@ -1,6 +1,6 @@
 ---
 title: 样式
-description: 使用 CSS 变量、TailwindCSS 等自定义 OreUI
+description: 使用 CSS 变量、TailwindCSS、PandaCSS 等自定义 OreUI
 ---
 
 先在应用程序中导入一次默认样式：
@@ -45,10 +45,35 @@ description: 使用 CSS 变量、TailwindCSS 等自定义 OreUI
 
 ## TailwindCSS
 
-可直接将 TailwindCSS 应用到元素上。
+尺寸、间距等属性可以直接使用现成 utility。若要保留组件的状态样式，可使用任意属性 utility 覆盖组件公开的 `--ore-*` 变量。
 
 ```html
-<ore-button class="min-h-12 bg-red-600 text-white hover:bg-red-500">
+<ore-button
+  class="min-h-12 [--ore-button-background-default:#dc2626] [--ore-button-background-hover:#ef4444] [--ore-button-background-pressed:#b91c1c] [--ore-button-foreground:white]"
+  type="button"
+>
   Delete
 </ore-button>
+```
+
+Button 的背景会同时绘制表面、高光、边框和阴影，因此单纯地 `bg-*` utility 会导致整套绘制被替换，而不仅仅是改变颜色。
+
+## PandaCSS
+
+PandaCSS 可以生成设置相同公开变量的 class。使用框架通常的 class 绑定方式应用 `css()` 返回的 class 名称即可。
+
+```tsx
+import { css } from "../styled-system/css";
+
+const dangerAction = css({
+  minHeight: "3rem",
+  "--ore-button-background-default": "#dc2626",
+  "--ore-button-background-hover": "#ef4444",
+  "--ore-button-background-pressed": "#b91c1c",
+  "--ore-button-foreground": "white",
+});
+
+<ore-button className={dangerAction} type="button">
+  Delete
+</ore-button>;
 ```

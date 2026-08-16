@@ -37,7 +37,7 @@ Read the full documentation at [katorly.dev/OreUI](https://katorly.dev/OreUI/doc
 - **Cross-framework**: Vanilla JavaScript, React, Vue, and more
 - **CSS-first**: Focus on visual design, with minimal JavaScript
 - **Small core**: Lit is the only runtime dependency
-- **Fully customizable**: Customize using CSS variables, TailwindCSS, and properties
+- **Fully customizable**: Customize using CSS variables, TailwindCSS, PandaCSS and properties
 - **Accessibility**: Semantic HTML, keyboard support, focus management, and ARIA
 
 ## Packages
