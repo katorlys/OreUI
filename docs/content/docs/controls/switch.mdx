@@ -9,7 +9,7 @@ import { SwitchStory } from "@/components/stories/switch.story";
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/switch";
@@ -79,6 +79,30 @@ const checked = ref(false);
 <Switch bind:checked name="autosave" value="enabled" variant="icons">
   Enable autosave
 </Switch>
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { createSignal } from "solid-js";
+import { Switch } from "@oreui-web/solid/switch";
+
+export function AutosaveSwitch() {
+  const [checked, setChecked] = createSignal(false);
+
+  return (
+    <Switch
+      checked={checked()}
+      onCheckedChange={setChecked}
+      name="autosave"
+      value="enabled"
+      variant="icons"
+    >
+      Enable autosave
+    </Switch>
+  );
+}
 ```
 
     </Tab>

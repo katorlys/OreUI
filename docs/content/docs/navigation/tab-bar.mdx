@@ -9,7 +9,7 @@ import { TabBarStory } from "@/components/stories/tab-bar.story";
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/tab-bar";
@@ -71,6 +71,35 @@ import { TabBar, TabButton } from "@oreui-web/vue";
   <TabButton>Friends</TabButton>
   <TabButton>Servers</TabButton>
 </TabBar>
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { createSignal } from "solid-js";
+import { TabBar, TabButton } from "@oreui-web/solid";
+
+export function NavigationTabs() {
+  const [selected, setSelected] = createSignal("play");
+
+  return (
+    <TabBar aria-label="Navigation">
+      <TabButton
+        selected={selected() === "play"}
+        onChange={() => setSelected("play")}
+      >
+        Play
+      </TabButton>
+      <TabButton
+        selected={selected() === "settings"}
+        onChange={() => setSelected("settings")}
+      >
+        Settings
+      </TabButton>
+    </TabBar>
+  );
+}
 ```
 
     </Tab>

@@ -9,7 +9,7 @@ import { SliderStory } from "@/components/stories/slider.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/slider";
@@ -92,6 +92,30 @@ const value = ref(12);
   step={1}
   aria-label="Render distance"
 />
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { createSignal } from "solid-js";
+import { Slider } from "@oreui-web/solid/slider";
+
+export function RenderDistanceSlider() {
+  const [value, setValue] = createSignal(12);
+
+  return (
+    <Slider
+      value={value()}
+      onValueChange={setValue}
+      name="distance"
+      min={2}
+      max={32}
+      step={1}
+      aria-label="Render distance"
+    />
+  );
+}
 ```
 
     </Tab>

@@ -11,7 +11,7 @@ Tooltip adds a short description to a hovered control.
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/tooltip";
@@ -85,6 +85,24 @@ import { Button, Tooltip } from "@oreui-web/vue";
     <span class="ore-tooltip-arrow" aria-hidden="true"></span>
   </div>
 </Tooltip>
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { Button, Tooltip } from "@oreui-web/solid";
+
+export function HelpTooltip() {
+  return (
+    <Tooltip side="top">
+      <Button class="ore-tooltip-trigger" type="button">
+        Help
+      </Button>
+      <span class="ore-tooltip-content">Open help</span>
+    </Tooltip>
+  );
+}
 ```
 
     </Tab>

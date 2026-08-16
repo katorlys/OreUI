@@ -9,7 +9,7 @@ import { ToastStory } from "@/components/stories/toast.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/toast";
@@ -56,6 +56,33 @@ import { Toast } from "@oreui-web/vue/toast";
 </script>
 
 <Toast open aria-label="World saved">Saved</Toast>
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import type { OreToast } from "oreui-web/toast";
+import { Button, Toast } from "@oreui-web/solid";
+
+export function SavedToast() {
+  let toast: OreToast | undefined;
+
+  return (
+    <>
+      <Button type="button" onClick={() => toast?.show()}>
+        Save
+      </Button>
+      <Toast
+        ref={(element) => {
+          toast = element;
+        }}
+      >
+        World saved
+      </Toast>
+    </>
+  );
+}
 ```
 
     </Tab>

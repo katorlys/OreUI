@@ -1,0 +1,96 @@
+---
+title: SolidJS
+description: OreUI for SolidJS applications.
+---
+
+## Install
+
+```bash tab="pnpm"
+pnpm add @oreui-web/solid
+```
+
+```bash tab="yarn"
+yarn add @oreui-web/solid
+```
+
+```bash tab="npm"
+npm install @oreui-web/solid
+```
+
+```bash tab="bun"
+bun add @oreui-web/solid
+```
+
+## Add styles
+
+Import the stylesheet once in your app entry:
+
+```ts
+import "@oreui-web/solid/styles.css";
+```
+
+## Use a component
+
+```tsx title="App.tsx"
+import { Button } from "@oreui-web/solid/button";
+
+export function App() {
+  return <Button type="button">Create new world</Button>;
+}
+```
+
+## Use signals
+
+Use controlled props and change callbacks to control the value.
+
+Checkbox and Switch expose `checked` with `onCheckedChange`. Slider, Textfield, and Dropdown expose `value` with `onValueChange`.
+
+```tsx title="Settings.tsx"
+import { createSignal } from "solid-js";
+import { Checkbox, Slider } from "@oreui-web/solid";
+
+export function Settings() {
+  const [enabled, setEnabled] = createSignal(false);
+  const [volume, setVolume] = createSignal(40);
+
+  return (
+    <>
+      <Checkbox checked={enabled()} onCheckedChange={setEnabled}>
+        Enable updates
+      </Checkbox>
+      <Slider value={volume()} onValueChange={setVolume} min={0} max={100} />
+    </>
+  );
+}
+```
+The wrappers do not keep a second copy of the value. Your signal is the source of truth.
+
+## Refs and typed events
+
+A callback ref receives the underlying typed `Ore*` element. Custom events are exposed as typed callback props.
+
+```tsx title="GameMode.tsx"
+import type { OreDropdown } from "oreui-web/dropdown";
+import { Button, Dropdown } from "@oreui-web/solid";
+
+export function GameMode() {
+  return (
+    <Dropdown
+      ref={(element: OreDropdown) => console.log(element.value)}
+      onChange={(event) => console.log(event.detail.value)}
+      onOpenChange={(event) => console.log(event.detail)}
+    >
+      <Button class="ore-dropdown-trigger" type="button">
+        Game mode
+      </Button>
+      <div class="ore-dropdown-menu">
+        <button class="ore-dropdown-item" type="button" data-value="survival">
+          Survival
+        </button>
+      </div>
+    </Dropdown>
+  );
+}
+```
+
+The SolidJS wrappers forward `children`, `class`, DOM properties, ARIA attributes, native event handlers, and refs without adding extra DOM. They also provide JSX types for OreUI components, so your app does not need to extend `JSX.IntrinsicElements`.

@@ -9,7 +9,7 @@ import { RadioGroupStory } from "@/components/stories/radio-group.story";
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/radio-group";
@@ -77,6 +77,29 @@ import { Radio, RadioGroup } from "@oreui-web/vue";
   <Radio name="world" value="creative">Creative</Radio>
   <Radio name="world" value="hardcore" disabled>Hardcore</Radio>
 </RadioGroup>
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { Radio, RadioGroup } from "@oreui-web/solid";
+
+export function WorldType() {
+  return (
+    <RadioGroup aria-label="World type">
+      <Radio name="world" value="survival" checked>
+        Survival
+      </Radio>
+      <Radio name="world" value="creative">
+        Creative
+      </Radio>
+      <Radio name="world" value="hardcore" disabled>
+        Hardcore
+      </Radio>
+    </RadioGroup>
+  );
+}
 ```
 
     </Tab>

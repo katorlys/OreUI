@@ -9,7 +9,7 @@ import { TextfieldStory } from "@/components/stories/textfield.story";
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/textfield";
@@ -89,6 +89,29 @@ const value = ref("");
   description="Shown to other players"
   placeholder="New World"
 />
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { createSignal } from "solid-js";
+import { Textfield } from "@oreui-web/solid/textfield";
+
+export function WorldNameField() {
+  const [value, setValue] = createSignal("");
+
+  return (
+    <Textfield
+      value={value()}
+      onValueChange={setValue}
+      name="world"
+      label="World name"
+      description="Shown to other players"
+      placeholder="New World"
+    />
+  );
+}
 ```
 
     </Tab>

@@ -9,7 +9,7 @@ import { CheckboxStory } from "@/components/stories/checkbox.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/checkbox";
@@ -75,6 +75,29 @@ const checked = ref(false);
 <Checkbox bind:checked name="updates" value="yes">
   Receive updates
 </Checkbox>
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { createSignal } from "solid-js";
+import { Checkbox } from "@oreui-web/solid/checkbox";
+
+export function UpdatesCheckbox() {
+  const [checked, setChecked] = createSignal(false);
+
+  return (
+    <Checkbox
+      checked={checked()}
+      onCheckedChange={setChecked}
+      name="updates"
+      value="yes"
+    >
+      Receive updates
+    </Checkbox>
+  );
+}
 ```
 
     </Tab>

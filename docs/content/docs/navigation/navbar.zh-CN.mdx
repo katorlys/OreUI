@@ -9,7 +9,7 @@ import { NavbarStory } from "@/components/stories/navbar.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/navbar";
@@ -138,6 +138,21 @@ import "oreui-web/icon";
     </button>
   </div>
 </Navbar>
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { Navbar } from "@oreui-web/solid/navbar";
+
+export function Navigation() {
+  return (
+    <Navbar aria-label="Main navigation">
+      <a href="/">Home</a>
+    </Navbar>
+  );
+}
 ```
 
     </Tab>

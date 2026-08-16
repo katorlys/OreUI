@@ -9,7 +9,7 @@ import { AccordionStory } from "@/components/stories/accordion.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/accordion";
@@ -95,6 +95,26 @@ import { Accordion, IconButton } from "@oreui-web/vue";
     Realms are private, cloud-hosted worlds where you can play with friends.
   </div>
 </Accordion>
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { Accordion, IconButton } from "@oreui-web/solid";
+
+export function Details() {
+  return (
+    <Accordion value="details">
+      <IconButton
+        class="ore-accordion-trigger"
+        type="button"
+        aria-label="Toggle details"
+      />
+      <div class="ore-accordion-content">World details</div>
+    </Accordion>
+  );
+}
 ```
 
     </Tab>

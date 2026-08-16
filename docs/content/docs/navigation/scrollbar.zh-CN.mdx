@@ -9,7 +9,7 @@ import { ScrollbarStory } from "@/components/stories/scrollbar.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/scrollbar";
@@ -69,6 +69,17 @@ import { Scrollbar } from "@oreui-web/vue/scrollbar";
   <div>World 2</div>
   <div>World 3</div>
 </Scrollbar>
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { Scrollbar } from "@oreui-web/solid/scrollbar";
+
+export function ScrollableContent() {
+  return <Scrollbar style={{ height: "12rem" }}>Scrollable content</Scrollbar>;
+}
 ```
 
     </Tab>

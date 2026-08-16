@@ -9,7 +9,7 @@ import { ModalStory } from "@/components/stories/modal.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/modal";
@@ -323,6 +323,31 @@ const descriptionId = "form-modal-description";
     </form>
   </dialog>
 </Modal>
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { Button, Container, Modal } from "@oreui-web/solid";
+
+export function DeleteWorldModal() {
+  return (
+    <Modal onModalClose={(event) => console.log(event.detail.reason)}>
+      <Button class="ore-modal-trigger" type="button">
+        Delete world
+      </Button>
+      <dialog class="ore-modal-dialog" aria-label="Delete world">
+        <Container class="ore-modal-content" variant="dark">
+          <h2>Delete world?</h2>
+          <Button class="ore-modal-close" type="button" color="destructive">
+            Delete
+          </Button>
+        </Container>
+      </dialog>
+    </Modal>
+  );
+}
 ```
 
     </Tab>

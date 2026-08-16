@@ -9,7 +9,7 @@ import { DropdownStory } from "@/components/stories/dropdown.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/button";
@@ -149,6 +149,37 @@ const value = ref("creative");
     <button class="ore-dropdown-item" type="button" data-value="adventure">Adventure</button>
   </div>
 </Dropdown>
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { createSignal } from "solid-js";
+import { Button, Dropdown } from "@oreui-web/solid";
+
+export function GameModeDropdown() {
+  const [value, setValue] = createSignal("creative");
+
+  return (
+    <Dropdown value={value()} onValueChange={setValue} variant="bordered">
+      <Button class="ore-dropdown-trigger" type="button" color="secondary">
+        <span class="ore-dropdown-trigger-label">Game mode</span>
+      </Button>
+      <div class="ore-dropdown-menu">
+        <button class="ore-dropdown-item" type="button" data-value="survival">
+          Survival
+        </button>
+        <button class="ore-dropdown-item" type="button" data-value="creative">
+          Creative
+        </button>
+        <button class="ore-dropdown-item" type="button" data-value="adventure">
+          Adventure
+        </button>
+      </div>
+    </Dropdown>
+  );
+}
 ```
 
     </Tab>

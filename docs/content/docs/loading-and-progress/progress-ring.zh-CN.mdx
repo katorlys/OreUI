@@ -9,7 +9,7 @@ import { ProgressRingStory } from "@/components/stories/progress-ring.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/progress-ring";
@@ -55,6 +55,17 @@ import { ProgressRing } from "@oreui-web/vue/progress-ring";
 </script>
 
 <ProgressRing value={40} aria-label="World generation progress" />
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { ProgressRing } from "@oreui-web/solid/progress-ring";
+
+export function LoadingProgress() {
+  return <ProgressRing value={64} max={100} aria-label="Loading world" />;
+}
 ```
 
     </Tab>

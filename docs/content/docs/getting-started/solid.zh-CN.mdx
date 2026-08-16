@@ -1,0 +1,98 @@
+---
+title: SolidJS
+description: 在 SolidJS 应用中使用 OreUI
+---
+
+## 安装
+
+```bash tab="pnpm"
+pnpm add @oreui-web/solid
+```
+
+```bash tab="yarn"
+yarn add @oreui-web/solid
+```
+
+```bash tab="npm"
+npm install @oreui-web/solid
+```
+
+```bash tab="bun"
+bun add @oreui-web/solid
+```
+
+## 添加样式
+
+在 app entry 中导入一次样式表即可：
+
+```ts
+import "@oreui-web/solid/styles.css";
+```
+
+## 使用组件
+
+```tsx title="App.tsx"
+import { Button } from "@oreui-web/solid/button";
+
+export function App() {
+  return <Button type="button">Create new world</Button>;
+}
+```
+
+## 使用 signals
+
+使用 props 和变更回调来控制值。
+
+Checkbox 和 Switch 使用 `checked` 与 `onCheckedChange`。Slider、Textfield 和 Dropdown 使用 `value` 与 `onValueChange`。
+
+```tsx title="Settings.tsx"
+import { createSignal } from "solid-js";
+import { Checkbox, Slider } from "@oreui-web/solid";
+
+export function Settings() {
+  const [enabled, setEnabled] = createSignal(false);
+  const [volume, setVolume] = createSignal(40);
+
+  return (
+    <>
+      <Checkbox checked={enabled()} onCheckedChange={setEnabled}>
+        Enable updates
+      </Checkbox>
+      <Slider value={volume()} onValueChange={setVolume} min={0} max={100} />
+    </>
+  );
+}
+```
+
+wrapper 不会保存第二份值，signal 始终是唯一的数据来源。
+
+
+## Ref 与类型化事件
+
+callback ref 会接收具有类型的底层 `Ore*` 元素。自定义事件通过带有类型的 callback props 提供。
+
+```tsx title="GameMode.tsx"
+import type { OreDropdown } from "oreui-web/dropdown";
+import { Button, Dropdown } from "@oreui-web/solid";
+
+export function GameMode() {
+  return (
+    <Dropdown
+      ref={(element: OreDropdown) => console.log(element.value)}
+      onChange={(event) => console.log(event.detail.value)}
+      onOpenChange={(event) => console.log(event.detail)}
+    >
+      <Button class="ore-dropdown-trigger" type="button">
+        Game mode
+      </Button>
+      <div class="ore-dropdown-menu">
+        <button class="ore-dropdown-item" type="button" data-value="survival">
+          Survival
+        </button>
+      </div>
+    </Dropdown>
+  );
+}
+```
+
+SolidJS wrapper 会转发 `children`、`class`、DOM properties、ARIA attributes、原生事件处理器和 ref，并且不会添加额外 DOM。wrapper 也为 OreUI 组件提供 JSX 类型，因此应用无需扩展 `JSX.IntrinsicElements`。

@@ -9,7 +9,7 @@ import { TogglesStory } from "@/components/stories/toggles.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/toggles";
@@ -95,6 +95,38 @@ const value = ref("day");
   <TabButton selected={value === "night"} onChange={() => (value = "night")}>Night</TabButton>
   <TabButton selected={value === "always"} onChange={() => (value = "always")}>Always</TabButton>
 </Toggles>
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { createSignal } from "solid-js";
+import { TabButton, Toggles } from "@oreui-web/solid";
+
+export function DaylightToggles() {
+  const [value, setValue] = createSignal("day");
+
+  return (
+    <Toggles aria-label="Daylight cycle">
+      <TabButton selected={value() === "day"} onChange={() => setValue("day")}>
+        Day
+      </TabButton>
+      <TabButton
+        selected={value() === "night"}
+        onChange={() => setValue("night")}
+      >
+        Night
+      </TabButton>
+      <TabButton
+        selected={value() === "always"}
+        onChange={() => setValue("always")}
+      >
+        Always
+      </TabButton>
+    </Toggles>
+  );
+}
 ```
 
     </Tab>

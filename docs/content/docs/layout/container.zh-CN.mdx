@@ -9,7 +9,7 @@ import { ContainerStory } from "@/components/stories/container.story";
 
 ## 用法
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/container";
@@ -66,6 +66,17 @@ import { Container } from "@oreui-web/vue/container";
   <h2>World settings</h2>
   <p>Choose how players join your world.</p>
 </Container>
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { Container } from "@oreui-web/solid/container";
+
+export function Panel() {
+  return <Container variant="dark">World settings</Container>;
+}
 ```
 
     </Tab>

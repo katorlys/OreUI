@@ -11,7 +11,7 @@ Card groups media, a caption, metadata, and an optional action.
 
 ## Usage
 
-<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Astro"]} persist>
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/card";
@@ -163,6 +163,22 @@ import "oreui-web/icon";
     <span class="ore-card-meta">1.21</span>
   </div>
 </Card>
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { Card, Tag } from "@oreui-web/solid";
+
+export function WorldCard() {
+  return (
+    <Card>
+      <h3>New World</h3>
+      <Tag>Survival</Tag>
+    </Card>
+  );
+}
 ```
 
     </Tab>
