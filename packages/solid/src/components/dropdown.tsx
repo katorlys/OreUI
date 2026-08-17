@@ -1,9 +1,6 @@
 import "oreui-web/dropdown";
 
-import type {
-  OreDropdown,
-  OreDropdownChangeDetail,
-} from "oreui-web/dropdown";
+import type { OreDropdown, OreDropdownChangeDetail } from "oreui-web/dropdown";
 import { createOreComponent } from "../factory.js";
 import type { OpenChangeProps, OreComponentProps } from "../types.js";
 

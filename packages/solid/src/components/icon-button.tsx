@@ -9,10 +9,7 @@ export type IconButtonProps = OreComponentProps<
   "color" | "disabled" | "type" | "variant"
 >;
 
-export const IconButton = createOreComponent<
-  OreIconButton,
-  IconButtonProps
->({
+export const IconButton = createOreComponent<OreIconButton, IconButtonProps>({
   properties: ["color", "disabled", "type", "variant"],
   tagName: "ore-icon-button",
 });

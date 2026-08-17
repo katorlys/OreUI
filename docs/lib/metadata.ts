@@ -1,6 +1,22 @@
 import type { Metadata } from "next";
 
-const metadataBase = new URL("https://katorly.dev/OreUI/");
+const isDevelopment = process.env.NODE_ENV === "development";
+const isVercelPreview = process.env.VERCEL_ENV === "preview";
+const metadataBase = new URL(
+  isVercelPreview && process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}/OreUI/`
+    : "https://katorly.dev/OreUI/",
+);
+const faviconVariant = isDevelopment
+  ? ".dev"
+  : isVercelPreview
+    ? ".preview"
+    : "";
+
+export const favicon = {
+  ico: `/OreUI/favicon/favicon${faviconVariant}.ico`,
+  svg: `/OreUI/favicon/favicon${faviconVariant}.svg`,
+};
 
 export const metadata: Metadata = {
   metadataBase,
@@ -10,13 +26,6 @@ export const metadata: Metadata = {
   },
   description: "Unofficial Ore UI cross-framework component library.",
   icons: {
-    icon: [
-      {
-        url: new URL("favicon/favicon.svg", metadataBase),
-        type: "image/svg+xml",
-      },
-      { url: new URL("favicon/favicon.ico", metadataBase), sizes: "32x32" },
-    ],
     apple: new URL("favicon/apple-touch-icon.png", metadataBase),
   },
   manifest: new URL("favicon/site.webmanifest", metadataBase),

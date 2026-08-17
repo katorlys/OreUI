@@ -4,10 +4,7 @@ import type { OreModal, OreModalCloseDetail } from "oreui-web/modal";
 import { createOreComponent } from "../factory.js";
 import type { OpenChangeProps, OreComponentProps } from "../types.js";
 
-export type ModalProps = OreComponentProps<
-  OreModal,
-  "defaultOpen" | "open"
-> &
+export type ModalProps = OreComponentProps<OreModal, "defaultOpen" | "open"> &
   OpenChangeProps & {
     onModalClose?: (event: CustomEvent<OreModalCloseDetail>) => void;
   };

@@ -9,17 +9,16 @@ export type ProgressBarProps = OreComponentProps<
   "label" | "labelAlign" | "labelPosition" | "max" | "value" | "variant"
 >;
 
-export const ProgressBar = createOreComponent<
-  OreProgressBar,
-  ProgressBarProps
->({
-  properties: [
-    "label",
-    "labelAlign",
-    "labelPosition",
-    "max",
-    "value",
-    "variant",
-  ],
-  tagName: "ore-progress-bar",
-});
+export const ProgressBar = createOreComponent<OreProgressBar, ProgressBarProps>(
+  {
+    properties: [
+      "label",
+      "labelAlign",
+      "labelPosition",
+      "max",
+      "value",
+      "variant",
+    ],
+    tagName: "ore-progress-bar",
+  },
+);

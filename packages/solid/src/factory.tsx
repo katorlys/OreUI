@@ -42,10 +42,7 @@ export function createOreComponent<
   ];
 
   return (props: Props): JSX.Element => {
-    const [local, forwarded] = splitProps(
-      props,
-      localNames as (keyof Props)[],
-    );
+    const [local, forwarded] = splitProps(props, localNames as (keyof Props)[]);
     let element: Element | undefined;
 
     const setElement = (value: Element): void => {

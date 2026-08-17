@@ -6,13 +6,7 @@ import type { OreComponentProps } from "../types.js";
 
 export type SwitchProps = OreComponentProps<
   OreSwitch,
-  | "checked"
-  | "color"
-  | "disabled"
-  | "name"
-  | "required"
-  | "value"
-  | "variant"
+  "checked" | "color" | "disabled" | "name" | "required" | "value" | "variant"
 > & {
   onCheckedChange?: (checked: boolean) => void;
 };
