@@ -36,5 +36,8 @@ For full documentation, please visit [katorly.dev/OreUI](https://katorly.dev/Ore
 | <img src="../../docs/public/frameworks/svelte.svg" alt="" width="16" height="16"> `@oreui-web/svelte` | [![](https://img.shields.io/npm/v/%40oreui-web%2Fsvelte?style=flat-square)](https://www.npmjs.com/package/@oreui-web/svelte) | [![](https://img.shields.io/npm/dm/%40oreui-web%2Fsvelte?style=flat-square)](https://www.npmjs.com/package/@oreui-web/svelte) | [Docs](https://katorly.dev/OreUI/docs/getting-started/svelte) · [Source](https://github.com/katorlys/OreUI/tree/main/packages/svelte) |
 | <img src="../../docs/public/frameworks/solid.svg" alt="" width="16" height="16"> `@oreui-web/solid` | [![](https://img.shields.io/npm/v/%40oreui-web%2Fsolid?style=flat-square)](https://www.npmjs.com/package/@oreui-web/solid) | [![](https://img.shields.io/npm/dm/%40oreui-web%2Fsolid?style=flat-square)](https://www.npmjs.com/package/@oreui-web/solid) | [Docs](https://katorly.dev/OreUI/docs/getting-started/solid) · [Source](https://github.com/katorlys/OreUI/tree/main/packages/solid) |
 
+### Figma
+[![oreui_web](https://img.shields.io/badge/@oreui__web-F24E1E?style=flat-square&logo=figma&logoColor=white&label=Figma)](https://figma.com/@oreui_web)
+
 ## Contributing
 For information on how to contribute, please refer to the [contributing guidelines](https://katorly.dev/OreUI/docs/contributing).
