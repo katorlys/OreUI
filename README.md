@@ -50,7 +50,7 @@ Read the full documentation at [katorly.dev/OreUI](https://katorly.dev/OreUI/doc
 | <img src="docs/public/frameworks/solid.svg" alt="" width="16" height="16"> `@oreui-web/solid` | [![](https://img.shields.io/npm/v/%40oreui-web%2Fsolid?style=flat-square)](https://www.npmjs.com/package/@oreui-web/solid) | [![](https://img.shields.io/npm/dm/%40oreui-web%2Fsolid?style=flat-square)](https://www.npmjs.com/package/@oreui-web/solid) | [Docs](https://katorly.dev/OreUI/docs/getting-started/solid) · [Source](https://github.com/katorlys/OreUI/tree/main/packages/solid) |
 
 ### Figma
-[![oreui_web](https://img.shields.io/badge/@oreui__web-F24E1E?style=flat-square&logo=figma&logoColor=white&label=Figma)](https://figma.com/@oreui_web)
+[![oreui_web](https://img.shields.io/badge/@oreui__web-F24E1E?style=flat-square&logo=figma&logoColor=white&label=Figma)](https://www.figma.com/@oreui_web)
 
 
 ## Getting started

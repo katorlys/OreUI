@@ -50,7 +50,7 @@ OreUI 是一个非官方粉丝向的组件库，将 Minecraft 的 Ore UI 设计�
 | <img src="docs/public/frameworks/solid.svg" alt="" width="16" height="16"> `@oreui-web/solid` | [![](https://img.shields.io/npm/v/%40oreui-web%2Fsolid?style=flat-square)](https://www.npmjs.com/package/@oreui-web/solid) | [![](https://img.shields.io/npm/dm/%40oreui-web%2Fsolid?style=flat-square)](https://www.npmjs.com/package/@oreui-web/solid) | [文档](https://katorly.dev/OreUI/zh-CN/docs/getting-started/solid) · [源码](https://github.com/katorlys/OreUI/tree/main/packages/solid) |
 
 ### Figma
-[![oreui_web](https://img.shields.io/badge/@oreui__web-F24E1E?style=flat-square&logo=figma&logoColor=white&label=Figma)](https://figma.com/@oreui_web)
+[![oreui_web](https://img.shields.io/badge/@oreui__web-F24E1E?style=flat-square&logo=figma&logoColor=white&label=Figma)](https://www.figma.com/@oreui_web)
 
 ## 开始使用
 在[快速开始](https://katorly.dev/OreUI/docs/getting-started)中选择框架，或浏览[所有组件](https://katorly.dev/OreUI/docs/overview)。

@@ -47,7 +47,7 @@ export function baseOptions(
       text: "Figma",
       label: "Figma",
       icon: <FigmaIcon />,
-      url: "https://figma.com/@oreui_web",
+      url: "https://www.figma.com/@oreui_web",
       external: true,
     },
   ];

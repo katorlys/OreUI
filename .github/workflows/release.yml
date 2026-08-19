@@ -55,16 +55,16 @@ jobs:
           pnpm --dir packages/solid pack --pack-destination "$GITHUB_WORKSPACE/packages-to-publish"
 
       - name: Publish core package
-        run: pnpm publish "$GITHUB_WORKSPACE/packages-to-publish/oreui-web-${{ steps.version.outputs.value }}.tgz" --access public --tag beta --provenance
+        run: pnpm publish "$GITHUB_WORKSPACE/packages-to-publish/oreui-web-${{ steps.version.outputs.value }}.tgz" --access public --provenance
 
       - name: Publish React package
-        run: pnpm publish "$GITHUB_WORKSPACE/packages-to-publish/oreui-web-react-${{ steps.version.outputs.value }}.tgz" --access public --tag beta --provenance
+        run: pnpm publish "$GITHUB_WORKSPACE/packages-to-publish/oreui-web-react-${{ steps.version.outputs.value }}.tgz" --access public --provenance
 
       - name: Publish Vue package
-        run: pnpm publish "$GITHUB_WORKSPACE/packages-to-publish/oreui-web-vue-${{ steps.version.outputs.value }}.tgz" --access public --tag beta --provenance
+        run: pnpm publish "$GITHUB_WORKSPACE/packages-to-publish/oreui-web-vue-${{ steps.version.outputs.value }}.tgz" --access public --provenance
 
       - name: Publish Svelte package
-        run: pnpm publish "$GITHUB_WORKSPACE/packages-to-publish/oreui-web-svelte-${{ steps.version.outputs.value }}.tgz" --access public --tag beta --provenance
+        run: pnpm publish "$GITHUB_WORKSPACE/packages-to-publish/oreui-web-svelte-${{ steps.version.outputs.value }}.tgz" --access public --provenance
 
       - name: Publish Solid package
-        run: pnpm publish "$GITHUB_WORKSPACE/packages-to-publish/oreui-web-solid-${{ steps.version.outputs.value }}.tgz" --access public --tag beta --provenance
+        run: pnpm publish "$GITHUB_WORKSPACE/packages-to-publish/oreui-web-solid-${{ steps.version.outputs.value }}.tgz" --access public --provenance

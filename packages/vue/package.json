@@ -1,6 +1,6 @@
 {
   "name": "@oreui-web/vue",
-  "version": "0.0.0-beta.2",
+  "version": "0.0.0",
   "description": "Unofficial Ore UI component library for Vue applications.",
   "type": "module",
   "repository": {

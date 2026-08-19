@@ -10,7 +10,7 @@ Each component should be placed in `src/components/<name>/` and include `<name>.
 
 ### Design guidelines
 
-- Design components in [Figma](https://figma.com/@oreui_web) before writing code
+- Design components in [Figma](https://www.figma.com/@oreui_web) before writing code
 - Keep the visuals as consistent with the official Ore UI as possible
 - For components not found in the official Ore UI, follow the design language of existing components
 
