@@ -120,7 +120,8 @@ export class OreScrollbar extends ReactiveElement {
     this.#horizontalThumb.setAttribute("aria-hidden", "true");
     this.#horizontalTrack.append(this.#horizontalThumb);
 
-    this.append(this.#verticalTrack, this.#horizontalTrack);
+    this.prepend(this.#verticalTrack);
+    this.append(this.#horizontalTrack);
   }
 
   #syncScrollbars(): void {
@@ -154,9 +155,6 @@ export class OreScrollbar extends ReactiveElement {
       "--ore-scrollbar-horizontal-track-size",
       `${horizontalTrackSize}px`,
     );
-    this.#verticalTrack.style.transform = `translateY(${this.scrollTop}px)`;
-    this.#horizontalTrack.style.transform = `translate(${this.scrollLeft}px, ${this.scrollTop}px)`;
-
     if (hasVertical) {
       const thumbSize = Math.max(
         this.#thumbMinSize,

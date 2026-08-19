@@ -76,7 +76,7 @@
     "prettier": "^3.9.6",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "solid-js": "^1.9.14",
+    "solid-js": "^1.9.15",
     "svelte": "^5.56.9",
     "typescript": "^7.0.2",
     "vite": "^8.2.1",

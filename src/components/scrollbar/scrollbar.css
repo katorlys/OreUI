@@ -34,7 +34,7 @@
   height: 0;
 }
 :where(ore-scrollbar) > .ore-scrollbar-track {
-  position: absolute;
+  position: sticky;
   z-index: var(--ore-scrollbar-z-index);
   display: block;
   pointer-events: none;
@@ -50,15 +50,17 @@
 }
 
 :where(ore-scrollbar) > .ore-scrollbar-track-vertical {
-  inset: 0 0 auto auto;
+  inset: 0 auto auto calc(100% - var(--ore-scrollbar-size));
   width: var(--ore-scrollbar-size);
   height: var(--ore-scrollbar-vertical-track-size);
+  margin-bottom: calc(-1 * var(--ore-scrollbar-vertical-track-size));
 }
 
 :where(ore-scrollbar) > .ore-scrollbar-track-horizontal {
   inset: auto auto 0 0;
   width: var(--ore-scrollbar-horizontal-track-size);
   height: var(--ore-scrollbar-horizontal-size);
+  margin-top: calc(-1 * var(--ore-scrollbar-horizontal-size));
   background-size: 100% var(--ore-scrollbar-track-size);
 }
 
