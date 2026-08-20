@@ -3,7 +3,11 @@ title: Button 按钮
 description: 触发操作
 ---
 
-import { ButtonStory } from "@/components/stories/button.story";
+import {
+  ButtonAffixesPreview,
+  ButtonStory,
+  LinkButtonPreview,
+} from "@/components/stories/button.story";
 
 Button 用于确认选择、打开页面、提交表单等操作。
 
@@ -107,15 +111,59 @@ export function App() {
 <ore-button disabled>Unavailable</ore-button>
 ```
 
-## 表单
+## 加载中
 
-默认的 `type` 为 `submit`。当按钮不应提交表单时，需设置 `type="button"`。
+操作进行时可设置 `loading`。按钮会保持原宽度、显示 Spinner、提供 `aria-busy="true"`，并阻止重复触发。
 
 ```html
-<form>
-  <ore-button type="submit">Save</ore-button>
+<ore-button loading>Saving</ore-button>
+```
+
+## 前后缀
+
+使用公开的 `.ore-button-prefix` 和 `.ore-button-suffix` 类，在标签前后放置展示性元素。
+
+<ButtonAffixesPreview />
+
+```html
+<ore-button>
+  <img class="ore-button-prefix" src="/icons/arrow-left.svg" alt="" />
+  Back
+</ore-button>
+
+<ore-button>
+  Continue
+  <img class="ore-button-suffix" src="/icons/arrow-right.svg" alt="" />
+</ore-button>
+```
+
+## 链接
+
+设置 `href` 后，组件可用于页面导航。链接按钮使用原生锚点，支持在新标签页打开、复制链接和下载资源等浏览器行为。
+
+<LinkButtonPreview />
+
+```html
+<ore-button href="https://example.com" target="_blank" rel="noreferrer">
+  Open website
+</ore-button>
+```
+
+页面导航应使用链接按钮，触发操作则使用普通按钮。禁用的链接会移出 Tab 顺序，并且不会发生导航。
+
+## 表单
+
+默认的 `type` 为 `button`，以避免意外提交表单。提交按钮需要显式设置 `type="submit"`。只有触发表单提交的按钮才会提交自己的 `name` 和 `value`。使用 `form` 可将表单外的按钮关联到指定 ID 的表单。
+
+```html
+<form id="settings">
+  <ore-button type="submit" name="action" value="save">Save</ore-button>
   <ore-button type="reset" color="secondary">Reset</ore-button>
 </form>
+
+<ore-button type="submit" form="settings" name="action" value="save-and-close">
+  Save and close
+</ore-button>
 ```
 
 ## API
@@ -124,8 +172,17 @@ export function App() {
 | ---------- | ---------- | -------------------------------------------------------------------------------------------- | ----------- |
 | `color`    | `color`    | `"destructive" \| "dungeons" \| "gold" \| "legends" \| "primary" \| "realms" \| "secondary"` | `"primary"` |
 | `disabled` | `disabled` | `boolean`                                                                                    | `false`     |
-| `type`     | `type`     | `"button" \|"reset" \|"submit"`                                                              | `"submit"`  |
+| `download` | `download` | `string \| undefined`                                                                        | `undefined` |
+| `href`     | `href`     | `string \| undefined`                                                                        | `undefined` |
+| `loading`  | `loading`  | `boolean`                                                                                    | `false`     |
+| `name`     | `name`     | `string`                                                                                     | `""`        |
+| `rel`      | `rel`      | `string \| undefined`                                                                        | `undefined` |
+| `target`   | `target`   | `string \| undefined`                                                                        | `undefined` |
+| `type`     | `type`     | `"button" \| "reset" \| "submit"`                                                            | `"button"`  |
+| `value`    | `value`    | `string`                                                                                     | `""`        |
 | `variant`  | `variant`  | `"default" \| "hero"`                                                                        | `"default"` |
+
+只读的 `form` property 会返回关联的 `HTMLFormElement`，没有关联表单时返回 `null`。`form` 属性接受表单 ID。
 
 ## CSS 变量
 
@@ -147,4 +204,4 @@ export function App() {
 
 ## 无障碍
 
-该组件使用按钮语义，并支持 `Enter` 和 `Space` 键。禁用的按钮不会被 Tab 键选中，并带有 `aria-disabled="true"`。
+未设置 `href` 时，组件使用按钮语义，并支持 `Enter` 和 `Space` 键。设置 `href` 后，原生锚点会提供链接语义和标准浏览器导航行为。禁用的按钮和链接不会被 Tab 键选中，并带有 `aria-disabled="true"`。加载中的按钮提供 `aria-busy="true"` 并阻止重复触发。

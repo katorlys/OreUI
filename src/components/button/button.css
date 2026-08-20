@@ -83,6 +83,44 @@
   position: relative;
 }
 
+:where(ore-button > .ore-button-link) {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  color: inherit;
+  text-decoration: none;
+}
+
+:where(ore-button > .ore-button-prefix) {
+  margin-inline-end: calc(var(--ore-button-unit) * 4);
+}
+
+:where(ore-button > .ore-button-suffix) {
+  margin-inline-start: calc(var(--ore-button-unit) * 4);
+}
+
+:where(ore-button > .ore-button-spinner) {
+  position: absolute;
+  z-index: 2;
+  width: calc(var(--ore-button-unit) * 8);
+  height: calc(var(--ore-button-unit) * 8);
+  color: var(--ore-button-foreground);
+}
+
+:where(ore-button[loading]) {
+  color: transparent;
+  text-shadow: none;
+  cursor: wait;
+}
+
+:where(ore-button[loading] > :not(.ore-button-spinner, .ore-button-link)) {
+  visibility: hidden;
+}
+
+:where(ore-button[loading] > .ore-button-spinner) {
+  color: var(--ore-button-foreground);
+}
+
 :where(ore-button[variant="hero"]) {
   --ore-button-font-family: var(--ore-font-display);
   --ore-button-font-size: calc(var(--ore-button-unit) * 9);
@@ -167,15 +205,27 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :where(ore-button, ore-tab-button):hover:not([disabled], [form-disabled]) {
+  :where(ore-button, ore-tab-button):hover:not(
+      [disabled],
+      [form-disabled],
+      [loading]
+    ) {
     --ore-button-background: var(--ore-button-background-hover);
     --ore-button-highlight: var(--ore-button-highlight-hover);
   }
 }
 
 :where(
-  :is(ore-button, ore-tab-button):active:not([disabled], [form-disabled]),
-  :is(ore-button, ore-tab-button)[pressed]:not([disabled], [form-disabled])
+  :is(ore-button, ore-tab-button):active:not(
+      [disabled],
+      [form-disabled],
+      [loading]
+    ),
+  :is(ore-button, ore-tab-button)[pressed]:not(
+      [disabled],
+      [form-disabled],
+      [loading]
+    )
 ) {
   --ore-button-background: var(--ore-button-background-pressed);
   --ore-button-highlight: var(--ore-button-highlight-pressed);
@@ -186,11 +236,13 @@
   padding-bottom: 0;
 }
 
-:where(ore-button, ore-tab-button):focus-visible {
+:where(ore-button, ore-tab-button):focus-visible,
+:where(ore-button > .ore-button-link):focus-visible {
   outline: none;
 }
 
-:where(ore-button, ore-tab-button):focus-visible::before {
+:where(ore-button, ore-tab-button):focus-visible::before,
+:where(ore-button:has(> .ore-button-link:focus-visible))::before {
   box-shadow:
     inset 0 0 0 var(--ore-button-unit) var(--ore-color-focus-ring),
     inset 0 0 0 calc(var(--ore-button-unit) * 2) var(--ore-button-border);

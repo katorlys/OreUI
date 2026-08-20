@@ -3,7 +3,11 @@ title: Button
 description: Trigger an action.
 ---
 
-import { ButtonStory } from "@/components/stories/button.story";
+import {
+  ButtonAffixesPreview,
+  ButtonStory,
+  LinkButtonPreview,
+} from "@/components/stories/button.story";
 
 Use buttons for actions such as confirming a choice, opening a screen, or submitting a form.
 
@@ -107,15 +111,59 @@ export function App() {
 <ore-button disabled>Unavailable</ore-button>
 ```
 
-## Forms
+## Loading
 
-The default `type` is `submit`. Set `type="button"` when the button should not submit its form.
+Set `loading` while an action is in progress. The button keeps its width, shows a spinner, exposes `aria-busy="true"`, and prevents repeated activation.
 
 ```html
-<form>
-  <ore-button type="submit">Save</ore-button>
+<ore-button loading>Saving</ore-button>
+```
+
+## Prefix and suffix
+
+Use the public `.ore-button-prefix` and `.ore-button-suffix` classes to place presentational elements around the label.
+
+<ButtonAffixesPreview />
+
+```html
+<ore-button>
+  <img class="ore-button-prefix" src="/icons/arrow-left.svg" alt="" />
+  Back
+</ore-button>
+
+<ore-button>
+  Continue
+  <img class="ore-button-suffix" src="/icons/arrow-right.svg" alt="" />
+</ore-button>
+```
+
+## Links
+
+Set `href` to use the component for navigation. Link buttons use a native anchor and support browser behaviors such as opening in a new tab, copying the link, and downloading a resource.
+
+<LinkButtonPreview />
+
+```html
+<ore-button href="https://example.com" target="_blank" rel="noreferrer">
+  Open website
+</ore-button>
+```
+
+Use a link button for navigation and a regular button for actions. A disabled link is removed from the tab order and does not navigate.
+
+## Forms
+
+The default `type` is `button` to avoid accidental form submission. Set `type="submit"` explicitly for a submit button. `name` and `value` are included only when that button submits the form. Use `form` to associate a button outside the form with a form ID.
+
+```html
+<form id="settings">
+  <ore-button type="submit" name="action" value="save">Save</ore-button>
   <ore-button type="reset" color="secondary">Reset</ore-button>
 </form>
+
+<ore-button type="submit" form="settings" name="action" value="save-and-close">
+  Save and close
+</ore-button>
 ```
 
 ## API
@@ -124,8 +172,17 @@ The default `type` is `submit`. Set `type="button"` when the button should not s
 | ---------- | ---------- | -------------------------------------------------------------------------------------------- | ----------- |
 | `color`    | `color`    | `"destructive" \| "dungeons" \| "gold" \| "legends" \| "primary" \| "realms" \| "secondary"` | `"primary"` |
 | `disabled` | `disabled` | `boolean`                                                                                    | `false`     |
-| `type`     | `type`     | `"button" \|"reset" \|"submit"`                                                              | `"submit"`  |
+| `download` | `download` | `string \| undefined`                                                                        | `undefined` |
+| `href`     | `href`     | `string \| undefined`                                                                        | `undefined` |
+| `loading`  | `loading`  | `boolean`                                                                                    | `false`     |
+| `name`     | `name`     | `string`                                                                                     | `""`        |
+| `rel`      | `rel`      | `string \| undefined`                                                                        | `undefined` |
+| `target`   | `target`   | `string \| undefined`                                                                        | `undefined` |
+| `type`     | `type`     | `"button" \| "reset" \| "submit"`                                                            | `"button"`  |
+| `value`    | `value`    | `string`                                                                                     | `""`        |
 | `variant`  | `variant`  | `"default" \| "hero"`                                                                        | `"default"` |
+
+The read-only `form` property returns the associated `HTMLFormElement`, or `null`. The `form` attribute accepts a form ID.
 
 ## CSS variables
 
@@ -147,4 +204,4 @@ The default `type` is `submit`. Set `type="button"` when the button should not s
 
 ## Accessibility
 
-The component uses button semantics and supports `Enter` and `Space`. Disabled buttons are removed from the tab and expose `aria-disabled="true"`.
+Without `href`, the component uses button semantics and supports `Enter` and `Space`. With `href`, a native anchor provides link semantics and standard browser navigation. Disabled buttons and links are removed from the tab order and expose `aria-disabled="true"`. Loading buttons expose `aria-busy="true"` and prevent repeated activation.

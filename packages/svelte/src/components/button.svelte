@@ -10,7 +10,17 @@
 
   export type ButtonProps = OreComponentProps<
     OreButton,
-    "color" | "disabled" | "type" | "variant"
+    | "color"
+    | "disabled"
+    | "download"
+    | "href"
+    | "loading"
+    | "name"
+    | "rel"
+    | "target"
+    | "type"
+    | "value"
+    | "variant"
   > & {
     color?: OreButtonColor;
     type?: OreButtonType;

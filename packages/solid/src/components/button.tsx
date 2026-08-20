@@ -11,7 +11,17 @@ import type { OreComponentProps } from "../types.js";
 
 export type ButtonProps = OreComponentProps<
   OreButton,
-  "color" | "disabled" | "type" | "variant"
+  | "color"
+  | "disabled"
+  | "download"
+  | "href"
+  | "loading"
+  | "name"
+  | "rel"
+  | "target"
+  | "type"
+  | "value"
+  | "variant"
 > & {
   color?: OreButtonColor;
   type?: OreButtonType;
@@ -19,6 +29,18 @@ export type ButtonProps = OreComponentProps<
 };
 
 export const Button = createOreComponent<OreButton, ButtonProps>({
-  properties: ["color", "disabled", "type", "variant"],
+  properties: [
+    "color",
+    "disabled",
+    "download",
+    "href",
+    "loading",
+    "name",
+    "rel",
+    "target",
+    "type",
+    "value",
+    "variant",
+  ],
   tagName: "ore-button",
 });
