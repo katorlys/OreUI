@@ -25,6 +25,7 @@
 @import "../components/tab-bar/tab-bar.css" layer(components);
 @import "../components/tab-button/tab-button.css" layer(components);
 @import "../components/tag/tag.css" layer(components);
+@import "../components/textarea/textarea.css" layer(components);
 @import "../components/textfield/textfield.css" layer(components);
 @import "../components/toast/toast.css" layer(components);
 @import "../components/tooltip/tooltip.css" layer(components);

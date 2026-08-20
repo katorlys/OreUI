@@ -20,6 +20,7 @@ export * from "./components/tab-bar.js";
 export * from "./components/tab-button.js";
 export * from "./components/table.js";
 export * from "./components/tag.js";
+export * from "./components/textarea.js";
 export * from "./components/textfield.js";
 export * from "./components/toast.js";
 export * from "./components/toggles.js";

@@ -42,6 +42,8 @@ export { default as Table } from "./components/table.svelte";
 export type { TableProps } from "./components/table.svelte";
 export { default as Tag } from "./components/tag.svelte";
 export type { TagProps } from "./components/tag.svelte";
+export { default as Textarea } from "./components/textarea.svelte";
+export type { TextareaProps } from "./components/textarea.svelte";
 export { default as Textfield } from "./components/textfield.svelte";
 export type { TextfieldProps } from "./components/textfield.svelte";
 export { default as Toast } from "./components/toast.svelte";

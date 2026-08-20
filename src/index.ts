@@ -60,6 +60,10 @@ export {
   type OreTabButtonPalette,
 } from "./components/tab-button/tab-button.js";
 export { OreTag, type OreTagVariant } from "./components/tag/tag.js";
+export {
+  OreTextarea,
+  type OreTextareaWrap,
+} from "./components/textarea/textarea.js";
 export { OreTextfield } from "./components/textfield/textfield.js";
 export {
   OreTooltip,

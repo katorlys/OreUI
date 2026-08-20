@@ -173,9 +173,7 @@ export class OreSlider extends ReactiveElement {
       rangeSize > 0 ? (valueStart - this.min) / rangeSize : 0;
     const progressEnd = rangeSize > 0 ? (value - this.min) / rangeSize : 0;
     const segmentSize =
-      rangeSize > 0 && this.step > 0
-        ? Math.min(this.step / rangeSize, 1)
-        : 1;
+      rangeSize > 0 && this.step > 0 ? Math.min(this.step / rangeSize, 1) : 1;
 
     this.style.setProperty(
       "--ore-slider-progress-start",
@@ -226,10 +224,7 @@ export class OreSlider extends ReactiveElement {
     const startInput = this.startInput;
 
     if (target === startInput) {
-      this.valueStart = Math.min(
-        target.valueAsNumber,
-        this.value,
-      );
+      this.valueStart = Math.min(target.valueAsNumber, this.value);
     } else {
       this.value = Math.max(
         this.input?.valueAsNumber ?? this.value,

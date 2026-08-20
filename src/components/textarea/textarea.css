@@ -1,0 +1,106 @@
+:where(ore-textarea) {
+  --ore-textarea-unit: var(--ore-size-unit);
+  --ore-textarea-background: var(--ore-color-neutral-surface-raised);
+  --ore-textarea-shadow: var(--ore-color-neutral-surface-sunken);
+  --ore-textarea-border: var(--ore-color-border);
+  --ore-textarea-foreground: var(--ore-color-foreground);
+  --ore-textarea-input-foreground: var(--ore-color-foreground);
+  --ore-textarea-description: var(--ore-color-disabled);
+  --ore-textarea-error: var(--ore-color-destructive-highlight-hover);
+  --ore-textarea-focus-ring: transparent;
+  --ore-textarea-caret: var(--ore-color-primary-background);
+
+  display: inline-grid;
+  width: min(100%, calc(var(--ore-textarea-unit) * 122));
+  color: var(--ore-textarea-foreground);
+  font-family: var(--ore-font-body);
+}
+
+:where(ore-textarea > .ore-textarea-label) {
+  font-size: calc(var(--ore-textarea-unit) * 8);
+  line-height: calc(var(--ore-textarea-unit) * 10);
+  cursor: text;
+}
+
+:where(ore-textarea > .ore-textarea-control) {
+  display: grid;
+  box-sizing: border-box;
+  min-height: calc(var(--ore-textarea-unit) * 38);
+  margin-top: var(--ore-textarea-unit);
+  padding: calc(var(--ore-textarea-unit) * 3) calc(var(--ore-textarea-unit) * 1)
+    calc(var(--ore-textarea-unit) * 1);
+  overflow: hidden;
+  background:
+    linear-gradient(var(--ore-textarea-shadow), var(--ore-textarea-shadow))
+      center var(--ore-textarea-unit) /
+      calc(100% - var(--ore-textarea-unit) * 2)
+      calc(var(--ore-textarea-unit) * 2) no-repeat,
+    linear-gradient(
+        var(--ore-textarea-background),
+        var(--ore-textarea-background)
+      )
+      center calc(var(--ore-textarea-unit) * 3) /
+      calc(100% - var(--ore-textarea-unit) * 2)
+      calc(100% - var(--ore-textarea-unit) * 4) no-repeat,
+    var(--ore-textarea-border);
+  box-shadow: 0 0 0 var(--ore-textarea-unit) var(--ore-textarea-focus-ring);
+}
+
+:where(ore-textarea .ore-textarea-input) {
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
+  min-height: calc(var(--ore-textarea-unit) * 32);
+  margin: 0;
+  padding: calc(var(--ore-textarea-unit) * 2) calc(var(--ore-textarea-unit) * 3);
+  border: 0;
+  outline: 0;
+  color: var(--ore-textarea-input-foreground);
+  background: transparent;
+  font: inherit;
+  font-size: calc(var(--ore-textarea-unit) * 8);
+  line-height: calc(var(--ore-textarea-unit) * 10);
+  caret-color: var(--ore-textarea-caret);
+  resize: both;
+}
+
+:where(ore-textarea .ore-textarea-input::placeholder) {
+  color: var(--ore-color-disabled-foreground-dim);
+  opacity: 1;
+}
+
+:where(ore-textarea > .ore-textarea-description) {
+  margin-top: calc(var(--ore-textarea-unit) * 2);
+  color: var(--ore-textarea-description);
+  font-size: calc(var(--ore-textarea-unit) * 6);
+  line-height: calc(var(--ore-textarea-unit) * 7);
+}
+
+:where(ore-textarea > .ore-textarea-error) {
+  margin-top: calc(var(--ore-textarea-unit) * 2);
+  color: var(--ore-textarea-error);
+  font-size: calc(var(--ore-textarea-unit) * 6);
+  line-height: calc(var(--ore-textarea-unit) * 7);
+}
+
+:where(ore-textarea[aria-invalid="true"] > .ore-textarea-control) {
+  --ore-textarea-border: var(--ore-color-destructive-highlight);
+  --ore-textarea-shadow: var(--ore-color-destructive-shadow);
+}
+
+:where(ore-textarea:has(.ore-textarea-input:focus-visible)) {
+  --ore-textarea-focus-ring: var(--ore-color-focus-ring);
+}
+
+:where(ore-textarea[disabled], ore-textarea[form-disabled]) {
+  --ore-textarea-background: var(--ore-color-disabled);
+  --ore-textarea-shadow: var(--ore-color-disabled-shadow);
+  --ore-textarea-border: var(--ore-color-disabled-border);
+  --ore-textarea-foreground: var(--ore-color-disabled);
+  --ore-textarea-input-foreground: var(--ore-color-disabled);
+}
+
+:where(ore-textarea[disabled], ore-textarea[form-disabled])
+  > .ore-textarea-label {
+  cursor: not-allowed;
+}

@@ -263,7 +263,10 @@
   z-index: 1;
 }
 
-:where(ore-slider[range]:has(> .ore-slider-input-start:focus) > .ore-slider-input-start) {
+:where(
+  ore-slider[range]:has(> .ore-slider-input-start:focus)
+    > .ore-slider-input-start
+) {
   z-index: 2;
 }
 

@@ -1,0 +1,176 @@
+---
+title: Textarea 多行文本框
+description: 输入与编辑多行文本
+---
+
+import { TextareaStory } from "@/components/stories/textarea.story";
+
+<TextareaStory />
+
+## 用法
+
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "oreui-web/textarea";
+```
+
+```html
+<ore-textarea
+  name="description"
+  label="World description"
+  placeholder="Describe your world"
+  rows="4"
+></ore-textarea>
+```
+
+    </Tab>
+    <Tab value="React">
+
+```tsx
+import { Textarea } from "@oreui-web/react/textarea";
+import type { OreTextarea } from "oreui-web/textarea";
+import { useRef, useState } from "react";
+
+export function WorldDescription() {
+  const [value, setValue] = useState("");
+  const ref = useRef<OreTextarea>(null);
+
+  return (
+    <Textarea
+      ref={ref}
+      label="World description"
+      rows={4}
+      value={value}
+      onInput={(event) => setValue(event.currentTarget.value)}
+    />
+  );
+}
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { Textarea } from "@oreui-web/vue/textarea";
+
+const value = ref("");
+</script>
+
+<template>
+  <Textarea v-model="value" label="World description" :rows="4" />
+</template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import Textarea from "@oreui-web/svelte/textarea";
+
+  let value = $state("");
+</script>
+
+<Textarea bind:value label="World description" rows={4} />
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { createSignal } from "solid-js";
+import { Textarea } from "@oreui-web/solid/textarea";
+
+export function WorldDescription() {
+  const [value, setValue] = createSignal("");
+
+  return (
+    <Textarea
+      label="World description"
+      rows={4}
+      value={value()}
+      onValueChange={setValue}
+    />
+  );
+}
+```
+
+    </Tab>
+    <Tab value="Astro">
+
+```astro
+<ore-textarea label="World description" rows="4"></ore-textarea>
+
+<script>
+	import "oreui-web/textarea";
+</script>
+```
+
+    </Tab>
+
+</Tabs>
+
+## 调整高度
+
+Textarea 默认支持水平和垂直的大小调整，并可通过原生控件的公开类来定制该行为。
+
+```css
+ore-textarea > .ore-textarea-control > .ore-textarea-input {
+  resize: none;
+}
+```
+
+## 选区和滚动
+
+宿主元素会代理常用的原生 textarea API：`selectionStart`、`selectionEnd`、`setSelectionRange()`、`scrollTop` 和 `focus()`。
+
+```js
+const textarea = document.querySelector("ore-textarea");
+textarea.focus();
+textarea.setSelectionRange(0, 5);
+```
+
+## 事件
+
+Textarea 的值变化时会触发 `input`、编辑提交时会触发 `change`。公共 `value` 属性会与原生 textarea 保持同步。
+
+## API
+
+| Prop                      | 属性                      | 类型                        | 默认值   |
+| ------------------------- | ------------------------- | --------------------------- | -------- |
+| `autocomplete`            | `autocomplete`            | `string`                    | `""`     |
+| `description`             | `description`             | `string`                    | `""`     |
+| `disabled`                | `disabled`                | `boolean`                   | `false`  |
+| `error`                   | `error`                   | `string`                    | `""`     |
+| `inputMode`               | `inputmode`               | `string`                    | `""`     |
+| `label`                   | `label`                   | `string`                    | `""`     |
+| `maxLength` / `minLength` | `maxlength` / `minlength` | `number`                    | `-1`     |
+| `name`                    | `name`                    | `string`                    | `""`     |
+| `placeholder`             | `placeholder`             | `string`                    | `""`     |
+| `readonly`                | `readonly`                | `boolean`                   | `false`  |
+| `required`                | `required`                | `boolean`                   | `false`  |
+| `rows`                    | `rows`                    | `number`                    | `3`      |
+| `spellCheck`              | `spellcheck`              | `boolean`                   | `true`   |
+| `value`                   | `value`                   | `string`                    | `""`     |
+| `wrap`                    | `wrap`                    | `"hard" \| "off" \| "soft"` | `"soft"` |
+
+## 公开类
+
+| 类                          | 用途          |
+| --------------------------- | ------------- |
+| `.ore-textarea-label`       | 可见标签      |
+| `.ore-textarea-control`     | 多行输入框架  |
+| `.ore-textarea-input`       | 原生 textarea |
+| `.ore-textarea-description` | 辅助文本      |
+| `.ore-textarea-error`       | 验证信息      |
+
+## CSS 变量
+
+Textarea 与 Textfield 的样式相同，并使用 `--ore-textarea-*` 前缀，包含 `background`、`shadow`、`border`、`foreground`、`input-foreground`、`description`、`error`、`focus-ring` 和 `caret`。
+
+## 无障碍
+
+Textarea 会将标签、描述和验证信息关联到原生 textarea 之中。请优先使用可见的 `label`，只有在可见标签不适用时，才使用 `aria-label`。

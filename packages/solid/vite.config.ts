@@ -27,6 +27,7 @@ const componentNames = [
   "tab-button",
   "table",
   "tag",
+  "textarea",
   "textfield",
   "toast",
   "toggles",
