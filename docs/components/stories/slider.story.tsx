@@ -15,9 +15,11 @@ interface SliderPreviewProps {
     | "gold";
   disabled: boolean;
   initialValue: number;
+  initialValueStart: number;
   max: number;
   min: number;
   orientation: "horizontal" | "vertical";
+  range: boolean;
   step: number;
   variant: "default" | "segmented";
 }
@@ -26,14 +28,17 @@ function SliderPreview({
   color,
   disabled,
   initialValue,
+  initialValueStart,
   max,
   min,
   orientation,
+  range,
   step,
   variant,
 }: SliderPreviewProps) {
   const [mounted, setMounted] = useState(false);
   const [value, setValue] = useState(initialValue);
+  const [valueStart, setValueStart] = useState(initialValueStart);
 
   useEffect(() => {
     setMounted(true);
@@ -52,15 +57,23 @@ function SliderPreview({
         max={max}
         min={min}
         orientation={orientation}
+        range={range}
         step={step}
         value={value}
+        valueStart={valueStart}
         variant={variant}
         onInput={(event) => {
-          const slider = event.target as HTMLElement & { value: number };
+          const slider = event.target as HTMLElement & {
+            value: number;
+            valueStart: number;
+          };
           setValue(slider.value);
+          setValueStart(slider.valueStart);
         }}
       />
-      <output aria-live="polite">Render distance: {value}</output>
+      <output aria-live="polite">
+        Render distance: {range ? `${valueStart}-${value}` : value}
+      </output>
     </div>
   );
 }
@@ -75,9 +88,11 @@ export const sliderStory = defineStory({
       color: "primary",
       disabled: false,
       initialValue: 12,
+      initialValueStart: 4,
       max: 32,
       min: 2,
       orientation: "horizontal",
+      range: false,
       step: 1,
       variant: "segmented",
     },

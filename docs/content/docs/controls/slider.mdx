@@ -141,6 +141,22 @@ export function RenderDistanceSlider() {
 <ore-slider value="40" variant="segmented" aria-label="Volume"></ore-slider>
 ```
 
+## Range
+
+Add `range` to select a minimum and maximum value. `value-start` controls the minimum thumb and `value` controls the maximum thumb. The thumbs stop when they meet.
+
+```html
+<ore-slider
+  range
+  min="0"
+  max="100"
+  value-start="25"
+  value="75"
+  aria-label-start="Minimum price"
+  aria-label="Maximum price"
+></ore-slider>
+```
+
 ## Colors
 
 ```html
@@ -182,7 +198,7 @@ export function RenderDistanceSlider() {
 
 ## Events
 
-Slider dispatches `input` while its value changes and `change` when the interaction is committed.
+Slider dispatches `input` while its value changes and `change` when the interaction is committed. In range mode, read `valueStart` and `value` from the Slider element. A named range Slider submits both values as a comma-separated string, such as `25,75`.
 
 ## API
 
@@ -194,8 +210,10 @@ Slider dispatches `input` while its value changes and `change` when the interact
 | `min`         | `min`         | `number`                                                                                     | `0`            |
 | `name`        | `name`        | `string`                                                                                     | `""`           |
 | `orientation` | `orientation` | `"horizontal" \| "vertical"`                                                                 | `"horizontal"` |
+| `range`       | `range`       | `boolean`                                                                                    | `false`        |
 | `step`        | `step`        | `number`                                                                                     | `1`            |
 | `value`       | `value`       | `number`                                                                                     | `0`            |
+| `valueStart`  | `value-start` | `number`                                                                                     | `0`            |
 | `variant`     | `variant`     | `"default" \| "segmented"`                                                                   | `"default"`    |
 
 ## CSS variables
@@ -215,4 +233,4 @@ Slider dispatches `input` while its value changes and `change` when the interact
 
 ## Accessibility
 
-Add an accessible name with `aria-label`. Slider uses a native range input for pointer and keyboard interaction.
+Add an accessible name with `aria-label`. In range mode, use `aria-label-start` for the minimum thumb and `aria-label` for the maximum thumb. Slider uses native range inputs for pointer and keyboard interaction.

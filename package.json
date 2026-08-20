@@ -1,6 +1,6 @@
 {
   "name": "oreui-web",
-  "version": "0.0.0",
+  "version": "0.0.1-beta.1",
   "description": "An unofficial Ore UI cross-framework component library.",
   "type": "module",
   "repository": {

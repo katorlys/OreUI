@@ -16,8 +16,10 @@
     | "min"
     | "name"
     | "orientation"
+    | "range"
     | "step"
     | "value"
+    | "valueStart"
     | "variant"
   > & {
     color?: OreSliderColor;
@@ -31,6 +33,7 @@
   let {
     children,
     value = $bindable(0),
+    valueStart = $bindable(0),
     onChange,
     onInput,
     ...props
@@ -39,6 +42,7 @@
 
   function handleInput(event: Event): void {
     value = element.value;
+    valueStart = element.valueStart;
     onInput?.(event);
   }
 
@@ -50,6 +54,7 @@
 <ore-slider
   bind:this={element}
   {value}
+  {valueStart}
   onchange={onChange}
   oninput={handleInput}
   {...props}

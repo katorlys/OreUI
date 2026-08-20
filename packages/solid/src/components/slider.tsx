@@ -12,14 +12,20 @@ export type SliderProps = OreComponentProps<
   | "min"
   | "name"
   | "orientation"
+  | "range"
   | "step"
   | "value"
+  | "valueStart"
   | "variant"
 > & {
   onValueChange?: (value: number) => void;
 };
 
 export const Slider = createOreComponent<OreSlider, SliderProps>({
+  events: {
+    onChange: "change",
+    onInput: "input",
+  },
   model: {
     callback: "onValueChange",
     event: "input",
@@ -32,8 +38,10 @@ export const Slider = createOreComponent<OreSlider, SliderProps>({
     "min",
     "name",
     "orientation",
+    "range",
     "step",
     "value",
+    "valueStart",
     "variant",
   ],
   tagName: "ore-slider",

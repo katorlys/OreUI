@@ -1,10 +1,15 @@
 :where(ore-slider) {
   --ore-slider-unit: var(--ore-size-unit);
-  --ore-slider-progress: 0;
+  --ore-slider-progress-start: 0;
+  --ore-slider-progress-end: 0;
   --ore-slider-segment-size: 10%;
-  --ore-slider-value: calc(
+  --ore-slider-value-start: calc(
     var(--ore-slider-unit) * 7.25 + (100% - var(--ore-slider-unit) * 14.5) *
-      var(--ore-slider-progress)
+      var(--ore-slider-progress-start)
+  );
+  --ore-slider-value-end: calc(
+    var(--ore-slider-unit) * 7.25 + (100% - var(--ore-slider-unit) * 14.5) *
+      var(--ore-slider-progress-end)
   );
   --ore-slider-track-border: var(--ore-color-border);
   --ore-slider-active-range-background: var(--ore-color-primary-background);
@@ -91,13 +96,21 @@
 }
 
 :where(ore-slider[orientation="vertical"]) {
-  --ore-slider-value: calc(
+  --ore-slider-value-start: calc(
     var(--ore-slider-unit) * 7.25 + (100% - var(--ore-slider-unit) * 14.5) *
-      var(--ore-slider-progress)
+      var(--ore-slider-progress-start)
+  );
+  --ore-slider-value-end: calc(
+    var(--ore-slider-unit) * 7.25 + (100% - var(--ore-slider-unit) * 14.5) *
+      var(--ore-slider-progress-end)
   );
 
   width: calc(var(--ore-slider-unit) * 14.5);
   height: calc(var(--ore-slider-unit) * 127.25);
+}
+
+:where(ore-slider:not([range])) {
+  --ore-slider-value-start: 0;
 }
 
 :where(ore-slider[orientation="vertical"][variant="segmented"]) {
@@ -124,15 +137,19 @@
       calc(var(--ore-slider-unit) * 3.5) no-repeat,
     linear-gradient(
         to right,
-        var(--ore-slider-range-background) 0 var(--ore-slider-value),
-        var(--ore-slider-track-background) var(--ore-slider-value) 100%
+        var(--ore-slider-track-background) 0 var(--ore-slider-value-start),
+        var(--ore-slider-range-background) var(--ore-slider-value-start)
+          var(--ore-slider-value-end),
+        var(--ore-slider-track-background) var(--ore-slider-value-end) 100%
       )
       center / calc(100% - var(--ore-slider-unit) * 4)
       calc(var(--ore-slider-unit) * 1.5) no-repeat,
     linear-gradient(
         to right,
-        var(--ore-slider-range-highlight) 0 var(--ore-slider-value),
-        var(--ore-slider-track-highlight) var(--ore-slider-value) 100%
+        var(--ore-slider-track-highlight) 0 var(--ore-slider-value-start),
+        var(--ore-slider-range-highlight) var(--ore-slider-value-start)
+          var(--ore-slider-value-end),
+        var(--ore-slider-track-highlight) var(--ore-slider-value-end) 100%
       )
       center / calc(100% - var(--ore-slider-unit) * 2)
       calc(var(--ore-slider-unit) * 3.5) no-repeat,
@@ -176,15 +193,19 @@
       calc(100% - var(--ore-slider-unit) * 14.5) no-repeat,
     linear-gradient(
         to top,
-        var(--ore-slider-range-background) 0 var(--ore-slider-value),
-        var(--ore-slider-track-background) var(--ore-slider-value) 100%
+        var(--ore-slider-track-background) 0 var(--ore-slider-value-start),
+        var(--ore-slider-range-background) var(--ore-slider-value-start)
+          var(--ore-slider-value-end),
+        var(--ore-slider-track-background) var(--ore-slider-value-end) 100%
       )
       center / calc(var(--ore-slider-unit) * 1.5)
       calc(100% - var(--ore-slider-unit) * 4) no-repeat,
     linear-gradient(
         to top,
-        var(--ore-slider-range-highlight) 0 var(--ore-slider-value),
-        var(--ore-slider-track-highlight) var(--ore-slider-value) 100%
+        var(--ore-slider-track-highlight) 0 var(--ore-slider-value-start),
+        var(--ore-slider-range-highlight) var(--ore-slider-value-start)
+          var(--ore-slider-value-end),
+        var(--ore-slider-track-highlight) var(--ore-slider-value-end) 100%
       )
       center / calc(var(--ore-slider-unit) * 3.5)
       calc(100% - var(--ore-slider-unit) * 2) no-repeat,
@@ -222,6 +243,28 @@
   appearance: none;
   background: transparent;
   cursor: pointer;
+}
+
+:where(ore-slider[range] > input[type="range"]) {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+:where(ore-slider[range] > input[type="range"])::-webkit-slider-thumb {
+  pointer-events: auto;
+}
+
+:where(ore-slider[range] > input[type="range"])::-moz-range-thumb {
+  pointer-events: auto;
+}
+
+:where(ore-slider[range] > .ore-slider-input-end) {
+  z-index: 1;
+}
+
+:where(ore-slider[range]:has(> .ore-slider-input-start:focus) > .ore-slider-input-start) {
+  z-index: 2;
 }
 
 :where(ore-slider[orientation="vertical"] > input[type="range"]) {

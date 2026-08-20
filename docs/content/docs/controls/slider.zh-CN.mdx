@@ -140,6 +140,22 @@ export function RenderDistanceSlider() {
 <ore-slider value="40" variant="segmented" aria-label="Volume"></ore-slider>
 ```
 
+## 双端范围
+
+添加 `range` 可同时选择最小值和最大值。`value-start` 控制最小值滑块，`value` 控制最大值滑块。两个滑块相遇后不会继续越过对方。
+
+```html
+<ore-slider
+  range
+  min="0"
+  max="100"
+  value-start="25"
+  value="75"
+  aria-label-start="Minimum price"
+  aria-label="Maximum price"
+></ore-slider>
+```
+
 ## 颜色
 
 ```html
@@ -181,7 +197,7 @@ export function RenderDistanceSlider() {
 
 ## 事件
 
-Slider 的值变化时会触发 `input` 事件，提交交互时会触发 `change` 事件。
+Slider 的值变化时会触发 `input` 事件，提交交互时会触发 `change` 事件。在双端模式下，可从 Slider 元素读取 `valueStart` 和 `value`。带有名称的双端 Slider 会将两个值提交为逗号分隔的字符串，例如 `25,75`。
 
 ## API
 
@@ -193,8 +209,10 @@ Slider 的值变化时会触发 `input` 事件，提交交互时会触发 `chang
 | `min`         | `min`         | `number`                                                                                     | `0`            |
 | `name`        | `name`        | `string`                                                                                     | `""`           |
 | `orientation` | `orientation` | `"horizontal" \| "vertical"`                                                                 | `"horizontal"` |
+| `range`       | `range`       | `boolean`                                                                                    | `false`        |
 | `step`        | `step`        | `number`                                                                                     | `1`            |
 | `value`       | `value`       | `number`                                                                                     | `0`            |
+| `valueStart`  | `value-start` | `number`                                                                                     | `0`            |
 | `variant`     | `variant`     | `"default" \| "segmented"`                                                                   | `"default"`    |
 
 ## CSS 变量
@@ -214,4 +232,4 @@ Slider 的值变化时会触发 `input` 事件，提交交互时会触发 `chang
 
 ## 无障碍
 
-使用 `aria-label` 设置无障碍名称。Slider 使用原生范围输入来处理指针和键盘交互。
+使用 `aria-label` 设置无障碍名称。在双端模式下，使用 `aria-label-start` 标记最小值滑块，使用 `aria-label` 标记最大值滑块。Slider 使用原生范围输入来处理指针和键盘交互。

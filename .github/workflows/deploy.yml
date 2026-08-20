@@ -34,7 +34,7 @@ jobs:
       - name: Build documentation
         run: pnpm docs:build
 
-      - name: Upload GitHub Pages artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
           path: docs/out
