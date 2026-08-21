@@ -63,6 +63,8 @@ OreUI 是一个**非官方**的爱好者项目，不是官方 Ore UI 的替代�
 
 本项目只参考官方 Ore UI 的视觉风格。除字体外，项目中的代码和资源均为独立制作，不包含官方 Ore UI 的源代码。
 
+## 许可证
+OreUI 使用 [MPL-2.0 许可证](https://github.com/katorlys/OreUI/blob/main/LICENSE)。仅将 OreUI 作为项目依赖，或通过主题、CSS 和组件属性进行自定义，一般不需要公开您的整个项目，也不要求您的项目使用 MPL-2.0。MPL-2.0 的要求主要适用于您修改并分发的 OreUI 源文件。具体情况请以完整的许可证文本为准。
 
 <!-- /Main Body -->
 

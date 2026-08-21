@@ -59,12 +59,13 @@ Choose your framework in [getting started](https://katorly.dev/OreUI/docs/gettin
 ## Contributing
 For information on how to contribute, please refer to the [contributing guidelines](https://katorly.dev/OreUI/docs/contributing).
 
-
 ## Legal notice
 OreUI is an **unofficial** fan-made project. It is neither a replacement for the official Ore UI, nor approved by or affiliated with Mojang or Microsoft. When using this project, you must also follow the [Minecraft EULA](https://www.minecraft.net/eula) and any other applicable terms.
 
 This project only takes visual inspiration from the official Ore UI. Except for the fonts, the code and assets in this project were created independently and do not contain source code from the official Ore UI.
 
+## License
+OreUI is licensed under [MPL-2.0](https://github.com/katorlys/OreUI/blob/main/LICENSE). Using OreUI as a dependency, or customizing it through themes, CSS, and component properties, generally does not require you to disclose your entire project or license it under MPL-2.0. MPL-2.0 requirements mainly apply to OreUI source files that you modify and distribute. Refer to the full license text for the exact terms.
 
 <!-- /Main Body -->
 
