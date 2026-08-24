@@ -16,6 +16,18 @@ const components = Object.fromEntries(
 
 export default defineConfig({
   root: "demo",
+  resolve: {
+    alias: [
+      {
+        find: /^oreui-web\/(.+)$/,
+        replacement: `${root}/src/components/$1/$1.ts`,
+      },
+      {
+        find: "oreui-web",
+        replacement: `${root}/src/index.ts`,
+      },
+    ],
+  },
   plugins: [
     svelte(),
     solid({

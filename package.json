@@ -1,6 +1,6 @@
 {
   "name": "oreui-web",
-  "version": "0.0.1-beta.1",
+  "version": "0.1.0-beta.1",
   "description": "An unofficial Ore UI cross-framework component library.",
   "type": "module",
   "repository": {
@@ -77,7 +77,7 @@
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "solid-js": "^1.9.15",
-    "svelte": "^5.56.9",
+    "svelte": "^5.56.10",
     "typescript": "^7.0.2",
     "vite": "^8.2.2",
     "vite-plugin-solid": "^2.11.14",
