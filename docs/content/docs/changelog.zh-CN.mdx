@@ -6,6 +6,26 @@ icon: RotateCcwClock
 
 ## 0.x
 
+### 0.0.1
+
+#### 新增
+
+- Button：增加更多原生属性，包括 link、href、target、rel、download 属性，以及 loading 状态、prefix/suffix 插槽
+- Textarea：新增 textarea 组件：
+  - 基于 textfield，支持多行内容
+  - 支持自动补全、文本换行、行数、拼写检查等；新增 textarea 文档
+
+```html
+<ore-textarea
+  name="description"
+  label="World description"
+  placeholder="Describe your world"
+  rows="4"
+></ore-textarea>
+```
+
+- Slider：新增范围模式，包含两个参数：value-start (number) 和 range (boolean)
+
 ### 0.0.0
 
 首个公开版本。
