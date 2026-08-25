@@ -18,11 +18,11 @@ Button 用于确认选择、打开页面、提交表单等操作。
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "oreui-web/button";
+import "oreui-web/styles.css";
 ```
 
 ```html
-<ore-button type="button">Create new world</ore-button>
+<button type="button">Create new world</button>
 ```
 
     </Tab>
@@ -75,11 +75,7 @@ export function App() {
     <Tab value="Astro">
 
 ```astro
-<ore-button type="button">Create new world</ore-button>
-
-<script>
-	import "oreui-web/button";
-</script>
+<button type="button">Create new world</button>
 ```
 
     </Tab>
@@ -89,34 +85,34 @@ export function App() {
 ## 变体
 
 ```html
-<ore-button variant="default">Default</ore-button>
-<ore-button variant="hero">Hero</ore-button>
+<button data-variant="default">Default</button>
+<button data-variant="hero">Hero</button>
 ```
 
 ## 颜色
 
 ```html
-<ore-button color="primary">Primary</ore-button>
-<ore-button color="secondary">Secondary</ore-button>
-<ore-button color="destructive">Delete</ore-button>
-<ore-button color="dungeons">Dungeons</ore-button>
-<ore-button color="legends">Legends</ore-button>
-<ore-button color="gold">Gold</ore-button>
-<ore-button color="realms">Realms</ore-button>
+<button data-color="primary">Primary</button>
+<button data-color="secondary">Secondary</button>
+<button data-color="destructive">Delete</button>
+<button data-color="dungeons">Dungeons</button>
+<button data-color="legends">Legends</button>
+<button data-color="gold">Gold</button>
+<button data-color="realms">Realms</button>
 ```
 
 ## Disabled
 
 ```html
-<ore-button disabled>Unavailable</ore-button>
+<button disabled>Unavailable</button>
 ```
 
 ## 加载中
 
-操作进行时可设置 `loading`。按钮会保持原宽度、显示 Spinner、提供 `aria-busy="true"`，并阻止重复触发。
+操作进行时设置 `data-loading`，并同时保留原生 `disabled` 和 `aria-busy="true"`。框架 wrapper 会在设置 `loading` prop 时完成这些映射。
 
 ```html
-<ore-button loading>Saving</ore-button>
+<button data-loading aria-busy="true" disabled>Saving</button>
 ```
 
 ## 前后缀
@@ -126,30 +122,30 @@ export function App() {
 <ButtonAffixesPreview />
 
 ```html
-<ore-button>
+<button type="button">
   <img class="ore-button-prefix" src="/icons/arrow-left.svg" alt="" />
   Back
-</ore-button>
+</button>
 
-<ore-button>
+<button type="button">
   Continue
   <img class="ore-button-suffix" src="/icons/arrow-right.svg" alt="" />
-</ore-button>
+</button>
 ```
 
 ## 链接
 
-设置 `href` 后，组件可用于页面导航。链接按钮使用原生锚点，支持在新标签页打开、复制链接和下载资源等浏览器行为。
+页面导航使用带 `class="button"` 的原生锚点，并保留在新标签页打开、复制链接和下载资源等浏览器行为。
 
 <LinkButtonPreview />
 
 ```html
-<ore-button href="https://example.com" target="_blank" rel="noreferrer">
+<a class="button" href="https://example.com" target="_blank" rel="noreferrer">
   Open website
-</ore-button>
+</a>
 ```
 
-页面导航应使用链接按钮，触发操作则使用普通按钮。禁用的链接会移出 Tab 顺序，并且不会发生导航。
+页面导航应使用链接按钮，触发操作则使用普通按钮。锚点不支持 `disabled`；导航不可用时应移除 `href` 或移除该链接。
 
 ## 表单
 
@@ -157,32 +153,18 @@ export function App() {
 
 ```html
 <form id="settings">
-  <ore-button type="submit" name="action" value="save">Save</ore-button>
-  <ore-button type="reset" color="secondary">Reset</ore-button>
+  <button type="submit" name="action" value="save">Save</button>
+  <button type="reset" data-color="secondary">Reset</button>
 </form>
 
-<ore-button type="submit" form="settings" name="action" value="save-and-close">
+<button type="submit" form="settings" name="action" value="save-and-close">
   Save and close
-</ore-button>
+</button>
 ```
 
 ## API
 
-| Prop       | 属性       | 类型                                                                                         | 默认值      |
-| ---------- | ---------- | -------------------------------------------------------------------------------------------- | ----------- |
-| `color`    | `color`    | `"destructive" \| "dungeons" \| "gold" \| "legends" \| "primary" \| "realms" \| "secondary"` | `"primary"` |
-| `disabled` | `disabled` | `boolean`                                                                                    | `false`     |
-| `download` | `download` | `string \| undefined`                                                                        | `undefined` |
-| `href`     | `href`     | `string \| undefined`                                                                        | `undefined` |
-| `loading`  | `loading`  | `boolean`                                                                                    | `false`     |
-| `name`     | `name`     | `string`                                                                                     | `""`        |
-| `rel`      | `rel`      | `string \| undefined`                                                                        | `undefined` |
-| `target`   | `target`   | `string \| undefined`                                                                        | `undefined` |
-| `type`     | `type`     | `"button" \| "reset" \| "submit"`                                                            | `"button"`  |
-| `value`    | `value`    | `string`                                                                                     | `""`        |
-| `variant`  | `variant`  | `"default" \| "hero"`                                                                        | `"default"` |
-
-只读的 `form` property 会返回关联的 `HTMLFormElement`，没有关联表单时返回 `null`。`form` 属性接受表单 ID。
+Button 直接使用原生 `HTMLButtonElement` API。`disabled`、`form`、`name`、`type`、`value` 等使用原生属性；只有 OreUI 视觉配置使用 `data-color`、`data-variant` 和 `data-loading`。
 
 ## CSS 变量
 
@@ -204,4 +186,4 @@ export function App() {
 
 ## 无障碍
 
-未设置 `href` 时，组件使用按钮语义，并支持 `Enter` 和 `Space` 键。设置 `href` 后，原生锚点会提供链接语义和标准浏览器导航行为。禁用的按钮和链接不会被 Tab 键选中，并带有 `aria-disabled="true"`。加载中的按钮提供 `aria-busy="true"` 并阻止重复触发。
+原生按钮无需 controller 即可提供表单参与、校验、焦点、`Enter` 和 `Space` 行为。原生锚点提供标准链接语义和导航。加载中的按钮保持禁用，并提供 `aria-busy="true"`。

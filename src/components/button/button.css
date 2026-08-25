@@ -1,4 +1,4 @@
-:where(ore-button, ore-tab-button) {
+:where(button, .button, ore-button, ore-tab-button) {
   --ore-button-unit: var(--ore-size-unit);
   --ore-button-background-default: var(--ore-color-primary-background);
   --ore-button-background-hover: var(--ore-color-primary-background-hover);
@@ -19,7 +19,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  appearance: none;
   box-sizing: border-box;
+  border: 0;
+  border-radius: 0;
   min-width: calc(var(--ore-button-unit) * 64);
   min-height: calc(var(--ore-button-unit) * 22);
   padding: 0 calc(var(--ore-button-unit) * 8) calc(var(--ore-button-unit) * 2);
@@ -62,13 +65,14 @@
   font-weight: 400;
   line-height: 1;
   text-align: center;
+  text-decoration: none;
   text-shadow: var(--ore-button-text-shadow);
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
 
-:where(ore-button, ore-tab-button)::before {
+:where(button, .button, ore-button, ore-tab-button)::before {
   position: absolute;
   top: var(--ore-button-face-offset);
   right: 0;
@@ -79,7 +83,7 @@
   pointer-events: none;
 }
 
-:where(ore-button) {
+:where(button, .button, ore-button) {
   position: relative;
 }
 
@@ -107,28 +111,77 @@
   color: var(--ore-button-foreground);
 }
 
-:where(ore-button[loading]) {
+:where(button[data-loading], .button[data-loading], ore-button[loading]) {
   color: transparent;
   text-shadow: none;
   cursor: wait;
 }
 
-:where(ore-button[loading] > :not(.ore-button-spinner, .ore-button-link)) {
+:where(button[data-loading], .button[data-loading])::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--ore-button-unit) * 8);
+  height: calc(var(--ore-button-unit) * 8);
+  background-color: var(--ore-button-foreground);
+  content: "";
+  mask-image: url("../../assets/icons/spinner.svg");
+  mask-position: 0% 50%;
+  mask-repeat: no-repeat;
+  mask-size: 3475% 100%;
+  animation: ore-button-spinner 800ms steps(15, jump-end) infinite;
+  transform: translate(-50%, -50%);
+  -webkit-mask-image: url("../../assets/icons/spinner.svg");
+  -webkit-mask-position: 0% 50%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 3475% 100%;
+}
+
+@keyframes ore-button-spinner {
+  to {
+    mask-position: 100% 50%;
+    -webkit-mask-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(button[data-loading], .button[data-loading])::after {
+    animation: none;
+  }
+}
+
+:where(
+  button[data-loading] > :not(.ore-button-spinner, .ore-button-link),
+  .button[data-loading] > :not(.ore-button-spinner, .ore-button-link),
+  ore-button[loading] > :not(.ore-button-spinner, .ore-button-link)
+) {
   visibility: hidden;
 }
 
-:where(ore-button[loading] > .ore-button-spinner) {
+:where(
+  button[data-loading] > .ore-button-spinner,
+  .button[data-loading] > .ore-button-spinner,
+  ore-button[loading] > .ore-button-spinner
+) {
   color: var(--ore-button-foreground);
 }
 
-:where(ore-button[variant="hero"]) {
+:where(
+  button[data-variant="hero"],
+  .button[data-variant="hero"],
+  ore-button[variant="hero"]
+) {
   --ore-button-font-family: var(--ore-font-display);
   --ore-button-font-size: calc(var(--ore-button-unit) * 9);
   --ore-button-text-shadow: var(--ore-button-unit) var(--ore-button-unit)
     var(--ore-color-text-shadow);
 }
 
-:where(ore-button[color="secondary"]) {
+:where(
+  button[data-color="secondary"],
+  .button[data-color="secondary"],
+  ore-button[color="secondary"]
+) {
   --ore-button-background-default: var(--ore-color-secondary-background);
   --ore-button-background-hover: var(--ore-color-secondary-background-hover);
   --ore-button-background-pressed: var(
@@ -141,7 +194,11 @@
   --ore-button-foreground: var(--ore-color-border);
 }
 
-:where(ore-button[color="destructive"]) {
+:where(
+  button[data-color="destructive"],
+  .button[data-color="destructive"],
+  ore-button[color="destructive"]
+) {
   --ore-button-background-default: var(--ore-color-destructive-background);
   --ore-button-background-hover: var(--ore-color-destructive-background-hover);
   --ore-button-background-pressed: var(
@@ -156,6 +213,14 @@
 }
 
 :where(
+  button[data-color="dungeons"],
+  button[data-color="legends"],
+  button[data-color="gold"],
+  button[data-color="realms"],
+  .button[data-color="dungeons"],
+  .button[data-color="legends"],
+  .button[data-color="gold"],
+  .button[data-color="realms"],
   ore-button[color="dungeons"],
   ore-button[color="legends"],
   ore-button[color="gold"],
@@ -171,7 +236,11 @@
   --ore-button-foreground: var(--ore-color-gray-100);
 }
 
-:where(ore-button[color="legends"]) {
+:where(
+  button[data-color="legends"],
+  .button[data-color="legends"],
+  ore-button[color="legends"]
+) {
   --ore-button-background-default: var(--ore-color-legends-background);
   --ore-button-background-hover: var(--ore-color-legends-background-hover);
   --ore-button-background-pressed: var(--ore-color-legends-background-pressed);
@@ -182,7 +251,11 @@
   --ore-button-foreground: var(--ore-color-gray-100);
 }
 
-:where(ore-button[color="gold"]) {
+:where(
+  button[data-color="gold"],
+  .button[data-color="gold"],
+  ore-button[color="gold"]
+) {
   --ore-button-background-default: var(--ore-color-gold-background);
   --ore-button-background-hover: var(--ore-color-gold-background-hover);
   --ore-button-background-pressed: var(--ore-color-gold-background-pressed);
@@ -193,7 +266,11 @@
   --ore-button-foreground: var(--ore-color-gray-100);
 }
 
-:where(ore-button[color="realms"]) {
+:where(
+  button[data-color="realms"],
+  .button[data-color="realms"],
+  ore-button[color="realms"]
+) {
   --ore-button-background-default: var(--ore-color-realms-background);
   --ore-button-background-hover: var(--ore-color-realms-background-hover);
   --ore-button-background-pressed: var(--ore-color-realms-background-pressed);
@@ -205,7 +282,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :where(ore-button, ore-tab-button):hover:not(
+  :where(button, .button, ore-button, ore-tab-button):hover:not(
       [disabled],
       [form-disabled],
       [loading]
@@ -215,11 +292,21 @@
   }
 }
 
+:where(button, .button).preview-hover:not([disabled], [data-loading]) {
+  --ore-button-background: var(--ore-button-background-hover);
+  --ore-button-highlight: var(--ore-button-highlight-hover);
+}
+
 :where(
-  :is(ore-button, ore-tab-button):active:not(
+  :is(button, .button, ore-button, ore-tab-button):active:not(
       [disabled],
       [form-disabled],
       [loading]
+    ),
+  :is(button, .button, ore-button, ore-tab-button)[data-pressed]:not(
+      [disabled],
+      [form-disabled],
+      [data-loading]
     ),
   :is(ore-button, ore-tab-button)[pressed]:not(
       [disabled],
@@ -236,19 +323,38 @@
   padding-bottom: 0;
 }
 
-:where(ore-button, ore-tab-button):focus-visible,
+:where(button, .button).preview-pressed:not([disabled], [data-loading]) {
+  --ore-button-background: var(--ore-button-background-pressed);
+  --ore-button-highlight: var(--ore-button-highlight-pressed);
+  --ore-button-shadow: transparent;
+  --ore-button-face-offset: calc(var(--ore-button-unit) * 2);
+
+  padding-top: var(--ore-button-face-offset);
+  padding-bottom: 0;
+}
+
+:where(button, .button, ore-button, ore-tab-button):focus-visible,
 :where(ore-button > .ore-button-link):focus-visible {
   outline: none;
 }
 
-:where(ore-button, ore-tab-button):focus-visible::before,
+:where(button, .button, ore-button, ore-tab-button):focus-visible::before,
 :where(ore-button:has(> .ore-button-link:focus-visible))::before {
   box-shadow:
-    inset 0 0 0 var(--ore-button-unit) var(--ore-color-focus-ring),
-    inset 0 0 0 calc(var(--ore-button-unit) * 2) var(--ore-button-border);
+    0 0 0 var(--ore-button-unit) var(--ore-color-focus-ring),
+    inset 0 0 0 var(--ore-button-unit) var(--ore-button-border);
+}
+
+:where(button, .button).preview-focus::before {
+  box-shadow:
+    0 0 0 var(--ore-button-unit) var(--ore-color-focus-ring),
+    inset 0 0 0 var(--ore-button-unit) var(--ore-button-border);
 }
 
 :where(
+  button:disabled,
+  button[data-disabled],
+  .button[aria-disabled="true"],
   ore-button[disabled],
   ore-button[form-disabled],
   ore-tab-button[disabled],
@@ -262,4 +368,10 @@
   color: var(--ore-color-disabled-foreground);
   --ore-button-text-shadow: none;
   cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(button[data-loading], .button[data-loading])::after {
+    animation: none;
+  }
 }

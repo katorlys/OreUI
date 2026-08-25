@@ -17,7 +17,6 @@ import "oreui-web/button";
 import "oreui-web/checkbox";
 import "oreui-web/container";
 import "oreui-web/icon";
-import "oreui-web/textfield";
 ```
 
 ```html
@@ -59,14 +58,22 @@ import "oreui-web/textfield";
       </header>
       <ore-container class="modal-form-body" variant="dark">
         <p class="ore-modal-description">Add the information for this form.</p>
-        <ore-textfield
-          label="Label"
-          placeholder="Placeholder"
-          description="Description"
-        ></ore-textfield>
+        <div class="ore-textfield">
+          <label class="ore-textfield-label" for="modal-label">Label</label>
+          <span class="ore-textfield-control">
+            <input
+              class="ore-textfield-input"
+              id="modal-label"
+              placeholder="Placeholder"
+            />
+          </span>
+          <span class="ore-textfield-description">Description</span>
+        </div>
       </ore-container>
       <ore-container class="modal-confirmation" variant="light">
-        <ore-checkbox>Checkbox example for confirmation</ore-checkbox>
+        <label
+          ><input type="checkbox" />Checkbox example for confirmation</label
+        >
       </ore-container>
       <ore-container class="modal-actions" variant="light">
         <ore-button class="ore-modal-close" type="button">Confirm</ore-button>
@@ -371,10 +378,10 @@ export function DeleteWorldModal() {
 			</header>
 			<ore-container class="modal-form-body" variant="dark">
 				<p class="ore-modal-description">Add the information for this form.</p>
-				<ore-textfield label="Label" placeholder="Placeholder" description="Description"></ore-textfield>
+				<div class="ore-textfield"><label class="ore-textfield-label" for="modal-label">Label</label><span class="ore-textfield-control"><input class="ore-textfield-input" id="modal-label" placeholder="Placeholder" /></span><span class="ore-textfield-description">Description</span></div>
 			</ore-container>
 			<ore-container class="modal-confirmation" variant="light">
-				<ore-checkbox>Checkbox example for confirmation</ore-checkbox>
+        <label><input type="checkbox" />Checkbox example for confirmation</label>
 			</ore-container>
 			<ore-container class="modal-actions" variant="light">
 				<ore-button class="ore-modal-close" type="button">Confirm</ore-button>
@@ -390,7 +397,6 @@ export function DeleteWorldModal() {
 	import "oreui-web/checkbox";
 	import "oreui-web/container";
 	import "oreui-web/icon";
-	import "oreui-web/textfield";
 </script>
 ```
 
@@ -413,7 +419,7 @@ export function DeleteWorldModal() {
   --ore-container-gap: 0;
 }
 
-.modal-confirmation > ore-checkbox {
+.modal-confirmation > label:has(> input[type="checkbox"]) {
   color: var(--ore-color-foreground);
 }
 

@@ -1,16 +1,31 @@
-import { createComponent, type EventName } from "@lit/react";
-import { OreSwitch as OreSwitchElement } from "oreui-web/switch";
 import React from "react";
 
-export const Switch = createComponent({
-  react: React,
-  tagName: "ore-switch",
-  elementClass: OreSwitchElement,
-  events: {
-    onInput: "input" as EventName<Event>,
-    onChange: "change" as EventName<Event>,
-  },
-  displayName: "Switch",
-});
+export type SwitchProps = Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "color" | "type"
+> & {
+  color?: string;
+  labelClassName?: string;
+  variant?: string;
+};
 
-export type SwitchProps = React.ComponentProps<typeof Switch>;
+export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
+  function Switch(
+    { children, color, labelClassName, variant, ...props },
+    ref,
+  ): React.ReactElement {
+    return React.createElement(
+      "label",
+      { className: labelClassName },
+      React.createElement("input", {
+        ...props,
+        "data-color": color,
+        "data-variant": variant,
+        ref,
+        role: "switch",
+        type: "checkbox",
+      }),
+      children,
+    );
+  },
+);

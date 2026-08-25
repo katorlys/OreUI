@@ -1,12 +1,28 @@
-import { createComponent } from "@lit/react";
-import { OreButton as OreButtonElement } from "oreui-web/button";
 import React from "react";
 
-export const Button = createComponent({
-  react: React,
-  tagName: "ore-button",
-  elementClass: OreButtonElement,
-  displayName: "Button",
-});
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  color?: string;
+  loading?: boolean;
+  variant?: string;
+};
 
-export type ButtonProps = React.ComponentProps<typeof Button>;
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  function Button(
+    { color, loading, variant, children, ...props },
+    ref,
+  ): React.ReactElement {
+    return React.createElement(
+      "button",
+      {
+        ...props,
+        "aria-busy": loading || undefined,
+        "data-color": color,
+        "data-loading": loading ? "" : undefined,
+        "data-variant": variant,
+        disabled: props.disabled || loading,
+        ref,
+      },
+      children,
+    );
+  },
+);

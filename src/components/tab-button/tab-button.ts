@@ -1,12 +1,12 @@
 import { type PropertyValues } from "lit";
 
-import { OreButton } from "../button/button.js";
+import { LegacyButton } from "../../behaviors/legacy-button.js";
 
 export type OreTabButtonPalette = "default" | "toggle";
 
-export class OreTabButton extends OreButton {
+export class OreTabButton extends LegacyButton {
   static properties = {
-    ...OreButton.properties,
+    ...LegacyButton.properties,
     palette: { type: String, reflect: true },
     selected: { type: Boolean, reflect: true },
   };

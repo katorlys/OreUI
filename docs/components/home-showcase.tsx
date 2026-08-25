@@ -147,10 +147,7 @@ export function HomeShowcase() {
                 max={16}
                 aria-label="Render distance"
                 onInput={(event) =>
-                  setDistance(
-                    (event.currentTarget as HTMLElement & { value: number })
-                      .value,
-                  )
+                  setDistance(event.currentTarget.valueAsNumber)
                 }
               />
               <Slider
@@ -162,10 +159,7 @@ export function HomeShowcase() {
                 color="gold"
                 aria-label="Segmented render distance"
                 onInput={(event) =>
-                  setDistance(
-                    (event.currentTarget as HTMLElement & { value: number })
-                      .value,
-                  )
+                  setDistance(event.currentTarget.valueAsNumber)
                 }
               />
             </div>

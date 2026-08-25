@@ -1,22 +1,37 @@
-import "oreui-web/checkbox";
+import { splitProps, type JSX } from "solid-js";
 
-import type { OreCheckbox } from "oreui-web/checkbox";
-import { createOreComponent } from "../factory.js";
-import type { OreComponentProps } from "../types.js";
-
-export type CheckboxProps = OreComponentProps<
-  OreCheckbox,
-  "checked" | "color" | "disabled" | "name" | "required" | "value"
+export type CheckboxProps = Omit<
+  JSX.InputHTMLAttributes<HTMLInputElement>,
+  "color" | "type"
 > & {
+  color?: string;
+  labelClass?: string;
   onCheckedChange?: (checked: boolean) => void;
 };
 
-export const Checkbox = createOreComponent<OreCheckbox, CheckboxProps>({
-  model: {
-    callback: "onCheckedChange",
-    event: "input",
-    property: "checked",
-  },
-  properties: ["checked", "color", "disabled", "name", "required", "value"],
-  tagName: "ore-checkbox",
-});
+export function Checkbox(props: CheckboxProps): JSX.Element {
+  const [local, inputProps] = splitProps(props, [
+    "children",
+    "color",
+    "labelClass",
+    "onCheckedChange",
+    "onInput",
+  ]);
+
+  return (
+    <label class={local.labelClass}>
+      <input
+        {...inputProps}
+        data-color={local.color}
+        onInput={(event) => {
+          if (typeof local.onInput === "function") {
+            local.onInput(event);
+          }
+          local.onCheckedChange?.(event.currentTarget.checked);
+        }}
+        type="checkbox"
+      />
+      {local.children}
+    </label>
+  );
+}

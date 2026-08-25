@@ -12,16 +12,22 @@ import { TextfieldStory } from "@/components/stories/textfield.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "oreui-web/textfield";
+import "oreui-web/styles.css";
 ```
 
 ```html
-<ore-textfield
-  name="world"
-  label="World name"
-  description="Shown to other players"
-  placeholder="New World"
-></ore-textfield>
+<div class="ore-textfield">
+  <label class="ore-textfield-label" for="world">World name</label>
+  <span class="ore-textfield-control">
+    <input
+      class="ore-textfield-input"
+      id="world"
+      name="world"
+      placeholder="New World"
+    />
+  </span>
+  <span class="ore-textfield-description">Shown to other players</span>
+</div>
 ```
 
     </Tab>
@@ -117,15 +123,16 @@ export function WorldNameField() {
     <Tab value="Astro">
 
 ```astro
-<ore-textfield
-	name="world"
-	label="World name"
-	description="Shown to other players"
-	placeholder="New World"
-></ore-textfield>
+<div class="ore-textfield">
+  <label class="ore-textfield-label" for="world">World name</label>
+  <span class="ore-textfield-control">
+    <input class="ore-textfield-input" id="world" name="world" placeholder="New World" />
+  </span>
+  <span class="ore-textfield-description">Shown to other players</span>
+</div>
 
 <script>
-	import "oreui-web/textfield";
+	import "oreui-web/styles.css";
 </script>
 ```
 
@@ -135,41 +142,58 @@ export function WorldNameField() {
 
 ## 验证
 
-使用原生输入验证，或设置 `error` 来显示自定义验证信息。
+使用原生输入约束进行验证。在原生 HTML 中，可以使用 `input.setCustomValidity()` 设置自定义消息，并通过 `aria-describedby` 关联可见错误信息。
 
 ```html
-<ore-textfield label="Seed" type="number" required></ore-textfield>
-<ore-textfield
-  label="World name"
-  error="This name is already in use"
-></ore-textfield>
+<div class="ore-textfield">
+  <label class="ore-textfield-label" for="seed">Seed</label>
+  <span class="ore-textfield-control">
+    <input
+      class="ore-textfield-input"
+      id="seed"
+      name="seed"
+      type="number"
+      required
+    />
+  </span>
+</div>
+<div class="ore-textfield">
+  <label class="ore-textfield-label" for="world-error">World name</label>
+  <span class="ore-textfield-control">
+    <input
+      class="ore-textfield-input"
+      id="world-error"
+      name="world"
+      aria-invalid="true"
+      aria-describedby="world-error-message"
+    />
+  </span>
+  <span class="ore-textfield-error" id="world-error-message"
+    >This name is already in use</span
+  >
+</div>
 ```
 
 ## 事件
 
-Textfield 的值每次变化时都会触发 `input` 事件。其公共 `value` 属性会与内部输入保持同步。
+原生 Textfield 使用 `<input>` 自带的 `input`、`change`、`focus`、`blur` 和表单事件。值就是输入元素原生的 `value`。
+
+React、Vue、Svelte 和 Solid 适配保持同样的原生行为，只增加适配框架的 API：React 转发`onInput` 和 `ref`，Vue 支持 `v-model`，Svelte 支持 `bind:value`，Solid 支持 `onValueChange`。
 
 ## API
 
-| Prop                      | 属性                      | 类型      | 默认值   |
-| ------------------------- | ------------------------- | --------- | -------- |
-| `autocomplete`            | `autocomplete`            | `string`  | `""`     |
-| `description`             | `description`             | `string`  | `""`     |
-| `disabled`                | `disabled`                | `boolean` | `false`  |
-| `error`                   | `error`                   | `string`  | `""`     |
-| `inputMode`               | `inputmode`               | `string`  | `""`     |
-| `label`                   | `label`                   | `string`  | `""`     |
-| `list`                    | `list`                    | `string`  | `""`     |
-| `max` / `min`             | `max` / `min`             | `string`  | `""`     |
-| `maxLength` / `minLength` | `maxlength` / `minlength` | `number`  | `-1`     |
-| `name`                    | `name`                    | `string`  | `""`     |
-| `pattern`                 | `pattern`                 | `string`  | `""`     |
-| `placeholder`             | `placeholder`             | `string`  | `""`     |
-| `readonly`                | `readonly`                | `boolean` | `false`  |
-| `required`                | `required`                | `boolean` | `false`  |
-| `step`                    | `step`                    | `string`  | `""`     |
-| `type`                    | `type`                    | `string`  | `"text"` |
-| `value`                   | `value`                   | `string`  | `""`     |
+原生用法没有 Textfield 自定义元素或自定义属性。请将标准输入属性直接写在原生 `<input>` 上：
+
+| 属性                                                      | 用途                   |
+| --------------------------------------------------------- | ---------------------- |
+| `autocomplete`、`inputmode`、`list`                       | 浏览器输入辅助         |
+| `name`、`value`、`type`                                   | 表单名称、值和输入类型 |
+| `placeholder`                                             | 空值提示               |
+| `min`、`max`、`step`、`minlength`、`maxlength`、`pattern` | 原生输入约束           |
+| `required`、`readonly`、`disabled`                        | 原生输入状态           |
+| `id`                                                      | 关联 label 和描述信息  |
+
+框架适配接受 `label`、`description` 和 `error`，用于生成对应的 Light DOM 元素。原生 HTML 使用者需要显式写出这些元素。
 
 ## 公开类
 
@@ -198,4 +222,8 @@ Textfield 的值每次变化时都会触发 `input` 事件。其公共 `value` �
 
 ## 无障碍
 
-Textfield 会将标签、描述和验证信息与原生输入关联。请优先使用可见的 `label`；仅当可见标签不合适时，才使用 `aria-label`。
+应尽可能为每个输入使用可见的 `<label for="...">`。`for` 必须匹配输入的 `id`，输入元素本身仍是可访问控件和表单参与者。仅当不适合显示标签时才使用 `aria-label`。
+
+为辅助文本设置 `id`，并在输入上通过 `aria-describedby` 引用。对于可见错误信息，同样将错误元素加入该属性，并在值无效时设置 `aria-invalid="true"`。原生约束或 `setCustomValidity()` 应作为唯一的浏览器 validity 状态来源。
+
+`disabled` 会让输入失去焦点能力并排除在表单提交之外；`readonly` 仍可聚焦和提交，但不能编辑。需要整体禁用多个字段时，请在外层使用 `<fieldset disabled>`。

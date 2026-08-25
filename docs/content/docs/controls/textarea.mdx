@@ -12,16 +12,17 @@ import { TextareaStory } from "@/components/stories/textarea.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "oreui-web/textarea";
+import "oreui-web/styles.css";
 ```
 
 ```html
-<ore-textarea
-  name="description"
-  label="World description"
-  placeholder="Describe your world"
-  rows="4"
-></ore-textarea>
+<div class="ore-textarea">
+  <label class="ore-textarea-label" for="world-description">World description</label>
+  <span class="ore-textarea-control">
+    <textarea class="ore-textarea-input" id="world-description" name="description" placeholder="Describe your world" rows="4"></textarea>
+  </span>
+  <span class="ore-textarea-description">Shown on the world selection screen</span>
+</div>
 ```
 
     </Tab>
@@ -29,12 +30,11 @@ import "oreui-web/textarea";
 
 ```tsx
 import { Textarea } from "@oreui-web/react/textarea";
-import type { OreTextarea } from "oreui-web/textarea";
 import { useRef, useState } from "react";
 
 export function WorldDescription() {
   const [value, setValue] = useState("");
-  const ref = useRef<OreTextarea>(null);
+  const ref = useRef<HTMLTextAreaElement>(null);
 
   return (
     <Textarea
@@ -102,10 +102,15 @@ export function WorldDescription() {
     <Tab value="Astro">
 
 ```astro
-<ore-textarea label="World description" rows="4"></ore-textarea>
+<div class="ore-textarea">
+  <label class="ore-textarea-label" for="world-description">World description</label>
+  <span class="ore-textarea-control">
+    <textarea class="ore-textarea-input" id="world-description" rows="4"></textarea>
+  </span>
+</div>
 
 <script>
-	import "oreui-web/textarea";
+	import "oreui-web/styles.css";
 </script>
 ```
 
@@ -118,43 +123,39 @@ export function WorldDescription() {
 Textarea can be resized horizontally and vertically by default, and it can be customized through its public class.
 
 ```css
-ore-textarea > .ore-textarea-control > .ore-textarea-input {
+.ore-textarea > .ore-textarea-control > .ore-textarea-input {
   resize: none;
 }
 ```
 
 ## Selection and scrolling
 
-The host proxies common native textarea APIs: `selectionStart`, `selectionEnd`, `setSelectionRange()`, `scrollTop`, and `focus()`.
+The native `<textarea>` directly provides `selectionStart`, `selectionEnd`, `setSelectionRange()`, `scrollTop`, and `focus()`.
 
 ```js
-const textarea = document.querySelector("ore-textarea");
+const textarea = document.querySelector("textarea");
 textarea.focus();
 textarea.setSelectionRange(0, 5);
 ```
 
 ## Events
 
-Textarea dispatches `input` whenever its value changes and `change` when the edit is committed. Its public `value` property stays synchronized with the native textarea.
+The native textarea dispatches `input` whenever its value changes and `change` when the edit is committed. Its `value` property is the single form state source.
 
 ## API
 
 | Property                  | Attribute                 | Type                        | Default  |
 | ------------------------- | ------------------------- | --------------------------- | -------- |
-| `autocomplete`            | `autocomplete`            | `string`                    | `""`     |
-| `description`             | `description`             | `string`                    | `""`     |
+| `autocomplete`            | `autocomplete`            | `string`                    | browser default |
 | `disabled`                | `disabled`                | `boolean`                   | `false`  |
-| `error`                   | `error`                   | `string`                    | `""`     |
-| `inputMode`               | `inputmode`               | `string`                    | `""`     |
-| `label`                   | `label`                   | `string`                    | `""`     |
-| `maxLength` / `minLength` | `maxlength` / `minlength` | `number`                    | `-1`     |
+| `inputMode`               | `inputmode`               | `string`                    | browser default |
+| `maxLength` / `minLength` | `maxlength` / `minlength` | `number`                    | browser default |
 | `name`                    | `name`                    | `string`                    | `""`     |
 | `placeholder`             | `placeholder`             | `string`                    | `""`     |
 | `readonly`                | `readonly`                | `boolean`                   | `false`  |
 | `required`                | `required`                | `boolean`                   | `false`  |
-| `rows`                    | `rows`                    | `number`                    | `3`      |
-| `spellCheck`              | `spellcheck`              | `boolean`                   | `true`   |
-| `value`                   | `value`                   | `string`                    | `""`     |
+| `rows`                    | `rows`                    | `number`                    | `2`      |
+| `spellcheck`              | `spellcheck`              | `boolean`                   | browser default |
 | `wrap`                    | `wrap`                    | `"hard" \| "off" \| "soft"` | `"soft"` |
 
 ## Public classes
@@ -173,4 +174,4 @@ Textarea exposes the same styling roles as Textfield with the `--ore-textarea-*`
 
 ## Accessibility
 
-Textarea connects its label, description, and validation message to the native textarea. Use a visible `label` first, and use `aria-label` only when a visible label is not appropriate.
+Use a visible `label` with a matching `for` and `id`. Associate supporting or error text through `aria-describedby`; use the native `required`, `minlength`, `maxlength`, `readonly`, and `disabled` attributes for their respective states.

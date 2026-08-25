@@ -1,60 +1,69 @@
 <script lang="ts">
-  import "oreui-web/textfield";
-  import type { OreTextfield } from "oreui-web/textfield";
-  import type { OreComponentProps } from "../types.js";
+  import type { Snippet } from "svelte";
+  import type { HTMLInputAttributes } from "svelte/elements";
 
-  export type TextfieldProps = OreComponentProps<
-    OreTextfield,
-    | "autocomplete"
-    | "description"
-    | "disabled"
-    | "error"
-    | "inputMode"
-    | "label"
-    | "list"
-    | "max"
-    | "maxLength"
-    | "min"
-    | "minLength"
-    | "name"
-    | "pattern"
-    | "placeholder"
-    | "readonly"
-    | "required"
-    | "step"
-    | "type"
-    | "value"
-  > & {
-    value?: string;
-    onChange?: (event: Event) => void;
+  export type TextfieldProps = Omit<HTMLInputAttributes, "children" | "value"> & {
+    children?: Snippet;
+    description?: string;
+    error?: string;
+    label?: string;
     onInput?: (event: Event) => void;
+    value?: string;
   };
 
   let {
     children,
+    description,
+    error,
+    label,
+    class: className,
     value = $bindable(""),
-    onChange,
     onInput,
+    style,
     ...props
   }: TextfieldProps = $props();
-  let element: OreTextfield;
+  let element: HTMLInputElement;
+  const generatedInputId = `ore-textfield-${crypto.randomUUID()}`;
+
+  const inputId = $derived(props.id ?? generatedInputId);
+  const descriptionId = $derived(description ? `${inputId}-description` : undefined);
+  const errorId = $derived(error ? `${inputId}-error` : undefined);
+
+  $effect(() => {
+    element?.setCustomValidity(error ?? "");
+  });
 
   function handleInput(event: Event): void {
     value = element.value;
     onInput?.(event);
   }
 
-  export function getElement(): OreTextfield {
+  export function getElement(): HTMLInputElement {
     return element;
   }
 </script>
 
-<ore-textfield
-  bind:this={element}
-  {value}
-  onchange={onChange}
-  oninput={handleInput}
-  {...props}
->
-  {@render children?.()}
-</ore-textfield>
+<div class="ore-textfield {className ?? ''}" {style}>
+  {#if label}
+    <label class="ore-textfield-label" for={inputId}>{label}</label>
+  {/if}
+  <span class="ore-textfield-control">
+    {@render children?.()}
+    <input
+      bind:this={element}
+      bind:value
+      {...props}
+      aria-describedby={[descriptionId, errorId].filter(Boolean).join(" ") || undefined}
+      aria-invalid={error ? "true" : undefined}
+      class="ore-textfield-input"
+      id={inputId}
+      oninput={handleInput}
+    />
+  </span>
+  {#if description}
+    <span class="ore-textfield-description" id={descriptionId}>{description}</span>
+  {/if}
+  {#if error}
+    <span class="ore-textfield-error" id={errorId} aria-live="polite">{error}</span>
+  {/if}
+</div>

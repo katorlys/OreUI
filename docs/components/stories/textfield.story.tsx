@@ -14,6 +14,11 @@ interface TextfieldPreviewProps {
   type: string;
 }
 
+const textfieldStyle = {
+  "--ore-textfield-description": "var(--color-fd-muted-foreground)",
+  "--ore-textfield-foreground": "var(--color-fd-foreground)",
+} as CSSProperties;
+
 function TextfieldPreview({
   description,
   disabled,
@@ -35,28 +40,104 @@ function TextfieldPreview({
   }
 
   return (
-    <div style={{ display: "grid", gap: "1rem" }}>
-      <Textfield
-        description={description}
-        disabled={disabled}
-        error={error}
-        label={label}
-        placeholder={placeholder}
-        required={required}
-        type={type}
-        value={value}
-        style={
-          {
-            "--ore-textfield-description": "var(--color-fd-muted-foreground)",
-            "--ore-textfield-foreground": "var(--color-fd-foreground)",
-          } as CSSProperties
-        }
-        onInput={(event) => {
-          const field = event.target as HTMLElement & { value: string };
-          setValue(field.value);
+    <div style={{ display: "grid", gap: "2rem" }}>
+      <div
+        style={{
+          display: "grid",
+          gap: "1.5rem",
+          gridTemplateColumns: "repeat(auto-fit, minmax(12rem, 1fr))",
         }}
-      />
-      <output aria-live="polite">Value: {value || "empty"}</output>
+      >
+        <div>
+          <p>default</p>
+          <Textfield
+            aria-label="Default textfield"
+            placeholder="Placeholder"
+            style={textfieldStyle}
+          />
+        </div>
+        <div>
+          <p>hover</p>
+          <Textfield
+            aria-label="Hover textfield"
+            placeholder="Placeholder"
+            style={
+              {
+                ...textfieldStyle,
+                "--ore-textfield-background":
+                  "var(--ore-color-neutral-surface)",
+                "--ore-textfield-shadow": "var(--ore-color-neutral-shadow)",
+              } as CSSProperties
+            }
+          />
+        </div>
+        <div>
+          <p>focus</p>
+          <Textfield
+            aria-label="Focus textfield"
+            autoFocus
+            placeholder="Placeholder"
+            style={textfieldStyle}
+          />
+        </div>
+        <div>
+          <p>pressed</p>
+          <Textfield
+            aria-label="Pressed textfield"
+            placeholder="Placeholder"
+            style={
+              {
+                ...textfieldStyle,
+                "--ore-textfield-background":
+                  "var(--ore-color-neutral-surface-sunken)",
+                "--ore-textfield-shadow": "var(--ore-color-neutral-border)",
+              } as CSSProperties
+            }
+          />
+        </div>
+        <div>
+          <p>disabled</p>
+          <Textfield
+            aria-label="Disabled textfield"
+            disabled
+            placeholder="Placeholder"
+            style={textfieldStyle}
+          />
+        </div>
+      </div>
+
+      <div style={{ display: "grid", gap: "1rem" }}>
+        <Textfield
+          description={description}
+          disabled={disabled}
+          error={error}
+          label={label}
+          placeholder={placeholder}
+          required={required}
+          type={type}
+          value={value}
+          style={textfieldStyle}
+          onInput={(event) => {
+            const field = event.currentTarget as HTMLInputElement;
+            setValue(field.value);
+          }}
+        />
+        <Textfield
+          aria-label="Readonly textfield"
+          readOnly
+          value="Readonly value"
+          style={textfieldStyle}
+        />
+        <form
+          onReset={() => setValue("")}
+          onSubmit={(event) => event.preventDefault()}
+          style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}
+        >
+          <button type="submit">Submit</button>
+          <button type="reset">Reset</button>
+          <output aria-live="polite">Value: {value || "empty"}</output>
+        </form>
+      </div>
     </div>
   );
 }

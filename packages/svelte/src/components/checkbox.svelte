@@ -1,43 +1,37 @@
 <script lang="ts">
-  import "oreui-web/checkbox";
-  import type { OreCheckbox, OreCheckboxColor } from "oreui-web/checkbox";
-  import type { OreComponentProps } from "../types.js";
+  import type { Snippet } from "svelte";
+  import type { HTMLInputAttributes } from "svelte/elements";
 
-  export type CheckboxProps = OreComponentProps<
-    OreCheckbox,
-    "checked" | "color" | "disabled" | "name" | "required" | "value"
-  > & {
+  export type CheckboxProps = Omit<HTMLInputAttributes, "children" | "color" | "type"> & {
     checked?: boolean;
-    color?: OreCheckboxColor;
-    onChange?: (event: Event) => void;
-    onInput?: (event: Event) => void;
+    children?: Snippet;
+    color?: string;
+    labelClass?: string;
   };
 
   let {
     children,
     checked = $bindable(false),
-    onChange,
-    onInput,
+    color,
+    labelClass,
+    oninput,
     ...props
   }: CheckboxProps = $props();
-  let element: OreCheckbox;
+  let element: HTMLInputElement;
 
-  function handleInput(event: Event): void {
+  function handleInput(
+    event: Event & { currentTarget: EventTarget & HTMLInputElement },
+  ): void {
     checked = element.checked;
-    onInput?.(event);
+    oninput?.(event);
   }
 
-  export function getElement(): OreCheckbox {
+  export function getElement(): HTMLInputElement {
     return element;
   }
 </script>
 
-<ore-checkbox
-  bind:this={element}
-  {checked}
-  onchange={onChange}
-  oninput={handleInput}
-  {...props}
->
+<label class={labelClass}>
+  <input bind:this={element} bind:checked {...props} data-color={color} oninput={handleInput} type="checkbox" />
   {@render children?.()}
-</ore-checkbox>
+</label>

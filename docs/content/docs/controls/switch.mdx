@@ -11,14 +11,17 @@ import { SwitchStory } from "@/components/stories/switch.story";
 
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
-```js
-import "oreui-web/switch";
-```
-
 ```html
-<ore-switch name="autosave" value="enabled" variant="icons">
+<label>
+  <input
+    type="checkbox"
+    role="switch"
+    name="autosave"
+    value="enabled"
+    data-variant="icons"
+  />
   Enable autosave
-</ore-switch>
+</label>
 ```
 
     </Tab>
@@ -38,8 +41,7 @@ export function AutosaveSwitch() {
       value="enabled"
       variant="icons"
       onChange={(event) => {
-        const control = event.target as HTMLElement & { checked: boolean };
-        setChecked(control.checked);
+        setChecked(event.currentTarget.checked);
       }}
     >
       Enable autosave
@@ -109,13 +111,16 @@ export function AutosaveSwitch() {
     <Tab value="Astro">
 
 ```astro
-<ore-switch name="autosave" value="enabled" variant="icons">
-	Enable autosave
-</ore-switch>
-
-<script>
-	import "oreui-web/switch";
-</script>
+<label>
+  <input
+    type="checkbox"
+    role="switch"
+    name="autosave"
+    value="enabled"
+    data-variant="icons"
+  />
+  Enable autosave
+</label>
 ```
 
     </Tab>
@@ -125,22 +130,24 @@ export function AutosaveSwitch() {
 ## Variants
 
 ```html
-<ore-switch variant="default">Default</ore-switch>
-<ore-switch variant="icons">Icons</ore-switch>
+<label><input type="checkbox" role="switch" /> Default</label>
+<label>
+  <input type="checkbox" role="switch" data-variant="icons" /> Icons
+</label>
 ```
 
 ## Colors
 
-Use `color` to change the checked state color.
+Use `data-color` to change the checked state color.
 
 ```html
-<ore-switch color="primary" checked>Primary</ore-switch>
-<ore-switch color="secondary" checked>Secondary</ore-switch>
-<ore-switch color="destructive" checked>Destructive</ore-switch>
-<ore-switch color="dungeons" checked>Dungeons</ore-switch>
-<ore-switch color="legends" checked>Legends</ore-switch>
-<ore-switch color="realms" checked>Realms</ore-switch>
-<ore-switch color="gold" checked>Gold</ore-switch>
+<input type="checkbox" role="switch" data-color="primary" checked />
+<input type="checkbox" role="switch" data-color="secondary" checked />
+<input type="checkbox" role="switch" data-color="destructive" checked />
+<input type="checkbox" role="switch" data-color="dungeons" checked />
+<input type="checkbox" role="switch" data-color="legends" checked />
+<input type="checkbox" role="switch" data-color="realms" checked />
+<input type="checkbox" role="switch" data-color="gold" checked />
 ```
 
 ## Forms
@@ -149,19 +156,11 @@ Checked values are included in `FormData`, and reset restores the initial state.
 
 ## Events
 
-Switch dispatches native `input` and `change` events after its value changes.
+The native input dispatches `input` and `change` events after its checked state changes.
 
-## API
+## Attributes
 
-| Property   | Attribute  | Type                                                                                         | Default     |
-| ---------- | ---------- | -------------------------------------------------------------------------------------------- | ----------- |
-| `checked`  | `checked`  | `boolean`                                                                                    | `false`     |
-| `color`    | `color`    | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"` |
-| `disabled` | `disabled` | `boolean`                                                                                    | `false`     |
-| `name`     | `name`     | `string`                                                                                     | `""`        |
-| `required` | `required` | `boolean`                                                                                    | `false`     |
-| `value`    | `value`    | `string`                                                                                     | `"on"`      |
-| `variant`  | `variant`  | `"default" \| "icons"`                                                                       | `"default"` |
+Switch uses the native checkbox attributes `checked`, `disabled`, `name`, `required`, and `value`. Add `role="switch"` for switch semantics. OreUI options use `data-color` and `data-variant="icons"`.
 
 ## CSS variables
 
@@ -181,4 +180,4 @@ Switch dispatches native `input` and `change` events after its value changes.
 
 ## Accessibility
 
-Switch provides switch semantics and supports `Space`. Use a label to describe the content.
+The native checkbox provides form and keyboard behavior, while `role="switch"` exposes switch semantics. Use a label to describe the control.

@@ -1,48 +1,59 @@
-import "oreui-web/slider";
+import { syncSlider } from "oreui-web/slider";
+import { createRenderEffect, splitProps, type JSX } from "solid-js";
 
-import type { OreSlider } from "oreui-web/slider";
-import { createOreComponent } from "../factory.js";
-import type { OreComponentProps } from "../types.js";
-
-export type SliderProps = OreComponentProps<
-  OreSlider,
-  | "color"
-  | "disabled"
-  | "max"
-  | "min"
-  | "name"
-  | "orientation"
-  | "range"
-  | "step"
-  | "value"
-  | "valueStart"
-  | "variant"
+export type SliderProps = Omit<
+  JSX.InputHTMLAttributes<HTMLInputElement>,
+  "color" | "type"
 > & {
+  color?: string;
   onValueChange?: (value: number) => void;
+  orientation?: "horizontal" | "vertical";
+  variant?: string;
 };
 
-export const Slider = createOreComponent<OreSlider, SliderProps>({
-  events: {
-    onChange: "change",
-    onInput: "input",
-  },
-  model: {
-    callback: "onValueChange",
-    event: "input",
-    property: "value",
-  },
-  properties: [
+export function Slider(props: SliderProps): JSX.Element {
+  let element: HTMLInputElement | undefined;
+  const [local, inputProps] = splitProps(props, [
     "color",
-    "disabled",
-    "max",
-    "min",
-    "name",
+    "onInput",
+    "onValueChange",
     "orientation",
-    "range",
-    "step",
-    "value",
-    "valueStart",
+    "ref",
     "variant",
-  ],
-  tagName: "ore-slider",
-});
+  ]);
+
+  const sync = (node: HTMLInputElement): void => {
+    element = node;
+    if (typeof local.ref === "function") {
+      local.ref(node);
+    }
+  };
+
+  createRenderEffect(() => {
+    inputProps.max;
+    inputProps.min;
+    inputProps.step;
+    inputProps.value;
+    if (element) {
+      syncSlider(element);
+    }
+  });
+
+  return (
+    <input
+      {...inputProps}
+      aria-orientation={local.orientation}
+      data-color={local.color}
+      data-orientation={local.orientation}
+      data-variant={local.variant}
+      onInput={(event) => {
+        if (typeof local.onInput === "function") {
+          local.onInput(event);
+        }
+        local.onValueChange?.(event.currentTarget.valueAsNumber);
+      }}
+      ref={sync}
+      type="range"
+    />
+  );
+}

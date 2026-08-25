@@ -1,30 +1,27 @@
 <script lang="ts">
-  import "oreui-web/radio";
-  import type { OreRadio, OreRadioColor } from "oreui-web/radio";
-  import type { OreComponentProps } from "../types.js";
+  import type { Snippet } from "svelte";
+  import type { HTMLInputAttributes } from "svelte/elements";
 
-  export type RadioProps = OreComponentProps<
-    OreRadio,
-    "checked" | "color" | "disabled" | "name" | "required" | "value"
-  > & {
-    color?: OreRadioColor;
-    onChange?: (event: Event) => void;
-    onInput?: (event: Event) => void;
+  export type RadioProps = Omit<HTMLInputAttributes, "children" | "color" | "type"> & {
+    children?: Snippet;
+    color?: string;
+    labelClass?: string;
   };
 
-  let { children, onChange, onInput, ...props }: RadioProps = $props();
-  let element: OreRadio;
+  let {
+    children,
+    color,
+    labelClass,
+    ...props
+  }: RadioProps = $props();
+  let element: HTMLInputElement;
 
-  export function getElement(): OreRadio {
+  export function getElement(): HTMLInputElement {
     return element;
   }
 </script>
 
-<ore-radio
-  bind:this={element}
-  onchange={onChange}
-  oninput={onInput}
-  {...props}
->
+<label class={labelClass}>
+  <input bind:this={element} {...props} data-color={color} type="radio" />
   {@render children?.()}
-</ore-radio>
+</label>

@@ -1,4 +1,4 @@
-:where(ore-checkbox) {
+:where(input[type="checkbox"]:not([role="switch"])) {
   --ore-checkbox-unit: var(--ore-size-unit);
   --ore-checkbox-background: var(--ore-color-neutral-50-background);
   --ore-checkbox-highlight: var(--ore-color-neutral-50-highlight);
@@ -19,84 +19,90 @@
     --ore-color-primary-highlight-pressed
   );
 
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: calc(var(--ore-checkbox-unit) * 4);
-  min-height: calc(var(--ore-checkbox-unit) * 12);
-  color: var(--ore-color-border);
-  cursor: pointer;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-:where(ore-checkbox)::before {
+  display: inline-grid;
   flex: none;
+  place-content: center;
+  appearance: none;
   box-sizing: border-box;
   width: calc(var(--ore-checkbox-unit) * 12);
   height: calc(var(--ore-checkbox-unit) * 12);
+  margin: 0;
+  border: 0;
+  border-radius: 0;
   background: var(--ore-checkbox-background);
   box-shadow:
     inset 0 0 0 var(--ore-checkbox-unit) var(--ore-checkbox-border),
     inset 0 0 0 calc(var(--ore-checkbox-unit) * 2) var(--ore-checkbox-highlight);
-  content: "";
+  color: var(--ore-checkbox-indicator);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
-:where(ore-checkbox[checked])::after {
-  position: absolute;
-  top: 50%;
-  left: calc(var(--ore-checkbox-unit) * 2);
+:where(input[type="checkbox"]:not([role="switch"]))::before {
   width: calc(var(--ore-checkbox-unit) * 8);
   height: calc(var(--ore-checkbox-unit) * 8);
-  background: var(--ore-checkbox-indicator);
+  background: currentColor;
   content: "";
   mask: url("../../assets/icons/tick.svg") center / contain no-repeat;
-  transform: translateY(-50%);
+  opacity: 0;
 }
 
-:where(ore-checkbox[checked]) {
+:where(input[type="checkbox"]:not([role="switch"]):checked) {
   --ore-checkbox-background: var(--ore-checkbox-active-background);
   --ore-checkbox-highlight: var(--ore-checkbox-active-highlight);
 }
 
+:where(input[type="checkbox"]:not([role="switch"]):checked)::before {
+  opacity: 1;
+}
+
+:where(label:has(> input[type="checkbox"]:not([role="switch"]))) {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--ore-size-unit) * 4);
+  min-height: calc(var(--ore-size-unit) * 12);
+  color: var(--ore-color-border);
+  cursor: pointer;
+  user-select: none;
+}
+
 :where(
-  ore-checkbox[color="secondary"],
-  ore-checkbox[color="dungeons"],
-  ore-checkbox[color="legends"],
-  ore-checkbox[color="gold"]
+  input[type="checkbox"]:not([role="switch"])[data-color="secondary"],
+  input[type="checkbox"]:not([role="switch"])[data-color="dungeons"],
+  input[type="checkbox"]:not([role="switch"])[data-color="legends"],
+  input[type="checkbox"]:not([role="switch"])[data-color="gold"]
 ) {
   --ore-checkbox-indicator: var(--ore-color-gray-100);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :where(ore-checkbox:hover:not([disabled], [form-disabled])) {
+  :where(input[type="checkbox"]:not([role="switch"]):hover:not(:disabled)) {
     --ore-checkbox-background: var(--ore-color-neutral-50-background-hover);
     --ore-checkbox-highlight: var(--ore-color-neutral-50-highlight-hover);
   }
 
-  :where(ore-checkbox[checked]:hover:not([disabled], [form-disabled])) {
+  :where(
+    input[type="checkbox"]:not([role="switch"]):checked:hover:not(:disabled)
+  ) {
     --ore-checkbox-background: var(--ore-checkbox-active-background-hover);
     --ore-checkbox-highlight: var(--ore-checkbox-active-highlight-hover);
   }
 }
 
-:where(
-  ore-checkbox:active:not([disabled], [form-disabled]),
-  ore-checkbox[pressed]:not([disabled], [form-disabled])
-) {
+:where(input[type="checkbox"]:not([role="switch"]):active:not(:disabled)) {
   --ore-checkbox-background: var(--ore-color-neutral-50-background-pressed);
   --ore-checkbox-highlight: var(--ore-color-neutral-50-highlight-pressed);
 }
 
 :where(
-  ore-checkbox[checked]:active:not([disabled], [form-disabled]),
-  ore-checkbox[checked][pressed]:not([disabled], [form-disabled])
+  input[type="checkbox"]:not([role="switch"]):checked:active:not(:disabled)
 ) {
   --ore-checkbox-background: var(--ore-checkbox-active-background-pressed);
   --ore-checkbox-highlight: var(--ore-checkbox-active-highlight-pressed);
 }
 
-:where(ore-checkbox[color="secondary"]) {
+:where(input[type="checkbox"]:not([role="switch"])[data-color="secondary"]) {
   --ore-checkbox-active-background: var(--ore-color-secondary-background);
   --ore-checkbox-active-background-hover: var(
     --ore-color-secondary-background-hover
@@ -113,7 +119,7 @@
   );
 }
 
-:where(ore-checkbox[color="destructive"]) {
+:where(input[type="checkbox"]:not([role="switch"])[data-color="destructive"]) {
   --ore-checkbox-active-background: var(--ore-color-destructive-background);
   --ore-checkbox-active-background-hover: var(
     --ore-color-destructive-background-hover
@@ -130,7 +136,7 @@
   );
 }
 
-:where(ore-checkbox[color="dungeons"]) {
+:where(input[type="checkbox"]:not([role="switch"])[data-color="dungeons"]) {
   --ore-checkbox-active-background: var(--ore-color-dungeons-background);
   --ore-checkbox-active-background-hover: var(
     --ore-color-dungeons-background-hover
@@ -143,7 +149,7 @@
   --ore-checkbox-active-highlight-pressed: var(--ore-color-dungeons-highlight);
 }
 
-:where(ore-checkbox[color="legends"]) {
+:where(input[type="checkbox"]:not([role="switch"])[data-color="legends"]) {
   --ore-checkbox-active-background: var(--ore-color-legends-background);
   --ore-checkbox-active-background-hover: var(
     --ore-color-legends-background-hover
@@ -156,7 +162,7 @@
   --ore-checkbox-active-highlight-pressed: var(--ore-color-legends-highlight);
 }
 
-:where(ore-checkbox[color="realms"]) {
+:where(input[type="checkbox"]:not([role="switch"])[data-color="realms"]) {
   --ore-checkbox-active-background: var(--ore-color-realms-background);
   --ore-checkbox-active-background-hover: var(
     --ore-color-realms-background-hover
@@ -169,7 +175,7 @@
   --ore-checkbox-active-highlight-pressed: var(--ore-color-realms-highlight);
 }
 
-:where(ore-checkbox[color="gold"]) {
+:where(input[type="checkbox"]:not([role="switch"])[data-color="gold"]) {
   --ore-checkbox-active-background: var(--ore-color-gold-background);
   --ore-checkbox-active-background-hover: var(
     --ore-color-gold-background-hover
@@ -182,28 +188,31 @@
   --ore-checkbox-active-highlight-pressed: var(--ore-color-gold-highlight);
 }
 
-:where(ore-checkbox:focus-visible)::before {
+:where(input[type="checkbox"]:not([role="switch"]):focus-visible) {
+  border-radius: 0;
+  outline: var(--ore-checkbox-unit) solid var(--ore-color-focus-ring);
+  outline-offset: 0;
   box-shadow:
     0 0 0 var(--ore-checkbox-unit) var(--ore-color-focus-ring),
     inset 0 0 0 var(--ore-checkbox-unit) var(--ore-checkbox-border),
     inset 0 0 0 calc(var(--ore-checkbox-unit) * 2) var(--ore-checkbox-highlight);
 }
 
-:where(ore-checkbox:focus-visible) {
-  border-radius: 0;
-  outline: var(--ore-checkbox-unit) solid var(--ore-color-focus-ring);
-  outline-offset: 0;
-}
-
-:where(ore-checkbox:focus-visible:not([checked])) {
+:where(
+  input[type="checkbox"]:not([role="switch"]):focus-visible:not(:checked)
+) {
   --ore-checkbox-highlight: var(--ore-color-neutral-50-highlight-focus);
 }
 
-:where(ore-checkbox[disabled], ore-checkbox[form-disabled]) {
+:where(input[type="checkbox"]:not([role="switch"]):disabled) {
   --ore-checkbox-background: var(--ore-color-disabled);
   --ore-checkbox-highlight: var(--ore-color-disabled);
   --ore-checkbox-border: var(--ore-color-disabled-border);
   --ore-checkbox-indicator: var(--ore-color-disabled-border);
 
+  cursor: not-allowed;
+}
+
+:where(label:has(> input[type="checkbox"]:not([role="switch"]):disabled)) {
   cursor: not-allowed;
 }

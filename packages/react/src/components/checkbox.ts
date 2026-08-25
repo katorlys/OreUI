@@ -1,16 +1,28 @@
-import { createComponent, type EventName } from "@lit/react";
-import { OreCheckbox as OreCheckboxElement } from "oreui-web/checkbox";
 import React from "react";
 
-export const Checkbox = createComponent({
-  react: React,
-  tagName: "ore-checkbox",
-  elementClass: OreCheckboxElement,
-  events: {
-    onInput: "input" as EventName<Event>,
-    onChange: "change" as EventName<Event>,
-  },
-  displayName: "Checkbox",
-});
+export type CheckboxProps = Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "color" | "type"
+> & {
+  color?: string;
+  labelClassName?: string;
+};
 
-export type CheckboxProps = React.ComponentProps<typeof Checkbox>;
+export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+  function Checkbox(
+    { children, color, labelClassName, ...props },
+    ref,
+  ): React.ReactElement {
+    return React.createElement(
+      "label",
+      { className: labelClassName },
+      React.createElement("input", {
+        ...props,
+        "data-color": color,
+        ref,
+        type: "checkbox",
+      }),
+      children,
+    );
+  },
+);

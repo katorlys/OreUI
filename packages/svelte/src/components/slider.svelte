@@ -1,63 +1,60 @@
 <script lang="ts">
-  import "oreui-web/slider";
-  import type {
-    OreSlider,
-    OreSliderColor,
-    OreSliderOrientation,
-    OreSliderVariant,
-  } from "oreui-web/slider";
-  import type { OreComponentProps } from "../types.js";
+  import { syncSlider } from "oreui-web/slider";
+  import type { HTMLInputAttributes } from "svelte/elements";
 
-  export type SliderProps = OreComponentProps<
-    OreSlider,
-    | "color"
-    | "disabled"
-    | "max"
-    | "min"
-    | "name"
-    | "orientation"
-    | "range"
-    | "step"
-    | "value"
-    | "valueStart"
-    | "variant"
-  > & {
-    color?: OreSliderColor;
-    orientation?: OreSliderOrientation;
+  export type SliderProps = Omit<HTMLInputAttributes, "color" | "type" | "value"> & {
+    color?: string;
+    orientation?: "horizontal" | "vertical";
     value?: number;
-    variant?: OreSliderVariant;
-    onChange?: (event: Event) => void;
-    onInput?: (event: Event) => void;
+    variant?: string;
   };
 
   let {
-    children,
+    color,
+    max,
+    min,
+    oninput,
+    orientation,
+    step,
     value = $bindable(0),
-    valueStart = $bindable(0),
-    onChange,
-    onInput,
+    variant,
     ...props
   }: SliderProps = $props();
-  let element: OreSlider;
+  let element: HTMLInputElement;
 
-  function handleInput(event: Event): void {
-    value = element.value;
-    valueStart = element.valueStart;
-    onInput?.(event);
+  $effect(() => {
+    max;
+    min;
+    step;
+    value;
+    if (element) {
+      syncSlider(element);
+    }
+  });
+
+  function handleInput(
+    event: Event & { currentTarget: EventTarget & HTMLInputElement },
+  ): void {
+    value = element.valueAsNumber;
+    oninput?.(event);
   }
 
-  export function getElement(): OreSlider {
+  export function getElement(): HTMLInputElement {
     return element;
   }
 </script>
 
-<ore-slider
+<input
   bind:this={element}
-  {value}
-  {valueStart}
-  onchange={onChange}
-  oninput={handleInput}
+  bind:value
   {...props}
->
-  {@render children?.()}
-</ore-slider>
+  aria-orientation={orientation}
+  data-color={color}
+  data-orientation={orientation}
+  data-variant={variant}
+  {max}
+  {min}
+  oninput={handleInput}
+  {step}
+  type="range"
+/>

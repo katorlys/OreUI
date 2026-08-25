@@ -9,7 +9,10 @@ OreUI 表单可与原生 `forms` 和 `FormData` 配合使用。
 
 ```html
 <form id="settings">
-  <ore-checkbox name="updates" value="enabled"> Receive updates </ore-checkbox>
+  <label>
+    <input type="checkbox" name="updates" value="enabled" />
+    Receive updates
+  </label>
   <ore-button type="submit">Save</ore-button>
   <ore-button type="reset" color="secondary">Reset</ore-button>
 </form>

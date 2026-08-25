@@ -2,7 +2,6 @@
   ore-accordion,
   ore-button,
   ore-card,
-  ore-checkbox,
   ore-container,
   ore-table,
   ore-dropdown,
@@ -13,13 +12,11 @@
   ore-radio,
   ore-radio-group,
   ore-scrollbar,
-  ore-slider,
   ore-spinner,
   ore-switch,
   ore-tab-bar,
   ore-tab-button,
   ore-tag,
-  ore-textfield,
   ore-toggles,
   ore-tooltip
 ) {
@@ -47,7 +44,6 @@
 /* Improvements for touch devices */
 :where(
   ore-button,
-  ore-checkbox,
   ore-icon-button,
   ore-radio,
   ore-switch,
@@ -62,20 +58,25 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-:where(ore-slider, ore-slider > input[type="range"]) {
+:where(input[type="range"]) {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
 
-:where(ore-textfield, ore-textfield .ore-textfield-input) {
+:where(
+  .ore-textfield,
+  .ore-textfield .ore-textfield-input,
+  .ore-textarea,
+  .ore-textarea .ore-textarea-input
+) {
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
 
-:where(ore-slider:not([orientation="vertical"]) > input[type="range"]) {
+:where(input[type="range"]:not([data-orientation="vertical"])) {
   touch-action: pan-y;
 }
 
-:where(ore-slider[orientation="vertical"] > input[type="range"]) {
+:where(input[type="range"][data-orientation="vertical"]) {
   touch-action: pan-x;
 }

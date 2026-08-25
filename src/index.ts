@@ -1,11 +1,11 @@
 export { OreAccordion } from "./components/accordion/accordion.js";
 export {
-  OreButton,
+  type OreButtonColor,
   type OreButtonType,
   type OreButtonVariant,
 } from "./components/button/button.js";
 export { OreCard } from "./components/card/card.js";
-export { OreCheckbox } from "./components/checkbox/checkbox.js";
+export { type OreCheckboxColor } from "./components/checkbox/checkbox.js";
 export {
   OreContainer,
   type OreContainerVariant,
@@ -41,17 +41,18 @@ export {
   type OreProgressBarVariant,
 } from "./components/progress-bar/progress-bar.js";
 export { OreProgressRing } from "./components/progress-ring/progress-ring.js";
-export { OreRadio } from "./components/radio/radio.js";
-export { OreRadioGroup } from "./components/radio-group/radio-group.js";
+export { type OreRadioColor } from "./components/radio/radio.js";
 export { OreScrollbar } from "./components/scrollbar/scrollbar.js";
 export {
-  OreSlider,
+  initSliders,
+  syncSlider,
+  type OreSliderColor,
   type OreSliderOrientation,
   type OreSliderVariant,
 } from "./components/slider/slider.js";
 export { OreSpinner } from "./components/spinner/spinner.js";
 export {
-  OreSwitch,
+  type OreSwitchColor,
   type OreSwitchVariant,
 } from "./components/switch/switch.js";
 export { OreTabBar } from "./components/tab-bar/tab-bar.js";
@@ -60,11 +61,7 @@ export {
   type OreTabButtonPalette,
 } from "./components/tab-button/tab-button.js";
 export { OreTag, type OreTagVariant } from "./components/tag/tag.js";
-export {
-  OreTextarea,
-  type OreTextareaWrap,
-} from "./components/textarea/textarea.js";
-export { OreTextfield } from "./components/textfield/textfield.js";
+export type { OreTextareaWrap } from "./components/textarea/textarea.js";
 export {
   OreTooltip,
   type OreTooltipSide,

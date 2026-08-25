@@ -1,4 +1,8 @@
-:where(ore-radio-group) {
+:where(.ore-radio-group) {
   display: grid;
   gap: calc(var(--ore-size-unit) * 4);
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }

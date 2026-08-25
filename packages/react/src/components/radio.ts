@@ -1,16 +1,28 @@
-import { createComponent, type EventName } from "@lit/react";
-import { OreRadio as OreRadioElement } from "oreui-web/radio";
 import React from "react";
 
-export const Radio = createComponent({
-  react: React,
-  tagName: "ore-radio",
-  elementClass: OreRadioElement,
-  events: {
-    onInput: "input" as EventName<Event>,
-    onChange: "change" as EventName<Event>,
-  },
-  displayName: "Radio",
-});
+export type RadioProps = Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "color" | "type"
+> & {
+  color?: string;
+  labelClassName?: string;
+};
 
-export type RadioProps = React.ComponentProps<typeof Radio>;
+export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
+  function Radio(
+    { children, color, labelClassName, ...props },
+    ref,
+  ): React.ReactElement {
+    return React.createElement(
+      "label",
+      { className: labelClassName },
+      React.createElement("input", {
+        ...props,
+        "data-color": color,
+        ref,
+        type: "radio",
+      }),
+      children,
+    );
+  },
+);

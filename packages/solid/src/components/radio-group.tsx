@@ -1,11 +1,14 @@
-import "oreui-web/radio-group";
+import { splitProps, type JSX } from "solid-js";
 
-import type { OreRadioGroup } from "oreui-web/radio-group";
-import { createOreComponent } from "../factory.js";
-import type { OreComponentProps } from "../types.js";
+export type RadioGroupProps = JSX.FieldsetHTMLAttributes<HTMLFieldSetElement>;
 
-export type RadioGroupProps = OreComponentProps<OreRadioGroup>;
+export function RadioGroup(props: RadioGroupProps): JSX.Element {
+  const [local, fieldsetProps] = splitProps(props, ["class"]);
 
-export const RadioGroup = createOreComponent<OreRadioGroup, RadioGroupProps>({
-  tagName: "ore-radio-group",
-});
+  return (
+    <fieldset
+      {...fieldsetProps}
+      class={["ore-radio-group", local.class].filter(Boolean).join(" ")}
+    />
+  );
+}
