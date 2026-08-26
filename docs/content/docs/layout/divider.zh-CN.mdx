@@ -12,11 +12,11 @@ import { DividerStory } from "@/components/stories/divider.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "oreui-web/divider";
+import "oreui-web/styles.css";
 ```
 
 ```html
-<ore-divider></ore-divider>
+<hr class="ore-divider" />
 ```
 
     </Tab>
@@ -69,10 +69,10 @@ export function Sections() {
     <Tab value="Astro">
 
 ```astro
-<ore-divider></ore-divider>
+<hr class="ore-divider" />
 
 <script>
-	import "oreui-web/divider";
+  import "oreui-web/styles.css";
 </script>
 ```
 
@@ -80,7 +80,7 @@ export function Sections() {
 
 </Tabs>
 
-Divider 默认填满可用宽度。使用 host 的 `class` 或普通 CSS 控制宽度和周围间距。
+Divider 默认填满可用宽度。使用 `ore-divider` class 或普通 CSS 控制宽度和周围间距。
 
 ## CSS 变量
 
@@ -92,4 +92,4 @@ Divider 默认填满可用宽度。使用 host 的 `class` 或普通 CSS 控制�
 
 ## 无障碍
 
-Divider 默认带有 `role="separator"`，表示内容区块之间的横向分隔。如果仅将其用于装饰用途，不用于分隔内容，应设置 `role="none"`。
+原生 `<hr>` 表示主题内容分隔，并会被辅助技术识别为 separator。如果仅将其用于装饰用途，不用于内容分隔，应设置 `role="none"`。

@@ -1,12 +1,16 @@
-import { createComponent } from "@lit/react";
-import { OreProgressBar as OreProgressBarElement } from "oreui-web/progress-bar";
 import React from "react";
 
-export const ProgressBar = createComponent({
-  react: React,
-  tagName: "ore-progress-bar",
-  elementClass: OreProgressBarElement,
-  displayName: "ProgressBar",
-});
+export type ProgressBarProps = React.ProgressHTMLAttributes<HTMLProgressElement>;
 
-export type ProgressBarProps = React.ComponentProps<typeof ProgressBar>;
+export const ProgressBar = React.forwardRef<
+  HTMLProgressElement,
+  ProgressBarProps
+>(function ProgressBar(props, ref) {
+  return React.createElement("progress", {
+    ...props,
+    ref,
+    className: props.className
+      ? `ore-progress-bar ${props.className}`
+      : "ore-progress-bar",
+  });
+});

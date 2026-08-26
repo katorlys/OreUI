@@ -1,18 +1,19 @@
 :where(
   ore-accordion,
   ore-button,
-  ore-card,
-  ore-container,
+  article.ore-card,
+  .ore-container,
   ore-table,
   ore-dropdown,
-  ore-icon-button,
+  button.ore-icon-button,
   ore-modal,
-  ore-navbar,
-  ore-progress-bar,
+  nav.ore-navbar,
+  progress.ore-progress-bar,
+  .ore-progress-ring,
   ore-radio,
   ore-radio-group,
-  ore-scrollbar,
-  ore-spinner,
+  .ore-scrollbar,
+  .ore-spinner,
   ore-switch,
   ore-tab-bar,
   ore-tab-button,
@@ -44,14 +45,14 @@
 /* Improvements for touch devices */
 :where(
   ore-button,
-  ore-icon-button,
+  button.ore-icon-button,
   ore-radio,
   ore-switch,
   ore-tab-button,
   ore-dropdown .ore-dropdown-item,
   ore-modal .ore-modal-header-button,
-  ore-navbar .ore-navbar-button,
-  ore-navbar .ore-navbar-action
+  nav.ore-navbar .ore-navbar-button,
+  nav.ore-navbar .ore-navbar-action
 ) {
   touch-action: manipulation;
   user-select: none;

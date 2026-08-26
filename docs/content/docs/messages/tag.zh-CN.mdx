@@ -12,11 +12,11 @@ import { TagStory } from "@/components/stories/tag.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "oreui-web/tag";
+import "oreui-web/styles.css";
 ```
 
 ```html
-<ore-tag variant="primary">New</ore-tag>
+<span class="ore-tag" data-variant="primary">New</span>
 ```
 
     </Tab>
@@ -66,10 +66,10 @@ export function Status() {
     <Tab value="Astro">
 
 ```astro
-<ore-tag variant="primary">New</ore-tag>
+<span class="ore-tag" data-variant="primary">New</span>
 
 <script>
-	import "oreui-web/tag";
+  import "oreui-web/styles.css";
 </script>
 ```
 
@@ -80,19 +80,19 @@ export function Status() {
 ## 变体
 
 ```html
-<ore-tag>Neutral</ore-tag>
-<ore-tag variant="secondary">Secondary</ore-tag>
-<ore-tag variant="primary">Primary</ore-tag>
-<ore-tag variant="informative">Info</ore-tag>
-<ore-tag variant="notice">Notice</ore-tag>
-<ore-tag variant="warning">Warning</ore-tag>
-<ore-tag variant="realms-informative">Realms</ore-tag>
+<span class="ore-tag">Neutral</span>
+<span class="ore-tag" data-variant="secondary">Secondary</span>
+<span class="ore-tag" data-variant="primary">Primary</span>
+<span class="ore-tag" data-variant="informative">Info</span>
+<span class="ore-tag" data-variant="notice">Notice</span>
+<span class="ore-tag" data-variant="warning">Warning</span>
+<span class="ore-tag" data-variant="realms-informative">Realms</span>
 ```
 
 添加 `outlined` 以使 Tag 出现可见边框。
 
 ```html
-<ore-tag outlined>Outlined</ore-tag>
+<span class="ore-tag" data-outlined>Outlined</span>
 ```
 
 ## API

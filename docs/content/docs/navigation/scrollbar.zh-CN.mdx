@@ -16,11 +16,15 @@ import "oreui-web/scrollbar";
 ```
 
 ```html
-<ore-scrollbar aria-label="World list" style="max-height: 12rem;">
+<div
+  class="ore-scrollbar"
+  aria-label="World list"
+  style="max-height: 12rem;"
+>
   <div>World 1</div>
   <div>World 2</div>
   <div>World 3</div>
-</ore-scrollbar>
+</div>
 ```
 
     </Tab>
@@ -86,14 +90,14 @@ export function ScrollableContent() {
     <Tab value="Astro">
 
 ```astro
-<ore-scrollbar aria-label="World list" style="max-height: 12rem;">
+<div class="ore-scrollbar" aria-label="World list" style="max-height: 12rem;">
 	<div>World 1</div>
 	<div>World 2</div>
 	<div>World 3</div>
-</ore-scrollbar>
+</div>
 
 <script>
-	import "oreui-web/scrollbar";
+  import "oreui-web/scrollbar";
 </script>
 ```
 
@@ -101,9 +105,9 @@ export function ScrollableContent() {
 
 </Tabs>
 
-## CSS 类
+## 原生滚动
 
-若有其他元素只需要滚动条的视觉样式，使用 `.ore-scrollbar`。
+将 `.ore-scrollbar` 应用于真实的 overflow 容器。滚轮、触摸惯性和滚动位置继续绑定到这个原生容器。可选的 `oreui-web/scrollbar` controller 根据实际溢出管理 `tabindex`、统一各浏览器的键盘滚动，并提供 Firefox 视觉 fallback。
 
 ```html
 <div class="ore-scrollbar" style="max-height: 12rem; overflow: auto;">
@@ -111,7 +115,7 @@ export function ScrollableContent() {
 </div>
 ```
 
-该类不会添加 Scrollbar 提供的键盘行为和自动 `tabindex` 管理功能。
+Chromium 和 Safari 使用 `::-webkit-scrollbar*` 复刻分层像素滑块。由于 Firefox 没有提供所需的 thumb 和 track 伪元素，controller 会隐藏其原生滚动条并覆盖同样的 track 和 thumb 分层，同时仍以真实元素作为滚动容器。覆盖层同步原生滚动位置和指针拖拽。未导入 controller 时，Firefox 使用 `scrollbar-color` 和原生滚动条作为 fallback。
 
 ## CSS 变量
 
@@ -127,8 +131,7 @@ export function ScrollableContent() {
 | `--ore-scrollbar-thumb-highlight`  | 滑块高光颜色       |
 | `--ore-scrollbar-thumb-background` | 滑块背景颜色       |
 | `--ore-scrollbar-thumb-shadow`     | 滑块阴影颜色       |
-| `--ore-scrollbar-z-index`          | 自定义轨道堆叠层级 |
 
 ## 无障碍
 
-Scrollbar 仅在内容溢出时进入 `Tab` 顺序。按`方向键`可小幅滚动，按 `Page Up` 和 `Page Down` 可滚动一个 viewport，按 `Home` 和 `End` 可移动到任一边缘。应设置描述滚动区域的无障碍标签。
+导入 controller 后，发生溢出且没有设置 `tabindex` 的区域会获得 `tabindex="0"`，没有溢出的区域会获得 `tabindex="-1"`。显式设置的 `tabindex`（包括 `-1`）永远不会被覆盖。只有滚动区域自身获得焦点时，controller 才统一处理方向键、Page Up/Down、Home 和 End，因此内部控件保留原生键盘行为。请使用 `aria-label` 或 `aria-labelledby` 来提供无障碍名称。

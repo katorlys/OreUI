@@ -12,11 +12,11 @@ import { DividerStory } from "@/components/stories/divider.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "oreui-web/divider";
+import "oreui-web/styles.css";
 ```
 
 ```html
-<ore-divider></ore-divider>
+<hr class="ore-divider" />
 ```
 
     </Tab>
@@ -69,10 +69,10 @@ export function Sections() {
     <Tab value="Astro">
 
 ```astro
-<ore-divider></ore-divider>
+<hr class="ore-divider" />
 
 <script>
-	import "oreui-web/divider";
+  import "oreui-web/styles.css";
 </script>
 ```
 
@@ -80,7 +80,7 @@ export function Sections() {
 
 </Tabs>
 
-Divider fills the available width. Use the host `class` or ordinary CSS to control its width and surrounding spacing.
+Divider fills the available width. Use the `ore-divider` class or ordinary CSS to control its width and surrounding spacing.
 
 ## CSS variables
 
@@ -92,4 +92,4 @@ Divider fills the available width. Use the host `class` or ordinary CSS to contr
 
 ## Accessibility
 
-Divider has `role="separator"` by default and represents a horizontal separation between sections. When the line is only used for decoration and does not separate content, set `role="none"`.
+The native `<hr>` represents a thematic break and is exposed as a separator by assistive technology. When the line is only used for decoration and does not separate content, set `role="none"`.

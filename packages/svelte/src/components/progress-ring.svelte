@@ -1,21 +1,16 @@
 <script lang="ts">
-  import "oreui-web/progress-ring";
-  import type { OreProgressRing } from "oreui-web/progress-ring";
   import type { OreComponentProps } from "../types.js";
 
-  export type ProgressRingProps = OreComponentProps<
-    OreProgressRing,
-    "max" | "value"
-  >;
+  export type ProgressRingProps = OreComponentProps<HTMLSpanElement>;
 
-  let { children, ...props }: ProgressRingProps = $props();
-  let element: OreProgressRing;
+  let { children, class: className, ...props }: ProgressRingProps = $props();
+  let element: HTMLSpanElement;
 
-  export function getElement(): OreProgressRing {
+  export function getElement(): HTMLSpanElement {
     return element;
   }
 </script>
 
-<ore-progress-ring bind:this={element} {...props}>
+<span bind:this={element} class={`ore-progress-ring ${className ?? ""}`} {...props}>
   {@render children?.()}
-</ore-progress-ring>
+</span>

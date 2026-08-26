@@ -1,18 +1,14 @@
-import "oreui-web/progress-ring";
+import { splitProps, type JSX } from "solid-js";
 
-import type { OreProgressRing } from "oreui-web/progress-ring";
-import { createOreComponent } from "../factory.js";
-import type { OreComponentProps } from "../types.js";
+export type ProgressRingProps = JSX.HTMLAttributes<HTMLSpanElement>;
 
-export type ProgressRingProps = OreComponentProps<
-  OreProgressRing,
-  "max" | "value"
->;
+export function ProgressRing(props: ProgressRingProps): JSX.Element {
+  const [local, rest] = splitProps(props, ["class"]);
 
-export const ProgressRing = createOreComponent<
-  OreProgressRing,
-  ProgressRingProps
->({
-  properties: ["max", "value"],
-  tagName: "ore-progress-ring",
-});
+  return (
+    <span
+      {...rest}
+      class={`ore-progress-ring ${local.class ?? ""}`}
+    />
+  );
+}

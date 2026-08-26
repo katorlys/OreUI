@@ -16,10 +16,15 @@ import "oreui-web/progress-ring";
 ```
 
 ```html
-<ore-progress-ring
-  value="40"
+<span
+  class="ore-progress-ring"
+  style="--ore-progress-ring-frame: 6"
+  role="progressbar"
   aria-label="World generation progress"
-></ore-progress-ring>
+  aria-valuemin="0"
+  aria-valuemax="100"
+  aria-valuenow="40"
+></span>
 ```
 
     </Tab>
@@ -29,7 +34,16 @@ import "oreui-web/progress-ring";
 import { ProgressRing } from "@oreui-web/react/progress-ring";
 
 export function LoadingWorlds() {
-  return <ProgressRing value={40} aria-label="World generation progress" />;
+  return (
+    <ProgressRing
+      style={{ "--ore-progress-ring-frame": 6 }}
+      role="progressbar"
+      aria-label="World generation progress"
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={40}
+    />
+  );
 }
 ```
 
@@ -42,7 +56,14 @@ import { ProgressRing } from "@oreui-web/vue/progress-ring";
 </script>
 
 <template>
-  <ProgressRing :value="40" aria-label="World generation progress" />
+  <ProgressRing
+    style="--ore-progress-ring-frame: 6"
+    role="progressbar"
+    aria-label="World generation progress"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    aria-valuenow="40"
+  />
 </template>
 ```
 
@@ -54,7 +75,14 @@ import { ProgressRing } from "@oreui-web/vue/progress-ring";
   import ProgressRing from "@oreui-web/svelte/progress-ring";
 </script>
 
-<ProgressRing value={40} aria-label="World generation progress" />
+<ProgressRing
+  style="--ore-progress-ring-frame: 6"
+  role="progressbar"
+  aria-label="World generation progress"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  aria-valuenow="40"
+/>
 ```
 
     </Tab>
@@ -64,7 +92,16 @@ import { ProgressRing } from "@oreui-web/vue/progress-ring";
 import { ProgressRing } from "@oreui-web/solid/progress-ring";
 
 export function LoadingProgress() {
-  return <ProgressRing value={64} max={100} aria-label="Loading world" />;
+  return (
+    <ProgressRing
+      style={{ "--ore-progress-ring-frame": 10 }}
+      role="progressbar"
+      aria-label="Loading world"
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={64}
+    />
+  );
 }
 ```
 
@@ -72,7 +109,7 @@ export function LoadingProgress() {
     <Tab value="Astro">
 
 ```astro
-<ore-progress-ring value="40" aria-label="World generation progress"></ore-progress-ring>
+<span class="ore-progress-ring" style="--ore-progress-ring-frame: 6" role="progressbar" aria-label="World generation progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40"></span>
 
 <script>
 	import "oreui-web/progress-ring";
@@ -89,34 +126,46 @@ Progress Ring uses the current font size and text color.
 
 ```html
 <span style="font-size: 2rem; color: #52A535;">
-  <ore-progress-ring
-    value="40"
+  <span
+    class="ore-progress-ring"
+    style="--ore-progress-ring-frame: 6"
+    role="progressbar"
     aria-label="World generation progress"
-  ></ore-progress-ring>
+    aria-valuemin="0"
+    aria-valuemax="100"
+    aria-valuenow="40"
+  ></span>
 </span>
 ```
 
 ## Value and maximum value
 
-`value` defaults to `0` and `max` defaults to `100`. Values outside the range are clamped. Set `max` when progress uses a different scale.
+Set `--ore-progress-ring-frame` from `0` through `15`, and expose the underlying value with standard progressbar ARIA attributes. For a value and maximum, calculate:
+
+$$
+\operatorname{frame}=\min\left(15,\left\lfloor\frac{\operatorname{clamp}(value,0,max)}{max}\times16\right\rfloor\right)
+$$
 
 ```html
-<ore-progress-ring
-  value="3"
-  max="8"
+<span
+  class="ore-progress-ring"
+  style="--ore-progress-ring-frame: 6"
+  role="progressbar"
   aria-label="Chunks loaded"
-></ore-progress-ring>
+  aria-valuemin="0"
+  aria-valuemax="8"
+  aria-valuenow="3"
+></span>
 ```
 
-The SVG contains 16 frames. The normalized progress is split into equal 6.25% ranges: frame 1 represents `[0%, 6.25%)`, frame 2 represents `[6.25%, 12.5%)`, ... , and frame 16 represents `[93.75%, 100%]`.
+The SVG contains 16 frames. The normalized progress is split into equal 6.25% ranges: frame 0 represents `[0%, 6.25%)`, frame 1 represents `[6.25%, 12.5%)`, ... , and frame 15 represents `[93.75%, 100%]`.
 
-## API
+## CSS variables
 
-| Property | Attribute | Type     | Default |
-| -------- | --------- | -------- | ------- |
-| `max`    | `max`     | `number` | `100`   |
-| `value`  | `value`   | `number` | `0`     |
+| Variable                    | Purpose                                  |
+| --------------------------- | ---------------------------------------- |
+| `--ore-progress-ring-frame` | Sprite frame from `0` through `15`       |
 
 ## Accessibility
 
-Progress Ring uses `role="progressbar"` and synchronizes `aria-valuemin`, `aria-valuemax`, and `aria-valuenow`. Add an `aria-label` or associate a visible label with `aria-labelledby` to describe what is progressing.
+Progress Ring is visual-only CSS. Add `role="progressbar"`, `aria-valuemin`, `aria-valuemax`, and `aria-valuenow`, then give it an accessible name with `aria-label` or `aria-labelledby`. Update the frame and ARIA value together when progress changes.

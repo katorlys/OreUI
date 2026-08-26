@@ -1,4 +1,4 @@
-:where(ore-container) {
+:where(.ore-container) {
   --ore-container-unit: var(--ore-size-unit);
   --ore-container-dark-background: var(--ore-color-neutral-surface-raised);
   --ore-container-light-background: var(--ore-color-neutral-surface);
@@ -18,12 +18,12 @@
   font-family: var(--ore-font-body);
 }
 
-:where(ore-container[variant="dark"]) {
+:where(.ore-container:not([data-variant]), .ore-container[data-variant="dark"]) {
   border-bottom: var(--ore-container-unit) solid var(--ore-container-divider);
   background: var(--ore-container-dark-background);
 }
 
-:where(ore-container[variant="light"]) {
+:where(.ore-container[data-variant="light"]) {
   border-top: var(--ore-container-unit) solid var(--ore-container-highlight);
   border-bottom: var(--ore-container-unit) solid var(--ore-container-shadow);
   background: var(--ore-container-light-background);

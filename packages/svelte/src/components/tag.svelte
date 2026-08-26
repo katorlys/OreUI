@@ -1,23 +1,19 @@
 <script lang="ts">
-  import "oreui-web/tag";
-  import type { OreTag, OreTagVariant } from "oreui-web/tag";
   import type { OreComponentProps } from "../types.js";
 
-  export type TagProps = OreComponentProps<
-    OreTag,
-    "outlined" | "variant"
-  > & {
-    variant?: OreTagVariant;
+  export type TagProps = OreComponentProps<HTMLSpanElement> & {
+    variant?: string;
+    outlined?: boolean;
   };
 
-  let { children, ...props }: TagProps = $props();
-  let element: OreTag;
+  let { children, variant, outlined, class: className, ...props }: TagProps = $props();
+  let element: HTMLSpanElement;
 
-  export function getElement(): OreTag {
+  export function getElement(): HTMLSpanElement {
     return element;
   }
 </script>
 
-<ore-tag bind:this={element} {...props}>
+<span bind:this={element} class={`ore-tag ${className ?? ""}`} data-variant={variant} data-outlined={outlined ? "" : undefined} {...props}>
   {@render children?.()}
-</ore-tag>
+</span>

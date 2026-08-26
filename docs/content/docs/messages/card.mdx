@@ -14,18 +14,17 @@ Card groups media, a caption, metadata, and an optional action.
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "oreui-web/card";
 import "oreui-web/icon";
-import "oreui-web/tag";
+import "oreui-web/styles.css";
 ```
 
 ```html
-<ore-card>
+<article class="ore-card">
   <div class="ore-card-media">
     <img src="/world.webp" alt="A village beside a river" />
     <div class="ore-card-overlay-bottom-start card-tag-group">
-      <ore-tag outlined variant="informative">Local</ore-tag>
-      <ore-tag outlined variant="notice">New</ore-tag>
+      <span class="ore-tag" data-variant="informative" data-outlined>Local</span>
+      <span class="ore-tag" data-variant="notice" data-outlined>New</span>
     </div>
     <span class="ore-card-overlay-top-end" aria-hidden="true">
       <ore-icon
@@ -44,7 +43,7 @@ import "oreui-web/tag";
     </div>
     <span class="ore-card-meta">1.21</span>
   </div>
-</ore-card>
+</article>
 ```
 
     </Tab>
@@ -185,12 +184,12 @@ export function WorldCard() {
     <Tab value="Astro">
 
 ```astro
-<ore-card>
+<article class="ore-card">
 	<div class="ore-card-media">
 		<img src="/world.webp" alt="A village beside a river" />
 		<div class="ore-card-overlay-bottom-start card-tag-group">
-			<ore-tag outlined variant="informative">Local</ore-tag>
-			<ore-tag outlined variant="notice">New</ore-tag>
+      <span class="ore-tag" data-variant="informative" data-outlined>Local</span>
+      <span class="ore-tag" data-variant="notice" data-outlined>New</span>
 		</div>
 		<span class="ore-card-overlay-top-end" aria-hidden="true">
 			<ore-icon><svg viewBox="0 0 8 8"><path fill="currentColor" d="M1 2h1v1H1zm1 1h1v1H2zm1 1h1v1H3zm1 1h1v1H4zm1-1h1v1H5zm1-1h1v1H6z" /></svg></ore-icon>
@@ -203,12 +202,11 @@ export function WorldCard() {
 		</div>
 		<span class="ore-card-meta">1.21</span>
 	</div>
-</ore-card>
+</article>
 
 <script>
-	import "oreui-web/card";
 	import "oreui-web/icon";
-	import "oreui-web/tag";
+  import "oreui-web/styles.css";
 </script>
 ```
 
@@ -230,7 +228,7 @@ Place labels over media with the overlay classes.
 ```html
 <div class="ore-card-media">
   <img src="/world.webp" alt="A forest village" />
-  <ore-tag class="ore-card-overlay-top-start">New</ore-tag>
+  <span class="ore-tag ore-card-overlay-top-start">New</span>
 </div>
 ```
 
@@ -238,6 +236,7 @@ Place labels over media with the overlay classes.
 
 | Class                            | Purpose                     |
 | -------------------------------- | --------------------------- |
+| `.ore-card`                      | Card root                   |
 | `.ore-card-media`                | 16:9 media area             |
 | `.ore-card-body`                 | Caption and action row      |
 | `.ore-card-caption`              | Title and description group |

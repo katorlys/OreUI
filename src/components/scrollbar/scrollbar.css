@@ -1,7 +1,6 @@
 :where(
-  ore-scrollbar,
   .ore-scrollbar,
-  ore-modal .ore-modal-content > ore-container[variant="dark"],
+  ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
   ore-table,
   ore-dropdown > .ore-dropdown-menu
 ) {
@@ -18,110 +17,126 @@
   --ore-scrollbar-z-index: 1;
 }
 
-:where(ore-scrollbar, .ore-scrollbar) {
+:where(.ore-scrollbar) {
   display: block;
   overflow: auto;
 }
 
-:where(ore-scrollbar) {
-  position: relative;
-  scrollbar-width: none;
-  scrollbar-color: transparent transparent;
-}
-
-:where(ore-scrollbar)::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-:where(ore-scrollbar) > .ore-scrollbar-track {
-  position: sticky;
-  z-index: var(--ore-scrollbar-z-index);
-  display: block;
-  pointer-events: none;
-  background: linear-gradient(
-      var(--ore-scrollbar-track),
-      var(--ore-scrollbar-track)
-    )
-    center / var(--ore-scrollbar-track-size) 100% no-repeat;
-}
-
-:where(ore-scrollbar) > .ore-scrollbar-track[hidden] {
-  display: none;
-}
-
-:where(ore-scrollbar) > .ore-scrollbar-track-vertical {
-  inset: 0 auto auto calc(100% - var(--ore-scrollbar-size));
-  width: var(--ore-scrollbar-size);
-  height: var(--ore-scrollbar-vertical-track-size);
-  margin-bottom: calc(-1 * var(--ore-scrollbar-vertical-track-size));
-}
-
-:where(ore-scrollbar) > .ore-scrollbar-track-horizontal {
-  inset: auto auto 0 0;
-  width: var(--ore-scrollbar-horizontal-track-size);
-  height: var(--ore-scrollbar-horizontal-size);
-  margin-top: calc(-1 * var(--ore-scrollbar-horizontal-size));
-  background-size: 100% var(--ore-scrollbar-track-size);
-}
-
-:where(ore-scrollbar) > .ore-scrollbar-track > .ore-scrollbar-thumb {
-  position: absolute;
-  display: block;
-  pointer-events: auto;
-  border-radius: 0;
-  background:
-    linear-gradient(
-        var(--ore-scrollbar-thumb-background),
-        var(--ore-scrollbar-thumb-background)
-      )
-      center calc(var(--ore-scrollbar-unit) * 2) /
-      calc(100% - var(--ore-scrollbar-unit) * 4)
-      calc(100% - var(--ore-scrollbar-unit) * 6) no-repeat,
-    linear-gradient(
-        var(--ore-scrollbar-thumb-shadow),
-        var(--ore-scrollbar-thumb-shadow)
-      )
-      center bottom var(--ore-scrollbar-unit) /
-      calc(100% - var(--ore-scrollbar-unit) * 2)
-      calc(var(--ore-scrollbar-unit) * 2) no-repeat,
-    linear-gradient(
-        var(--ore-scrollbar-thumb-highlight),
-        var(--ore-scrollbar-thumb-highlight)
-      )
-      center var(--ore-scrollbar-unit) /
-      calc(100% - var(--ore-scrollbar-unit) * 2)
-      calc(100% - var(--ore-scrollbar-unit) * 4) no-repeat,
-    var(--ore-scrollbar-thumb-border);
-  touch-action: none;
-}
-
-:where(ore-scrollbar) > .ore-scrollbar-track > .ore-scrollbar-thumb-vertical {
-  inset: 0 0 auto;
-  width: 100%;
-}
-
-:where(ore-scrollbar) > .ore-scrollbar-track > .ore-scrollbar-thumb-horizontal {
-  inset: 0 auto auto 0;
-  height: 100%;
-}
-
-@supports (-moz-appearance: none) {
+@supports (scrollbar-color: red blue) and (-moz-appearance: none) {
   :where(
     .ore-scrollbar,
-    ore-modal .ore-modal-content > ore-container[variant="dark"],
+    ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
     ore-table,
     ore-dropdown > .ore-dropdown-menu
   ) {
     scrollbar-color: var(--ore-scrollbar-thumb-background)
       var(--ore-scrollbar-track);
-    scrollbar-width: thin;
+    scrollbar-width: auto;
+  }
+
+  :where(.ore-scrollbar[data-ore-initialized="scrollbar"]) {
+    position: relative;
+    scrollbar-color: transparent transparent;
+    scrollbar-width: none;
+  }
+
+  :where(
+    .ore-scrollbar[data-ore-initialized="scrollbar"]
+  )::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  :where(
+    .ore-scrollbar[data-ore-initialized="scrollbar"]
+  ) > .ore-scrollbar-track {
+    position: sticky;
+    z-index: var(--ore-scrollbar-z-index);
+    display: block;
+    pointer-events: none;
+    background: linear-gradient(
+        var(--ore-scrollbar-track),
+        var(--ore-scrollbar-track)
+      )
+      center / var(--ore-scrollbar-track-size) 100% no-repeat;
+  }
+
+  :where(
+      .ore-scrollbar[data-ore-initialized="scrollbar"]
+    ) > .ore-scrollbar-track[hidden] {
+    display: none;
+  }
+
+  :where(
+      .ore-scrollbar[data-ore-initialized="scrollbar"]
+    ) > .ore-scrollbar-track-vertical {
+    inset: 0 auto auto calc(100% - var(--ore-scrollbar-size));
+    width: var(--ore-scrollbar-size);
+    height: var(--ore-scrollbar-vertical-track-size);
+    margin-bottom: calc(-1 * var(--ore-scrollbar-vertical-track-size));
+  }
+
+  :where(
+      .ore-scrollbar[data-ore-initialized="scrollbar"]
+    ) > .ore-scrollbar-track-horizontal {
+    inset: auto auto 0 0;
+    width: var(--ore-scrollbar-horizontal-track-size);
+    height: var(--ore-scrollbar-horizontal-size);
+    margin-top: calc(-1 * var(--ore-scrollbar-horizontal-size));
+    background-size: 100% var(--ore-scrollbar-track-size);
+  }
+
+  :where(
+      .ore-scrollbar[data-ore-initialized="scrollbar"]
+    ) > .ore-scrollbar-track > .ore-scrollbar-thumb {
+    position: absolute;
+    display: block;
+    pointer-events: auto;
+    border-radius: 0;
+    background:
+      linear-gradient(
+          var(--ore-scrollbar-thumb-background),
+          var(--ore-scrollbar-thumb-background)
+        )
+        center calc(var(--ore-scrollbar-unit) * 2) /
+        calc(100% - var(--ore-scrollbar-unit) * 4)
+        calc(100% - var(--ore-scrollbar-unit) * 6) no-repeat,
+      linear-gradient(
+          var(--ore-scrollbar-thumb-shadow),
+          var(--ore-scrollbar-thumb-shadow)
+        )
+        center bottom var(--ore-scrollbar-unit) /
+        calc(100% - var(--ore-scrollbar-unit) * 2)
+        calc(var(--ore-scrollbar-unit) * 2) no-repeat,
+      linear-gradient(
+          var(--ore-scrollbar-thumb-highlight),
+          var(--ore-scrollbar-thumb-highlight)
+        )
+        center var(--ore-scrollbar-unit) /
+        calc(100% - var(--ore-scrollbar-unit) * 2)
+        calc(100% - var(--ore-scrollbar-unit) * 4) no-repeat,
+      var(--ore-scrollbar-thumb-border);
+    touch-action: none;
+  }
+
+  :where(
+      .ore-scrollbar[data-ore-initialized="scrollbar"]
+    ) > .ore-scrollbar-track > .ore-scrollbar-thumb-vertical {
+    inset: 0 0 auto;
+    width: 100%;
+  }
+
+  :where(
+      .ore-scrollbar[data-ore-initialized="scrollbar"]
+    ) > .ore-scrollbar-track > .ore-scrollbar-thumb-horizontal {
+    inset: 0 auto auto 0;
+    height: 100%;
   }
 }
 
 :where(
-  ore-scrollbar,
   .ore-scrollbar,
-  ore-modal .ore-modal-content > ore-container[variant="dark"],
+  ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
   ore-table,
   ore-dropdown > .ore-dropdown-menu
 )::-webkit-scrollbar {
@@ -130,9 +145,8 @@
 }
 
 :where(
-  ore-scrollbar,
   .ore-scrollbar,
-  ore-modal .ore-modal-content > ore-container[variant="dark"],
+  ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
   ore-table,
   ore-dropdown > .ore-dropdown-menu
 )::-webkit-scrollbar-button {
@@ -142,9 +156,8 @@
 }
 
 :where(
-    ore-scrollbar,
     .ore-scrollbar,
-    ore-modal .ore-modal-content > ore-container[variant="dark"],
+    ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
     ore-table,
     ore-dropdown > .ore-dropdown-menu
   )::-webkit-scrollbar-track:vertical {
@@ -156,9 +169,8 @@
 }
 
 :where(
-    ore-scrollbar,
     .ore-scrollbar,
-    ore-modal .ore-modal-content > ore-container[variant="dark"],
+    ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
     ore-table,
     ore-dropdown > .ore-dropdown-menu
   )::-webkit-scrollbar-track:horizontal {
@@ -170,9 +182,8 @@
 }
 
 :where(
-    ore-scrollbar,
     .ore-scrollbar,
-    ore-modal .ore-modal-content > ore-container[variant="dark"],
+    ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
     ore-table,
     ore-dropdown > .ore-dropdown-menu
   )::-webkit-scrollbar-thumb:vertical {
@@ -204,9 +215,8 @@
 }
 
 :where(
-    ore-scrollbar,
     .ore-scrollbar,
-    ore-modal .ore-modal-content > ore-container[variant="dark"],
+    ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
     ore-table,
     ore-dropdown > .ore-dropdown-menu
   )::-webkit-scrollbar-thumb:horizontal {
@@ -238,16 +248,10 @@
 }
 
 :where(
-  ore-scrollbar,
   .ore-scrollbar,
-  ore-modal .ore-modal-content > ore-container[variant="dark"],
+  ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
   ore-table,
   ore-dropdown > .ore-dropdown-menu
 )::-webkit-scrollbar-corner {
   background: transparent;
-}
-
-:where(ore-scrollbar)::-webkit-scrollbar {
-  width: 0;
-  height: 0;
 }

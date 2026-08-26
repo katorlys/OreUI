@@ -1,18 +1,13 @@
 <script lang="ts">
-  import "oreui-web/divider";
-  import type { OreDivider } from "oreui-web/divider";
-  import type { OreComponentProps } from "../types.js";
+  import type { HTMLAttributes } from "svelte/elements";
 
-  export type DividerProps = OreComponentProps<OreDivider>;
+  export type DividerProps = HTMLAttributes<HTMLHRElement>;
 
-  let { children, ...props }: DividerProps = $props();
-  let element: OreDivider;
+  let { class: className, ...props }: DividerProps = $props();
 
-  export function getElement(): OreDivider {
-    return element;
+  export function getElement(): HTMLHRElement | undefined {
+    return undefined;
   }
 </script>
 
-<ore-divider bind:this={element} {...props}>
-  {@render children?.()}
-</ore-divider>
+<hr class="ore-divider {className ?? ''}" {...props} />

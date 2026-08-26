@@ -1,11 +1,23 @@
-import "oreui-web/spinner";
+import { splitProps, type JSX } from "solid-js";
 
-import type { OreSpinner } from "oreui-web/spinner";
-import { createOreComponent } from "../factory.js";
-import type { OreComponentProps } from "../types.js";
+export type SpinnerProps = JSX.HTMLAttributes<HTMLSpanElement>;
 
-export type SpinnerProps = OreComponentProps<OreSpinner>;
+export function Spinner(props: SpinnerProps): JSX.Element {
+  const [local, rest] = splitProps(props, [
+    "class",
+    "aria-hidden",
+    "aria-label",
+  ]);
 
-export const Spinner = createOreComponent<OreSpinner, SpinnerProps>({
-  tagName: "ore-spinner",
-});
+  return (
+    <span
+      {...rest}
+      class={`ore-spinner ${local.class ?? ""}`}
+      role={local["aria-hidden"] ? undefined : "status"}
+      aria-hidden={local["aria-hidden"]}
+      aria-label={
+        local["aria-hidden"] ? undefined : (local["aria-label"] ?? "Loading")
+      }
+    />
+  );
+}

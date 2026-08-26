@@ -1,12 +1,19 @@
-import { createComponent } from "@lit/react";
-import { OreIconButton as OreIconButtonElement } from "oreui-web/icon-button";
 import React from "react";
 
-export const IconButton = createComponent({
-  react: React,
-  tagName: "ore-icon-button",
-  elementClass: OreIconButtonElement,
-  displayName: "IconButton",
-});
+export type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-export type IconButtonProps = React.ComponentProps<typeof IconButton>;
+export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
+  function IconButton({ children, ...props }, ref) {
+    return React.createElement(
+      "button",
+      {
+        ...props,
+        className: props.className
+          ? `ore-icon-button ${props.className}`
+          : "ore-icon-button",
+        ref,
+      },
+      children,
+    );
+  },
+);

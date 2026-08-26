@@ -5,7 +5,7 @@ import { IconButton } from "@oreui-web/react/icon-button";
 import { createElement } from "react";
 
 const closeIcon = (
-  <svg viewBox="0 0 8 8">
+  <svg aria-hidden="true" viewBox="0 0 8 8">
     <path
       d="M.5.5h1v1h.966v1h-1v-1H.5zm7 1h-1v-1h1zm-2 1v-1h1v1zm-1 1h1v-1h-1zm0 1v-1h-1v-1h-1v1h1v1h-1v1h-1v1h-1v1h1v-1h1v-1h1v-1zm0 0h1v1h-1zm1.034 2H6.5v1h1v-1h-.966v-1h-1z"
       fill="currentColor"
@@ -23,7 +23,7 @@ interface IconButtonPreviewProps {
 function IconButtonPreview({ disabled, label, type }: IconButtonPreviewProps) {
   return (
     <IconButton aria-label={label} disabled={disabled} type={type}>
-      {createElement("ore-icon", { "aria-hidden": "true" }, closeIcon)}
+      {createElement("ore-icon", null, closeIcon)}
     </IconButton>
   );
 }

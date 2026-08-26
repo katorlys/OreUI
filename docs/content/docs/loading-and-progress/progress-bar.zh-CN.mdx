@@ -16,7 +16,7 @@ import "oreui-web/progress-bar";
 ```
 
 ```html
-<ore-progress-bar value="65" max="100" variant="labeled"></ore-progress-bar>
+<progress class="ore-progress-bar" value="65" max="100" aria-label="Download progress"></progress>
 ```
 
     </Tab>
@@ -26,7 +26,7 @@ import "oreui-web/progress-bar";
 import { ProgressBar } from "@oreui-web/react/progress-bar";
 
 export function DownloadProgress() {
-  return <ProgressBar value={65} max={100} variant="labeled" />;
+  return <ProgressBar value={65} max={100} aria-label="Download progress" />;
 }
 ```
 
@@ -37,7 +37,7 @@ export function DownloadProgress() {
 <script setup lang="ts">
 import { ProgressBar } from "@oreui-web/vue/progress-bar";
 </script>
-<template><ProgressBar :value="65" :max="100" variant="labeled" /></template>
+<template><ProgressBar :value="65" :max="100" aria-label="Download progress" /></template>
 ```
 
     </Tab>
@@ -48,7 +48,7 @@ import { ProgressBar } from "@oreui-web/vue/progress-bar";
   import ProgressBar from "@oreui-web/svelte/progress-bar";
 </script>
 
-<ProgressBar value={65} max={100} variant="labeled" />
+<ProgressBar value={65} max={100} aria-label="Download progress" />
 ```
 
     </Tab>
@@ -58,7 +58,7 @@ import { ProgressBar } from "@oreui-web/vue/progress-bar";
 import { ProgressBar } from "@oreui-web/solid/progress-bar";
 
 export function LoadingProgress() {
-  return <ProgressBar value={64} max={100} label="Loading world" />;
+  return <ProgressBar value={64} max={100} aria-label="Loading world" />;
 }
 ```
 
@@ -66,7 +66,7 @@ export function LoadingProgress() {
     <Tab value="Astro">
 
 ```astro
-<ore-progress-bar value="65" max="100" variant="labeled"></ore-progress-bar>
+<progress class="ore-progress-bar" value="65" max="100" aria-label="Download progress"></progress>
 
 <script>
 	import "oreui-web/progress-bar";
@@ -79,47 +79,26 @@ export function LoadingProgress() {
 
 ## 标签
 
-带标签的变体默认显示百分比。设置 `label` 以显示自定义文本。
+需要可见标签时，使用相邻的 `output`。将它放在进度条之前或之后即可选择标签位置。
 
 ```html
-<ore-progress-bar
-  value="65"
-  variant="labeled"
-  label="Loading resources"
-></ore-progress-bar>
-<ore-progress-bar
-  value="65"
-  variant="labeled"
-  label-position="top"
-  label-align="start"
-></ore-progress-bar>
-```
+<progress class="ore-progress-bar" value="65" max="100" aria-labelledby="download-label"></progress>
+<output class="ore-progress-bar-label" id="download-label">65%</output>
 
-自定义标签标记可使用公共标签类：
-
-```html
-<ore-progress-bar value="65" variant="labeled">
-  <span class="ore-progress-bar-label">65 of 100 chunks</span>
-</ore-progress-bar>
+<output class="ore-progress-bar-label" data-align="start" id="chunks-label">65 of 100 chunks</output>
+<progress class="ore-progress-bar" value="65" max="100" aria-labelledby="chunks-label"></progress>
 ```
 
 ## API
 
-| Prop            | 属性             | 类型                         | 默认值     |
-| --------------- | ---------------- | ---------------------------- | ---------- |
-| `label`         | `label`          | `string`                     | `""`       |
-| `labelAlign`    | `label-align`    | `"center" \|"end" \|"start"` | `"center"` |
-| `labelPosition` | `label-position` | `"bottom" \|"top"`           | `"bottom"` |
-| `max`           | `max`            | `number`                     | `100`      |
-| `value`         | `value`          | `number`                     | `0`        |
-| `variant`       | `variant`        | `"labeled" \|"plain"`        | `"plain"`  |
+Progress Bar 接受 HTML `progress` 元素的标准属性，包括 `value` 和 `max`。省略 `value` 可表示不确定进度。
 
 ## 公开类
 
 | 类                        | 用途               |
 | ------------------------- | ------------------ |
-| `.ore-progress-bar-track` | 进度轨道和填充部分 |
-| `.ore-progress-bar-label` | 百分比或自定义标签 |
+| `.ore-progress-bar`       | 原生进度条元素     |
+| `.ore-progress-bar-label` | 可选的可见标签     |
 
 ## CSS 变量
 
@@ -129,8 +108,7 @@ export function LoadingProgress() {
 | `--ore-progress-bar-frame`     | 边框和空轨道颜色   |
 | `--ore-progress-bar-fill`      | 已填充轨道颜色     |
 | `--ore-progress-bar-label`     | 标签文本颜色       |
-| `--ore-progress-bar-label-gap` | 标签与轨道之间间距 |
 
 ## 无障碍
 
-Progress Bar 使用 `role="progressbar"`，并保持 `aria-valuemin`、`aria-valuemax` 和 `aria-valuenow` 同步。自定义标签通过 `aria-valuetext` 提供给辅助技术。
+原生 `progress` 元素提供进度条语义和值信息。使用 `aria-label` 或 `aria-labelledby` 提供无障碍名称，或者用可见的 `output` 提供该名称。

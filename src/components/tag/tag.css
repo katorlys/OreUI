@@ -1,4 +1,4 @@
-:where(ore-tag) {
+:where(span.ore-tag) {
   --ore-tag-unit: var(--ore-size-unit);
   --ore-tag-background: var(--ore-color-neutral-surface-deep);
   --ore-tag-foreground: var(--ore-color-neutral-text);
@@ -20,35 +20,35 @@
   white-space: nowrap;
 }
 
-:where(ore-tag[outlined]) {
+:where(span.ore-tag[data-outlined]) {
   --ore-tag-border: var(--ore-color-border);
 }
 
-:where(ore-tag[variant="secondary"]) {
+:where(span.ore-tag[data-variant="secondary"]) {
   --ore-tag-background: var(--ore-color-neutral-surface-raised);
 }
 
-:where(ore-tag[variant="primary"]) {
+:where(span.ore-tag[data-variant="primary"]) {
   --ore-tag-background: var(--ore-color-primary-tint-background);
   --ore-tag-foreground: var(--ore-color-primary-tint-foreground);
 }
 
-:where(ore-tag[variant="informative"]) {
+:where(span.ore-tag[data-variant="informative"]) {
   --ore-tag-background: var(--ore-color-informative-tint-background);
   --ore-tag-foreground: var(--ore-color-informative-tint-foreground);
 }
 
-:where(ore-tag[variant="notice"]) {
+:where(span.ore-tag[data-variant="notice"]) {
   --ore-tag-background: var(--ore-color-notice-tint-background);
   --ore-tag-foreground: var(--ore-color-notice-tint-foreground);
 }
 
-:where(ore-tag[variant="warning"]) {
+:where(span.ore-tag[data-variant="warning"]) {
   --ore-tag-background: var(--ore-color-destructive-tint-background);
   --ore-tag-foreground: var(--ore-color-destructive-tint-foreground);
 }
 
-:where(ore-tag[variant="realms-informative"]) {
+:where(span.ore-tag[data-variant="realms-informative"]) {
   --ore-tag-background: var(--ore-color-realms-informative-tint-background);
   --ore-tag-foreground: var(--ore-color-neutral-border);
 }

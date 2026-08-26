@@ -1,11 +1,9 @@
-import "oreui-web/card";
+import type { JSX } from "solid-js";
 
-import type { OreCard } from "oreui-web/card";
-import { createOreComponent } from "../factory.js";
-import type { OreComponentProps } from "../types.js";
+export type CardProps = JSX.HTMLAttributes<HTMLElement>;
 
-export type CardProps = OreComponentProps<OreCard>;
+export function Card(props: CardProps): JSX.Element {
+  const { class: className, ...rest } = props;
 
-export const Card = createOreComponent<OreCard, CardProps>({
-  tagName: "ore-card",
-});
+  return <article {...rest} class={`ore-card ${className ?? ""}`} />;
+}

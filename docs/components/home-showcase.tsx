@@ -166,10 +166,16 @@ export function HomeShowcase() {
             <div className="grid gap-3">
               <ProgressBar
                 className="w-full"
-                variant="labeled"
                 value={progress}
                 max={100}
+                aria-labelledby="showcase-progress-label"
               />
+              <output
+                className="ore-progress-bar-label w-full"
+                id="showcase-progress-label"
+              >
+                {progress}%
+              </output>
             </div>
             <div className="flex flex-row justify-between">
               <Checkbox

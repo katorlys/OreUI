@@ -56,7 +56,7 @@ import "oreui-web/icon";
           ></ore-icon>
         </button>
       </header>
-      <ore-container class="modal-form-body" variant="dark">
+      <div class="ore-container modal-form-body" data-variant="dark">
         <p class="ore-modal-description">Add the information for this form.</p>
         <div class="ore-textfield">
           <label class="ore-textfield-label" for="modal-label">Label</label>
@@ -69,18 +69,18 @@ import "oreui-web/icon";
           </span>
           <span class="ore-textfield-description">Description</span>
         </div>
-      </ore-container>
-      <ore-container class="modal-confirmation" variant="light">
+      </div>
+      <div class="ore-container modal-confirmation" data-variant="light">
         <label
           ><input type="checkbox" />Checkbox example for confirmation</label
         >
-      </ore-container>
-      <ore-container class="modal-actions" variant="light">
+      </div>
+      <div class="ore-container modal-actions" data-variant="light">
         <ore-button class="ore-modal-close" type="button">Confirm</ore-button>
         <ore-button class="ore-modal-close" type="button" color="secondary"
           >Cancel</ore-button
         >
-      </ore-container>
+      </div>
     </form>
   </dialog>
 </ore-modal>
@@ -374,17 +374,17 @@ export function DeleteWorldModal() {
 					<ore-icon aria-hidden="true"><svg viewBox="0 0 8 8"><path fill="currentColor" fill-rule="evenodd" d="M.5.5h1v1h.966v1h-1v-1H.5zm7 1h-1v-1h1zm-2 1v-1h1v1zm-1 1h1v-1h-1zm0 1v-1h-1v-1h-1v1h1v1h-1v1h-1v1h-1v1h1v-1h1v-1h1v-1zm0 0h1v1h-1zm1.034 2H6.5v1h1v-1h-.966v-1h-1z" /></svg></ore-icon>
 				</button>
 			</header>
-			<ore-container class="modal-form-body" variant="dark">
+      <div class="ore-container modal-form-body" data-variant="dark">
 				<p class="ore-modal-description">Add the information for this form.</p>
 				<div class="ore-textfield"><label class="ore-textfield-label" for="modal-label">Label</label><span class="ore-textfield-control"><input class="ore-textfield-input" id="modal-label" placeholder="Placeholder" /></span><span class="ore-textfield-description">Description</span></div>
-			</ore-container>
-			<ore-container class="modal-confirmation" variant="light">
+      </div>
+      <div class="ore-container modal-confirmation" data-variant="light">
         <label><input type="checkbox" />Checkbox example for confirmation</label>
-			</ore-container>
-			<ore-container class="modal-actions" variant="light">
+      </div>
+      <div class="ore-container modal-actions" data-variant="light">
 				<ore-button class="ore-modal-close" type="button">Confirm</ore-button>
         <ore-button class="ore-modal-close" type="button" color="secondary">Cancel</ore-button>
-			</ore-container>
+      </div>
 		</form>
 	</dialog>
 </ore-modal>

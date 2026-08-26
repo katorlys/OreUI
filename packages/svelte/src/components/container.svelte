@@ -1,20 +1,19 @@
 <script lang="ts">
-  import "oreui-web/container";
-  import type { OreContainer, OreContainerVariant } from "oreui-web/container";
+  import type { OreContainerVariant } from "oreui-web/container";
   import type { OreComponentProps } from "../types.js";
 
-  export type ContainerProps = OreComponentProps<OreContainer, "variant"> & {
+  export type ContainerProps = OreComponentProps<HTMLDivElement> & {
     variant?: OreContainerVariant;
   };
 
-  let { children, ...props }: ContainerProps = $props();
-  let element: OreContainer;
+  let { children, variant = "dark", class: className, ...props }: ContainerProps = $props();
+  let element: HTMLDivElement;
 
-  export function getElement(): OreContainer {
+  export function getElement(): HTMLDivElement {
     return element;
   }
 </script>
 
-<ore-container bind:this={element} {...props}>
+<div bind:this={element} class={`ore-container ${className ?? ""}`} data-variant={variant} {...props}>
   {@render children?.()}
-</ore-container>
+</div>

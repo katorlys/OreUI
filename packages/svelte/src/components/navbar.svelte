@@ -1,18 +1,16 @@
 <script lang="ts">
-  import "oreui-web/navbar";
-  import type { OreNavbar } from "oreui-web/navbar";
   import type { OreComponentProps } from "../types.js";
 
-  export type NavbarProps = OreComponentProps<OreNavbar>;
+  export type NavbarProps = OreComponentProps<HTMLElement>;
 
-  let { children, ...props }: NavbarProps = $props();
-  let element: OreNavbar;
+  let { children, class: className, ...props }: NavbarProps = $props();
+  let element: HTMLElement;
 
-  export function getElement(): OreNavbar {
+  export function getElement(): HTMLElement {
     return element;
   }
 </script>
 
-<ore-navbar bind:this={element} {...props}>
+<nav bind:this={element} class={`ore-navbar ${className ?? ""}`} {...props}>
   {@render children?.()}
-</ore-navbar>
+</nav>

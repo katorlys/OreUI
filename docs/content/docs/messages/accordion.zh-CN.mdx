@@ -13,18 +13,18 @@ import { AccordionStory } from "@/components/stories/accordion.story";
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/accordion";
-import "oreui-web/icon-button";
+import "oreui-web/styles.css";
 ```
 
 ```html
 <ore-accordion value="realms">
-  <ore-icon-button
-    class="ore-accordion-trigger"
+  <button
+    class="ore-icon-button ore-accordion-trigger"
     type="button"
     aria-label="Toggle What is Realms?"
   >
     <span class="ore-accordion-title">What is Realms?</span>
-  </ore-icon-button>
+  </button>
   <div class="ore-accordion-content">
     Realms are private, cloud-hosted worlds where you can play with friends.
   </div>
@@ -122,9 +122,9 @@ export function Details() {
 
 ```astro
 <ore-accordion value="realms">
-	<ore-icon-button class="ore-accordion-trigger" type="button" aria-label="Toggle What is Realms?">
+  <button class="ore-icon-button ore-accordion-trigger" type="button" aria-label="Toggle What is Realms?">
 		<span class="ore-accordion-title">What is Realms?</span>
-	</ore-icon-button>
+  </button>
 	<div class="ore-accordion-content">
 		Realms are private, cloud-hosted worlds where you can play with friends.
 	</div>
@@ -132,7 +132,7 @@ export function Details() {
 
 <script>
 	import "oreui-web/accordion";
-	import "oreui-web/icon-button";
+  import "oreui-web/styles.css";
 </script>
 ```
 

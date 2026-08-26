@@ -38,7 +38,7 @@
   background: var(--ore-modal-border);
 }
 
-:where(ore-modal .ore-modal-content > ore-container[variant="dark"]) {
+:where(ore-modal .ore-modal-content > .ore-container[data-variant="dark"]) {
   flex: 1 1 auto;
   min-height: 0;
   overflow: auto;
@@ -46,7 +46,7 @@
 
 :where(
   ore-modal .ore-modal-header,
-  ore-modal .ore-modal-content > ore-container[variant="light"]
+  ore-modal .ore-modal-content > .ore-container[data-variant="light"]
 ) {
   flex: none;
 }

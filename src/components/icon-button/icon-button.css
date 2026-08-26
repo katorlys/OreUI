@@ -1,4 +1,4 @@
-:where(ore-icon-button) {
+:where(button.ore-icon-button) {
   --ore-icon-button-unit: var(--ore-size-unit);
   --ore-icon-button-background: var(--ore-color-neutral-surface);
   --ore-icon-button-highlight: var(--ore-color-neutral-specular);
@@ -9,7 +9,12 @@
 
   display: inline-grid;
   place-items: var(--ore-icon-button-place-items, center);
+  position: relative;
   box-sizing: border-box;
+  border: 0;
+  border-radius: 0;
+  min-width: 0;
+  min-height: 0;
   width: var(--ore-icon-button-width, calc(var(--ore-icon-button-unit) * 18));
   height: var(--ore-icon-button-height, calc(var(--ore-icon-button-unit) * 18));
   padding: var(--ore-icon-button-padding, var(--ore-icon-button-unit));
@@ -61,13 +66,20 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-:where(ore-icon-button > ore-icon) {
+:where(button.ore-icon-button)::before {
+  content: none;
+}
+
+:where(button.ore-icon-button > ore-icon) {
   width: calc(var(--ore-icon-button-unit) * 6);
   height: calc(var(--ore-icon-button-unit) * 6);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :where(ore-icon-button:hover:not([disabled], [form-disabled])) {
+  :where(
+    button.ore-icon-button:hover:not(:disabled),
+    button.ore-icon-button.preview-hover:not(:disabled)
+  ) {
     --ore-icon-button-background: var(--ore-color-neutral-background-hover);
     --ore-icon-button-highlight: var(--ore-color-neutral-highlight-hover);
     --ore-icon-button-corner: var(--ore-color-neutral-highlight);
@@ -75,21 +87,26 @@
 }
 
 :where(
-  ore-icon-button:active:not([disabled], [form-disabled]),
-  ore-icon-button[pressed]:not([disabled], [form-disabled])
+  button.ore-icon-button:active:not(:disabled),
+  button.ore-icon-button.preview-pressed:not(:disabled)
 ) {
   --ore-icon-button-background: var(--ore-color-neutral-background-pressed);
   --ore-icon-button-highlight: var(--ore-color-neutral-shadow);
   --ore-icon-button-shadow-color: var(--ore-color-neutral-highlight-pressed);
   --ore-icon-button-corner: var(--ore-color-neutral-background);
+
+  padding: var(--ore-icon-button-padding, var(--ore-icon-button-unit));
 }
 
-:where(ore-icon-button:focus-visible) {
+:where(
+  button.ore-icon-button:focus-visible,
+  button.ore-icon-button.preview-focus
+) {
   outline: var(--ore-icon-button-unit) solid var(--ore-color-focus-ring);
   outline-offset: var(--ore-icon-button-unit);
 }
 
-:where(ore-icon-button[disabled], ore-icon-button[form-disabled]) {
+:where(button.ore-icon-button:disabled) {
   --ore-icon-button-background: var(--ore-color-disabled);
   --ore-icon-button-highlight: var(--ore-color-disabled-border);
   --ore-icon-button-shadow-color: var(--ore-color-disabled-shadow);

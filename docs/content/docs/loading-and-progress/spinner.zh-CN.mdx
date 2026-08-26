@@ -16,7 +16,7 @@ import "oreui-web/spinner";
 ```
 
 ```html
-<ore-spinner aria-label="Loading worlds"></ore-spinner>
+<span class="ore-spinner" role="status" aria-label="Loading worlds"></span>
 ```
 
     </Tab>
@@ -66,7 +66,7 @@ export function LoadingSpinner() {
     <Tab value="Astro">
 
 ```astro
-<ore-spinner aria-label="Loading worlds"></ore-spinner>
+<span class="ore-spinner" role="status" aria-label="Loading worlds"></span>
 
 <script>
 	import "oreui-web/spinner";
@@ -83,7 +83,7 @@ Spinner 使用 current 字体大小和文本颜色。
 
 ```html
 <span style="font-size: 2rem; color: #52A535;">
-  <ore-spinner aria-label="Loading worlds"></ore-spinner>
+  <span class="ore-spinner" role="status" aria-label="Loading worlds"></span>
 </span>
 ```
 
@@ -92,10 +92,10 @@ Spinner 使用 current 字体大小和文本颜色。
 当附近的文本已经能够描述加载状态时，对辅助技术隐藏 Spinner。
 
 ```html
-<ore-spinner aria-hidden="true"></ore-spinner> <span>Loading worlds</span>
+<span class="ore-spinner" aria-hidden="true"></span> <span>Loading worlds</span>
 ```
 
 ## 无障碍
 
-Spinner 使用 `role="status"`，默认标签为 `Loading`。当它仅用于装饰作用时，应设置更具体的 `aria-label`，或使用 `aria-hidden="true"`。  
+Spinner 使用 `role="status"`，默认标签为 `Loading`。使用原生 HTML 时，请提供描述加载状态的 `aria-label`。当它仅用于装饰作用时，请使用 `aria-hidden="true"`。
 启用 reduced motion 效果后，动画会停止。

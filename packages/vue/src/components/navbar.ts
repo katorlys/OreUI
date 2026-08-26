@@ -1,6 +1,17 @@
-import "oreui-web/navbar";
-import { createOreComponent } from "../factory.js";
+import { defineComponent, h } from "vue";
 
-export const Navbar = createOreComponent("ore-navbar", {
-  displayName: "Navbar",
+export const Navbar = defineComponent({
+  name: "Navbar",
+  inheritAttrs: false,
+  setup(_, { attrs, slots }) {
+    return () =>
+      h(
+        "nav",
+        {
+          ...attrs,
+          class: ["ore-navbar", attrs.class],
+        },
+        slots.default?.(),
+      );
+  },
 });
