@@ -16,7 +16,7 @@ import "oreui-web/table";
 ```
 
 ```html
-<ore-table variant="striped">
+<div class="ore-table ore-scrollbar" data-variant="striped">
   <table>
     <caption>
       Available worlds
@@ -38,7 +38,7 @@ import "oreui-web/table";
       </tr>
     </tbody>
   </table>
-</ore-table>
+</div>
 ```
 
     </Tab>
@@ -139,7 +139,7 @@ import { Table } from "@oreui-web/solid/table";
 
 export function PlayersTable() {
   return (
-    <Table variant="bordered">
+    <Table variant="striped">
       <table>
         <thead>
           <tr>
@@ -161,7 +161,7 @@ export function PlayersTable() {
     <Tab value="Astro">
 
 ```astro
-<ore-table variant="striped">
+<div class="ore-table ore-scrollbar" data-variant="striped">
 	<table>
 		<caption>Available worlds</caption>
 		<thead><tr><th scope="col">World</th><th scope="col">Players</th></tr></thead>
@@ -170,7 +170,7 @@ export function PlayersTable() {
 			<tr><th scope="row">Village</th><td>8 / 20</td></tr>
 		</tbody>
 	</table>
-</ore-table>
+</div>
 
 <script>
 	import "oreui-web/table";
@@ -206,9 +206,9 @@ In React, use `onSort`.
 
 ## API
 
-| Property  | Attribute | Type                   | Default   |
-| --------- | --------- | ---------------------- | --------- |
-| `variant` | `variant` | `"plain" \| "striped"` | `"plain"` |
+| Property  | Attribute      | Type                   | Default   |
+| --------- | -------------- | ---------------------- | --------- |
+| `variant` | `data-variant` | `"plain" \| "striped"` | `"plain"` |
 
 | Event  | Detail                                                                 |
 | ------ | ---------------------------------------------------------------------- |
@@ -218,6 +218,7 @@ In React, use `onSort`.
 
 | Class                          | Purpose                            |
 | ------------------------------ | ---------------------------------- |
+| `.ore-table`                   | Table container and controller root |
 | `.ore-table-row-header-column` | Row-header column width            |
 | `.ore-table-data-column`       | Data column width                  |
 | `.ore-table-corner`            | Empty top-left corner cell         |

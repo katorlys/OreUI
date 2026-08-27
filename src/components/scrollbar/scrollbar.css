@@ -1,9 +1,4 @@
-:where(
-  .ore-scrollbar,
-  ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
-  ore-table,
-  ore-dropdown > .ore-dropdown-menu
-) {
+:where(.ore-scrollbar, ore-dropdown > .ore-dropdown-menu) {
   --ore-scrollbar-unit: var(--ore-size-unit);
   --ore-scrollbar-size: calc(var(--ore-scrollbar-unit) * 6);
   --ore-scrollbar-horizontal-size: calc(var(--ore-scrollbar-unit) * 8);
@@ -23,12 +18,7 @@
 }
 
 @supports (scrollbar-color: red blue) and (-moz-appearance: none) {
-  :where(
-    .ore-scrollbar,
-    ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
-    ore-table,
-    ore-dropdown > .ore-dropdown-menu
-  ) {
+  :where(.ore-scrollbar, ore-dropdown > .ore-dropdown-menu) {
     scrollbar-color: var(--ore-scrollbar-thumb-background)
       var(--ore-scrollbar-track);
     scrollbar-width: auto;
@@ -136,8 +126,6 @@
 
 :where(
   .ore-scrollbar,
-  ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
-  ore-table,
   ore-dropdown > .ore-dropdown-menu
 )::-webkit-scrollbar {
   width: var(--ore-scrollbar-size);
@@ -146,8 +134,6 @@
 
 :where(
   .ore-scrollbar,
-  ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
-  ore-table,
   ore-dropdown > .ore-dropdown-menu
 )::-webkit-scrollbar-button {
   display: none;
@@ -157,8 +143,6 @@
 
 :where(
     .ore-scrollbar,
-    ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
-    ore-table,
     ore-dropdown > .ore-dropdown-menu
   )::-webkit-scrollbar-track:vertical {
   background: linear-gradient(
@@ -170,8 +154,6 @@
 
 :where(
     .ore-scrollbar,
-    ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
-    ore-table,
     ore-dropdown > .ore-dropdown-menu
   )::-webkit-scrollbar-track:horizontal {
   background: linear-gradient(
@@ -183,8 +165,6 @@
 
 :where(
     .ore-scrollbar,
-    ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
-    ore-table,
     ore-dropdown > .ore-dropdown-menu
   )::-webkit-scrollbar-thumb:vertical {
   min-height: var(--ore-scrollbar-thumb-min-size);
@@ -216,8 +196,6 @@
 
 :where(
     .ore-scrollbar,
-    ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
-    ore-table,
     ore-dropdown > .ore-dropdown-menu
   )::-webkit-scrollbar-thumb:horizontal {
   min-width: var(--ore-scrollbar-thumb-min-size);
@@ -249,8 +227,6 @@
 
 :where(
   .ore-scrollbar,
-  ore-modal .ore-modal-content > .ore-container[data-variant="dark"],
-  ore-table,
   ore-dropdown > .ore-dropdown-menu
 )::-webkit-scrollbar-corner {
   background: transparent;

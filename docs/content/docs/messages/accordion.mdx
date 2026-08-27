@@ -12,23 +12,18 @@ import { AccordionStory } from "@/components/stories/accordion.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "oreui-web/accordion";
 import "oreui-web/styles.css";
 ```
 
 ```html
-<ore-accordion value="realms">
-  <button
-    class="ore-icon-button ore-accordion-trigger"
-    type="button"
-    aria-label="Toggle What is Realms?"
-  >
+<details class="ore-accordion">
+  <summary>
     <span class="ore-accordion-title">What is Realms?</span>
-  </button>
+  </summary>
   <div class="ore-accordion-content">
     Realms are private, cloud-hosted worlds where you can play with friends.
   </div>
-</ore-accordion>
+</details>
 ```
 
     </Tab>
@@ -36,18 +31,13 @@ import "oreui-web/styles.css";
 
 ```tsx
 import { Accordion } from "@oreui-web/react/accordion";
-import { IconButton } from "@oreui-web/react/icon-button";
 
 export function Realms() {
   return (
-    <Accordion value="realms">
-      <IconButton
-        className="ore-accordion-trigger"
-        type="button"
-        aria-label="Toggle What is Realms?"
-      >
+    <Accordion>
+      <summary>
         <span className="ore-accordion-title">What is Realms?</span>
-      </IconButton>
+      </summary>
       <div className="ore-accordion-content">
         Realms are private, cloud-hosted worlds where you can play with friends.
       </div>
@@ -61,18 +51,14 @@ export function Realms() {
 
 ```vue
 <script setup lang="ts">
-import { Accordion, IconButton } from "@oreui-web/vue";
+import { Accordion } from "@oreui-web/vue";
 </script>
 
 <template>
-  <Accordion value="realms">
-    <IconButton
-      class="ore-accordion-trigger"
-      type="button"
-      aria-label="Toggle What is Realms?"
-    >
+  <Accordion>
+    <summary>
       <span class="ore-accordion-title">What is Realms?</span>
-    </IconButton>
+    </summary>
     <div class="ore-accordion-content">
       Realms are private, cloud-hosted worlds where you can play with friends.
     </div>
@@ -86,13 +72,12 @@ import { Accordion, IconButton } from "@oreui-web/vue";
 ```svelte
 <script lang="ts">
   import Accordion from "@oreui-web/svelte/accordion";
-  import IconButton from "@oreui-web/svelte/icon-button";
 </script>
 
-<Accordion value="realms">
-  <IconButton class="ore-accordion-trigger" type="button" aria-label="Toggle What is Realms?">
+<Accordion>
+  <summary>
     <span class="ore-accordion-title">What is Realms?</span>
-  </IconButton>
+  </summary>
   <div class="ore-accordion-content">
     Realms are private, cloud-hosted worlds where you can play with friends.
   </div>
@@ -103,16 +88,14 @@ import { Accordion, IconButton } from "@oreui-web/vue";
     <Tab value="Solid">
 
 ```tsx
-import { Accordion, IconButton } from "@oreui-web/solid";
+import { Accordion } from "@oreui-web/solid";
 
 export function Details() {
   return (
-    <Accordion value="details">
-      <IconButton
-        class="ore-accordion-trigger"
-        type="button"
-        aria-label="Toggle details"
-      />
+    <Accordion>
+      <summary>
+        <span class="ore-accordion-title">World details</span>
+      </summary>
       <div class="ore-accordion-content">World details</div>
     </Accordion>
   );
@@ -123,17 +106,16 @@ export function Details() {
     <Tab value="Astro">
 
 ```astro
-<ore-accordion value="realms">
-  <button class="ore-icon-button ore-accordion-trigger" type="button" aria-label="Toggle What is Realms?">
+<details class="ore-accordion">
+  <summary>
 		<span class="ore-accordion-title">What is Realms?</span>
-  </button>
+  </summary>
 	<div class="ore-accordion-content">
 		Realms are private, cloud-hosted worlds where you can play with friends.
 	</div>
-</ore-accordion>
+</details>
 
 <script>
-	import "oreui-web/accordion";
   import "oreui-web/styles.css";
 </script>
 ```
@@ -142,41 +124,49 @@ export function Details() {
 
 </Tabs>
 
-## Default state
+## Initial state
 
-Use `default-open` for an accordion that starts expanded. Set the `open` property when the application controls its state.
+Use the native `open` attribute for an accordion that starts expanded.
 
 ```html
-<ore-accordion default-open>...</ore-accordion>
+<details class="ore-accordion" open>...</details>
+```
+
+## Exclusive group
+
+Give related details elements the same native `name` to keep only one item open.
+
+```html
+<details class="ore-accordion" name="world-settings">...</details>
+<details class="ore-accordion" name="world-settings">...</details>
 ```
 
 ## Events
 
-`open-change` fires after `open` changes. Its `detail` is the new boolean state.
+The standard `toggle` event fires after the `open` state changes. Read the current state from `event.currentTarget.open`.
 
 ```js
-accordion.addEventListener("open-change", (event) => {
-  console.log(event.detail);
+accordion.addEventListener("toggle", (event) => {
+  console.log(event.currentTarget.open);
 });
 ```
 
-In React, use `onOpenChange`.
+In React, use `onToggle`.
 
 ## API
 
-| Property      | Attribute      | Type      | Default |
-| ------------- | -------------- | --------- | ------- |
-| `defaultOpen` | `default-open` | `boolean` | `false` |
-| `open`        | `open`         | `boolean` | `false` |
-| `value`       | `value`        | `string`  | `""`    |
+| Property | Attribute | Type      | Default |
+| -------- | --------- | --------- | ------- |
+| `open`   | `open`    | `boolean` | `false` |
+| `name`   | `name`    | `string`  | `""`    |
 
 ## Public classes
 
 | Class                    | Purpose                         |
 | ------------------------ | ------------------------------- |
-| `.ore-accordion-trigger` | Button that toggles the section |
-| `.ore-accordion-title`   | Trigger label                   |
-| `.ore-accordion-content` | Collapsible content             |
+| `.ore-accordion`         | Native details root |
+| `.ore-accordion-title`   | Summary label       |
+| `.ore-accordion-content` | Collapsible content |
 
 ## CSS variables
 
@@ -187,7 +177,18 @@ In React, use `onOpenChange`.
 | `--ore-accordion-background`         | Expanded content background color |
 | `--ore-accordion-foreground`         | Trigger text and icon color       |
 | `--ore-accordion-content-foreground` | Expanded content text color       |
+| `--ore-accordion-trigger-background` | Idle summary background           |
+| `--ore-accordion-trigger-highlight`  | Idle summary highlight            |
+| `--ore-accordion-trigger-shadow`     | Idle summary shadow               |
+| `--ore-accordion-trigger-corner`     | Idle summary corner               |
+| `--ore-accordion-trigger-background-hover` | Hover summary background   |
+| `--ore-accordion-trigger-highlight-hover`  | Hover summary highlight    |
+| `--ore-accordion-trigger-corner-hover`     | Hover summary corner       |
+| `--ore-accordion-trigger-background-pressed` | Pressed summary background |
+| `--ore-accordion-trigger-highlight-pressed`  | Pressed summary highlight  |
+| `--ore-accordion-trigger-shadow-pressed`     | Pressed summary shadow     |
+| `--ore-accordion-trigger-corner-pressed`     | Pressed summary corner     |
 
 ## Accessibility
 
-Accordion links the trigger and content with `aria-controls`, updates `aria-expanded`, and hides collapsed content. Use a real button for the trigger.
+The native details and summary elements provide disclosure semantics, keyboard activation, focus handling, and collapsed-content visibility without JavaScript. Do not place an interactive button inside summary.

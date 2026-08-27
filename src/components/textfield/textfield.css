@@ -11,7 +11,10 @@
   --ore-textfield-caret: var(--ore-color-primary-background);
 
   display: inline-grid;
-  width: min(100%, calc(var(--ore-textfield-unit) * 122));
+  width: var(
+    --ore-textfield-width,
+    min(100%, calc(var(--ore-textfield-unit) * 122))
+  );
   color: var(--ore-textfield-foreground);
   font-family: var(--ore-font-body);
 }

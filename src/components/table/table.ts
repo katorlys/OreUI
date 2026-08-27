@@ -1,5 +1,4 @@
-import { ReactiveElement } from "lit";
-
+export type OreTableElement = HTMLTableElement;
 export type OreTableVariant = "plain" | "striped";
 export type OreTableSortDirection = "none" | "ascending" | "descending";
 
@@ -8,33 +7,17 @@ export interface OreTableSortDetail {
   direction: OreTableSortDirection;
 }
 
-export class OreTable extends ReactiveElement {
-  static properties = {
-    variant: { type: String, reflect: true },
-  };
+const tableSelector = ".ore-table > table";
+const initializedTables = new WeakSet<OreTableElement>();
 
-  declare variant: OreTableVariant;
-
-  constructor() {
-    super();
-    this.variant = "plain";
+function initTable(table: OreTableElement): void {
+  if (initializedTables.has(table)) {
+    return;
   }
 
-  override connectedCallback(): void {
-    super.connectedCallback();
-    this.addEventListener("click", this.#handleClick, true);
-  }
-
-  override disconnectedCallback(): void {
-    this.removeEventListener("click", this.#handleClick, true);
-    super.disconnectedCallback();
-  }
-
-  protected override createRenderRoot(): HTMLElement {
-    return this;
-  }
-
-  readonly #handleClick = (event: MouseEvent): void => {
+  initializedTables.add(table);
+  table.dataset.oreInitialized = "table";
+  table.addEventListener("click", (event) => {
     if (!(event.target instanceof Element)) {
       return;
     }
@@ -42,7 +25,7 @@ export class OreTable extends ReactiveElement {
     const button = event.target.closest<HTMLButtonElement>(".ore-table-sort");
     const header = button?.closest<HTMLTableCellElement>("th");
 
-    if (!button || !header || button.disabled || !this.contains(button)) {
+    if (!button || !header || button.disabled || !table.contains(button)) {
       return;
     }
 
@@ -54,27 +37,42 @@ export class OreTable extends ReactiveElement {
           ? "descending"
           : "none";
 
-    for (const sortable of this.querySelectorAll("th[aria-sort]")) {
+    for (const sortable of table.querySelectorAll("th[aria-sort]")) {
       sortable.setAttribute("aria-sort", "none");
     }
     header.setAttribute("aria-sort", direction);
 
-    this.dispatchEvent(
+    table.dispatchEvent(
       new CustomEvent<OreTableSortDetail>("sort", {
         bubbles: true,
-        composed: true,
         detail: { column: button.value, direction },
       }),
     );
-  };
+  });
 }
 
-if (!customElements.get("ore-table")) {
-  customElements.define("ore-table", OreTable);
-}
+export { initTable };
 
-declare global {
-  interface HTMLElementTagNameMap {
-    "ore-table": OreTable;
+export function initTables(root: ParentNode = document): void {
+  if (root instanceof HTMLTableElement && root.matches(tableSelector)) {
+    initTable(root);
   }
+
+  for (const table of root.querySelectorAll<OreTableElement>(tableSelector)) {
+    initTable(table);
+  }
+}
+
+if (typeof document !== "undefined") {
+  initTables();
+
+  new MutationObserver((records) => {
+    for (const record of records) {
+      for (const node of record.addedNodes) {
+        if (node instanceof HTMLElement) {
+          initTables(node);
+        }
+      }
+    }
+  }).observe(document.documentElement, { childList: true, subtree: true });
 }

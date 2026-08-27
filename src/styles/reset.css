@@ -1,9 +1,9 @@
 :where(
-  ore-accordion,
+  details.ore-accordion,
   ore-button,
   article.ore-card,
   .ore-container,
-  ore-table,
+  .ore-table,
   ore-dropdown,
   button.ore-icon-button,
   ore-modal,

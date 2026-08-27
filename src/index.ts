@@ -1,4 +1,4 @@
-export { OreAccordion } from "./components/accordion/accordion.js";
+export type { OreAccordionElement } from "./components/accordion/accordion.js";
 export {
   type OreButtonColor,
   type OreButtonType,
@@ -11,7 +11,8 @@ export {
   type OreContainerVariant,
 } from "./components/container/container.js";
 export {
-  OreTable,
+  initTable,
+  initTables,
   type OreTableSortDetail,
   type OreTableSortDirection,
   type OreTableVariant,
@@ -23,9 +24,8 @@ export {
 } from "./components/dropdown/dropdown.js";
 export type { OreIconButtonElement } from "./components/icon-button/icon-button.js";
 export {
-  OreModal,
-  type OreModalCloseDetail,
-  type OreModalCloseReason,
+  initModals,
+  type OreModalElement,
 } from "./components/modal/modal.js";
 export { type OreNavbarElement } from "./components/navbar/navbar.js";
 export {

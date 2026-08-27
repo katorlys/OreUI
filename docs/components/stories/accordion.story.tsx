@@ -2,8 +2,6 @@
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
 import { Accordion } from "@oreui-web/react/accordion";
-import { IconButton } from "@oreui-web/react/icon-button";
-import { useEffect, useState } from "react";
 
 interface AccordionPreviewProps {
   content: string;
@@ -16,25 +14,11 @@ function AccordionPreview({
   defaultOpen,
   title,
 }: AccordionPreviewProps) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
   return (
-    <Accordion defaultOpen={defaultOpen} value="realms">
-      <IconButton
-        aria-label={`Toggle ${title}`}
-        className="ore-accordion-trigger"
-        type="button"
-      >
+    <Accordion open={defaultOpen}>
+      <summary>
         <span className="ore-accordion-title">{title}</span>
-      </IconButton>
+      </summary>
       <div className="ore-accordion-content">{content}</div>
     </Accordion>
   );

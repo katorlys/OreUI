@@ -1,19 +1,9 @@
-import "oreui-web/modal";
+import type { JSX } from "solid-js";
 
-import type { OreModal, OreModalCloseDetail } from "oreui-web/modal";
-import { createOreComponent } from "../factory.js";
-import type { OpenChangeProps, OreComponentProps } from "../types.js";
+export type ModalProps = JSX.DialogHtmlAttributes<HTMLDialogElement>;
 
-export type ModalProps = OreComponentProps<OreModal, "defaultOpen" | "open"> &
-  OpenChangeProps & {
-    onModalClose?: (event: CustomEvent<OreModalCloseDetail>) => void;
-  };
+export function Modal(props: ModalProps): JSX.Element {
+  const { class: className, ...rest } = props;
 
-export const Modal = createOreComponent<OreModal, ModalProps>({
-  events: {
-    onModalClose: "modal-close",
-    onOpenChange: "open-change",
-  },
-  properties: ["defaultOpen", "open"],
-  tagName: "ore-modal",
-});
+  return <dialog {...rest} class={`ore-modal ${className ?? ""}`} />;
+}
