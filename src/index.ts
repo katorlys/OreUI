@@ -18,20 +18,24 @@ export {
   type OreTableVariant,
 } from "./components/table/table.js";
 export {
-  OreDropdown,
+  destroyDropdown,
+  initDropdown,
+  initDropdowns,
   type OreDropdownChangeDetail,
   type OreDropdownVariant,
 } from "./components/dropdown/dropdown.js";
 export type { OreIconButtonElement } from "./components/icon-button/icon-button.js";
-export {
-  initModals,
-  type OreModalElement,
-} from "./components/modal/modal.js";
+export { initModals, type OreModalElement } from "./components/modal/modal.js";
 export { type OreNavbarElement } from "./components/navbar/navbar.js";
 export {
-  OreToast,
+  closeToast,
+  destroyToast,
+  initToast,
+  initToasts,
+  type OreToastElement,
   type OreToastPosition,
   type OreToastVariant,
+  showToast,
 } from "./components/toast/toast.js";
 export type { OreProgressBarElement } from "./components/progress-bar/progress-bar.js";
 export type { OreProgressRingElement } from "./components/progress-ring/progress-ring.js";
@@ -54,16 +58,29 @@ export {
   type OreSwitchColor,
   type OreSwitchVariant,
 } from "./components/switch/switch.js";
-export { OreTabBar } from "./components/tab-bar/tab-bar.js";
 export {
-  OreTabButton,
+  destroyTabButton,
+  initTabButton,
+  initTabButtons,
   type OreTabButtonPalette,
 } from "./components/tab-button/tab-button.js";
-export { type OreTagElement, type OreTagVariant } from "./components/tag/tag.js";
+export type { OreTabButton } from "./components/tab-button/tab-button.js";
+export {
+  type OreTagElement,
+  type OreTagVariant,
+} from "./components/tag/tag.js";
 export type { OreTextareaWrap } from "./components/textarea/textarea.js";
 export {
-  OreTooltip,
+  destroyTooltip,
+  initTooltip,
+  initTooltips,
+  type OreTooltipElement,
   type OreTooltipSide,
 } from "./components/tooltip/tooltip.js";
-export { OreToggles } from "./components/toggles/toggles.js";
+export {
+  destroyToggles,
+  initToggles,
+  initTogglesList,
+  type OreToggles,
+} from "./components/toggles/toggles.js";
 export type OreElement = HTMLElement;

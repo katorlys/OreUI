@@ -142,9 +142,9 @@ Progress Ring uses the current font size and text color.
 
 Set `--ore-progress-ring-frame` from `0` through `15`, and expose the underlying value with standard progressbar ARIA attributes. For a value and maximum, calculate:
 
-$$
-\operatorname{frame}=\min\left(15,\left\lfloor\frac{\operatorname{clamp}(value,0,max)}{max}\times16\right\rfloor\right)
-$$
+```text
+frame = min(15, floor(clamp(value, 0, max) / max * 16))
+```
 
 ```html
 <span
@@ -162,9 +162,9 @@ The SVG contains 16 frames. The normalized progress is split into equal 6.25% ra
 
 ## CSS variables
 
-| Variable                    | Purpose                                  |
-| --------------------------- | ---------------------------------------- |
-| `--ore-progress-ring-frame` | Sprite frame from `0` through `15`       |
+| Variable                    | Purpose                            |
+| --------------------------- | ---------------------------------- |
+| `--ore-progress-ring-frame` | Sprite frame from `0` through `15` |
 
 ## Accessibility
 

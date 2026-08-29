@@ -1,0 +1,143 @@
+---
+title: Select
+description: Select an option from a native menu.
+---
+
+import { SelectStory } from "@/components/stories/select.story";
+
+<SelectStory />
+
+## Usage
+
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "oreui-web/styles.css";
+```
+
+```html
+<label for="game-mode">Game mode</label>
+<select id="game-mode" name="game-mode">
+  <option value="survival">Survival</option>
+  <option value="creative" selected>Creative</option>
+  <option value="adventure">Adventure</option>
+  <option value="spectator" disabled>Spectator</option>
+</select>
+```
+
+    </Tab>
+    <Tab value="React">
+
+```tsx
+import { Select } from "@oreui-web/react/select";
+import { useState } from "react";
+
+export function GameModeSelect() {
+  const [value, setValue] = useState("creative");
+
+  return (
+    <Select
+      value={value}
+      onChange={(event) => setValue(event.currentTarget.value)}
+    >
+      <option value="survival">Survival</option>
+      <option value="creative">Creative</option>
+    </Select>
+  );
+}
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { Select } from "@oreui-web/vue/select";
+
+const value = ref("creative");
+</script>
+
+<template>
+  <Select v-model="value">
+    <option value="survival">Survival</option>
+    <option value="creative">Creative</option>
+  </Select>
+</template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import Select from "@oreui-web/svelte/select";
+
+  let value = $state("creative");
+</script>
+
+<Select bind:value>
+  <option value="survival">Survival</option>
+  <option value="creative">Creative</option>
+</Select>
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { createSignal } from "solid-js";
+import { Select } from "@oreui-web/solid/select";
+
+export function GameModeSelect() {
+  const [value, setValue] = createSignal("creative");
+
+  return (
+    <Select value={value()} onValueChange={setValue}>
+      <option value="survival">Survival</option>
+      <option value="creative">Creative</option>
+    </Select>
+  );
+}
+```
+
+    </Tab>
+    <Tab value="Astro">
+
+```astro
+<select name="game-mode">
+  <option value="survival">Survival</option>
+  <option value="creative" selected>Creative</option>
+</select>
+
+<style is:global>
+  @import "oreui-web/styles.css";
+</style>
+```
+
+    </Tab>
+
+</Tabs>
+
+## Native behavior
+
+The closed control uses the same OreUI surface and icon as the Dropdown trigger. The opened option panel is rendered by the browser and operating system, so its exact appearance is platform-dependent.
+
+Use Select for plain text options. Use [Dropdown](./dropdown) only when options require custom content or a fully styled popup.
+
+## Forms and events
+
+Select uses the native `HTMLSelectElement` API. `disabled`, `required`, `name`, `value`, validation, `FormData`, keyboard navigation, and form reset remain browser behavior. Listen for the standard `input` or `change` event.
+
+## CSS variables
+
+| Variable                          | Purpose                   |
+| --------------------------------- | ------------------------- |
+| `--ore-select-unit`               | Base size unit            |
+| `--ore-select-background-default` | Default surface           |
+| `--ore-select-background-hover`   | Hover surface             |
+| `--ore-select-background-pressed` | Pressed surface           |
+| `--ore-select-highlight-default`  | Default highlight         |
+| `--ore-select-border`             | Outer border              |
+| `--ore-select-shadow`             | Bottom shadow             |
+| `--ore-select-foreground`         | Selected text and chevron icon |

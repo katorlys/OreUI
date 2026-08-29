@@ -65,9 +65,6 @@
     "typecheck:core": "tsc --noEmit",
     "preview": "vite preview"
   },
-  "dependencies": {
-    "lit": "^3.3.3"
-  },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^7.3.0",
     "@types/node": "^24.13.3",

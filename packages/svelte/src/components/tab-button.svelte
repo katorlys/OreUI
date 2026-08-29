@@ -1,7 +1,5 @@
 <script lang="ts">
-  import "oreui-web/tab-button";
   import type {
-    OreTabButton,
     OreTabButtonPalette,
   } from "oreui-web/tab-button";
   import type {
@@ -12,7 +10,7 @@
   import type { OreComponentProps } from "../types.js";
 
   export type TabButtonProps = OreComponentProps<
-    OreTabButton,
+    HTMLButtonElement,
     "color" | "disabled" | "palette" | "selected" | "type" | "variant"
   > & {
     color?: OreButtonColor;
@@ -23,13 +21,13 @@
   };
 
   let { children, onChange, ...props }: TabButtonProps = $props();
-  let element: OreTabButton;
+  let element: HTMLButtonElement;
 
-  export function getElement(): OreTabButton {
+  export function getElement(): HTMLButtonElement {
     return element;
   }
 </script>
 
-<ore-tab-button bind:this={element} onchange={onChange} {...props}>
+<button class="ore-tab-button" bind:this={element} onchange={onChange} aria-selected={props.selected} data-palette={props.palette} data-variant={props.variant} role="tab" {...props}>
   {@render children?.()}
-</ore-tab-button>
+</button>

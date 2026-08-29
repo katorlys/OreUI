@@ -57,7 +57,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@lit/react": "^1.0.8",
     "oreui-web": "workspace:*"
   },
   "peerDependencies": {

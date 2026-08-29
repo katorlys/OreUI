@@ -1,28 +1,51 @@
 <script lang="ts">
   import "oreui-web/tooltip";
-  import type { OreTooltip, OreTooltipSide } from "oreui-web/tooltip";
+  import type { OreTooltipSide } from "oreui-web/tooltip";
+  import { onMount } from "svelte";
   import type { OreComponentProps } from "../types.js";
 
-  export type TooltipProps = OreComponentProps<
-    OreTooltip,
-    "defaultOpen" | "delay" | "open" | "side"
-  > & {
+  export type TooltipProps = OreComponentProps<HTMLSpanElement> & {
+    defaultOpen?: boolean;
+    delay?: number;
+    open?: boolean;
     side?: OreTooltipSide;
     onOpenChange?: (event: CustomEvent<boolean>) => void;
   };
 
-  let { children, onOpenChange, ...props }: TooltipProps = $props();
-  let element: OreTooltip;
+  let {
+    children,
+    class: className,
+    defaultOpen = false,
+    delay,
+    open,
+    side = "top",
+    onOpenChange,
+    ...props
+  }: TooltipProps = $props();
+  let element: HTMLSpanElement;
 
-  export function getElement(): OreTooltip {
+  onMount(() => {
+    const listener = (event: Event): void => {
+      onOpenChange?.(event as CustomEvent<boolean>);
+    };
+
+    element.addEventListener("oreui:openchange", listener);
+    return () => element.removeEventListener("oreui:openchange", listener);
+  });
+
+  export function getElement(): HTMLSpanElement {
     return element;
   }
 </script>
 
-<ore-tooltip
+<span
   bind:this={element}
-  onopen-change={onOpenChange}
+  class={`ore-tooltip ${className ?? ""}`}
+  data-default-open={defaultOpen ? "" : undefined}
+  data-delay={delay}
+  data-open={open === undefined ? undefined : String(open)}
+  data-side={side}
   {...props}
 >
   {@render children?.()}
-</ore-tooltip>
+</span>

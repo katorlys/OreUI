@@ -1,39 +1,114 @@
-import { ReactiveElement } from "lit";
+export type OreToggles = HTMLDivElement;
 
-import "../tab-button/tab-button.js";
+const states = new Set<OreToggles>();
+const previousRoles = new WeakMap<OreToggles, string | null>();
+const previousPalettes = new WeakMap<OreToggles, Map<HTMLButtonElement, string | null>>();
+let observer: MutationObserver | undefined;
 
-export class OreToggles extends ReactiveElement {
-  readonly #observer = new MutationObserver(() => this.#syncTabs());
+function syncTabs(toggles: OreToggles): void {
+  const palettes = previousPalettes.get(toggles);
+  for (const tab of toggles.querySelectorAll<HTMLButtonElement>(
+    ":scope > .ore-tab-button",
+  )) {
+    if (palettes && !palettes.has(tab)) {
+      palettes.set(tab, tab.getAttribute("data-palette"));
+    }
+    tab.dataset.palette = "toggle";
+  }
+}
 
-  override connectedCallback(): void {
-    super.connectedCallback();
-    this.setAttribute("role", "tablist");
-    this.#observer.observe(this, { childList: true, subtree: true });
-    this.#syncTabs();
+export function initToggles(toggles: OreToggles): void {
+  if (states.has(toggles)) {
+    syncTabs(toggles);
+    return;
   }
 
-  override disconnectedCallback(): void {
-    this.#observer.disconnect();
-    super.disconnectedCallback();
+  states.add(toggles);
+  previousRoles.set(toggles, toggles.getAttribute("role"));
+  previousPalettes.set(
+    toggles,
+    new Map(
+      [...toggles.querySelectorAll<HTMLButtonElement>(":scope > .ore-tab-button")].map(
+        (tab) => [tab, tab.getAttribute("data-palette")],
+      ),
+    ),
+  );
+  toggles.dataset.oreInitialized = "toggles";
+  toggles.setAttribute("role", "tablist");
+  syncTabs(toggles);
+}
+
+export function destroyToggles(toggles: OreToggles): void {
+  if (!states.delete(toggles)) {
+    return;
   }
 
-  #syncTabs(): void {
-    for (const tab of this.querySelectorAll("ore-tab-button")) {
-      tab.setAttribute("palette", "toggle");
+  const previousRole = previousRoles.get(toggles);
+  if (previousRole === null) {
+    toggles.removeAttribute("role");
+  } else if (previousRole !== undefined) {
+    toggles.setAttribute("role", previousRole);
+  }
+  const palettes = previousPalettes.get(toggles);
+  if (palettes) {
+    for (const [tab, previousPalette] of palettes) {
+      if (previousPalette === null) {
+        tab.removeAttribute("data-palette");
+      } else if (tab.getAttribute("data-palette") === "toggle") {
+        tab.setAttribute("data-palette", previousPalette);
+      }
     }
   }
+  previousRoles.delete(toggles);
+  previousPalettes.delete(toggles);
+  delete toggles.dataset.oreInitialized;
+}
 
-  protected override createRenderRoot(): HTMLElement {
-    return this;
+function destroyTogglesList(root: Node): void {
+  if (root instanceof HTMLDivElement && root.matches(".ore-toggles")) {
+    destroyToggles(root);
+  }
+  if (root instanceof HTMLElement) {
+    for (const toggles of root.querySelectorAll<OreToggles>(".ore-toggles")) {
+      destroyToggles(toggles);
+    }
   }
 }
 
-if (!customElements.get("ore-toggles")) {
-  customElements.define("ore-toggles", OreToggles);
+export function initTogglesList(root: ParentNode = document): void {
+  if (root instanceof HTMLDivElement && root.matches(".ore-toggles")) {
+    initToggles(root);
+  }
+  for (const toggles of root.querySelectorAll<OreToggles>(".ore-toggles")) {
+    initToggles(toggles);
+  }
 }
 
-declare global {
-  interface HTMLElementTagNameMap {
-    "ore-toggles": OreToggles;
+function startObserver(): void {
+  if (typeof document === "undefined" || observer) {
+    return;
   }
+
+  observer = new MutationObserver((records) => {
+    for (const record of records) {
+      for (const node of record.removedNodes) {
+        destroyTogglesList(node);
+      }
+      for (const node of record.addedNodes) {
+        if (node instanceof HTMLElement) {
+          initTogglesList(node);
+          const toggles = node.parentElement?.closest<OreToggles>(".ore-toggles");
+          if (toggles && states.has(toggles)) {
+            syncTabs(toggles);
+          }
+        }
+      }
+    }
+  });
+  observer.observe(document.documentElement, { childList: true, subtree: true });
+}
+
+if (typeof document !== "undefined") {
+  startObserver();
+  initTogglesList();
 }

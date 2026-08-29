@@ -15,17 +15,16 @@ Tooltip adds a short description to a hovered control.
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/tooltip";
-import "oreui-web/button";
 ```
 
 ```html
-<ore-tooltip side="top">
-  <ore-button class="ore-tooltip-trigger" type="button">Copy</ore-button>
+<span class="ore-tooltip" data-side="top">
+  <button class="ore-tooltip-trigger" type="button">Copy</button>
   <div class="ore-tooltip-content">
     Create a copy of this world
     <span class="ore-tooltip-arrow" aria-hidden="true"></span>
   </div>
-</ore-tooltip>
+</span>
 ```
 
     </Tab>
@@ -109,17 +108,16 @@ export function HelpTooltip() {
     <Tab value="Astro">
 
 ```astro
-<ore-tooltip side="top">
-	<ore-button class="ore-tooltip-trigger" type="button">Copy</ore-button>
+<span class="ore-tooltip" data-side="top">
+  <button class="ore-tooltip-trigger" type="button">Copy</button>
 	<div class="ore-tooltip-content">
 		Create a copy of this world
 		<span class="ore-tooltip-arrow" aria-hidden="true"></span>
 	</div>
-</ore-tooltip>
+</span>
 
 <script>
 	import "oreui-web/tooltip";
-	import "oreui-web/button";
 </script>
 ```
 
@@ -129,29 +127,29 @@ export function HelpTooltip() {
 
 ## Placement
 
-Use `side="top"`, `"right"`, `"bottom"`, or `"left"`. Position updates while the page scrolls or resizes.
+Use `data-side="top"`, `"right"`, `"bottom"`, or `"left"` in native HTML. Framework wrappers expose the same setting through the `side` prop. Position updates while the page scrolls or resizes.
 
 ## Delay
 
-`delay` is the time in milliseconds before the tooltip opens. Default: `500`.
+`data-delay` is the time in milliseconds before the tooltip opens. Default: `500`.
 
 ```html
-<ore-tooltip delay="200">...</ore-tooltip>
+<span class="ore-tooltip" data-delay="200">...</span>
 ```
 
 ## Events
 
-`open-change` fires after `open` changes. Its `detail` is the new boolean state.  
+`oreui:openchange` fires after the open state changes. Its `detail` is the new boolean state.
 In React, use `onOpenChange`.
 
 ## API
 
-| Property      | Attribute      | Type                                     | Default |
-| ------------- | -------------- | ---------------------------------------- | ------- |
-| `defaultOpen` | `default-open` | `boolean`                                | `false` |
-| `delay`       | `delay`        | `number`                                 | `500`   |
-| `open`        | `open`         | `boolean`                                | `false` |
-| `side`        | `side`         | `"top" \| "right" \| "bottom" \| "left"` | `"top"` |
+| Framework prop | Native attribute    | Type                                     | Default |
+| -------------- | ------------------- | ---------------------------------------- | ------- |
+| `defaultOpen`  | `data-default-open` | `boolean`                                | `false` |
+| `delay`        | `data-delay`        | `number`                                 | `500`   |
+| `open`         | `data-open`         | `boolean`                                | unset   |
+| `side`         | `data-side`         | `"top" \| "right" \| "bottom" \| "left"` | `"top"` |
 
 ## Public classes
 

@@ -142,9 +142,9 @@ Progress Ring 使用 current 字体大小和文本颜色。
 
 将 `--ore-progress-ring-frame` 设置为 `0` 到 `15`，并使用标准 progressbar ARIA 属性公开实际数值。根据当前值和最大值计算：
 
-$$
-\operatorname{frame}=\min\left(15,\left\lfloor\frac{\operatorname{clamp}(value,0,max)}{max}\times16\right\rfloor\right)
-$$
+```text
+frame = min(15, floor(clamp(value, 0, max) / max * 16))
+```
 
 ```html
 <span
@@ -162,8 +162,8 @@ SVG 一共包含 16 帧。标准化后的进度会被划分为相等的 6.25% �
 
 ## CSS 变量
 
-| 变量                        | 用途                    |
-| --------------------------- | ----------------------- |
+| 变量                        | 用途                     |
+| --------------------------- | ------------------------ |
 | `--ore-progress-ring-frame` | `0` 到 `15` 的 sprite 帧 |
 
 ## 无障碍

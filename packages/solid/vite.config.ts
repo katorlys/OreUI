@@ -23,7 +23,6 @@ const componentNames = [
   "slider",
   "spinner",
   "switch",
-  "tab-bar",
   "tab-button",
   "table",
   "tag",

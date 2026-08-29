@@ -1,4 +1,4 @@
-:where(ore-toast) {
+:where(.ore-toast) {
   --ore-toast-unit: var(--ore-size-unit);
   --ore-toast-inset: calc(var(--ore-toast-unit) * 16);
   --ore-toast-background: var(--ore-color-neutral-surface-deep);
@@ -26,80 +26,81 @@
   text-align: center;
 }
 
-ore-toast:popover-open {
+.ore-toast:popover-open {
   inset: auto;
   margin: 0;
 }
 
-:where(ore-toast:not(:popover-open)) {
+:where(.ore-toast:not(:popover-open)) {
   display: none;
 }
 
-ore-toast:popover-open[position="top-start"] {
+.ore-toast:popover-open[data-position="top-start"] {
   top: var(--ore-toast-inset);
   left: var(--ore-toast-inset);
 }
 
-ore-toast:popover-open[position="top-center"] {
+.ore-toast:popover-open[data-position="top-center"] {
   top: var(--ore-toast-inset);
   left: 50%;
   transform: translateX(-50%);
 }
 
-ore-toast:popover-open[position="top-end"] {
+.ore-toast:popover-open[data-position="top-end"] {
   top: var(--ore-toast-inset);
   right: var(--ore-toast-inset);
 }
 
-ore-toast:popover-open[position="bottom-start"] {
+.ore-toast:popover-open[data-position="bottom-start"] {
   bottom: var(--ore-toast-inset);
   left: var(--ore-toast-inset);
 }
 
-ore-toast:popover-open[position="bottom-center"] {
+.ore-toast:popover-open:not([data-position]),
+.ore-toast:popover-open[data-position="bottom-center"] {
   bottom: var(--ore-toast-inset);
   left: 50%;
   transform: translateX(-50%);
 }
 
-ore-toast:popover-open[position="bottom-end"] {
+.ore-toast:popover-open[data-position="bottom-end"] {
   right: var(--ore-toast-inset);
   bottom: var(--ore-toast-inset);
   left: auto;
   transform: none;
 }
 
-:where(ore-toast[variant="secondary"]) {
+:where(.ore-toast[data-variant="secondary"]) {
   --ore-toast-background: var(--ore-color-neutral-surface-raised);
 }
 
-:where(ore-toast[variant="primary"]) {
+:where(.ore-toast[data-variant="primary"]) {
   --ore-toast-background: var(--ore-color-primary-tint-background);
   --ore-toast-foreground: var(--ore-color-primary-tint-foreground);
 }
 
-:where(ore-toast[variant="informative"]) {
+:where(.ore-toast[data-variant="informative"]) {
   --ore-toast-background: var(--ore-color-informative-tint-background);
   --ore-toast-foreground: var(--ore-color-informative-tint-foreground);
 }
 
-:where(ore-toast[variant="notice"]) {
+:where(.ore-toast[data-variant="notice"]) {
   --ore-toast-background: var(--ore-color-notice-tint-background);
   --ore-toast-foreground: var(--ore-color-notice-tint-foreground);
 }
 
-:where(ore-toast[variant="warning"]) {
+:where(.ore-toast[data-variant="warning"]) {
   --ore-toast-background: var(--ore-color-destructive-tint-background);
   --ore-toast-foreground: var(--ore-color-destructive-tint-foreground);
 }
 
-:where(ore-toast[variant="realms-informative"]) {
+:where(.ore-toast[data-variant="realms-informative"]) {
   --ore-toast-background: var(--ore-color-realms-informative-tint-background);
   --ore-toast-foreground: var(--ore-color-neutral-border);
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  :where(ore-toast:popover-open) {
+  :where(.ore-toast:popover-open) {
     animation: ore-toast-show var(--ore-motion-fast) steps(2, jump-none);
   }
 }

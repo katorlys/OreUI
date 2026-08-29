@@ -1,4 +1,4 @@
-:where(button, .button, ore-button, ore-tab-button) {
+:where(button, .button, ore-button, .ore-tab-button) {
   --ore-button-unit: var(--ore-size-unit);
   --ore-button-background-default: var(--ore-color-primary-background);
   --ore-button-background-hover: var(--ore-color-primary-background-hover);
@@ -72,7 +72,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-:where(button, .button, ore-button, ore-tab-button)::before {
+:where(button, .button, ore-button, .ore-tab-button)::before {
   position: absolute;
   top: var(--ore-button-face-offset);
   right: 0;
@@ -282,7 +282,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :where(button, .button, ore-button, ore-tab-button):hover:not(
+  :where(button, .button, ore-button, .ore-tab-button):hover:not(
       [disabled],
       [form-disabled],
       [loading]
@@ -298,17 +298,17 @@
 }
 
 :where(
-  :is(button, .button, ore-button, ore-tab-button):active:not(
+  :is(button, .button, ore-button, .ore-tab-button):active:not(
       [disabled],
       [form-disabled],
       [loading]
     ),
-  :is(button, .button, ore-button, ore-tab-button)[data-pressed]:not(
+  :is(button, .button, ore-button, .ore-tab-button)[data-pressed]:not(
       [disabled],
       [form-disabled],
       [data-loading]
     ),
-  :is(ore-button, ore-tab-button)[pressed]:not(
+  :is(ore-button, .ore-tab-button)[data-pressed]:not(
       [disabled],
       [form-disabled],
       [loading]
@@ -333,12 +333,12 @@
   padding-bottom: 0;
 }
 
-:where(button, .button, ore-button, ore-tab-button):focus-visible,
+:where(button, .button, ore-button, .ore-tab-button):focus-visible,
 :where(ore-button > .ore-button-link):focus-visible {
   outline: none;
 }
 
-:where(button, .button, ore-button, ore-tab-button):focus-visible::before,
+:where(button, .button, ore-button, .ore-tab-button):focus-visible::before,
 :where(ore-button:has(> .ore-button-link:focus-visible))::before {
   box-shadow:
     0 0 0 var(--ore-button-unit) var(--ore-color-focus-ring),
@@ -357,8 +357,7 @@
   .button[aria-disabled="true"],
   ore-button[disabled],
   ore-button[form-disabled],
-  ore-tab-button[disabled],
-  ore-tab-button[form-disabled]
+  .ore-tab-button[disabled]
 ) {
   --ore-button-background: var(--ore-color-disabled);
   --ore-button-highlight: var(--ore-color-disabled);

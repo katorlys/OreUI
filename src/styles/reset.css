@@ -4,7 +4,7 @@
   article.ore-card,
   .ore-container,
   .ore-table,
-  ore-dropdown,
+  .ore-dropdown,
   button.ore-icon-button,
   ore-modal,
   nav.ore-navbar,
@@ -15,11 +15,11 @@
   .ore-scrollbar,
   .ore-spinner,
   ore-switch,
-  ore-tab-bar,
-  ore-tab-button,
+  button.ore-tab-button,
   ore-tag,
-  ore-toggles,
-  ore-tooltip
+  .ore-toggles,
+  .ore-tooltip,
+  .ore-toast
 ) {
   box-sizing: border-box;
   font: inherit;
@@ -48,8 +48,8 @@
   button.ore-icon-button,
   ore-radio,
   ore-switch,
-  ore-tab-button,
-  ore-dropdown .ore-dropdown-item,
+  button.ore-tab-button,
+  .ore-dropdown .ore-dropdown-item,
   ore-modal .ore-modal-header-button,
   nav.ore-navbar .ore-navbar-button,
   nav.ore-navbar .ore-navbar-action

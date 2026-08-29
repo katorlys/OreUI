@@ -1,47 +1,46 @@
 <script lang="ts">
   import "oreui-web/dropdown";
   import type {
-    OreDropdown,
     OreDropdownChangeDetail,
     OreDropdownVariant,
   } from "oreui-web/dropdown";
   import type { OreComponentProps } from "../types.js";
 
-  export type DropdownProps = OreComponentProps<
-    OreDropdown,
-    "defaultOpen" | "open" | "value" | "variant"
-  > & {
+  export type DropdownProps = OreComponentProps<HTMLDivElement> & {
     value?: string;
     variant?: OreDropdownVariant;
     onChange?: (event: CustomEvent<OreDropdownChangeDetail>) => void;
-    onOpenChange?: (event: CustomEvent<boolean>) => void;
   };
 
   let {
     children,
+    class: className,
     value = $bindable(""),
+    variant = "borderless",
     onChange,
-    onOpenChange,
     ...props
   }: DropdownProps = $props();
-  let element: OreDropdown;
+  let element: HTMLDivElement;
 
-  function handleChange(event: CustomEvent<OreDropdownChangeDetail>): void {
-    value = element.value;
-    onChange?.(event);
+  function handleChange(event: Event): void {
+    const changeEvent = event as CustomEvent<OreDropdownChangeDetail>;
+
+    value = changeEvent.detail.value;
+    onChange?.(changeEvent);
   }
 
-  export function getElement(): OreDropdown {
+  export function getElement(): HTMLDivElement {
     return element;
   }
 </script>
 
-<ore-dropdown
+<div
   bind:this={element}
-  {value}
+  class={`ore-dropdown ${className ?? ""}`}
+  data-value={value}
+  data-variant={variant}
   onchange={handleChange}
-  onopen-change={onOpenChange}
   {...props}
 >
   {@render children?.()}
-</ore-dropdown>
+</div>

@@ -19,10 +19,10 @@
 @import "../components/radio/radio.css" layer(components);
 @import "../components/radio-group/radio-group.css" layer(components);
 @import "../components/scrollbar/scrollbar.css" layer(components);
+@import "../components/select/select.css" layer(components);
 @import "../components/slider/slider.css" layer(components);
 @import "../components/spinner/spinner.css" layer(components);
 @import "../components/switch/switch.css" layer(components);
-@import "../components/tab-bar/tab-bar.css" layer(components);
 @import "../components/tab-button/tab-button.css" layer(components);
 @import "../components/tag/tag.css" layer(components);
 @import "../components/textarea/textarea.css" layer(components);

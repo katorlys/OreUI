@@ -1,15 +1,21 @@
-import { createComponent, type EventName } from "@lit/react";
-import { OreTabButton as OreTabButtonElement } from "oreui-web/tab-button";
 import React from "react";
 
-export const TabButton = createComponent({
-  react: React,
-  tagName: "ore-tab-button",
-  elementClass: OreTabButtonElement,
-  events: {
-    onChange: "change" as EventName<Event>,
-  },
-  displayName: "TabButton",
-});
+export type TabButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  palette?: "default" | "toggle";
+  selected?: boolean;
+  variant?: string;
+};
 
-export type TabButtonProps = React.ComponentProps<typeof TabButton>;
+export const TabButton = React.forwardRef<HTMLButtonElement, TabButtonProps>(
+  function TabButton({ palette, selected, variant, className, ...props }, ref) {
+    return React.createElement("button", {
+      ...props,
+      "aria-selected": selected,
+      className: className ? `ore-tab-button ${className}` : "ore-tab-button",
+      "data-palette": palette,
+      "data-variant": variant,
+      ref,
+      role: "tab",
+    });
+  },
+);

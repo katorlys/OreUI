@@ -1,4 +1,4 @@
-:where(ore-tab-button) {
+:where(.ore-tab-button) {
   --ore-tab-off-background: var(--ore-color-neutral-background);
   --ore-tab-off-background-hover: var(--ore-color-neutral-background-hover);
   --ore-tab-off-background-pressed: var(--ore-color-neutral-background-pressed);
@@ -24,7 +24,7 @@
   align-self: flex-end;
 }
 
-:where(ore-tab-button[selected]) {
+:where(.ore-tab-button[aria-selected="true"]) {
   --ore-button-background-default: var(--ore-tab-on-background);
   --ore-button-background-hover: var(--ore-tab-on-background);
   --ore-button-background-pressed: var(--ore-tab-on-background);
@@ -54,7 +54,7 @@
       bottom / 100% calc(100% - var(--ore-button-unit) * 2) no-repeat;
 }
 
-:where(ore-tab-button[palette="toggle"]) {
+:where(.ore-tab-button[data-palette="toggle"]) {
   --ore-tab-off-background: var(--ore-color-secondary-background);
   --ore-tab-off-background-hover: var(--ore-color-secondary-background-hover);
   --ore-tab-off-background-pressed: var(--ore-color-secondary-background);
@@ -72,23 +72,23 @@
   --ore-tab-on-foreground: var(--ore-color-white);
 }
 
-:where(ore-tab-button:focus-visible) {
+:where(.ore-tab-button:focus-visible) {
   z-index: 1;
 }
 
 :where(
   [role="tablist"]:not([aria-orientation="vertical"])
-    > ore-tab-button
-    + ore-tab-button
+    > .ore-tab-button
+    + .ore-tab-button
 ) {
   margin-inline-start: calc(var(--ore-button-unit) * -1);
 }
 
-:where(ore-tab-button[selected])::before {
+:where(.ore-tab-button[aria-selected="true"])::before {
   box-shadow: none;
 }
 
-:where(ore-tab-button[selected]):focus-visible::before {
+:where(.ore-tab-button[aria-selected="true"]):focus-visible::before {
   position: absolute;
   top: calc(var(--ore-button-unit) * 2);
   right: 0;
@@ -101,7 +101,7 @@
   pointer-events: none;
 }
 
-:where(ore-tab-button[selected])::after {
+:where(.ore-tab-button[aria-selected="true"])::after {
   position: absolute;
   bottom: var(--ore-button-unit);
   left: 50%;
@@ -113,8 +113,8 @@
 }
 
 :where(
-  ore-tab-button[selected]:active:not([disabled], [form-disabled]),
-  ore-tab-button[selected][pressed]:not([disabled], [form-disabled])
+  .ore-tab-button[aria-selected="true"]:active:not([disabled]),
+  .ore-tab-button[aria-selected="true"][data-pressed]:not([disabled])
 ) {
   --ore-button-face-offset: 0px;
 
@@ -123,13 +123,13 @@
 }
 
 :where(
-  ore-tab-button:not([selected]):active:not([disabled], [form-disabled]),
-  ore-tab-button:not([selected])[pressed]:not([disabled], [form-disabled])
+  .ore-tab-button:not([aria-selected="true"]):active:not([disabled]),
+  .ore-tab-button:not([aria-selected="true"])[data-pressed]:not([disabled])
 ) {
   --ore-button-shadow: transparent;
 }
 
-:where(ore-tab-button[disabled], ore-tab-button[form-disabled]) {
+:where(.ore-tab-button[disabled]) {
   --ore-button-background: var(--ore-tab-off-background);
   --ore-button-highlight: var(--ore-tab-off-highlight);
   --ore-button-border: var(--ore-color-border);
@@ -139,8 +139,7 @@
 }
 
 :where(
-  ore-tab-button[selected][disabled],
-  ore-tab-button[selected][form-disabled]
+  .ore-tab-button[aria-selected="true"][disabled]
 ) {
   --ore-button-background: var(--ore-tab-on-background);
   --ore-button-highlight: var(--ore-tab-on-highlight);
