@@ -8,7 +8,9 @@ export type TextareaProps = Omit<
   description?: string;
   error?: string;
   label?: string;
-  onInput?: (event: InputEvent & { currentTarget: HTMLTextAreaElement }) => void;
+  onInput?: (
+    event: InputEvent & { currentTarget: HTMLTextAreaElement },
+  ) => void;
   value?: string;
   onValueChange?: (value: string) => void;
 };

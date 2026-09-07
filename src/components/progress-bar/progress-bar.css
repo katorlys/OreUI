@@ -29,7 +29,10 @@
 :where(.ore-progress-bar-label) {
   display: block;
   box-sizing: border-box;
-  width: min(100%, calc(var(--ore-progress-bar-unit, var(--ore-size-unit)) * 220));
+  width: min(
+    100%,
+    calc(var(--ore-progress-bar-unit, var(--ore-size-unit)) * 220)
+  );
   margin-block: calc(var(--ore-progress-bar-unit, var(--ore-size-unit)) * 2);
   color: var(--ore-progress-bar-label, currentColor);
   font-family: var(--ore-font-body);

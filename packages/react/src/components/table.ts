@@ -1,11 +1,11 @@
 import "oreui-web/table";
-import type {
-  OreTableSortDetail,
-  OreTableVariant,
-} from "oreui-web/table";
+import type { OreTableSortDetail, OreTableVariant } from "oreui-web/table";
 import React, { useEffect, useImperativeHandle, useRef } from "react";
 
-export type TableProps = Omit<React.HTMLAttributes<HTMLDivElement>, "onSort"> & {
+export type TableProps = Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  "onSort"
+> & {
   onSort?: (event: CustomEvent<OreTableSortDetail>) => void;
   variant?: OreTableVariant;
 };

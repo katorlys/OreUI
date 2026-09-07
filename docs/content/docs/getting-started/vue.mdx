@@ -64,22 +64,10 @@ const volume = ref(40);
   To use all the components, import `@oreui-web/vue`.
 </Callout>
 
-## Direct custom elements
+## Native HTML
 
-The Vue wrappers need no compiler configuration. When using `<ore-*>` tags
-directly, configure Vue to treat them as custom elements:
+Vue wrappers need no custom-element compiler configuration. Use native HTML directly when the shared stylesheet is imported:
 
-```ts title="vite.config.ts"
-import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-
-export default defineConfig({
-  plugins: [
-    vue({
-      template: {
-        compilerOptions: { isCustomElement: (tag) => tag.startsWith("ore-") },
-      },
-    }),
-  ],
-});
+```html
+<button type="button">Create new world</button>
 ```

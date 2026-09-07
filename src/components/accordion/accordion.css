@@ -8,12 +8,20 @@
   --ore-accordion-trigger-highlight: var(--ore-color-neutral-specular);
   --ore-accordion-trigger-shadow: var(--ore-color-neutral-bevel-shadow);
   --ore-accordion-trigger-corner: var(--ore-color-neutral-corner);
-  --ore-accordion-trigger-background-hover: var(--ore-color-neutral-background-hover);
-  --ore-accordion-trigger-highlight-hover: var(--ore-color-neutral-highlight-hover);
+  --ore-accordion-trigger-background-hover: var(
+    --ore-color-neutral-background-hover
+  );
+  --ore-accordion-trigger-highlight-hover: var(
+    --ore-color-neutral-highlight-hover
+  );
   --ore-accordion-trigger-corner-hover: var(--ore-color-neutral-highlight);
-  --ore-accordion-trigger-background-pressed: var(--ore-color-neutral-background-pressed);
+  --ore-accordion-trigger-background-pressed: var(
+    --ore-color-neutral-background-pressed
+  );
   --ore-accordion-trigger-highlight-pressed: var(--ore-color-neutral-shadow);
-  --ore-accordion-trigger-shadow-pressed: var(--ore-color-neutral-highlight-pressed);
+  --ore-accordion-trigger-shadow-pressed: var(
+    --ore-color-neutral-highlight-pressed
+  );
   --ore-accordion-trigger-corner-pressed: var(--ore-color-neutral-background);
 
   display: block;
@@ -35,18 +43,41 @@
   padding: var(--ore-accordion-unit) calc(var(--ore-accordion-unit) * 8);
   color: var(--ore-accordion-foreground);
   background:
-    linear-gradient(var(--ore-accordion-trigger-corner), var(--ore-accordion-trigger-corner))
+    linear-gradient(
+        var(--ore-accordion-trigger-corner),
+        var(--ore-accordion-trigger-corner)
+      )
       right top / var(--ore-accordion-unit) var(--ore-accordion-unit) no-repeat,
-    linear-gradient(var(--ore-accordion-trigger-corner), var(--ore-accordion-trigger-corner))
-      left bottom / var(--ore-accordion-unit) var(--ore-accordion-unit) no-repeat,
-    linear-gradient(var(--ore-accordion-trigger-highlight), var(--ore-accordion-trigger-highlight))
-      left top / calc(100% - var(--ore-accordion-unit)) var(--ore-accordion-unit) no-repeat,
-    linear-gradient(var(--ore-accordion-trigger-highlight), var(--ore-accordion-trigger-highlight))
-      left top / var(--ore-accordion-unit) calc(100% - var(--ore-accordion-unit)) no-repeat,
-    linear-gradient(var(--ore-accordion-trigger-shadow), var(--ore-accordion-trigger-shadow))
-      right bottom / calc(100% - var(--ore-accordion-unit)) var(--ore-accordion-unit) no-repeat,
-    linear-gradient(var(--ore-accordion-trigger-shadow), var(--ore-accordion-trigger-shadow))
-      right bottom / var(--ore-accordion-unit) calc(100% - var(--ore-accordion-unit)) no-repeat,
+    linear-gradient(
+        var(--ore-accordion-trigger-corner),
+        var(--ore-accordion-trigger-corner)
+      )
+      left bottom / var(--ore-accordion-unit) var(--ore-accordion-unit)
+      no-repeat,
+    linear-gradient(
+        var(--ore-accordion-trigger-highlight),
+        var(--ore-accordion-trigger-highlight)
+      )
+      left top / calc(100% - var(--ore-accordion-unit))
+      var(--ore-accordion-unit) no-repeat,
+    linear-gradient(
+        var(--ore-accordion-trigger-highlight),
+        var(--ore-accordion-trigger-highlight)
+      )
+      left top / var(--ore-accordion-unit)
+      calc(100% - var(--ore-accordion-unit)) no-repeat,
+    linear-gradient(
+        var(--ore-accordion-trigger-shadow),
+        var(--ore-accordion-trigger-shadow)
+      )
+      right bottom / calc(100% - var(--ore-accordion-unit))
+      var(--ore-accordion-unit) no-repeat,
+    linear-gradient(
+        var(--ore-accordion-trigger-shadow),
+        var(--ore-accordion-trigger-shadow)
+      )
+      right bottom / var(--ore-accordion-unit)
+      calc(100% - var(--ore-accordion-unit)) no-repeat,
     var(--ore-accordion-trigger-background);
   box-shadow: 0 0 0 var(--ore-accordion-unit) var(--ore-accordion-border);
   text-align: left;
@@ -80,16 +111,24 @@
 }
 
 :where(details.ore-accordion > summary:active) {
-  --ore-accordion-trigger-background: var(--ore-accordion-trigger-background-pressed);
-  --ore-accordion-trigger-highlight: var(--ore-accordion-trigger-highlight-pressed);
+  --ore-accordion-trigger-background: var(
+    --ore-accordion-trigger-background-pressed
+  );
+  --ore-accordion-trigger-highlight: var(
+    --ore-accordion-trigger-highlight-pressed
+  );
   --ore-accordion-trigger-shadow: var(--ore-accordion-trigger-shadow-pressed);
   --ore-accordion-trigger-corner: var(--ore-accordion-trigger-corner-pressed);
 }
 
 @media (hover: hover) and (pointer: fine) {
   :where(details.ore-accordion > summary:hover:not(:active)) {
-    --ore-accordion-trigger-background: var(--ore-accordion-trigger-background-hover);
-    --ore-accordion-trigger-highlight: var(--ore-accordion-trigger-highlight-hover);
+    --ore-accordion-trigger-background: var(
+      --ore-accordion-trigger-background-hover
+    );
+    --ore-accordion-trigger-highlight: var(
+      --ore-accordion-trigger-highlight-hover
+    );
     --ore-accordion-trigger-corner: var(--ore-accordion-trigger-corner-hover);
   }
 }

@@ -1,9 +1,6 @@
 import "oreui-web/table";
 
-import type {
-  OreTableSortDetail,
-  OreTableVariant,
-} from "oreui-web/table";
+import type { OreTableSortDetail, OreTableVariant } from "oreui-web/table";
 import { onCleanup, onMount, splitProps, type JSX } from "solid-js";
 
 export type TableProps = Omit<JSX.HTMLAttributes<HTMLDivElement>, "onSort"> & {
@@ -12,7 +9,12 @@ export type TableProps = Omit<JSX.HTMLAttributes<HTMLDivElement>, "onSort"> & {
 };
 
 export function Table(props: TableProps): JSX.Element {
-  const [local, rest] = splitProps(props, ["class", "onSort", "ref", "variant"]);
+  const [local, rest] = splitProps(props, [
+    "class",
+    "onSort",
+    "ref",
+    "variant",
+  ]);
   let element: HTMLDivElement | undefined;
 
   onMount(() => {

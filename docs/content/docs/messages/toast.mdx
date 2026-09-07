@@ -120,7 +120,13 @@ closeToast(toast);
 `data-duration` defaults to `3000` ms. Set it to `0` to keep the Toast open until `closeToast()` is called. Hovering the Toast or moving focus inside it pauses the remaining time. The default position is `bottom-center`; use `top-start`, `top-center`, `top-end`, `bottom-start`, or `bottom-end` for another viewport corner or edge.
 
 ```html
-<div class="ore-toast" data-default-open data-duration="5000" data-position="top-end" aria-label="Settings saved">
+<div
+  class="ore-toast"
+  data-default-open
+  data-duration="5000"
+  data-position="top-end"
+  aria-label="Settings saved"
+>
   Saved
 </div>
 ```
@@ -136,13 +142,13 @@ In React, use `onOpenChange`.
 
 ## API
 
-| Option        | Attribute           | Type                                                                                                      | Default           |
-| ------------- | ------------------- | --------------------------------------------------------------------------------------------------------- | ----------------- |
-| Initial open  | `data-default-open` | presence                                                                                                  | absent            |
-| Duration      | `data-duration`     | `number`                                                                                                  | `3000`            |
-| Controlled open | `data-open`       | presence                                                                                                  | absent            |
-| Position      | `data-position`     | `"top-start" \| "top-center" \| "top-end" \| "bottom-start" \| "bottom-center" \| "bottom-end"`           | `"bottom-center"` |
-| Variant       | `data-variant`      | `"neutral" \| "secondary" \| "primary" \| "informative" \| "notice" \| "warning" \| "realms-informative"` | `"neutral"`       |
+| Option          | Attribute           | Type                                                                                                      | Default           |
+| --------------- | ------------------- | --------------------------------------------------------------------------------------------------------- | ----------------- |
+| Initial open    | `data-default-open` | presence                                                                                                  | absent            |
+| Duration        | `data-duration`     | `number`                                                                                                  | `3000`            |
+| Controlled open | `data-open`         | presence                                                                                                  | absent            |
+| Position        | `data-position`     | `"top-start" \| "top-center" \| "top-end" \| "bottom-start" \| "bottom-center" \| "bottom-end"`           | `"bottom-center"` |
+| Variant         | `data-variant`      | `"neutral" \| "secondary" \| "primary" \| "informative" \| "notice" \| "warning" \| "realms-informative"` | `"neutral"`       |
 
 | Helper         | Description                                   |
 | -------------- | --------------------------------------------- |

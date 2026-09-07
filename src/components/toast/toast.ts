@@ -158,7 +158,10 @@ export function initToast(toast: OreToastElement): void {
   toast.addEventListener("focusin", handleFocusIn);
   toast.addEventListener("focusout", handleFocusOut);
 
-  if (toast.hasAttribute("data-open") || toast.hasAttribute("data-default-open")) {
+  if (
+    toast.hasAttribute("data-open") ||
+    toast.hasAttribute("data-default-open")
+  ) {
     showToast(toast);
   }
 }
@@ -181,7 +184,9 @@ if (typeof document !== "undefined") {
           if (node.matches(selector)) {
             destroyToast(node);
           }
-          for (const toast of node.querySelectorAll<OreToastElement>(selector)) {
+          for (const toast of node.querySelectorAll<OreToastElement>(
+            selector,
+          )) {
             destroyToast(toast);
           }
         }

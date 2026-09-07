@@ -27,15 +27,28 @@ import "oreui-web/modal";
 >
   <form class="ore-modal-content" method="dialog">
     <header class="ore-modal-header">
-      <button class="ore-modal-header-button" type="submit" value="back" aria-label="Back">
+      <button
+        class="ore-modal-header-button"
+        type="submit"
+        value="back"
+        aria-label="Back"
+      >
         <svg aria-hidden="true" viewBox="0 0 8 8">...</svg>
       </button>
       <h2 class="ore-modal-title" id="form-modal-title">Header</h2>
-      <button class="ore-modal-header-button" type="submit" value="close" aria-label="Close">
+      <button
+        class="ore-modal-header-button"
+        type="submit"
+        value="close"
+        aria-label="Close"
+      >
         <svg aria-hidden="true" viewBox="0 0 8 8">...</svg>
       </button>
     </header>
-    <div class="ore-container modal-form-body ore-scrollbar" data-variant="dark">
+    <div
+      class="ore-container modal-form-body ore-scrollbar"
+      data-variant="dark"
+    >
       <p class="ore-modal-description" id="form-modal-description">
         Add the information for this form.
       </p>
@@ -52,14 +65,16 @@ import "oreui-web/modal";
     </div>
     <div class="ore-container modal-actions" data-variant="light">
       <button type="submit" value="confirm">Confirm</button>
-      <button type="submit" value="cancel" data-color="secondary">Cancel</button>
+      <button type="submit" value="cancel" data-color="secondary">
+        Cancel
+      </button>
     </div>
   </form>
 </dialog>
 ```
 
-	</Tab>
-	<Tab value="React">
+    </Tab>
+    <Tab value="React">
 
 ```tsx
 import { Modal } from "@oreui-web/react/modal";
@@ -68,17 +83,23 @@ import { useRef } from "react";
 export function FormModal() {
   const modal = useRef<HTMLDialogElement>(null);
 
-  return <>
-    <button type="button" onClick={() => modal.current?.showModal()}>Open modal</button>
-    <Modal ref={modal} aria-labelledby="form-modal-title">
-      <form className="ore-modal-content" method="dialog">...</form>
-    </Modal>
-  </>;
+  return (
+    <>
+      <button type="button" onClick={() => modal.current?.showModal()}>
+        Open modal
+      </button>
+      <Modal ref={modal} aria-labelledby="form-modal-title">
+        <form className="ore-modal-content" method="dialog">
+          ...
+        </form>
+      </Modal>
+    </>
+  );
 }
 ```
 
-	</Tab>
-	<Tab value="Vue">
+    </Tab>
+    <Tab value="Vue">
 
 ```vue
 <script setup lang="ts">
@@ -95,8 +116,8 @@ const modal = ref<HTMLDialogElement>();
 </template>
 ```
 
-	</Tab>
-	<Tab value="Svelte">
+    </Tab>
+    <Tab value="Svelte">
 
 ```svelte
 <script lang="ts">
@@ -110,25 +131,31 @@ const modal = ref<HTMLDialogElement>();
 </Modal>
 ```
 
-	</Tab>
-	<Tab value="Solid">
+    </Tab>
+    <Tab value="Solid">
 
 ```tsx
 import { Modal } from "@oreui-web/solid/modal";
 
 export function FormModal() {
   let modal: HTMLDialogElement | undefined;
-  return <>
-    <button type="button" onClick={() => modal?.showModal()}>Open modal</button>
-    <Modal ref={modal} aria-labelledby="form-modal-title">
-      <form class="ore-modal-content" method="dialog">...</form>
-    </Modal>
-  </>;
+  return (
+    <>
+      <button type="button" onClick={() => modal?.showModal()}>
+        Open modal
+      </button>
+      <Modal ref={modal} aria-labelledby="form-modal-title">
+        <form class="ore-modal-content" method="dialog">
+          ...
+        </form>
+      </Modal>
+    </>
+  );
 }
 ```
 
-	</Tab>
-	<Tab value="Astro">
+    </Tab>
+    <Tab value="Astro">
 
 ```astro
 <button type="button" data-modal-target="form-modal">Open modal</button>
@@ -141,7 +168,8 @@ export function FormModal() {
 </script>
 ```
 
-	</Tab>
+    </Tab>
+
 </Tabs>
 
 ## Open and close
@@ -168,26 +196,26 @@ modal.addEventListener("close", () => {
 
 ## Native API
 
-| Member | Purpose |
-| --- | --- |
-| `open` | Reflects whether the dialog is open |
-| `returnValue` | Value supplied by `close()` or the dialog form |
-| `showModal()` | Opens in the top layer as a modal |
-| `close(value?)` | Closes with an optional return value |
+| Member          | Purpose                                        |
+| --------------- | ---------------------------------------------- |
+| `open`          | Reflects whether the dialog is open            |
+| `returnValue`   | Value supplied by `close()` or the dialog form |
+| `showModal()`   | Opens in the top layer as a modal              |
+| `close(value?)` | Closes with an optional return value           |
 
 ## Public classes
 
-| Class | Purpose |
-| --- | --- |
-| `.ore-modal` | Native dialog root |
-| `.ore-modal-content` | Dialog frame |
-| `.ore-modal-header` | Title bar |
-| `.ore-modal-title` | Accessible dialog title |
-| `.ore-modal-description` | Accessible supporting text |
-| `.ore-modal-header-button` | Header action |
-| `.modal-form-body` | Scrollable dark form section |
-| `.modal-confirmation` | Confirmation section |
-| `.modal-actions` | Dialog action section |
+| Class                      | Purpose                      |
+| -------------------------- | ---------------------------- |
+| `.ore-modal`               | Native dialog root           |
+| `.ore-modal-content`       | Dialog frame                 |
+| `.ore-modal-header`        | Title bar                    |
+| `.ore-modal-title`         | Accessible dialog title      |
+| `.ore-modal-description`   | Accessible supporting text   |
+| `.ore-modal-header-button` | Header action                |
+| `.modal-form-body`         | Scrollable dark form section |
+| `.modal-confirmation`      | Confirmation section         |
+| `.modal-actions`           | Dialog action section        |
 
 ## Accessibility
 

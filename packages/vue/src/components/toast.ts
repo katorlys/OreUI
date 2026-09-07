@@ -34,7 +34,11 @@ export const Toast = defineComponent({
       element?.addEventListener("oreui:openchange", handleOpenChange);
     };
 
-    expose({ get element() { return element; } });
+    expose({
+      get element() {
+        return element;
+      },
+    });
     onBeforeUnmount(() => {
       element?.removeEventListener("oreui:openchange", handleOpenChange);
     });

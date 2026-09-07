@@ -64,7 +64,7 @@
   },
   "devDependencies": {
     "typescript": "^7.0.2",
-    "vue": "^3.5.41"
+    "vue": "^3.5.42"
   },
   "engines": {
     "node": ">=20.19.0"

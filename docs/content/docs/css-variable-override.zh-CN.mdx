@@ -26,7 +26,7 @@ OreUI 提供全局设计变量和组件级变量。导入默认样式表后，�
 
 ```html
 <section class="realms-theme">
-  <ore-button>Create Realm</ore-button>
+  <button>Create Realm</button>
   <progress class="ore-progress-bar" value="65" max="100"></progress>
 </section>
 ```
@@ -50,7 +50,7 @@ OreUI 提供全局设计变量和组件级变量。导入默认样式表后，�
 使用组件级变量更改特定组件的变量，而不影响全局主题。
 
 ```html
-<ore-button class="realms-action">Create Realm</ore-button>
+<button class="realms-action">Create Realm</button>
 ```
 
 ```css
@@ -80,8 +80,9 @@ OreUI 提供全局设计变量和组件级变量。导入默认样式表后，�
 OreUI 组件选择器位于最底层，class 和工具 class 也能覆盖常规 CSS 属性，无需使用 `!important`。Button 的颜色由组件变量绘制，因此需要使用任意属性工具覆盖这些变量：
 
 ```html
-<ore-button
+<button
   class="[--ore-button-background-default:#2563eb] [--ore-button-background-hover:#3b82f6] active:[--ore-button-background:#1d4ed8]"
-  >Create a server</ore-button
 >
+  Create a server
+</button>
 ```

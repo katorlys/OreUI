@@ -8,10 +8,9 @@ export const Accordion = React.forwardRef<HTMLDetailsElement, AccordionProps>(
       "details",
       {
         ...props,
-        className:
-          props.className
-            ? `ore-accordion ${props.className}`
-            : "ore-accordion",
+        className: props.className
+          ? `ore-accordion ${props.className}`
+          : "ore-accordion",
         ref,
       },
       children,

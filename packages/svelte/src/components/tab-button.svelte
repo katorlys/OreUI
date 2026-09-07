@@ -7,20 +7,29 @@
     OreButtonType,
     OreButtonVariant,
   } from "oreui-web/button";
-  import type { OreComponentProps } from "../types.js";
+  import type { Snippet } from "svelte";
+  import type { HTMLButtonAttributes } from "svelte/elements";
 
-  export type TabButtonProps = OreComponentProps<
-    HTMLButtonElement,
-    "color" | "disabled" | "palette" | "selected" | "type" | "variant"
-  > & {
+  export type TabButtonProps = Omit<HTMLButtonAttributes, "children" | "color"> & {
     color?: OreButtonColor;
+    children?: Snippet;
     palette?: OreTabButtonPalette;
+    selected?: boolean;
     type?: OreButtonType;
     variant?: OreButtonVariant;
     onChange?: (event: Event) => void;
   };
 
-  let { children, onChange, ...props }: TabButtonProps = $props();
+  let {
+    children,
+    color,
+    onChange,
+    palette,
+    selected = false,
+    type = "button",
+    variant,
+    ...props
+  }: TabButtonProps = $props();
   let element: HTMLButtonElement;
 
   export function getElement(): HTMLButtonElement {
@@ -28,6 +37,6 @@
   }
 </script>
 
-<button class="ore-tab-button" bind:this={element} onchange={onChange} aria-selected={props.selected} data-palette={props.palette} data-variant={props.variant} role="tab" {...props}>
+<button class="ore-tab-button" bind:this={element} aria-selected={selected} data-color={color} data-palette={palette} data-variant={variant} role="tab" type={type} {...props}>
   {@render children?.()}
 </button>

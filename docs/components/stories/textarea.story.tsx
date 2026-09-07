@@ -2,12 +2,7 @@
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
 import { Textarea } from "@oreui-web/react/textarea";
-import {
-  type CSSProperties,
-  type FormEvent,
-  useEffect,
-  useState,
-} from "react";
+import { type CSSProperties, type FormEvent, useEffect, useState } from "react";
 
 interface TextareaPreviewProps {
   description: string;

@@ -18,7 +18,10 @@
   font-family: var(--ore-font-body);
 }
 
-:where(.ore-container:not([data-variant]), .ore-container[data-variant="dark"]) {
+:where(
+  .ore-container:not([data-variant]),
+  .ore-container[data-variant="dark"]
+) {
   border-bottom: var(--ore-container-unit) solid var(--ore-container-divider);
   background: var(--ore-container-dark-background);
 }

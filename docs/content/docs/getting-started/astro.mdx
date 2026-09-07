@@ -33,14 +33,10 @@ import "oreui-web/styles.css";
 <slot />
 ```
 
-Register components in client script:
+Use native HTML after importing the shared stylesheet:
 
 ```astro title="src/pages/index.astro"
-<ore-button type="button">Create new world</ore-button>
-
-<script>
-  import "oreui-web/button";
-</script>
+<button type="button">Create new world</button>
 ```
 
 <Callout type="info">To use all the components, import `oreui-web`.</Callout>
@@ -52,13 +48,10 @@ Forms and events:
 ```astro title="src/pages/account.astro"
 <form id="account">
   <label><input type="checkbox" name="terms" required />Accept terms</label>
-  <ore-button type="submit">Continue</ore-button>
+  <button type="submit">Continue</button>
 </form>
 
 <script>
-  import "oreui-web/button";
-  import "oreui-web/checkbox";
-
   const form = document.querySelector<HTMLFormElement>("#account");
 
   form?.addEventListener("submit", (event) => {

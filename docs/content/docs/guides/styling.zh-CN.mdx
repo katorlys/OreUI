@@ -14,7 +14,7 @@ description: 使用 CSS 变量、TailwindCSS、PandaCSS 等自定义 OreUI
 在组件上使用 class 即可覆盖默认样式。
 
 ```html
-<ore-button class="danger-action" type="button">Delete</ore-button>
+<button class="danger-action" type="button">Delete</button>
 ```
 
 ```css
@@ -34,7 +34,7 @@ description: 使用 CSS 变量、TailwindCSS、PandaCSS 等自定义 OreUI
 在 CSS 中修改变量以更改默认样式。
 
 ```html
-<ore-switch class="large-thumb">Music</ore-switch>
+<label class="large-thumb"><input type="checkbox" role="switch" />Music</label>
 ```
 
 ```css
@@ -48,12 +48,12 @@ description: 使用 CSS 变量、TailwindCSS、PandaCSS 等自定义 OreUI
 尺寸、间距等属性可以直接使用现成 utility。若要保留组件的状态样式，可使用任意属性 utility 覆盖组件公开的 `--ore-*` 变量。
 
 ```html
-<ore-button
+<button
   class="min-h-12 [--ore-button-background-default:#dc2626] [--ore-button-background-hover:#ef4444] [--ore-button-background-pressed:#b91c1c] [--ore-button-foreground:white]"
   type="button"
 >
   Delete
-</ore-button>
+</button>
 ```
 
 Button 的背景会同时绘制表面、高光、边框和阴影，因此单纯地 `bg-*` utility 会导致整套绘制被替换，而不仅仅是改变颜色。
@@ -73,7 +73,7 @@ const dangerAction = css({
   "--ore-button-foreground": "white",
 });
 
-<ore-button className={dangerAction} type="button">
+<button className={dangerAction} type="button">
   Delete
-</ore-button>;
+</button>;
 ```

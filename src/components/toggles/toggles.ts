@@ -2,7 +2,10 @@ export type OreToggles = HTMLDivElement;
 
 const states = new Set<OreToggles>();
 const previousRoles = new WeakMap<OreToggles, string | null>();
-const previousPalettes = new WeakMap<OreToggles, Map<HTMLButtonElement, string | null>>();
+const previousPalettes = new WeakMap<
+  OreToggles,
+  Map<HTMLButtonElement, string | null>
+>();
 let observer: MutationObserver | undefined;
 
 function syncTabs(toggles: OreToggles): void {
@@ -28,9 +31,11 @@ export function initToggles(toggles: OreToggles): void {
   previousPalettes.set(
     toggles,
     new Map(
-      [...toggles.querySelectorAll<HTMLButtonElement>(":scope > .ore-tab-button")].map(
-        (tab) => [tab, tab.getAttribute("data-palette")],
-      ),
+      [
+        ...toggles.querySelectorAll<HTMLButtonElement>(
+          ":scope > .ore-tab-button",
+        ),
+      ].map((tab) => [tab, tab.getAttribute("data-palette")]),
     ),
   );
   toggles.dataset.oreInitialized = "toggles";
@@ -97,7 +102,8 @@ function startObserver(): void {
       for (const node of record.addedNodes) {
         if (node instanceof HTMLElement) {
           initTogglesList(node);
-          const toggles = node.parentElement?.closest<OreToggles>(".ore-toggles");
+          const toggles =
+            node.parentElement?.closest<OreToggles>(".ore-toggles");
           if (toggles && states.has(toggles)) {
             syncTabs(toggles);
           }
@@ -105,7 +111,10 @@ function startObserver(): void {
       }
     }
   });
-  observer.observe(document.documentElement, { childList: true, subtree: true });
+  observer.observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+  });
 }
 
 if (typeof document !== "undefined") {

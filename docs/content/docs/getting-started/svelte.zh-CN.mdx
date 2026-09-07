@@ -60,7 +60,7 @@ Checkbox 和 Switch 支持 `bind:checked`，Slider、Textfield 和 Dropdown 支�
 
 ## 事件与底层元素访问
 
-原生 wrapper 通过 `bind:this` 暴露真实 DOM 元素，因此可以直接调用平台方法。
+原生 wrapper 通过 `bind:this` 暴露真实 DOM 元素，可以直接调用平台方法。
 
 ```svelte
 <script lang="ts">
@@ -80,14 +80,14 @@ Checkbox 和 Switch 支持 `bind:checked`，Slider、Textfield 和 Dropdown 支�
 </button>
 ```
 
-## 直接使用自定义元素
+## 原生 HTML
 
-Svelte 也可以直接渲染 `<ore-*>` 元素。导入对应的核心入口以注册元素：
+导入共享样式后，Svelte 组件也可以直接使用原生 HTML：
 
 ```svelte
 <script lang="ts">
-  import "oreui-web/button";
+  import "oreui-web/styles.css";
 </script>
 
-<ore-button type="button">Create new world</ore-button>
+<button type="button">Create new world</button>
 ```

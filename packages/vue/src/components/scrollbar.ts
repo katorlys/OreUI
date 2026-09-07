@@ -1,9 +1,5 @@
 import "oreui-web/scrollbar";
-import {
-  defineComponent,
-  h,
-  type ComponentPublicInstance,
-} from "vue";
+import { defineComponent, h, type ComponentPublicInstance } from "vue";
 
 export const Scrollbar = defineComponent({
   name: "Scrollbar",

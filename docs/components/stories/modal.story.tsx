@@ -77,10 +77,7 @@ function ModalPreview({ description, title, triggerLabel }: ModalPreviewProps) {
               {createElement("ore-icon", { "aria-hidden": "true" }, closeIcon)}
             </button>
           </header>
-          <Container
-            className="modal-form-body ore-scrollbar"
-            variant="dark"
-          >
+          <Container className="modal-form-body ore-scrollbar" variant="dark">
             <p className="ore-modal-description" id={descriptionId}>
               {description}
             </p>
@@ -91,18 +88,10 @@ function ModalPreview({ description, title, triggerLabel }: ModalPreviewProps) {
               style={{ width: "min(100%, 15.25rem)" }}
             />
           </Container>
-          <Container
-            className="modal-confirmation"
-            variant="light"
-          >
-            <Checkbox>
-              Checkbox example for confirmation
-            </Checkbox>
+          <Container className="modal-confirmation" variant="light">
+            <Checkbox>Checkbox example for confirmation</Checkbox>
           </Container>
-          <Container
-            className="modal-actions"
-            variant="light"
-          >
+          <Container className="modal-actions" variant="light">
             <Button type="submit" value="confirm">
               Confirm
             </Button>

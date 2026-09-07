@@ -1,5 +1,8 @@
 import "oreui-web/dropdown";
-import type { OreDropdownChangeDetail, OreDropdownVariant } from "oreui-web/dropdown";
+import type {
+  OreDropdownChangeDetail,
+  OreDropdownVariant,
+} from "oreui-web/dropdown";
 import { defineComponent, h, type PropType } from "vue";
 
 export const Dropdown = defineComponent({

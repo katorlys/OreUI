@@ -82,14 +82,14 @@ Native wrappers expose the real DOM element through `bind:this`, so platform met
 </button>
 ```
 
-## Direct custom elements
+## Native HTML
 
-Svelte can also render `<ore-*>` elements directly. Import the corresponding core entry to register the element:
+Svelte components can also use native HTML directly when the shared stylesheet is imported:
 
 ```svelte
 <script lang="ts">
-  import "oreui-web/button";
+  import "oreui-web/styles.css";
 </script>
 
-<ore-button type="button">Create new world</ore-button>
+<button type="button">Create new world</button>
 ```

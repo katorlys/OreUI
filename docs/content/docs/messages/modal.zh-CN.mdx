@@ -27,15 +27,28 @@ import "oreui-web/modal";
 >
   <form class="ore-modal-content" method="dialog">
     <header class="ore-modal-header">
-      <button class="ore-modal-header-button" type="submit" value="back" aria-label="Back">
+      <button
+        class="ore-modal-header-button"
+        type="submit"
+        value="back"
+        aria-label="Back"
+      >
         <svg aria-hidden="true" viewBox="0 0 8 8">...</svg>
       </button>
       <h2 class="ore-modal-title" id="form-modal-title">Header</h2>
-      <button class="ore-modal-header-button" type="submit" value="close" aria-label="Close">
+      <button
+        class="ore-modal-header-button"
+        type="submit"
+        value="close"
+        aria-label="Close"
+      >
         <svg aria-hidden="true" viewBox="0 0 8 8">...</svg>
       </button>
     </header>
-    <div class="ore-container modal-form-body ore-scrollbar" data-variant="dark">
+    <div
+      class="ore-container modal-form-body ore-scrollbar"
+      data-variant="dark"
+    >
       <p class="ore-modal-description" id="form-modal-description">
         Add the information for this form.
       </p>
@@ -52,14 +65,16 @@ import "oreui-web/modal";
     </div>
     <div class="ore-container modal-actions" data-variant="light">
       <button type="submit" value="confirm">Confirm</button>
-      <button type="submit" value="cancel" data-color="secondary">Cancel</button>
+      <button type="submit" value="cancel" data-color="secondary">
+        Cancel
+      </button>
     </div>
   </form>
 </dialog>
 ```
 
-	</Tab>
-	<Tab value="React">
+    </Tab>
+    <Tab value="React">
 
 ```tsx
 import { Modal } from "@oreui-web/react/modal";
@@ -67,17 +82,23 @@ import { useRef } from "react";
 
 export function FormModal() {
   const modal = useRef<HTMLDialogElement>(null);
-  return <>
-    <button type="button" onClick={() => modal.current?.showModal()}>Open modal</button>
-    <Modal ref={modal} aria-labelledby="form-modal-title">
-      <form className="ore-modal-content" method="dialog">...</form>
-    </Modal>
-  </>;
+  return (
+    <>
+      <button type="button" onClick={() => modal.current?.showModal()}>
+        Open modal
+      </button>
+      <Modal ref={modal} aria-labelledby="form-modal-title">
+        <form className="ore-modal-content" method="dialog">
+          ...
+        </form>
+      </Modal>
+    </>
+  );
 }
 ```
 
-	</Tab>
-	<Tab value="Vue">
+    </Tab>
+    <Tab value="Vue">
 
 ```vue
 <script setup lang="ts">
@@ -87,12 +108,14 @@ const modal = ref<HTMLDialogElement>();
 </script>
 <template>
   <button type="button" @click="modal?.showModal()">Open modal</button>
-  <Modal ref="modal"><form class="ore-modal-content" method="dialog">...</form></Modal>
+  <Modal ref="modal"
+    ><form class="ore-modal-content" method="dialog">...</form></Modal
+  >
 </template>
 ```
 
-	</Tab>
-	<Tab value="Svelte">
+    </Tab>
+    <Tab value="Svelte">
 
 ```svelte
 <script lang="ts">
@@ -103,23 +126,31 @@ const modal = ref<HTMLDialogElement>();
 <Modal bind:this={modal}><form class="ore-modal-content" method="dialog">...</form></Modal>
 ```
 
-	</Tab>
-	<Tab value="Solid">
+    </Tab>
+    <Tab value="Solid">
 
 ```tsx
 import { Modal } from "@oreui-web/solid/modal";
 
 export function FormModal() {
   let modal: HTMLDialogElement | undefined;
-  return <>
-    <button type="button" onClick={() => modal?.showModal()}>Open modal</button>
-    <Modal ref={modal}><form class="ore-modal-content" method="dialog">...</form></Modal>
-  </>;
+  return (
+    <>
+      <button type="button" onClick={() => modal?.showModal()}>
+        Open modal
+      </button>
+      <Modal ref={modal}>
+        <form class="ore-modal-content" method="dialog">
+          ...
+        </form>
+      </Modal>
+    </>
+  );
 }
 ```
 
-	</Tab>
-	<Tab value="Astro">
+    </Tab>
+    <Tab value="Astro">
 
 ```astro
 <button type="button" data-modal-target="form-modal">Open modal</button>
@@ -129,7 +160,8 @@ export function FormModal() {
 <script>import "oreui-web/modal";</script>
 ```
 
-	</Tab>
+    </Tab>
+
 </Tabs>
 
 ## 打开和关闭
@@ -156,26 +188,26 @@ modal.addEventListener("close", () => {
 
 ## 原生 API
 
-| 成员 | 用途 |
-| --- | --- |
-| `open` | 反映对话框是否打开 |
-| `returnValue` | `close()` 或 dialog form 提供的值 |
-| `showModal()` | 在 top layer 中以模态方式打开 |
-| `close(value?)` | 关闭并可选设置返回值 |
+| 成员            | 用途                              |
+| --------------- | --------------------------------- |
+| `open`          | 反映对话框是否打开                |
+| `returnValue`   | `close()` 或 dialog form 提供的值 |
+| `showModal()`   | 在 top layer 中以模态方式打开     |
+| `close(value?)` | 关闭并可选设置返回值              |
 
 ## 公开类
 
-| 类 | 用途 |
-| --- | --- |
-| `.ore-modal` | 原生 dialog 根 |
-| `.ore-modal-content` | 对话框框架 |
-| `.ore-modal-header` | 标题栏 |
-| `.ore-modal-title` | 可访问的对话框标题 |
-| `.ore-modal-description` | 可访问的辅助文本 |
-| `.ore-modal-header-button` | 标题栏操作 |
-| `.modal-form-body` | 可滚动深色表单区 |
-| `.modal-confirmation` | 确认选项区 |
-| `.modal-actions` | 对话框操作区 |
+| 类                         | 用途               |
+| -------------------------- | ------------------ |
+| `.ore-modal`               | 原生 dialog 根     |
+| `.ore-modal-content`       | 对话框框架         |
+| `.ore-modal-header`        | 标题栏             |
+| `.ore-modal-title`         | 可访问的对话框标题 |
+| `.ore-modal-description`   | 可访问的辅助文本   |
+| `.ore-modal-header-button` | 标题栏操作         |
+| `.modal-form-body`         | 可滚动深色表单区   |
+| `.modal-confirmation`      | 确认选项区         |
+| `.modal-actions`           | 对话框操作区       |
 
 ## 无障碍
 

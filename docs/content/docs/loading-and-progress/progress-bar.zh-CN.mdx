@@ -16,7 +16,12 @@ import "oreui-web/progress-bar";
 ```
 
 ```html
-<progress class="ore-progress-bar" value="65" max="100" aria-label="Download progress"></progress>
+<progress
+  class="ore-progress-bar"
+  value="65"
+  max="100"
+  aria-label="Download progress"
+></progress>
 ```
 
     </Tab>
@@ -37,7 +42,9 @@ export function DownloadProgress() {
 <script setup lang="ts">
 import { ProgressBar } from "@oreui-web/vue/progress-bar";
 </script>
-<template><ProgressBar :value="65" :max="100" aria-label="Download progress" /></template>
+<template>
+  <ProgressBar :value="65" :max="100" aria-label="Download progress" />
+</template>
 ```
 
     </Tab>
@@ -82,11 +89,23 @@ export function LoadingProgress() {
 需要可见标签时，使用相邻的 `output`。将它放在进度条之前或之后即可选择标签位置。
 
 ```html
-<progress class="ore-progress-bar" value="65" max="100" aria-labelledby="download-label"></progress>
+<progress
+  class="ore-progress-bar"
+  value="65"
+  max="100"
+  aria-labelledby="download-label"
+></progress>
 <output class="ore-progress-bar-label" id="download-label">65%</output>
 
-<output class="ore-progress-bar-label" data-align="start" id="chunks-label">65 of 100 chunks</output>
-<progress class="ore-progress-bar" value="65" max="100" aria-labelledby="chunks-label"></progress>
+<output class="ore-progress-bar-label" data-align="start" id="chunks-label"
+  >65 of 100 chunks</output
+>
+<progress
+  class="ore-progress-bar"
+  value="65"
+  max="100"
+  aria-labelledby="chunks-label"
+></progress>
 ```
 
 ## API
@@ -95,19 +114,19 @@ Progress Bar 接受 HTML `progress` 元素的标准属性，包括 `value` 和 `
 
 ## 公开类
 
-| 类                        | 用途               |
-| ------------------------- | ------------------ |
-| `.ore-progress-bar`       | 原生进度条元素     |
-| `.ore-progress-bar-label` | 可选的可见标签     |
+| 类                        | 用途           |
+| ------------------------- | -------------- |
+| `.ore-progress-bar`       | 原生进度条元素 |
+| `.ore-progress-bar-label` | 可选的可见标签 |
 
 ## CSS 变量
 
-| 变量                           | 用途               |
-| ------------------------------ | ------------------ |
-| `--ore-progress-bar-unit`      | 基础尺寸单位       |
-| `--ore-progress-bar-frame`     | 边框和空轨道颜色   |
-| `--ore-progress-bar-fill`      | 已填充轨道颜色     |
-| `--ore-progress-bar-label`     | 标签文本颜色       |
+| 变量                       | 用途             |
+| -------------------------- | ---------------- |
+| `--ore-progress-bar-unit`  | 基础尺寸单位     |
+| `--ore-progress-bar-frame` | 边框和空轨道颜色 |
+| `--ore-progress-bar-fill`  | 已填充轨道颜色   |
+| `--ore-progress-bar-label` | 标签文本颜色     |
 
 ## 无障碍
 

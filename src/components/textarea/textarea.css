@@ -83,7 +83,12 @@
   line-height: calc(var(--ore-textarea-unit) * 7);
 }
 
-:where(.ore-textarea:has(> .ore-textarea-control > .ore-textarea-input[aria-invalid="true"]) > .ore-textarea-control) {
+:where(
+  .ore-textarea:has(
+      > .ore-textarea-control > .ore-textarea-input[aria-invalid="true"]
+    )
+    > .ore-textarea-control
+) {
   --ore-textarea-border: var(--ore-color-destructive-highlight);
   --ore-textarea-shadow: var(--ore-color-destructive-shadow);
 }
@@ -92,7 +97,9 @@
   --ore-textarea-focus-ring: var(--ore-color-focus-ring);
 }
 
-:where(.ore-textarea:has(> .ore-textarea-control > .ore-textarea-input:disabled)) {
+:where(
+  .ore-textarea:has(> .ore-textarea-control > .ore-textarea-input:disabled)
+) {
   --ore-textarea-background: var(--ore-color-disabled);
   --ore-textarea-shadow: var(--ore-color-disabled-shadow);
   --ore-textarea-border: var(--ore-color-disabled-border);
@@ -100,7 +107,9 @@
   --ore-textarea-input-foreground: var(--ore-color-disabled);
 }
 
-:where(.ore-textarea:has(> .ore-textarea-control > .ore-textarea-input:disabled))
+:where(
+    .ore-textarea:has(> .ore-textarea-control > .ore-textarea-input:disabled)
+  )
   > .ore-textarea-label {
   cursor: not-allowed;
 }

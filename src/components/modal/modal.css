@@ -63,7 +63,9 @@
   width: 100%;
 }
 
-:where(dialog.ore-modal > .ore-modal-content > .ore-container[data-variant="dark"]) {
+:where(
+  dialog.ore-modal > .ore-modal-content > .ore-container[data-variant="dark"]
+) {
   flex: 1 1 auto;
   min-height: 0;
   overflow: auto;

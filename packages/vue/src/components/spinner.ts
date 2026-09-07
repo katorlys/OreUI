@@ -1,8 +1,4 @@
-import {
-  defineComponent,
-  h,
-  type ComponentPublicInstance,
-} from "vue";
+import { defineComponent, h, type ComponentPublicInstance } from "vue";
 
 export const Spinner = defineComponent({
   name: "Spinner",

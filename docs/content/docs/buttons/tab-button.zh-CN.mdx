@@ -12,11 +12,21 @@ Tab Button 只能用于 Tab Bar 组件中，由 Tab Bar 统一处理选中状态
 ## 颜色
 
 ```html
-<button class="ore-tab-button" data-palette="default" role="tab" aria-selected="true">
-	Worlds
+<button
+  class="ore-tab-button"
+  data-palette="default"
+  role="tab"
+  aria-selected="true"
+>
+  Worlds
 </button>
-<button class="ore-tab-button" data-palette="toggle" role="tab" aria-selected="true">
-	Enabled
+<button
+  class="ore-tab-button"
+  data-palette="toggle"
+  role="tab"
+  aria-selected="true"
+>
+  Enabled
 </button>
 ```
 
@@ -26,17 +36,19 @@ Tab Button 在变为选中状态后触发 `change` 事件。
 
 ```js
 const tab = document.querySelector(".ore-tab-button");
-tab?.addEventListener("change", () => console.log(tab.getAttribute("aria-selected")));
+tab?.addEventListener("change", () =>
+  console.log(tab.getAttribute("aria-selected")),
+);
 ```
 
 ## API
 
-| Prop       | 属性       | 类型                            | 默认值      |
-| ---------- | ---------- | ------------------------------- | ----------- |
-| `disabled` | `disabled` | `boolean`                       | `false`     |
-| `palette`  | `data-palette` | `"default" \|"toggle"`       | `"default"` |
-| `selected` | `aria-selected` | `"true" \|"false"`          | `"false"`   |
-| `type`     | `type`     | `"button" \|"reset" \|"submit"` | `"button"`  |
+| Prop       | 属性            | 类型                            | 默认值      |
+| ---------- | --------------- | ------------------------------- | ----------- |
+| `disabled` | `disabled`      | `boolean`                       | `false`     |
+| `palette`  | `data-palette`  | `"default" \|"toggle"`          | `"default"` |
+| `selected` | `aria-selected` | `"true" \|"false"`              | `"false"`   |
+| `type`     | `type`          | `"button" \|"reset" \|"submit"` | `"button"`  |
 
 | 事件     | 详情 |
 | -------- | ---- |

@@ -120,7 +120,13 @@ closeToast(toast);
 `data-duration` 默认为 `3000` 毫秒。设置为 `0` 时，Toast 会保持打开状态，直到调用 `closeToast()`。鼠标悬停 Toast 或将焦点移入其中会暂停计时。默认位置为 `bottom-center`，可使用其它位置：`top-start`、`top-center`、`top-end`、`bottom-start` 和 `bottom-end`。
 
 ```html
-<div class="ore-toast" data-default-open data-duration="5000" data-position="top-end" aria-label="Settings saved">
+<div
+  class="ore-toast"
+  data-default-open
+  data-duration="5000"
+  data-position="top-end"
+  aria-label="Settings saved"
+>
   Saved
 </div>
 ```
@@ -136,13 +142,13 @@ Toast 使用与 Tag 相同的背景变体：`neutral`、`secondary`、`primary`�
 
 ## API
 
-| 配置          | 属性                | 类型                                                                                                      | 默认值            |
-| ------------- | ------------------- | --------------------------------------------------------------------------------------------------------- | ----------------- |
-| 初始打开      | `data-default-open` | 存在性                                                                                                    | 不存在            |
-| 持续时间      | `data-duration`     | `number`                                                                                                  | `3000`            |
-| 受控打开      | `data-open`         | 存在性                                                                                                    | 不存在            |
-| 位置          | `data-position`     | `"top-start" \| "top-center" \| "top-end" \| "bottom-start" \| "bottom-center" \| "bottom-end"`           | `"bottom-center"` |
-| 变体          | `data-variant`      | `"neutral" \| "secondary" \| "primary" \| "informative" \| "notice" \| "warning" \| "realms-informative"` | `"neutral"`       |
+| 配置     | 属性                | 类型                                                                                                      | 默认值            |
+| -------- | ------------------- | --------------------------------------------------------------------------------------------------------- | ----------------- |
+| 初始打开 | `data-default-open` | 存在性                                                                                                    | 不存在            |
+| 持续时间 | `data-duration`     | `number`                                                                                                  | `3000`            |
+| 受控打开 | `data-open`         | 存在性                                                                                                    | 不存在            |
+| 位置     | `data-position`     | `"top-start" \| "top-center" \| "top-end" \| "bottom-start" \| "bottom-center" \| "bottom-end"`           | `"bottom-center"` |
+| 变体     | `data-variant`      | `"neutral" \| "secondary" \| "primary" \| "informative" \| "notice" \| "warning" \| "realms-informative"` | `"neutral"`       |
 
 | Helper         | 描述                           |
 | -------------- | ------------------------------ |

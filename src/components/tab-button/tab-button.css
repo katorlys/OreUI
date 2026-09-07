@@ -138,9 +138,7 @@
   color: var(--ore-tab-off-foreground);
 }
 
-:where(
-  .ore-tab-button[aria-selected="true"][disabled]
-) {
+:where(.ore-tab-button[aria-selected="true"][disabled]) {
   --ore-button-background: var(--ore-tab-on-background);
   --ore-button-highlight: var(--ore-tab-on-highlight);
   --ore-button-border: var(--ore-color-border);

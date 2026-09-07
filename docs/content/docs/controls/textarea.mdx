@@ -17,11 +17,21 @@ import "oreui-web/styles.css";
 
 ```html
 <div class="ore-textarea">
-  <label class="ore-textarea-label" for="world-description">World description</label>
+  <label class="ore-textarea-label" for="world-description"
+    >World description</label
+  >
   <span class="ore-textarea-control">
-    <textarea class="ore-textarea-input" id="world-description" name="description" placeholder="Describe your world" rows="4"></textarea>
+    <textarea
+      class="ore-textarea-input"
+      id="world-description"
+      name="description"
+      placeholder="Describe your world"
+      rows="4"
+    ></textarea>
   </span>
-  <span class="ore-textarea-description">Shown on the world selection screen</span>
+  <span class="ore-textarea-description"
+    >Shown on the world selection screen</span
+  >
 </div>
 ```
 
@@ -144,19 +154,19 @@ The native textarea dispatches `input` whenever its value changes and `change` w
 
 ## API
 
-| Property                  | Attribute                 | Type                        | Default  |
-| ------------------------- | ------------------------- | --------------------------- | -------- |
+| Property                  | Attribute                 | Type                        | Default         |
+| ------------------------- | ------------------------- | --------------------------- | --------------- |
 | `autocomplete`            | `autocomplete`            | `string`                    | browser default |
-| `disabled`                | `disabled`                | `boolean`                   | `false`  |
+| `disabled`                | `disabled`                | `boolean`                   | `false`         |
 | `inputMode`               | `inputmode`               | `string`                    | browser default |
 | `maxLength` / `minLength` | `maxlength` / `minlength` | `number`                    | browser default |
-| `name`                    | `name`                    | `string`                    | `""`     |
-| `placeholder`             | `placeholder`             | `string`                    | `""`     |
-| `readonly`                | `readonly`                | `boolean`                   | `false`  |
-| `required`                | `required`                | `boolean`                   | `false`  |
-| `rows`                    | `rows`                    | `number`                    | `2`      |
+| `name`                    | `name`                    | `string`                    | `""`            |
+| `placeholder`             | `placeholder`             | `string`                    | `""`            |
+| `readonly`                | `readonly`                | `boolean`                   | `false`         |
+| `required`                | `required`                | `boolean`                   | `false`         |
+| `rows`                    | `rows`                    | `number`                    | `2`             |
 | `spellcheck`              | `spellcheck`              | `boolean`                   | browser default |
-| `wrap`                    | `wrap`                    | `"hard" \| "off" \| "soft"` | `"soft"` |
+| `wrap`                    | `wrap`                    | `"hard" \| "off" \| "soft"` | `"soft"`        |
 
 ## Public classes
 

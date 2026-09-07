@@ -16,11 +16,17 @@ import "oreui-web/toggles";
 ```
 
 ```html
-<ore-toggles aria-label="Daylight cycle">
-  <ore-tab-button selected>Day</ore-tab-button>
-  <ore-tab-button>Night</ore-tab-button>
-  <ore-tab-button>Always</ore-tab-button>
-</ore-toggles>
+<div class="ore-toggles" role="tablist" aria-label="Daylight cycle">
+  <button class="ore-tab-button" type="button" role="tab" aria-selected="true">
+    Day
+  </button>
+  <button class="ore-tab-button" type="button" role="tab" aria-selected="false">
+    Night
+  </button>
+  <button class="ore-tab-button" type="button" role="tab" aria-selected="false">
+    Always
+  </button>
+</div>
 ```
 
     </Tab>
@@ -135,11 +141,11 @@ export function DaylightToggles() {
     <Tab value="Astro">
 
 ```astro
-<ore-toggles aria-label="Daylight cycle">
-	<ore-tab-button selected>Day</ore-tab-button>
-	<ore-tab-button>Night</ore-tab-button>
-	<ore-tab-button>Always</ore-tab-button>
-</ore-toggles>
+<div class="ore-toggles" role="tablist" aria-label="Daylight cycle">
+  <button class="ore-tab-button" type="button" role="tab" aria-selected="true">Day</button>
+  <button class="ore-tab-button" type="button" role="tab" aria-selected="false">Night</button>
+  <button class="ore-tab-button" type="button" role="tab" aria-selected="false">Always</button>
+</div>
 
 <script>
 	import "oreui-web/toggles";

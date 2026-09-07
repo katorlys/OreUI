@@ -41,9 +41,7 @@ export const Dropdown = React.forwardRef<HTMLDivElement, DropdownProps>(
         ...props,
         "data-value": value,
         "data-variant": variant ?? "borderless",
-        className: className
-          ? `ore-dropdown ${className}`
-          : "ore-dropdown",
+        className: className ? `ore-dropdown ${className}` : "ore-dropdown",
         ref: elementRef,
       },
       children,
