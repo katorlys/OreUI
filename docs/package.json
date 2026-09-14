@@ -18,7 +18,7 @@
     "fumadocs-mdx": "15.2.0",
     "fumadocs-ui": "npm:@fumadocs/base-ui@16.13.0",
     "lucide-react": "^1.41.0",
-    "next": "16.2.12",
+    "next": "16.3.3",
     "oreui-web": "workspace:*",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
