@@ -12,15 +12,18 @@ import { DropdownStory } from "@/components/stories/dropdown.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "oreui-web/button";
 import "oreui-web/dropdown";
 ```
 
 ```html
-<ore-dropdown variant="bordered" value="creative">
-  <ore-button class="ore-dropdown-trigger" type="button" color="secondary">
+<div class="ore-dropdown" data-variant="bordered" data-value="creative">
+  <button
+    class="ore-button ore-dropdown-trigger"
+    type="button"
+    data-color="secondary"
+  >
     <span class="ore-dropdown-trigger-label">Game mode</span>
-  </ore-button>
+  </button>
   <div class="ore-dropdown-menu">
     <button class="ore-dropdown-item" type="button" data-value="survival">
       Survival
@@ -40,7 +43,7 @@ import "oreui-web/dropdown";
       Spectator
     </button>
   </div>
-</ore-dropdown>
+</div>
 ```
 
     </Tab>
@@ -186,19 +189,18 @@ export function GameModeDropdown() {
     <Tab value="Astro">
 
 ```astro
-<ore-dropdown variant="bordered" value="creative">
-  <ore-button class="ore-dropdown-trigger" type="button" color="secondary">
+<div class="ore-dropdown" data-variant="bordered" data-value="creative">
+  <button class="ore-button ore-dropdown-trigger" type="button" data-color="secondary">
 		<span class="ore-dropdown-trigger-label">Game mode</span>
-	</ore-button>
+  </button>
 	<div class="ore-dropdown-menu">
 		<button class="ore-dropdown-item" type="button" data-value="survival">Survival</button>
 		<button class="ore-dropdown-item" type="button" data-value="creative">Creative</button>
 		<button class="ore-dropdown-item" type="button" data-value="adventure">Adventure</button>
 	</div>
-</ore-dropdown>
+</div>
 
 <script>
-	import "oreui-web/button";
 	import "oreui-web/dropdown";
 </script>
 ```
@@ -213,21 +215,19 @@ export function GameModeDropdown() {
 
 ## 事件
 
-| 事件          | 详情                                   |
-| ------------- | -------------------------------------- |
-| `change`      | `{ item: HTMLElement; value: string }` |
-| `open-change` | `boolean`                              |
+| 事件     | 详情                                         |
+| -------- | -------------------------------------------- |
+| `change` | `{ item: HTMLButtonElement; value: string }` |
+| `toggle` | 菜单派发的标准 Popover 事件                  |
 
-对于 React，请使用 `onChange` 和 `onOpenChange`。
+对于 React，请使用 `onChange`。需要打开状态时，在菜单上监听 `toggle`。
 
 ## API
 
-| Prop          | 属性           | 类型                         | 默认值         |
-| ------------- | -------------- | ---------------------------- | -------------- |
-| `defaultOpen` | `default-open` | `boolean`                    | `false`        |
-| `open`        | `open`         | `boolean`                    | `false`        |
-| `value`       | `value`        | `string`                     | `""`           |
-| `variant`     | `variant`      | `"bordered" \| "borderless"` | `"borderless"` |
+| Data 属性      | 类型                         | 默认值         |
+| -------------- | ---------------------------- | -------------- |
+| `data-value`   | `string`                     | `""`           |
+| `data-variant` | `"bordered" \| "borderless"` | `"borderless"` |
 
 ## 公开类
 

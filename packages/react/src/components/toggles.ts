@@ -1,14 +1,20 @@
-import { createComponent } from "@lit/react";
-import { OreToggles as OreTogglesElement } from "oreui-web/toggles";
 import React from "react";
 
 export { TabButton, type TabButtonProps } from "./tab-button.js";
 
-export const Toggles = createComponent({
-  react: React,
-  tagName: "ore-toggles",
-  elementClass: OreTogglesElement,
-  displayName: "Toggles",
-});
+export type TogglesProps = React.HTMLAttributes<HTMLDivElement>;
 
-export type TogglesProps = React.ComponentProps<typeof Toggles>;
+export const Toggles = React.forwardRef<HTMLDivElement, TogglesProps>(
+  function Toggles({ children, className, ...props }, ref) {
+    return React.createElement(
+      "div",
+      {
+        ...props,
+        className: className ? `ore-toggles ${className}` : "ore-toggles",
+        ref,
+        role: "tablist",
+      },
+      children,
+    );
+  },
+);

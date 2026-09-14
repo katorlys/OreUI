@@ -1,30 +1,43 @@
-import "oreui-web/switch";
+import { splitProps, type JSX } from "solid-js";
 
-import type { OreSwitch } from "oreui-web/switch";
-import { createOreComponent } from "../factory.js";
-import type { OreComponentProps } from "../types.js";
-
-export type SwitchProps = OreComponentProps<
-  OreSwitch,
-  "checked" | "color" | "disabled" | "name" | "required" | "value" | "variant"
+export type SwitchProps = Omit<
+  JSX.InputHTMLAttributes<HTMLInputElement>,
+  "color" | "type"
 > & {
+  color?: string;
+  labelClass?: string;
   onCheckedChange?: (checked: boolean) => void;
+  variant?: string;
 };
 
-export const Switch = createOreComponent<OreSwitch, SwitchProps>({
-  model: {
-    callback: "onCheckedChange",
-    event: "input",
-    property: "checked",
-  },
-  properties: [
-    "checked",
+export function Switch(props: SwitchProps): JSX.Element {
+  const [local, inputProps] = splitProps(props, [
+    "children",
+    "class",
     "color",
-    "disabled",
-    "name",
-    "required",
-    "value",
+    "labelClass",
+    "onCheckedChange",
+    "onInput",
     "variant",
-  ],
-  tagName: "ore-switch",
-});
+  ]);
+
+  return (
+    <label class={local.labelClass}>
+      <input
+        {...inputProps}
+        class={`ore-switch ${local.class ?? ""}`}
+        data-color={local.color}
+        data-variant={local.variant}
+        onInput={(event) => {
+          if (typeof local.onInput === "function") {
+            local.onInput(event);
+          }
+          local.onCheckedChange?.(event.currentTarget.checked);
+        }}
+        role="switch"
+        type="checkbox"
+      />
+      {local.children}
+    </label>
+  );
+}

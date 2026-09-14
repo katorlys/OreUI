@@ -1,58 +1,86 @@
-import "oreui-web/textarea";
+import { createRenderEffect, splitProps, type JSX } from "solid-js";
 
-import type { OreTextarea } from "oreui-web/textarea";
-import { createOreComponent } from "../factory.js";
-import type { OreComponentProps } from "../types.js";
-
-export type TextareaProps = OreComponentProps<
-  OreTextarea,
-  | "autocomplete"
-  | "description"
-  | "disabled"
-  | "error"
-  | "inputMode"
-  | "label"
-  | "maxLength"
-  | "minLength"
-  | "name"
-  | "placeholder"
-  | "readonly"
-  | "required"
-  | "rows"
-  | "spellCheck"
-  | "value"
-  | "wrap"
+export type TextareaProps = Omit<
+  JSX.TextareaHTMLAttributes<HTMLTextAreaElement>,
+  "children" | "oninput" | "value"
 > & {
+  children?: JSX.Element;
+  description?: string;
+  error?: string;
+  label?: string;
+  onInput?: (
+    event: InputEvent & { currentTarget: HTMLTextAreaElement },
+  ) => void;
+  value?: string;
   onValueChange?: (value: string) => void;
 };
 
-export const Textarea = createOreComponent<OreTextarea, TextareaProps>({
-  events: {
-    onChange: "change",
-    onInput: "input",
-  },
-  model: {
-    callback: "onValueChange",
-    event: "input",
-    property: "value",
-  },
-  properties: [
-    "autocomplete",
+export function Textarea(props: TextareaProps): JSX.Element {
+  const [local, textareaProps] = splitProps(props, [
+    "children",
     "description",
-    "disabled",
     "error",
-    "inputMode",
+    "id",
     "label",
-    "maxLength",
-    "minLength",
-    "name",
-    "placeholder",
-    "readonly",
-    "required",
-    "rows",
-    "spellCheck",
+    "class",
+    "onInput",
+    "onValueChange",
+    "style",
     "value",
-    "wrap",
-  ],
-  tagName: "ore-textarea",
-});
+  ]);
+  let element: HTMLTextAreaElement | undefined;
+  const generatedId = `ore-textarea-${crypto.randomUUID()}`;
+
+  createRenderEffect(() => {
+    element?.setCustomValidity(local.error ?? "");
+  });
+
+  const textareaId = () => local.id ?? generatedId;
+  const descriptionId = () =>
+    local.description ? `${textareaId()}-description` : undefined;
+  const errorId = () => (local.error ? `${textareaId()}-error` : undefined);
+
+  return (
+    <div
+      class="ore-textarea"
+      classList={{ [local.class ?? ""]: true }}
+      style={local.style}
+    >
+      {local.label ? (
+        <label class="ore-textarea-label" for={textareaId()}>
+          {local.label}
+        </label>
+      ) : null}
+      <span class="ore-textarea-control">
+        {local.children}
+        <textarea
+          {...textareaProps}
+          aria-describedby={
+            [descriptionId(), errorId()].filter(Boolean).join(" ") || undefined
+          }
+          aria-invalid={local.error ? "true" : undefined}
+          class="ore-textarea-input"
+          id={textareaId()}
+          onInput={(event) => {
+            local.onInput?.(event);
+            local.onValueChange?.(event.currentTarget.value);
+          }}
+          ref={(value) => {
+            element = value;
+          }}
+          value={local.value}
+        />
+      </span>
+      {local.description ? (
+        <span class="ore-textarea-description" id={descriptionId()}>
+          {local.description}
+        </span>
+      ) : null}
+      {local.error ? (
+        <span class="ore-textarea-error" id={errorId()} aria-live="polite">
+          {local.error}
+        </span>
+      ) : null}
+    </div>
+  );
+}

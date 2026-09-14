@@ -12,12 +12,12 @@ import { NavbarStory } from "@/components/stories/navbar.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "oreui-web/navbar";
+import "oreui-web/styles.css";
 import "oreui-web/icon";
 ```
 
 ```html
-<ore-navbar aria-label="Screen navigation">
+<nav class="ore-navbar" aria-label="Screen navigation">
   <div class="ore-navbar-start">
     <button class="ore-navbar-button" type="button" aria-label="Back">
       <ore-icon aria-hidden="true"
@@ -37,7 +37,7 @@ import "oreui-web/icon";
       <span class="ore-navbar-action-label">Edit</span>
     </button>
   </div>
-</ore-navbar>
+</nav>
 ```
 
     </Tab>
@@ -160,7 +160,7 @@ export function Navigation() {
     <Tab value="Astro">
 
 ```astro
-<ore-navbar aria-label="Screen navigation">
+<nav class="ore-navbar" aria-label="Screen navigation">
 	<div class="ore-navbar-start">
 		<button class="ore-navbar-button" type="button" aria-label="Back">
 			<ore-icon aria-hidden="true"><svg viewBox="0 0 8 8"><path fill="currentColor" fill-rule="evenodd" d="M5 2h1V1H5zm0 0v1H4V2zm1 6H5V7h-.966V6h1v1H6zM3 4h1V3H3zm0 1V4H2v1zm0 0h1v1H3z" transform="translate(0 -.5)" /></svg></ore-icon>
@@ -172,10 +172,10 @@ export function Navigation() {
 			<span class="ore-navbar-action-label">Edit</span>
 		</button>
 	</div>
-</ore-navbar>
+</nav>
 
 <script>
-	import "oreui-web/navbar";
+  import "oreui-web/styles.css";
 	import "oreui-web/icon";
 </script>
 ```
@@ -212,4 +212,4 @@ export function Navigation() {
 
 ## Accessibility
 
-Navbar uses `role="navigation"` unless another role is provided. Add an accessible label when the page contains more than one navigation, and label icon-only buttons in it.
+The native `<nav>` provides the navigation landmark. Add an accessible label when the page contains more than one navigation, and label icon-only buttons in it.

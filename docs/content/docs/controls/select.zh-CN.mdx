@@ -1,0 +1,143 @@
+---
+title: Select 选择器
+description: 从原生菜单中选择一个选项
+---
+
+import { SelectStory } from "@/components/stories/select.story";
+
+<SelectStory />
+
+## 用法
+
+<Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
+	<Tab value="Vanilla">
+```js
+import "oreui-web/styles.css";
+```
+
+```html
+<label for="game-mode">Game mode</label>
+<select class="ore-select" id="game-mode" name="game-mode">
+  <option value="survival">Survival</option>
+  <option value="creative" selected>Creative</option>
+  <option value="adventure">Adventure</option>
+  <option value="spectator" disabled>Spectator</option>
+</select>
+```
+
+    </Tab>
+    <Tab value="React">
+
+```tsx
+import { Select } from "@oreui-web/react/select";
+import { useState } from "react";
+
+export function GameModeSelect() {
+  const [value, setValue] = useState("creative");
+
+  return (
+    <Select
+      value={value}
+      onChange={(event) => setValue(event.currentTarget.value)}
+    >
+      <option value="survival">Survival</option>
+      <option value="creative">Creative</option>
+    </Select>
+  );
+}
+```
+
+    </Tab>
+    <Tab value="Vue">
+
+```vue
+<script setup lang="ts">
+import { ref } from "vue";
+import { Select } from "@oreui-web/vue/select";
+
+const value = ref("creative");
+</script>
+
+<template>
+  <Select v-model="value">
+    <option value="survival">Survival</option>
+    <option value="creative">Creative</option>
+  </Select>
+</template>
+```
+
+    </Tab>
+    <Tab value="Svelte">
+
+```svelte
+<script lang="ts">
+  import Select from "@oreui-web/svelte/select";
+
+  let value = $state("creative");
+</script>
+
+<Select bind:value>
+  <option value="survival">Survival</option>
+  <option value="creative">Creative</option>
+</Select>
+```
+
+    </Tab>
+    <Tab value="Solid">
+
+```tsx
+import { createSignal } from "solid-js";
+import { Select } from "@oreui-web/solid/select";
+
+export function GameModeSelect() {
+  const [value, setValue] = createSignal("creative");
+
+  return (
+    <Select value={value()} onValueChange={setValue}>
+      <option value="survival">Survival</option>
+      <option value="creative">Creative</option>
+    </Select>
+  );
+}
+```
+
+    </Tab>
+    <Tab value="Astro">
+
+```astro
+<select class="ore-select" name="game-mode">
+  <option value="survival">Survival</option>
+  <option value="creative" selected>Creative</option>
+</select>
+
+<style is:global>
+  @import "oreui-web/styles.css";
+</style>
+```
+
+    </Tab>
+
+</Tabs>
+
+## 原生行为
+
+闭合控件使用与 Dropdown trigger 相同的 OreUI 表面和 chevron 图标。展开后的选项面板由浏览器与操作系统绘制，具体外观会随平台变化。
+
+纯文本选项应使用 Select。只有选项需要自定义内容或必须完整定制弹出层时，才使用 [Dropdown](./dropdown)。
+
+## 表单与事件
+
+Select 直接使用原生 `HTMLSelectElement` API。`disabled`、`required`、`name`、`value`、校验、`FormData`、键盘导航和表单重置都由浏览器处理。值变化时监听标准 `input` 或 `change` 事件。
+
+## CSS 变量
+
+| 变量                              | 用途                        |
+| --------------------------------- | --------------------------- |
+| `--ore-select-unit`               | 基础尺寸单位                |
+| `--ore-select-background-default` | 默认表面                    |
+| `--ore-select-background-hover`   | 悬停表面                    |
+| `--ore-select-background-pressed` | 按下表面                    |
+| `--ore-select-highlight-default`  | 默认高光                    |
+| `--ore-select-border`             | 外边框                      |
+| `--ore-select-shadow`             | 底部阴影                    |
+| `--ore-select-foreground`         | 已选文字与 chevron 图标颜色 |

@@ -11,16 +11,22 @@ import { RadioGroupStory } from "@/components/stories/radio-group.story";
 
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
-```js
-import "oreui-web/radio-group";
-```
-
 ```html
-<ore-radio-group aria-label="World type">
-  <ore-radio name="world" value="survival" checked>Survival</ore-radio>
-  <ore-radio name="world" value="creative">Creative</ore-radio>
-  <ore-radio name="world" value="hardcore" disabled>Hardcore</ore-radio>
-</ore-radio-group>
+<fieldset class="ore-radio-group">
+  <legend>World type</legend>
+  <label>
+    <input type="radio" name="world" value="survival" checked />
+    Survival
+  </label>
+  <label>
+    <input type="radio" name="world" value="creative" />
+    Creative
+  </label>
+  <label>
+    <input type="radio" name="world" value="hardcore" disabled />
+    Hardcore
+  </label>
+</fieldset>
 ```
 
     </Tab>
@@ -31,7 +37,8 @@ import { Radio, RadioGroup } from "@oreui-web/react/radio-group";
 
 export function WorldType() {
   return (
-    <RadioGroup aria-label="World type">
+    <RadioGroup>
+      <legend>World type</legend>
       <Radio name="world" value="survival" checked>
         Survival
       </Radio>
@@ -55,7 +62,8 @@ import { Radio, RadioGroup } from "@oreui-web/vue";
 </script>
 
 <template>
-  <RadioGroup aria-label="World type">
+  <RadioGroup>
+    <legend>World type</legend>
     <Radio name="world" value="survival" checked>Survival</Radio>
     <Radio name="world" value="creative">Creative</Radio>
     <Radio name="world" value="hardcore" disabled>Hardcore</Radio>
@@ -72,7 +80,8 @@ import { Radio, RadioGroup } from "@oreui-web/vue";
   import RadioGroup from "@oreui-web/svelte/radio-group";
 </script>
 
-<RadioGroup aria-label="World type">
+<RadioGroup>
+  <legend>World type</legend>
   <Radio name="world" value="survival" checked>Survival</Radio>
   <Radio name="world" value="creative">Creative</Radio>
   <Radio name="world" value="hardcore" disabled>Hardcore</Radio>
@@ -87,7 +96,8 @@ import { Radio, RadioGroup } from "@oreui-web/solid";
 
 export function WorldType() {
   return (
-    <RadioGroup aria-label="World type">
+    <RadioGroup>
+      <legend>World type</legend>
       <Radio name="world" value="survival" checked>
         Survival
       </Radio>
@@ -106,15 +116,12 @@ export function WorldType() {
     <Tab value="Astro">
 
 ```astro
-<ore-radio-group aria-label="World type">
-	<ore-radio name="world" value="survival" checked>Survival</ore-radio>
-	<ore-radio name="world" value="creative">Creative</ore-radio>
-	<ore-radio name="world" value="hardcore" disabled>Hardcore</ore-radio>
-</ore-radio-group>
-
-<script>
-	import "oreui-web/radio-group";
-</script>
+<fieldset class="ore-radio-group">
+  <legend>World type</legend>
+  <label><input type="radio" name="world" value="survival" checked /> Survival</label>
+  <label><input type="radio" name="world" value="creative" /> Creative</label>
+  <label><input type="radio" name="world" value="hardcore" disabled /> Hardcore</label>
+</fieldset>
 ```
 
     </Tab>
@@ -123,10 +130,10 @@ export function WorldType() {
 
 ## Behavior
 
-Radio Group provides `role="radiogroup"` and spacing.  
+The native `fieldset` groups related radio inputs, and `.ore-radio-group` provides spacing.
 For more information, see [Radio](../radio).
 
 ## Accessibility
 
-Give every group an accessible name with `aria-label` or `aria-labelledby`. All child options should share a `name`.  
+Use a `legend` to name the group. All child options should share a `name`.
 For more information, see [Radio](../radio#accessibility).

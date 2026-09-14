@@ -1,12 +1,18 @@
-import "oreui-web/container";
+import type { OreContainerVariant } from "oreui-web/container";
+import type { JSX } from "solid-js";
 
-import type { OreContainer } from "oreui-web/container";
-import { createOreComponent } from "../factory.js";
-import type { OreComponentProps } from "../types.js";
+export type ContainerProps = JSX.HTMLAttributes<HTMLDivElement> & {
+  variant?: OreContainerVariant;
+};
 
-export type ContainerProps = OreComponentProps<OreContainer, "variant">;
+export function Container(props: ContainerProps): JSX.Element {
+  const { variant = "dark", class: className, ...rest } = props;
 
-export const Container = createOreComponent<OreContainer, ContainerProps>({
-  properties: ["variant"],
-  tagName: "ore-container",
-});
+  return (
+    <div
+      {...rest}
+      class={`ore-container ${className ?? ""}`}
+      data-variant={variant}
+    />
+  );
+}

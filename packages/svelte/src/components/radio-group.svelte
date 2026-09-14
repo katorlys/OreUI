@@ -1,18 +1,19 @@
 <script lang="ts">
-  import "oreui-web/radio-group";
-  import type { OreRadioGroup } from "oreui-web/radio-group";
-  import type { OreComponentProps } from "../types.js";
+  import type { Snippet } from "svelte";
+  import type { HTMLFieldsetAttributes } from "svelte/elements";
 
-  export type RadioGroupProps = OreComponentProps<OreRadioGroup>;
+  export type RadioGroupProps = Omit<HTMLFieldsetAttributes, "children"> & {
+    children?: Snippet;
+  };
 
-  let { children, ...props }: RadioGroupProps = $props();
-  let element: OreRadioGroup;
+  let { children, class: className, ...props }: RadioGroupProps = $props();
+  let element: HTMLFieldSetElement;
 
-  export function getElement(): OreRadioGroup {
+  export function getElement(): HTMLFieldSetElement {
     return element;
   }
 </script>
 
-<ore-radio-group bind:this={element} {...props}>
+<fieldset bind:this={element} {...props} class={["ore-radio-group", className]}>
   {@render children?.()}
-</ore-radio-group>
+</fieldset>

@@ -16,7 +16,7 @@ import "oreui-web/toast";
 ```
 
 ```html
-<ore-toast open aria-label="World saved">Saved</ore-toast>
+<div class="ore-toast" data-default-open aria-label="World saved">Saved</div>
 ```
 
     </Tab>
@@ -62,15 +62,15 @@ import { Toast } from "@oreui-web/vue/toast";
     <Tab value="Solid">
 
 ```tsx
-import type { OreToast } from "oreui-web/toast";
+import { showToast } from "oreui-web/toast";
 import { Button, Toast } from "@oreui-web/solid";
 
 export function SavedToast() {
-  let toast: OreToast | undefined;
+  let toast: HTMLDivElement | undefined;
 
   return (
     <>
-      <Button type="button" onClick={() => toast?.show()}>
+      <Button type="button" onClick={() => toast && showToast(toast)}>
         Save
       </Button>
       <Toast
@@ -89,7 +89,7 @@ export function SavedToast() {
     <Tab value="Astro">
 
 ```astro
-<ore-toast open aria-label="World saved">Saved</ore-toast>
+<div class="ore-toast" data-default-open aria-label="World saved">Saved</div>
 
 <script>
 	import "oreui-web/toast";
@@ -102,24 +102,33 @@ export function SavedToast() {
 
 ## Open and close
 
-Toast is closed by default. Set `open`, call `show()`, or call `close()` on the element. The `open-change` event reports controlled state changes.
+Toast is closed by default. Use `data-default-open` for its initial state, `data-open` for controlled state, or call `showToast()` and `closeToast()`. The `oreui:openchange` event reports actual Popover state changes.
 
 ```js
-const toast = document.querySelector("ore-toast");
-toast.show();
-toast.addEventListener("open-change", (event) => {
+import { closeToast, showToast } from "oreui-web/toast";
+
+const toast = document.querySelector(".ore-toast");
+showToast(toast);
+toast.addEventListener("oreui:openchange", (event) => {
   console.log(event.detail); // true or false
 });
+closeToast(toast);
 ```
 
 ## Duration and position
 
-`duration` defaults to `3000` ms. Set it to `0` to keep the Toast open until `close()` is called. The default position is `bottom-center`; use `top-start`, `top-center`, `top-end`, `bottom-start`, or `bottom-end` for another viewport corner or edge.
+`data-duration` defaults to `3000` ms. Set it to `0` to keep the Toast open until `closeToast()` is called. Hovering the Toast or moving focus inside it pauses the remaining time. The default position is `bottom-center`; use `top-start`, `top-center`, `top-end`, `bottom-start`, or `bottom-end` for another viewport corner or edge.
 
 ```html
-<ore-toast open duration="5000" position="top-end" aria-label="Settings saved">
+<div
+  class="ore-toast"
+  data-default-open
+  data-duration="5000"
+  data-position="top-end"
+  aria-label="Settings saved"
+>
   Saved
-</ore-toast>
+</div>
 ```
 
 ## Color
@@ -128,23 +137,23 @@ Toast uses the same background variants as Tag: `neutral`, `secondary`, `primary
 
 ## Events
 
-`open-change` fires when the `open` state changes. Its `detail` is the new boolean state.  
+`oreui:openchange` fires when the Popover state changes. Its `detail` is the new boolean state.
 In React, use `onOpenChange`.
 
 ## API
 
-| Property      | Attribute      | Type                                                                                                      | Default           |
-| ------------- | -------------- | --------------------------------------------------------------------------------------------------------- | ----------------- |
-| `defaultOpen` | `default-open` | `boolean`                                                                                                 | `false`           |
-| `duration`    | `duration`     | `number`                                                                                                  | `3000`            |
-| `open`        | `open`         | `boolean`                                                                                                 | `false`           |
-| `position`    | `position`     | `"top-start" \| "top-center" \| "top-end" \| "bottom-start" \| "bottom-center" \| "bottom-end"`           | `"bottom-center"` |
-| `variant`     | `variant`      | `"neutral" \| "secondary" \| "primary" \| "informative" \| "notice" \| "warning" \| "realms-informative"` | `"neutral"`       |
+| Option          | Attribute           | Type                                                                                                      | Default           |
+| --------------- | ------------------- | --------------------------------------------------------------------------------------------------------- | ----------------- |
+| Initial open    | `data-default-open` | presence                                                                                                  | absent            |
+| Duration        | `data-duration`     | `number`                                                                                                  | `3000`            |
+| Controlled open | `data-open`         | presence                                                                                                  | absent            |
+| Position        | `data-position`     | `"top-start" \| "top-center" \| "top-end" \| "bottom-start" \| "bottom-center" \| "bottom-end"`           | `"bottom-center"` |
+| Variant         | `data-variant`      | `"neutral" \| "secondary" \| "primary" \| "informative" \| "notice" \| "warning" \| "realms-informative"` | `"neutral"`       |
 
-| Method    | Description                                   |
-| --------- | --------------------------------------------- |
-| `show()`  | Open the Toast and start its duration timer   |
-| `close()` | Close the Toast and cancel its duration timer |
+| Helper         | Description                                   |
+| -------------- | --------------------------------------------- |
+| `showToast()`  | Open the Toast and start its duration timer   |
+| `closeToast()` | Close the Toast and cancel its duration timer |
 
 The Toast has no public child classes. Use the host `class` for layout and `--ore-toast-*` variables for component details.
 

@@ -1,11 +1,7 @@
-import "oreui-web/toggles";
+import type { JSX } from "solid-js";
 
-import type { OreToggles } from "oreui-web/toggles";
-import { createOreComponent } from "../factory.js";
-import type { OreComponentProps } from "../types.js";
+export type TogglesProps = JSX.HTMLAttributes<HTMLDivElement>;
 
-export type TogglesProps = OreComponentProps<OreToggles>;
-
-export const Toggles = createOreComponent<OreToggles, TogglesProps>({
-  tagName: "ore-toggles",
-});
+export function Toggles(props: TogglesProps): JSX.Element {
+  return <div {...props} class="ore-toggles" role="tablist" />;
+}

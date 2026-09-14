@@ -1,4 +1,17 @@
-import "oreui-web/modal";
-import { createOreComponent } from "../factory.js";
+import { defineComponent, h } from "vue";
 
-export const Modal = createOreComponent("ore-modal", { displayName: "Modal" });
+export const Modal = defineComponent({
+  name: "Modal",
+  inheritAttrs: false,
+  setup(_, { attrs, slots }) {
+    return () =>
+      h(
+        "dialog",
+        {
+          ...attrs,
+          class: ["ore-modal", attrs.class],
+        },
+        slots.default?.(),
+      );
+  },
+});

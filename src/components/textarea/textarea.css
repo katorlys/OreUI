@@ -1,4 +1,4 @@
-:where(ore-textarea) {
+:where(.ore-textarea) {
   --ore-textarea-unit: var(--ore-size-unit);
   --ore-textarea-background: var(--ore-color-neutral-surface-raised);
   --ore-textarea-shadow: var(--ore-color-neutral-surface-sunken);
@@ -16,13 +16,13 @@
   font-family: var(--ore-font-body);
 }
 
-:where(ore-textarea > .ore-textarea-label) {
+:where(.ore-textarea > .ore-textarea-label) {
   font-size: calc(var(--ore-textarea-unit) * 8);
   line-height: calc(var(--ore-textarea-unit) * 10);
   cursor: text;
 }
 
-:where(ore-textarea > .ore-textarea-control) {
+:where(.ore-textarea > .ore-textarea-control) {
   display: grid;
   box-sizing: border-box;
   min-height: calc(var(--ore-textarea-unit) * 38);
@@ -46,7 +46,7 @@
   box-shadow: 0 0 0 var(--ore-textarea-unit) var(--ore-textarea-focus-ring);
 }
 
-:where(ore-textarea .ore-textarea-input) {
+:where(.ore-textarea .ore-textarea-input) {
   box-sizing: border-box;
   min-width: 0;
   width: 100%;
@@ -64,35 +64,42 @@
   resize: both;
 }
 
-:where(ore-textarea .ore-textarea-input::placeholder) {
-  color: var(--ore-color-disabled-foreground-dim);
+:where(.ore-textarea .ore-textarea-input::placeholder) {
+  color: var(--ore-color-neutral-text-dim);
   opacity: 1;
 }
 
-:where(ore-textarea > .ore-textarea-description) {
+:where(.ore-textarea > .ore-textarea-description) {
   margin-top: calc(var(--ore-textarea-unit) * 2);
   color: var(--ore-textarea-description);
   font-size: calc(var(--ore-textarea-unit) * 6);
   line-height: calc(var(--ore-textarea-unit) * 7);
 }
 
-:where(ore-textarea > .ore-textarea-error) {
+:where(.ore-textarea > .ore-textarea-error) {
   margin-top: calc(var(--ore-textarea-unit) * 2);
   color: var(--ore-textarea-error);
   font-size: calc(var(--ore-textarea-unit) * 6);
   line-height: calc(var(--ore-textarea-unit) * 7);
 }
 
-:where(ore-textarea[aria-invalid="true"] > .ore-textarea-control) {
+:where(
+  .ore-textarea:has(
+      > .ore-textarea-control > .ore-textarea-input[aria-invalid="true"]
+    )
+    > .ore-textarea-control
+) {
   --ore-textarea-border: var(--ore-color-destructive-highlight);
   --ore-textarea-shadow: var(--ore-color-destructive-shadow);
 }
 
-:where(ore-textarea:has(.ore-textarea-input:focus-visible)) {
+:where(.ore-textarea:has(.ore-textarea-input:focus-visible)) {
   --ore-textarea-focus-ring: var(--ore-color-focus-ring);
 }
 
-:where(ore-textarea[disabled], ore-textarea[form-disabled]) {
+:where(
+  .ore-textarea:has(> .ore-textarea-control > .ore-textarea-input:disabled)
+) {
   --ore-textarea-background: var(--ore-color-disabled);
   --ore-textarea-shadow: var(--ore-color-disabled-shadow);
   --ore-textarea-border: var(--ore-color-disabled-border);
@@ -100,7 +107,9 @@
   --ore-textarea-input-foreground: var(--ore-color-disabled);
 }
 
-:where(ore-textarea[disabled], ore-textarea[form-disabled])
+:where(
+    .ore-textarea:has(> .ore-textarea-control > .ore-textarea-input:disabled)
+  )
   > .ore-textarea-label {
   cursor: not-allowed;
 }

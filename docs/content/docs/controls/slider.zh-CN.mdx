@@ -16,14 +16,16 @@ import "oreui-web/slider";
 ```
 
 ```html
-<ore-slider
+<input
+  class="ore-slider"
+  type="range"
   name="distance"
   min="2"
   max="32"
   step="1"
   value="12"
   aria-label="Render distance"
-></ore-slider>
+/>
 ```
 
     </Tab>
@@ -44,8 +46,7 @@ export function RenderDistanceSlider() {
       step={1}
       value={value}
       onInput={(event) => {
-        const slider = event.target as HTMLElement & { value: number };
-        setValue(slider.value);
+        setValue(event.currentTarget.valueAsNumber);
       }}
     />
   );
@@ -122,7 +123,7 @@ export function RenderDistanceSlider() {
     <Tab value="Astro">
 
 ```astro
-<ore-slider name="distance" min="2" max="32" step="1" value="12" aria-label="Render distance"></ore-slider>
+<input type="range" name="distance" min="2" max="32" step="1" value="12" aria-label="Render distance" />
 
 <script>
 	import "oreui-web/slider";
@@ -136,84 +137,78 @@ export function RenderDistanceSlider() {
 ## 变体
 
 ```html
-<ore-slider value="40" variant="default" aria-label="Volume"></ore-slider>
-<ore-slider value="40" variant="segmented" aria-label="Volume"></ore-slider>
-```
-
-## 双端范围
-
-添加 `range` 可同时选择最小值和最大值。`value-start` 控制最小值滑块，`value` 控制最大值滑块。两个滑块相遇后不会继续越过对方。
-
-```html
-<ore-slider
-  range
-  min="0"
-  max="100"
-  value-start="25"
-  value="75"
-  aria-label-start="Minimum price"
-  aria-label="Maximum price"
-></ore-slider>
+<input type="range" value="40" aria-label="Volume" />
+<input type="range" data-variant="segmented" value="40" aria-label="Volume" />
 ```
 
 ## 颜色
 
 ```html
-<ore-slider color="primary" value="40" aria-label="Primary volume"></ore-slider>
-<ore-slider
-  color="secondary"
+<input
+  type="range"
+  data-color="primary"
+  value="40"
+  aria-label="Primary volume"
+/>
+<input
+  type="range"
+  data-color="secondary"
   value="40"
   aria-label="Secondary volume"
-></ore-slider>
-<ore-slider
-  color="destructive"
+/>
+<input
+  type="range"
+  data-color="destructive"
   value="40"
   aria-label="Destructive volume"
-></ore-slider>
-<ore-slider
-  color="dungeons"
+/>
+<input
+  type="range"
+  data-color="dungeons"
   value="40"
   aria-label="Dungeons volume"
-></ore-slider>
-<ore-slider color="legends" value="40" aria-label="Legends volume"></ore-slider>
-<ore-slider color="realms" value="40" aria-label="Realms volume"></ore-slider>
-<ore-slider color="gold" value="40" aria-label="Gold volume"></ore-slider>
+/>
+<input
+  type="range"
+  data-color="legends"
+  value="40"
+  aria-label="Legends volume"
+/>
+<input type="range" data-color="realms" value="40" aria-label="Realms volume" />
+<input type="range" data-color="gold" value="40" aria-label="Gold volume" />
 ```
 
 ## 方向
 
 ```html
-<ore-slider
-  orientation="horizontal"
+<input
+  type="range"
+  data-orientation="horizontal"
   value="40"
   aria-label="Horizontal value"
-></ore-slider>
-<ore-slider
-  orientation="vertical"
+/>
+<input
+  type="range"
+  data-orientation="vertical"
+  aria-orientation="vertical"
   value="40"
   aria-label="Vertical value"
-></ore-slider>
+/>
 ```
 
 ## 事件
 
-Slider 的值变化时会触发 `input` 事件，提交交互时会触发 `change` 事件。在双端模式下，可从 Slider 元素读取 `valueStart` 和 `value`。带有名称的双端 Slider 会将两个值提交为逗号分隔的字符串，例如 `25,75`。
+原生 range input 的值变化时会触发 `input` 事件，提交交互时会触发 `change` 事件。使用 `valueAsNumber` 读取数值。`name`、表单提交、重置、禁用 fieldset 和键盘行为均由浏览器原生实现。
 
 ## API
 
-| Prop          | 属性          | 类型                                                                                         | 默认值         |
-| ------------- | ------------- | -------------------------------------------------------------------------------------------- | -------------- |
-| `color`       | `color`       | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"`    |
-| `disabled`    | `disabled`    | `boolean`                                                                                    | `false`        |
-| `max`         | `max`         | `number`                                                                                     | `100`          |
-| `min`         | `min`         | `number`                                                                                     | `0`            |
-| `name`        | `name`        | `string`                                                                                     | `""`           |
-| `orientation` | `orientation` | `"horizontal" \| "vertical"`                                                                 | `"horizontal"` |
-| `range`       | `range`       | `boolean`                                                                                    | `false`        |
-| `step`        | `step`        | `number`                                                                                     | `1`            |
-| `value`       | `value`       | `number`                                                                                     | `0`            |
-| `valueStart`  | `value-start` | `number`                                                                                     | `0`            |
-| `variant`     | `variant`     | `"default" \| "segmented"`                                                                   | `"default"`    |
+Slider 使用原生 `HTMLInputElement` API。OreUI 只增加以下视觉 data 属性：
+
+| 属性               | 类型                                                                                         | 默认值         |
+| ------------------ | -------------------------------------------------------------------------------------------- | -------------- |
+| `data-color`       | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"`    |
+| `data-orientation` | `"horizontal" \| "vertical"`                                                                 | `"horizontal"` |
+| `data-variant`     | `"default" \| "segmented"`                                                                   | `"default"`    |
 
 ## CSS 变量
 
@@ -232,4 +227,4 @@ Slider 的值变化时会触发 `input` 事件，提交交互时会触发 `chang
 
 ## 无障碍
 
-使用 `aria-label` 设置无障碍名称。在双端模式下，使用 `aria-label-start` 标记最小值滑块，使用 `aria-label` 标记最大值滑块。Slider 使用原生范围输入来处理指针和键盘交互。
+使用可见 `<label>` 或 `aria-label` 设置无障碍名称。Slider 保留原生 range input 的指针、触摸、键盘、表单、禁用和重置行为。使用竖直视觉方向时，还应设置 `aria-orientation="vertical"`。

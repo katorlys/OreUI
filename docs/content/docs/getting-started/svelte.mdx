@@ -62,35 +62,34 @@ Checkbox and Switch expose `bind:checked`. Slider, Textfield, and Dropdown expos
 
 ## Events and element access
 
-Use Svelte callback props for events. Component instances expose `getElement()` to access the underlying typed `Ore*` custom element.
+Native wrappers expose the real DOM element through `bind:this`, so platform methods remain available directly.
 
 ```svelte
 <script lang="ts">
   import Modal from "@oreui-web/svelte/modal";
 
-  let modal: ReturnType<typeof Modal>;
+  let modal: HTMLDialogElement;
 </script>
 
-<Modal
-  bind:this={modal}
-  onModalClose={(event) => console.log(event.detail.reason)}
->
-  <!-- Modal content -->
+<Modal bind:this={modal}>
+  <form class="ore-modal-content" method="dialog">
+    <!-- Modal content -->
+  </form>
 </Modal>
 
-<button type="button" onclick={() => modal.getElement().show()}>
+<button type="button" onclick={() => modal.showModal()}>
   Open modal
 </button>
 ```
 
-## Direct custom elements
+## Native HTML
 
-Svelte can also render `<ore-*>` elements directly. Import the corresponding core entry to register the element:
+Svelte components can also use native HTML directly when the shared stylesheet is imported:
 
 ```svelte
 <script lang="ts">
-  import "oreui-web/button";
+  import "oreui-web/styles.css";
 </script>
 
-<ore-button type="button">Create new world</ore-button>
+<button type="button">Create new world</button>
 ```

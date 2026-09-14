@@ -1,4 +1,4 @@
-:where(ore-switch) {
+:where(input.ore-switch[role="switch"]) {
   --ore-switch-unit: var(--ore-size-unit);
   --ore-switch-track-background: var(--ore-color-neutral-50-background);
   --ore-switch-track-highlight: var(--ore-color-neutral-50-highlight-focus);
@@ -12,51 +12,45 @@
   --ore-switch-thumb-focus-ring: transparent;
   --ore-switch-icon: var(--ore-color-gray-90);
 
-  display: inline-flex;
-  align-items: center;
-  gap: calc(var(--ore-switch-unit) * 4);
-  min-height: calc(var(--ore-switch-unit) * 15);
-  color: var(--ore-color-border);
-  cursor: pointer;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-:where(ore-switch) .ore-switch-control {
-  display: flex;
-  align-items: flex-end;
+  position: relative;
+  flex: none;
+  appearance: none;
+  box-sizing: border-box;
   width: calc(var(--ore-switch-unit) * 28);
   height: calc(var(--ore-switch-unit) * 15);
-}
-
-:where(ore-switch) .ore-switch-status {
-  position: relative;
-  z-index: 0;
-  flex: none;
-  box-sizing: border-box;
-  width: calc(var(--ore-switch-unit) * 13);
-  height: calc(var(--ore-switch-unit) * 13);
+  margin: 0 calc(var(--ore-switch-unit) * 4) 0 0;
+  border: 0;
+  border-radius: 0;
   background:
     linear-gradient(
         var(--ore-switch-track-background),
         var(--ore-switch-track-background)
       )
-      left calc(var(--ore-switch-unit) * 2) / calc(var(--ore-switch-unit) * 11)
+      right calc(var(--ore-switch-unit) * 2) bottom
+      calc(var(--ore-switch-unit) * 2) / calc(var(--ore-switch-unit) * 11)
       calc(var(--ore-switch-unit) * 9) no-repeat,
     linear-gradient(
         var(--ore-switch-track-highlight),
         var(--ore-switch-track-highlight)
       )
-      left var(--ore-switch-unit) / calc(var(--ore-switch-unit) * 12)
-      calc(var(--ore-switch-unit) * 11) no-repeat,
-    var(--ore-switch-track-border);
+      right var(--ore-switch-unit) bottom var(--ore-switch-unit) /
+      calc(var(--ore-switch-unit) * 12) calc(var(--ore-switch-unit) * 11)
+      no-repeat,
+    linear-gradient(
+        var(--ore-switch-track-border),
+        var(--ore-switch-track-border)
+      )
+      right bottom / calc(var(--ore-switch-unit) * 13)
+      calc(var(--ore-switch-unit) * 13) no-repeat;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
-:where(ore-switch) .ore-switch-button {
-  position: relative;
-  z-index: 1;
-  flex: none;
-  box-sizing: border-box;
+:where(input.ore-switch[role="switch"])::after {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: calc(var(--ore-switch-unit) * 15);
   height: calc(var(--ore-switch-unit) * 15);
   background:
@@ -82,69 +76,67 @@
       calc(var(--ore-switch-unit) * 11) no-repeat,
     var(--ore-switch-thumb-border);
   box-shadow: 0 0 0 var(--ore-switch-unit) var(--ore-switch-thumb-focus-ring);
-  order: -1;
+  content: "";
 }
 
-:where(ore-switch[checked]) .ore-switch-button {
-  order: 0;
+:where(input.ore-switch[role="switch"]:checked)::after {
+  left: calc(var(--ore-switch-unit) * 13);
 }
 
-:where(ore-switch[checked]) .ore-switch-status {
+:where(input.ore-switch[role="switch"]:checked) {
   background-position:
-    right calc(var(--ore-switch-unit) * 2),
-    right var(--ore-switch-unit),
-    center;
-}
-
-:where(ore-switch[checked]) {
+    left calc(var(--ore-switch-unit) * 2) bottom
+      calc(var(--ore-switch-unit) * 2),
+    left var(--ore-switch-unit) bottom var(--ore-switch-unit),
+    left bottom;
   --ore-switch-track-background: var(--ore-switch-active-track-background);
   --ore-switch-track-highlight: var(--ore-switch-active-track-highlight);
   --ore-switch-icon: var(--ore-color-white);
 }
 
-:where(ore-switch[color="secondary"]) {
+:where(input.ore-switch[role="switch"][data-color="secondary"]) {
   --ore-switch-active-track-background: var(--ore-color-secondary-background);
   --ore-switch-active-track-highlight: var(--ore-color-secondary-highlight);
 }
 
-:where(ore-switch[color="destructive"]) {
+:where(input.ore-switch[role="switch"][data-color="destructive"]) {
   --ore-switch-active-track-background: var(--ore-color-destructive-background);
   --ore-switch-active-track-highlight: var(--ore-color-destructive-highlight);
 }
 
-:where(ore-switch[color="dungeons"]) {
+:where(input.ore-switch[role="switch"][data-color="dungeons"]) {
   --ore-switch-active-track-background: var(--ore-color-dungeons-background);
   --ore-switch-active-track-highlight: var(--ore-color-dungeons-highlight);
 }
 
-:where(ore-switch[color="legends"]) {
+:where(input.ore-switch[role="switch"][data-color="legends"]) {
   --ore-switch-active-track-background: var(--ore-color-legends-background);
   --ore-switch-active-track-highlight: var(--ore-color-legends-highlight);
 }
 
-:where(ore-switch[color="realms"]) {
+:where(input.ore-switch[role="switch"][data-color="realms"]) {
   --ore-switch-active-track-background: var(--ore-color-realms-background);
   --ore-switch-active-track-highlight: var(--ore-color-realms-highlight);
 }
 
-:where(ore-switch[color="gold"]) {
+:where(input.ore-switch[role="switch"][data-color="gold"]) {
   --ore-switch-active-track-background: var(--ore-color-gold-background);
   --ore-switch-active-track-highlight: var(--ore-color-gold-highlight);
 }
 
 :where(
-  ore-switch[color="secondary"],
-  ore-switch[color="dungeons"],
-  ore-switch[color="legends"],
-  ore-switch[color="gold"]
+  input.ore-switch[role="switch"][data-color="secondary"],
+  input.ore-switch[role="switch"][data-color="dungeons"],
+  input.ore-switch[role="switch"][data-color="legends"],
+  input.ore-switch[role="switch"][data-color="gold"]
 ) {
   --ore-switch-icon: var(--ore-color-gray-100);
 }
 
-:where(ore-switch[variant="icons"]) .ore-switch-status::after {
+:where(input.ore-switch[role="switch"][data-variant="icons"])::before {
   position: absolute;
-  top: calc(var(--ore-switch-unit) * 2.5);
-  left: calc(var(--ore-switch-unit) * 2);
+  top: calc(var(--ore-switch-unit) * 4.5);
+  right: calc(var(--ore-switch-unit) * 3);
   width: calc(var(--ore-switch-unit) * 8);
   height: calc(var(--ore-switch-unit) * 8);
   background: var(--ore-switch-icon);
@@ -152,13 +144,24 @@
   mask: url("../../assets/icons/off.svg") center / contain no-repeat;
 }
 
-:where(ore-switch[checked][variant="icons"]) .ore-switch-status::after {
+:where(input.ore-switch[role="switch"][data-variant="icons"]:checked)::before {
   left: calc(var(--ore-switch-unit) * 3);
+  right: auto;
   mask-image: url("../../assets/icons/on.svg");
 }
 
+:where(label:has(> input.ore-switch[role="switch"])) {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--ore-switch-unit) * 4);
+  min-height: calc(var(--ore-switch-unit) * 15);
+  color: var(--ore-color-border);
+  cursor: pointer;
+  user-select: none;
+}
+
 @media (hover: hover) and (pointer: fine) {
-  :where(ore-switch:hover:not([disabled], [form-disabled])) {
+  :where(input.ore-switch[role="switch"]:hover:not(:disabled)) {
     --ore-switch-thumb-background: var(--ore-color-secondary-background-hover);
     --ore-switch-thumb-highlight: color-mix(
       in srgb,
@@ -168,10 +171,7 @@
   }
 }
 
-:where(
-  ore-switch:active:not([disabled], [form-disabled]),
-  ore-switch[pressed]:not([disabled], [form-disabled])
-) {
+:where(input.ore-switch[role="switch"]:active:not(:disabled)) {
   --ore-switch-thumb-background: var(--ore-color-secondary-background-pressed);
   --ore-switch-thumb-highlight: color-mix(
     in srgb,
@@ -180,7 +180,7 @@
   );
 }
 
-:where(ore-switch:focus-visible) {
+:where(input.ore-switch[role="switch"]:focus-visible) {
   --ore-switch-thumb-highlight: color-mix(
     in srgb,
     var(--ore-color-secondary-background),
@@ -193,7 +193,7 @@
   outline-offset: 0;
 }
 
-:where(ore-switch[disabled], ore-switch[form-disabled]) {
+:where(input.ore-switch[role="switch"]:disabled) {
   --ore-switch-track-background: var(--ore-color-disabled);
   --ore-switch-track-highlight: var(--ore-color-disabled);
   --ore-switch-track-border: var(--ore-color-disabled-border);
@@ -203,5 +203,9 @@
   --ore-switch-thumb-border: var(--ore-color-disabled-border);
   --ore-switch-icon: var(--ore-color-disabled-foreground);
 
+  cursor: not-allowed;
+}
+
+:where(label:has(> input.ore-switch[role="switch"]:disabled)) {
   cursor: not-allowed;
 }

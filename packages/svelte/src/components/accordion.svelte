@@ -1,27 +1,16 @@
 <script lang="ts">
-  import "oreui-web/accordion";
-  import type { OreAccordion } from "oreui-web/accordion";
   import type { OreComponentProps } from "../types.js";
 
-  export type AccordionProps = OreComponentProps<
-    OreAccordion,
-    "defaultOpen" | "open" | "value"
-  > & {
-    onOpenChange?: (event: CustomEvent<boolean>) => void;
-  };
+  export type AccordionProps = OreComponentProps<HTMLDetailsElement>;
 
-  let { children, onOpenChange, ...props }: AccordionProps = $props();
-  let element: OreAccordion;
+  let { children, class: className, ...props }: AccordionProps = $props();
+  let element: HTMLDetailsElement;
 
-  export function getElement(): OreAccordion {
+  export function getElement(): HTMLDetailsElement {
     return element;
   }
 </script>
 
-<ore-accordion
-  bind:this={element}
-  onopen-change={onOpenChange}
-  {...props}
->
+<details bind:this={element} class={`ore-accordion ${className ?? ""}`} {...props}>
   {@render children?.()}
-</ore-accordion>
+</details>

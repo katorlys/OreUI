@@ -1,30 +1,16 @@
 <script lang="ts">
-  import "oreui-web/progress-bar";
-  import type {
-    OreProgressBar,
-    OreProgressBarLabelAlign,
-    OreProgressBarLabelPosition,
-    OreProgressBarVariant,
-  } from "oreui-web/progress-bar";
   import type { OreComponentProps } from "../types.js";
 
-  export type ProgressBarProps = OreComponentProps<
-    OreProgressBar,
-    "label" | "labelAlign" | "labelPosition" | "max" | "value" | "variant"
-  > & {
-    labelAlign?: OreProgressBarLabelAlign;
-    labelPosition?: OreProgressBarLabelPosition;
-    variant?: OreProgressBarVariant;
-  };
+  export type ProgressBarProps = OreComponentProps<HTMLProgressElement>;
 
-  let { children, ...props }: ProgressBarProps = $props();
-  let element: OreProgressBar;
+  let { children, class: className, ...props }: ProgressBarProps = $props();
+  let element: HTMLProgressElement;
 
-  export function getElement(): OreProgressBar {
+  export function getElement(): HTMLProgressElement {
     return element;
   }
 </script>
 
-<ore-progress-bar bind:this={element} {...props}>
+<progress bind:this={element} class={`ore-progress-bar ${className ?? ""}`} {...props}>
   {@render children?.()}
-</ore-progress-bar>
+</progress>

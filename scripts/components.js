@@ -10,3 +10,13 @@ export function getComponents(root) {
     .filter((name) => existsSync(resolve(directory, name, `${name}.ts`)))
     .sort();
 }
+
+export function getComponentStyles(root) {
+  const directory = resolve(root, "src/components");
+
+  return readdirSync(directory, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name)
+    .filter((name) => existsSync(resolve(directory, name, `${name}.css`)))
+    .sort();
+}

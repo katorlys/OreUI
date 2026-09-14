@@ -1,11 +1,9 @@
-import "oreui-web/navbar";
+import type { JSX } from "solid-js";
 
-import type { OreNavbar } from "oreui-web/navbar";
-import { createOreComponent } from "../factory.js";
-import type { OreComponentProps } from "../types.js";
+export type NavbarProps = JSX.HTMLAttributes<HTMLElement>;
 
-export type NavbarProps = OreComponentProps<OreNavbar>;
+export function Navbar(props: NavbarProps): JSX.Element {
+  const { class: className, ...rest } = props;
 
-export const Navbar = createOreComponent<OreNavbar, NavbarProps>({
-  tagName: "ore-navbar",
-});
+  return <nav {...rest} class={`ore-navbar ${className ?? ""}`} />;
+}

@@ -1,11 +1,7 @@
-import "oreui-web/divider";
+import type { JSX } from "solid-js";
 
-import type { OreDivider } from "oreui-web/divider";
-import { createOreComponent } from "../factory.js";
-import type { OreComponentProps } from "../types.js";
+export type DividerProps = JSX.HTMLAttributes<HTMLHRElement>;
 
-export type DividerProps = OreComponentProps<OreDivider>;
-
-export const Divider = createOreComponent<OreDivider, DividerProps>({
-  tagName: "ore-divider",
-});
+export function Divider(props: DividerProps): JSX.Element {
+  return <hr {...props} class="ore-divider" />;
+}

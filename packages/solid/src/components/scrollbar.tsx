@@ -1,11 +1,10 @@
 import "oreui-web/scrollbar";
+import { splitProps, type JSX } from "solid-js";
 
-import type { OreScrollbar } from "oreui-web/scrollbar";
-import { createOreComponent } from "../factory.js";
-import type { OreComponentProps } from "../types.js";
+export type ScrollbarProps = JSX.HTMLAttributes<HTMLDivElement>;
 
-export type ScrollbarProps = OreComponentProps<OreScrollbar>;
+export function Scrollbar(props: ScrollbarProps): JSX.Element {
+  const [local, rest] = splitProps(props, ["class"]);
 
-export const Scrollbar = createOreComponent<OreScrollbar, ScrollbarProps>({
-  tagName: "ore-scrollbar",
-});
+  return <div {...rest} class={`ore-scrollbar ${local.class ?? ""}`} />;
+}

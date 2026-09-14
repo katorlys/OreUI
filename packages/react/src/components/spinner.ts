@@ -1,12 +1,21 @@
-import { createComponent } from "@lit/react";
-import { OreSpinner as OreSpinnerElement } from "oreui-web/spinner";
 import React from "react";
 
-export const Spinner = createComponent({
-  react: React,
-  tagName: "ore-spinner",
-  elementClass: OreSpinnerElement,
-  displayName: "Spinner",
-});
+export type SpinnerProps = React.HTMLAttributes<HTMLSpanElement>;
 
-export type SpinnerProps = React.ComponentProps<typeof Spinner>;
+export const Spinner = React.forwardRef<HTMLSpanElement, SpinnerProps>(
+  function Spinner(
+    { "aria-hidden": ariaHidden, "aria-label": ariaLabel, ...props },
+    ref,
+  ) {
+    return React.createElement("span", {
+      ...props,
+      ref,
+      className: props.className
+        ? `ore-spinner ${props.className}`
+        : "ore-spinner",
+      role: ariaHidden ? undefined : "status",
+      "aria-hidden": ariaHidden,
+      "aria-label": ariaHidden ? undefined : (ariaLabel ?? "Loading"),
+    });
+  },
+);

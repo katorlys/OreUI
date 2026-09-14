@@ -26,8 +26,8 @@ Set tokens in a container to limit them to parts of the page.
 
 ```html
 <section class="realms-theme">
-  <ore-button>Create Realm</ore-button>
-  <ore-progress-bar value="65"></ore-progress-bar>
+  <button>Create Realm</button>
+  <progress class="ore-progress-bar" value="65" max="100"></progress>
 </section>
 ```
 
@@ -50,7 +50,7 @@ Set tokens in a container to limit them to parts of the page.
 Use component-level variables to change a specific component without replacing the global theme.
 
 ```html
-<ore-button class="realms-action">Create Realm</ore-button>
+<button class="realms-action">Create Realm</button>
 ```
 
 ```css
@@ -80,8 +80,9 @@ Wrap overrides in your own variables when you need a public theme API.
 OreUI component selectors use low specificity, so classes and utilities can also override regular CSS properties without `!important`. Button colors are drawn from component variables, so override those variables with arbitrary property utilities:
 
 ```html
-<ore-button
+<button
   class="[--ore-button-background-default:#2563eb] [--ore-button-background-hover:#3b82f6] active:[--ore-button-background:#1d4ed8]"
-  >Create a server</ore-button
 >
+  Create a server
+</button>
 ```

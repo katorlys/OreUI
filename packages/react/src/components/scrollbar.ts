@@ -1,12 +1,16 @@
-import { createComponent } from "@lit/react";
-import { OreScrollbar as OreScrollbarElement } from "oreui-web/scrollbar";
+import "oreui-web/scrollbar";
 import React from "react";
 
-export const Scrollbar = createComponent({
-  react: React,
-  tagName: "ore-scrollbar",
-  elementClass: OreScrollbarElement,
-  displayName: "Scrollbar",
-});
+export type ScrollbarProps = React.HTMLAttributes<HTMLDivElement>;
 
-export type ScrollbarProps = React.ComponentProps<typeof Scrollbar>;
+export const Scrollbar = React.forwardRef<HTMLDivElement, ScrollbarProps>(
+  function Scrollbar(props, ref) {
+    return React.createElement("div", {
+      ...props,
+      ref,
+      className: props.className
+        ? `ore-scrollbar ${props.className}`
+        : "ore-scrollbar",
+    });
+  },
+);

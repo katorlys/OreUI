@@ -16,7 +16,7 @@ import "oreui-web/table";
 ```
 
 ```html
-<ore-table variant="striped">
+<div class="ore-table ore-scrollbar" data-variant="striped">
   <table>
     <caption>
       Available worlds
@@ -38,7 +38,7 @@ import "oreui-web/table";
       </tr>
     </tbody>
   </table>
-</ore-table>
+</div>
 ```
 
     </Tab>
@@ -138,7 +138,7 @@ import { Table } from "@oreui-web/solid/table";
 
 export function PlayersTable() {
   return (
-    <Table variant="bordered">
+    <Table variant="striped">
       <table>
         <thead>
           <tr>
@@ -160,7 +160,7 @@ export function PlayersTable() {
     <Tab value="Astro">
 
 ```astro
-<ore-table variant="striped">
+<div class="ore-table ore-scrollbar" data-variant="striped">
 	<table>
 		<caption>Available worlds</caption>
 		<thead><tr><th scope="col">World</th><th scope="col">Players</th></tr></thead>
@@ -169,7 +169,7 @@ export function PlayersTable() {
 			<tr><th scope="row">Village</th><td>8 / 20</td></tr>
 		</tbody>
 	</table>
-</ore-table>
+</div>
 
 <script>
 	import "oreui-web/table";
@@ -205,9 +205,9 @@ table.addEventListener("sort", (event) => {
 
 ## API
 
-| Prop      | 属性      | 类型                   | 默认值    |
-| --------- | --------- | ---------------------- | --------- |
-| `variant` | `variant` | `"plain" \| "striped"` | `"plain"` |
+| Prop      | 属性           | 类型                   | 默认值    |
+| --------- | -------------- | ---------------------- | --------- |
+| `variant` | `data-variant` | `"plain" \| "striped"` | `"plain"` |
 
 | 事件   | 详细信息                                                               |
 | ------ | ---------------------------------------------------------------------- |
@@ -215,13 +215,14 @@ table.addEventListener("sort", (event) => {
 
 ## 公开类
 
-| 类                             | 用途             |
-| ------------------------------ | ---------------- |
-| `.ore-table-row-header-column` | 行标题列宽度     |
-| `.ore-table-data-column`       | 数据列宽度       |
-| `.ore-table-corner`            | 左上角的空单元格 |
-| `.ore-table-sort`              | 可排序的表头按钮 |
-| `.ore-table-sort-indicator`    | 升序和降序指示器 |
+| 类                             | 用途                     |
+| ------------------------------ | ------------------------ |
+| `.ore-table`                   | 表格容器与 controller 根 |
+| `.ore-table-row-header-column` | 行标题列宽度             |
+| `.ore-table-data-column`       | 数据列宽度               |
+| `.ore-table-corner`            | 左上角的空单元格         |
+| `.ore-table-sort`              | 可排序的表头按钮         |
+| `.ore-table-sort-indicator`    | 升序和降序指示器         |
 
 ## CSS 变量
 

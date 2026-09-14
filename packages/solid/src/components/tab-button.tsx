@@ -1,15 +1,20 @@
-import "oreui-web/tab-button";
+import type { JSX } from "solid-js";
 
-import type { OreTabButton } from "oreui-web/tab-button";
-import { createOreComponent } from "../factory.js";
-import type { OreComponentProps } from "../types.js";
+export type TabButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {
+  palette?: "default" | "toggle";
+  selected?: boolean;
+  variant?: string;
+};
 
-export type TabButtonProps = OreComponentProps<
-  OreTabButton,
-  "color" | "disabled" | "palette" | "selected" | "type" | "variant"
->;
-
-export const TabButton = createOreComponent<OreTabButton, TabButtonProps>({
-  properties: ["color", "disabled", "palette", "selected", "type", "variant"],
-  tagName: "ore-tab-button",
-});
+export function TabButton(props: TabButtonProps): JSX.Element {
+  return (
+    <button
+      {...props}
+      class="ore-tab-button"
+      aria-selected={props.selected}
+      data-palette={props.palette}
+      data-variant={props.variant}
+      role="tab"
+    />
+  );
+}

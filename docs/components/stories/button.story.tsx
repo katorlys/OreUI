@@ -49,13 +49,14 @@ function ButtonPreview({
 
 export function LinkButtonPreview() {
   return (
-    <Button
+    <a
+      className="ore-button"
       href="https://github.com/katorlys/OreUI"
       target="_blank"
       rel="noreferrer"
     >
       Open OreUI on GitHub
-    </Button>
+    </a>
   );
 }
 

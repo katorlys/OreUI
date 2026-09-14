@@ -28,6 +28,7 @@ export function HomeShowcase() {
   const [mode, setMode] = useState("survival");
   const [type, setType] = useState("education");
   const [store, setStore] = useState("realms");
+  const [username, setUsername] = useState("Shawn");
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -147,10 +148,7 @@ export function HomeShowcase() {
                 max={16}
                 aria-label="Render distance"
                 onInput={(event) =>
-                  setDistance(
-                    (event.currentTarget as HTMLElement & { value: number })
-                      .value,
-                  )
+                  setDistance(event.currentTarget.valueAsNumber)
                 }
               />
               <Slider
@@ -162,20 +160,23 @@ export function HomeShowcase() {
                 color="gold"
                 aria-label="Segmented render distance"
                 onInput={(event) =>
-                  setDistance(
-                    (event.currentTarget as HTMLElement & { value: number })
-                      .value,
-                  )
+                  setDistance(event.currentTarget.valueAsNumber)
                 }
               />
             </div>
             <div className="grid gap-3">
               <ProgressBar
                 className="w-full"
-                variant="labeled"
                 value={progress}
                 max={100}
+                aria-labelledby="showcase-progress-label"
               />
+              <output
+                className="ore-progress-bar-label w-full"
+                id="showcase-progress-label"
+              >
+                {progress}%
+              </output>
             </div>
             <div className="flex flex-row justify-between">
               <Checkbox
@@ -273,7 +274,8 @@ export function HomeShowcase() {
                 className="w-full max-w-none"
                 style={textfieldStyle}
                 label="Username"
-                value="Shawn"
+                value={username}
+                onInput={(event) => setUsername(event.currentTarget.value)}
               />
               <Textfield
                 className="w-full max-w-none"

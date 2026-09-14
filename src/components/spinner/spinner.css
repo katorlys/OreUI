@@ -1,4 +1,4 @@
-:where(ore-spinner) {
+:where(.ore-spinner) {
   display: inline-block;
   overflow: hidden;
   box-sizing: border-box;
@@ -9,11 +9,13 @@
   vertical-align: -0.125em;
 }
 
-:where(ore-spinner > svg) {
+:where(.ore-spinner)::before {
+  content: "";
   display: block;
   width: 3475%;
-  max-width: none;
   height: 100%;
+  background-color: currentColor;
+  mask: url("../../assets/icons/spinner.svg") 0 0 / 100% 100% no-repeat;
   animation: ore-spinner 800ms steps(15, jump-end) infinite;
 }
 
@@ -24,7 +26,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :where(ore-spinner > svg) {
+  :where(.ore-spinner)::before {
     animation: none;
   }
 }

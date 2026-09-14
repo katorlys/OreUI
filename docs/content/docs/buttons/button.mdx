@@ -18,11 +18,11 @@ Use buttons for actions such as confirming a choice, opening a screen, or submit
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "oreui-web/button";
+import "oreui-web/styles.css";
 ```
 
 ```html
-<ore-button type="button">Create new world</ore-button>
+<button class="ore-button" type="button">Create new world</button>
 ```
 
     </Tab>
@@ -75,11 +75,7 @@ export function App() {
     <Tab value="Astro">
 
 ```astro
-<ore-button type="button">Create new world</ore-button>
-
-<script>
-	import "oreui-web/button";
-</script>
+<button class="ore-button" type="button">Create new world</button>
 ```
 
     </Tab>
@@ -89,34 +85,36 @@ export function App() {
 ## Variants
 
 ```html
-<ore-button variant="default">Default</ore-button>
-<ore-button variant="hero">Hero</ore-button>
+<button class="ore-button" data-variant="default">Default</button>
+<button class="ore-button" data-variant="hero">Hero</button>
 ```
 
 ## Colors
 
 ```html
-<ore-button color="primary">Primary</ore-button>
-<ore-button color="secondary">Secondary</ore-button>
-<ore-button color="destructive">Delete</ore-button>
-<ore-button color="dungeons">Dungeons</ore-button>
-<ore-button color="legends">Legends</ore-button>
-<ore-button color="gold">Gold</ore-button>
-<ore-button color="realms">Realms</ore-button>
+<button class="ore-button" data-color="primary">Primary</button>
+<button class="ore-button" data-color="secondary">Secondary</button>
+<button class="ore-button" data-color="destructive">Delete</button>
+<button class="ore-button" data-color="dungeons">Dungeons</button>
+<button class="ore-button" data-color="legends">Legends</button>
+<button class="ore-button" data-color="gold">Gold</button>
+<button class="ore-button" data-color="realms">Realms</button>
 ```
 
 ## Disabled
 
 ```html
-<ore-button disabled>Unavailable</ore-button>
+<button class="ore-button" disabled>Unavailable</button>
 ```
 
 ## Loading
 
-Set `loading` while an action is in progress. The button keeps its width, shows a spinner, exposes `aria-busy="true"`, and prevents repeated activation.
+Set `data-loading` while an action is in progress, and keep the native button disabled with `aria-busy="true"`. Framework bindings do this mapping when their `loading` prop is set.
 
 ```html
-<ore-button loading>Saving</ore-button>
+<button class="ore-button" data-loading aria-busy="true" disabled>
+  Saving
+</button>
 ```
 
 ## Prefix and suffix
@@ -126,30 +124,35 @@ Use the public `.ore-button-prefix` and `.ore-button-suffix` classes to place pr
 <ButtonAffixesPreview />
 
 ```html
-<ore-button>
+<button class="ore-button" type="button">
   <img class="ore-button-prefix" src="/icons/arrow-left.svg" alt="" />
   Back
-</ore-button>
+</button>
 
-<ore-button>
+<button class="ore-button" type="button">
   Continue
   <img class="ore-button-suffix" src="/icons/arrow-right.svg" alt="" />
-</ore-button>
+</button>
 ```
 
 ## Links
 
-Set `href` to use the component for navigation. Link buttons use a native anchor and support browser behaviors such as opening in a new tab, copying the link, and downloading a resource.
+Use a native anchor with `class="ore-button"` for navigation. It preserves browser behaviors such as opening in a new tab, copying the link, and downloading a resource.
 
 <LinkButtonPreview />
 
 ```html
-<ore-button href="https://example.com" target="_blank" rel="noreferrer">
+<a
+  class="ore-button"
+  href="https://example.com"
+  target="_blank"
+  rel="noreferrer"
+>
   Open website
-</ore-button>
+</a>
 ```
 
-Use a link button for navigation and a regular button for actions. A disabled link is removed from the tab order and does not navigate.
+Use a link button for navigation and a regular button for actions. Anchors do not support `disabled`; omit `href` or remove the link when navigation is unavailable.
 
 ## Forms
 
@@ -157,32 +160,18 @@ The default `type` is `button`. Set `type="submit"` explicitly for a submit butt
 
 ```html
 <form id="settings">
-  <ore-button type="submit" name="action" value="save">Save</ore-button>
-  <ore-button type="reset" color="secondary">Reset</ore-button>
+  <button type="submit" name="action" value="save">Save</button>
+  <button type="reset" data-color="secondary">Reset</button>
 </form>
 
-<ore-button type="submit" form="settings" name="action" value="save-and-close">
+<button type="submit" form="settings" name="action" value="save-and-close">
   Save and close
-</ore-button>
+</button>
 ```
 
 ## API
 
-| Property   | Attribute  | Type                                                                                         | Default     |
-| ---------- | ---------- | -------------------------------------------------------------------------------------------- | ----------- |
-| `color`    | `color`    | `"destructive" \| "dungeons" \| "gold" \| "legends" \| "primary" \| "realms" \| "secondary"` | `"primary"` |
-| `disabled` | `disabled` | `boolean`                                                                                    | `false`     |
-| `download` | `download` | `string \| undefined`                                                                        | `undefined` |
-| `href`     | `href`     | `string \| undefined`                                                                        | `undefined` |
-| `loading`  | `loading`  | `boolean`                                                                                    | `false`     |
-| `name`     | `name`     | `string`                                                                                     | `""`        |
-| `rel`      | `rel`      | `string \| undefined`                                                                        | `undefined` |
-| `target`   | `target`   | `string \| undefined`                                                                        | `undefined` |
-| `type`     | `type`     | `"button" \| "reset" \| "submit"`                                                            | `"button"`  |
-| `value`    | `value`    | `string`                                                                                     | `""`        |
-| `variant`  | `variant`  | `"default" \| "hero"`                                                                        | `"default"` |
-
-The read-only `form` property returns the associated `HTMLFormElement`, or `null`. The `form` attribute accepts a form ID.
+Button uses the native `HTMLButtonElement` API. Use native attributes such as `disabled`, `form`, `name`, `type`, and `value`; use `data-color`, `data-variant`, and `data-loading` only for OreUI visual configuration.
 
 ## CSS variables
 
@@ -204,4 +193,4 @@ The read-only `form` property returns the associated `HTMLFormElement`, or `null
 
 ## Accessibility
 
-Without `href`, the component uses button semantics and supports `Enter` and `Space`. With `href`, a native anchor provides link semantics and standard browser navigation. Disabled buttons and links are removed from the tab order and expose `aria-disabled="true"`. Loading buttons expose `aria-busy="true"` and prevent repeated activation.
+Native buttons provide form participation, validation, focus, `Enter`, and `Space` behavior without a controller. Native anchors provide standard link semantics and navigation. Loading buttons remain disabled and expose `aria-busy="true"`.

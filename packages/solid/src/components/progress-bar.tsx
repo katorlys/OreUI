@@ -1,24 +1,9 @@
-import "oreui-web/progress-bar";
+import { splitProps, type JSX } from "solid-js";
 
-import type { OreProgressBar } from "oreui-web/progress-bar";
-import { createOreComponent } from "../factory.js";
-import type { OreComponentProps } from "../types.js";
+export type ProgressBarProps = JSX.ProgressHTMLAttributes<HTMLProgressElement>;
 
-export type ProgressBarProps = OreComponentProps<
-  OreProgressBar,
-  "label" | "labelAlign" | "labelPosition" | "max" | "value" | "variant"
->;
+export function ProgressBar(props: ProgressBarProps): JSX.Element {
+  const [local, rest] = splitProps(props, ["class"]);
 
-export const ProgressBar = createOreComponent<OreProgressBar, ProgressBarProps>(
-  {
-    properties: [
-      "label",
-      "labelAlign",
-      "labelPosition",
-      "max",
-      "value",
-      "variant",
-    ],
-    tagName: "ore-progress-bar",
-  },
-);
+  return <progress {...rest} class={`ore-progress-bar ${local.class ?? ""}`} />;
+}

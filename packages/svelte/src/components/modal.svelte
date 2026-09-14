@@ -1,34 +1,16 @@
 <script lang="ts">
-  import "oreui-web/modal";
-  import type { OreModal, OreModalCloseDetail } from "oreui-web/modal";
   import type { OreComponentProps } from "../types.js";
 
-  export type ModalProps = OreComponentProps<
-    OreModal,
-    "defaultOpen" | "open"
-  > & {
-    onModalClose?: (event: CustomEvent<OreModalCloseDetail>) => void;
-    onOpenChange?: (event: CustomEvent<boolean>) => void;
-  };
+  export type ModalProps = OreComponentProps<HTMLDialogElement, "open">;
 
-  let {
-    children,
-    onModalClose,
-    onOpenChange,
-    ...props
-  }: ModalProps = $props();
-  let element: OreModal;
+  let { children, class: className, ...props }: ModalProps = $props();
+  let element: HTMLDialogElement;
 
-  export function getElement(): OreModal {
+  export function getElement(): HTMLDialogElement {
     return element;
   }
 </script>
 
-<ore-modal
-  bind:this={element}
-  onmodal-close={onModalClose}
-  onopen-change={onOpenChange}
-  {...props}
->
+<dialog bind:this={element} class={`ore-modal ${className ?? ""}`} {...props}>
   {@render children?.()}
-</ore-modal>
+</dialog>

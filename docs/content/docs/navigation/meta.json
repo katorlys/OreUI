@@ -1,4 +1,4 @@
 {
   "title": "Navigation",
-  "pages": ["navbar", "tab-bar", "scrollbar"]
+  "pages": ["navbar", "scrollbar"]
 }

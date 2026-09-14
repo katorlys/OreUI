@@ -11,14 +11,18 @@ import { SwitchStory } from "@/components/stories/switch.story";
 
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
-```js
-import "oreui-web/switch";
-```
-
 ```html
-<ore-switch name="autosave" value="enabled" variant="icons">
+<label>
+  <input
+    class="ore-switch"
+    type="checkbox"
+    role="switch"
+    name="autosave"
+    value="enabled"
+    data-variant="icons"
+  />
   Enable autosave
-</ore-switch>
+</label>
 ```
 
     </Tab>
@@ -38,8 +42,7 @@ export function AutosaveSwitch() {
       value="enabled"
       variant="icons"
       onChange={(event) => {
-        const control = event.target as HTMLElement & { checked: boolean };
-        setChecked(control.checked);
+        setChecked(event.currentTarget.checked);
       }}
     >
       Enable autosave
@@ -108,13 +111,16 @@ export function AutosaveSwitch() {
     <Tab value="Astro">
 
 ```astro
-<ore-switch name="autosave" value="enabled" variant="icons">
-	Enable autosave
-</ore-switch>
-
-<script>
-	import "oreui-web/switch";
-</script>
+<label>
+  <input
+    type="checkbox"
+    role="switch"
+    name="autosave"
+    value="enabled"
+    data-variant="icons"
+  />
+  Enable autosave
+</label>
 ```
 
     </Tab>
@@ -124,22 +130,74 @@ export function AutosaveSwitch() {
 ## 变体
 
 ```html
-<ore-switch variant="default">Default</ore-switch>
-<ore-switch variant="icons">Icons</ore-switch>
+<label
+  ><input class="ore-switch" type="checkbox" role="switch" /> Default</label
+>
+<label>
+  <input
+    class="ore-switch"
+    type="checkbox"
+    role="switch"
+    data-variant="icons"
+  />
+  Icons
+</label>
 ```
 
 ## 颜色
 
-使用 `color` 修改开启状态的颜色。
+使用 `data-color` 修改开启状态的颜色。
 
 ```html
-<ore-switch color="primary" checked>Primary</ore-switch>
-<ore-switch color="secondary" checked>Secondary</ore-switch>
-<ore-switch color="destructive" checked>Destructive</ore-switch>
-<ore-switch color="dungeons" checked>Dungeons</ore-switch>
-<ore-switch color="legends" checked>Legends</ore-switch>
-<ore-switch color="realms" checked>Realms</ore-switch>
-<ore-switch color="gold" checked>Gold</ore-switch>
+<input
+  class="ore-switch"
+  type="checkbox"
+  role="switch"
+  data-color="primary"
+  checked
+/>
+<input
+  class="ore-switch"
+  type="checkbox"
+  role="switch"
+  data-color="secondary"
+  checked
+/>
+<input
+  class="ore-switch"
+  type="checkbox"
+  role="switch"
+  data-color="destructive"
+  checked
+/>
+<input
+  class="ore-switch"
+  type="checkbox"
+  role="switch"
+  data-color="dungeons"
+  checked
+/>
+<input
+  class="ore-switch"
+  type="checkbox"
+  role="switch"
+  data-color="legends"
+  checked
+/>
+<input
+  class="ore-switch"
+  type="checkbox"
+  role="switch"
+  data-color="realms"
+  checked
+/>
+<input
+  class="ore-switch"
+  type="checkbox"
+  role="switch"
+  data-color="gold"
+  checked
+/>
 ```
 
 ## 表单
@@ -148,19 +206,11 @@ export function AutosaveSwitch() {
 
 ## 事件
 
-Switch 的值发生变化后，会触发原生 `input` 和 `change` 事件。
+原生 input 的 checked 状态发生变化后，会触发 `input` 和 `change` 事件。
 
-## API
+## 属性
 
-| Prop       | 属性       | 类型                                                                                         | 默认值      |
-| ---------- | ---------- | -------------------------------------------------------------------------------------------- | ----------- |
-| `checked`  | `checked`  | `boolean`                                                                                    | `false`     |
-| `color`    | `color`    | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"` |
-| `disabled` | `disabled` | `boolean`                                                                                    | `false`     |
-| `name`     | `name`     | `string`                                                                                     | `""`        |
-| `required` | `required` | `boolean`                                                                                    | `false`     |
-| `value`    | `value`    | `string`                                                                                     | `"on"`      |
-| `variant`  | `variant`  | `"default" \| "icons"`                                                                       | `"default"` |
+Switch 使用原生 checkbox 的 `checked`、`disabled`、`name`、`required` 和 `value` 属性。使用 `ore-switch` class 和 `role="switch"` 提供开关样式与语义。OreUI 选项使用 `data-color` 和 `data-variant="icons"`。
 
 ## CSS 变量
 
@@ -180,4 +230,4 @@ Switch 的值发生变化后，会触发原生 `input` 和 `change` 事件。
 
 ## 无障碍
 
-Switch 提供相应的无障碍语义，并支持`空格键`。使用标签描述对应的内容。
+原生 checkbox 提供表单和键盘行为，`role="switch"` 提供开关语义。使用 label 描述对应的控件。

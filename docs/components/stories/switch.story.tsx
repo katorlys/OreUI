@@ -2,7 +2,8 @@
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
 import { Switch } from "@oreui-web/react/switch";
-import { useEffect, useState } from "react";
+import type { ChangeEvent } from "react";
+import { useState } from "react";
 
 interface SwitchPreviewProps {
   color:
@@ -26,28 +27,19 @@ function SwitchPreview({
   label,
   variant,
 }: SwitchPreviewProps) {
-  const [mounted, setMounted] = useState(false);
   const [checked, setChecked] = useState(initialChecked);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <div style={{ display: "grid", gap: "1rem" }}>
       <Switch
         className="text-current"
+        labelClassName="text-fd-foreground"
         checked={checked}
         color={color}
         disabled={disabled}
         variant={variant}
-        onChange={(event) => {
-          const control = event.target as HTMLElement & { checked: boolean };
-          setChecked(control.checked);
+        onChange={(event: ChangeEvent<HTMLInputElement>) => {
+          setChecked(event.currentTarget.checked);
         }}
       >
         {label}

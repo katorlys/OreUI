@@ -1,194 +1,105 @@
-import { type PropertyValues, ReactiveElement } from "lit";
-
+export type OreDropdownElement = HTMLElement;
 export type OreDropdownVariant = "bordered" | "borderless";
 
 export interface OreDropdownChangeDetail {
-  item: HTMLElement;
+  item: HTMLButtonElement;
   value: string;
 }
 
+interface DropdownState {
+  handleClick: (event: MouseEvent) => void;
+  handleDocumentPointerDown: (event: PointerEvent) => void;
+  handleKeydown: (event: KeyboardEvent) => void;
+  handleToggle: (event: ToggleEvent) => void;
+  menu: HTMLElement;
+  mutationObserver: MutationObserver;
+  position: () => void;
+  trigger: HTMLButtonElement;
+}
+
+const dropdownSelector = ".ore-dropdown";
+const states = new WeakMap<OreDropdownElement, DropdownState>();
+let openState: DropdownState | null = null;
 let dropdownId = 0;
 
-export class OreDropdown extends ReactiveElement {
-  static properties = {
-    defaultOpen: { type: Boolean, attribute: "default-open" },
-    open: { type: Boolean, reflect: true },
-    value: { type: String, reflect: true },
-    variant: { type: String, reflect: true },
-  };
+function getItems(dropdown: OreDropdownElement): HTMLButtonElement[] {
+  return [
+    ...dropdown.querySelectorAll<HTMLButtonElement>(
+      ":scope > .ore-dropdown-menu > .ore-dropdown-item",
+    ),
+  ];
+}
 
-  declare defaultOpen: boolean;
-  declare open: boolean;
-  declare value: string;
-  declare variant: OreDropdownVariant;
+function syncSelection(dropdown: OreDropdownElement): void {
+  const value = dropdown.dataset.value ?? "";
+  let selectedItem: HTMLButtonElement | undefined;
 
-  constructor() {
-    super();
-    this.defaultOpen = false;
-    this.open = false;
-    this.value = "";
-    this.variant = "borderless";
-  }
+  for (const item of getItems(dropdown)) {
+    const selected = item.dataset.value === value;
+    item.setAttribute("aria-checked", String(selected));
+    item.setAttribute("role", "menuitemradio");
+    item.tabIndex = -1;
 
-  get trigger(): HTMLElement | null {
-    return this.querySelector(":scope > .ore-dropdown-trigger");
-  }
-
-  get menu(): HTMLElement | null {
-    return this.querySelector(":scope > .ore-dropdown-menu");
-  }
-
-  get items(): HTMLElement[] {
-    return [
-      ...this.querySelectorAll<HTMLElement>(
-        ":scope > .ore-dropdown-menu > .ore-dropdown-item",
-      ),
-    ];
-  }
-
-  override connectedCallback(): void {
-    super.connectedCallback();
-    this.addEventListener("click", this.#handleClick);
-    this.addEventListener("keydown", this.#handleKeyDown);
-    this.menu?.addEventListener("toggle", this.#handlePopoverToggle);
-    document.addEventListener("pointerdown", this.#handleOutsidePointerDown);
-    this.#setup();
-
-    if (this.defaultOpen) {
-      this.open = true;
+    if (selected) {
+      selectedItem = item;
     }
   }
 
-  override disconnectedCallback(): void {
-    this.removeEventListener("click", this.#handleClick);
-    this.removeEventListener("keydown", this.#handleKeyDown);
-    this.menu?.removeEventListener("toggle", this.#handlePopoverToggle);
-    document.removeEventListener("pointerdown", this.#handleOutsidePointerDown);
-    window.removeEventListener("resize", this.#position);
-    window.removeEventListener("scroll", this.#position, true);
-    super.disconnectedCallback();
-  }
-
-  protected override createRenderRoot(): HTMLElement {
-    return this;
-  }
-
-  protected override updated(changed: PropertyValues<this>): void {
-    if (changed.has("open")) {
-      this.#syncOpen();
-    }
-
-    if (changed.has("value")) {
-      this.#syncSelection();
-    }
-
-    if (changed.has("open") && changed.get("open") !== undefined) {
-      this.dispatchEvent(
-        new CustomEvent<boolean>("open-change", {
-          bubbles: true,
-          composed: true,
-          detail: this.open,
-        }),
-      );
-    }
-  }
-
-  #setup(): void {
-    const trigger = this.trigger;
-    const menu = this.menu;
-
-    if (!trigger || !menu) {
-      return;
-    }
-
-    if (!menu.id) {
-      menu.id = `ore-dropdown-${++dropdownId}`;
-    }
-
-    trigger.setAttribute("aria-haspopup", "menu");
-    trigger.setAttribute("aria-controls", menu.id);
-    menu.setAttribute("role", "menu");
-    menu.setAttribute("popover", "manual");
-
-    for (const item of this.items) {
-      item.setAttribute("role", "menuitemradio");
-      item.tabIndex = -1;
-    }
-
-    this.#syncSelection();
-    this.#syncExpanded();
-  }
-
-  #syncOpen(): void {
-    const menu = this.menu;
-
-    if (!menu) {
-      return;
-    }
-
-    if (this.open && !menu.matches(":popover-open")) {
-      menu.showPopover();
-      window.addEventListener("resize", this.#position);
-      window.addEventListener("scroll", this.#position, true);
-      this.#position();
-      window.setTimeout(this.#position);
-      requestAnimationFrame(this.#position);
-    } else if (!this.open && menu.matches(":popover-open")) {
-      menu.hidePopover();
-      window.removeEventListener("resize", this.#position);
-      window.removeEventListener("scroll", this.#position, true);
-    }
-
-    this.#syncExpanded();
-  }
-
-  #syncExpanded(): void {
-    this.trigger?.setAttribute("aria-expanded", String(this.open));
-  }
-
-  #syncSelection(): void {
-    let selectedItem: HTMLElement | undefined;
-
-    for (const item of this.items) {
-      const selected = item.dataset.value === this.value;
-      item.toggleAttribute("selected", selected);
-      item.setAttribute("aria-checked", String(selected));
-
-      if (selected) {
-        selectedItem = item;
-      }
-    }
-
-    const label = selectedItem?.textContent?.trim();
-    const trigger = this.trigger;
-
-    if (!label || !trigger) {
-      return;
-    }
-
-    const labelElement = trigger.querySelector<HTMLElement>(
+  const label = selectedItem?.textContent?.trim();
+  const labelElement = states
+    .get(dropdown)
+    ?.trigger.querySelector<HTMLElement>(
       ":scope > .ore-dropdown-trigger-label",
     );
 
-    if (labelElement) {
-      labelElement.textContent = label;
-      return;
-    }
+  if (label && labelElement && labelElement.textContent !== label) {
+    labelElement.textContent = label;
+  }
+}
 
-    const textNode = [...trigger.childNodes].find(
-      (node) => node.nodeType === Node.TEXT_NODE && node.textContent?.trim(),
-    );
+function enabledItems(dropdown: OreDropdownElement): HTMLButtonElement[] {
+  return getItems(dropdown).filter((item) => !item.disabled);
+}
 
-    if (textNode) {
-      textNode.textContent = label;
-    }
+function focusItem(dropdown: OreDropdownElement, index: number): void {
+  const items = enabledItems(dropdown);
+  const item = items[(index + items.length) % items.length];
+
+  item?.focus();
+  item?.scrollIntoView({ block: "nearest" });
+}
+
+export function initDropdown(dropdown: OreDropdownElement): void {
+  if (states.has(dropdown)) {
+    syncSelection(dropdown);
+    return;
   }
 
-  readonly #position = (): void => {
-    const trigger = this.trigger;
-    const menu = this.menu;
+  const trigger = dropdown.querySelector<HTMLButtonElement>(
+    ":scope > .ore-dropdown-trigger",
+  );
+  const menu = dropdown.querySelector<HTMLElement>(
+    ":scope > .ore-dropdown-menu",
+  );
 
-    if (!trigger || !menu || !menu.matches(":popover-open")) {
+  if (!trigger || !menu) {
+    return;
+  }
+
+  if (!menu.id) {
+    menu.id = `ore-dropdown-${++dropdownId}`;
+  }
+
+  trigger.setAttribute("aria-haspopup", "menu");
+  trigger.setAttribute("aria-controls", menu.id);
+  trigger.setAttribute("aria-expanded", "false");
+  trigger.removeAttribute("popovertarget");
+  menu.setAttribute("popover", "manual");
+  menu.setAttribute("role", "menu");
+  menu.classList.add("ore-scrollbar");
+
+  const position = (): void => {
+    if (!menu.matches(":popover-open")) {
       return;
     }
 
@@ -199,141 +110,246 @@ export class OreDropdown extends ReactiveElement {
       "--ore-dropdown-scrollbar-width",
       `${scrollbarWidth}px`,
     );
-    menu.style.width = `${triggerRect.width + scrollbarWidth}px`;
     const menuRect = menu.getBoundingClientRect();
-    const unit = Number.parseFloat(getComputedStyle(menu).paddingTop);
     const inset = 2;
     const left = Math.min(
       Math.max(triggerRect.left, inset),
       innerWidth - menuRect.width - inset,
     );
-    const below =
-      triggerRect.top - unit + menuRect.height <= innerHeight - inset;
+    const below = triggerRect.bottom + menuRect.height <= innerHeight - inset;
 
     menu.style.left = `${left}px`;
-    menu.style.top = `${below ? triggerRect.top - unit : triggerRect.bottom - menuRect.height + unit}px`;
+    menu.style.top = `${below ? triggerRect.bottom : triggerRect.top - menuRect.height}px`;
   };
 
-  #enabledItems(): HTMLElement[] {
-    return this.items.filter((item) => !item.hasAttribute("disabled"));
-  }
+  const startPositioning = (): void => {
+    position();
+    requestAnimationFrame(position);
+    window.addEventListener("resize", position);
+    window.addEventListener("scroll", position, true);
+  };
 
-  #focusItem(index: number): void {
-    const items = this.#enabledItems();
+  const stopPositioning = (): void => {
+    window.removeEventListener("resize", position);
+    window.removeEventListener("scroll", position, true);
+  };
 
-    if (items.length > 0) {
-      const item = items[(index + items.length) % items.length];
+  const handleToggle = (event: ToggleEvent): void => {
+    const open = event.newState === "open";
+    trigger.setAttribute("aria-expanded", String(open));
 
-      item?.focus();
-      item?.scrollIntoView({ block: "nearest" });
+    if (open) {
+      openState = states.get(dropdown) ?? null;
+      startPositioning();
+    } else {
+      if (openState?.menu === menu) {
+        openState = null;
+      }
+      stopPositioning();
     }
-  }
+  };
 
-  #openAndFocus(last = false): void {
-    this.open = true;
-    requestAnimationFrame(() => this.#focusItem(last ? -1 : 0));
-  }
+  const close = (): void => {
+    if (menu.matches(":popover-open")) {
+      menu.hidePopover();
+    }
+  };
 
-  #select(item: HTMLElement): void {
-    const value = item.dataset.value;
-
-    if (value === undefined || item.hasAttribute("disabled")) {
+  const open = (): void => {
+    if (menu.matches(":popover-open")) {
       return;
     }
 
-    this.value = value;
-    this.open = false;
-    this.trigger?.focus();
-    this.dispatchEvent(
+    if (openState && openState.menu !== menu) {
+      openState.menu.hidePopover();
+    }
+
+    menu.showPopover();
+    openState = states.get(dropdown) ?? null;
+    startPositioning();
+  };
+
+  const select = (item: HTMLButtonElement): void => {
+    const value = item.dataset.value;
+
+    if (value === undefined || item.disabled) {
+      return;
+    }
+
+    dropdown.dataset.value = value;
+    syncSelection(dropdown);
+    close();
+    trigger.focus();
+    dropdown.dispatchEvent(
       new CustomEvent<OreDropdownChangeDetail>("change", {
         bubbles: true,
-        composed: true,
         detail: { item, value },
       }),
     );
-  }
+  };
 
-  readonly #handleClick = (event: MouseEvent): void => {
+  const handleClick = (event: MouseEvent): void => {
     const target = event.target;
+    const item =
+      target instanceof Element
+        ? target.closest<HTMLButtonElement>(".ore-dropdown-item")
+        : null;
 
-    if (!(target instanceof Element)) {
-      return;
-    }
-
-    const item = target.closest<HTMLElement>(".ore-dropdown-item");
-
-    if (item && this.contains(item)) {
-      this.#select(item);
-    } else if (target.closest(".ore-dropdown-trigger") === this.trigger) {
-      this.open = !this.open;
+    if (item && dropdown.contains(item)) {
+      select(item);
+    } else if (
+      target instanceof Element &&
+      target.closest(".ore-dropdown-trigger") === trigger
+    ) {
+      if (menu.matches(":popover-open")) {
+        close();
+      } else {
+        open();
+      }
     }
   };
 
-  readonly #handleKeyDown = (event: KeyboardEvent): void => {
-    const target = event.target;
+  const handleDocumentPointerDown = (event: PointerEvent): void => {
+    if (
+      menu.matches(":popover-open") &&
+      !event.composedPath().includes(dropdown)
+    ) {
+      close();
+    }
+  };
 
-    if (target === this.trigger) {
+  const handleKeydown = (event: KeyboardEvent): void => {
+    if (event.target === trigger) {
       if (event.key === "ArrowDown" || event.key === "ArrowUp") {
         event.preventDefault();
-        this.#openAndFocus(event.key === "ArrowUp");
-      } else if (event.key === "Escape" && this.open) {
+        if (!menu.matches(":popover-open")) {
+          open();
+        }
+        requestAnimationFrame(() =>
+          focusItem(dropdown, event.key === "ArrowUp" ? -1 : 0),
+        );
+      } else if (event.key === "Escape" && menu.matches(":popover-open")) {
         event.preventDefault();
-        this.open = false;
+        close();
       }
       return;
     }
 
-    if (
-      !(target instanceof HTMLElement) ||
-      !target.matches(".ore-dropdown-item")
-    ) {
+    if (!(event.target instanceof HTMLButtonElement)) {
       return;
     }
 
-    const items = this.#enabledItems();
-    const index = items.indexOf(target);
+    const items = enabledItems(dropdown);
+    const index = items.indexOf(event.target);
+
+    if (index < 0) {
+      return;
+    }
 
     if (event.key === "ArrowDown" || event.key === "ArrowUp") {
       event.preventDefault();
-      this.#focusItem(index + (event.key === "ArrowDown" ? 1 : -1));
+      focusItem(dropdown, index + (event.key === "ArrowDown" ? 1 : -1));
     } else if (event.key === "Home" || event.key === "End") {
       event.preventDefault();
-      this.#focusItem(event.key === "Home" ? 0 : -1);
+      focusItem(dropdown, event.key === "Home" ? 0 : -1);
     } else if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      this.#select(target);
+      select(event.target);
     } else if (event.key === "Escape") {
       event.preventDefault();
-      this.open = false;
-      this.trigger?.focus();
+      close();
+      trigger.focus();
     } else if (event.key === "Tab") {
-      this.open = false;
+      close();
     }
   };
 
-  readonly #handleOutsidePointerDown = (event: PointerEvent): void => {
-    if (
-      this.open &&
-      event.target instanceof Node &&
-      !this.contains(event.target)
-    ) {
-      this.open = false;
-    }
-  };
-
-  readonly #handlePopoverToggle = (event: ToggleEvent): void => {
-    if (event.newState === "closed" && this.open) {
-      this.open = false;
-    }
-  };
+  const mutationObserver = new MutationObserver(() => syncSelection(dropdown));
+  states.set(dropdown, {
+    handleClick,
+    handleDocumentPointerDown,
+    handleKeydown,
+    handleToggle,
+    menu,
+    mutationObserver,
+    position,
+    trigger,
+  });
+  dropdown.dataset.oreInitialized = "dropdown";
+  dropdown.addEventListener("click", handleClick);
+  dropdown.addEventListener("keydown", handleKeydown);
+  document.addEventListener("pointerdown", handleDocumentPointerDown, true);
+  menu.addEventListener("toggle", handleToggle);
+  mutationObserver.observe(dropdown, {
+    attributeFilter: ["data-value", "disabled"],
+    attributes: true,
+    childList: true,
+    subtree: true,
+  });
+  syncSelection(dropdown);
 }
 
-if (!customElements.get("ore-dropdown")) {
-  customElements.define("ore-dropdown", OreDropdown);
-}
+export function destroyDropdown(dropdown: OreDropdownElement): void {
+  const state = states.get(dropdown);
 
-declare global {
-  interface HTMLElementTagNameMap {
-    "ore-dropdown": OreDropdown;
+  if (!state) {
+    return;
   }
+
+  dropdown.removeEventListener("click", state.handleClick);
+  dropdown.removeEventListener("keydown", state.handleKeydown);
+  document.removeEventListener(
+    "pointerdown",
+    state.handleDocumentPointerDown,
+    true,
+  );
+  state.menu.removeEventListener("toggle", state.handleToggle);
+  state.mutationObserver.disconnect();
+  window.removeEventListener("resize", state.position);
+  window.removeEventListener("scroll", state.position, true);
+  if (openState === state) {
+    openState = null;
+  }
+  delete dropdown.dataset.oreInitialized;
+  states.delete(dropdown);
+}
+
+export function initDropdowns(root: ParentNode = document): void {
+  if (root instanceof HTMLElement && root.matches(dropdownSelector)) {
+    initDropdown(root);
+  }
+
+  for (const dropdown of root.querySelectorAll<OreDropdownElement>(
+    dropdownSelector,
+  )) {
+    initDropdown(dropdown);
+  }
+}
+
+if (typeof document !== "undefined") {
+  initDropdowns();
+
+  new MutationObserver((records) => {
+    for (const record of records) {
+      for (const node of record.addedNodes) {
+        if (node instanceof HTMLElement) {
+          initDropdowns(node);
+        }
+      }
+
+      for (const node of record.removedNodes) {
+        if (node instanceof HTMLElement && node.matches(dropdownSelector)) {
+          destroyDropdown(node);
+        }
+
+        if (node instanceof HTMLElement) {
+          for (const dropdown of node.querySelectorAll<OreDropdownElement>(
+            dropdownSelector,
+          )) {
+            destroyDropdown(dropdown);
+          }
+        }
+      }
+    }
+  }).observe(document.documentElement, { childList: true, subtree: true });
 }

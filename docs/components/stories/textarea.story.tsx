@@ -2,7 +2,7 @@
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
 import { Textarea } from "@oreui-web/react/textarea";
-import { type CSSProperties, useEffect, useState } from "react";
+import { type CSSProperties, type FormEvent, useEffect, useState } from "react";
 
 interface TextareaPreviewProps {
   description: string;
@@ -10,7 +10,7 @@ interface TextareaPreviewProps {
   error: string;
   label: string;
   placeholder: string;
-  readonly: boolean;
+  readOnly: boolean;
   required: boolean;
   rows: number;
   spellcheck: boolean;
@@ -23,7 +23,7 @@ function TextareaPreview({
   error,
   label,
   placeholder,
-  readonly,
+  readOnly,
   required,
   rows,
   spellcheck,
@@ -48,7 +48,7 @@ function TextareaPreview({
         error={error}
         label={label}
         placeholder={placeholder}
-        readonly={readonly}
+        readOnly={readOnly}
         required={required}
         rows={rows}
         spellCheck={spellcheck}
@@ -60,8 +60,8 @@ function TextareaPreview({
             "--ore-textarea-foreground": "var(--color-fd-foreground)",
           } as CSSProperties
         }
-        onInput={(event) => {
-          const textarea = event.target as HTMLElement & { value: string };
+        onInput={(event: FormEvent<HTMLTextAreaElement>) => {
+          const textarea = event.currentTarget;
           setValue(textarea.value);
         }}
       />
@@ -82,7 +82,7 @@ export const textareaStory = defineStory({
       error: "",
       label: "World description",
       placeholder: "Describe your world",
-      readonly: false,
+      readOnly: false,
       required: false,
       rows: 3,
       spellcheck: true,

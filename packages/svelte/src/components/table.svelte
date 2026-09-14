@@ -1,25 +1,39 @@
 <script lang="ts">
   import "oreui-web/table";
   import type {
-    OreTable,
     OreTableSortDetail,
     OreTableVariant,
   } from "oreui-web/table";
+  import { onMount } from "svelte";
   import type { OreComponentProps } from "../types.js";
 
-  export type TableProps = OreComponentProps<OreTable, "variant"> & {
+  export type TableProps = OreComponentProps<HTMLDivElement> & {
     variant?: OreTableVariant;
     onSort?: (event: CustomEvent<OreTableSortDetail>) => void;
   };
 
-  let { children, onSort, ...props }: TableProps = $props();
-  let element: OreTable;
+  let { children, class: className, onSort, variant, ...props }: TableProps = $props();
+  let element: HTMLDivElement;
 
-  export function getElement(): OreTable {
+  export function getElement(): HTMLDivElement {
     return element;
   }
+
+  onMount(() => {
+    const listener = (event: Event): void => {
+      onSort?.(event as CustomEvent<OreTableSortDetail>);
+    };
+
+    element.addEventListener("sort", listener);
+    return () => element.removeEventListener("sort", listener);
+  });
 </script>
 
-<ore-table bind:this={element} onsort={onSort} {...props}>
+<div
+  bind:this={element}
+  class={`ore-table ore-scrollbar ${className ?? ""}`}
+  data-variant={variant}
+  {...props}
+>
   {@render children?.()}
-</ore-table>
+</div>

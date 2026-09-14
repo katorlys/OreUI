@@ -12,23 +12,18 @@ import { AccordionStory } from "@/components/stories/accordion.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "oreui-web/accordion";
-import "oreui-web/icon-button";
+import "oreui-web/styles.css";
 ```
 
 ```html
-<ore-accordion value="realms">
-  <ore-icon-button
-    class="ore-accordion-trigger"
-    type="button"
-    aria-label="Toggle What is Realms?"
-  >
+<details class="ore-accordion">
+  <summary>
     <span class="ore-accordion-title">What is Realms?</span>
-  </ore-icon-button>
+  </summary>
   <div class="ore-accordion-content">
     Realms are private, cloud-hosted worlds where you can play with friends.
   </div>
-</ore-accordion>
+</details>
 ```
 
     </Tab>
@@ -36,18 +31,13 @@ import "oreui-web/icon-button";
 
 ```tsx
 import { Accordion } from "@oreui-web/react/accordion";
-import { IconButton } from "@oreui-web/react/icon-button";
 
 export function Realms() {
   return (
-    <Accordion value="realms">
-      <IconButton
-        className="ore-accordion-trigger"
-        type="button"
-        aria-label="Toggle What is Realms?"
-      >
+    <Accordion>
+      <summary>
         <span className="ore-accordion-title">What is Realms?</span>
-      </IconButton>
+      </summary>
       <div className="ore-accordion-content">
         Realms are private, cloud-hosted worlds where you can play with friends.
       </div>
@@ -61,20 +51,17 @@ export function Realms() {
 
 ```vue
 <script setup lang="ts">
-import { Accordion, IconButton } from "@oreui-web/vue";
+import { Accordion } from "@oreui-web/vue";
 </script>
 <template>
-  <Accordion value="realms"
-    ><IconButton
-      class="ore-accordion-trigger"
-      type="button"
-      aria-label="Toggle What is Realms?"
-      ><span class="ore-accordion-title">What is Realms?</span></IconButton
-    >
+  <Accordion>
+    <summary>
+      <span class="ore-accordion-title">What is Realms?</span>
+    </summary>
     <div class="ore-accordion-content">
       Realms are private, cloud-hosted worlds where you can play with friends.
-    </div></Accordion
-  >
+    </div>
+  </Accordion>
 </template>
 ```
 
@@ -84,13 +71,12 @@ import { Accordion, IconButton } from "@oreui-web/vue";
 ```svelte
 <script lang="ts">
   import Accordion from "@oreui-web/svelte/accordion";
-  import IconButton from "@oreui-web/svelte/icon-button";
 </script>
 
-<Accordion value="realms">
-  <IconButton class="ore-accordion-trigger" type="button" aria-label="Toggle What is Realms?">
+<Accordion>
+  <summary>
     <span class="ore-accordion-title">What is Realms?</span>
-  </IconButton>
+  </summary>
   <div class="ore-accordion-content">
     Realms are private, cloud-hosted worlds where you can play with friends.
   </div>
@@ -101,16 +87,14 @@ import { Accordion, IconButton } from "@oreui-web/vue";
     <Tab value="Solid">
 
 ```tsx
-import { Accordion, IconButton } from "@oreui-web/solid";
+import { Accordion } from "@oreui-web/solid";
 
 export function Details() {
   return (
-    <Accordion value="details">
-      <IconButton
-        class="ore-accordion-trigger"
-        type="button"
-        aria-label="Toggle details"
-      />
+    <Accordion>
+      <summary>
+        <span class="ore-accordion-title">World details</span>
+      </summary>
       <div class="ore-accordion-content">World details</div>
     </Accordion>
   );
@@ -121,18 +105,17 @@ export function Details() {
     <Tab value="Astro">
 
 ```astro
-<ore-accordion value="realms">
-	<ore-icon-button class="ore-accordion-trigger" type="button" aria-label="Toggle What is Realms?">
+<details class="ore-accordion">
+  <summary>
 		<span class="ore-accordion-title">What is Realms?</span>
-	</ore-icon-button>
+  </summary>
 	<div class="ore-accordion-content">
 		Realms are private, cloud-hosted worlds where you can play with friends.
 	</div>
-</ore-accordion>
+</details>
 
 <script>
-	import "oreui-web/accordion";
-	import "oreui-web/icon-button";
+  import "oreui-web/styles.css";
 </script>
 ```
 
@@ -140,52 +123,71 @@ export function Details() {
 
 </Tabs>
 
-## 默认状态
+## 初始状态
 
-使用 `default-open` 将 Accordion 的初始默认状态设置为展开状态。当由应用程序控制其状态时，应设置 `open` 属性。
+使用原生 `open` 属性让 Accordion 初始保持展开。
 
 ```html
-<ore-accordion default-open>...</ore-accordion>
+<details class="ore-accordion" open>...</details>
+```
+
+## 单开组
+
+为相关 details 元素设置相同的原生 `name`，即可保证同一时间只展开一项。
+
+```html
+<details class="ore-accordion" name="world-settings">...</details>
+<details class="ore-accordion" name="world-settings">...</details>
 ```
 
 ## 事件
 
-`open` 属性发生变化后会触发 `open-change`。其 `detail` 是新的 boolean 状态。
+`open` 状态变化后会触发标准 `toggle` 事件，可从 `event.currentTarget.open` 读取当前状态。
 
 ```js
-accordion.addEventListener("open-change", (event) => {
-  console.log(event.detail);
+accordion.addEventListener("toggle", (event) => {
+  console.log(event.currentTarget.open);
 });
 ```
 
-对于 React，请使用 `onOpenChange`。
+React 中使用 `onToggle`。
 
 ## API
 
-| Prop          | 属性           | 类型      | 默认值  |
-| ------------- | -------------- | --------- | ------- |
-| `defaultOpen` | `default-open` | `boolean` | `false` |
-| `open`        | `open`         | `boolean` | `false` |
-| `value`       | `value`        | `string`  | `""`    |
+| Prop   | 属性   | 类型      | 默认值  |
+| ------ | ------ | --------- | ------- |
+| `open` | `open` | `boolean` | `false` |
+| `name` | `name` | `string`  | `""`    |
 
 ## 公开类
 
-| 类                       | 用途               |
-| ------------------------ | ------------------ |
-| `.ore-accordion-trigger` | 切换内容区域的按钮 |
-| `.ore-accordion-title`   | 触发器标签         |
-| `.ore-accordion-content` | 可折叠内容         |
+| 类                       | 用途                |
+| ------------------------ | ------------------- |
+| `.ore-accordion`         | 原生 details 根元素 |
+| `.ore-accordion-title`   | summary 标签        |
+| `.ore-accordion-content` | 可折叠内容          |
 
 ## CSS 变量
 
-| 变量                                 | 用途                 |
-| ------------------------------------ | -------------------- |
-| `--ore-accordion-unit`               | 基础尺寸单位         |
-| `--ore-accordion-border`             | 触发器和内容边框颜色 |
-| `--ore-accordion-background`         | 展开内容的背景颜色   |
-| `--ore-accordion-foreground`         | 触发器文本和图标颜色 |
-| `--ore-accordion-content-foreground` | 展开内容的文本颜色   |
+| 变量                                         | 用途                  |
+| -------------------------------------------- | --------------------- |
+| `--ore-accordion-unit`                       | 基础尺寸单位          |
+| `--ore-accordion-border`                     | 触发器和内容边框颜色  |
+| `--ore-accordion-background`                 | 展开内容的背景颜色    |
+| `--ore-accordion-foreground`                 | 触发器文本和图标颜色  |
+| `--ore-accordion-content-foreground`         | 展开内容的文本颜色    |
+| `--ore-accordion-trigger-background`         | 静止态 summary 背景   |
+| `--ore-accordion-trigger-highlight`          | 静止态 summary 高光   |
+| `--ore-accordion-trigger-shadow`             | 静止态 summary 阴影   |
+| `--ore-accordion-trigger-corner`             | 静止态 summary 边角   |
+| `--ore-accordion-trigger-background-hover`   | hover 态 summary 背景 |
+| `--ore-accordion-trigger-highlight-hover`    | hover 态 summary 高光 |
+| `--ore-accordion-trigger-corner-hover`       | hover 态 summary 边角 |
+| `--ore-accordion-trigger-background-pressed` | 按下态 summary 背景   |
+| `--ore-accordion-trigger-highlight-pressed`  | 按下态 summary 高光   |
+| `--ore-accordion-trigger-shadow-pressed`     | 按下态 summary 阴影   |
+| `--ore-accordion-trigger-corner-pressed`     | 按下态 summary 边角   |
 
 ## 无障碍
 
-Accordion 使用 `aria-controls` 关联触发器与内容、更新 `aria-expanded`，并隐藏已折叠的内容。应使用真正的按钮作为触发器。
+原生 details 和 summary 无需 JavaScript 即可提供 disclosure 语义、键盘激活、焦点管理和折叠内容可见性。不要在 summary 内嵌套交互按钮。

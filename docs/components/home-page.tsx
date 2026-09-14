@@ -3,7 +3,7 @@
 import { HomeLayout } from "fumadocs-ui/layouts/home";
 
 import { useRouter } from "next/navigation";
-import { createElement, useEffect } from "react";
+import { createElement } from "react";
 
 import { Button } from "@oreui-web/react/button";
 import chevronRightUrl from "oreui-web/icons/chevron-right";
@@ -36,15 +36,12 @@ export function OreHomePage({ lang }: HomePageProps) {
       : "Made with ❤ by Minecraft enthusiasts.";
   const scrollLabel = lang === "zh-CN" ? "OreUI 首页" : "OreUI home page";
 
-  useEffect(() => {
-    void import("oreui-web/scrollbar");
-  }, []);
-
   return createElement(
-    "ore-scrollbar",
+    "div",
     {
-      className: "ore-home-scrollbar h-dvh w-full [--ore-scrollbar-z-index:50]",
+      className: "ore-scrollbar ore-home-scrollbar h-dvh w-full",
       "aria-label": scrollLabel,
+      tabIndex: 0,
     },
     <>
       <HomeLayout {...baseOptions(true, lang)}>
@@ -57,7 +54,7 @@ export function OreHomePage({ lang }: HomePageProps) {
               className="inline-flex min-h-6 items-center gap-2 px-3 rounded-full bg-fd-secondary text-xs no-underline"
               href="https://github.com/katorlys/OreUI/releases"
             >
-              Version {version} out now
+              Version {version}
               <span
                 className="size-3 bg-current"
                 style={{

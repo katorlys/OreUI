@@ -1,4 +1,4 @@
-:where(ore-modal) {
+:where(dialog.ore-modal) {
   --ore-modal-unit: var(--ore-size-unit);
   --ore-modal-border: var(--ore-color-border);
   --ore-modal-section-background: var(--ore-color-neutral-surface);
@@ -7,7 +7,7 @@
   --ore-modal-foreground: var(--ore-color-foreground);
 }
 
-:where(ore-modal > .ore-modal-dialog) {
+:where(dialog.ore-modal) {
   box-sizing: border-box;
   width: min(
     calc(var(--ore-modal-unit) * 200),
@@ -24,11 +24,11 @@
   font-family: var(--ore-font-body);
 }
 
-:where(ore-modal > .ore-modal-dialog)::backdrop {
+:where(dialog.ore-modal)::backdrop {
   background: var(--ore-color-overlay);
 }
 
-:where(ore-modal .ore-modal-content) {
+:where(dialog.ore-modal > .ore-modal-content) {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -38,20 +38,47 @@
   background: var(--ore-modal-border);
 }
 
-:where(ore-modal .ore-modal-content > ore-container[variant="dark"]) {
+:where(dialog.ore-modal .modal-form-body) {
+  --ore-container-gap: calc(var(--ore-modal-unit) * 8);
+  --ore-container-padding: calc(var(--ore-modal-unit) * 8)
+    calc(var(--ore-modal-unit) * 11);
+  --ore-textfield-width: 100%;
+}
+
+:where(dialog.ore-modal .modal-confirmation) {
+  --ore-container-gap: 0;
+  --ore-container-padding: calc(var(--ore-modal-unit) * 4)
+    calc(var(--ore-modal-unit) * 11);
+
+  color: var(--ore-modal-foreground);
+}
+
+:where(dialog.ore-modal .modal-actions) {
+  --ore-container-gap: calc(var(--ore-modal-unit) * 2);
+  --ore-container-padding: calc(var(--ore-modal-unit) * 7)
+    calc(var(--ore-modal-unit) * 11);
+}
+
+:where(dialog.ore-modal .modal-actions > button) {
+  width: 100%;
+}
+
+:where(
+  dialog.ore-modal > .ore-modal-content > .ore-container[data-variant="dark"]
+) {
   flex: 1 1 auto;
   min-height: 0;
   overflow: auto;
 }
 
 :where(
-  ore-modal .ore-modal-header,
-  ore-modal .ore-modal-content > ore-container[variant="light"]
+  dialog.ore-modal .ore-modal-header,
+  dialog.ore-modal > .ore-modal-content > .ore-container[data-variant="light"]
 ) {
   flex: none;
 }
 
-:where(ore-modal .ore-modal-header) {
+:where(dialog.ore-modal .ore-modal-header) {
   position: relative;
   display: grid;
   grid-template-columns:
@@ -64,7 +91,7 @@
   background: var(--ore-modal-border);
 }
 
-:where(ore-modal .ore-modal-header)::before {
+:where(dialog.ore-modal .ore-modal-header)::before {
   position: absolute;
   inset: var(--ore-modal-unit);
   background: var(--ore-modal-section-background);
@@ -72,7 +99,7 @@
   content: "";
 }
 
-:where(ore-modal .ore-modal-title) {
+:where(dialog.ore-modal .ore-modal-title) {
   z-index: 1;
   margin: 0;
   font-family: var(--ore-font-body);
@@ -82,12 +109,14 @@
   text-align: center;
 }
 
-:where(ore-modal .ore-modal-header-button) {
+:where(dialog.ore-modal .ore-modal-header-button) {
   z-index: 1;
   display: grid;
   place-items: center;
   width: calc(var(--ore-modal-unit) * 16);
   height: calc(var(--ore-modal-unit) * 16);
+  min-width: 0;
+  min-height: 0;
   padding: calc(var(--ore-modal-unit) * 4);
   border: 0;
   outline: 0;
@@ -96,35 +125,39 @@
   cursor: pointer;
 }
 
-:where(ore-modal .ore-modal-header-button:first-child) {
+:where(dialog.ore-modal .ore-modal-header-button)::before {
+  content: none;
+}
+
+:where(dialog.ore-modal .ore-modal-header-button:first-child) {
   margin-inline-start: var(--ore-modal-unit);
 }
 
-:where(ore-modal .ore-modal-header-button:last-child) {
+:where(dialog.ore-modal .ore-modal-header-button:last-child) {
   justify-self: end;
   margin-inline-end: var(--ore-modal-unit);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :where(ore-modal .ore-modal-header-button:hover) {
+  :where(dialog.ore-modal .ore-modal-header-button:hover) {
     background: var(--ore-color-neutral-background-hover);
   }
 }
 
-:where(ore-modal .ore-modal-header-button:active) {
+:where(dialog.ore-modal .ore-modal-header-button:active) {
   background: var(--ore-color-neutral-background-pressed);
 }
 
-:where(ore-modal .ore-modal-header-button:focus-visible) {
+:where(dialog.ore-modal .ore-modal-header-button:focus-visible) {
   outline: var(--ore-modal-unit) solid var(--ore-color-focus-ring);
 }
 
-:where(ore-modal .ore-modal-header-button > ore-icon) {
+:where(dialog.ore-modal .ore-modal-header-button > :is(ore-icon, svg)) {
   width: calc(var(--ore-modal-unit) * 8);
   height: calc(var(--ore-modal-unit) * 8);
 }
 
-:where(ore-modal .ore-modal-description) {
+:where(dialog.ore-modal .ore-modal-description) {
   margin: 0;
   font-family: "Noto Sans SC", "Noto Sans", sans-serif;
   font-size: calc(var(--ore-modal-unit) * 6);
@@ -132,7 +165,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  :where(ore-modal > .ore-modal-dialog[open]) {
+  :where(dialog.ore-modal[open]) {
     animation: ore-modal-show var(--ore-motion-fast) steps(2, jump-none);
   }
 }

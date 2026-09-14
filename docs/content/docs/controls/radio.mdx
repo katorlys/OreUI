@@ -10,20 +10,28 @@ See [Radio Group](../radio-group).
 ## Colors
 
 ```html
-<ore-radio color="primary" checked>Primary</ore-radio>
-<ore-radio color="secondary" checked>Secondary</ore-radio>
-<ore-radio color="destructive" checked>Destructive</ore-radio>
-<ore-radio color="dungeons" checked>Dungeons</ore-radio>
-<ore-radio color="legends" checked>Legends</ore-radio>
-<ore-radio color="realms" checked>Realms</ore-radio>
-<ore-radio color="gold" checked>Gold</ore-radio>
+<label><input type="radio" data-color="primary" checked /> Primary</label>
+<label><input type="radio" data-color="secondary" checked /> Secondary</label>
+<label
+  ><input type="radio" data-color="destructive" checked /> Destructive</label
+>
+<label><input type="radio" data-color="dungeons" checked /> Dungeons</label>
+<label><input type="radio" data-color="legends" checked /> Legends</label>
+<label><input type="radio" data-color="realms" checked /> Realms</label>
+<label><input type="radio" data-color="gold" checked /> Gold</label>
 ```
 
 ## States
 
 ```html
-<ore-radio name="mode" value="survival" checked>Survival</ore-radio>
-<ore-radio name="mode" value="hardcore" disabled>Hardcore</ore-radio>
+<label>
+  <input type="radio" name="mode" value="survival" checked />
+  Survival
+</label>
+<label>
+  <input type="radio" name="mode" value="hardcore" disabled />
+  Hardcore
+</label>
 ```
 
 Radios with the same `name` and form are mutually exclusive.
@@ -32,16 +40,9 @@ Radios with the same `name` and form are mutually exclusive.
 
 Selecting a new option dispatches native `input` and `change` events.
 
-## API
+## Attributes
 
-| Property   | Attribute  | Type                                                                                         | Default     |
-| ---------- | ---------- | -------------------------------------------------------------------------------------------- | ----------- |
-| `checked`  | `checked`  | `boolean`                                                                                    | `false`     |
-| `color`    | `color`    | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"` |
-| `disabled` | `disabled` | `boolean`                                                                                    | `false`     |
-| `name`     | `name`     | `string`                                                                                     | `""`        |
-| `required` | `required` | `boolean`                                                                                    | `false`     |
-| `value`    | `value`    | `string`                                                                                     | `"on"`      |
+Radio uses the native input attributes `checked`, `disabled`, `name`, `required`, and `value`. Use `data-color` for the OreUI color.
 
 ## CSS variables
 
@@ -63,4 +64,4 @@ Selecting a new option dispatches native `input` and `change` events.
 
 ## Accessibility
 
-Radio provides radio semantics. Use `Arrow keys` to move within a group and `Space` to select the focused option.
+The native radio input provides radio semantics, form behavior, and validation. Use arrow keys to move within a same-name group and `Space` to select the focused option.

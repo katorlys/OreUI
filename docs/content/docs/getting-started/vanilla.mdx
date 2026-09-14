@@ -31,7 +31,7 @@ You can use a CDN to avoid installing any dependencies.
   href="https://cdn.jsdelivr.net/npm/oreui-web@latest/dist/styles.css"
 />
 
-<ore-button type="button">Create new world</ore-button>
+<button type="button">Create new world</button>
 
 <script type="module">
   import "https://cdn.jsdelivr.net/npm/oreui-web@latest/+esm";
@@ -50,7 +50,7 @@ import "oreui-web/button";
 ```
 
 ```html title="index.html"
-<ore-button type="button">Create new world</ore-button>
+<button type="button">Create new world</button>
 ```
 
 <Callout type="info">To use all the components, import `oreui-web`.</Callout>
@@ -61,8 +61,8 @@ Forms:
 
 ```html title="index.html"
 <form id="account">
-  <ore-checkbox name="terms" required>Accept terms</ore-checkbox>
-  <ore-button type="submit">Continue</ore-button>
+  <label><input type="checkbox" name="terms" required />Accept terms</label>
+  <button type="submit">Continue</button>
 </form>
 ```
 

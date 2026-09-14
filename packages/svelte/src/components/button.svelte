@@ -1,40 +1,20 @@
 <script lang="ts">
-  import "oreui-web/button";
-  import type {
-    OreButton,
-    OreButtonColor,
-    OreButtonType,
-    OreButtonVariant,
-  } from "oreui-web/button";
-  import type { OreComponentProps } from "../types.js";
+  import type { HTMLButtonAttributes } from "svelte/elements";
 
-  export type ButtonProps = OreComponentProps<
-    OreButton,
-    | "color"
-    | "disabled"
-    | "download"
-    | "href"
-    | "loading"
-    | "name"
-    | "rel"
-    | "target"
-    | "type"
-    | "value"
-    | "variant"
-  > & {
-    color?: OreButtonColor;
-    type?: OreButtonType;
-    variant?: OreButtonVariant;
+  export type ButtonProps = HTMLButtonAttributes & {
+    color?: string;
+    loading?: boolean;
+    variant?: string;
   };
 
   let { children, ...props }: ButtonProps = $props();
-  let element: OreButton;
+  let element: HTMLButtonElement;
 
-  export function getElement(): OreButton {
+  export function getElement(): HTMLButtonElement {
     return element;
   }
 </script>
 
-<ore-button bind:this={element} {...props}>
+<button bind:this={element} {...props} class="ore-button {props.class ?? ''}" data-color={props.color} data-loading={props.loading ? "" : undefined} data-variant={props.variant} aria-busy={props.loading || undefined} disabled={props.disabled || props.loading}>
   {@render children?.()}
-</ore-button>
+</button>

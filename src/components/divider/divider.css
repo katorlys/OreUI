@@ -1,4 +1,4 @@
-:where(ore-divider) {
+:where(hr.ore-divider) {
   --ore-divider-unit: var(--ore-size-unit);
   --ore-divider-dark: var(--ore-color-gray-80);
   --ore-divider-light: var(--ore-color-gray-60);

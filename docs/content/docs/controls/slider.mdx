@@ -16,14 +16,16 @@ import "oreui-web/slider";
 ```
 
 ```html
-<ore-slider
+<input
+  class="ore-slider"
+  type="range"
   name="distance"
   min="2"
   max="32"
   step="1"
   value="12"
   aria-label="Render distance"
-></ore-slider>
+/>
 ```
 
     </Tab>
@@ -44,8 +46,7 @@ export function RenderDistanceSlider() {
       step={1}
       value={value}
       onInput={(event) => {
-        const slider = event.target as HTMLElement & { value: number };
-        setValue(slider.value);
+        setValue(event.currentTarget.valueAsNumber);
       }}
     />
   );
@@ -123,7 +124,7 @@ export function RenderDistanceSlider() {
     <Tab value="Astro">
 
 ```astro
-<ore-slider name="distance" min="2" max="32" step="1" value="12" aria-label="Render distance"></ore-slider>
+<input type="range" name="distance" min="2" max="32" step="1" value="12" aria-label="Render distance" />
 
 <script>
 	import "oreui-web/slider";
@@ -137,84 +138,78 @@ export function RenderDistanceSlider() {
 ## Variants
 
 ```html
-<ore-slider value="40" variant="default" aria-label="Volume"></ore-slider>
-<ore-slider value="40" variant="segmented" aria-label="Volume"></ore-slider>
-```
-
-## Range
-
-Add `range` to select a minimum and maximum value. `value-start` controls the minimum thumb and `value` controls the maximum thumb. The thumbs stop when they meet.
-
-```html
-<ore-slider
-  range
-  min="0"
-  max="100"
-  value-start="25"
-  value="75"
-  aria-label-start="Minimum price"
-  aria-label="Maximum price"
-></ore-slider>
+<input type="range" value="40" aria-label="Volume" />
+<input type="range" data-variant="segmented" value="40" aria-label="Volume" />
 ```
 
 ## Colors
 
 ```html
-<ore-slider color="primary" value="40" aria-label="Primary volume"></ore-slider>
-<ore-slider
-  color="secondary"
+<input
+  type="range"
+  data-color="primary"
+  value="40"
+  aria-label="Primary volume"
+/>
+<input
+  type="range"
+  data-color="secondary"
   value="40"
   aria-label="Secondary volume"
-></ore-slider>
-<ore-slider
-  color="destructive"
+/>
+<input
+  type="range"
+  data-color="destructive"
   value="40"
   aria-label="Destructive volume"
-></ore-slider>
-<ore-slider
-  color="dungeons"
+/>
+<input
+  type="range"
+  data-color="dungeons"
   value="40"
   aria-label="Dungeons volume"
-></ore-slider>
-<ore-slider color="legends" value="40" aria-label="Legends volume"></ore-slider>
-<ore-slider color="realms" value="40" aria-label="Realms volume"></ore-slider>
-<ore-slider color="gold" value="40" aria-label="Gold volume"></ore-slider>
+/>
+<input
+  type="range"
+  data-color="legends"
+  value="40"
+  aria-label="Legends volume"
+/>
+<input type="range" data-color="realms" value="40" aria-label="Realms volume" />
+<input type="range" data-color="gold" value="40" aria-label="Gold volume" />
 ```
 
 ## Orientation
 
 ```html
-<ore-slider
-  orientation="horizontal"
+<input
+  type="range"
+  data-orientation="horizontal"
   value="40"
   aria-label="Horizontal value"
-></ore-slider>
-<ore-slider
-  orientation="vertical"
+/>
+<input
+  type="range"
+  data-orientation="vertical"
+  aria-orientation="vertical"
   value="40"
   aria-label="Vertical value"
-></ore-slider>
+/>
 ```
 
 ## Events
 
-Slider dispatches `input` while its value changes and `change` when the interaction is committed. In range mode, read `valueStart` and `value` from the Slider element. A named range Slider submits both values as a comma-separated string, such as `25,75`.
+The native range input dispatches `input` while its value changes and `change` when the interaction is committed. Read `valueAsNumber` for a numeric value. `name`, form submission, reset, disabled fieldsets, and keyboard behavior use the browser's native implementation.
 
 ## API
 
-| Property      | Attribute     | Type                                                                                         | Default        |
-| ------------- | ------------- | -------------------------------------------------------------------------------------------- | -------------- |
-| `color`       | `color`       | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"`    |
-| `disabled`    | `disabled`    | `boolean`                                                                                    | `false`        |
-| `max`         | `max`         | `number`                                                                                     | `100`          |
-| `min`         | `min`         | `number`                                                                                     | `0`            |
-| `name`        | `name`        | `string`                                                                                     | `""`           |
-| `orientation` | `orientation` | `"horizontal" \| "vertical"`                                                                 | `"horizontal"` |
-| `range`       | `range`       | `boolean`                                                                                    | `false`        |
-| `step`        | `step`        | `number`                                                                                     | `1`            |
-| `value`       | `value`       | `number`                                                                                     | `0`            |
-| `valueStart`  | `value-start` | `number`                                                                                     | `0`            |
-| `variant`     | `variant`     | `"default" \| "segmented"`                                                                   | `"default"`    |
+Slider uses the native `HTMLInputElement` API. OreUI adds these visual data attributes:
+
+| Attribute          | Type                                                                                         | Default        |
+| ------------------ | -------------------------------------------------------------------------------------------- | -------------- |
+| `data-color`       | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"`    |
+| `data-orientation` | `"horizontal" \| "vertical"`                                                                 | `"horizontal"` |
+| `data-variant`     | `"default" \| "segmented"`                                                                   | `"default"`    |
 
 ## CSS variables
 
@@ -233,4 +228,4 @@ Slider dispatches `input` while its value changes and `change` when the interact
 
 ## Accessibility
 
-Add an accessible name with `aria-label`. In range mode, use `aria-label-start` for the minimum thumb and `aria-label` for the maximum thumb. Slider uses native range inputs for pointer and keyboard interaction.
+Add an accessible name with a visible `<label>` or `aria-label`. Slider preserves the native range input's pointer, touch, keyboard, form, disabled, and reset behavior. When using the vertical visual orientation, also set `aria-orientation="vertical"`.

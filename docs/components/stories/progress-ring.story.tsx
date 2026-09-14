@@ -2,7 +2,6 @@
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
 import { ProgressRing } from "@oreui-web/react/progress-ring";
-import { useEffect, useState } from "react";
 
 interface ProgressRingPreviewProps {
   label: string;
@@ -17,19 +16,20 @@ function ProgressRingPreview({
   size,
   value,
 }: ProgressRingPreviewProps) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
+  const safeMax = Number.isFinite(max) && max > 0 ? max : 100;
+  const safeValue = Math.min(safeMax, Math.max(0, value));
+  const frame = Math.min(15, Math.floor((safeValue / safeMax) * 16));
 
   return (
     <span style={{ fontSize: `${size}px` }}>
-      <ProgressRing aria-label={label} max={max} value={value} />
+      <ProgressRing
+        aria-label={label}
+        aria-valuemin={0}
+        aria-valuemax={safeMax}
+        aria-valuenow={safeValue}
+        role="progressbar"
+        style={{ "--ore-progress-ring-frame": frame } as React.CSSProperties}
+      />
     </span>
   );
 }

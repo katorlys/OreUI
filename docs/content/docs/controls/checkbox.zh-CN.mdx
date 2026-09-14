@@ -12,11 +12,14 @@ import { CheckboxStory } from "@/components/stories/checkbox.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "oreui-web/checkbox";
+import "oreui-web/styles.css";
 ```
 
 ```html
-<ore-checkbox name="updates" value="yes"> Receive updates </ore-checkbox>
+<label>
+  <input class="ore-checkbox" type="checkbox" name="updates" value="yes" />
+  Receive updates
+</label>
 ```
 
     </Tab>
@@ -35,8 +38,7 @@ export function UpdatesCheckbox() {
       name="updates"
       value="yes"
       onChange={(event) => {
-        const checkbox = event.target as HTMLElement & { checked: boolean };
-        setChecked(checkbox.checked);
+        setChecked(event.currentTarget.checked);
       }}
     >
       Receive updates
@@ -104,13 +106,14 @@ export function UpdatesCheckbox() {
     <Tab value="Astro">
 
 ```astro
-<ore-checkbox name="updates" value="yes">
-	Receive updates
-</ore-checkbox>
+<label>
+  <input class="ore-checkbox" type="checkbox" name="updates" value="yes" />
+  Receive updates
+</label>
 
-<script>
-	import "oreui-web/checkbox";
-</script>
+<style is:global>
+  @import "oreui-web/styles.css";
+</style>
 ```
 
     </Tab>
@@ -120,21 +123,75 @@ export function UpdatesCheckbox() {
 ## 颜色
 
 ```html
-<ore-checkbox color="primary" checked>Primary</ore-checkbox>
-<ore-checkbox color="secondary" checked>Secondary</ore-checkbox>
-<ore-checkbox color="destructive" checked>Destructive</ore-checkbox>
-<ore-checkbox color="dungeons" checked>Dungeons</ore-checkbox>
-<ore-checkbox color="legends" checked>Legends</ore-checkbox>
-<ore-checkbox color="realms" checked>Realms</ore-checkbox>
-<ore-checkbox color="gold" checked>Gold</ore-checkbox>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="primary"
+    checked
+  />Primary</label
+>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="secondary"
+    checked
+  />Secondary</label
+>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="destructive"
+    checked
+  />Destructive</label
+>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="dungeons"
+    checked
+  />Dungeons</label
+>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="legends"
+    checked
+  />Legends</label
+>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="realms"
+    checked
+  />Realms</label
+>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="gold"
+    checked
+  />Gold</label
+>
 ```
 
 ## 状态
 
 ```html
-<ore-checkbox checked>Enabled</ore-checkbox>
-<ore-checkbox disabled>Unavailable</ore-checkbox>
-<ore-checkbox required>Required agreement</ore-checkbox>
+<label><input class="ore-checkbox" type="checkbox" checked />Enabled</label>
+<label
+  ><input class="ore-checkbox" type="checkbox" disabled />Unavailable</label
+>
+<label
+  ><input class="ore-checkbox" type="checkbox" required />Required
+  agreement</label
+>
 ```
 
 ## 表单
@@ -143,33 +200,28 @@ export function UpdatesCheckbox() {
 
 ```html
 <form>
-  <ore-checkbox name="terms" value="accepted" required>
+  <label>
+    <input
+      class="ore-checkbox"
+      type="checkbox"
+      name="terms"
+      value="accepted"
+      required
+    />
     Accept the terms
-  </ore-checkbox>
-  <ore-button type="submit">Continue</ore-button>
-  <ore-button type="reset" color="secondary">Reset</ore-button>
+  </label>
+  <button type="submit">Continue</button>
+  <button type="reset" data-color="secondary">Reset</button>
 </form>
 ```
 
 ## 事件
 
-Checkbox 的值发生变化后，会触发原生 `input` 和 `change` 事件。
+原生 Checkbox 的值发生变化后会触发 `input` 和 `change` 事件。
 
 ## API
 
-| Prop       | 属性       | 类型                                                                                         | 默认值      |
-| ---------- | ---------- | -------------------------------------------------------------------------------------------- | ----------- |
-| `checked`  | `checked`  | `boolean`                                                                                    | `false`     |
-| `color`    | `color`    | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"` |
-| `disabled` | `disabled` | `boolean`                                                                                    | `false`     |
-| `name`     | `name`     | `string`                                                                                     | `""`        |
-| `required` | `required` | `boolean`                                                                                    | `false`     |
-| `value`    | `value`    | `string`                                                                                     | `"on"`      |
-
-| 方法               | 描述                 |
-| ------------------ | -------------------- |
-| `checkValidity()`  | 检查当前有效性       |
-| `reportValidity()` | 检查有效性并报告错误 |
+Checkbox 直接使用原生 `HTMLInputElement` API。`checked`、`disabled`、`name`、`required` 和 `value` 使用原生属性；只有 OreUI 配色使用 `data-color`。`checkValidity()`、`reportValidity()` 等原生方法保持可用。
 
 ## CSS 变量
 
@@ -189,4 +241,4 @@ Checkbox 的值发生变化后，会触发原生 `input` 和 `change` 事件。
 
 ## 无障碍
 
-Checkbox 提供相应的无障碍语义，并支持空格键。
+原生 input 无需 JavaScript 就能提供 Checkbox 语义、label 激活、空格键操作、表单参与、校验和重置行为。

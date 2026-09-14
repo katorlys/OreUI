@@ -1,6 +1,18 @@
-import "oreui-web/toggles";
-import { createOreComponent } from "../factory.js";
+import { defineComponent, h } from "vue";
 
-export const Toggles = createOreComponent("ore-toggles", {
-  displayName: "Toggles",
+export const Toggles = defineComponent({
+  name: "Toggles",
+  inheritAttrs: false,
+  setup(_, { attrs, slots }) {
+    return () =>
+      h(
+        "div",
+        {
+          ...attrs,
+          class: ["ore-toggles", attrs.class],
+          role: "tablist",
+        },
+        slots.default?.(),
+      );
+  },
 });

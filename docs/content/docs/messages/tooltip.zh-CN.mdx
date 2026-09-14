@@ -13,17 +13,16 @@ import { TooltipStory } from "@/components/stories/tooltip.story";
 	<Tab value="Vanilla">
 ```js
 import "oreui-web/tooltip";
-import "oreui-web/button";
 ```
 
 ```html
-<ore-tooltip side="top">
-  <ore-button class="ore-tooltip-trigger" type="button">Copy</ore-button>
+<span class="ore-tooltip" data-side="top">
+  <button class="ore-tooltip-trigger" type="button">Copy</button>
   <div class="ore-tooltip-content">
     Create a copy of this world
     <span class="ore-tooltip-arrow" aria-hidden="true"></span>
   </div>
-</ore-tooltip>
+</span>
 ```
 
     </Tab>
@@ -107,17 +106,16 @@ export function HelpTooltip() {
     <Tab value="Astro">
 
 ```astro
-<ore-tooltip side="top">
-	<ore-button class="ore-tooltip-trigger" type="button">Copy</ore-button>
+<span class="ore-tooltip" data-side="top">
+  <button class="ore-tooltip-trigger" type="button">Copy</button>
 	<div class="ore-tooltip-content">
 		Create a copy of this world
 		<span class="ore-tooltip-arrow" aria-hidden="true"></span>
 	</div>
-</ore-tooltip>
+</span>
 
 <script>
 	import "oreui-web/tooltip";
-	import "oreui-web/button";
 </script>
 ```
 
@@ -127,29 +125,29 @@ export function HelpTooltip() {
 
 ## 位置
 
-可选 `side="top"`、`"right"`、`"bottom"` 或 `"left"`。页面滚动和调整大小时，位置会一起更新。
+原生 HTML 使用 `data-side="top"`、`"right"`、`"bottom"` 或 `"left"`。框架包装层通过 `side` prop 提供相同设置。页面滚动和调整大小时，位置会一起更新。
 
 ## 延迟
 
-`delay` 是 Tooltip 显示前的等待时间，单位为毫秒。默认值：`500`。
+`data-delay` 是 Tooltip 显示前的等待时间，单位为毫秒。默认值：`500`。
 
 ```html
-<ore-tooltip delay="200">...</ore-tooltip>
+<span class="ore-tooltip" data-delay="200">...</span>
 ```
 
 ## 事件
 
-`open` 变化后会触发 `open-change`，其 `detail` 是新的 boolean 状态。  
+打开状态变化后会触发 `oreui:openchange`，其 `detail` 是新的 boolean 状态。
 对于 React，请使用 `onOpenChange`。
 
 ## API
 
-| Prop          | 属性           | 类型                                     | 默认值  |
-| ------------- | -------------- | ---------------------------------------- | ------- |
-| `defaultOpen` | `default-open` | `boolean`                                | `false` |
-| `delay`       | `delay`        | `number`                                 | `500`   |
-| `open`        | `open`         | `boolean`                                | `false` |
-| `side`        | `side`         | `"top" \| "right" \| "bottom" \| "left"` | `"top"` |
+| 框架 Prop     | 原生属性            | 类型                                     | 默认值  |
+| ------------- | ------------------- | ---------------------------------------- | ------- |
+| `defaultOpen` | `data-default-open` | `boolean`                                | `false` |
+| `delay`       | `data-delay`        | `number`                                 | `500`   |
+| `open`        | `data-open`         | `boolean`                                | 未设置  |
+| `side`        | `data-side`         | `"top" \| "right" \| "bottom" \| "left"` | `"top"` |
 
 ## 公开类
 

@@ -12,16 +12,22 @@ import { TextfieldStory } from "@/components/stories/textfield.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "oreui-web/textfield";
+import "oreui-web/styles.css";
 ```
 
 ```html
-<ore-textfield
-  name="world"
-  label="World name"
-  description="Shown to other players"
-  placeholder="New World"
-></ore-textfield>
+<div class="ore-textfield">
+  <label class="ore-textfield-label" for="world">World name</label>
+  <span class="ore-textfield-control">
+    <input
+      class="ore-textfield-input"
+      id="world"
+      name="world"
+      placeholder="New World"
+    />
+  </span>
+  <span class="ore-textfield-description">Shown to other players</span>
+</div>
 ```
 
     </Tab>
@@ -118,15 +124,16 @@ export function WorldNameField() {
     <Tab value="Astro">
 
 ```astro
-<ore-textfield
-	name="world"
-	label="World name"
-	description="Shown to other players"
-	placeholder="New World"
-></ore-textfield>
+<div class="ore-textfield">
+  <label class="ore-textfield-label" for="world">World name</label>
+  <span class="ore-textfield-control">
+    <input class="ore-textfield-input" id="world" name="world" placeholder="New World" />
+  </span>
+  <span class="ore-textfield-description">Shown to other players</span>
+</div>
 
 <script>
-	import "oreui-web/textfield";
+	import "oreui-web/styles.css";
 </script>
 ```
 
@@ -136,41 +143,66 @@ export function WorldNameField() {
 
 ## Validation
 
-Use native input constraints or set `error` for a custom validation message.
+Use native input constraints for validation. In vanilla HTML, set a custom message with
+`input.setCustomValidity()` and connect the visible message with `aria-describedby`.
 
 ```html
-<ore-textfield label="Seed" type="number" required></ore-textfield>
-<ore-textfield
-  label="World name"
-  error="This name is already in use"
-></ore-textfield>
+<div class="ore-textfield">
+  <label class="ore-textfield-label" for="seed">Seed</label>
+  <span class="ore-textfield-control">
+    <input
+      class="ore-textfield-input"
+      id="seed"
+      name="seed"
+      type="number"
+      required
+    />
+  </span>
+</div>
+<div class="ore-textfield">
+  <label class="ore-textfield-label" for="world-error">World name</label>
+  <span class="ore-textfield-control">
+    <input
+      class="ore-textfield-input"
+      id="world-error"
+      name="world"
+      aria-invalid="true"
+      aria-describedby="world-error-message"
+    />
+  </span>
+  <span class="ore-textfield-error" id="world-error-message"
+    >This name is already in use</span
+  >
+</div>
 ```
 
 ## Events
 
-Textfield dispatches `input` whenever the value changes. Its public `value` property stays synchronized with the internal input.
+Vanilla Textfield uses the native `input`, `change`, `focus`, `blur`, and form events from the
+`<input>`. Its value is the input's native `value`; no wrapper state or custom event is required.
+
+The React, Vue, Svelte, and Solid wrappers keep the same native input behavior. They add only
+framework conveniences: React forwards `onInput` and `ref`, Vue supports `v-model`, Svelte
+supports `bind:value`, and Solid supports `onValueChange`.
 
 ## API
 
-| Property                  | Attribute                 | Type      | Default  |
-| ------------------------- | ------------------------- | --------- | -------- |
-| `autocomplete`            | `autocomplete`            | `string`  | `""`     |
-| `description`             | `description`             | `string`  | `""`     |
-| `disabled`                | `disabled`                | `boolean` | `false`  |
-| `error`                   | `error`                   | `string`  | `""`     |
-| `inputMode`               | `inputmode`               | `string`  | `""`     |
-| `label`                   | `label`                   | `string`  | `""`     |
-| `list`                    | `list`                    | `string`  | `""`     |
-| `max` / `min`             | `max` / `min`             | `string`  | `""`     |
-| `maxLength` / `minLength` | `maxlength` / `minlength` | `number`  | `-1`     |
-| `name`                    | `name`                    | `string`  | `""`     |
-| `pattern`                 | `pattern`                 | `string`  | `""`     |
-| `placeholder`             | `placeholder`             | `string`  | `""`     |
-| `readonly`                | `readonly`                | `boolean` | `false`  |
-| `required`                | `required`                | `boolean` | `false`  |
-| `step`                    | `step`                    | `string`  | `""`     |
-| `type`                    | `type`                    | `string`  | `"text"` |
-| `value`                   | `value`                   | `string`  | `""`     |
+Vanilla usage has no Textfield custom element or custom property. Put the standard input
+attributes on the native `<input>`:
+
+| Attribute                                                 | Purpose                           |
+| --------------------------------------------------------- | --------------------------------- |
+| `autocomplete`, `inputmode`, `list`                       | Browser input assistance          |
+| `name`, `value`, `type`                                   | Form name, value, and input type  |
+| `placeholder`                                             | Empty-value hint                  |
+| `min`, `max`, `step`, `minlength`, `maxlength`, `pattern` | Native constraints                |
+| `required`, `readonly`, `disabled`                        | Native input state                |
+| `id`                                                      | Label and description association |
+
+The `.ore-textfield` root and its public child classes are visual structure only. They do not
+mirror the input value or state. Framework wrappers additionally accept `label`, `description`,
+and `error` to generate the corresponding Light DOM elements; vanilla users write those elements
+explicitly.
 
 ## Public classes
 
@@ -199,4 +231,15 @@ Textfield dispatches `input` whenever the value changes. Its public `value` prop
 
 ## Accessibility
 
-Textfield connects its label, description, and validation message to the native input. Use a visible `label` first, and use `aria-label` only when visible label is not appropriate.
+Use a visible `<label for="...">` for every input whenever possible. The `for` value must match
+the input `id`, and the input remains the accessible control and form participant. Use
+`aria-label` only when a visible label is not appropriate.
+
+Give supporting text an `id` and reference it from `aria-describedby`. For a visible validation
+message, reference the error element from the same attribute and set `aria-invalid="true"` while
+the value is invalid. Keep the browser's validity state as the source of truth with native
+constraints or `setCustomValidity()`.
+
+`disabled` removes the input from focus and form submission. `readonly` keeps it focusable and
+submittable while preventing edits. Use a surrounding `<fieldset disabled>` when a group of
+fields must be disabled together.

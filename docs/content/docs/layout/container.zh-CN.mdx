@@ -16,10 +16,10 @@ import "oreui-web/container";
 ```
 
 ```html
-<ore-container variant="dark">
+<div class="ore-container" data-variant="dark">
   <h2>World settings</h2>
   <p>Choose how players join your world.</p>
-</ore-container>
+</div>
 ```
 
     </Tab>
@@ -83,10 +83,10 @@ export function Panel() {
     <Tab value="Astro">
 
 ```astro
-<ore-container variant="dark">
+<div class="ore-container" data-variant="dark">
 	<h2>World settings</h2>
 	<p>Choose how players join your world.</p>
-</ore-container>
+</div>
 
 <script>
 	import "oreui-web/container";
@@ -100,15 +100,15 @@ export function Panel() {
 ## 变体
 
 ```html
-<ore-container variant="dark">Dark surface</ore-container>
-<ore-container variant="light">Light surface</ore-container>
+<div class="ore-container" data-variant="dark">Dark surface</div>
+<div class="ore-container" data-variant="light">Light surface</div>
 ```
 
 ## API
 
-| Prop      | 属性      | 类型               | 默认值   |
-| --------- | --------- | ------------------ | -------- |
-| `variant` | `variant` | `"dark" \|"light"` | `"dark"` |
+| Prop      | HTML 属性      | 类型                | 默认值   |
+| --------- | -------------- | ------------------- | -------- |
+| `variant` | `data-variant` | `"dark" \| "light"` | `"dark"` |
 
 ## CSS 变量
 

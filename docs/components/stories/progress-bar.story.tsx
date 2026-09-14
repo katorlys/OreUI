@@ -9,12 +9,27 @@ interface ProgressBarPreviewProps {
   labelPosition: "bottom" | "top";
   max: number;
   value: number;
-  variant: "labeled" | "plain";
 }
 
-function ProgressBarPreview(props: ProgressBarPreviewProps) {
+function ProgressBarPreview({
+  label,
+  labelAlign,
+  labelPosition,
+  max,
+  value,
+}: ProgressBarPreviewProps) {
+  const output = label ? (
+    <output className="ore-progress-bar-label" data-align={labelAlign}>
+      {label}
+    </output>
+  ) : null;
+
   return (
-    <ProgressBar {...props} style={{ color: "var(--color-fd-foreground)" }} />
+    <div style={{ color: "var(--color-fd-foreground)" }}>
+      {labelPosition === "top" ? output : null}
+      <ProgressBar value={value} max={max} aria-label={label || "Progress"} />
+      {labelPosition === "bottom" ? output : null}
+    </div>
   );
 }
 
@@ -30,7 +45,6 @@ export const progressBarStory = defineStory({
       labelPosition: "bottom",
       max: 100,
       value: 65,
-      variant: "labeled",
     },
   },
 });

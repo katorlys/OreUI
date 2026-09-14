@@ -1,18 +1,17 @@
 <script lang="ts">
-  import "oreui-web/toggles";
-  import type { OreToggles } from "oreui-web/toggles";
+  import type { HTMLAttributes } from "svelte/elements";
   import type { OreComponentProps } from "../types.js";
 
-  export type TogglesProps = OreComponentProps<OreToggles>;
+  export type TogglesProps = HTMLAttributes<HTMLDivElement>;
 
   let { children, ...props }: TogglesProps = $props();
-  let element: OreToggles;
+  let element: HTMLDivElement;
 
-  export function getElement(): OreToggles {
+  export function getElement(): HTMLDivElement {
     return element;
   }
 </script>
 
-<ore-toggles bind:this={element} {...props}>
+<div class="ore-toggles" bind:this={element} role="tablist" {...props}>
   {@render children?.()}
-</ore-toggles>
+</div>

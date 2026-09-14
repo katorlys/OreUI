@@ -6,13 +6,7 @@ import { Checkbox } from "@oreui-web/react/checkbox";
 import { Container } from "@oreui-web/react/container";
 import { Modal } from "@oreui-web/react/modal";
 import { Textfield } from "@oreui-web/react/textfield";
-import {
-  createElement,
-  type CSSProperties,
-  useEffect,
-  useId,
-  useState,
-} from "react";
+import { createElement, useId, useRef } from "react";
 
 const backIcon = (
   <svg viewBox="0 0 8 8">
@@ -42,35 +36,28 @@ interface ModalPreviewProps {
 }
 
 function ModalPreview({ description, title, triggerLabel }: ModalPreviewProps) {
-  const [mounted, setMounted] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const id = useId();
   const titleId = `${id}-title`;
   const descriptionId = `${id}-description`;
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
   return (
-    <Modal>
-      <Button className="ore-modal-trigger" type="button">
+    <>
+      <Button onClick={() => dialogRef.current?.showModal()} type="button">
         {triggerLabel}
       </Button>
-      <dialog
+      <Modal
         aria-describedby={descriptionId}
         aria-labelledby={titleId}
-        className="ore-modal-dialog"
+        ref={dialogRef}
       >
-        <form className="ore-modal-content">
+        <form className="ore-modal-content" method="dialog">
           <header className="ore-modal-header">
             <button
               aria-label="Back"
-              className="ore-modal-close ore-modal-header-button"
-              type="button"
+              className="ore-modal-header-button"
+              type="submit"
+              value="back"
             >
               {createElement("ore-icon", { "aria-hidden": "true" }, backIcon)}
             </button>
@@ -83,22 +70,14 @@ function ModalPreview({ description, title, triggerLabel }: ModalPreviewProps) {
             </h2>
             <button
               aria-label="Close"
-              className="ore-modal-close ore-modal-header-button"
-              type="button"
+              className="ore-modal-header-button"
+              type="submit"
+              value="close"
             >
               {createElement("ore-icon", { "aria-hidden": "true" }, closeIcon)}
             </button>
           </header>
-          <Container
-            className="modal-form-body"
-            style={
-              {
-                "--ore-container-gap": "1rem",
-                "--ore-container-padding": "1rem 1.375rem",
-              } as CSSProperties
-            }
-            variant="dark"
-          >
+          <Container className="modal-form-body ore-scrollbar" variant="dark">
             <p className="ore-modal-description" id={descriptionId}>
               {description}
             </p>
@@ -109,50 +88,22 @@ function ModalPreview({ description, title, triggerLabel }: ModalPreviewProps) {
               style={{ width: "min(100%, 15.25rem)" }}
             />
           </Container>
-          <Container
-            className="modal-confirmation"
-            style={
-              {
-                "--ore-container-gap": "0",
-                "--ore-container-padding": "0.5rem 1.375rem",
-                color: "var(--ore-color-foreground)",
-              } as CSSProperties
-            }
-            variant="light"
-          >
-            <Checkbox style={{ color: "var(--ore-color-foreground)" }}>
+          <Container className="modal-confirmation" variant="light">
+            <Checkbox labelClassName="text-fd-foreground">
               Checkbox example for confirmation
             </Checkbox>
           </Container>
-          <Container
-            className="modal-actions"
-            style={
-              {
-                "--ore-container-gap": "0.25rem",
-                "--ore-container-padding": "0.875rem 1.375rem",
-              } as CSSProperties
-            }
-            variant="light"
-          >
-            <Button
-              className="ore-modal-close"
-              style={{ width: "100%" }}
-              type="button"
-            >
+          <Container className="modal-actions" variant="light">
+            <Button type="submit" value="confirm">
               Confirm
             </Button>
-            <Button
-              className="ore-modal-close"
-              style={{ width: "100%" }}
-              type="button"
-              color="secondary"
-            >
+            <Button type="submit" value="cancel" color="secondary">
               Cancel
             </Button>
           </Container>
         </form>
-      </dialog>
-    </Modal>
+      </Modal>
+    </>
   );
 }
 

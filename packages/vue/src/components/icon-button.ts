@@ -1,6 +1,17 @@
-import "oreui-web/icon-button";
-import { createOreComponent } from "../factory.js";
+import { defineComponent, h } from "vue";
 
-export const IconButton = createOreComponent("ore-icon-button", {
-  displayName: "IconButton",
+export const IconButton = defineComponent({
+  name: "IconButton",
+  inheritAttrs: false,
+  setup(_, { attrs, slots }) {
+    return () =>
+      h(
+        "button",
+        {
+          ...attrs,
+          class: ["ore-icon-button", attrs.class],
+        },
+        slots.default?.(),
+      );
+  },
 });

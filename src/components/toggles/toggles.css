@@ -1,4 +1,4 @@
-:where(ore-toggles) {
+:where(.ore-toggles) {
   display: flex;
   align-items: flex-end;
 }

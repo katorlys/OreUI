@@ -1,6 +1,24 @@
-import "oreui-web/progress-ring";
-import { createOreComponent } from "../factory.js";
+import { defineComponent, h, type ComponentPublicInstance } from "vue";
 
-export const ProgressRing = createOreComponent("ore-progress-ring", {
-  displayName: "ProgressRing",
+export const ProgressRing = defineComponent({
+  name: "ProgressRing",
+  inheritAttrs: false,
+  setup(_, { attrs, expose }) {
+    let element: HTMLSpanElement | undefined;
+
+    expose({
+      get element() {
+        return element;
+      },
+    });
+
+    return () =>
+      h("span", {
+        ...attrs,
+        ref: (value: Element | ComponentPublicInstance | null) => {
+          element = value instanceof HTMLSpanElement ? value : undefined;
+        },
+        class: ["ore-progress-ring", attrs.class],
+      });
+  },
 });

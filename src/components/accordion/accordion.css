@@ -1,9 +1,28 @@
-:where(ore-accordion) {
+:where(details.ore-accordion) {
   --ore-accordion-unit: var(--ore-size-unit);
   --ore-accordion-border: var(--ore-color-neutral-border);
   --ore-accordion-background: var(--ore-color-neutral-surface);
   --ore-accordion-foreground: var(--ore-color-foreground);
   --ore-accordion-content-foreground: var(--ore-color-neutral-text-dim);
+  --ore-accordion-trigger-background: var(--ore-color-neutral-surface);
+  --ore-accordion-trigger-highlight: var(--ore-color-neutral-specular);
+  --ore-accordion-trigger-shadow: var(--ore-color-neutral-bevel-shadow);
+  --ore-accordion-trigger-corner: var(--ore-color-neutral-corner);
+  --ore-accordion-trigger-background-hover: var(
+    --ore-color-neutral-background-hover
+  );
+  --ore-accordion-trigger-highlight-hover: var(
+    --ore-color-neutral-highlight-hover
+  );
+  --ore-accordion-trigger-corner-hover: var(--ore-color-neutral-highlight);
+  --ore-accordion-trigger-background-pressed: var(
+    --ore-color-neutral-background-pressed
+  );
+  --ore-accordion-trigger-highlight-pressed: var(--ore-color-neutral-shadow);
+  --ore-accordion-trigger-shadow-pressed: var(
+    --ore-color-neutral-highlight-pressed
+  );
+  --ore-accordion-trigger-corner-pressed: var(--ore-color-neutral-background);
 
   display: block;
   width: min(100%, calc(var(--ore-accordion-unit) * 200));
@@ -11,32 +30,75 @@
   font-family: var(--ore-font-body);
 }
 
-:where(ore-accordion > .ore-accordion-trigger) {
-  --ore-icon-button-width: calc(100% - var(--ore-accordion-unit) * 2);
-  --ore-icon-button-height: auto;
-  --ore-icon-button-padding: var(--ore-accordion-unit)
-    calc(var(--ore-accordion-unit) * 8);
-  --ore-icon-button-place-items: center stretch;
-  --ore-icon-button-box-shadow: 0 0 0 var(--ore-accordion-unit)
-    var(--ore-accordion-border);
-
+:where(details.ore-accordion > summary) {
   display: grid;
+  position: relative;
+  z-index: 1;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: calc(var(--ore-accordion-unit) * 4);
+  box-sizing: border-box;
   min-height: calc(var(--ore-accordion-unit) * 20);
   margin-inline: var(--ore-accordion-unit);
+  padding: var(--ore-accordion-unit) calc(var(--ore-accordion-unit) * 8);
+  color: var(--ore-accordion-foreground);
+  background:
+    linear-gradient(
+        var(--ore-accordion-trigger-corner),
+        var(--ore-accordion-trigger-corner)
+      )
+      right top / var(--ore-accordion-unit) var(--ore-accordion-unit) no-repeat,
+    linear-gradient(
+        var(--ore-accordion-trigger-corner),
+        var(--ore-accordion-trigger-corner)
+      )
+      left bottom / var(--ore-accordion-unit) var(--ore-accordion-unit)
+      no-repeat,
+    linear-gradient(
+        var(--ore-accordion-trigger-highlight),
+        var(--ore-accordion-trigger-highlight)
+      )
+      left top / calc(100% - var(--ore-accordion-unit))
+      var(--ore-accordion-unit) no-repeat,
+    linear-gradient(
+        var(--ore-accordion-trigger-highlight),
+        var(--ore-accordion-trigger-highlight)
+      )
+      left top / var(--ore-accordion-unit)
+      calc(100% - var(--ore-accordion-unit)) no-repeat,
+    linear-gradient(
+        var(--ore-accordion-trigger-shadow),
+        var(--ore-accordion-trigger-shadow)
+      )
+      right bottom / calc(100% - var(--ore-accordion-unit))
+      var(--ore-accordion-unit) no-repeat,
+    linear-gradient(
+        var(--ore-accordion-trigger-shadow),
+        var(--ore-accordion-trigger-shadow)
+      )
+      right bottom / var(--ore-accordion-unit)
+      calc(100% - var(--ore-accordion-unit)) no-repeat,
+    var(--ore-accordion-trigger-background);
+  box-shadow: 0 0 0 var(--ore-accordion-unit) var(--ore-accordion-border);
   text-align: left;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-:where(ore-accordion > .ore-accordion-trigger > .ore-accordion-title) {
+:where(details.ore-accordion > summary::-webkit-details-marker) {
+  display: none;
+}
+
+:where(details.ore-accordion > summary > .ore-accordion-title) {
   min-width: 0;
   overflow-wrap: anywhere;
   font-size: calc(var(--ore-accordion-unit) * 7);
   line-height: calc(var(--ore-accordion-unit) * 8);
 }
 
-:where(ore-accordion > .ore-accordion-trigger)::after {
+:where(details.ore-accordion > summary)::after {
   width: calc(var(--ore-accordion-unit) * 6);
   height: calc(var(--ore-accordion-unit) * 6);
   background: currentColor;
@@ -44,18 +106,34 @@
   content: "";
 }
 
-:where(ore-accordion[open] > .ore-accordion-trigger)::after {
+:where(details.ore-accordion[open] > summary)::after {
   mask-image: url("../../assets/icons/chevron-up.svg");
 }
 
-:where(ore-accordion[open] > .ore-accordion-trigger) {
-  --ore-icon-button-background: var(--ore-color-neutral-background-pressed);
-  --ore-icon-button-highlight: var(--ore-color-neutral-shadow);
-  --ore-icon-button-shadow-color: var(--ore-color-neutral-highlight-pressed);
-  --ore-icon-button-corner: var(--ore-color-neutral-background);
+:where(details.ore-accordion > summary:active) {
+  --ore-accordion-trigger-background: var(
+    --ore-accordion-trigger-background-pressed
+  );
+  --ore-accordion-trigger-highlight: var(
+    --ore-accordion-trigger-highlight-pressed
+  );
+  --ore-accordion-trigger-shadow: var(--ore-accordion-trigger-shadow-pressed);
+  --ore-accordion-trigger-corner: var(--ore-accordion-trigger-corner-pressed);
 }
 
-:where(ore-accordion > .ore-accordion-content) {
+@media (hover: hover) and (pointer: fine) {
+  :where(details.ore-accordion > summary:hover:not(:active)) {
+    --ore-accordion-trigger-background: var(
+      --ore-accordion-trigger-background-hover
+    );
+    --ore-accordion-trigger-highlight: var(
+      --ore-accordion-trigger-highlight-hover
+    );
+    --ore-accordion-trigger-corner: var(--ore-accordion-trigger-corner-hover);
+  }
+}
+
+:where(details.ore-accordion > .ore-accordion-content) {
   box-sizing: border-box;
   padding: calc(var(--ore-accordion-unit) * 4)
     calc(var(--ore-accordion-unit) * 8);
@@ -67,6 +145,7 @@
   line-height: calc(var(--ore-accordion-unit) * 7);
 }
 
-:where(ore-accordion > .ore-accordion-content[hidden]) {
-  display: none;
+:where(details.ore-accordion > summary:focus-visible) {
+  outline: var(--ore-accordion-unit) solid var(--ore-color-focus-ring);
+  outline-offset: var(--ore-accordion-unit);
 }

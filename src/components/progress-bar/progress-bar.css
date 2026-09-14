@@ -1,72 +1,51 @@
-:where(ore-progress-bar) {
+:where(progress.ore-progress-bar) {
   --ore-progress-bar-unit: var(--ore-size-unit);
-  --ore-progress-bar-value: 0;
   --ore-progress-bar-frame: currentColor;
   --ore-progress-bar-fill: currentColor;
-  --ore-progress-bar-label: currentColor;
-  --ore-progress-bar-label-gap: calc(var(--ore-progress-bar-unit) * 2);
 
-  display: inline-grid;
-  grid-template-areas:
-    "top"
-    "track"
-    "bottom";
+  appearance: none;
+  display: block;
   box-sizing: border-box;
   width: min(100%, calc(var(--ore-progress-bar-unit) * 220));
-  color: var(--ore-progress-bar-label);
-  font-family: var(--ore-font-body);
-}
-
-:where(ore-progress-bar > .ore-progress-bar-track) {
-  position: relative;
-  grid-area: track;
-  box-sizing: border-box;
-  width: 100%;
   height: calc(var(--ore-progress-bar-unit) * 8);
   border: var(--ore-progress-bar-unit) solid var(--ore-progress-bar-frame);
+  padding: var(--ore-progress-bar-unit);
+  background: transparent;
+  color: var(--ore-progress-bar-fill);
 }
 
-:where(ore-progress-bar > .ore-progress-bar-track)::after {
-  position: absolute;
-  top: var(--ore-progress-bar-unit);
-  bottom: var(--ore-progress-bar-unit);
-  left: var(--ore-progress-bar-unit);
-  width: calc(
-    (100% - var(--ore-progress-bar-unit) * 2) * var(--ore-progress-bar-value)
-  );
+:where(progress.ore-progress-bar)::-webkit-progress-bar {
+  background: transparent;
+}
+
+:where(progress.ore-progress-bar)::-webkit-progress-value {
   background: var(--ore-progress-bar-fill);
-  content: "";
 }
 
-:where(ore-progress-bar > .ore-progress-bar-label) {
-  grid-area: bottom;
-  margin-top: var(--ore-progress-bar-label-gap);
-  font-size: calc(var(--ore-progress-bar-unit) * 6);
-  line-height: calc(var(--ore-progress-bar-unit) * 7);
+:where(progress.ore-progress-bar)::-moz-progress-bar {
+  background: var(--ore-progress-bar-fill);
+}
+
+:where(.ore-progress-bar-label) {
+  display: block;
+  box-sizing: border-box;
+  width: min(
+    100%,
+    calc(var(--ore-progress-bar-unit, var(--ore-size-unit)) * 220)
+  );
+  margin-block: calc(var(--ore-progress-bar-unit, var(--ore-size-unit)) * 2);
+  color: var(--ore-progress-bar-label, currentColor);
+  font-family: var(--ore-font-body);
+  font-size: calc(var(--ore-progress-bar-unit, var(--ore-size-unit)) * 6);
+  line-height: calc(var(--ore-progress-bar-unit, var(--ore-size-unit)) * 7);
+  text-align: center;
   white-space: nowrap;
 }
 
-:where(ore-progress-bar[variant="plain"] > .ore-progress-bar-label) {
-  display: none;
+:where(.ore-progress-bar-label[data-align="start"]) {
+  text-align: start;
 }
 
-:where(
-  ore-progress-bar[variant="labeled"][label-position="top"]
-    > .ore-progress-bar-label
-) {
-  grid-area: top;
-  margin-top: 0;
-  margin-bottom: var(--ore-progress-bar-label-gap);
-}
-
-:where(ore-progress-bar[label-align="start"] > .ore-progress-bar-label) {
-  justify-self: start;
-}
-
-:where(ore-progress-bar[label-align="center"] > .ore-progress-bar-label) {
-  justify-self: center;
-}
-
-:where(ore-progress-bar[label-align="end"] > .ore-progress-bar-label) {
-  justify-self: end;
+:where(.ore-progress-bar-label[data-align="end"]) {
+  text-align: end;
 }

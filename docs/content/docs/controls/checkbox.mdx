@@ -12,11 +12,14 @@ import { CheckboxStory } from "@/components/stories/checkbox.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "oreui-web/checkbox";
+import "oreui-web/styles.css";
 ```
 
 ```html
-<ore-checkbox name="updates" value="yes"> Receive updates </ore-checkbox>
+<label>
+  <input class="ore-checkbox" type="checkbox" name="updates" value="yes" />
+  Receive updates
+</label>
 ```
 
     </Tab>
@@ -35,8 +38,7 @@ export function UpdatesCheckbox() {
       name="updates"
       value="yes"
       onChange={(event) => {
-        const checkbox = event.target as HTMLElement & { checked: boolean };
-        setChecked(checkbox.checked);
+        setChecked(event.currentTarget.checked);
       }}
     >
       Receive updates
@@ -105,13 +107,14 @@ export function UpdatesCheckbox() {
     <Tab value="Astro">
 
 ```astro
-<ore-checkbox name="updates" value="yes">
-	Receive updates
-</ore-checkbox>
+<label>
+  <input class="ore-checkbox" type="checkbox" name="updates" value="yes" />
+  Receive updates
+</label>
 
-<script>
-	import "oreui-web/checkbox";
-</script>
+<style is:global>
+  @import "oreui-web/styles.css";
+</style>
 ```
 
     </Tab>
@@ -121,21 +124,75 @@ export function UpdatesCheckbox() {
 ## Colors
 
 ```html
-<ore-checkbox color="primary" checked>Primary</ore-checkbox>
-<ore-checkbox color="secondary" checked>Secondary</ore-checkbox>
-<ore-checkbox color="destructive" checked>Destructive</ore-checkbox>
-<ore-checkbox color="dungeons" checked>Dungeons</ore-checkbox>
-<ore-checkbox color="legends" checked>Legends</ore-checkbox>
-<ore-checkbox color="realms" checked>Realms</ore-checkbox>
-<ore-checkbox color="gold" checked>Gold</ore-checkbox>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="primary"
+    checked
+  />Primary</label
+>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="secondary"
+    checked
+  />Secondary</label
+>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="destructive"
+    checked
+  />Destructive</label
+>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="dungeons"
+    checked
+  />Dungeons</label
+>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="legends"
+    checked
+  />Legends</label
+>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="realms"
+    checked
+  />Realms</label
+>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="gold"
+    checked
+  />Gold</label
+>
 ```
 
 ## States
 
 ```html
-<ore-checkbox checked>Enabled</ore-checkbox>
-<ore-checkbox disabled>Unavailable</ore-checkbox>
-<ore-checkbox required>Required agreement</ore-checkbox>
+<label><input class="ore-checkbox" type="checkbox" checked />Enabled</label>
+<label
+  ><input class="ore-checkbox" type="checkbox" disabled />Unavailable</label
+>
+<label
+  ><input class="ore-checkbox" type="checkbox" required />Required
+  agreement</label
+>
 ```
 
 ## Forms
@@ -144,33 +201,28 @@ Checked values are included in `FormData`. Reset restores the initial `checked` 
 
 ```html
 <form>
-  <ore-checkbox name="terms" value="accepted" required>
+  <label>
+    <input
+      class="ore-checkbox"
+      type="checkbox"
+      name="terms"
+      value="accepted"
+      required
+    />
     Accept the terms
-  </ore-checkbox>
-  <ore-button type="submit">Continue</ore-button>
-  <ore-button type="reset" color="secondary">Reset</ore-button>
+  </label>
+  <button type="submit">Continue</button>
+  <button type="reset" data-color="secondary">Reset</button>
 </form>
 ```
 
 ## Events
 
-Checkbox dispatches native `input` and `change` events after its value changes.
+The native checkbox dispatches `input` and `change` events when its value changes.
 
 ## API
 
-| Property   | Attribute  | Type                                                                                         | Default     |
-| ---------- | ---------- | -------------------------------------------------------------------------------------------- | ----------- |
-| `checked`  | `checked`  | `boolean`                                                                                    | `false`     |
-| `color`    | `color`    | `"primary" \| "secondary" \| "destructive" \| "dungeons" \| "legends" \| "realms" \| "gold"` | `"primary"` |
-| `disabled` | `disabled` | `boolean`                                                                                    | `false`     |
-| `name`     | `name`     | `string`                                                                                     | `""`        |
-| `required` | `required` | `boolean`                                                                                    | `false`     |
-| `value`    | `value`    | `string`                                                                                     | `"on"`      |
-
-| Method             | Description                        |
-| ------------------ | ---------------------------------- |
-| `checkValidity()`  | Check the current validity         |
-| `reportValidity()` | Check validity and report an error |
+Checkbox uses the native `HTMLInputElement` API. Use `checked`, `disabled`, `name`, `required`, and `value` directly; use `data-color` only for the OreUI palette. Native methods such as `checkValidity()` and `reportValidity()` remain available.
 
 ## CSS variables
 
@@ -190,4 +242,4 @@ Checkbox dispatches native `input` and `change` events after its value changes.
 
 ## Accessibility
 
-Checkbox provides checkbox semantics and supports Space.
+The native input provides checkbox semantics, label activation, Space key behavior, form participation, validation, and reset behavior without JavaScript.

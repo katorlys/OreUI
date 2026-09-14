@@ -38,12 +38,14 @@ function RadioGroupPreview({
 
   return (
     <div style={{ display: "grid", gap: "1rem" }}>
-      <RadioGroup aria-label={label}>
+      <RadioGroup>
+        <legend>{label}</legend>
         {options.map((option) => {
           const optionValue = option.toLowerCase();
           return (
             <Radio
               className="text-current"
+              labelClassName="text-fd-foreground"
               key={optionValue}
               checked={value === optionValue}
               color={color}

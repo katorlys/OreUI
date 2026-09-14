@@ -1,18 +1,23 @@
 <script lang="ts">
-  import "oreui-web/spinner";
-  import type { OreSpinner } from "oreui-web/spinner";
   import type { OreComponentProps } from "../types.js";
 
-  export type SpinnerProps = OreComponentProps<OreSpinner>;
+  export type SpinnerProps = OreComponentProps<HTMLSpanElement>;
 
-  let { children, ...props }: SpinnerProps = $props();
-  let element: OreSpinner;
+  let { children, class: className, "aria-hidden": ariaHidden, "aria-label": ariaLabel, ...props }: SpinnerProps = $props();
+  let element: HTMLSpanElement;
 
-  export function getElement(): OreSpinner {
+  export function getElement(): HTMLSpanElement {
     return element;
   }
 </script>
 
-<ore-spinner bind:this={element} {...props}>
+<span
+  bind:this={element}
+  class={`ore-spinner ${className ?? ""}`}
+  role={ariaHidden ? undefined : "status"}
+  aria-hidden={ariaHidden}
+  aria-label={ariaHidden ? undefined : (ariaLabel ?? "Loading")}
+  {...props}
+>
   {@render children?.()}
-</ore-spinner>
+</span>

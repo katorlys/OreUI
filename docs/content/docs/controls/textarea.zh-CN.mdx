@@ -12,16 +12,27 @@ import { TextareaStory } from "@/components/stories/textarea.story";
 <Tabs groupId="framework" items={["Vanilla", "React", "Vue", "Svelte", "Solid", "Astro"]} persist>
 	<Tab value="Vanilla">
 ```js
-import "oreui-web/textarea";
+import "oreui-web/styles.css";
 ```
 
 ```html
-<ore-textarea
-  name="description"
-  label="World description"
-  placeholder="Describe your world"
-  rows="4"
-></ore-textarea>
+<div class="ore-textarea">
+  <label class="ore-textarea-label" for="world-description"
+    >World description</label
+  >
+  <span class="ore-textarea-control">
+    <textarea
+      class="ore-textarea-input"
+      id="world-description"
+      name="description"
+      placeholder="Describe your world"
+      rows="4"
+    ></textarea>
+  </span>
+  <span class="ore-textarea-description"
+    >Shown on the world selection screen</span
+  >
+</div>
 ```
 
     </Tab>
@@ -29,12 +40,11 @@ import "oreui-web/textarea";
 
 ```tsx
 import { Textarea } from "@oreui-web/react/textarea";
-import type { OreTextarea } from "oreui-web/textarea";
 import { useRef, useState } from "react";
 
 export function WorldDescription() {
   const [value, setValue] = useState("");
-  const ref = useRef<OreTextarea>(null);
+  const ref = useRef<HTMLTextAreaElement>(null);
 
   return (
     <Textarea
@@ -102,10 +112,15 @@ export function WorldDescription() {
     <Tab value="Astro">
 
 ```astro
-<ore-textarea label="World description" rows="4"></ore-textarea>
+<div class="ore-textarea">
+  <label class="ore-textarea-label" for="world-description">World description</label>
+  <span class="ore-textarea-control">
+    <textarea class="ore-textarea-input" id="world-description" rows="4"></textarea>
+  </span>
+</div>
 
 <script>
-	import "oreui-web/textarea";
+	import "oreui-web/styles.css";
 </script>
 ```
 
@@ -118,44 +133,40 @@ export function WorldDescription() {
 Textarea 默认支持水平和垂直的大小调整，并可通过原生控件的公开类来定制该行为。
 
 ```css
-ore-textarea > .ore-textarea-control > .ore-textarea-input {
+.ore-textarea > .ore-textarea-control > .ore-textarea-input {
   resize: none;
 }
 ```
 
 ## 选区和滚动
 
-宿主元素会代理常用的原生 textarea API：`selectionStart`、`selectionEnd`、`setSelectionRange()`、`scrollTop` 和 `focus()`。
+原生 `<textarea>` 直接提供 `selectionStart`、`selectionEnd`、`setSelectionRange()`、`scrollTop` 和 `focus()`。
 
 ```js
-const textarea = document.querySelector("ore-textarea");
+const textarea = document.querySelector("textarea");
 textarea.focus();
 textarea.setSelectionRange(0, 5);
 ```
 
 ## 事件
 
-Textarea 的值变化时会触发 `input`、编辑提交时会触发 `change`。公共 `value` 属性会与原生 textarea 保持同步。
+原生 textarea 的值变化时会触发 `input`、编辑提交时会触发 `change`。`value` 属性就是唯一的表单状态来源。
 
 ## API
 
-| Prop                      | 属性                      | 类型                        | 默认值   |
-| ------------------------- | ------------------------- | --------------------------- | -------- |
-| `autocomplete`            | `autocomplete`            | `string`                    | `""`     |
-| `description`             | `description`             | `string`                    | `""`     |
-| `disabled`                | `disabled`                | `boolean`                   | `false`  |
-| `error`                   | `error`                   | `string`                    | `""`     |
-| `inputMode`               | `inputmode`               | `string`                    | `""`     |
-| `label`                   | `label`                   | `string`                    | `""`     |
-| `maxLength` / `minLength` | `maxlength` / `minlength` | `number`                    | `-1`     |
-| `name`                    | `name`                    | `string`                    | `""`     |
-| `placeholder`             | `placeholder`             | `string`                    | `""`     |
-| `readonly`                | `readonly`                | `boolean`                   | `false`  |
-| `required`                | `required`                | `boolean`                   | `false`  |
-| `rows`                    | `rows`                    | `number`                    | `3`      |
-| `spellCheck`              | `spellcheck`              | `boolean`                   | `true`   |
-| `value`                   | `value`                   | `string`                    | `""`     |
-| `wrap`                    | `wrap`                    | `"hard" \| "off" \| "soft"` | `"soft"` |
+| Prop                      | 属性                      | 类型                        | 默认值     |
+| ------------------------- | ------------------------- | --------------------------- | ---------- |
+| `autocomplete`            | `autocomplete`            | `string`                    | 浏览器默认 |
+| `disabled`                | `disabled`                | `boolean`                   | `false`    |
+| `inputMode`               | `inputmode`               | `string`                    | 浏览器默认 |
+| `maxLength` / `minLength` | `maxlength` / `minlength` | `number`                    | 浏览器默认 |
+| `name`                    | `name`                    | `string`                    | `""`       |
+| `placeholder`             | `placeholder`             | `string`                    | `""`       |
+| `readonly`                | `readonly`                | `boolean`                   | `false`    |
+| `required`                | `required`                | `boolean`                   | `false`    |
+| `rows`                    | `rows`                    | `number`                    | `2`        |
+| `spellcheck`              | `spellcheck`              | `boolean`                   | 浏览器默认 |
+| `wrap`                    | `wrap`                    | `"hard" \| "off" \| "soft"` | `"soft"`   |
 
 ## 公开类
 
@@ -173,4 +184,4 @@ Textarea 与 Textfield 的样式相同，并使用 `--ore-textarea-*` 前缀，�
 
 ## 无障碍
 
-Textarea 会将标签、描述和验证信息关联到原生 textarea 之中。请优先使用可见的 `label`，只有在可见标签不适用时，才使用 `aria-label`。
+请使用与 `id` 匹配的可见 `label`。通过 `aria-describedby` 关联帮助或错误文本。使用原生 `required`、`minlength`、`maxlength`、`readonly` 和 `disabled` 属性表达对应状态。

@@ -14,7 +14,7 @@ Import the default styles once in your application:
 Apply classes to the component to override default styles.
 
 ```html
-<ore-button class="danger-action" type="button">Delete</ore-button>
+<button class="danger-action" type="button">Delete</button>
 ```
 
 ```css
@@ -34,7 +34,7 @@ Apply classes to the component to override default styles.
 Modify CSS variables to change default styles.
 
 ```html
-<ore-switch class="large-thumb">Music</ore-switch>
+<label class="large-thumb"><input type="checkbox" role="switch" />Music</label>
 ```
 
 ```css
@@ -48,12 +48,12 @@ Modify CSS variables to change default styles.
 Use standard utilities for properties such as sizing and spacing. To preserve a component's state styles, customize its public `--ore-*` variables with arbitrary property utilities.
 
 ```html
-<ore-button
+<button
   class="min-h-12 [--ore-button-background-default:#dc2626] [--ore-button-background-hover:#ef4444] [--ore-button-background-pressed:#b91c1c] [--ore-button-foreground:white]"
   type="button"
 >
   Delete
-</ore-button>
+</button>
 ```
 
 The Button background draws its face, highlight, border, and shadow together, so a `bg-*` utility would replace that drawing instead of only changing its color.
@@ -73,7 +73,7 @@ const dangerAction = css({
   "--ore-button-foreground": "white",
 });
 
-<ore-button className={dangerAction} type="button">
+<button className={dangerAction} type="button">
   Delete
-</ore-button>;
+</button>;
 ```

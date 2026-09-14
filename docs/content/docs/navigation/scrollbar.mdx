@@ -16,11 +16,11 @@ import "oreui-web/scrollbar";
 ```
 
 ```html
-<ore-scrollbar aria-label="World list" style="max-height: 12rem;">
+<div class="ore-scrollbar" aria-label="World list" style="max-height: 12rem;">
   <div>World 1</div>
   <div>World 2</div>
   <div>World 3</div>
-</ore-scrollbar>
+</div>
 ```
 
     </Tab>
@@ -87,14 +87,14 @@ export function ScrollableContent() {
     <Tab value="Astro">
 
 ```astro
-<ore-scrollbar aria-label="World list" style="max-height: 12rem;">
+<div class="ore-scrollbar" aria-label="World list" style="max-height: 12rem;">
 	<div>World 1</div>
 	<div>World 2</div>
 	<div>World 3</div>
-</ore-scrollbar>
+</div>
 
 <script>
-	import "oreui-web/scrollbar";
+  import "oreui-web/scrollbar";
 </script>
 ```
 
@@ -102,9 +102,9 @@ export function ScrollableContent() {
 
 </Tabs>
 
-## CSS class
+## Native scrolling
 
-Use `.ore-scrollbar` when only the visual scrollbar style is needed on another element.
+Apply `.ore-scrollbar` to a real overflow container. Wheel scrolling, touch inertia, and scroll position remain attached to that native container. The optional `oreui-web/scrollbar` controller manages `tabindex` from actual overflow, normalizes keyboard scrolling, and adds the Firefox visual fallback.
 
 ```html
 <div class="ore-scrollbar" style="max-height: 12rem; overflow: auto;">
@@ -112,7 +112,7 @@ Use `.ore-scrollbar` when only the visual scrollbar style is needed on another e
 </div>
 ```
 
-The class does not add the keyboard behavior or automatic `tabindex` management provided by `ore-scrollbar`.
+Chromium and Safari use `::-webkit-scrollbar*` to reproduce the layered pixel thumb. Firefox does not expose the required thumb and track pseudo-elements, so the controller hides its native scrollbar and overlays the same track and thumb layers while keeping the real element as the scroll container. The overlay mirrors native scroll position and pointer dragging. Without the controller, Firefox falls back to `scrollbar-color` and its native scrollbar.
 
 ## CSS variables
 
@@ -128,8 +128,7 @@ The class does not add the keyboard behavior or automatic `tabindex` management 
 | `--ore-scrollbar-thumb-highlight`  | Thumb highlight color       |
 | `--ore-scrollbar-thumb-background` | Thumb background color      |
 | `--ore-scrollbar-thumb-shadow`     | Thumb shadow color          |
-| `--ore-scrollbar-z-index`          | Custom track stacking level |
 
 ## Accessibility
 
-Scrollbar enters the tab order only when its content overflows. `Arrow keys` scroll by a small amount, `Page Up` and `Page Down` scroll by one viewport, and `Home` and `End` move to either edge. Add an accessible label that describes the scroll region.
+When the controller is imported, an overflowing region without an authored `tabindex` receives `tabindex="0"`; a region without overflow receives `tabindex="-1"`. An explicit `tabindex`, including `-1`, is never overwritten. Arrow keys, Page Up/Down, Home, and End are normalized only when the scroll region itself has focus, so controls inside it retain their native keyboard behavior. Give the region an accessible name with `aria-label` or `aria-labelledby`.

@@ -1,5 +1,3 @@
-import { type PropertyValues, ReactiveElement } from "lit";
-
 import type { OreTagVariant } from "../tag/tag.js";
 
 export type OreToastPosition =
@@ -10,113 +8,215 @@ export type OreToastPosition =
   | "bottom-center"
   | "bottom-end";
 export type OreToastVariant = OreTagVariant;
+export type OreToastElement = HTMLElement;
 
-export class OreToast extends ReactiveElement {
-  static properties = {
-    defaultOpen: { type: Boolean, attribute: "default-open" },
-    duration: { type: Number, reflect: true },
-    open: { type: Boolean, reflect: true },
-    position: { type: String, reflect: true },
-    variant: { type: String, reflect: true },
-  };
+type ToastState = {
+  duration: number;
+  remaining: number;
+  startedAt: number;
+  timer?: number;
+};
 
-  declare defaultOpen: boolean;
-  declare duration: number;
-  declare open: boolean;
-  declare position: OreToastPosition;
-  declare variant: OreToastVariant;
+const selector = ".ore-toast";
+const states = new WeakMap<OreToastElement, ToastState>();
 
-  #timer: number | undefined;
+function durationFor(toast: OreToastElement): number {
+  const duration = Number(toast.dataset.duration ?? 3000);
+  return Number.isFinite(duration) && duration >= 0 ? duration : 3000;
+}
 
-  constructor() {
-    super();
-    this.defaultOpen = false;
-    this.duration = 3000;
-    this.open = false;
-    this.position = "bottom-center";
-    this.variant = "neutral";
+function clearTimer(state: ToastState): void {
+  window.clearTimeout(state.timer);
+  state.timer = undefined;
+}
+
+function startTimer(toast: OreToastElement): void {
+  const state = states.get(toast);
+  if (!state || state.remaining <= 0 || !toast.matches(":popover-open")) {
+    return;
   }
 
-  override connectedCallback(): void {
-    super.connectedCallback();
-    this.setAttribute("popover", "manual");
-    this.setAttribute("role", "status");
-    this.setAttribute("aria-live", "polite");
-    this.setAttribute("aria-atomic", "true");
+  clearTimer(state);
+  state.startedAt = performance.now();
+  state.timer = window.setTimeout(() => closeToast(toast), state.remaining);
+}
 
-    if (this.defaultOpen) {
-      this.open = true;
+function pauseTimer(toast: OreToastElement): void {
+  const state = states.get(toast);
+  if (state?.timer === undefined) {
+    return;
+  }
+
+  state.remaining = Math.max(
+    0,
+    state.remaining - (performance.now() - state.startedAt),
+  );
+  clearTimer(state);
+}
+
+function resetTimer(toast: OreToastElement): void {
+  const state = states.get(toast);
+  if (!state) {
+    return;
+  }
+
+  state.duration = durationFor(toast);
+  state.remaining = state.duration;
+  startTimer(toast);
+}
+
+function dispatchOpenChange(toast: OreToastElement, open: boolean): void {
+  toast.dispatchEvent(
+    new CustomEvent<boolean>("oreui:openchange", {
+      bubbles: true,
+      detail: open,
+    }),
+  );
+}
+
+function handleToggle(event: ToggleEvent): void {
+  const toast = event.currentTarget as OreToastElement;
+  const open = event.newState === "open";
+
+  if (open) {
+    resetTimer(toast);
+  } else {
+    const state = states.get(toast);
+    if (state) {
+      clearTimer(state);
     }
   }
 
-  override disconnectedCallback(): void {
-    window.clearTimeout(this.#timer);
-    super.disconnectedCallback();
+  dispatchOpenChange(toast, open);
+}
+
+function handlePointerEnter(event: PointerEvent): void {
+  pauseTimer(event.currentTarget as OreToastElement);
+}
+
+function handlePointerLeave(event: PointerEvent): void {
+  startTimer(event.currentTarget as OreToastElement);
+}
+
+function handleFocusIn(event: FocusEvent): void {
+  pauseTimer(event.currentTarget as OreToastElement);
+}
+
+function handleFocusOut(event: FocusEvent): void {
+  const toast = event.currentTarget as OreToastElement;
+  if (!toast.contains(event.relatedTarget as Node | null)) {
+    startTimer(toast);
+  }
+}
+
+export function showToast(toast: OreToastElement): void {
+  initToast(toast);
+  if (!toast.matches(":popover-open")) {
+    toast.showPopover();
+  } else {
+    resetTimer(toast);
+  }
+}
+
+export function closeToast(toast: OreToastElement): void {
+  if (toast.matches(":popover-open")) {
+    toast.hidePopover();
+  }
+}
+
+export function destroyToast(toast: OreToastElement): void {
+  const state = states.get(toast);
+  if (!state) {
+    return;
   }
 
-  protected override createRenderRoot(): HTMLElement {
-    return this;
+  clearTimer(state);
+  toast.removeEventListener("toggle", handleToggle);
+  toast.removeEventListener("pointerenter", handlePointerEnter);
+  toast.removeEventListener("pointerleave", handlePointerLeave);
+  toast.removeEventListener("focusin", handleFocusIn);
+  toast.removeEventListener("focusout", handleFocusOut);
+  toast.removeAttribute("data-ore-initialized");
+  states.delete(toast);
+}
+
+export function initToast(toast: OreToastElement): void {
+  if (states.has(toast)) {
+    return;
   }
 
-  protected override updated(changed: PropertyValues<this>): void {
-    if (changed.has("duration")) {
-      const duration =
-        Number.isFinite(this.duration) && this.duration >= 0
-          ? this.duration
-          : 3000;
+  const duration = durationFor(toast);
+  states.set(toast, { duration, remaining: duration, startedAt: 0 });
+  toast.dataset.oreInitialized = "toast";
+  toast.setAttribute("popover", "manual");
+  toast.setAttribute("role", "status");
+  toast.setAttribute("aria-live", "polite");
+  toast.setAttribute("aria-atomic", "true");
+  toast.addEventListener("toggle", handleToggle);
+  toast.addEventListener("pointerenter", handlePointerEnter);
+  toast.addEventListener("pointerleave", handlePointerLeave);
+  toast.addEventListener("focusin", handleFocusIn);
+  toast.addEventListener("focusout", handleFocusOut);
 
-      if (duration !== this.duration) {
-        this.duration = duration;
-        return;
+  if (
+    toast.hasAttribute("data-open") ||
+    toast.hasAttribute("data-default-open")
+  ) {
+    showToast(toast);
+  }
+}
+
+export function initToasts(root: ParentNode = document): void {
+  if (root instanceof HTMLElement && root.matches(selector)) {
+    initToast(root);
+  }
+  for (const toast of root.querySelectorAll<OreToastElement>(selector)) {
+    initToast(toast);
+  }
+}
+
+if (typeof document !== "undefined") {
+  initToasts();
+  new MutationObserver((records) => {
+    for (const record of records) {
+      for (const node of record.removedNodes) {
+        if (node instanceof HTMLElement) {
+          if (node.matches(selector)) {
+            destroyToast(node);
+          }
+          for (const toast of node.querySelectorAll<OreToastElement>(
+            selector,
+          )) {
+            destroyToast(toast);
+          }
+        }
+      }
+      for (const node of record.addedNodes) {
+        if (node instanceof HTMLElement) {
+          initToasts(node);
+        }
+      }
+      if (
+        record.type === "attributes" &&
+        record.target instanceof HTMLElement &&
+        record.target.matches(selector)
+      ) {
+        const toast = record.target;
+        if (record.attributeName === "data-duration") {
+          resetTimer(toast);
+        } else if (record.attributeName === "data-open") {
+          if (toast.hasAttribute("data-open")) {
+            showToast(toast);
+          } else {
+            closeToast(toast);
+          }
+        }
       }
     }
-
-    if (changed.has("open") || changed.has("duration")) {
-      this.#syncOpen();
-    }
-
-    if (changed.has("open") && changed.get("open") !== undefined) {
-      this.dispatchEvent(
-        new CustomEvent<boolean>("open-change", {
-          bubbles: true,
-          composed: true,
-          detail: this.open,
-        }),
-      );
-    }
-  }
-
-  show(): void {
-    this.open = true;
-  }
-
-  close(): void {
-    this.open = false;
-  }
-
-  #syncOpen(): void {
-    window.clearTimeout(this.#timer);
-
-    if (this.open && !this.matches(":popover-open")) {
-      this.showPopover();
-    } else if (!this.open && this.matches(":popover-open")) {
-      this.hidePopover();
-    }
-
-    if (this.open && this.duration > 0) {
-      this.#timer = window.setTimeout(() => {
-        this.open = false;
-      }, this.duration);
-    }
-  }
-}
-
-if (!customElements.get("ore-toast")) {
-  customElements.define("ore-toast", OreToast);
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    "ore-toast": OreToast;
-  }
+  }).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-duration", "data-open"],
+    childList: true,
+    subtree: true,
+  });
 }

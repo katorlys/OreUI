@@ -1,12 +1,7 @@
-:where(ore-slider) {
+:where(input.ore-slider) {
   --ore-slider-unit: var(--ore-size-unit);
-  --ore-slider-progress-start: 0;
   --ore-slider-progress-end: 0;
   --ore-slider-segment-size: 10%;
-  --ore-slider-value-start: calc(
-    var(--ore-slider-unit) * 7.25 + (100% - var(--ore-slider-unit) * 14.5) *
-      var(--ore-slider-progress-start)
-  );
   --ore-slider-value-end: calc(
     var(--ore-slider-unit) * 7.25 + (100% - var(--ore-slider-unit) * 14.5) *
       var(--ore-slider-progress-end)
@@ -23,6 +18,7 @@
   --ore-slider-thumb-shadow: var(--ore-color-secondary-shadow);
   --ore-slider-thumb-border: var(--ore-color-border);
   --ore-slider-thumb-focus-ring: transparent;
+  --ore-slider-segment-edge: transparent;
   --ore-slider-thumb-image:
     linear-gradient(
         var(--ore-slider-thumb-background),
@@ -45,261 +41,158 @@
       center var(--ore-slider-unit) / calc(var(--ore-slider-unit) * 12.5)
       calc(var(--ore-slider-unit) * 10.5) no-repeat,
     var(--ore-slider-thumb-border);
-  --ore-slider-segments: none;
+  --ore-slider-segments: linear-gradient(transparent, transparent);
 
-  position: relative;
-  display: inline-block;
   width: min(100%, calc(var(--ore-slider-unit) * 254.5));
   height: calc(var(--ore-slider-unit) * 14.5);
-}
-
-:where(ore-slider[variant="segmented"]) {
-  --ore-slider-segments: repeating-linear-gradient(
-    to right,
-    var(--ore-slider-track-border) 0 calc(var(--ore-slider-unit) / 2),
-    transparent calc(var(--ore-slider-unit) / 2)
-      calc(var(--ore-slider-segment-size) - var(--ore-slider-unit) / 2),
-    var(--ore-slider-track-border)
-      calc(var(--ore-slider-segment-size) - var(--ore-slider-unit) / 2)
-      var(--ore-slider-segment-size)
-  );
-}
-
-:where(ore-slider[color="secondary"]) {
-  --ore-slider-active-range-background: var(--ore-color-secondary-background);
-  --ore-slider-active-range-highlight: var(--ore-color-secondary-highlight);
-}
-
-:where(ore-slider[color="destructive"]) {
-  --ore-slider-active-range-background: var(--ore-color-destructive-background);
-  --ore-slider-active-range-highlight: var(--ore-color-destructive-highlight);
-}
-
-:where(ore-slider[color="dungeons"]) {
-  --ore-slider-active-range-background: var(--ore-color-dungeons-background);
-  --ore-slider-active-range-highlight: var(--ore-color-dungeons-highlight);
-}
-
-:where(ore-slider[color="legends"]) {
-  --ore-slider-active-range-background: var(--ore-color-legends-background);
-  --ore-slider-active-range-highlight: var(--ore-color-legends-highlight);
-}
-
-:where(ore-slider[color="realms"]) {
-  --ore-slider-active-range-background: var(--ore-color-realms-background);
-  --ore-slider-active-range-highlight: var(--ore-color-realms-highlight);
-}
-
-:where(ore-slider[color="gold"]) {
-  --ore-slider-active-range-background: var(--ore-color-gold-background);
-  --ore-slider-active-range-highlight: var(--ore-color-gold-highlight);
-}
-
-:where(ore-slider[orientation="vertical"]) {
-  --ore-slider-value-start: calc(
-    var(--ore-slider-unit) * 7.25 + (100% - var(--ore-slider-unit) * 14.5) *
-      var(--ore-slider-progress-start)
-  );
-  --ore-slider-value-end: calc(
-    var(--ore-slider-unit) * 7.25 + (100% - var(--ore-slider-unit) * 14.5) *
-      var(--ore-slider-progress-end)
-  );
-
-  width: calc(var(--ore-slider-unit) * 14.5);
-  height: calc(var(--ore-slider-unit) * 127.25);
-}
-
-:where(ore-slider:not([range])) {
-  --ore-slider-value-start: 0;
-}
-
-:where(ore-slider[orientation="vertical"][variant="segmented"]) {
-  --ore-slider-segments: repeating-linear-gradient(
-    to top,
-    var(--ore-slider-track-border) 0 calc(var(--ore-slider-unit) / 2),
-    transparent calc(var(--ore-slider-unit) / 2)
-      calc(var(--ore-slider-segment-size) - var(--ore-slider-unit) / 2),
-    var(--ore-slider-track-border)
-      calc(var(--ore-slider-segment-size) - var(--ore-slider-unit) / 2)
-      var(--ore-slider-segment-size)
-  );
-}
-
-:where(ore-slider)::before {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  left: 0;
-  height: calc(var(--ore-slider-unit) * 5.5);
+  margin: 0;
+  padding: 0;
+  appearance: none;
   background:
-    var(--ore-slider-segments) center /
-      calc(100% - var(--ore-slider-unit) * 14.5)
-      calc(var(--ore-slider-unit) * 3.5) no-repeat,
+    var(--ore-slider-segments) center / 100% calc(var(--ore-slider-unit) * 3.5)
+      no-repeat,
     linear-gradient(
         to right,
-        var(--ore-slider-track-background) 0 var(--ore-slider-value-start),
-        var(--ore-slider-range-background) var(--ore-slider-value-start)
-          var(--ore-slider-value-end),
+        var(--ore-slider-range-background) 0 var(--ore-slider-value-end),
         var(--ore-slider-track-background) var(--ore-slider-value-end) 100%
       )
       center / calc(100% - var(--ore-slider-unit) * 4)
       calc(var(--ore-slider-unit) * 1.5) no-repeat,
     linear-gradient(
         to right,
-        var(--ore-slider-track-highlight) 0 var(--ore-slider-value-start),
-        var(--ore-slider-range-highlight) var(--ore-slider-value-start)
-          var(--ore-slider-value-end),
+        var(--ore-slider-range-highlight) 0 var(--ore-slider-value-end),
         var(--ore-slider-track-highlight) var(--ore-slider-value-end) 100%
       )
       center / calc(100% - var(--ore-slider-unit) * 2)
       calc(var(--ore-slider-unit) * 3.5) no-repeat,
-    var(--ore-slider-track-border);
-  content: "";
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-:where(ore-slider[variant="segmented"])::after {
-  position: absolute;
-  top: 50%;
-  right: calc(var(--ore-slider-unit) * 7.25);
-  left: calc(var(--ore-slider-unit) * 7.25);
-  height: calc(var(--ore-slider-unit) * 3.5);
-  background:
     linear-gradient(
         var(--ore-slider-track-border),
         var(--ore-slider-track-border)
       )
-      left / var(--ore-slider-unit) 100% no-repeat,
-    linear-gradient(
-        var(--ore-slider-track-border),
-        var(--ore-slider-track-border)
-      )
-      right / var(--ore-slider-unit) 100% no-repeat;
-  content: "";
-  transform: translateY(-50%);
-  pointer-events: none;
+      center / 100% calc(var(--ore-slider-unit) * 5.5) no-repeat;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
-:where(ore-slider[orientation="vertical"])::before {
-  top: 0;
-  right: auto;
-  bottom: 0;
-  left: 50%;
-  width: calc(var(--ore-slider-unit) * 5.5);
-  height: auto;
+:where(input.ore-slider[data-variant="segmented"]) {
+  --ore-slider-segment-gap: calc(
+    var(--ore-slider-segment-size) - var(--ore-slider-unit) * 0.9
+  );
+  --ore-slider-segment-period: calc(
+    var(--ore-slider-segment-size) + var(--ore-slider-unit) * 0.1
+  );
+  --ore-slider-segments: repeating-linear-gradient(
+    to right,
+    transparent 0 var(--ore-slider-segment-gap),
+    var(--ore-slider-track-border) var(--ore-slider-segment-gap)
+      calc(var(--ore-slider-segment-gap) + var(--ore-slider-unit)),
+    transparent calc(var(--ore-slider-segment-gap) + var(--ore-slider-unit))
+      var(--ore-slider-segment-period)
+  );
+}
+
+:where(input.ore-slider[data-color="secondary"]) {
+  --ore-slider-active-range-background: var(--ore-color-secondary-background);
+  --ore-slider-active-range-highlight: var(--ore-color-secondary-highlight);
+}
+
+:where(input.ore-slider[data-color="destructive"]) {
+  --ore-slider-active-range-background: var(--ore-color-destructive-background);
+  --ore-slider-active-range-highlight: var(--ore-color-destructive-highlight);
+}
+
+:where(input.ore-slider[data-color="dungeons"]) {
+  --ore-slider-active-range-background: var(--ore-color-dungeons-background);
+  --ore-slider-active-range-highlight: var(--ore-color-dungeons-highlight);
+}
+
+:where(input.ore-slider[data-color="legends"]) {
+  --ore-slider-active-range-background: var(--ore-color-legends-background);
+  --ore-slider-active-range-highlight: var(--ore-color-legends-highlight);
+}
+
+:where(input.ore-slider[data-color="realms"]) {
+  --ore-slider-active-range-background: var(--ore-color-realms-background);
+  --ore-slider-active-range-highlight: var(--ore-color-realms-highlight);
+}
+
+:where(input.ore-slider[data-color="gold"]) {
+  --ore-slider-active-range-background: var(--ore-color-gold-background);
+  --ore-slider-active-range-highlight: var(--ore-color-gold-highlight);
+}
+
+:where(input.ore-slider[data-orientation="vertical"]) {
+  width: calc(var(--ore-slider-unit) * 14.5);
+  height: calc(var(--ore-slider-unit) * 127.25);
   background:
-    var(--ore-slider-segments) center / 100%
-      calc(100% - var(--ore-slider-unit) * 14.5) no-repeat,
+    var(--ore-slider-segments) center / calc(var(--ore-slider-unit) * 3.5) 100%
+      no-repeat,
     linear-gradient(
         to top,
-        var(--ore-slider-track-background) 0 var(--ore-slider-value-start),
-        var(--ore-slider-range-background) var(--ore-slider-value-start)
-          var(--ore-slider-value-end),
+        var(--ore-slider-range-background) 0 var(--ore-slider-value-end),
         var(--ore-slider-track-background) var(--ore-slider-value-end) 100%
       )
       center / calc(var(--ore-slider-unit) * 1.5)
       calc(100% - var(--ore-slider-unit) * 4) no-repeat,
     linear-gradient(
         to top,
-        var(--ore-slider-track-highlight) 0 var(--ore-slider-value-start),
-        var(--ore-slider-range-highlight) var(--ore-slider-value-start)
-          var(--ore-slider-value-end),
+        var(--ore-slider-range-highlight) 0 var(--ore-slider-value-end),
         var(--ore-slider-track-highlight) var(--ore-slider-value-end) 100%
       )
       center / calc(var(--ore-slider-unit) * 3.5)
       calc(100% - var(--ore-slider-unit) * 2) no-repeat,
-    var(--ore-slider-track-border);
-  transform: translateX(-50%);
-}
-
-:where(ore-slider[orientation="vertical"][variant="segmented"])::after {
-  top: calc(var(--ore-slider-unit) * 7.25);
-  right: auto;
-  bottom: calc(var(--ore-slider-unit) * 7.25);
-  left: 50%;
-  width: calc(var(--ore-slider-unit) * 3.5);
-  height: auto;
-  background:
     linear-gradient(
         var(--ore-slider-track-border),
         var(--ore-slider-track-border)
       )
-      bottom / 100% var(--ore-slider-unit) no-repeat,
-    linear-gradient(
-        var(--ore-slider-track-border),
-        var(--ore-slider-track-border)
-      )
-      top / 100% var(--ore-slider-unit) no-repeat;
-  transform: translateX(-50%);
-}
-
-:where(ore-slider > input[type="range"]) {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  appearance: none;
-  background: transparent;
-  cursor: pointer;
-}
-
-:where(ore-slider[range] > input[type="range"]) {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-:where(ore-slider[range] > input[type="range"])::-webkit-slider-thumb {
-  pointer-events: auto;
-}
-
-:where(ore-slider[range] > input[type="range"])::-moz-range-thumb {
-  pointer-events: auto;
-}
-
-:where(ore-slider[range] > .ore-slider-input-end) {
-  z-index: 1;
-}
-
-:where(
-  ore-slider[range]:has(> .ore-slider-input-start:focus)
-    > .ore-slider-input-start
-) {
-  z-index: 2;
-}
-
-:where(ore-slider[orientation="vertical"] > input[type="range"]) {
+      center / calc(var(--ore-slider-unit) * 5.5) 100% no-repeat;
   writing-mode: vertical-lr;
   direction: rtl;
 }
 
-:where(ore-slider > input[type="range"])::-webkit-slider-runnable-track {
+:where(
+  input.ore-slider[data-orientation="vertical"][data-variant="segmented"]
+) {
+  --ore-slider-segment-gap: calc(
+    var(--ore-slider-segment-size) - var(--ore-slider-unit) * 0.9
+  );
+  --ore-slider-segment-period: calc(
+    var(--ore-slider-segment-size) + var(--ore-slider-unit) * 0.1
+  );
+  --ore-slider-segments: repeating-linear-gradient(
+    to top,
+    transparent 0 var(--ore-slider-segment-gap),
+    var(--ore-slider-track-border) var(--ore-slider-segment-gap)
+      calc(var(--ore-slider-segment-gap) + var(--ore-slider-unit)),
+    transparent calc(var(--ore-slider-segment-gap) + var(--ore-slider-unit))
+      var(--ore-slider-segment-period)
+  );
+}
+
+:where(input.ore-slider)::-webkit-slider-runnable-track {
   height: calc(var(--ore-slider-unit) * 5.5);
   background: transparent;
 }
 
 :where(
-  ore-slider[orientation="vertical"] > input[type="range"]
+  input.ore-slider[data-orientation="vertical"]
 )::-webkit-slider-runnable-track {
   width: calc(var(--ore-slider-unit) * 5.5);
   height: 100%;
 }
 
-:where(ore-slider > input[type="range"])::-moz-range-track {
+:where(input.ore-slider)::-moz-range-track {
   height: calc(var(--ore-slider-unit) * 5.5);
   background: transparent;
 }
 
-:where(
-  ore-slider[orientation="vertical"] > input[type="range"]
-)::-moz-range-track {
+:where(input.ore-slider[data-orientation="vertical"])::-moz-range-track {
   width: calc(var(--ore-slider-unit) * 5.5);
   height: 100%;
 }
 
-:where(ore-slider > input[type="range"])::-webkit-slider-thumb {
+:where(input.ore-slider)::-webkit-slider-thumb {
   width: calc(var(--ore-slider-unit) * 14.5);
   height: calc(var(--ore-slider-unit) * 14.5);
   margin-top: calc(var(--ore-slider-unit) * -4.5);
@@ -310,14 +203,12 @@
   box-shadow: 0 0 0 var(--ore-slider-unit) var(--ore-slider-thumb-focus-ring);
 }
 
-:where(
-  ore-slider[orientation="vertical"] > input[type="range"]
-)::-webkit-slider-thumb {
+:where(input.ore-slider[data-orientation="vertical"])::-webkit-slider-thumb {
   margin-top: 0;
   margin-left: calc(var(--ore-slider-unit) * -4.5);
 }
 
-:where(ore-slider > input[type="range"])::-moz-range-thumb {
+:where(input.ore-slider)::-moz-range-thumb {
   width: calc(var(--ore-slider-unit) * 14.5);
   height: calc(var(--ore-slider-unit) * 14.5);
   appearance: none;
@@ -328,31 +219,29 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :where(ore-slider:hover:not([disabled], [form-disabled])) {
+  :where(input.ore-slider:hover:not(:disabled)) {
     --ore-slider-thumb-background: var(--ore-color-secondary-background-hover);
     --ore-slider-thumb-highlight: var(--ore-color-secondary-highlight-hover);
   }
 }
 
-:where(ore-slider:active:not([disabled], [form-disabled])) {
+:where(input.ore-slider:active:not(:disabled)) {
   --ore-slider-thumb-background: var(--ore-color-secondary-background-pressed);
   --ore-slider-thumb-highlight: var(--ore-color-secondary-highlight-pressed);
 }
 
-:where(ore-slider:has(> input[type="range"]:focus-visible)) {
+:where(input.ore-slider:focus-visible) {
   --ore-slider-thumb-highlight: color-mix(
     in srgb,
     var(--ore-color-secondary-background),
     var(--ore-color-white) 60%
   );
   --ore-slider-thumb-focus-ring: var(--ore-color-focus-ring);
-}
 
-:where(ore-slider > input[type="range"]:focus-visible) {
   outline: none;
 }
 
-:where(ore-slider[disabled], ore-slider[form-disabled]) {
+:where(input.ore-slider:disabled) {
   --ore-slider-track-border: var(--ore-color-disabled-border);
   --ore-slider-range-background: var(--ore-color-disabled);
   --ore-slider-range-highlight: color-mix(
@@ -374,8 +263,6 @@
   );
   --ore-slider-thumb-shadow: var(--ore-color-disabled-shadow);
   --ore-slider-thumb-border: var(--ore-color-disabled-border);
-}
 
-:where(ore-slider[disabled], ore-slider[form-disabled]) > input[type="range"] {
   cursor: not-allowed;
 }

@@ -1,15 +1,39 @@
-import "oreui-web/radio";
+import { splitProps, type JSX } from "solid-js";
 
-import type { OreRadio } from "oreui-web/radio";
-import { createOreComponent } from "../factory.js";
-import type { OreComponentProps } from "../types.js";
+export type RadioProps = Omit<
+  JSX.InputHTMLAttributes<HTMLInputElement>,
+  "color" | "type"
+> & {
+  color?: string;
+  labelClass?: string;
+  onCheckedChange?: (checked: boolean) => void;
+};
 
-export type RadioProps = OreComponentProps<
-  OreRadio,
-  "checked" | "color" | "disabled" | "name" | "required" | "value"
->;
+export function Radio(props: RadioProps): JSX.Element {
+  const [local, inputProps] = splitProps(props, [
+    "children",
+    "class",
+    "color",
+    "labelClass",
+    "onCheckedChange",
+    "onInput",
+  ]);
 
-export const Radio = createOreComponent<OreRadio, RadioProps>({
-  properties: ["checked", "color", "disabled", "name", "required", "value"],
-  tagName: "ore-radio",
-});
+  return (
+    <label class={local.labelClass}>
+      <input
+        {...inputProps}
+        class={`ore-radio ${local.class ?? ""}`}
+        data-color={local.color}
+        onInput={(event) => {
+          if (typeof local.onInput === "function") {
+            local.onInput(event);
+          }
+          local.onCheckedChange?.(event.currentTarget.checked);
+        }}
+        type="radio"
+      />
+      {local.children}
+    </label>
+  );
+}

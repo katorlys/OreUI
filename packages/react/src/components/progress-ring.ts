@@ -1,12 +1,16 @@
-import { createComponent } from "@lit/react";
-import { OreProgressRing as OreProgressRingElement } from "oreui-web/progress-ring";
 import React from "react";
 
-export const ProgressRing = createComponent({
-  react: React,
-  tagName: "ore-progress-ring",
-  elementClass: OreProgressRingElement,
-  displayName: "ProgressRing",
-});
+export type ProgressRingProps = React.HTMLAttributes<HTMLSpanElement>;
 
-export type ProgressRingProps = React.ComponentProps<typeof ProgressRing>;
+export const ProgressRing = React.forwardRef<
+  HTMLSpanElement,
+  ProgressRingProps
+>(function ProgressRing(props, ref) {
+  return React.createElement("span", {
+    ...props,
+    ref,
+    className: props.className
+      ? `ore-progress-ring ${props.className}`
+      : "ore-progress-ring",
+  });
+});

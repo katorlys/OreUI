@@ -1,18 +1,16 @@
 <script lang="ts">
-  import "oreui-web/card";
-  import type { OreCard } from "oreui-web/card";
   import type { OreComponentProps } from "../types.js";
 
-  export type CardProps = OreComponentProps<OreCard>;
+  export type CardProps = OreComponentProps<HTMLElement>;
 
-  let { children, ...props }: CardProps = $props();
-  let element: OreCard;
+  let { children, class: className, ...props }: CardProps = $props();
+  let element: HTMLElement;
 
-  export function getElement(): OreCard {
+  export function getElement(): HTMLElement {
     return element;
   }
 </script>
 
-<ore-card bind:this={element} {...props}>
+<article bind:this={element} class={`ore-card ${className ?? ""}`} {...props}>
   {@render children?.()}
-</ore-card>
+</article>

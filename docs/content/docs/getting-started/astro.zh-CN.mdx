@@ -33,14 +33,10 @@ import "oreui-web/styles.css";
 <slot />
 ```
 
-在客户端脚本中注册组件：
+导入共享样式后直接使用原生 HTML：
 
 ```astro title="src/pages/index.astro"
-<ore-button type="button">Create new world</ore-button>
-
-<script>
-  import "oreui-web/button";
-</script>
+<button type="button">Create new world</button>
 ```
 
 <Callout type="info">导入 `oreui-web` 即可使用所有组件。</Callout>
@@ -51,14 +47,11 @@ import "oreui-web/styles.css";
 
 ```astro title="src/pages/account.astro"
 <form id="account">
-  <ore-checkbox name="terms" required>Accept terms</ore-checkbox>
-  <ore-button type="submit">Continue</ore-button>
+  <label><input type="checkbox" name="terms" required />Accept terms</label>
+  <button type="submit">Continue</button>
 </form>
 
 <script>
-  import "oreui-web/button";
-  import "oreui-web/checkbox";
-
   const form = document.querySelector<HTMLFormElement>("#account");
 
   form?.addEventListener("submit", (event) => {

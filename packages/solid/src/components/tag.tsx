@@ -1,12 +1,19 @@
-import "oreui-web/tag";
+import type { JSX } from "solid-js";
 
-import type { OreTag } from "oreui-web/tag";
-import { createOreComponent } from "../factory.js";
-import type { OreComponentProps } from "../types.js";
+export type TagProps = JSX.HTMLAttributes<HTMLSpanElement> & {
+  variant?: string;
+  outlined?: boolean;
+};
 
-export type TagProps = OreComponentProps<OreTag, "outlined" | "variant">;
+export function Tag(props: TagProps): JSX.Element {
+  const { variant, outlined, class: className, ...rest } = props;
 
-export const Tag = createOreComponent<OreTag, TagProps>({
-  properties: ["outlined", "variant"],
-  tagName: "ore-tag",
-});
+  return (
+    <span
+      {...rest}
+      class={`ore-tag ${className ?? ""}`}
+      data-variant={variant}
+      data-outlined={outlined ? "" : undefined}
+    />
+  );
+}
