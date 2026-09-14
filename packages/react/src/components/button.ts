@@ -8,7 +8,7 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(
-    { color, loading, variant, children, ...props },
+    { color, loading, variant, children, className, ...props },
     ref,
   ): React.ReactElement {
     return React.createElement(
@@ -19,6 +19,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         "data-color": color,
         "data-loading": loading ? "" : undefined,
         "data-variant": variant,
+        className: className ? `ore-button ${className}` : "ore-button",
         disabled: props.disabled || loading,
         ref,
       },

@@ -54,7 +54,7 @@ export function OreHomePage({ lang }: HomePageProps) {
               className="inline-flex min-h-6 items-center gap-2 px-3 rounded-full bg-fd-secondary text-xs no-underline"
               href="https://github.com/katorlys/OreUI/releases"
             >
-              Version {version} out now
+              Version {version}
               <span
                 className="size-3 bg-current"
                 style={{

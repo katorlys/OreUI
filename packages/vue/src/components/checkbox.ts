@@ -17,10 +17,13 @@ export const Checkbox = defineComponent({
 
     expose({ getElement: () => element });
 
-    return () =>
-      h("label", { class: props.labelClass }, [
+    return () => {
+      const { class: inputClass, ...inputAttrs } = attrs;
+
+      return h("label", { class: props.labelClass }, [
         h("input", {
-          ...attrs,
+          ...inputAttrs,
+          class: ["ore-checkbox", inputClass],
           checked: props.modelValue ?? attrs.checked,
           "data-color": props.color,
           onInput: (event: Event) => {
@@ -39,5 +42,6 @@ export const Checkbox = defineComponent({
         }),
         slots.default?.(),
       ]);
+    };
   },
 });

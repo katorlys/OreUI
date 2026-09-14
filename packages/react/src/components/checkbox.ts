@@ -10,7 +10,7 @@ export type CheckboxProps = Omit<
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   function Checkbox(
-    { children, color, labelClassName, ...props },
+    { children, color, labelClassName, className, ...props },
     ref,
   ): React.ReactElement {
     return React.createElement(
@@ -18,6 +18,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       { className: labelClassName },
       React.createElement("input", {
         ...props,
+        className: className ? `ore-checkbox ${className}` : "ore-checkbox",
         "data-color": color,
         ref,
         type: "checkbox",

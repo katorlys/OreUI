@@ -7,6 +7,14 @@ export type SelectProps = Omit<
 
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   function Select(props, ref): React.ReactElement {
-    return <select {...props} ref={ref} />;
+    const { className, ...selectProps } = props;
+
+    return (
+      <select
+        {...selectProps}
+        className={className ? `ore-select ${className}` : "ore-select"}
+        ref={ref}
+      />
+    );
   },
 );

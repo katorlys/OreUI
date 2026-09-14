@@ -18,10 +18,13 @@ export const Switch = defineComponent({
 
     expose({ getElement: () => element });
 
-    return () =>
-      h("label", { class: props.labelClass }, [
+    return () => {
+      const { class: inputClass, ...inputAttrs } = attrs;
+
+      return h("label", { class: props.labelClass }, [
         h("input", {
-          ...attrs,
+          ...inputAttrs,
+          class: ["ore-switch", inputClass],
           checked: props.modelValue ?? attrs.checked,
           "data-color": props.color,
           "data-variant": props.variant,
@@ -42,5 +45,6 @@ export const Switch = defineComponent({
         }),
         slots.default?.(),
       ]);
+    };
   },
 });

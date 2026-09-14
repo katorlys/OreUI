@@ -17,7 +17,11 @@ import "oreui-web/dropdown";
 
 ```html
 <div class="ore-dropdown" data-variant="bordered" data-value="creative">
-  <button class="ore-dropdown-trigger" type="button" data-color="secondary">
+  <button
+    class="ore-button ore-dropdown-trigger"
+    type="button"
+    data-color="secondary"
+  >
     <span class="ore-dropdown-trigger-label">Game mode</span>
   </button>
   <div class="ore-dropdown-menu">
@@ -186,7 +190,7 @@ export function GameModeDropdown() {
 
 ```astro
 <div class="ore-dropdown" data-variant="bordered" data-value="creative">
-  <button class="ore-dropdown-trigger" type="button" data-color="secondary">
+  <button class="ore-button ore-dropdown-trigger" type="button" data-color="secondary">
 		<span class="ore-dropdown-trigger-label">Game mode</span>
   </button>
 	<div class="ore-dropdown-menu">

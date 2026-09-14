@@ -17,7 +17,7 @@ import "oreui-web/styles.css";
 
 ```html
 <label>
-  <input type="checkbox" name="updates" value="yes" />
+  <input class="ore-checkbox" type="checkbox" name="updates" value="yes" />
   Receive updates
 </label>
 ```
@@ -107,7 +107,7 @@ export function UpdatesCheckbox() {
 
 ```astro
 <label>
-  <input type="checkbox" name="updates" value="yes" />
+  <input class="ore-checkbox" type="checkbox" name="updates" value="yes" />
   Receive updates
 </label>
 
@@ -123,23 +123,75 @@ export function UpdatesCheckbox() {
 ## 颜色
 
 ```html
-<label><input type="checkbox" data-color="primary" checked />Primary</label>
-<label><input type="checkbox" data-color="secondary" checked />Secondary</label>
 <label
-  ><input type="checkbox" data-color="destructive" checked />Destructive</label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="primary"
+    checked
+  />Primary</label
 >
-<label><input type="checkbox" data-color="dungeons" checked />Dungeons</label>
-<label><input type="checkbox" data-color="legends" checked />Legends</label>
-<label><input type="checkbox" data-color="realms" checked />Realms</label>
-<label><input type="checkbox" data-color="gold" checked />Gold</label>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="secondary"
+    checked
+  />Secondary</label
+>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="destructive"
+    checked
+  />Destructive</label
+>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="dungeons"
+    checked
+  />Dungeons</label
+>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="legends"
+    checked
+  />Legends</label
+>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="realms"
+    checked
+  />Realms</label
+>
+<label
+  ><input
+    class="ore-checkbox"
+    type="checkbox"
+    data-color="gold"
+    checked
+  />Gold</label
+>
 ```
 
 ## 状态
 
 ```html
-<label><input type="checkbox" checked />Enabled</label>
-<label><input type="checkbox" disabled />Unavailable</label>
-<label><input type="checkbox" required />Required agreement</label>
+<label><input class="ore-checkbox" type="checkbox" checked />Enabled</label>
+<label
+  ><input class="ore-checkbox" type="checkbox" disabled />Unavailable</label
+>
+<label
+  ><input class="ore-checkbox" type="checkbox" required />Required
+  agreement</label
+>
 ```
 
 ## 表单
@@ -149,7 +201,13 @@ export function UpdatesCheckbox() {
 ```html
 <form>
   <label>
-    <input type="checkbox" name="terms" value="accepted" required />
+    <input
+      class="ore-checkbox"
+      type="checkbox"
+      name="terms"
+      value="accepted"
+      required
+    />
     Accept the terms
   </label>
   <button type="submit">Continue</button>

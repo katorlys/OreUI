@@ -33,6 +33,7 @@ function SwitchPreview({
     <div style={{ display: "grid", gap: "1rem" }}>
       <Switch
         className="text-current"
+        labelClassName="text-fd-foreground"
         checked={checked}
         color={color}
         disabled={disabled}

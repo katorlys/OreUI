@@ -1,4 +1,4 @@
-:where(input[type="range"]) {
+:where(input.ore-slider) {
   --ore-slider-unit: var(--ore-size-unit);
   --ore-slider-progress-end: 0;
   --ore-slider-segment-size: 10%;
@@ -75,7 +75,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-:where(input[type="range"][data-variant="segmented"]) {
+:where(input.ore-slider[data-variant="segmented"]) {
   --ore-slider-segment-gap: calc(
     var(--ore-slider-segment-size) - var(--ore-slider-unit) * 0.9
   );
@@ -92,37 +92,37 @@
   );
 }
 
-:where(input[type="range"][data-color="secondary"]) {
+:where(input.ore-slider[data-color="secondary"]) {
   --ore-slider-active-range-background: var(--ore-color-secondary-background);
   --ore-slider-active-range-highlight: var(--ore-color-secondary-highlight);
 }
 
-:where(input[type="range"][data-color="destructive"]) {
+:where(input.ore-slider[data-color="destructive"]) {
   --ore-slider-active-range-background: var(--ore-color-destructive-background);
   --ore-slider-active-range-highlight: var(--ore-color-destructive-highlight);
 }
 
-:where(input[type="range"][data-color="dungeons"]) {
+:where(input.ore-slider[data-color="dungeons"]) {
   --ore-slider-active-range-background: var(--ore-color-dungeons-background);
   --ore-slider-active-range-highlight: var(--ore-color-dungeons-highlight);
 }
 
-:where(input[type="range"][data-color="legends"]) {
+:where(input.ore-slider[data-color="legends"]) {
   --ore-slider-active-range-background: var(--ore-color-legends-background);
   --ore-slider-active-range-highlight: var(--ore-color-legends-highlight);
 }
 
-:where(input[type="range"][data-color="realms"]) {
+:where(input.ore-slider[data-color="realms"]) {
   --ore-slider-active-range-background: var(--ore-color-realms-background);
   --ore-slider-active-range-highlight: var(--ore-color-realms-highlight);
 }
 
-:where(input[type="range"][data-color="gold"]) {
+:where(input.ore-slider[data-color="gold"]) {
   --ore-slider-active-range-background: var(--ore-color-gold-background);
   --ore-slider-active-range-highlight: var(--ore-color-gold-highlight);
 }
 
-:where(input[type="range"][data-orientation="vertical"]) {
+:where(input.ore-slider[data-orientation="vertical"]) {
   width: calc(var(--ore-slider-unit) * 14.5);
   height: calc(var(--ore-slider-unit) * 127.25);
   background:
@@ -152,7 +152,7 @@
 }
 
 :where(
-  input[type="range"][data-orientation="vertical"][data-variant="segmented"]
+  input.ore-slider[data-orientation="vertical"][data-variant="segmented"]
 ) {
   --ore-slider-segment-gap: calc(
     var(--ore-slider-segment-size) - var(--ore-slider-unit) * 0.9
@@ -170,29 +170,29 @@
   );
 }
 
-:where(input[type="range"])::-webkit-slider-runnable-track {
+:where(input.ore-slider)::-webkit-slider-runnable-track {
   height: calc(var(--ore-slider-unit) * 5.5);
   background: transparent;
 }
 
 :where(
-  input[type="range"][data-orientation="vertical"]
+  input.ore-slider[data-orientation="vertical"]
 )::-webkit-slider-runnable-track {
   width: calc(var(--ore-slider-unit) * 5.5);
   height: 100%;
 }
 
-:where(input[type="range"])::-moz-range-track {
+:where(input.ore-slider)::-moz-range-track {
   height: calc(var(--ore-slider-unit) * 5.5);
   background: transparent;
 }
 
-:where(input[type="range"][data-orientation="vertical"])::-moz-range-track {
+:where(input.ore-slider[data-orientation="vertical"])::-moz-range-track {
   width: calc(var(--ore-slider-unit) * 5.5);
   height: 100%;
 }
 
-:where(input[type="range"])::-webkit-slider-thumb {
+:where(input.ore-slider)::-webkit-slider-thumb {
   width: calc(var(--ore-slider-unit) * 14.5);
   height: calc(var(--ore-slider-unit) * 14.5);
   margin-top: calc(var(--ore-slider-unit) * -4.5);
@@ -203,12 +203,12 @@
   box-shadow: 0 0 0 var(--ore-slider-unit) var(--ore-slider-thumb-focus-ring);
 }
 
-:where(input[type="range"][data-orientation="vertical"])::-webkit-slider-thumb {
+:where(input.ore-slider[data-orientation="vertical"])::-webkit-slider-thumb {
   margin-top: 0;
   margin-left: calc(var(--ore-slider-unit) * -4.5);
 }
 
-:where(input[type="range"])::-moz-range-thumb {
+:where(input.ore-slider)::-moz-range-thumb {
   width: calc(var(--ore-slider-unit) * 14.5);
   height: calc(var(--ore-slider-unit) * 14.5);
   appearance: none;
@@ -219,18 +219,18 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :where(input[type="range"]:hover:not(:disabled)) {
+  :where(input.ore-slider:hover:not(:disabled)) {
     --ore-slider-thumb-background: var(--ore-color-secondary-background-hover);
     --ore-slider-thumb-highlight: var(--ore-color-secondary-highlight-hover);
   }
 }
 
-:where(input[type="range"]:active:not(:disabled)) {
+:where(input.ore-slider:active:not(:disabled)) {
   --ore-slider-thumb-background: var(--ore-color-secondary-background-pressed);
   --ore-slider-thumb-highlight: var(--ore-color-secondary-highlight-pressed);
 }
 
-:where(input[type="range"]:focus-visible) {
+:where(input.ore-slider:focus-visible) {
   --ore-slider-thumb-highlight: color-mix(
     in srgb,
     var(--ore-color-secondary-background),
@@ -241,7 +241,7 @@
   outline: none;
 }
 
-:where(input[type="range"]:disabled) {
+:where(input.ore-slider:disabled) {
   --ore-slider-track-border: var(--ore-color-disabled-border);
   --ore-slider-range-background: var(--ore-color-disabled);
   --ore-slider-range-highlight: color-mix(

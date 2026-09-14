@@ -9,7 +9,7 @@ export type OreSliderColor =
 export type OreSliderVariant = "default" | "segmented";
 export type OreSliderOrientation = "horizontal" | "vertical";
 
-const sliderSelector = 'input[type="range"]';
+const sliderSelector = "input.ore-slider";
 const sliderAttributes = ["max", "min", "step", "value"];
 
 export function syncSlider(slider: HTMLInputElement): void {

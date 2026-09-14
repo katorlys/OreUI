@@ -1,4 +1,4 @@
-:where(input[type="radio"]) {
+:where(input.ore-radio) {
   --ore-radio-unit: var(--ore-size-unit);
   --ore-radio-background: var(--ore-color-neutral-50-background);
   --ore-radio-highlight: var(--ore-color-neutral-50-highlight);
@@ -37,7 +37,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-:where(input[type="radio"]:checked) {
+:where(input.ore-radio:checked) {
   background:
     linear-gradient(
         to right,
@@ -59,17 +59,17 @@
 }
 
 :where(
-  input[type="radio"][data-color="secondary"],
-  input[type="radio"][data-color="dungeons"],
-  input[type="radio"][data-color="legends"],
-  input[type="radio"][data-color="gold"]
+  input.ore-radio[data-color="secondary"],
+  input.ore-radio[data-color="dungeons"],
+  input.ore-radio[data-color="legends"],
+  input.ore-radio[data-color="gold"]
 ) {
   --ore-radio-indicator-light: var(--ore-color-gray-80);
   --ore-radio-indicator-dim: var(--ore-color-gray-90);
   --ore-radio-indicator-dark: var(--ore-color-gray-100);
 }
 
-:where(label:has(> input[type="radio"])) {
+:where(label:has(> input.ore-radio)) {
   display: inline-flex;
   align-items: center;
   min-height: calc(var(--ore-radio-unit) * 16);
@@ -79,28 +79,28 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :where(input[type="radio"]:hover:not(:disabled)) {
+  :where(input.ore-radio:hover:not(:disabled)) {
     --ore-radio-background: var(--ore-color-neutral-50-background-hover);
     --ore-radio-highlight: var(--ore-color-neutral-50-highlight-hover);
   }
 
-  :where(input[type="radio"]:checked:hover:not(:disabled)) {
+  :where(input.ore-radio:checked:hover:not(:disabled)) {
     --ore-radio-background: var(--ore-radio-active-background-hover);
     --ore-radio-highlight: var(--ore-radio-active-highlight-hover);
   }
 }
 
-:where(input[type="radio"]:active:not(:disabled)) {
+:where(input.ore-radio:active:not(:disabled)) {
   --ore-radio-background: var(--ore-color-neutral-50-background-pressed);
   --ore-radio-highlight: var(--ore-color-neutral-50-highlight-pressed);
 }
 
-:where(input[type="radio"]:checked:active:not(:disabled)) {
+:where(input.ore-radio:checked:active:not(:disabled)) {
   --ore-radio-background: var(--ore-radio-active-background-pressed);
   --ore-radio-highlight: var(--ore-radio-active-highlight-pressed);
 }
 
-:where(input[type="radio"][data-color="secondary"]) {
+:where(input.ore-radio[data-color="secondary"]) {
   --ore-radio-active-background: var(--ore-color-secondary-background);
   --ore-radio-active-background-hover: var(
     --ore-color-secondary-background-hover
@@ -117,7 +117,7 @@
   );
 }
 
-:where(input[type="radio"][data-color="destructive"]) {
+:where(input.ore-radio[data-color="destructive"]) {
   --ore-radio-active-background: var(--ore-color-destructive-background);
   --ore-radio-active-background-hover: var(
     --ore-color-destructive-background-hover
@@ -130,7 +130,7 @@
   --ore-radio-active-highlight-pressed: var(--ore-color-destructive-highlight);
 }
 
-:where(input[type="radio"][data-color="dungeons"]) {
+:where(input.ore-radio[data-color="dungeons"]) {
   --ore-radio-active-background: var(--ore-color-dungeons-background);
   --ore-radio-active-background-hover: var(
     --ore-color-dungeons-background-hover
@@ -143,7 +143,7 @@
   --ore-radio-active-highlight-pressed: var(--ore-color-dungeons-highlight);
 }
 
-:where(input[type="radio"][data-color="legends"]) {
+:where(input.ore-radio[data-color="legends"]) {
   --ore-radio-active-background: var(--ore-color-legends-background);
   --ore-radio-active-background-hover: var(
     --ore-color-legends-background-hover
@@ -156,7 +156,7 @@
   --ore-radio-active-highlight-pressed: var(--ore-color-legends-highlight);
 }
 
-:where(input[type="radio"][data-color="realms"]) {
+:where(input.ore-radio[data-color="realms"]) {
   --ore-radio-active-background: var(--ore-color-realms-background);
   --ore-radio-active-background-hover: var(--ore-color-realms-background-hover);
   --ore-radio-active-background-pressed: var(
@@ -167,7 +167,7 @@
   --ore-radio-active-highlight-pressed: var(--ore-color-realms-highlight);
 }
 
-:where(input[type="radio"][data-color="gold"]) {
+:where(input.ore-radio[data-color="gold"]) {
   --ore-radio-active-background: var(--ore-color-gold-background);
   --ore-radio-active-background-hover: var(--ore-color-gold-background-hover);
   --ore-radio-active-background-pressed: var(
@@ -178,7 +178,7 @@
   --ore-radio-active-highlight-pressed: var(--ore-color-gold-highlight);
 }
 
-:where(input[type="radio"]:focus-visible) {
+:where(input.ore-radio:focus-visible) {
   border-radius: 0;
   outline: var(--ore-radio-unit) solid var(--ore-color-focus-ring);
   outline-offset: 0;
@@ -188,11 +188,11 @@
     inset 0 0 0 calc(var(--ore-radio-unit) * 2) var(--ore-radio-highlight);
 }
 
-:where(input[type="radio"]:focus-visible:not(:checked)) {
+:where(input.ore-radio:focus-visible:not(:checked)) {
   --ore-radio-highlight: var(--ore-color-neutral-50-highlight-focus);
 }
 
-:where(input[type="radio"]:disabled) {
+:where(input.ore-radio:disabled) {
   --ore-radio-background: var(--ore-color-disabled);
   --ore-radio-highlight: var(--ore-color-disabled);
   --ore-radio-border: var(--ore-color-disabled-border);
@@ -200,6 +200,6 @@
   cursor: not-allowed;
 }
 
-:where(label:has(> input[type="radio"]:disabled)) {
+:where(label:has(> input.ore-radio:disabled)) {
   cursor: not-allowed;
 }

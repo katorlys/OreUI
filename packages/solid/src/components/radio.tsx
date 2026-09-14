@@ -12,6 +12,7 @@ export type RadioProps = Omit<
 export function Radio(props: RadioProps): JSX.Element {
   const [local, inputProps] = splitProps(props, [
     "children",
+    "class",
     "color",
     "labelClass",
     "onCheckedChange",
@@ -22,6 +23,7 @@ export function Radio(props: RadioProps): JSX.Element {
     <label class={local.labelClass}>
       <input
         {...inputProps}
+        class={`ore-radio ${local.class ?? ""}`}
         data-color={local.color}
         onInput={(event) => {
           if (typeof local.onInput === "function") {

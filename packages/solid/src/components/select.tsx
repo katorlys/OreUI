@@ -9,11 +9,16 @@ export type SelectProps = Omit<
 };
 
 export function Select(props: SelectProps): JSX.Element {
-  const [local, selectProps] = splitProps(props, ["onChange", "onValueChange"]);
+  const [local, selectProps] = splitProps(props, [
+    "class",
+    "onChange",
+    "onValueChange",
+  ]);
 
   return (
     <select
       {...selectProps}
+      class={`ore-select ${local.class ?? ""}`}
       onChange={(event) => {
         local.onChange?.(event);
         local.onValueChange?.(event.currentTarget.value);

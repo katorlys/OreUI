@@ -10,6 +10,7 @@
 
   let {
     children,
+    class: className,
     color,
     labelClass,
     ...props
@@ -22,6 +23,6 @@
 </script>
 
 <label class={labelClass}>
-  <input bind:this={element} {...props} data-color={color} type="radio" />
+  <input bind:this={element} {...props} class="ore-radio {className ?? ''}" data-color={color} type="radio" />
   {@render children?.()}
 </label>

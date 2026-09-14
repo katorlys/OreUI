@@ -89,7 +89,9 @@ function ModalPreview({ description, title, triggerLabel }: ModalPreviewProps) {
             />
           </Container>
           <Container className="modal-confirmation" variant="light">
-            <Checkbox>Checkbox example for confirmation</Checkbox>
+            <Checkbox labelClassName="text-fd-foreground">
+              Checkbox example for confirmation
+            </Checkbox>
           </Container>
           <Container className="modal-actions" variant="light">
             <Button type="submit" value="confirm">

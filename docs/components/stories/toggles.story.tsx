@@ -2,6 +2,7 @@
 
 import { defineStoryFactory } from "@fumadocs/story/next/client";
 import { TabButton, Toggles } from "@oreui-web/react/toggles";
+import { initTabButtons } from "oreui-web";
 import { useEffect, useState } from "react";
 
 interface TogglesPreviewProps {
@@ -19,6 +20,12 @@ function TogglesPreview({ disabledOption, initialValue }: TogglesPreviewProps) {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    if (mounted) {
+      initTabButtons();
+    }
+  }, [mounted]);
+
   if (!mounted) {
     return null;
   }
@@ -33,7 +40,7 @@ function TogglesPreview({ disabledOption, initialValue }: TogglesPreviewProps) {
               key={optionValue}
               disabled={disabledOption && optionValue === "always"}
               selected={value === optionValue}
-              onChange={() => setValue(optionValue)}
+              onClick={() => setValue(optionValue)}
             >
               {option}
             </TabButton>

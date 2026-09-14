@@ -12,10 +12,13 @@ export const Radio = defineComponent({
 
     expose({ getElement: () => element });
 
-    return () =>
-      h("label", { class: props.labelClass }, [
+    return () => {
+      const { class: inputClass, ...inputAttrs } = attrs;
+
+      return h("label", { class: props.labelClass }, [
         h("input", {
-          ...attrs,
+          ...inputAttrs,
+          class: ["ore-radio", inputClass],
           "data-color": props.color,
           ref: (value) => {
             element = value as HTMLInputElement | null;
@@ -24,5 +27,6 @@ export const Radio = defineComponent({
         }),
         slots.default?.(),
       ]);
+    };
   },
 });

@@ -22,7 +22,7 @@ import "oreui-web/styles.css";
 ```
 
 ```html
-<button type="button">Create new world</button>
+<button class="ore-button" type="button">Create new world</button>
 ```
 
     </Tab>
@@ -75,7 +75,7 @@ export function App() {
     <Tab value="Astro">
 
 ```astro
-<button type="button">Create new world</button>
+<button class="ore-button" type="button">Create new world</button>
 ```
 
     </Tab>
@@ -85,26 +85,26 @@ export function App() {
 ## 变体
 
 ```html
-<button data-variant="default">Default</button>
-<button data-variant="hero">Hero</button>
+<button class="ore-button" data-variant="default">Default</button>
+<button class="ore-button" data-variant="hero">Hero</button>
 ```
 
 ## 颜色
 
 ```html
-<button data-color="primary">Primary</button>
-<button data-color="secondary">Secondary</button>
-<button data-color="destructive">Delete</button>
-<button data-color="dungeons">Dungeons</button>
-<button data-color="legends">Legends</button>
-<button data-color="gold">Gold</button>
-<button data-color="realms">Realms</button>
+<button class="ore-button" data-color="primary">Primary</button>
+<button class="ore-button" data-color="secondary">Secondary</button>
+<button class="ore-button" data-color="destructive">Delete</button>
+<button class="ore-button" data-color="dungeons">Dungeons</button>
+<button class="ore-button" data-color="legends">Legends</button>
+<button class="ore-button" data-color="gold">Gold</button>
+<button class="ore-button" data-color="realms">Realms</button>
 ```
 
 ## Disabled
 
 ```html
-<button disabled>Unavailable</button>
+<button class="ore-button" disabled>Unavailable</button>
 ```
 
 ## 加载中
@@ -112,7 +112,9 @@ export function App() {
 操作进行时设置 `data-loading`，并同时保留原生 `disabled` 和 `aria-busy="true"`。框架 wrapper 会在设置 `loading` prop 时完成这些映射。
 
 ```html
-<button data-loading aria-busy="true" disabled>Saving</button>
+<button class="ore-button" data-loading aria-busy="true" disabled>
+  Saving
+</button>
 ```
 
 ## 前后缀
@@ -122,12 +124,12 @@ export function App() {
 <ButtonAffixesPreview />
 
 ```html
-<button type="button">
+<button class="ore-button" type="button">
   <img class="ore-button-prefix" src="/icons/arrow-left.svg" alt="" />
   Back
 </button>
 
-<button type="button">
+<button class="ore-button" type="button">
   Continue
   <img class="ore-button-suffix" src="/icons/arrow-right.svg" alt="" />
 </button>
@@ -135,12 +137,17 @@ export function App() {
 
 ## 链接
 
-页面导航使用带 `class="button"` 的原生锚点，并保留在新标签页打开、复制链接和下载资源等浏览器行为。
+页面导航使用带 `class="ore-button"` 的原生锚点，并保留在新标签页打开、复制链接和下载资源等浏览器行为。
 
 <LinkButtonPreview />
 
 ```html
-<a class="button" href="https://example.com" target="_blank" rel="noreferrer">
+<a
+  class="ore-button"
+  href="https://example.com"
+  target="_blank"
+  rel="noreferrer"
+>
   Open website
 </a>
 ```

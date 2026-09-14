@@ -1,4 +1,4 @@
-:where(button, .button, ore-button, .ore-tab-button) {
+:where(.ore-button, .ore-tab-button) {
   --ore-button-unit: var(--ore-size-unit);
   --ore-button-background-default: var(--ore-color-primary-background);
   --ore-button-background-hover: var(--ore-color-primary-background-hover);
@@ -72,7 +72,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-:where(button, .button, ore-button, .ore-tab-button)::before {
+:where(.ore-button, .ore-tab-button)::before {
   position: absolute;
   top: var(--ore-button-face-offset);
   right: 0;
@@ -83,11 +83,11 @@
   pointer-events: none;
 }
 
-:where(button, .button, ore-button) {
+:where(.ore-button) {
   position: relative;
 }
 
-:where(ore-button > .ore-button-link) {
+:where(.ore-button > .ore-button-link) {
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -95,15 +95,15 @@
   text-decoration: none;
 }
 
-:where(ore-button > .ore-button-prefix) {
+:where(.ore-button > .ore-button-prefix) {
   margin-inline-end: calc(var(--ore-button-unit) * 4);
 }
 
-:where(ore-button > .ore-button-suffix) {
+:where(.ore-button > .ore-button-suffix) {
   margin-inline-start: calc(var(--ore-button-unit) * 4);
 }
 
-:where(ore-button > .ore-button-spinner) {
+:where(.ore-button > .ore-button-spinner) {
   position: absolute;
   z-index: 2;
   width: calc(var(--ore-button-unit) * 8);
@@ -111,13 +111,13 @@
   color: var(--ore-button-foreground);
 }
 
-:where(button[data-loading], .button[data-loading], ore-button[loading]) {
+:where(.ore-button[data-loading]) {
   color: transparent;
   text-shadow: none;
   cursor: wait;
 }
 
-:where(button[data-loading], .button[data-loading])::after {
+:where(.ore-button[data-loading])::after {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -145,43 +145,29 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :where(button[data-loading], .button[data-loading])::after {
+  :where(.ore-button[data-loading])::after {
     animation: none;
   }
 }
 
 :where(
-  button[data-loading] > :not(.ore-button-spinner, .ore-button-link),
-  .button[data-loading] > :not(.ore-button-spinner, .ore-button-link),
-  ore-button[loading] > :not(.ore-button-spinner, .ore-button-link)
+  .ore-button[data-loading] > :not(.ore-button-spinner, .ore-button-link)
 ) {
   visibility: hidden;
 }
 
-:where(
-  button[data-loading] > .ore-button-spinner,
-  .button[data-loading] > .ore-button-spinner,
-  ore-button[loading] > .ore-button-spinner
-) {
+:where(.ore-button[data-loading] > .ore-button-spinner) {
   color: var(--ore-button-foreground);
 }
 
-:where(
-  button[data-variant="hero"],
-  .button[data-variant="hero"],
-  ore-button[variant="hero"]
-) {
+:where(.ore-button[data-variant="hero"]) {
   --ore-button-font-family: var(--ore-font-display);
   --ore-button-font-size: calc(var(--ore-button-unit) * 9);
   --ore-button-text-shadow: var(--ore-button-unit) var(--ore-button-unit)
     var(--ore-color-text-shadow);
 }
 
-:where(
-  button[data-color="secondary"],
-  .button[data-color="secondary"],
-  ore-button[color="secondary"]
-) {
+:where(.ore-button[data-color="secondary"]) {
   --ore-button-background-default: var(--ore-color-secondary-background);
   --ore-button-background-hover: var(--ore-color-secondary-background-hover);
   --ore-button-background-pressed: var(
@@ -194,11 +180,7 @@
   --ore-button-foreground: var(--ore-color-border);
 }
 
-:where(
-  button[data-color="destructive"],
-  .button[data-color="destructive"],
-  ore-button[color="destructive"]
-) {
+:where(.ore-button[data-color="destructive"]) {
   --ore-button-background-default: var(--ore-color-destructive-background);
   --ore-button-background-hover: var(--ore-color-destructive-background-hover);
   --ore-button-background-pressed: var(
@@ -213,18 +195,10 @@
 }
 
 :where(
-  button[data-color="dungeons"],
-  button[data-color="legends"],
-  button[data-color="gold"],
-  button[data-color="realms"],
-  .button[data-color="dungeons"],
-  .button[data-color="legends"],
-  .button[data-color="gold"],
-  .button[data-color="realms"],
-  ore-button[color="dungeons"],
-  ore-button[color="legends"],
-  ore-button[color="gold"],
-  ore-button[color="realms"]
+  .ore-button[data-color="dungeons"],
+  .ore-button[data-color="legends"],
+  .ore-button[data-color="gold"],
+  .ore-button[data-color="realms"]
 ) {
   --ore-button-background-default: var(--ore-color-dungeons-background);
   --ore-button-background-hover: var(--ore-color-dungeons-background-hover);
@@ -236,11 +210,7 @@
   --ore-button-foreground: var(--ore-color-gray-100);
 }
 
-:where(
-  button[data-color="legends"],
-  .button[data-color="legends"],
-  ore-button[color="legends"]
-) {
+:where(.ore-button[data-color="legends"]) {
   --ore-button-background-default: var(--ore-color-legends-background);
   --ore-button-background-hover: var(--ore-color-legends-background-hover);
   --ore-button-background-pressed: var(--ore-color-legends-background-pressed);
@@ -251,11 +221,7 @@
   --ore-button-foreground: var(--ore-color-gray-100);
 }
 
-:where(
-  button[data-color="gold"],
-  .button[data-color="gold"],
-  ore-button[color="gold"]
-) {
+:where(.ore-button[data-color="gold"]) {
   --ore-button-background-default: var(--ore-color-gold-background);
   --ore-button-background-hover: var(--ore-color-gold-background-hover);
   --ore-button-background-pressed: var(--ore-color-gold-background-pressed);
@@ -266,11 +232,7 @@
   --ore-button-foreground: var(--ore-color-gray-100);
 }
 
-:where(
-  button[data-color="realms"],
-  .button[data-color="realms"],
-  ore-button[color="realms"]
-) {
+:where(.ore-button[data-color="realms"]) {
   --ore-button-background-default: var(--ore-color-realms-background);
   --ore-button-background-hover: var(--ore-color-realms-background-hover);
   --ore-button-background-pressed: var(--ore-color-realms-background-pressed);
@@ -282,7 +244,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :where(button, .button, ore-button, .ore-tab-button):hover:not(
+  :where(.ore-button, .ore-tab-button):hover:not(
       [disabled],
       [form-disabled],
       [loading]
@@ -292,23 +254,23 @@
   }
 }
 
-:where(button, .button).preview-hover:not([disabled], [data-loading]) {
+:where(.ore-button).preview-hover:not([disabled], [data-loading]) {
   --ore-button-background: var(--ore-button-background-hover);
   --ore-button-highlight: var(--ore-button-highlight-hover);
 }
 
 :where(
-  :is(button, .button, ore-button, .ore-tab-button):active:not(
+  :is(.ore-button, .ore-tab-button):active:not(
       [disabled],
       [form-disabled],
       [loading]
     ),
-  :is(button, .button, ore-button, .ore-tab-button)[data-pressed]:not(
+  :is(.ore-button, .ore-tab-button)[data-pressed]:not(
       [disabled],
       [form-disabled],
       [data-loading]
     ),
-  :is(ore-button, .ore-tab-button)[data-pressed]:not(
+  :is(.ore-button, .ore-tab-button)[data-pressed]:not(
       [disabled],
       [form-disabled],
       [loading]
@@ -323,7 +285,7 @@
   padding-bottom: 0;
 }
 
-:where(button, .button).preview-pressed:not([disabled], [data-loading]) {
+:where(.ore-button).preview-pressed:not([disabled], [data-loading]) {
   --ore-button-background: var(--ore-button-background-pressed);
   --ore-button-highlight: var(--ore-button-highlight-pressed);
   --ore-button-shadow: transparent;
@@ -333,30 +295,27 @@
   padding-bottom: 0;
 }
 
-:where(button, .button, ore-button, .ore-tab-button):focus-visible,
-:where(ore-button > .ore-button-link):focus-visible {
+:where(.ore-button, .ore-tab-button):focus-visible,
+:where(.ore-button > .ore-button-link):focus-visible {
   outline: none;
 }
 
-:where(button, .button, ore-button, .ore-tab-button):focus-visible::before,
-:where(ore-button:has(> .ore-button-link:focus-visible))::before {
+:where(.ore-button, .ore-tab-button):focus-visible::before,
+:where(.ore-button:has(> .ore-button-link:focus-visible))::before {
   box-shadow:
     0 0 0 var(--ore-button-unit) var(--ore-color-focus-ring),
     inset 0 0 0 var(--ore-button-unit) var(--ore-button-border);
 }
 
-:where(button, .button).preview-focus::before {
+:where(.ore-button).preview-focus::before {
   box-shadow:
     0 0 0 var(--ore-button-unit) var(--ore-color-focus-ring),
     inset 0 0 0 var(--ore-button-unit) var(--ore-button-border);
 }
 
 :where(
-  button:disabled,
-  button[data-disabled],
-  .button[aria-disabled="true"],
-  ore-button[disabled],
-  ore-button[form-disabled],
+  .ore-button:disabled,
+  .ore-button[data-disabled],
   .ore-tab-button[disabled]
 ) {
   --ore-button-background: var(--ore-color-disabled);
@@ -370,7 +329,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :where(button[data-loading], .button[data-loading])::after {
+  :where(.ore-button[data-loading])::after {
     animation: none;
   }
 }

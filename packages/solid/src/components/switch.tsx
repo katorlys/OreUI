@@ -13,6 +13,7 @@ export type SwitchProps = Omit<
 export function Switch(props: SwitchProps): JSX.Element {
   const [local, inputProps] = splitProps(props, [
     "children",
+    "class",
     "color",
     "labelClass",
     "onCheckedChange",
@@ -24,6 +25,7 @@ export function Switch(props: SwitchProps): JSX.Element {
     <label class={local.labelClass}>
       <input
         {...inputProps}
+        class={`ore-switch ${local.class ?? ""}`}
         data-color={local.color}
         data-variant={local.variant}
         onInput={(event) => {

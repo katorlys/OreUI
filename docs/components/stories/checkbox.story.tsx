@@ -41,6 +41,7 @@ function CheckboxPreview({
     <div style={{ display: "grid", gap: "1rem" }}>
       <Checkbox
         className="text-current"
+        labelClassName="text-fd-foreground"
         checked={checked}
         color={color}
         disabled={disabled}

@@ -28,6 +28,7 @@ export function HomeShowcase() {
   const [mode, setMode] = useState("survival");
   const [type, setType] = useState("education");
   const [store, setStore] = useState("realms");
+  const [username, setUsername] = useState("Shawn");
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -273,7 +274,8 @@ export function HomeShowcase() {
                 className="w-full max-w-none"
                 style={textfieldStyle}
                 label="Username"
-                value="Shawn"
+                value={username}
+                onInput={(event) => setUsername(event.currentTarget.value)}
               />
               <Textfield
                 className="w-full max-w-none"

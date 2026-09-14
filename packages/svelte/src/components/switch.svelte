@@ -13,6 +13,7 @@
   let {
     children,
     checked = $bindable(false),
+    class: className,
     color,
     labelClass,
     oninput,
@@ -38,6 +39,7 @@
     bind:this={element}
     bind:checked
     {...props}
+    class="ore-switch {className ?? ''}"
     data-color={color}
     data-variant={variant}
     oninput={handleInput}

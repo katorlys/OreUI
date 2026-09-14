@@ -28,9 +28,12 @@ export const Slider = defineComponent({
 
     expose({ getElement: () => element });
 
-    return () =>
-      h("input", {
-        ...attrs,
+    return () => {
+      const { class: inputClass, ...inputAttrs } = attrs;
+
+      return h("input", {
+        ...inputAttrs,
+        class: ["ore-slider", inputClass],
         "aria-orientation": props.orientation,
         "data-color": props.color,
         "data-orientation": props.orientation,
@@ -50,5 +53,6 @@ export const Slider = defineComponent({
         type: "range",
         value: props.modelValue ?? attrs.value,
       });
+    };
   },
 });

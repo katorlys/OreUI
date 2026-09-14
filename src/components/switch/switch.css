@@ -1,4 +1,4 @@
-:where(input[type="checkbox"][role="switch"]) {
+:where(input.ore-switch[role="switch"]) {
   --ore-switch-unit: var(--ore-size-unit);
   --ore-switch-track-background: var(--ore-color-neutral-50-background);
   --ore-switch-track-highlight: var(--ore-color-neutral-50-highlight-focus);
@@ -47,7 +47,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-:where(input[type="checkbox"][role="switch"])::after {
+:where(input.ore-switch[role="switch"])::after {
   position: absolute;
   top: 0;
   left: 0;
@@ -79,11 +79,11 @@
   content: "";
 }
 
-:where(input[type="checkbox"][role="switch"]:checked)::after {
+:where(input.ore-switch[role="switch"]:checked)::after {
   left: calc(var(--ore-switch-unit) * 13);
 }
 
-:where(input[type="checkbox"][role="switch"]:checked) {
+:where(input.ore-switch[role="switch"]:checked) {
   background-position:
     left calc(var(--ore-switch-unit) * 2) bottom
       calc(var(--ore-switch-unit) * 2),
@@ -94,46 +94,46 @@
   --ore-switch-icon: var(--ore-color-white);
 }
 
-:where(input[type="checkbox"][role="switch"][data-color="secondary"]) {
+:where(input.ore-switch[role="switch"][data-color="secondary"]) {
   --ore-switch-active-track-background: var(--ore-color-secondary-background);
   --ore-switch-active-track-highlight: var(--ore-color-secondary-highlight);
 }
 
-:where(input[type="checkbox"][role="switch"][data-color="destructive"]) {
+:where(input.ore-switch[role="switch"][data-color="destructive"]) {
   --ore-switch-active-track-background: var(--ore-color-destructive-background);
   --ore-switch-active-track-highlight: var(--ore-color-destructive-highlight);
 }
 
-:where(input[type="checkbox"][role="switch"][data-color="dungeons"]) {
+:where(input.ore-switch[role="switch"][data-color="dungeons"]) {
   --ore-switch-active-track-background: var(--ore-color-dungeons-background);
   --ore-switch-active-track-highlight: var(--ore-color-dungeons-highlight);
 }
 
-:where(input[type="checkbox"][role="switch"][data-color="legends"]) {
+:where(input.ore-switch[role="switch"][data-color="legends"]) {
   --ore-switch-active-track-background: var(--ore-color-legends-background);
   --ore-switch-active-track-highlight: var(--ore-color-legends-highlight);
 }
 
-:where(input[type="checkbox"][role="switch"][data-color="realms"]) {
+:where(input.ore-switch[role="switch"][data-color="realms"]) {
   --ore-switch-active-track-background: var(--ore-color-realms-background);
   --ore-switch-active-track-highlight: var(--ore-color-realms-highlight);
 }
 
-:where(input[type="checkbox"][role="switch"][data-color="gold"]) {
+:where(input.ore-switch[role="switch"][data-color="gold"]) {
   --ore-switch-active-track-background: var(--ore-color-gold-background);
   --ore-switch-active-track-highlight: var(--ore-color-gold-highlight);
 }
 
 :where(
-  input[type="checkbox"][role="switch"][data-color="secondary"],
-  input[type="checkbox"][role="switch"][data-color="dungeons"],
-  input[type="checkbox"][role="switch"][data-color="legends"],
-  input[type="checkbox"][role="switch"][data-color="gold"]
+  input.ore-switch[role="switch"][data-color="secondary"],
+  input.ore-switch[role="switch"][data-color="dungeons"],
+  input.ore-switch[role="switch"][data-color="legends"],
+  input.ore-switch[role="switch"][data-color="gold"]
 ) {
   --ore-switch-icon: var(--ore-color-gray-100);
 }
 
-:where(input[type="checkbox"][role="switch"][data-variant="icons"])::before {
+:where(input.ore-switch[role="switch"][data-variant="icons"])::before {
   position: absolute;
   top: calc(var(--ore-switch-unit) * 4.5);
   right: calc(var(--ore-switch-unit) * 3);
@@ -144,15 +144,13 @@
   mask: url("../../assets/icons/off.svg") center / contain no-repeat;
 }
 
-:where(
-  input[type="checkbox"][role="switch"][data-variant="icons"]:checked
-)::before {
+:where(input.ore-switch[role="switch"][data-variant="icons"]:checked)::before {
   left: calc(var(--ore-switch-unit) * 3);
   right: auto;
   mask-image: url("../../assets/icons/on.svg");
 }
 
-:where(label:has(> input[type="checkbox"][role="switch"])) {
+:where(label:has(> input.ore-switch[role="switch"])) {
   display: inline-flex;
   align-items: center;
   gap: calc(var(--ore-switch-unit) * 4);
@@ -163,7 +161,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :where(input[type="checkbox"][role="switch"]:hover:not(:disabled)) {
+  :where(input.ore-switch[role="switch"]:hover:not(:disabled)) {
     --ore-switch-thumb-background: var(--ore-color-secondary-background-hover);
     --ore-switch-thumb-highlight: color-mix(
       in srgb,
@@ -173,7 +171,7 @@
   }
 }
 
-:where(input[type="checkbox"][role="switch"]:active:not(:disabled)) {
+:where(input.ore-switch[role="switch"]:active:not(:disabled)) {
   --ore-switch-thumb-background: var(--ore-color-secondary-background-pressed);
   --ore-switch-thumb-highlight: color-mix(
     in srgb,
@@ -182,7 +180,7 @@
   );
 }
 
-:where(input[type="checkbox"][role="switch"]:focus-visible) {
+:where(input.ore-switch[role="switch"]:focus-visible) {
   --ore-switch-thumb-highlight: color-mix(
     in srgb,
     var(--ore-color-secondary-background),
@@ -195,7 +193,7 @@
   outline-offset: 0;
 }
 
-:where(input[type="checkbox"][role="switch"]:disabled) {
+:where(input.ore-switch[role="switch"]:disabled) {
   --ore-switch-track-background: var(--ore-color-disabled);
   --ore-switch-track-highlight: var(--ore-color-disabled);
   --ore-switch-track-border: var(--ore-color-disabled-border);
@@ -208,6 +206,6 @@
   cursor: not-allowed;
 }
 
-:where(label:has(> input[type="checkbox"][role="switch"]:disabled)) {
+:where(label:has(> input.ore-switch[role="switch"]:disabled)) {
   cursor: not-allowed;
 }

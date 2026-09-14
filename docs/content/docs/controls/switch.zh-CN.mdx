@@ -14,6 +14,7 @@ import { SwitchStory } from "@/components/stories/switch.story";
 ```html
 <label>
   <input
+    class="ore-switch"
     type="checkbox"
     role="switch"
     name="autosave"
@@ -129,9 +130,17 @@ export function AutosaveSwitch() {
 ## 变体
 
 ```html
-<label><input type="checkbox" role="switch" /> Default</label>
+<label
+  ><input class="ore-switch" type="checkbox" role="switch" /> Default</label
+>
 <label>
-  <input type="checkbox" role="switch" data-variant="icons" /> Icons
+  <input
+    class="ore-switch"
+    type="checkbox"
+    role="switch"
+    data-variant="icons"
+  />
+  Icons
 </label>
 ```
 
@@ -140,13 +149,55 @@ export function AutosaveSwitch() {
 使用 `data-color` 修改开启状态的颜色。
 
 ```html
-<input type="checkbox" role="switch" data-color="primary" checked />
-<input type="checkbox" role="switch" data-color="secondary" checked />
-<input type="checkbox" role="switch" data-color="destructive" checked />
-<input type="checkbox" role="switch" data-color="dungeons" checked />
-<input type="checkbox" role="switch" data-color="legends" checked />
-<input type="checkbox" role="switch" data-color="realms" checked />
-<input type="checkbox" role="switch" data-color="gold" checked />
+<input
+  class="ore-switch"
+  type="checkbox"
+  role="switch"
+  data-color="primary"
+  checked
+/>
+<input
+  class="ore-switch"
+  type="checkbox"
+  role="switch"
+  data-color="secondary"
+  checked
+/>
+<input
+  class="ore-switch"
+  type="checkbox"
+  role="switch"
+  data-color="destructive"
+  checked
+/>
+<input
+  class="ore-switch"
+  type="checkbox"
+  role="switch"
+  data-color="dungeons"
+  checked
+/>
+<input
+  class="ore-switch"
+  type="checkbox"
+  role="switch"
+  data-color="legends"
+  checked
+/>
+<input
+  class="ore-switch"
+  type="checkbox"
+  role="switch"
+  data-color="realms"
+  checked
+/>
+<input
+  class="ore-switch"
+  type="checkbox"
+  role="switch"
+  data-color="gold"
+  checked
+/>
 ```
 
 ## 表单
@@ -159,7 +210,7 @@ export function AutosaveSwitch() {
 
 ## 属性
 
-Switch 使用原生 checkbox 的 `checked`、`disabled`、`name`、`required` 和 `value` 属性。使用 `role="switch"` 提供开关语义。OreUI 选项使用 `data-color` 和 `data-variant="icons"`。
+Switch 使用原生 checkbox 的 `checked`、`disabled`、`name`、`required` 和 `value` 属性。使用 `ore-switch` class 和 `role="switch"` 提供开关样式与语义。OreUI 选项使用 `data-color` 和 `data-variant="icons"`。
 
 ## CSS 变量
 

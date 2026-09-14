@@ -17,7 +17,7 @@ import "oreui-web/styles.css";
 
 ```html
 <label for="game-mode">Game mode</label>
-<select id="game-mode" name="game-mode">
+<select class="ore-select" id="game-mode" name="game-mode">
   <option value="survival">Survival</option>
   <option value="creative" selected>Creative</option>
   <option value="adventure">Adventure</option>
@@ -105,7 +105,7 @@ export function GameModeSelect() {
     <Tab value="Astro">
 
 ```astro
-<select name="game-mode">
+<select class="ore-select" name="game-mode">
   <option value="survival">Survival</option>
   <option value="creative" selected>Creative</option>
 </select>

@@ -11,7 +11,7 @@ export type SwitchProps = Omit<
 
 export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
   function Switch(
-    { children, color, labelClassName, variant, ...props },
+    { children, color, labelClassName, className, variant, ...props },
     ref,
   ): React.ReactElement {
     return React.createElement(
@@ -19,6 +19,7 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
       { className: labelClassName },
       React.createElement("input", {
         ...props,
+        className: className ? `ore-switch ${className}` : "ore-switch",
         "data-color": color,
         "data-variant": variant,
         ref,

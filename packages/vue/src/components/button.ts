@@ -16,6 +16,7 @@ export const Button = defineComponent({
         "button",
         {
           ...forwarded,
+          class: ["ore-button", forwarded.class],
           ...data,
           "aria-busy": loading || undefined,
           disabled: forwarded.disabled || loading,

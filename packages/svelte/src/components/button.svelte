@@ -15,6 +15,6 @@
   }
 </script>
 
-<button bind:this={element} {...props} data-color={props.color} data-loading={props.loading ? "" : undefined} data-variant={props.variant} aria-busy={props.loading || undefined} disabled={props.disabled || props.loading}>
+<button bind:this={element} {...props} class="ore-button {props.class ?? ''}" data-color={props.color} data-loading={props.loading ? "" : undefined} data-variant={props.variant} aria-busy={props.loading || undefined} disabled={props.disabled || props.loading}>
   {@render children?.()}
 </button>

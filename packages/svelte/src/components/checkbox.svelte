@@ -12,6 +12,7 @@
   let {
     children,
     checked = $bindable(false),
+    class: className,
     color,
     labelClass,
     oninput,
@@ -32,6 +33,6 @@
 </script>
 
 <label class={labelClass}>
-  <input bind:this={element} bind:checked {...props} data-color={color} oninput={handleInput} type="checkbox" />
+  <input bind:this={element} bind:checked {...props} class="ore-checkbox {className ?? ''}" data-color={color} oninput={handleInput} type="checkbox" />
   {@render children?.()}
 </label>

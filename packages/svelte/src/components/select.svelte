@@ -10,6 +10,7 @@
 
   let {
     children,
+    class: className,
     value = $bindable(""),
     onChange,
     ...props
@@ -26,6 +27,6 @@
   }
 </script>
 
-<select bind:this={element} bind:value onchange={handleChange} {...props}>
+<select bind:this={element} bind:value class="ore-select {className ?? ''}" onchange={handleChange} {...props}>
   {@render children?.()}
 </select>

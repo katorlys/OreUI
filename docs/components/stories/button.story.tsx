@@ -50,7 +50,7 @@ function ButtonPreview({
 export function LinkButtonPreview() {
   return (
     <a
-      className="button"
+      className="ore-button"
       href="https://github.com/katorlys/OreUI"
       target="_blank"
       rel="noreferrer"

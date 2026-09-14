@@ -12,6 +12,7 @@ export type CheckboxProps = Omit<
 export function Checkbox(props: CheckboxProps): JSX.Element {
   const [local, inputProps] = splitProps(props, [
     "children",
+    "class",
     "color",
     "labelClass",
     "onCheckedChange",
@@ -22,6 +23,7 @@ export function Checkbox(props: CheckboxProps): JSX.Element {
     <label class={local.labelClass}>
       <input
         {...inputProps}
+        class={`ore-checkbox ${local.class ?? ""}`}
         data-color={local.color}
         onInput={(event) => {
           if (typeof local.onInput === "function") {

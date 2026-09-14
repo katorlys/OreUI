@@ -1,4 +1,4 @@
-:where(select:not([multiple], [size])) {
+:where(select.ore-select:not([multiple], [size])) {
   --ore-select-unit: var(--ore-size-unit);
   --ore-select-background-default: var(--ore-color-secondary-background);
   --ore-select-background-hover: var(--ore-color-secondary-background-hover);
@@ -76,13 +76,13 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :where(select:not([multiple], [size]):hover:not(:disabled)) {
+  :where(select.ore-select:not([multiple], [size]):hover:not(:disabled)) {
     --ore-select-background: var(--ore-select-background-hover);
     --ore-select-highlight: var(--ore-select-highlight-hover);
   }
 }
 
-:where(select:not([multiple], [size]):active:not(:disabled)) {
+:where(select.ore-select:not([multiple], [size]):active:not(:disabled)) {
   --ore-select-background: var(--ore-select-background-pressed);
   --ore-select-highlight: var(--ore-select-highlight-pressed);
   --ore-select-shadow: transparent;
@@ -92,11 +92,11 @@
   padding-bottom: 0;
 }
 
-:where(select:not([multiple], [size]):focus-visible) {
+:where(select.ore-select:not([multiple], [size]):focus-visible) {
   box-shadow: 0 0 0 var(--ore-select-unit) var(--ore-color-focus-ring);
 }
 
-:where(select:not([multiple], [size]):disabled) {
+:where(select.ore-select:not([multiple], [size]):disabled) {
   --ore-select-background: var(--ore-color-disabled);
   --ore-select-highlight: var(--ore-color-disabled);
   --ore-select-border: var(--ore-color-disabled-border);
@@ -106,7 +106,7 @@
   cursor: not-allowed;
 }
 
-:where(select:not([multiple], [size])) option {
+:where(select.ore-select:not([multiple], [size])) option {
   color: CanvasText;
   background: Canvas;
   font-family: var(--ore-font-body);

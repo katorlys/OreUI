@@ -14,11 +14,14 @@ export const Select = defineComponent({
     let element: HTMLSelectElement | null = null;
     expose({ getElement: () => element });
 
-    return () =>
-      h(
+    return () => {
+      const { class: selectClass, ...selectAttrs } = attrs;
+
+      return h(
         "select",
         {
-          ...attrs,
+          ...selectAttrs,
+          class: ["ore-select", selectClass],
           onChange: (event: Event) => {
             const select = event.currentTarget as HTMLSelectElement;
             const value = select.multiple
@@ -35,5 +38,6 @@ export const Select = defineComponent({
         },
         slots.default?.(),
       );
+    };
   },
 });

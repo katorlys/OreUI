@@ -16,6 +16,7 @@ export function Button(props: ButtonProps): JSX.Element {
   return (
     <button
       {...props}
+      class={`ore-button ${props.class ?? ""}`}
       {...dataProps}
       aria-busy={props.loading || undefined}
       disabled={props.disabled || props.loading}

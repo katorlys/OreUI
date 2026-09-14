@@ -14,6 +14,7 @@ export type SliderProps = Omit<
 export function Slider(props: SliderProps): JSX.Element {
   let element: HTMLInputElement | undefined;
   const [local, inputProps] = splitProps(props, [
+    "class",
     "color",
     "onInput",
     "onValueChange",
@@ -42,6 +43,7 @@ export function Slider(props: SliderProps): JSX.Element {
   return (
     <input
       {...inputProps}
+      class={`ore-slider ${local.class ?? ""}`}
       aria-orientation={local.orientation}
       data-color={local.color}
       data-orientation={local.orientation}

@@ -45,6 +45,7 @@ function RadioGroupPreview({
           return (
             <Radio
               className="text-current"
+              labelClassName="text-fd-foreground"
               key={optionValue}
               checked={value === optionValue}
               color={color}

@@ -1,7 +1,7 @@
 import { cp, mkdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
-import { getComponents } from "./components.js";
+import { getComponentStyles } from "./components.js";
 
 const root = resolve(import.meta.dirname, "..");
 const styles = resolve(root, "src/styles");
@@ -14,7 +14,7 @@ function rebaseAssets(css) {
 }
 
 const imports = ["fonts.css", "tokens.css"];
-const componentStyles = getComponents(root).map((name) =>
+const componentStyles = getComponentStyles(root).map((name) =>
   resolve(root, `src/components/${name}/${name}.css`),
 );
 const css = await Promise.all(

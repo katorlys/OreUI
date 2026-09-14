@@ -12,7 +12,7 @@ export type SliderProps = Omit<
 
 export const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
   function Slider(
-    { color, orientation, variant, ...props },
+    { className, color, orientation, variant, ...props },
     ref,
   ): React.ReactElement {
     const inputRef = React.useRef<HTMLInputElement | null>(null);
@@ -25,6 +25,7 @@ export const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
 
     return React.createElement("input", {
       ...props,
+      className: className ? `ore-slider ${className}` : "ore-slider",
       "aria-orientation": orientation,
       "data-color": color,
       "data-orientation": orientation,

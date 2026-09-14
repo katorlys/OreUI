@@ -10,6 +10,7 @@
   };
 
   let {
+    class: className,
     color,
     max,
     min,
@@ -48,6 +49,7 @@
   bind:this={element}
   bind:value
   {...props}
+  class="ore-slider {className ?? ''}"
   aria-orientation={orientation}
   data-color={color}
   data-orientation={orientation}
